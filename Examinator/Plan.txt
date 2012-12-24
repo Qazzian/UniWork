@@ -1,0 +1,47 @@
+                                [Project 3]
+                             [Eddie's Examiner]
+                                      
+
+Main Classes									  
+|-Questions
+| |-Stored in a List
+| | |-Use index values for question numbers
+| |
+| |-String for the Question //Input? May need to set up own Input class/Extension
+| |-Each has 1 correct Answer
+| |-Each has a List of Wrong Answers
+|
+|-Answers
+| |-String for the Answer
+| |-Can be correct or Wrong //use boolean
+|
+|-Exam
+  |-Bank of Questions
+  |-A count of the number of questions
+
+
+Front Ends
+|-ExamAdmin
+| |-List of Questions
+| | |-List Answers when Question Selected
+| | |-Indicate correct Answer in diff box/way
+| |
+| |-Edit, Add, Remove options for Q's & A's
+|
+|-Examination
+  |-Ask for ID & password // implement password later
+  |-Display 1 Question at a time
+  |-Display Answers
+  |-Choose 1 answer only
+  |-Next & Previous Q select
+  |-Status bar
+  | |-Shows which Q's have been answered & current question
+  | |-Use as a quick link to Q's
+  |
+  |-Finish Option
+    |-Record results
+    |-Calculate overall mark
+    |-Send to Administrator via email and/or record & save
+
+	
+	

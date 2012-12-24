@@ -1,0 +1,193 @@
+// package Qaz.util;
+
+/**
+ * A standard List class. Simply Extend to specialise it for your
+ * purpose. Can only be used with Listable Objects.
+ *
+ * @see Listable
+ */
+
+public class List
+{
+	protected Listable[] theItems;
+	protected int currentLength = 0;
+
+	public final int DEFULT_CAPACITY = 30;
+
+
+	/****************
+	 * CONSTRUCTORS *
+	 ****************/
+
+	/**
+	 * Creates a List with the default capacity of 30.
+	 */
+	public List()
+	{
+		theItems = new Listable[DEFULT_CAPACITY];
+	}
+
+	/**
+	 * Creates a List with a user defined capacity
+	 * @param theSize The Capacity of the List
+	 */
+	public List(int theSize)
+	{
+		theItems = new Listable[theSize];
+	}
+
+	/***********
+	 * METHODS *
+	 ***********/
+
+	/**
+	 * Adds a listable Object to to the List.
+	 * @param newItem The Listable Object to be added.
+	 * @exception ListFullException if the List is already full.
+	 */
+	public void addItem(Listable newItem) throws ListFullException
+	{
+		// Check List is not full
+		if( currentLength == theItems.length )
+		{
+			throw new ListFullException();
+		}
+		theItems[currentLength] = newItem;
+		currentLength++;
+	}
+
+	/**
+	 * Returns a link to a Listable Object in the List by
+	 * comparing the given Listable to all the Listables in the List
+	 * using the isEqual method.
+	 * @param other The give Listable to compare to
+	 * @return The Listable which matches the given Listable
+	 * @exception ListEmptyException If the List is empty
+	 * @exception ListItemInvalidException If the given Listable does
+	 * not match any in the List.
+	 */
+	public Listable getItem(Listable other) throws ListItemInvalidException,
+												   ListEmptyException
+	{
+		// Check List is not empty
+		if( currentLength == 0 )
+		{
+			throw new ListEmptyException();
+		}
+		// now search for the item
+		for(int i=0; i<currentLength; i++)
+		{
+			if( theItems[i].isEqual(other) )
+			{
+				return theItems[i]; // once found return it
+			}
+		}
+		// If the Item is not found then it is not there
+		throw new ListItemInvalidException(other + " is not in the List!");
+	}
+
+
+	/**
+	 * Returns the index value of a Listable Object in the List by
+	 * comparing the given Listable to all the Listables in the List
+	 * using the isEqual method.
+	 * @param other The give Listable to compare to
+	 * @return The index of the  Listable which matches the given Listable
+	 * @exception ListEmptyException If the List is empty
+	 * @exception ListItemInvalidException If the given Listable does
+	 * not match any in the List.
+	 */
+	public int getItemIndex(Listable other) throws ListItemInvalidException,
+												   ListEmptyException
+	{
+		// Check List is not empty
+		if( currentLength == 0 )
+		{
+			throw new ListEmptyException();
+		}
+		for(int i=0; i<currentLength; i++)
+		{
+			if( theItems[i].isEqual(other) )
+			{
+				return i;
+			}
+		}
+		throw new ListItemInvalidException("The Item is not in the List!");
+	}
+
+	/**
+	 * Returns the Item at the given index value
+	 * @param x The Index value of the Item
+	 * @return The item at the given index#
+	 * @exception ListEmptyException If the List is empty
+	 * @exception IndexInvalidException if the index does not point to an item
+	 */
+	public Listable getItemAt(int x) throws ListEmptyException,
+											IndexInvalidException
+	{
+		// Check List is not empty
+		if( currentLength == 0 )
+		{
+			throw new ListEmptyException();
+		}
+		if( ( x<0 ) || ( x>currentLength ) )
+		{
+			throw new IndexInvalidException("The index is out of range!");
+		}
+		return theItems[x];
+	}
+
+	/**
+	 * Removes an item from the List and returns a link to it. Uses 
+	 * the getItemIndex method.
+	 * If you no longer need the removed item, simply discard it.
+	 * @param other The object to compare to using the isEqual method.
+	 * @return The object which was removed.
+	 * @exception ListItemInvalidException If the given Listable does
+	 * not match any in the List.
+	 * @exception ListEmptyException If the List is empty.
+	 */
+	public Listable removeItem(Listable other) throws ListItemInvalidException,
+												  ListEmptyException
+	{
+		// Check List is not empty
+		if( currentLength == 0 )
+		{
+			throw new ListEmptyException();
+		}
+		int tmpI = this.getItemIndex(other);
+		Listable lbl = theItems[tmpI];
+		theItems[tmpI] = theItems[currentLength--];
+		return lbl;
+	}
+
+	/**
+	 * Returns the number of objects in the List
+	 * @return The current length of the list
+	 */
+	public int getLength()
+	{
+		return currentLength;
+	}
+
+	/**
+	 * Returns the total capacity of the List
+	 * @return The Total number of items which the list can hold
+	 */
+	public int getCapacity()
+	{
+		return theItems.length;
+	}
+
+	/**
+	 * Returns a String value of the List for Debugging and 
+	 * Information purposes
+	 * @return The String value
+	 */
+	public String toString()
+	{
+		String tmpString = "";
+        tmpString += "\nThere are " + currentLength + " items in the List.";
+        tmpString += "\nThe capacity of the list is " + this.getCapacity();
+	}
+}

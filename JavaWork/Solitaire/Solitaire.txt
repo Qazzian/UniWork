@@ -1,0 +1,63 @@
+			-= Solitaire =-
+
+-= Classes =-
+
+Card: 	Defines a Card Object
+		Contains methods for creating editing cards
+
+Pack: contains a List of Cards
+		Has methods for manipulating a deck of cards
+		Adding/removing cards, shuffaling etc
+		
+Game: defines the rules and playing of the game
+	  Contain 8 stacks, 1 for the turn pile
+						6 for the selection piles
+						1 for the discard pile
+						
+Text interface: Defines an interface to play the game as Text.
+
+Graphical Interface: Defines an interface to play in a window.
+
+-= Card =-
+public class Card implements Listable
+	-= Attributes =-
+int value: the face value of the Card
+char suit: The Suite which the Card belongs
+char colour: The colour of the Card (set by the Suit)
+String fileName: To refernece the .gif file of the card
+
+	-= Constructors =-
+card(): Create an blank Card
+card(value): Create a Card with set value
+card(value, suit): Create card with set value and suit
+
+	-= Methods =-
+void	setValue(int) throws ValueOutOfRangeException
+			Changes the Value of the Card
+int		getValue()
+			Returns the Value of the Card
+void	setSuite(char) throws SuiteInvalidException
+			Changes the suite and the colour to match
+char	getSuite()
+			Returns the suite as a char code
+String	getSuiteName()
+			Returns the NAme of the Suite as a String
+void 	getColour()
+			Returns the Colour as a char code
+String	toString()
+			Returns a string description of the Card
+
+	-= Interface Methods =-
+boolean isEqual(Card)
+			If the cards match in value and suite
+boolean isEqual(Card,char) :
+			choose to match the Cards with value, suite or colour
+boolean isLEssThan(Card)
+			If the value of this card is less than the other
+boolean is greater than
+			If the value of this card is biger than the other
+				
+
+
+
+	  

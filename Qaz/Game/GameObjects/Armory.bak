@@ -1,0 +1,14 @@
+package Ian.Game;
+
+/**
+ * Armory is an array of <code>Weapon</code> for a <code>LifeForm</code>
+ * or any possible use
+ *
+ * @auther Ian Wallis
+ * @version last revised 03/01/2000
+ */
+
+public class Armory
+{
+	
+}

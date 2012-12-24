@@ -1,0 +1,42 @@
+[Project]
+CompilerID=Java
+Version=1
+[Options]
+Release=€gw€1.1€€D:\My Documents\JavaWork\TicTacToe€D:\My Documents\JavaWork\TicTacToe€€D:\My Documents\JavaWork\TicTacToe€€€€TicTacToe€€j€€€€€€€€
+Debug=€gw€1.1€€D:\My Documents\JavaWork\TicTacToe€D:\My Documents\JavaWork\TicTacToe€€D:\My Documents\JavaWork\TicTacToe€€€€TicTacToe€€j€€€€€€€€
+User=€sc€
+
+[Files]
+D1=€"Source Files" "*.java"
+D2=€"Resource Files" "*.gif;*.jpg;*.jpeg;*.jpe;*.png"
+
+[Files Source Files]
+F1=€".\Minimax.java"
+FRO1=
+FDO1=
+FUO1=
+F2=€".\TextInputReader.java"
+FRO2=
+FDO2=
+FUO2=
+F3=€".\TicTacToeFm.java"
+FRO3=
+FDO3=
+FUO3=
+F4=€".\TttBoard.java"
+FRO4=
+FDO4=
+FUO4=
+F5=€".\TttConstants.java"
+FRO5=
+FDO5=
+FUO5=
+F6=€".\TttNode.java"
+FRO6=
+FDO6=
+FUO6=
+F7=€".\TttTree.java"
+FRO7=
+FDO7=
+FUO7=
+

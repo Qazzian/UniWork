@@ -1,0 +1,38 @@
+Java Rouge
+
+Objects;
+
+
+the Game has containers called Levels which in turn hold rooms and corridors.
+Containers have 2 dimensions and contain Items. Only levels can hold room & corridors and only rooms and corridors can hold Items.
+Levels must contain at least 2 rooms and 1 corridor
+
+
+Rooms and corridors can then hold items.
+
+
+
+
+					Item											Game
+					  |											  |
+					 are											 has
+		-------------------------				----------------------
+		|			  |				|				|			  |			|
+	Player		monster		Inanimate		Level		
+														|
+													  has
+														----------
+														|			|	
+														Room		Corridors
+
+Game,
+Level,
+Rooms,
+corridors,
+monsters,
+Player,
+Items,
+	Weapons,
+	Armour,
+	Scrols,
+	

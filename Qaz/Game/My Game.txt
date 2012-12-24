@@ -1,0 +1,267 @@
+	 Game
+	-====-
+
+Life forms
+	Humans
+		Empier (Well trained & Tough)
+		Norse (Barerians)
+		Bretonnia (Chivlry)
+		Kislev
+	Dwarfs (Enginers, Cavers, Slow, Hate green skins,
+			Elf grudge)
+		Slayers (Never Run)
+	Elf (Agile, Eligent)
+	Halflings (oods men,
+    
+	Orcs (Waaagh)
+		Black
+		Savage (Tattoos, Frenzy)
+		Biguns
+	Goblins (Animosity, Fear Elves)
+		Night (Hate Dwarfs)
+			Squig Hunters
+			Squig Hoppers
+			Netters
+			Fanatics ( ? )
+		Forest
+			Spider Riders
+	Snotlins (Swarm, Mimic)
+
+	Chaos (Possible Mutations)
+	  Khorne (Chaos Armour, frenzy, blood lust)
+	  Nurgle (toughness, Desieased)
+	  Tzeentch (Magical)
+	  Slaanesh (No Psychology, Carry on fighting, Pleasure in pain)
+	  	  
+	  Humans
+	  Dwarfs
+	  Dark Elves (Hate high elves)
+        Witch Elves (Frenzy)
+        Assassins (disguise, Poisen Attacks,
+	  
+	  Daemons (Magical save against normall weps, Animosty between factions)
+		Bloodthirster (Terror, Chaose Armour, Axe of Khorne, Fly)
+		Bloodletters (Fear, Hellblade)
+		Flesh Hounds (Fear, Collar of Khorne)
+		Juggernauts (Fear, Crush attack)
+		Keeper of Secrets (Terror, Aura of Slannesh [Extream Beauty?])
+		Daemonettes (Fear, Claw hands)
+		Fiend of Slaanesh (Fear, Scorpion Tail, Strong Odour)
+        Stead of Slaanesh (Fear, tounge attack, Ridden by Daemonettes)
+		Great Unclean One (Terror, Stream of corruption
+		Nurglings (Fear, Swarm)
+		Beast of Nurgle (Fear, giant slugs, many attacks, slime trail)
+		Plaguebearers (Fear, Plaguesword, Fly Cloud)
+		Lord of Change (terror, Fly)
+		Pink Horrors of Tzeentch (Fear, Split on 1st kill into 2 blue Horrors)
+        Blue Horrors of Tzeentch (fear)
+		Flamers ofTzeentch (Fear, FLame attacks, Move by jumping)
+		Flying Discs of Tzeentch (Fear, Fly, Riden by champions)
+
+	Lizard Men
+	Skaven
+	BeastMen
+	Undead
+	Animals
+		Boar (Hard to control)
+		Chaos Hound
+		Chaos Steed
+        Cold Ones (Fear, Stupid, hardly feal pain, Excreet poisonous slime)
+		Squig
+		Spider Giant (Web, fast)
+		Wolf
+	Monsters
+		Dragon Typs (Terror)
+		  Dragon (Terror, Fly, Scaly Skin)
+            Black (Breath thick smoke)
+            Red/Fire (Breath Fire)
+            Green (corrosive Fumes)
+            Blue (Lightning)
+            White (Freezing Mist)
+		  Chimera
+		  Cockatrice
+		  Griffen
+		  Hippogriff
+		  Hydra
+		Humanoid
+		  Chaos Centaurs (Drunk & Violent)
+          Dragon Ogres (Fear, Immune to Lightning and becomes Frenzied)
+		  Giants (Fear, Very Large, Can fall and squash people nearby)
+                 Attacks;
+                    Club Thump (Squish 1 target, long reach, can try to avoid)
+                    Club Swing (smash many trgets)
+                    Stamp (a few close targets)
+                    Pick up and (opponent gets free attack)
+                        Squish
+                        throw (near or far)
+                        Eat
+                        Stuff in bag
+                        Pick another
+                    Jump up and down (Squash lots of nearby things/people)
+                    Yell n shout (auto brake test, no damage)
+                    Head butt (large creatures only)
+          Minotaurs (Fear, Eat the Dead)
+	 	  Ogres
+		  Trolls (Fear, Stupid, Regerates unless fire,
+				  Vomit)
+
+	War Engins
+		Catapults
+			Movement
+			Strength
+			Toughness
+			Hit points
+			Affect
+			Range
+		Chariots
+
+
+Items
+	Weapons
+		Knife
+		Dagger
+		Sword
+			Long
+			Great
+			Broad
+		Spear
+		Battle Axe
+		Halberd
+		Mace
+		Flail
+		Knuckle Duster
+		
+		Anything to Hand
+		
+		Short Bow
+		Medium Bow
+		Long Bow
+		Cross Bow
+		Reapeater Bow
+		Arrows
+		
+		Pistol
+		Muskate
+		Blunderbus
+		Cannon
+		Shot
+		Cannon Ball
+		Gunpowder Bag
+		Gunpowder Barrel
+		Holders & Belts
+	Tools
+		Small Axe
+		Wood Axe
+		Hammer
+		Screwdriver
+		Pliers
+		Spanners
+		10' Rope
+		Iron Spikes
+		Rat Poison
+		Bandages
+		Food
+		Water Bottles
+		Beer Bottles
+		Beer Casks
+		Wine Bottles
+		Liqure
+		
+
+	Clothing
+		Hat
+		Neaklases
+		Scarf
+		Shirt
+		Jacket
+		Outer Jacket (Breast Plate)
+		Gloves
+		Pants
+		Trousers
+		Belt
+		Socks
+		Boots	
+	Armour
+		Leather
+		Chainmail
+		Light
+		Heavy
+		Plate
+		Shield Wood
+		Shield Steel
+		Shield Great
+		Healmet Leather
+		Healmet Open
+		Healmet War
+		
+	Magic Spells
+		Target
+		Affect
+		Power Cost
+		Spell Level
+		
+	Jeawles
+	Amlets
+	Staffs
+
+
+	Details of
+		Range
+		Magical Spells
+		Affects
+		Who can use them
+
+
+Stats
+	Name
+	Race
+	Gender
+	Movement
+	Weapon Skill
+	Ballistic Skill
+	Strength
+	Toughness
+	Wounds
+	Initiative
+	Attacks
+	Leadership
+	Magical Skill
+	Gold Coins
+	Carry Capacity
+	Luck
+		
+		
+		
+	Infantry
+	Vehicles
+	Monsters
+	War Engines
+	Ships
+	Buildings
+	Aircraft
+	Factions
+
+
+Game World
+  In battle
+	Hexagonal Positioning
+		x & y co-ordinates
+	Terrain
+		Land
+		Sea
+		Obstacles
+		Hills
+		Height
+		Position
+  role playing
+	cost of living
+	random events
+    
+		
+Abilities
+	Attack
+	Defend
+	Build
+	Move
+
+

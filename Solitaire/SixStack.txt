@@ -1,0 +1,39 @@
+SixStack Planning
+
+On starting a new game, need to 
+	Create the stack locations
+	Create a Pack
+	shuffle the Pack
+	Deal the cards onto the Stacks
+	print the display.
+
+On playing the Game, need to
+	ask for a posible move
+	check the move is valid
+	make the move
+	check to see if lost
+	check to see if won
+
+
+
+
+Stack[] sixPiles = stack[6];
+stack discard
+stack turnPile
+Pack thePack = newPack(0);
+
+
+constructors
+
+public SixStack(){
+}
+	
+Methods
+
+dealGame(){
+	
+		
+	}
+}
+
+

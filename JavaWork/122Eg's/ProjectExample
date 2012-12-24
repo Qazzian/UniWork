@@ -1,0 +1,31 @@
+List of Clients
+
+Fred Bloggs
+   - age  37
+   - address  Aberystwyth
+   - type of property preferred (instance of a house
+                                  e.g.  numOfRooms = 5)
+
+
+
+Mary Smith
+   - age  56
+   - address  Borth
+   - type of property preferred (instance of a house
+                                  e.g.  cost £30/week)
+
+
+
+List of Property
+
+houseOne
+   - address  37 High Street, Aberystwyth
+   - num of rooms 7
+   - type flat
+   - garden no
+
+houseTwo
+   - address  37 High Street, Aberystwyth
+   - num of rooms 6
+   - type house
+   - garden yes

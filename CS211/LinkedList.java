@@ -1,0 +1,180 @@
+// package Qaz.util; // Only when instaled in my Qaz.Util package
+
+import java.io.*;
+
+public class LinkedList implements Serializable, Iterator{
+
+	// ////////// //
+	// Constants. //
+	// ////////// //
+	/**
+	 * The maximum Capacity of any LinkedList is equal to Integer.MAX_VALUE.
+	 * This is because I use an int to store the length of the List.
+	 * @see Integer.MAX_VALUE.
+	 */
+	protected static final int MAX_CAPACITY	= Integer.MAX_VALUE;
+
+	// /////////////////// //
+	// Instance variables. //
+	// /////////////////// //
+
+	/** The item of data at the start of the LinkedList. **/
+	protected ListNode 	start 	= null;
+
+	/** The item of data at the end of the LinkedList. **/
+	protected ListNode 	end 		= null;
+	
+	/** The item of data currently selected. **/
+	protected ListNode 	current 	= null;
+	
+	/** The item of data previously looked at by the Iterator. **/
+	protected ListNode 	Previous	= null;
+	
+	/** The current length of the LinkedList. **/
+	protected int 			length 	= 0;
+	
+	/** The capcity set for this List. By default it is set to <CODE>LinkedList.MAX_CAPACITY</CODE>. **/
+	protected int 			capacity = MAX_CAPACITY;
+		
+
+	// //////////// //
+	// Constructors //
+	// //////////// //
+
+	/**
+	 * Constructs a new empty Linked List with no restrictions
+	 */
+	public LinkedList(){
+	}
+	
+	/**
+	 * Constructs a new Linked List with one Object in it and 
+	 * no restrictions.
+	 * @param Object obj The first item to be added to the List
+	 */
+	public LinkedList(Object obj){
+		if(obj != null){
+			this.addObject(obj);
+		}
+	}
+	
+	/**
+	 * Constructs a new Linked List from an exsiting array of Objects 
+	 * with no restrictions
+	 */
+	public LinkedList(Object[] objs) throws ListFullException
+	{
+		for(int i=0; i<objs.length; i++){	// for all the objects in the array
+			if(this.length == this.capacity)	// if List not full
+				throw new ListFullException();
+			if(objs[i] != null) {	// and the index is not empty
+				this.addObject(objs[i]);	// add them to the list
+			}
+		}
+	}
+	
+	/**
+	 * Constructs a new empty Linked List with a given capacity
+	 * @param int cap The given capacity of the List. Must be larger 
+	 * tham 0, else will use the default capacity.
+	 */
+	public LinkedList(int cap){
+		if( cap > 0)
+			maxCapacity = size;
+	}
+	
+	/**
+	 * Constructs a new Linked List with an Object and a given 
+	 * capacity
+	 * @param Object The first object to be placed in the List
+	 * @param int The total capacity of the LikedList
+	 */
+	public LinkedList(Object obj,int cap){
+		if(obj != null){
+			this.addObject(obj);
+		}
+		if( cap > 0)
+			capacity = size;
+	}
+	
+	/**
+	 * Constructs a new Linked List from an exsiting array of Objects 
+	 * with a given capacity. Sets the Capacity first so if there is 
+	 * more objects in the array then the capcity specified, only the
+	 * number of Objects up to the given value are added.
+	 * @param Object[] The Array of Objects to put in the new List.
+	 * @param int The total capacity of the List.
+	 */
+	public LinkedList(Object[] obj,int cap){
+		this.setCapacity(cap);
+		for(int i=0; i<objs.length; i++){	// for all the objects in the array
+			if(this.length == this.maxCapacity)	// if List not full
+				throw new ListFullException();
+			if(objs[i] != null) {	// and the index is not empty
+				this.addObject(objs[i]);	// add them to the list
+			}
+		}
+	}
+	
+	// /////// //
+	// Methods //
+	// /////// //
+	
+	/**
+	 * Adds a Listable Object to the end of the List. <BR> NB. Must implement Listable.
+	 * @param Listable theItem The Object to add at the end of the List.
+	 */
+	public void addItem(Listable theItem){
+		if(isFull()){
+			throw new ListFullException("The List is full, cannot add another Object!");
+		}
+		ListNode newNode = new ListNode(theItem);
+		if(isEmpty()){
+			head = tail = newNode;
+		}
+		else{
+			tail.next = newNode;
+			newNode.prev = tail;
+			tail = newNode;
+		}
+		length++;
+	}
+	
+	public void removeItem(Listable theItem)
+	
+	public void setCapacity(int cap){
+		capacity = cap;
+	}
+	
+	public boolean isEmpty(){
+		if(length == 0){
+			return true;
+		}
+		else return false;
+	}
+	
+	public boolean isFull(){
+		if(length == capacity){
+			return true;
+		}
+		else return false;
+	}
+	
+	public Iterator iterator(){
+		return this;
+	}
+	
+	public boolean hasNext(){
+	}
+	
+	public Object next(){
+	return;
+	}
+	
+	public void remove(){
+	}
+
+	public String toString(){
+	return "";
+	}
+}

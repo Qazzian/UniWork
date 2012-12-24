@@ -1,0 +1,19 @@
+Pack API
+
+-=Attributes=-
+
+Stack of cards
+int number of cards inc. jokers
+
+
+
+
+-=Methods=-
+public void createPack(); Creates standard pack of 52 cards
+public void createPack(int js); Creates 52 cards + No. of Jokers specified
+public void shuffle(); Puts the pack of cards in a random order
+public void shuffle(int seed); Takes a seed generator
+
+public void addCard(int val,char suite)
+public void removeCard(int val,char suite)
+public String toString(); 

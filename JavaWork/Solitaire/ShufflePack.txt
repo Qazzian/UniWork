@@ -1,0 +1,61 @@
+The ShufflePack method 
+
+This method is quite involved and I believe it will require some explanation as it takes advantage of how the add/remove methods in List have been implement.
+How it does this is not obviouse and so I will walk you through the code while giving a detailed explanation of what it does.
+
+The walk through will be in the form of;
+	< ~~~~~ piece of code ~~~~~~~ >
+			< ~~~~~~ Explanation ~~~~~~
+			  ~~~~~~~~~~~~... >
+			  
+
+public void shufflePack(){ 
+	if(numberSeed != 0){ 
+		randomizer = new Random(numberSeed);
+	}
+	else{
+		randomizer = new Random();
+	}
+		< This "if, then, else" statment simply creates a new instance of 
+		"Random" using the 'numberSeed' variable as the seed. As you can see if 
+		'numberSeed' is set to '0' no paramiter is fed into the Random 
+		Constructor. This will set the seed to the current time of the system
+			
+	int NumOfCards = allCards.getLength(); 
+		< This gets and saves the number of cards currently stored in the pack.
+			
+	List shuffledList = new List(NumOfCards); 
+		< This new List is where all the shuffled cards will go
+			
+	for(int i=NumOfCards; i>0; i--){
+		< 'i' starts as the number of cards stored in the pack and decrements 
+		on each parse of the loop. This is so that i can be referenced as being 
+		the number of cards left in the List "allCards" and can set the bounds 
+		of the random number generator. As "Random" produces values between 0 
+		(inclusive) and its paramiter (exclusive) this is perfect for selecting 
+		index values when give the size of the array (last index = the size - 
+		1).
+			
+		int theIndex = randomizer.nextInt(i)
+			< calls for a random Integer giving 'i' as the limit.
+			
+		shuffledList.addItem(allCards.removeItemAt(theIndex));
+			< This is the complicated bit. When removing from a List, the List 
+			puts the last Object in its array in the Place of the Object it 
+			just removed. This keeps all the Objects together at the front of 
+			the array and stops gaps from appering. In terms of the 
+			"shufflePack" method, this means that by using 'i' all the Cards 
+			still have the posibility of being selected. After removing from 
+			the original list, the Card is added to the 'shuffledList' by using 
+			the "addItem" method in List.
+	
+	} // end of for loop.
+			< This should be all that is needed to shuffle the deck
+	
+	allCards = shuffledList;
+			< This replaces the now empty deck of cards with the shuffled deck
+}
+
+After calling this method all the cards in the deck should have been moved into random locations and will now be ready to deal
+
+

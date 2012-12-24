@@ -1,0 +1,12 @@
+The size of a nonary tree with n levels is
+
+	(9^n)-1	I forgot the dividing factor but still pretty big!
+	-----
+	9-1
+-- 
+Dr. Lynda A. Thomas			
+Department of  Computer  Science		
+University of Wales, Aberystwyth
+GB   SY23 3DB     (01970) 622452
+
+

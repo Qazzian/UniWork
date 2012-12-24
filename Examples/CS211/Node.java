@@ -1,0 +1,193 @@
+// package Qaz.util;
+
+/** 
+ * @author Ian Wallis</A>
+ * @email: <A HREF="mailTo:ifw9@aber.ac.uk>ifw9@aber.ac.uk</A>
+ * or <A HREF="mailTo:ifw9@aber.ac.uk>Qaz_Wallis@yahoo.com</A>
+ * @version last updated 12:12PM  28/11/00
+ * @since jdk 1.3
+ *
+ * This code is the property of me, Ian Wallis.  You are free to use 
+ * this code in your own projects but I ask that you aknowledge my  
+ * part in them and that you include my original code, or the means 
+ * to get it, with your distribution. I accept no responsibility for  
+ * any damage caused in any way by my code and I assure you that if it 
+ * does cause damage then it not intensional.  I would also be 
+ * gratefull for any comments, suggestions or bug reports that you 
+ * have regarding my code. <BR> Thank you.
+ */
+
+import java.io.Serializable;
+
+/**
+ * The Node class is the Object which linkes the data Objects in the Linked data structures.
+ * Each Node conatains a Link to the data Object it contains, as well as links to the Next and previous Nodes along in 
+ * the Structure.
+ *
+ * @see LinkedList
+ * @see LinkedStack
+ * @see LinkedQueue
+ * @see java.io.Serializable
+ */
+public class Node implements Serializable{
+
+	// //////// ///////// //
+	// Instance Variables //
+	// //////// ///////// //
+	
+	/** The next Node in the Structure **/
+	protected Node next;
+	
+	/** The previouse Node in the structure **/
+	protected Node prev;
+	
+	/** The Object contained in the Node **/
+	protected Object data;
+	
+	/**
+	 * Creates an empty Node with null values for next or prev.
+	 */
+	public Node(){
+		next = null;
+		prev = null;
+		data = null;
+	}
+	
+	/**
+	 * Creates a node which points to an Object but has no values for next or prev.
+	 * @param Object theData The Object to storein the Node.
+	 */
+	public Node(Object theData){
+		next = null;
+		prev = null;
+		data = theData;
+	}
+	
+	/**
+	 * Creates a Node with an Object and a value for the prev node but, not for next.
+	 * @param Object theData The Object to storein the Node.
+	 * @param Node thePrev The previouse Node in the Structure.
+	 */
+	public Node(Object theData,Node thePrev){
+		next = null;
+		prev = thePrev;
+		data = theData;
+	}
+	
+	/**
+	 * Creates a Node with a Link to an Object, as well as the Next and previouse Nodes in the data structure.
+	 * @param Object theData The object to store in the data structure.
+	 * @param Node theNext The Node which comes after this Node.
+	 * @param Node thePrev The Node which comes befor this Node.
+	 */
+	public Node(Object theData,Node theNext,Node thePrev){
+		next = theNext;
+		prev = thePrev;
+		data = theData;
+	}
+	
+	/**
+	 * Changes the stored Object to the Object given.
+	 * @param Object theData The Object to store in this Node.
+	 */
+	public void setData(Object theData){
+		data = theData;
+	}
+	
+	public boolean isEmpty(){
+		return data != null;
+	}
+	
+	/**
+	 * Returns the Object which is stored in this Node.
+	 * @return Object The Object which is stored in this Node.
+	 */
+	public Object getData(){
+		if(data == null){
+			throw new NullPointerException("There is nothing next!");
+		}
+		return data;
+	}
+	
+	/**
+	 * Changes the Node which comes after this Node to the Given Node.
+	 * @param Node theNext The Node which is to come after this Node.
+	 */
+	public void setNext(Node theNext){
+		next = theNext;
+	}
+	
+	/**
+	 * Tests to see this Node has another Node after it (ie. if <CODE>next</CODE> has a value other than null).
+	 * @return true If there is a Node set in next.
+	 * @return false If next is set to null.
+	 */
+	public boolean hasNext(){
+		return next != null;
+	}
+	
+	/**
+	 * Returns the next Node in the data structure after this Node.
+	 * @return Node The Node which comes after this Node.
+	 * @exception NullPointerException If there is not a Node after this Node.
+	 */
+	public Node getNext() throws NullPointerException{
+		if(!hasNext()){
+			throw new NullPointerException("There is nothing next after this item!");
+		}
+		return next;
+	}
+	
+	/**
+	 * Sets the node which comes befor this Node.
+	 * @param Node thePrev The Node which is to come befor this Node.
+	 */ 
+	public void setPrev(Node thePrev){
+		prev = thePrev;
+	}
+	
+	/**
+	 * Tests to see if there is a Node set to be previous to this Node.
+	 * @return true If there is a previous Node to this Node.
+	 * @return false If there is not a previous Node to this Node.
+	 */
+	public boolean hasPrev(){
+		return prev != null;
+	}
+	
+	/**
+	 * Returns the Node which is previous to this Node.
+	 * @return Node The Node which is befor this Node.
+	 * @exception NullPointerException If there is not a Node befor this Node.
+	 */
+	public Node getPrev() throws NullPointerException{
+		if(!hasPrev()){
+			throw new NullPointerException("There is nothing " + 
+					"set for previous!");
+		}
+		return prev;
+	}
+	
+	public String toString(){
+		String tmpString="This Node contains a " + data.getClass().getName();
+		/*if(hasPrev){
+			tmpString += 
+		}*/
+		
+		return tmpString;
+	}
+	
+	public static void main(String[] args){
+		String s1 = "String One";
+		Node node1 = new Node(s1);
+		String s2 = "String Two";
+		Node node2 = new Node(s2,node1);
+		node1.setNext(node2);
+		System.out.println(node1.getData().toString());
+		System.out.println(node1.getNext().getData().toString());
+		System.out.println(node2.getPrev().getData().toString());
+		System.out.println(node1.toString());
+	}
+	
+
+}

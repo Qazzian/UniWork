@@ -1,0 +1,21 @@
+package Ian.Game;
+
+public class BlackOrcDemo
+{
+	public void test()
+	{
+		BlackOrcWarrior fred = new BlackOrcWarrior("Fred",'M',35,15);
+		fred.toString();
+
+	}
+	
+	public static void main(String [] args)
+	{
+		BlackOrcDemo myBlackOrc = new BlackOrcDemo();
+		myBlackOrc.test();
+	}
+}
+
+		/**
+		
+		 */

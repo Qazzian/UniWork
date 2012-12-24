@@ -1,0 +1,55 @@
+import java.io.*;
+
+public class LinkedQueue implements Serializable{
+		// Attributes
+	protected Node front;
+	protected Node back;
+		
+		// Constructors
+		
+		// Methods
+
+		// Inner Classes
+		
+	/**
+	 * Node contains a piece of data stored in the Queue
+	 * and a pointer to the next Node in the Queue.
+	 * Esentially, The Linked Queue is just a link of Nodes.
+	 */
+	private class Node{
+	
+			// Attributes
+			
+		/** Holds the data Object contaned within the Node**/
+		private Object data;
+		
+		/** Points to the Next node in the LinkedQueue**/
+		private Node next;
+		
+			// Constructors
+		
+		/**
+		 * Creates an empty Node.
+		 */
+		private Node(){
+		}
+		
+		/**
+		 * Ceates a Node containing a data object within it.
+		 * @param Object obj The data object.
+		 */
+		private Node(Object obj){
+			data = obj;
+		}
+		
+		/**
+		 * Calls the toString method for the Object contained 
+		 * within the Node.
+		 */
+		private String toString(){
+			return data.toString();
+		}
+	
+	}
+
+}

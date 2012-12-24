@@ -1,0 +1,62 @@
+[Project]
+CompilerID=Java
+Version=1
+
+[Options]
+Release=€gw€1.1€€€€€€€€€Examinator€€j€€€€€€€€
+Debug=€gw€1.1€€€€€€€€€Examinator€€j€€€€€€€€
+User=€sc€
+
+[Files]
+D1=€"Source Files" "*.java"
+D2=€"Resource Files" "*.gif;*.jpg;*.jpeg;*.jpe;*.png"
+D3=€"Documentation" "*.txt;*.Doc"
+
+[Files Source Files]
+F1=€".\Answer.java"
+FRO1=
+FDO1=
+FUO1=
+F2=€".\AnswerException.java"
+FRO2=
+FDO2=
+FUO2=
+F3=€".\AnswerInvalidException.java"
+FRO3=
+FDO3=
+FUO3=
+F4=€".\AnswerList.java"
+FRO4=
+FDO4=
+FUO4=
+F5=€".\Exam.java"
+FRO5=
+FDO5=
+FUO5=
+F6=€".\ExamCreator.java"
+FRO6=
+FDO6=
+FUO6=
+F7=€".\Question.java"
+FRO7=
+FDO7=
+FUO7=
+F8=€".\QuestionBankFullException.java"
+FRO8=
+FDO8=
+FUO8=
+F9=€".\QuestionException.java"
+FRO9=
+FDO9=
+FUO9=
+F10=€".\QuestionInvalidException.java"
+FRO10=
+FDO10=
+FUO10=
+
+[Files Documentation]
+F1=€".\Plan.txt"
+FRO1=
+FDO1=
+FUO1=
+

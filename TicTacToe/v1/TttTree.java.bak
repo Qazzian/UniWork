@@ -1,0 +1,10 @@
+import java.io.*;
+
+public class TttTree implements Serializable{
+
+	private class TttNode{
+		
+		private TttBoard theBoard;
+		private TttNode[][] 
+	}
+}

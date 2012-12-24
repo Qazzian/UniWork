@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.0" type="org.netbeans.modules.form.forminfo.JAppletFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="SsMenuBar">
+      <Properties>
+        <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="SSMenu"/>
+      </Properties>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="SsGameMenu">
+          <Properties>
+            <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMenuGame"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="Game"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="SsGmNew">
+              <Properties>
+                <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMGameNew"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="New"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="SsGmOptions">
+              <Properties>
+                <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMGameOptions"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="Options"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="SsGmExit">
+              <Properties>
+                <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMGameExit"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="Exit"/>
+              </Properties>
+
+              <Events>
+                <EventHandler event="mouseClicked" handler="SsGmExitMouseClicked"/>
+                <EventHandler event="actionPerformed" handler="SsGmExitActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="SsHelpMenu">
+          <Properties>
+            <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMenuHelp"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="Help"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="SsHmAbout">
+              <Properties>
+                <Property name="name" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="ssMHelpAbout"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.beaninfo.editors.StringEditor" value="About"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="SsMenuBar"/>
+    <SyntheticProperty name="encoding" type="java.lang.String" value="UTF-8"/>
+  </SyntheticProperties>
+
+  <AuxValues>
+    <AuxValue name="RADVisualFormContainer_MenuComponent" type="java.lang.String" value="jMenuBar1"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="MainPanel">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="Center"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
+        <Property name="axis" type="int" value="1"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="SouthPanel">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="South"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+    </Container>
+  </SubComponents>
+</Form>

@@ -1,0 +1,67 @@
+package Ian.Game.GameLife;
+
+/**
+ * @auther: Ian Wallis	email: ifw9@aber.ac.uk
+ * @version: last revised 01/01/2000
+ * 
+ * @purpose: an extension to <code>LifeForm<code>
+ * to create a Greenskin such as an orc or gobolin
+ */
+
+abstract class GreenSkin extends LifeForm
+{
+	private static int gsCount = 0;
+	
+	/** Shamons only
+	protected MagicSpell[] itsSpells = new MagicSpell[50];
+	private int spellCount = 0;
+	*/
+	public GreenSkin(String theName,
+					char theGender,
+					String theRace,
+					int theAge,
+					int theMv,int theWs,int theBs,
+					int theSt,int theTu,int theHp,
+					int theIni,int theAtt,int theLd)
+	{
+		super(theName,theGender,theRace,theAge,theMv,theWs,
+			  theBs,theSt,theTu,theHp,theIni,theAtt,
+			  theLd);
+		gsCount++;
+		
+		// will put in code to fill up arrays etc 
+	}
+	
+	public void setRide(Animal theAnimal)
+	{
+		itsRide = theAnimal;
+	}
+	
+	public Animal getRide()
+	{
+		return itsRide;
+	}
+	
+	public static int getGsCount()
+	{
+		return gsCount;
+	}
+	
+	public static void reduceGsCount()
+	{
+		gsCount--;
+	}
+	
+	public String toString()
+	{
+		String tempString = "";
+		
+		return tempString;
+	}
+
+	public abstract void death()
+	{
+		super.death()
+		gsCount--;		
+	}
+}

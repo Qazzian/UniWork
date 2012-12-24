@@ -1,0 +1,193 @@
+// package Qaz.util;
+
+import java.io.*;
+
+/**
+ * A simple class representing a Generic Queue.  
+ * You can only add Objects to the back of the Queue and take them 
+ * from the front.
+ * Will take any <code>Object</code>
+ *
+ * @see QueueException
+ * @see Listable
+ * @see Serializable
+ *
+ * @author 	<A href=mailto:Qaz_Wallis@Yahoo.com>Ian Wallis</A>
+ * 			<A href=mailto:ifw9@aber.ac.uk>ifw9@aber.ac.uk</A>
+ * 			with help from Aberystwyth University
+ * @version 1.00, 19 March 2000
+ */
+public class Queue implements Serializable
+{
+	/**
+	 * The array of Objects.
+	 */
+	protected Object[] theItems;
+	
+	/**
+	 * The number of items in the Queue.
+	 */
+	protected int currentLength = 0;
+	
+	/**
+	 * The index for the front of the Queue
+	 */
+	protected int front = 0;
+	
+	/**
+	 * the index for the back of the Queue
+	 */
+	protected int back = 0; 
+
+	/**
+	 * The Defult value for the size of the Queue. Currently set to 30
+	 */
+	public final int DEFAULT_SIZE = 30;
+
+
+	/**
+	 * Default Constructor creates an empty <code>Queue</code> 
+	 * of size <CODE>DEFAULT_SIZE</CODE>.
+	 */
+	public Queue()
+	{
+		theItems = new  Object[DEFAULT_SIZE];
+	}
+
+	/**
+	 * Constructs an empty Queue with a specified initial Capacity .
+	 * @param int theSize the initial size of the <code>Queue</code>.
+	 */
+	public Queue(int theSize)
+	{
+		theItems = new Object[theSize];
+	}
+
+	/**
+	 * Adds a <code>Object</code> to the <code>back</code> 
+	 * of the <code>Queue</code>.
+	 * @param Object obj the Object to be added to the Queue.
+	 * @exception QueueOverflowException if the Queue is full.
+	 */
+	public void addObject(Object obj) 
+								throws QueueOverflowException
+	{
+		// test to Make sure the Queue is not full.
+		if (currentLength == theItems.length)
+		{
+			throw new QueueOverflowException("Queue is Full!");
+		}
+			// now add the item.
+		theItems[back] = obj;
+		back = (back + 1) % theItems.length;
+		currentLength ++;
+	}
+
+	/**
+	 * Removes and Returns the <code>Object</code> at the 
+	 * <code>front</code> of the <code>Queue</code>. 
+	 * Remember to cast the Object into its appropriate class.
+	 * @return the Object to be returned.
+	 * @exception QueueUnderflowException if the Queue is empty.
+	 */
+	public Object removeObject() throws QueueUnderflowException
+	{
+			// test to see if the Queue is empty.
+		if(currentLength == 0)
+		{
+			throw new QueueUnderflowException("Queue is Empty!");
+		}
+			// now remove the Object.
+		Object tmp = theItems[front];
+		theItems[front] = null;
+		front = (front + 1) % theItems.length;
+		currentLength --;
+		return tmp;
+	}
+	
+	/**
+	 * Returns a handle on the Object at the front of the Queue
+	 * without removing it.
+	 * @return the Object at the front.
+	 * @exception QueueUnderflowException if the Queue is empty.
+	 */
+	public Object frontOf() throws QueueUnderflowException
+	{
+		// test to see if the queue is empty.
+		if(currentLength == 0)
+		{
+			throw new QueueUnderflowException("Queue is Empty!");
+		}
+		return theItems[front];	// return the front Object.
+	}
+
+	/**
+	 * Returns the current length of the <code>Queue</code>.
+	 * @return the length of the code>Queue</code>.
+	 */
+	public int getLength()
+	{
+		return currentLength;
+	}
+
+	/**
+	 * returns the maximum size of the code>Queue</code>.
+	 * @return the capacity of the code>Queue</code>.
+	 */
+	public int getCapacity()
+	{
+		return theItems.length;
+	}
+
+	/**
+	 * Compares this code>Queue</code> to another code>Queue</code> to 
+	 * see if they both have the same <code>Object</code>s and in the same 
+	 * order. <BR>
+	 * Requires the <code>equals</code> method in the <code>Object</code>s 
+	 * in the Queue
+	 * @param Queue other the Queue to be compared to
+	 * @return true if the Queues are equal
+	 * @retuen false if the Queues are not equal
+	 */
+	public boolean equals(Queue other)
+	{
+			// First check to see if same size
+		if(this.currentLength != other.currentLength)
+		{
+			return false;
+		} 
+			// now see if the contents are the same
+		int thisLoc = this.front; 	// the index for the front of this Queue
+		int otherLoc = other.front; // the index for the front of the other Queue
+		for(int i=0; i<currentLength; i++) // for-loop to check the queues
+		{		// Are the Objects the Same
+			if(!this.theItems[thisLoc].equals(other.theItems[otherLoc] ) )
+			{		// If this one isn't, then the Queues are not equal
+				return false;
+			}
+			// Increment the location counts and loop them round the Queues
+			thisLoc = (thisLoc + 1) % this.theItems.length;
+			otherLoc = (otherLoc + 1) % other.theItems.length;
+		}
+		// if you reach this all the Objects must be equal
+		return true;
+	}
+
+	/**
+	 * returns a String listing all the Objects in the <code>Queue</code> 
+	 * and giving the number of Objects in the in the Queue
+	 * @return String with details of the Queue
+	 */
+	public String toString()
+	{
+		String tmp = "";
+		int loc = front;
+		for (int i=0; i<currentLength; i++)
+		{
+			tmp += theItems[loc].toString() + "\n";
+			loc = (loc + 1) % theItems.length;
+		}
+		tmp += "\nThere are " + currentLength + " items in the Queue.";
+		return tmp;
+	}
+}

@@ -1,0 +1,39 @@
+		/** LinkedStack **/
+// Attributes
+protected Node top = null;
+protected Node bottom = null;
+protected int length = 0;
+protected int maxCapacity = Integer.MAX_VALUE;
+				// = 2,147,483,647
+private static final int STACK_MIN_SIZE = 0;
+
+// Constructors
+public LinkedStack()
+public LinkedStack(int cap) 
+		throws IndexInvalidException{
+public LinkedStack(Object obj){
+
+// Methods
+public void push(Object o)
+		throws ListFullException{
+public Object pop()
+		throws ListEmptyException{
+public Object peek(){
+public boolean isEmpty(){
+public boolean isFull(){
+public void setCapacity(int cap) 
+		throws IndexInvalidException{
+public String toString(){
+
+// Inner classes
+		/** Node **/
+// Attributes
+private Node prev = null;
+private Object data = null;
+
+// Constructor
+public Node()
+
+// Methods
+public String toString()
+

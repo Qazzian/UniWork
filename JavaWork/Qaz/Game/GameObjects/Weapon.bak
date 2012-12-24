@@ -1,0 +1,13 @@
+/**
+ * @auther: Ian Wallis	email: ifw9@aber.ac.uk
+ * @version: last revised 29/12/1999
+ * 
+ * @purpose: This class extends Item to create weapons
+ */
+ 
+package Ian.Game;
+
+public class Weapon extends Item
+{
+
+}

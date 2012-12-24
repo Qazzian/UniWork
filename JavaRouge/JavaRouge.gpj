@@ -1,0 +1,19 @@
+[Project]
+CompilerID=Java
+Version=1
+
+[Options]
+Release=€gw€1.1€€€€€€€€€JavaRouge€€j€€€€€€€€
+Debug=€gw€1.1€€€€€€€€€JavaRouge€€j€€€€€€€€
+User=€sc€
+
+[Files]
+D1=€"Source Files" "*.java"
+D2=€"Resource Files" "*.gif;*.jpg;*.jpeg;*.jpe;*.png"
+
+[Files Source Files]
+F1=€".\JavaRouge.txt"
+FRO1=
+FDO1=
+FUO1=
+

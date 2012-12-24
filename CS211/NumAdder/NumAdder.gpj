@@ -1,0 +1,19 @@
+[Project]
+CompilerID=Java
+Version=1
+
+[Options]
+Release=€gw€1.1€€D:\My Documents\JavaWork\CS211\NumAdder€D:\My Documents\JavaWork\CS211\NumAdder€€D:\My Documents\JavaWork\CS211\NumAdder€€€€NumAdder€€j€€€€€€€€
+Debug=€gw€1.1€€D:\My Documents\JavaWork\CS211\NumAdder€D:\My Documents\JavaWork\CS211\NumAdder€€D:\My Documents\JavaWork\CS211\NumAdder€€€€NumAdder€€j€€€€€€€€
+User=€sc€
+
+[Files]
+D1=€"Source Files" "*.java"
+D2=€"Resource Files" "*.gif;*.jpg;*.jpeg;*.jpe;*.png"
+
+[Files Source Files]
+F1=€".\NumberAdder.java"
+FRO1=
+FDO1=
+FUO1=
+

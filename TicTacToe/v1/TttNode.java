@@ -1,0 +1,121 @@
+/**
+ * Inner class definition for a TicTacToe Tree Node
+ */
+public class TttNode implements java.io.Serializable{
+
+	/* Holds the Board data for this node */
+	private TttBoard data;
+	/* The Parent Node of the Node */
+	private TttNode parent;
+	/* All the child nodes from this node */
+	private TttNode[] children = new TttNode[9];
+	/* the number of children currently held by this Node. */
+	private int childNum = 0;
+	/* A score value for the Board contained within this Node */
+	private int score = 0;
+	/* A record of where this node is in the parent node */
+	private int location;
+
+	/**
+	 * Creates an empty TttNode. All values set to their default or null.
+	 */
+	public TttNode(){
+		data = new TttBoard();
+	}
+
+	/**
+	 * Creates a new TttNode with the given TttBoard as the stored data
+	 */
+	public TttNode(TttBoard theBoard){
+		data = theBoard;
+	}
+
+	/**
+	 * Creates a new TttNode with the Given Parent TttNode and 
+	 * TttBoard as Data
+	 */
+	public TttNode(TttNode theParent, TttBoard theBoard) {
+		data = theBoard;
+		parent = theParent;
+	}
+
+	/**
+	 * Sets the Parent Node for this Node.
+	 */
+	public void setParent(TttNode theParent) {
+		parent = theParent;
+	}
+	
+	public TttNode getParent() {
+		return parent;
+	}
+
+	/**
+	 * Sets the index position of this node in its parent node.
+	 * @param theLoc		The index of this node in its parents array of children.
+	 */
+	public void setLocation(int theLoc) {
+		location = theLoc;
+	}
+
+	/**
+	 * Returns the index of this node in its parent node.
+	 * @return				The index of this node in its parents array of children.
+	 */
+	public int getLocation(){
+		return location;
+	}
+
+	/**
+	 * Creates a new Child node to this Node. Takes the data given, 
+	 * parsing it into a new node and then calls <code> addChild(TttNode) </code> 
+	 * with the new node.
+	 * @param theBoard		The TttBoard which the new chiled Node will Store.
+	 */
+	public void addChild(TttBoard theBoard){
+		addChild(new TttNode(theBoard));
+	}
+
+	/**
+	 * Adds the given child Node to this one. 
+	 * @param TttNode 		The Node to add to the children of this Node.
+	 */
+	public void addChild(TttNode theNode){
+		theNode.setParent(this);
+		children[childNum] = theNode;
+		childNum++;
+	}
+
+	public TttNode getChild(int index){
+		return children[index];
+	}
+	
+	/**
+	 * Returns the number of children held by this node.
+	 * @return 		The Number of Children held by this Node. 
+	 * 				Also represents the next free location in the array.
+	 */
+	public int getChildNum() {
+		return childNum;
+	}
+	
+
+	/**
+	 * Sets the data for this Node
+	 */
+	public void setData(TttBoard theBoard){
+		data = theBoard;
+	}
+	
+	public TttBoard getData() {
+		return data;
+	}
+	
+	public void setScore(int theScore) {
+		data.setValue(theScore);
+	}
+	
+	public int getScore() {
+		return data.getValue();
+	}
+}
