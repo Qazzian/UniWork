@@ -1,0 +1,54 @@
+Script started on Sun 26 Mar 2000 16:05:00 BST
+moin% java ListDevices
+CaptureDeviceManager reports 2 devices
+***********************************************************
+CaptureDevice is JavaSound audio capture
+-----------------------------------------------------------
+Supports 5 formats
+Unique encoding name is LINEAR
+Format attributes are LINEAR, 44100.0 Hz, 16-bit, Stereo, BigEndian, Signed
+Unique encoding name is LINEAR
+Format attributes are LINEAR, 44100.0 Hz, 16-bit, Mono, BigEndian, Signed
+Unique encoding name is LINEAR
+Format attributes are LINEAR, 22050.0 Hz, 16-bit, BigEndian, Signed
+Unique encoding name is LINEAR
+Format attributes are LINEAR, 11025.0 Hz, 16-bit, BigEndian, Signed
+Unique encoding name is LINEAR
+Format attributes are LINEAR, 8000.0 Hz, 16-bit, BigEndian, Signed
+-----------------------------------------------------------
+Media Locator is javasound://44100
+***********************************************************
+***********************************************************
+CaptureDevice is sunvideo:/dev/rtvc0
+-----------------------------------------------------------
+Supports 12 formats
+Unique encoding name is jpeg
+Format attributes are JPEG, 320x240, FrameRate=15.0, Length=230400
+Unique encoding name is jpeg
+Format attributes are JPEG, 160x120, FrameRate=15.0, Length=57600
+Unique encoding name is jpeg
+Format attributes are JPEG, 640x480, FrameRate=15.0, Length=921600
+Unique encoding name is rgb
+Format attributes are RGB, 320x240, FrameRate=15.0, Length=307200, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=960
+Unique encoding name is rgb
+Format attributes are RGB, 160x120, FrameRate=15.0, Length=76800, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=480
+Unique encoding name is rgb
+Format attributes are RGB, 640x480, FrameRate=15.0, Length=1228800, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=1920
+Unique encoding name is jpeg
+Format attributes are JPEG, 384x288, FrameRate=15.0, Length=331776
+Unique encoding name is jpeg
+Format attributes are JPEG, 192x144, FrameRate=15.0, Length=82944
+Unique encoding name is jpeg
+Format attributes are JPEG, 768x576, FrameRate=15.0, Length=1327104
+Unique encoding name is rgb
+Format attributes are RGB, 384x288, FrameRate=15.0, Length=442368, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=1152
+Unique encoding name is rgb
+Format attributes are RGB, 192x144, FrameRate=15.0, Length=110592, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=576
+Unique encoding name is rgb
+Format attributes are RGB, 768x576, FrameRate=15.0, Length=1769472, 24-bit, Masks=3:2:1, PixelStride=3, LineStride=2304
+-----------------------------------------------------------
+Media Locator is sunvideo://0
+***********************************************************
+moin% ^Dexit
+
+script done on Sun 26 Mar 2000 16:05:15 BST

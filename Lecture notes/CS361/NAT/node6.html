@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 6: Arbib</TITLE>
+<META NAME="description" CONTENT="Lecture 6: Arbib">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html71"
+ HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html69"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html63"
+ HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html72"
+ HREF="node7.html">Lecture 7: Genetic Algorithms</A>
+<B> Up:</B> <A NAME="tex2html70"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html64"
+ HREF="node5.html">Lecture 5: ANN Overview</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00060000000000000000">
+Lecture 6: Arbib</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 6:</BIG>
+<P><BIG>Artificial Neural Networks:</BIG>
+<P><BIG>Michael Arbib</BIG>
+<P><SMALL>All figures adapted from Arbib and Liaw (1995) ``Sensorimotor
+transformations in the worlds of frogs and robots'' <EM>Artificial
+Intelligence</EM> 72, 53-79; or Arbib (1989) <EM>The Metaphorical Brain 2:
+Neural Networks and Beyond</EM>.</SMALL>
+<P>
+<P>
+<BIG>Lecture Contents</BIG>
+<UL>
+<LI> Michael A. Arbib
+<LI> Brains as Machines
+<LI> Schema Theory
+<LI> The Computational Frog
+<LI> From Frog to Robot
+<LI> From Instinctive to Reflective
+<LI> Biology and Technology
+</UL>
+
+<P>
+<BIG>Michael A. Arbib</BIG>
+<UL>
+<LI> Arbib has been working on brain theory, artificial intelligence
+and related areas since the 1960s.
+<LI> He distinguishes <EM>neural computing</EM> (or <EM>neural
+engineering</EM> on the one hand from <EM>computational neuroscience</EM> on
+the other, though regarding them as closely related.
+<LI> Neural computing is the branch of artificial intelligence using
+approaches inspired by human and other animal brains.
+<LI> Computational neuroscience is the use of computer models to
+advance understanding of how brains work.
+</UL>
+
+<P>
+<BIG>The Brain As A Machine</BIG>
+<UL>
+<LI> Like artificial machines, the brain has a <EM>function</EM>:
+enabling its possessor to adapt its behaviour to the environment in
+order to achieve its goals.
+<LI> Arbib stresses the structural and functional <EM>hierarchies</EM>
+found in animal brains and behaviours.
+<LI> He also stresses the close relation between <EM>perception</EM> and
+<EM>action</EM>.
+<LI> The brain is a <EM>network of neurons</EM>, coupled to <EM>receptors</EM>
+and <EM>effectors</EM>, thus linking <EM>perception</EM> to <EM>action</EM>. 
+</UL>
+
+<P>
+<BIG>Structure And Function</BIG>
+Both structure and function of the brain can be analysed at a number
+of levels.
+<DIV ALIGN="CENTER">
+<IMG WIDTH="549" HEIGHT="513" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.gif"
+ ALT="\epsfig {figure=bbo.eps}
+"></DIV>
+<P>
+<P>
+<BIG>Organisation Of The Brain</BIG>
+<UL>
+<LI> Different <EM>regions</EM> of the brain deal with different
+functions.
+<LI> Within a region, different <EM>layers</EM> deal with different
+levels of <EM>analysis</EM> of
+sensory input, and of <EM>control</EM> of movement.
+<LI> Positions of neurons within a layer <EM>usually</EM> have a
+``maplike'' relationship to their function (e.g. the part of the body
+surface or visual field they are concerned with).
+<LI> ``The brain is a layered, somatotopic distributed computer.''
+</UL>
+
+<P>
+<BIG>Schematic View Of A Neuron</BIG>
+<P>
+There is no ``typical'' neuron! However, the figure shows features common to
+most or all.
+<DIV ALIGN="CENTER">
+<IMG WIDTH="549" HEIGHT="594" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.gif"
+ ALT="\epsfig {figure=neurontiming.eps}
+"></DIV>
+
+<P>
+<BIG>Properties of Neurons</BIG>
+<UL>
+<LI> At rest, there is a voltage difference (<EM>polarization</EM>)
+across a neuron's surface membrane.
+<LI> The neuron ``fires'' if its ``axon hillock''
+<EM>depolarizes</EM> far enough, to a <EM>threshold</EM> level. At this
+level, depolarization becomes self-sustaining.
+<LI> A ``pulse'' then passes along the axon, to ``synaptic
+endbulbs'', which  contact other neurons.
+<LI> Depending on the type of synapse, it may either <EM>excite</EM> or
+<EM>inhibit</EM> these neurons.
+</UL>
+
+<P>
+<BIG>The Importance Of Timing</BIG>
+<UL>
+<LI> A neuron may have excitatory and inhibitory inputs from many others.
+<LI> It may also have an <EM>intrinsic</EM> firing rate even without
+inputs.
+<LI> The geometry of the cell, and the precise relative timing of inputs,
+rather than just their average rates, may determine whether and when
+the neuron fires.
+<LI> This could (for example) allow a single cell to act as a motion detector.
+</UL>
+
+<P>
+<BIG>Schemas</BIG>
+<UL>
+<LI> Arbib views the behaviour of an organism, like its brain, as
+hierarchically organized, but the two do not map directly
+onto each other.
+<LI> He calls the functional units <EM>schemas</EM> (compare Schank's
+<EM>scripts</EM>, Minsky's <EM>frames</EM>). Schemas have <EM>
+activation levels</EM>, and may compete and/or cooperate.
+<LI> A <EM>perceptual schema</EM> is concerned with the recognition of
+some state of the world relevant to the organism. A <EM>motor schema</EM>
+controls a particular kind of action.
+<LI> Given a schema-level model, we may look for neural
+networks able to implement the individual schemas.
+</UL>
+
+<P>
+<BIG>Example: The Computational Frog</BIG>
+<UL>
+<LI> Arbib builds multilevel computational models of frogs'
+brains and behaviour.
+<LI> A frog snaps
+at small objects (that might be insects, etc.), and jumps away if
+something large looms over it. Here's a possible schema-level model of
+this behaviour.
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="563" HEIGHT="247" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.gif"
+ ALT="\epsfig {figure=frogschemas1.eps}
+"></DIV>
+
+<P>
+<BIG>Testing Schema-Level Models</BIG>
+<P>
+Such models can be tested experimentally:
+<UL>
+<LI> By varying the environment (what happens if a ``bug'' and an
+``enemy'' appear at once?).
+<LI> By ``lesion studies'' (giving the frog brain damage) -- if you
+think you know which brain region deals with which schema.
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="525" HEIGHT="246" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.gif"
+ ALT="\epsfig {figure=frogschemas2.eps}
+"></DIV>
+
+<P>
+<BIG>Which Way To Jump</BIG>
+<UL>
+<LI> If the enemy is coming straight toward it, a frog will jump in a
+direction somewhere between directly away from the enemy, and its
+current heading.
+<LI> But if the enemy is on course to pass in front
+of the frog, it will jump away from where the enemy is heading.
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="526" HEIGHT="333" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.gif"
+ ALT="\epsfig {figure=jump.eps}
+"></DIV>
+
+<P>
+<BIG>Neural Network Models</BIG>
+<UL>
+<LI> This can be modelled using several sets of neurons,
+three of which we mention here (the first two visual, the third motor).
+<UL>
+<LI> Each of the first (T3) set responds most strongly to a large
+object centered on a particular point in visual field.
+<LI> Each of the second (T2) set responds most strongly to such an
+object <EM>moving from edge to centre of visual field</EM>.
+<LI> Each of the third (MH) set makes the frog jump in a different direction.
+</UL>
+<LI> Excitation of an MH from a T3 can be countered by inhibition from the
+corresponding T2, which will also excite a <EM>different</EM> MH. (Note:
+Fig.5 in the photocopied paper is misleading.)
+</UL>
+
+<P>
+<BIG>From Frogs To Robots</BIG>
+<UL>
+<LI> Arbib has used his model of ``frog looming perception'' as the
+basis of an approach to robot obstacle detection and detour path choice.
+<LI> Main difference: there may be several obstacles at
+once. ``Looming detector'' cells are connected to cells in the ``motor
+map'' so that they <EM>inhibit</EM> those corresponding to the same
+direction, and <EM>excite</EM> those some distance away.
+<LI> Motor cells corresponding to directions nearer straight ahead
+have a higher <EM>background activity</EM>, so they are more likely to be chosen.
+</UL>
+
+<P>
+<BIG>Three Principles</BIG>
+<DL COMPACT>
+<DT>1.
+<DD><EM>Cooperative computation of schemas</EM>. Carried out by distributed
+methods not involving explicit symbolic control: basis not only of
+action, but of planning and language.
+<DT>2.
+<DD><EM>Evolution and modulation</EM>. New schemas often arise as
+``modulators'' of existing ones, rather than as new systems. Examples:
+adding T2 ``motion detectors'' to ``looming perception''; adding
+barrier-detouring schemas to prey-capture schema; adding language to
+action-based perception.
+<DT>3.
+<DD><EM>Interaction of partial representations</EM>. No one place in the
+brain where a complete representation of the world links perception
+and action.
+</DL>
+
+<P>
+<BIG>From Instinctive To Reflective</BIG>
+<UL>
+<LI> Frogs' schemas are mostly ``hardwired''. They <EM>react</EM>
+adaptively, but don't plan ahead.
+<LI> Evolutionary pressure for <EM>flexibility</EM> has led to <EM>goal
+oriented, reflective</EM> behaviour and <EM>explicit</EM> representation of
+goals.
+<LI> Human ability to <EM>use</EM> symbolic representations is most
+recent development in this direction.
+<LI> <EM>Interaction</EM> of these two approaches vital to human
+performance.
+<LI> So why not to artificial intelligences?
+</UL>
+
+<P>
+<BIG>Schemas and Schema Instances</BIG>
+<UL>
+<LI> VISIONS computer vision system is based on use of schemas.
+<LI> Schemas reside in LTM, schema <EM>instances</EM> in STM.
+<LI> A schema instance is <EM>active</EM> in directing processing,
+cooperates and competes with others, is associated with an area of the
+image being interpreted.
+<LI> Planning is distributed -- result of activity emerging in a
+flexible network. (Compare with Hofstadter!)
+</UL>
+
+<P>
+<BIG>From Biology to Technology</BIG>
+<UL>
+<LI> In computational neuroscience, we know that eventually,
+behaviour must be accounted for in terms of the properties of neurons
+and neural networks.
+<LI> In software engineering, we can <EM>choose</EM>
+our hardware.
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="549" HEIGHT="393" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.gif"
+ ALT="\epsfig {figure=dais.eps}
+"></DIV>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html71"
+ HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html69"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html63"
+ HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html72"
+ HREF="node7.html">Lecture 7: Genetic Algorithms</A>
+<B> Up:</B> <A NAME="tex2html70"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html64"
+ HREF="node5.html">Lecture 5: ANN Overview</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

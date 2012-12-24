@@ -1,0 +1,206 @@
+
+\documentstyle[ucw,11pt]{article}
+\pagestyle{empty}
+\title{CS24210: Intelligent Editing}
+\author{Edel Sherratt}
+\date{\today}
+\begin{document}
+\maketitle
+
+This practical is about editing a set of Stack programs, firstly to
+improve them and secondly to change them into a similar set of Queue
+programs.  To do this, you will use {\tt gvim}, a screen
+editor, and {\tt sed}, a stream editor.  
+
+{\tt gvim} has two modes --
+an insert mode and a command mode.  Commands can be issued directly,
+or, usually in the case of more elaborate commands, by
+typing {\tt :} followed by the rest of the command. It is this las
+kind of command that you will be using. 
+
+Commands in both editors look rather similar. For example, here
+is the general form of the substitute command, which you will be using.
+
+$<range>s/<pattern>/<replacement>/<flags>$
+
+
+$<range>$ says which lines are to be modified, $s$ is the substitute 
+command itself,
+and $<pattern>$ and $<replacement>$ indicate the changes to be made.
+$\$$ is a special symbol, which means the last line in the file, when
+it appears in a $<range>$, and which means the end of line when it
+appears in a $<pattern>$.  The flag you'll mainly use will be $g$, which
+says do the replacement throughout each line visited, and not just once.
+
+If you happen to get into insert mode while using {\tt gvim}, you can get 
+back to command mode by typing $escape$. You can undo the most recent
+command by typing {\tt u}.  And, if all else fails, you can always restart
+the practical.
+
+Now -- have fun.
+
+\begin{enumerate}
+
+\item Download a copy of EasyStack.tar from the CS24210 web page. Unpack it
+using {\tt tar xvf EasyStack.tar}.  This will create a subdirectory called
+EasyStack in your current working directory.  The subdirectory will contain
+Stack.java, Fruit.java and five test harnesses --  StackHarness1.java, \ldots StackHarness5.java.
+
+\item Change directory to EasyStack: {\tt cd EasyStack}.  Your next
+task is to improve the identifiers in Stack.java using the {\tt gvim}
+editor: {\tt gvim Stack.java}.  Here are some {\tt gvim} commands to do this:
+
+\begin{verbatim}
+
+:1,$s/I\>/Interface/g
+:1,$s/D\>/DataType/g
+:1,$s/V\>/Visitor/g
+
+:1,$s/\<s\>/stack/g
+:1,$s/\<_s\>/_stack/g
+
+:1,$s/\<f\>/thing/g
+:1,$s/\<_f\>/_thing/g
+
+\end{verbatim}
+
+Note the use of $\\<$ and 
+$\\>$ to mark the beginnings and
+ends of words.
+
+Remember, if you have trouble working out what is matched by 
+the patterns used in any of these commands, just check out 
+{\tt man -s 5 regexp}
+
+Use {\tt :x} to exit {\tt gvim} -- or use the {\tt save-quit} option on
+the {\tt file} pull down menu.
+
+Now improve the identifiers in each of the StackHarness files in the
+same way.  Use {\tt gvim StackHarness[1-5].java} to edit each of these
+files in turn.  Use the following two substitutions. 
+\begin{verbatim}
+
+:1,$s/D\>/DataType/g
+:1,$s/V\>/Visitor/g
+
+\end{verbatim}
+
+When you've finished editing StackHarness1.java, use
+{\tt :w} to save it and {\tt :n} to move on to the next file.  Don't use
+the {\tt save-quit} option this time! 
+
+When you've finished editing StackHarness.java, use {\tt :x} to exit.
+
+\item Compile and run Stack.java and Fruit.java with each of the five
+test harnesses in turn.
+\begin{verbatim}
+javac Stack.java
+javac Fruit.java
+javac StackHarness[1-5].java
+
+java StackHarness1
+
+...
+
+java StackHarness5
+\end{verbatim}
+
+\item Create a new directory, called EasyQueue {\tt mkdir EasyQueue} 
+and copy all the .java
+files from EasyStack into EasyQueue.  
+\begin{verbatim}
+cp *.java EasyQueue
+\end{verbatim}
+
+In the EasyQueue directory -- {\tt cd EasyQueue} -- rename
+Stack.java to Queue.java: {\tt mv Stack.java Queue.java}
+
+\item Your next task is to modify Queue.java so that it really implements
+a queue data structure. Here are some gvim commands to do this:
+\begin{verbatim}
+
+:1,$s/Stack/Queue/g
+:1,$s/Push/Join/g
+:1,$s/Pop/Leave/g
+
+:1,$s/stack/queue/g
+
+\end{verbatim}
+
+\item Now for the clever bit!  Line 43 in the file is in the class PopV,
+and it now says (following the above substitutions):
+
+\begin{verbatim}
+
+    return (QueueDataType) queue;
+
+\end{verbatim}
+
+See if you can figure out what this gvim command will do, assuming
+you execute it as a {\bf single line} without any line break:
+
+\begin{verbatim}
+
+:43s/return (QueueDataType) queue/if (queue instanceof Empty) &;
+ else return new Join(thing,(QueueDataType)queue.accept(this))
+
+\end{verbatim}
+
+Try it, but remember, no line break.
+
+You may wish to improve the layout of the resulting code -- please
+do this, then save and quit (or use {\tt :x}).
+
+\item It would be possible, but slightly tedious, to use gvim to
+edit all the StackHarness files.  Instead, you will use sed to do
+this.
+
+Create a file called {\tt sed\_commands} containing the following {\tt sed} commands:
+\begin{verbatim}
+1,$s/Stack/Queue/g
+1,$s/Push/Join/g
+1,$s/Pop/Leave/g
+
+1,$s/stack/queue/g
+
+\end{verbatim}
+
+Create a file containing the {\tt bash} script:
+\begin{verbatim}
+#!bash
+
+let i=1
+while [ $i -le 5 ]
+do
+  sed -f sed_commands StackHarness$i.java > QueueHarness$i.java
+  let i=i+1
+done
+\end{verbatim}
+
+Be very careful to type spaces etc. exactly as given above.
+
+Now use the the command 
+\begin{verbatim} 
+source $<bash script file>$ 
+\end{verbatim}
+
+to modify your StackHarnesses.
+
+\item Finally compile and run your Queue programs:
+\begin{verbatim}
+
+javac Queue.java
+javac Fruit.java
+javac QueueHarness[1-5].java
+
+java QueueHarness1
+
+...
+
+java QueueHarness5
+\end{verbatim}
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,692 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0103)http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/process/process.html -->
+<HTML><HEAD><TITLE>UNIX Process System: Body</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><!--#config timefmt="%e %b %Y" -->
+<META content="MSHTML 5.50.4134.600" name=GENERATOR></HEAD>
+<BODY bgColor=#e0f0a0><A name=introduction></A>
+<H1 align=center>UNIX process system</H1>Chris Loftus, 26 January 1998 
+<BR>Updated by Edel Sherratt, 9 March 1999 and 15 March 2000 <BR>Updated by 
+Helen Fuell, 24th of April 2001 <BR>Updated by Chris Loftus, 19th of March 2002 
+<HR>
+
+<H3>Introduction</H3>A major feature of UNIX is that it can run multiple 
+processes (each process has its own thread of control). This ability gives UNIX 
+the title of a multi-tasking operating system. Each user can "own" multiple 
+processes which operate with apparent concurrency. Of course where the machine 
+has fewer processors than processes then the processes will have to be scheduled 
+to share the processors so as create an illusion of concurrency. 
+<P>Each process has a identifier called the process ID which is unique at any 
+one time for one machine, the process also has a process group which is 
+described <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/process/process.html#processgrp">later</A>. 
+
+<P>A process is an executing program that has an area of memory (address space) 
+in which it runs. Within the address space the program code, data values held as 
+program variables, the program stack, hardware registers and a list of file 
+descriptors are held. 
+<P>A process's address space (memory) is protected from other processes. 
+However, if a number of processes are executing the same program then only one 
+copy of that program is stored in primary memory, and is accessed by all the 
+processes that need it (see figure below). A process's address space consists of 
+the following regions <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/references.html#BACH86">[BACH86]</A>. 
+
+<OL>
+  <LI>Text (or code) - reentrant code or unmodifiable data, sharable. 
+  <LI>Data region - modifiable. 
+  <LI>Stack region - Process stack. 
+  <LI>Register contents, Process priority, list of open files. </LI></OL>
+<P><IMG alt="Organization and sharing of process address space." 
+src="process_files/process_model.art" align=middle border=1> 
+<P>In the figure, two processes share part of the same text segment. Notice that 
+we talk about virtual memory which is mapped onto real memory locations at the 
+last moment during execution. Such virtual memory will also be mapped onto swap 
+disk when pages of the process are swapped out of physical memory during process 
+scheduling (so as to give another process a share of the memory). 
+<HR>
+<A name=scheduling></A>
+<H3>Scheduling</H3>The UNIX scheduler, which is part of the kernel, manages 
+processes using <I>round robin with multilevel feedback</I>. This means that it 
+allocates the CPU to a process for a time quantum (time period) and pre-empts a 
+process that exceeds its time quantum, placing it back onto one of several 
+priority queues<A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/references.html#BACH86">[BACH86]</A>. 
+
+<P>The queues include: 
+<UL>
+  <LI>Ready to run and loaded in memory. 
+  <LI>Pre-empted. These are processes that were running but were pre-empted by 
+  the scheduler to give another process access to the CPU. 
+  <LI>Swapped out. These are processes that have been swapped out of memory onto 
+  swap disk. 
+  <LI>Blocked ( sleeping) waiting for I/O. These are processes waiting for some 
+  resource to become available (they are sent an interrupt). </LI></UL>
+<P>Each process has a dynamic process priority. The kernel will pick the process 
+with the highest priority. If there are several with the same top priority value 
+then the kernel picks the process which has been waiting the longest on the 
+<EM>ready to run</EM> queue. A process may need to iterate across the queues and 
+processor many times before it completes. 
+<P>Dynamic priority values are apportioned to processes by the scheduler based 
+on three main criteria: 
+<OL>
+  <LI>The static base priority (-20 to +20), see <A 
+  href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/process/process.html#priorities">below</A>. 
+
+  <LI>A higher dynamic priority is given to processes that have used the least 
+  processor time recently. This handicaps processor intensive processes. 
+  <LI>The scheduler forgets 90% of the processor use history in <EM>5 * n</EM> 
+  seconds. <EM>n</EM> is the average number of runnable processes over the last 
+  minute (the average number of runnable processes on a typical workstation is 
+  less than a typical server). For example, if there have been 12 processes 
+  using the processor in the last minute then the processor will forget about 
+  90% of these 12 processes during the following minute (5 * 12). </LI></OL>
+<P>The practical effect of the scheduling algorithm is: 
+<UL>
+  <LI>Processor intensive processes are penalized when the system is under heavy 
+  load. 
+  <LI>CPU intensive processes have their sins forgotten. 
+  <LI>I/O bound or interactive processes are favoured. 
+  <LI>The system adjusts over time to the nature of a process load. </LI></UL>
+<P>We came across mode switching in the <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/overview/overview.html#process">overview 
+notes</A>. In that case a mode switch was between a process running in user mode 
+or kernel mode. It also happens that the scheduler switches between processes 
+(user and system) and this is termed a context switch. 
+<P>When the kernel does a context switch it restores the context of a process so 
+it can continue execution from the point at which it was suspended. This is the 
+same type of operation as the context switch involved in a system call, when a 
+process is switched from running in user mode to running in kernel mode, the 
+same data has to be saved. Context switches present a substantial overhead to 
+the performance of the operating system. 
+<HR>
+<A name=priorities></A>
+<H3>Process priorities</H3>Each process has a static base priority of between 
+-20 and +20, the default being 0. Perversely, the process priority increases as 
+the priority value decreases (i.e. the highest priority value is -20)! This base 
+priority helps the scheduler determine the dynamic priority (discussed earlier). 
+This priority helps determine which process will get favoured treatment when 
+competing with other processes for resources such as CPU time and I/O. The 
+scheduler uses process priority to choose which process to run if all other 
+attributes are equal. Only privileged processes (root) can run at a priority 
+value of less than 0. The process priority is passed across calls to 
+<EM>fork</EM> and <EM>exec</EM>. The scheduler, as you would expect, has the 
+highest priority (-20). 
+<P>The commands <EM>nice(1)</EM> and <EM>renice(8)</EM> can be used to initiate 
+and reprioritize processes with alternative priorities. <PRE>void:cmk&gt; nice +10 ls - \ \ Runs ls at a lower priority
+ 
+void:cmk&gt; renice -10 $$ - \ \ raise priority of the current process(the shell).
+</PRE>
+<P>Nice and renice are social services which can be used to make resource 
+intensive processes more socially acceptable on multi-user, multi-tasking 
+machines. A process with priority 19 will only run when no other process wishes 
+to run. This is useful if you have a CPU intensive program which you leave 
+running over a long period of time. If such a process has a low priority it will 
+tend to be scheduled for execution only during off-peak periods. <PRE>nice [ -number ] command [ arguments ]
+ 
+/usr/bin/renice priority pid...
+</PRE>
+<P>The priority of a process can be changed from within a program: <PRE>#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+int main()
+{
+   int x;
+   nice(20);
+ 
+   for (x = 0; x &lt; 200; x++)
+      printf("me slow\n");
+ 
+   nice(0);
+ 
+   for (x = 0; x &lt; 200; x++)
+      printf("me normal speed\n");
+ 
+   if (nice(-20) == -1)     {
+       fprintf(stdout,"I am not root, I can't do that\n");
+       exit(1);
+    }
+  
+    for (x = 0; x &lt; 200; x++)
+      printf("me Road Runner!\n");
+
+    return 0;
+}
+</PRE>
+<P>On a lightly loaded machine no difference will be detected. On a heavily 
+loaded machine the second loop has a much shorter execution time. Try it! 
+<HR>
+<A name=processgrp></A>
+<H3>Process groups and process group IDs</H3>Processes may be placed in groups, 
+each group is denoted by an integer - the process group id. The value of the 
+group ID is returned by the <EM>getpgrp</EM> call. A process will inherit its 
+initial group ID from its parent, but can be placed in a new group using 
+<EM>setpgrp</EM>. <PRE>int getpgrp(nt pid);
+int setpgrp(void);
+</PRE>
+<P>A call to <EM>setpgrp</EM> will make the calling process the group leader of 
+a new process group returning the process new group ID. Any children will 
+inherit this process group ID. Processes are terminated when their common 
+ancestor dies which is determined on the basis of their process group ID. A 
+process can change its process group to avoid dying when its parent is 
+terminated. This allows processes to continue running after the user has logged 
+out. This is useful for daemon processes such as biod and nfsd. Care should be 
+taken not to leave process running for long periods when you are logged out; 
+this is viewed as antisocial. 
+<P>The following is an example of the use of <EM>setpgrp</EM> and 
+<EM>getpgrp</EM> where the user provides the shell process id as a command line 
+argument. <PRE>#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;   /* atoi definition */
+#include &lt;unistd.h&gt;   /* fork definition */
+#include &lt;sys/wait.h&gt; /* wait definition */
+
+int main(int argc, char **argv)
+{
+  pid_t shell_id, pid;
+ 
+  if (argc != 2)    {
+     (void) fprintf(stderr, "usage %s $$\n", argv[0]);
+     exit(1);
+  }
+ 
+  shell_id = atoi(argv[1]);
+ 
+  /* fork creates a new child process. This is discussed in detail later */
+
+  if ((pid = fork()) == -1)    {
+     fprintf(stderr, "fork failed\n");
+     exit(1);
+  }
+ 
+  if (pid == 0)    {
+    printf("The process group of the child %ld is %ld\n",
+                   getpid(), getpgrp());
+    setpgrp();
+    printf("\nI am not a number, I am a free process %ld of group %ld\n",
+                  getpid(), getpgrp());
+    exit(0);  /* the child exits */
+  }
+  /* The parent process waits for the child to exit */
+  wait(0);
+ 
+  printf("\nI am the parent with a process ID of %ld and \n", getpid());
+  printf("process group ID of %ld\n", getpgrp());
+ 
+  printf("\nmy parent, the shell process ID is %ld\n",shell_id);
+  printf("and a process group ID of %ld\n", getpgid(shell_id));
+
+  return 0;
+}
+
+thor:cmk&gt; setgrp $$
+The process group of the child 5193 is 5192
+ 
+I am not a number I am a free process 5193
+ 
+I am the parent with a process ID of 5192 and a process group ID of 5192
+ 
+my parent, the shell has a process ID of 4661
+and a process group ID of 4661
+</PRE>
+<P>Note that the process group ID is NOT the same as a group ID for users (e.g. 
+the staff group on the Computer Science LAN). 
+<HR>
+<A name=creating></A>
+<H3>Creating processes</H3>As shown in the <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/overview/overview.html#shell">overview 
+notes</A> a new process is created by the shell each time a command is entered. 
+Any process can create another process by using the <EM>fork</EM> system call. 
+<HR>
+<A name=fork></A>
+<H4>Fork</H4>The <EM>fork</EM> call creates a new process which is an exact copy 
+of the process that called <EM>fork</EM> (the parent); that is, it is running 
+the same program. The new process is called the child, which has its own address 
+space and is an exact copy of its parent. 
+<P>The following program and diagram demonstrate the concept of a parent process 
+running, then executing a fork, followed by both parent and child executing the 
+same code which forms the remainder of the program. The child is an exact copy 
+of the parent, so both the parent and child are running exactly the same code. 
+The only difference between the parent and child is the value that fork returns. 
+
+<P><IMG alt="Child parent relationship after a fork." 
+src="process_files/child_parent.art" align=middle border=1> 
+<P>The parent receives the process id of the child, whereas the child receives 
+the value 0. <PRE>#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(void)
+{
+  pid_t pid;
+ 
+  if ((pid = fork()) == -1)    {   /* create a new process. */
+     perror("fork failed");
+     exit(1);
+  }
+     
+  if (pid == 0)    {
+     printf("I'm the child and my process id is %ld\n", getpid());
+     printf("My parent's process id is %ld\n", getppid());
+  }
+  else
+     printf("I am the parent and my process id is %ld\n", getpid());
+
+  return 0;
+}
+
+csmuse:cmk&gt; simple_fork
+I am the child and my process id is 11362
+My parents process id is 11361
+I am the parent and my process id is 11361
+</PRE>
+<P>Normally, as in a previous example, the parent would call <EM>wait</EM> to 
+wait for the child to finish. 
+<P>This feature can be used to make the parent and child execute a different set 
+of instructions. In this example, the variable PID takes the value of the 
+process ID returned from fork and is tested. If the value is 0, a message is 
+printed concluding this is the child and the process ID is obtained from the 
+<EM>getpid</EM> system call. If the value is greater then 0 (note the test for 
+fork failing) then it is concluded to be the parent and the parent's process ID 
+is obtained using <EM>getppid</EM>. When a process finishes it calls exit to 
+close its file descriptors, deallocate resources and return a value to its 
+parent. 
+<P>The child inherits all data and file descriptors (and therefore open files) 
+across a call to <EM>fork</EM>. 
+<P><EM>fork</EM> allows us to do concurrent programming by enabling a number of 
+processes to be initiated by one program and execute as separate tasks. Several 
+potential problems may occur as a result of this: 
+<UL>
+  <LI>The parent, child and its peers reading and writing via the same file 
+  descriptors, potentially corrupting each other's data. 
+  <LI>The child process executing statements meant for the parent or vice versa. 
+
+  <LI>The parent not waiting for the child to terminate. If a child exits and 
+  there is no parent waiting for it, then it gets inherited by a special system 
+  process called <EM>init</EM>. Such defunct child processes are morbidly known 
+  as zombies! </LI></UL>
+<HR>
+<A name=getpid></A>
+<H4>Getpid and Getppid</H4><PRE>pid_t getpid(void);
+
+pid_t getppid(void);
+</PRE><EM>getpid</EM> returns the process ID of the current process. 
+<EM>getppid</EM> returns the process ID of the parent process. 
+<HR>
+<A name=execl></A>
+<H4>Execl</H4>The <EM>exec</EM> family of system calls are used to execute a new 
+program from within a process by overlaying the new program onto the calling 
+programs address space. The new program is started from its beginning and the 
+old program is overwritten. <B>No</B> new process is created. A successful call 
+to <EM>exec</EM> never returns since the calling program text gets obliterated 
+by the called program text. <PRE>int execl(const char* path, const char* arg0 [ , arg1,...  , argn ] (char *)0);
+ 
+int execv(const char* path, char *const argv[]);
+ 
+int execle(const char* path, const char* arg0 [ , arg1,...   ,  argn  ]  (char  *)0, char** envp);
+ 
+int execlp(const char* file, const char* arg0 [ , arg1,...  , argn ] (char *)0);
+ 
+int execvp(const char* file, char *const argv[]);
+</PRE>
+<P>We shall use <EM>execl</EM> as an example from this family of functions. See 
+<EM>exec(2)</EM> for the differences between the calls. The following program 
+takes an argument list provided by the calling process and executes the 
+<EM>ls</EM> command with the given arguments. Note that the new program image 
+inherits standard input, standard output and standard error. <PRE>#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(int argc, char **argv)
+{
+  execl("/bin/ls", "ls", argv[1], argv[2], argv[3], (void *)0);
+
+  printf("EXECL has failed\n");
+
+  return 1;
+}
+
+csmuse:cmk&gt; execl -l -g unix.bib
+-rw-r--r--  1 cmk      310          1077 Oct 19 08:14 unix.bib
+</PRE>
+<P>The following example shows the use of <EM>exec</EM> with <EM>fork</EM>. 
+These often go together. <PRE>#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(void)
+{
+  pid_t pid;
+  int statusp;
+  int exit_status;
+ 
+  /* create a new process. */
+  if ((pid = fork()) == -1)    {
+     perror("fork failed");
+     exit(1);
+  }
+ 
+  if (pid == 0)    { /* overlay ls on the child */
+      execl("/bin/ls", "ls", "-l", ((void *)0));
+  }
+  else
+  {
+
+     /* The parent process waits for the child to complete.
+        wait can return status information from the child, and
+        in particular you will often want to get the child's exit value.
+        statusp can be interrogated for this. However, the exit status
+        gets placed in the top 8 bits of this variable. To get them you
+        can use the WEXITSTATUS macro. However, you need to first check
+	that the status bits have been set with the WIFEXITED macro. */
+
+     wait(&amp;statusp); 
+     /* Test to see how the child died */
+     if (WIFEXITED(statusp))
+     {
+        exit_status = WEXITSTATUS(statusp);
+        printf("status of child %ld was %d\n", pid, exit_status);
+     }
+  }
+  return(0);
+}
+
+csmuse:cmk&gt; fork_exec
+total 807
+-rw-r--r--  1 cmk           381 Oct 22 15:49 Makefile
+drwxr-xr-x  2 cmk           512 Nov  5 09:08 SCCS
+drwxr-xr-x  2 cmk           512 Oct 11 16:24 docs
+drwxr-xr-x  3 cmk          1024 Nov  4 17:54 figs
+-rw-r--r--  1 cmk         39468 Nov  3 10:12 files.tex
+-rwxr-xr-x  1 cmk         24576 Nov  5 11:09 fork_exec
+-rw-r--r--  1 cmk           529 Nov  5 11:09 fork_exec.c
+drwxr-xr-x  3 cmk          1024 Nov  5 09:48 slides
+drwxr-xr-x  2 cmk          1024 Nov  4 09:44 src
+-rw-r--r--  1 cmk          1077 Oct 19 08:14 unix.bib
+status of child 11534 was 0
+</PRE>
+<P>Other kinds of status information can be obtained, for example, whether the 
+child was killed abnormally and by what signal (see <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/references.html#HS94">[HS94]</A>). 
+
+<HR>
+<A name=exit></A>
+<H4>Exit</H4>Exit terminates a process. The effect is that all descriptors for 
+the calling process are closed (this may result in a delay if output has to be 
+flushed). Status is returned to a parent process if the parent is executing a 
+<EM>wait</EM> or <EM>waitpid</EM> for that child process. <PRE>void exit(int status)
+</PRE>
+<HR>
+<A name=wait></A>
+<H4>Wait and Waitpid</H4><EM>wait</EM> delays its caller process until a signal 
+is received or one of its children terminates (actually this also generates a 
+signal called SIGCHLD). If <EM>stat_loc</EM> is not a null pointer then the exit 
+status of the child process is stored in stat_loc (see previous program 
+example). <PRE>#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+
+pid_t wait(int *stat_loc);
+ 
+pid_t waitpid(pid_t pid, int *stat_loc, int options);
+</PRE>The shell (parent) waits for for its commands (children) to finish 
+executing, unless they have been set to run in the background (no wait) with 
+<EM>&amp;</EM>. 
+<P><EM>waitpid</EM> also delays the caller process. <EM>waitpid</EM> is 
+identical to <EM>wait</EM> if <EM>pid</EM> has a value of -1 and option is set 
+to 0. The behaviour of <EM>waitpid</EM> depends on the value of <EM>pid</EM>. 
+<UL>
+  <LI><B>pid == -1</B> : waits for any child process. 
+  <LI><B>pid &gt; 0</B> : waits for child process specified by pid. 
+  <LI><B>pid == 0</B> : waits for any child process whose process group ID is 
+  the same as the calling process. 
+  <LI><B>pid &lt; -1</B> waits for any child process whose process group ID is 
+  equal to the absolute value of PID. </LI></UL>
+<P>The following program is an example of the use of waitpid. <PRE>#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main()
+{
+  pid_t pid1, pid2;
+  int status;
+ 
+  if ((pid1 = fork()) == -1)      {
+     perror("fork failed");
+     exit(1);
+  }
+ 
+  if (pid1 == 0)       {
+     printf("Child 1 with a pid of %ld\n", getpid());
+     sleep(5);
+     printf("Child 1 exits\n");
+     exit(0);
+  }
+  else
+  {
+     if ((pid2 = fork()) == -1)          {
+        perror("fork failed");
+        exit(1);
+     }
+ 
+     if (pid2 == 0)            {
+        printf("Child 2 with a pid of %ld\n", getpid());
+        printf("Child 2 exits\n");
+        exit(0);
+     }
+  }
+
+  waitpid(pid1, &amp;status, 0);
+ 
+  printf("parent %ld  continues and exits\n", getpid());
+
+  return 0;
+}
+
+csmuse:cmk&gt; waitpid
+Child 2 with a pid of 12517
+Child 1 with a pid of 12516
+Child 2 exits
+Child 1 exits
+parent 12515  continues and exits
+</PRE>
+<P>The values of <EM>option</EM> are defined in the header file sys/wait.h. 
+<HR>
+<A name=environment></A>
+<H3>The process environment</H3>The environment of a process is a collection of 
+null-terminated strings and is implemented as an array of character pointers. 
+These have the form: <EM>HOME=/dcs/cwl</EM> 
+<P>The environment of the shell process for example is: <PRE>HOME=/dcs/cmk
+SHELL=/bin/csh
+TERM=xterm
+USER=cmk
+PATH=/usr/local/X11R5/bin:/bin:/usr/bin:/usr/5bin:/usr/ucb:
+/dcs/cmk/bin:/usr/ucb:/usr/local/bin::.:
+LOGNAME=cmk
+PWD=/dcs/cmk/teach/C237h/part2
+MANPATH=/usr/man:/dcs/cmk/man:/usr/local/gnu/man
+PAGER=more
+EDITOR=emacs
+ARCH=sun4
+DISPLAY=artemis:0
+....
+</PRE>
+<P>You can type <EM>env</EM> at the command line to get this. This is a 
+collection of useful information which configures the shell and programs started 
+from the shell. In the C-shell you use <EM>setenv</EM> to set environment 
+variables. 
+<P>The environment of a process can be passed to a program as an extra parameter 
+of <EM>main</EM> called <EM>envp</EM>. The following program prints out the 
+contents of <EM>envp</EM>. It duplicates the functionality /bin/env. <PRE>#include &lt;stdio.h&gt;
+/* Print the environment of a program as does /bin/env */
+int main(int argc, char **argv, char **envp)
+{
+  while(*envp != (void *)0)
+     printf("%s\n",*envp++);
+
+  return 0;
+}
+</PRE>
+<P>The environment of a process is passed across calls to <EM>fork</EM> and 
+<EM>exec</EM>. The environment of a process can also be accessed via a global 
+external variable called <EM>environ</EM>. It gives the same results exactly as 
+the previous program. <PRE>#include &lt;stdio.h&gt;
+/* Print the environment of a program */
+extern char **environ;
+
+int main(int argc, char **argv)
+{
+  while(*environ != (char *)0)
+    printf("%s\n",*environ++);
+
+  return 0;
+}
+</PRE>
+<P>To access an individual field, instead of matching the variable name (HOME, 
+USER for example) the <EM>getenv</EM> call can be used. To set a field 
+<EM>putenv</EM> can be used. <PRE>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt; /* Definition of getenv */
+
+/* Print parts of the environment of a program */
+char *to_find[] = { "HOME","USER","DISPLAY", (char *)0 };
+int main(int argc, char **argv)
+{
+  char **tmp;
+  tmp = to_find;
+ 
+   while(*tmp != (void *)0)
+     printf("%s = %s\n", *tmp, getenv(*tmp++));
+
+   return 0;
+}
+
+thor:cmk&gt; getenv_demo
+HOME = /dcs/cmk
+USER = cmk
+DISPLAY = artemis:0
+
+#include &lt;stdlib.h&gt; /* Definition of getenv and putenv */
+/* Set the home directory */
+int main(int argc, char **argv)
+{
+  printf("HOME = %s\n\n", getenv("HOME"));
+  putenv("HOME=/tmp");
+  printf("HOME = %s\n", getenv("HOME"));
+
+  return 0;
+}
+
+thor:cmk&gt; echo $HOME
+/dcs/cmk
+thor:cmk&gt; set_home
+HOME = /dcs/cmk
+ 
+HOME = /tmp
+thor:cmk&gt; echo $HOME
+/dcs/cmk
+</PRE>
+<P>As the last command shows the parent (shell) is unaffected by changing the 
+child's environment (a child can not change the environment of its parent). 
+<HR>
+<A name=usergroupid></A>
+<H3>User and group ID</H3>Every process has six important IDs. The process ID 
+and process group ID were discussed <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/process/process.html#processgrp">earlier</A>. 
+The other four important IDs were briefly discussed in the context of <A 
+href="http://www.aber.ac.uk/compsci/Dept/Teaching/CourseNotes/current/CS23710/UNIX/notes/filesystem/fs.html#permissions">file 
+modes</A> where the IDs are used to judge which set of file access permissions 
+apply to a process. The IDs are: 
+<UL>
+  <LI>Real user ID. 
+  <LI>Real group ID. 
+  <LI>Effective user ID. 
+  <LI>Effective group ID. </LI></UL>
+<P>The real UID and real group UID will be the same as the UID and GID of the 
+user executing the program. Normally, the effective UID and effective GID are 
+the same as their real counterparts. But, as you know, setting the set-uid and 
+set-gid bits of an executable file changes this. In this situation the effective 
+IDs are set the IDs of the owner and/or group of the executable file. This is 
+important since, in most cases, it is the effective IDs which are used to 
+determine if a process has sufficient access rights when accessing a UNIX 
+resource (e.g. wants to write to a file). 
+<P>A whole series of system calls are available for manipulating these IDs: <PRE>int getuid();
+int geteuid();
+ 
+int getgid();
+int getegid();
+
+#include &lt;sys/types.h&gt;
+ 
+int setuid(uid_t uid);
+ 
+int seteuid(uid_t euid);
+ 
+int setruid(uid_t ruid);
+ 
+int setgid(gid_t gid);
+
+int setegid(gid_t egid);
+ 
+int setrgid(gid_t rgid);
+ 
+int setreuid(int ruid, int euid);
+ 
+int setregid(int rgid, int egid);
+</PRE>
+<UL>
+  <LI>getuid - gets the real user ID of the calling process. 
+  <LI>geteuid - gets the effective user ID of the calling process. 
+  <LI>getgid - gets the real group ID of the calling process. 
+  <LI>getegid - gets the effective group ID of the calling process. 
+  <LI>setuid - sets both real and effective user ID of the calling process. 
+  <LI>seteuid - set the effective user ID of the calling process. 
+  <LI>setruid - set the real user ID of the calling process. 
+  <LI>setreuid - set the real and effective user ID of the calling process. 
+  <LI>setgid - sets both real and effective group ID of the calling process. 
+  <LI>setegid - set the effective group ID of the calling process. 
+  <LI>setrgid - set the real group ID of the calling process. 
+  <LI>setregid - set the real and effective group ID of the calling process. 
+  </LI></UL>
+<P>A process that is not privileged (root) can only set the effective user and 
+group IDs back to their real counterpart. Root processes can set these IDs to 
+any value. 
+<HR>
+<A name=errors></A>
+<H3>Errors - errno and sys_errlist</H3>When an error occurs a global variable 
+called <EM>errno</EM>, which is unique to each process, is set to an integer 
+value which represents which type of error occurred. The value of errno can be 
+used to access an array of character strings called <EM>sys_errlist</EM> which 
+gives the meaning of the error message. Each time a new error occurs, errno is 
+set to the appropriate value for this error, and therefore no record is kept of 
+its previous values. Intro(2) discusses the error codes in detail. 
+<P><EM>perror</EM> produces a message on standard output describing the last 
+error. You can append your own message to the end of this predefined message. <PRE>void perror(char* s)
+ 
+#include &lt;errno.h&gt;
+ 
+char *sys_errlist[];
+int errno;
+</PRE>
+<P>The following program lists all the error messages. <PRE>#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+ 
+#define MAXERRNO 90
+ 
+extern int errno;
+extern char *sys_errlist[];
+ 
+int main()
+{
+  int x;
+ 
+  for ( x=0;x &lt; MAXERRNO;x++)    {
+      printf("%d %s \n", x, sys_errlist[x]);
+  }
+  return (0);
+}
+</PRE>
+<P>The return values of both library calls and system calls should be checked 
+unless it is not important that the call succeeds. If the call fails, it should 
+be handled in an appropriate manner such as a retrying the call, exiting giving 
+a appropriate message or executing some other function. Examples of calls that 
+should always be checked are <EM>malloc, open, read, write</EM>. If the return 
+value of a call is not tested then this intention should be made explicit by 
+putting <EM>(void)</EM> in front of the call. </P></BODY></HTML>

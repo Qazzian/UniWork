@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+ <TITLE>might try: A= 00, B=01, C=10, D=11</TITLE> 
+</HEAD>
+<BODY>
+<CENTER>
+
+<P>
+ <TABLE BORDER=5> <TD><IMG SRC="sld006.jpg"></TD></TABLE>
+</P>
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld005.htm"><IMG SRC="p2hprev.gif" ALIGN=BOTTOM ALT="Previous slide" BORDER="0">
+</A>  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld007.htm"><IMG SRC="p2hnext.gif" ALIGN=BOTTOM ALT="Next slide" BORDER="0"></A>
+  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "index.htm">
+<IMG SRC="p2hup.gif" ALIGN=BOTTOM ALT="Back to the first slide" BORDER="0"></A> 
+ </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "tsld006.htm">
+<IMG SRC="p2htext.gif" ALIGN=BOTTOM ALT="View text version" BORDER="0"></A>
+ </TD>
+</TABLE>
+</CENTER>
+<BR>
+</p>
+
+<Font size=4> <STRONG> Notes:</FONT></STRONG>
+<HR  SIZE=3>
+<P> </P>
+<P>dont worry about how the codes were generated - there is an algorithm based on building binary tree type data structures all we are trying to do is illustrate that variable length codes could get us closer to the theoretical efficiency of the transmission, and show that even a seemingly sensible coding may require more data than information.</P>
+<P></P>
+<P></P>
+<P></P>
+<P>point out that is is not always possible to get the optimal coding in such a simple manner - if the source statistics are complicated</P>
+<P></P>
+<P></P>
+<P></P>
+<P>How do we know where one code finishes and the next starts ?</P>
+<P></P>
+<P>look at the example - after a 1 there must be another bit, and after a 10 there must be another. or the converse </P>
+<P></P>
+<P></P>
+<P></P>
+<P>each application may need a different coding to be efficient !</P>
+<P></P>
+<P>If the receiver does not know the statistics of the symbol set this information must be sent too- thus creating an overhead, although ADAPTIVE Huffman allows the statistics to be learned as the transmission proceeds.</P>
+<P> </P> 
+ <!-- <H2>might try: A= 00, B=01, C=10, D=11</H2>
+</P>
+<P><UL><LI>This gives us two bits per symbol<UL><LI>more than the average information content </UL><LI>Huffman designed an encoding scheme based on variable length codes </UL></P>
+<P><H2>For our example we might try using:</H2>
+<H2>A=0, B=100, C=101, D=11</H2>
+<H2></H2>
+<H2>Lets test it out on A,B,A,A,C,D,A,D</H2>
+<H2></H2>
+<H2>gives coded bit sequence: 01000010111011</H2>
+<H2>and 14bits/8 symbols =1.75bits/symbol</H2>
+<H2></H2>
+<H2>compare simple coding of: 0001000010110011 =16 bits </H2>
+</P>
+<P><UL><LI>Any Problems ?<UL><LI>statistics of symbol set needs to be known<LI>coding scheme needs to be known at receiver</UL></UL></P>
+<P>  --> 
+</Body>
+</HTML>

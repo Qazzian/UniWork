@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://www.cprogramming.com/tutorial/lesson13.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut13_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut13_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut13_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut13_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut13_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut13_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut13_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut13_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut13_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut13_files/6118689.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 13: More on Functions </H3>In lesson 4 you were given the 
+            basic information on functions. However, I left out two items of 
+            interest. First, when you declare a function you do not have to 
+            prototype it! You must give the function definition physically 
+            before you call the function. You simply type in the entire 
+            definition of the function where you would normally put the 
+            prototype. <BR><BR>For example:<PRE>#include &lt;iostream.h&gt;
+void function(void)  
+{      //Normally this would be the prototype. Do not include a semicolon
+	 //Only prototypes have semicolons
+  cout&lt;&lt;"HA!  NO PROTOTYPE!";
+}
+
+int main()
+{
+  function();
+ //It works like a normal function now.
+ return 0;
+}</PRE>The other programming concept is the inline function. Inline 
+            functions are not very important, but it is good to understand them. 
+            The basic idea is to save time at a cost in space. Inline functions 
+            are a lot like a placeholder. Once you define an inline function, 
+            using the 'inline' keyword, whenever you call that function the 
+            compiler will replace the function call with the actual code from 
+            the function. <BR>How does this make the program go faster? Simple, 
+            function calls are simply more time consuming than writing all of 
+            the code without functions. To go through your program and replace a 
+            function you have used 100 times with the code from the function 
+            would be time consuming. Of course, by using the inline function to 
+            replace the function calls with code you will also greatly increase 
+            the size of your program. <BR><BR>Using the inline keyword is 
+            simple, just put it before the name of a function. Then, when you 
+            use that function, pretend it is a non-inline function. <BR><BR>For 
+            example:<PRE>#include &lt;iostream.h&gt;
+inline void hello(void)
+{		//Just use the inline keyword before the function    
+   cout&lt;&lt;"hello";
+}
+int main()
+{
+ hello();
+   //Call it like a normal function...
+  return 0;
+}
+</PRE>However, once the program is compiled, the call to hello(); 
+            will be replaced by the code making up the function. <BR><BR>A WORD 
+            OF WARNING: Inline functions are very good for saving time, but if 
+            you use them too often or with large functions you will have a 
+            tremendously large program. Sometimes large programs are actually 
+            less efficient, and therefore they will run more slowly than before. 
+            Inline functions are best for small functions that are called often. 
+            <BR><BR>In the future, we will discuss inline functions in terms of 
+            C++ classes. However, now that you understand the concept I will 
+            feel comfortable using inline functions in later tutorials. 
+            <BR></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut13_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

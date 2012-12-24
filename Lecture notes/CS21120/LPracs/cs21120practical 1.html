@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS21120</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial"><P>CS21120&#9;Practical 1&#9;&#9;Must be marked completed by Nov 16th</P>
+</B><P>Note change of date!!!</P>
+
+<P>&nbsp;</P>
+<P>Look back at the notes for Queues, iterators and Vectors.</P>
+<P>Make sure that you understand the details that were skated over lightly in class!</P>
+
+<P>Write a version of the Queue class that implements Queue as a Vector and also has an iterator. </P>
+<P>Some of this is done in the notes. Your task is to complete it.</P>
+
+<P>Here might be a beginning (from the Vector notes)</P>
+<DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>import java.util.*;&#9;//gets Vector and Iterator</P>
+
+<P>public class Queue implements Iterator</P>
+<P>{</P>
+<P>   private Vector theQueue = new Vector();</P>
+<P> </P>
+<P>   /* And now to the operations */</P>
+
+<P>   public void addTo (Object item) {</P>
+<P>      theQueue.addElement(item);</P>
+<P>   }</P>
+
+<P>   public Object removeFrom() {</P>
+<P>       Object temp = theQueue.firstElement();</P>
+<P>       theQueue.removeElementAt(0);</P>
+<P>       return temp;</P>
+<P>   }</P>
+
+<P>   public int lengthOf() {</P>
+<P>       return theQueue.size();</P>
+<P>   }</P>
+
+<P>}</P>
+<P>          </P>
+<P>//Could be used like this!</P>
+<P>                </P>
+<P>   public static void main (String args[]) {</P>
+<P>           Queue q = new Queue();</P>
+<P>           q.addTo("mary");</P>
+<P>           q.addTo("bill");</P>
+<P>           q.addTo("sue");</P>
+<P>     String first=(String)q.removeFrom();</P>
+<P>&#9;     System.out.println(first);</P>
+
+<P>}</P>
+<P>}</P></DIR>
+</DIR>
+
+</FONT><FONT FACE="Trebuchet MS,Arial"><P> </P>
+</B></FONT><FONT FACE="Arial"><P>You need to write the methods with signatures:</P>
+<P>&#9;Iterator iterator()</P>
+<P>&#9;Object next();</P>
+<P>&#9;boolean hasNext();</P>
+<P>&#9;void remove() – probably should not implement this see iterator notes</P></FONT></BODY>
+</HTML>

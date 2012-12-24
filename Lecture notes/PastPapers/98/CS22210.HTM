@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>CS22210:  OPERATING SYSTEMS AND CONCURRENCY</TITLE>
+<META NAME="TITLE" CONTENT= "CS22210:  OPERATING SYSTEMS AND CONCURRENCY">
+<META NAME="CREATOR" CONTENT="Computer Science ">
+<META NAME ="SUBJECT" CONTENT= "1998, Degree, Examinations, Semester 1 ">
+<META NAME="PUBLISHER" CONTENT="DATAPREP - Information Services">
+<META NAME="date" VALUE="24-03-98">
+</HEAD>
+<BODY bgcolor="#ffffff" link="#008000">
+<B>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</B>
+<P>
+DEGREE EXAMINATIONS 1997-98 SEMESTER 1
+<P>
+<B>ABERYSTWYTH</B>
+<P>
+FACULTY OF SCIENCE
+<P>
+<B>Computer Science CS22210:  OPERATING SYSTEMS AND CONCURRENCY
+<P>
+Time allowed: 2 hours</B>
+<P>
+<I>Answer</I><B> THREE</B>  <I>from</I> <B>FIVE</B>  <I>questions</I>
+<P>
+<I>All questions carry equal mark</I>s.
+<P>
+<OL>
+<LI>
+<B>a)</B> In  the  context  of  operating systems, explain  what  is  meant  by  a 
+process? [5 marks]
+<p>
+<B>b)</B> What are the objectives of a CPU scheduler? [4 marks]
+<p>
+<B>c)</B> Briefly explain each of the following scheduling strategies: [12 marks]
+<ol type="i">
+<li>Round Robin
+<li>Priority scheduling
+<li>First come first served
+<li>Shortest job first.
+</ol>
+<p>
+<B>d)</B> Five  jobs  A, B, C, D and E are to be processed.  Their  estimated  run 
+times are 10, 6, 2, 4 and 8 minutes respectively.  Their priorities  are 
+3, 5, 1, 2 and 4 respectively, where 5 is highest priority.  For each of 
+the  scheduling  strategies  in  part  c)  above,  calculate  the   mean 
+turnaround time for the jobs.  Make the following assumptions: [12 marks]
+<P>
+<ul>
+<li>the process switching overhead is zero
+<li>the jobs are all CPU-bound
+<li>in the case of Round Robin each job gets its fair share of the CPU
+<li>for  Priority scheduling, First come first served and  Shortest  job 
+first, each job runs to completion before the next starts
+<li>for First come first served, the jobs are run in order A, B, C, D, E
+</ul>
+<P>
+<LI>
+Suppose two processes communicate via a fixed size buffer.  One, 
+the  producer, puts data in the buffer.  The other, the consumer,  takes 
+data out.
+<P>
+<ol type="a">
+<li>
+Explain  the need for synchronisation and mutual  exclusion  between 
+these processes.<br>
+ [5 marks]
+<P>
+<li>
+Consider  the  following  approach  to  implementing  the  producer  and 
+consumer.
+<p>
+The  producer checks to see if the buffer is full, and  suspends  itself 
+(goes  to sleep) if it is.  Otherwise, it places an item in  the  buffer 
+and increments the counter 'items-in-buffer'.  If that item is the  only 
+item  in the buffer, then the buffer was previously empty and  therefore 
+the consumer needs to be wakened.  This is repeated indefinitely.
+<p>
+The  consumer checks to see if the buffer is empty, and suspends  itself 
+if it is.  Otherwise, it removes an item from the buffer and  decrements 
+'items-in-buffer'.   If the buffer was previously full, it  awakens  the 
+producer.  This is then repeated.
+<p>
+Pseudo-code for the producer and consumer is illustrated below.  Briefly 
+explain how these algorithms fail to ensure correct synchronisation.<br>
+[10 marks]
+<P>
+<pre>
+PRODUCER
+repeat
+	if items-in-buffer = buffer-size then go to sleep
+	place an item in the buffer
+	items-in-buffer: = items-in-buffer + 1
+	if items-in-buffer = 1 then wake CONSUMER
+forever
+
+CONSUMER
+repeat
+	if items-in-buffer = 0 then go to sleep
+	remove an item from the-buffer
+	items-in-buffer: = items-in-buffer - 1
+	if items-in-buffer = buffer-size - 1 then wake PRODUCER
+forever
+
+</pre>
+<P>
+<li>
+Use  semaphores to implement the producer and consumer.  Your  algorithm 
+should  not give rise to busy waiting (that is, it should not require  a 
+process  to execute a loop while waiting to enter a  critical  section).  
+Write a brief explanation describing how your semaphores ensure  correct 
+mutual exclusion and synchronisation. [18 marks]
+</ol>
+<P>
+<LI>
+<B>a)</B> In the context of operating systems, explain what is meant by virtual 
+memory?	[4 marks]
+<p>
+<B>b)</B>  Briefly explain how paging is used to implement virtual  memory.  [8 
+marks]
+<P>
+<B>c)</B> Briefly describe each of the page replacement algorithms: [9 marks]
+<dl>
+<dd>(i) &nbsp; Least recently used
+<dd>(ii)&nbsp;  First in first out
+<dd>(iii) Second chance (clock)
+</dl>
+<P>
+<B>d) </B> Suppose a computer has four page frames.  The time of loading,  time 
+since last access, and R bit (accessed) are as follows:
+<P>
+<center><table border width ="50%">
+<tr align=center>
+<th>Page</th>
+<th>When loaded</th>
+<th>Time since<br> last access</th>
+<th>R</th>
+</tr>
+<tr align=center>
+     <td>0</td>
+     <td>126</td>
+     <td>279</td>
+     <td>0</td>
+</tr>
+<tr align=center>
+     <td>1</td>
+     <td>230</td>
+     <td>290</td>
+     <td>1</td>
+</tr>
+<tr align=center>
+     <td>2</td>
+     <td>120</td>
+     <td>272</td>
+     <td>1</td>
+</tr>
+<tr align=center>
+     <td>3</td>
+     <td>160</td>
+     <td>250</td>
+     <td>1</td>
+</tr>
+</table></center>
+<P>
+When a page fault occurs, which page will 'Least recently used' replace?  
+Which  will  'First in first out' replace?  Which will  'Second  chance' 
+replace? [12 marks]
+<P>
+<LI>
+<B>a)</B>  Briefly outline the major threats to shared and networked  operating 
+systems. [9 marks]
+<P>
+<B>b)</B> Against which of these is user authentication a reasonably  effective 
+counter measure?  Give reasons for your answer.	[6 marks]
+<P>
+<B>c)</B> Against  which is it ineffective?  Give reasons for  your  answer.[6 
+marks]
+<P>
+<B>d) </B> What are the threats to password protection?  What counter  measures 
+would  you  recommend  against these threats?   Give  reasons  for  your 
+recommendations. [12 marks]
+<P>
+<LI>
+<B>a)</B> Describe the advantages and disadvantages of distributed systems. [10 
+marks]
+<P>
+<B>b)</B>  Describe <I> two</I>  applications that benefit from the  use  of  tightly-coupled  
+distributed systems.  In each case, explain the  benefits.  [12 marks]
+<P>
+<B>c)</B> What are the main problems in distributing a single, multi-processing 
+program over a loosely-coupled system? [11 marks]
+<P>
+</OL>
+</BODY>
+</HTML>

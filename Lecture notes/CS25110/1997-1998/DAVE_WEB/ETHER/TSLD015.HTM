@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+ <TITLE>Throughput example</TITLE> 
+</HEAD>
+<BODY>
+ <H1>Throughput example</H1> 
+ <P><H2>Throughput example</H2>
+</P>
+<P><UL><LI>Simple application like ‘vi’ editor using remote echo from remote host.<LI>Packets of minimum Ethernet size.</UL></P>
+<P><H2>	Event</H2>
+<H2>IDLE</H2>
+<H2>A starts preamble</H2>
+<H2>A finishes preamble</H2>
+<H2>A starts packet</H2>
+<H2>A finishes packet</H2>
+<H2>B receives last bit</H2>
+<H2>B starts interframe gap</H2>
+<H2>B reaches end of gap</H2>
+</P>
+<P><H2>        Time</H2>
+<H2>0</H2>
+<H2>0</H2>
+<H2>6.4</H2>
+<H2>6.4</H2>
+<H2>6.4+51.2=57.6</H2>
+<H2>57.6+25.6=83.2</H2>
+<H2>83.2</H2>
+<H2>83.2+9.6=92.8</H2>
+</P>
+<P><H2>Time for progress (micro seconds)</H2>
+</P>
+<P><UL><LI>The time to transmit single character and receive echo is thus 185.6 micro seconds.<LI>Number of characters per second = 5387.9.</UL></P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld014.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld016.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld015.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+<FONT size=4><STRONG> Notes: </FONT></STRONG>
+<HR SIZE=3>
+<P> </P>
+<P>assume only 2 stations on the network</P>
+<P></P>
+<P>describe application transmission for 1 key press</P>
+<P></P>
+<P></P>
+<P></P>
+<P>Preamble is 64 bits transmitted to synchronise receivers</P>
+<P></P>
+<P>Interframe gap allows the cable to settle, and transceivers to get ready</P>
+<P></P>
+<P></P>
+<P></P>
+<P>2*92.8</P>
+<P></P>
+<P>1/185.6 = 5387.9</P>
+<P></P>
+<P>we would expect 10Mbit/s, =1Mcps minus protocol overhead!</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P>what if packet had no padding ?</P>
+<P></P>
+<P>46 octets per packet - 5387.9*46 =24,7843.4 =24K cps</P>
+<P></P>
+<P></P>
+<P></P>
+<P>longer packets improve throuput due to less overheads.</P>
+<P></P>
+<P>
+</P>
+<P></P>
+<P></P>
+<P> </P> 
+</Body>
+</HTML>

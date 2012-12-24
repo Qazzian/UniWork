@@ -1,0 +1,6202 @@
+%!PS-Adobe-3.0
+%%Title: (AcroAAA09EXG2)
+%%Version: 1 2
+%%CreationDate: (D:19991130165747)
+%%DocumentData: Clean7Bit
+%%BoundingBox: 0 0 842 595
+%%Pages: 32
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentSuppliedResources:
+%%+ font Times-Italic
+%%+ font Times-Roman
+%%+ procset (Adobe Acrobat - PDF operators) 1.2 0
+%%+ procset (Adobe Acrobat - type operators) 1.2 0
+%%EndComments
+%%BeginDefaults
+%%EndDefaults
+%%BeginProlog
+%%EndProlog
+%%BeginSetup
+/currentpacking where{pop currentpacking true setpacking}if
+userdict /PDF 85 dict put
+%%BeginFile: pdfvars.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+userdict /PDFVars 75 dict dup begin put
+/_save 0 def
+/_cshow 0 def
+/InitAll 0 def
+/TermAll 0 def
+/_lp /none def
+/_doClip 0 def
+/sfc 0 def
+/_sfcs 0 def
+/_sfc 0 def
+/ssc 0 def
+/_sscs 0 def
+/_ssc 0 def
+/_fcs 0 def
+/_scs 0 def
+/_fp 0 def
+/_sp 0 def
+/_f0 0 array def
+/_f1 1 array def
+/_f3 3 array def
+/_f4 4 array def
+/_fc null def
+/_s0 0 array def
+/_s1 1 array def
+/_s3 3 array def
+/_s4 4 array def
+/_sc null def
+/_cpcf null def
+/_cpcs null def
+/_inT false def
+/_tr -1 def
+/_rise 0 def
+/_ax 0 def
+/_cx 0 def
+/_ld 0 def
+/_tm matrix def
+/_ctm matrix def
+/_mtx matrix def
+/_hy (-) def
+/_fScl 0 def
+/_hs 1 def
+/_pdfEncodings 2 array def
+/_Tj 0 def
+/_italMtx[1 0 .212557 1 0 0]def
+/_basefont 0 def
+/_basefonto 0 def
+/_categories 10 dict def
+/_sa? true def
+/_op? false def
+/_ColorSep5044? false def
+/_tmpcolr? [] def
+/_tmpop? {} def
+end
+%%EndFile
+PDFVars begin PDF begin
+%%BeginFile: pdfutil.prc
+%%Copyright: Copyright 1993 Adobe Systems Incorporated. All Rights Reserved.
+/bd {bind def} bind def
+/ld {load def} bd
+/dd { PDFVars 3 1 roll put } bd
+/xdd { exch dd } bd
+/Level2?
+/languagelevel where { pop languagelevel 2 ge } { false } ifelse
+def
+/here {
+dup currentdict exch known
+{ currentdict exch get true }
+{ pop false }
+ifelse
+} bd
+/isdefined? { where { pop true } { false } ifelse } bd
+/StartLoad { dup dup not { /_save save dd } if } bd
+/EndLoad { if not { _save restore } if } bd
+/npop { { pop } repeat } bd
+%%EndFile
+%%BeginFile: l2compat
+%%Copyright: Copyright 1987-1993 Adobe Systems Incorporated. All Rights Reserved.
+/cshow isdefined? not StartLoad {
+/cshow {
+exch /_cshow xdd
+{ 0 0 _cshow exec } forall
+} bd
+} EndLoad
+/setcmykcolor isdefined? not StartLoad {
+/setcmykcolor {
+1 sub 4 1 roll
+3 {
+3 index add neg dup 0 lt { pop 0 } if
+3 1 roll
+} repeat
+setrgbcolor
+pop
+} bd
+} EndLoad
+/rectclip isdefined? not StartLoad {
+/re 0 def
+/rectclip { newpath re clip newpath } bd
+} EndLoad
+/execform isdefined? not StartLoad {
+/execform {
+gsave dup begin
+Matrix concat
+BBox aload pop
+exch 3 index sub
+exch 2 index sub
+rectclip
+PaintProc end grestore
+} def
+} EndLoad
+/sethalftone isdefined? not StartLoad {
+/sethalftone {
+begin
+HalftoneType 1 eq
+{ Frequency Angle /SpotFunction load setscreen }
+if
+end
+} bd
+} EndLoad
+%%EndFile
+%%BeginFile: pdf.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+/initialize {
+_ColorSep5044? {sep_ops begin 50 dict begin} if
+newpath
+} bd
+/terminate {
+_ColorSep5044? {end end} if
+} bd
+Level2? StartLoad
+{ /m/moveto ld
+/l/lineto ld
+/c/curveto ld
+/setSA/setstrokeadjust ld
+} EndLoad
+Level2? not StartLoad
+{
+/pl {
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} bd
+/m { _sa? { pl } if moveto } bd
+/l { _sa? { pl } if lineto } bd
+/c { _sa? { pl } if curveto } bd
+/setSA { /_sa? xdd } bd
+} EndLoad
+/v { currentpoint 6 2 roll c } bd
+/y { 2 copy c } bd
+/h/closepath ld
+/d/setdash ld
+/j/setlinejoin ld
+/J/setlinecap ld
+/M/setmiterlimit ld
+/w/setlinewidth ld
+/cf currentflat def
+/i {
+dup 0 eq { pop cf } if
+setflat
+} bd
+/ilp { /_lp /none dd } bd
+/sfc {
+_lp /fill ne {
+_sfcs
+_sfc
+/_lp /fill dd
+} if
+} dd
+/ssc {
+_lp /stroke ne {
+_sscs
+_ssc
+/_lp /stroke dd
+} if
+} dd
+/n {
+_doClip 1 ge {
+_doClip 1 eq { clip } { eoclip } ifelse
+/_doClip 0 dd
+} if
+newpath
+} bd
+/f {
+_doClip 1 ge
+{
+gsave sfc fill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc fill }
+ifelse
+} bd
+/f* {
+_doClip 1 ge
+{
+gsave sfc eofill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc eofill }
+ifelse
+} bd
+/S {
+_doClip 1 ge
+{
+gsave ssc stroke grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ ssc stroke }
+ifelse
+} bd
+/s { h S } bd
+/B {
+_doClip dup 1 ge
+gsave f grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b { h B } bd
+/B* {
+_doClip dup 1 ge
+gsave f* grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b* { h B* } bd
+/W { /_doClip 1 dd } bd
+/W* { /_doClip 2 dd } bd
+/q/save ld
+/Q { restore ilp } bd
+Level2? StartLoad
+{ /defineRes/defineresource ld
+/findRes/findresource ld
+currentglobal
+true systemdict /setglobal get exec
+[/Function /ExtGState /Form]
+{ /Generic /Category findresource dup length dict copy /Category defineresource pop }
+forall
+systemdict /setglobal get exec
+} EndLoad
+Level2? not StartLoad
+{ /AlmostFull?
+{ dup maxlength exch length sub 2 le
+} bind def
+/Expand
+{ 1 index maxlength mul cvi dict
+dup begin exch { def } forall end
+} bind def
+/xput
+{ 3 2 roll
+dup 3 index known not
+{ dup AlmostFull? { 1.5 Expand } if
+} if
+dup 4 2 roll put
+} bind def
+/defineRes
+{ _categories 1 index known not
+{ /_categories _categories 2 index 10 dict xput store
+} if
+_categories exch 2 copy get 5 -1 roll 4 index xput put
+} bind def
+/findRes
+{ _categories exch get exch get
+} bind def
+} EndLoad
+/cs
+{
+dup where { pop load } if
+dup /_fcs xdd
+ucs
+_cpcf exch get
+/_fc xdd
+/_fp null dd
+} bd
+/CS
+{
+dup where { pop load } if
+dup /_scs xdd ucs _cpcs exch get /_sc xdd /_sp null dd
+} bd
+/ucs {
+dup type /arraytype eq
+{ dup 0 get
+dup /Indexed eq
+{ pop 0 get }
+{ /Pattern eq
+{ dup length 2 eq
+{ 1 get ucs }
+{ 0 get }
+ifelse }
+{ 0 get }
+ifelse }
+ifelse }
+if }
+bd
+/_cpcf
+15 dict dup begin
+/DefaultGray _f1 def
+/DeviceGray _f1 def
+/DefaultRGB _f3 def
+/DeviceRGB _f3 def
+/DeviceCMYK _f4 def
+/CalGray _f1 def
+/CalRGB _f3 def
+/CalCMYK _f4 def
+/Lab _f3 def
+/Pattern _f0 def
+/Indexed _f1 def
+/Separation _f1 def
+/CIEBasedA _f1 def
+/CIEBasedABC _f3 def
+end
+dd
+/_cpcs
+15 dict dup begin
+/DefaultGray _s1 def
+/DeviceGray _s1 def
+/DefaultRGB _s3 def
+/DeviceRGB _s3 def
+/DeviceCMYK _s4 def
+/CalGray _s1 def
+/CalRGB _s3 def
+/CalCMYK _s4 def
+/Lab _s3 def
+/Pattern _s0 def
+/Indexed _s1 def
+/Separation _s1 def
+/CIEBasedA _s1 def
+/CIEBasedABC _s3 def
+end
+dd
+Level2? not StartLoad {
+/ri/pop ld
+/makePat/pop ld
+} EndLoad
+Level2? StartLoad {
+/ri
+{
+/findcolorrendering isdefined?
+{
+mark exch
+findcolorrendering
+counttomark 2 eq
+{ type /booleantype eq
+{ dup type /nametype eq
+{ dup /ColorRendering resourcestatus
+{ pop pop
+dup /DefaultColorRendering ne
+{
+/ColorRendering findresource
+setcolorrendering
+} if
+} if
+} if
+} if
+} if
+cleartomark
+}
+{ pop
+} ifelse
+} bd
+/makePat /makepattern ld
+} EndLoad
+Level2? not _ColorSep5044? or StartLoad
+{
+/L1setcolor {
+aload length
+dup 0 eq
+{ pop .5 setgray }
+{ dup 1 eq
+{ pop setgray }
+{ 3 eq
+{ setrgbcolor }
+{ setcmykcolor }
+ifelse }
+ifelse }
+ifelse
+} bind dd
+/_sfcs { } dd
+/_sscs { } dd
+} EndLoad
+Level2? not _ColorSep5044? not and StartLoad
+{
+/_sfc { _fc L1setcolor } dd
+/_ssc { _sc L1setcolor } dd
+} EndLoad
+Level2? _ColorSep5044? not and StartLoad
+{
+/_sfcs
+{
+_fcs setcolorspace
+} bind dd
+/_sscs
+{
+_scs setcolorspace
+} bind dd
+/_sfc
+{
+_fc aload pop
+_fp null eq
+{ setcolor }
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sc aload pop
+_sp null eq { setcolor } { _sp setpattern } ifelse
+} bind dd
+} EndLoad
+/sc
+{
+_fc astore pop
+ilp
+} bd
+/SC
+{
+_sc astore pop
+ilp
+} bd
+/scn {
+dup type /dicttype eq
+{ dup /_fp xdd
+/PaintType get 1 eq
+{ /_fc _f0 dd ilp }
+{ /_fc _cpcf _fcs ucs get dd
+sc }
+ifelse }
+{ sc }
+ifelse
+} bd
+/SCN {
+dup type /dicttype eq
+{ dup /_sp xdd
+/PaintType get 1 eq
+{ /_sc _s0 dd ilp }
+{ /_sc _cpcs _scs ucs get dd
+SC }
+ifelse }
+{ SC }
+ifelse
+} bd
+/g { /DefaultGray cs sc } bd
+/rg { /DefaultRGB cs sc } bd
+/k { /DeviceCMYK cs sc } bd
+/G { /DefaultGray CS SC } bd
+/RG { /DefaultRGB CS SC } bd
+/K { /DeviceCMYK CS SC } bd
+/cm { _mtx astore concat } bd
+/re {
+4 2 roll m
+1 index 0 rlineto
+0 exch rlineto
+neg 0 rlineto
+h
+} bd
+/RC/rectclip ld
+/EF/execform ld
+/PS { cvx exec } bd
+/initgs {
+/DefaultGray where
+{ pop }
+{ /DefaultGray /DeviceGray dd }
+ifelse
+/DefaultRGB where
+{ pop }
+{ /DefaultRGB /DeviceRGB dd }
+ifelse
+0 g 0 G
+[] 0 d 0 j 0 J 10 M 1 w
+true setSA
+} bd
+21 dict dup begin
+/CosineDot
+{ 180 mul cos exch 180 mul cos add 2 div } bd
+/Cross
+{ abs exch abs 2 copy gt { exch } if pop neg } bd
+/Diamond
+{ abs exch abs 2 copy add .75 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 2 copy add 1.23 le
+{ .85 mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse }
+ifelse } bd
+/Double
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add } bd
+/DoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add } bd
+/Ellipse
+{ abs exch abs 2 copy 3 mul exch 4 mul add 3 sub dup 0 lt
+{ pop dup mul exch .75 div dup mul add 4 div
+1 exch sub }
+{ dup 1 gt
+{pop 1 exch sub dup mul exch 1 exch sub
+.75 div dup mul add 4 div 1 sub }
+{ .5 exch sub exch pop exch pop }
+ifelse }
+ifelse } bd
+/EllipseA
+{ dup mul .9 mul exch dup mul add 1 exch sub } bd
+/EllipseB
+{ dup 5 mul 8 div mul exch dup mul exch add sqrt 1 exch sub } bd
+/EllipseC
+{ dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+exch
+dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+add -2 div } bd
+/InvertedDouble
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedDoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedEllipseA
+{ dup mul .9 mul exch dup mul add 1 sub } bd
+/InvertedSimpleDot
+{ dup mul exch dup mul add 1 sub } bd
+/Line
+{ exch pop abs neg } bd
+/LineX
+{ pop } bd
+/LineY
+{ exch pop } bd
+/Rhomboid
+{ abs exch abs 0.9 mul add 2 div } bd
+/Round
+{ abs exch abs 2 copy add 1 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse } bd
+/SimpleDot
+{ dup mul exch dup mul add 1 exch sub } bd
+/Square
+{ abs exch abs 2 copy lt { exch } if pop neg } bd
+end
+{ /Function defineRes pop } forall
+/Identity {} /Function defineRes pop
+Level2? StartLoad {
+/gs
+{
+begin
+/SA here { setstrokeadjust } if
+/OP here { setoverprint } if
+/BG here { setblackgeneration } if
+/UCR here { setundercolorremoval } if
+/HT here { sethalftone } if
+/sethalftonephase isdefined? { /HTP here { sethalftonephase } if } if
+/TR here
+{
+dup xcheck { settransfer } { aload pop setcolortransfer } ifelse
+} if
+end
+} bd
+{ /Default /Halftone findresource pop } stopped
+{
+currenthalftone exch defineresource pop }
+if
+} EndLoad
+Level2? not StartLoad {
+/gs
+{
+begin
+/SA here { /_sa? xdd } if
+/OP here { dup /_op? xdd
+/setoverprint where {pop setoverprint}
+{pop} ifelse
+} if
+/HT here { sethalftone } if
+/TR here { dup xcheck
+{ settransfer }
+{ pop }
+ifelse } if
+end
+} bd
+5 dict dup
+begin
+currentscreen 1 [/HalftoneType /SpotFunction /Angle /Frequency]
+{ exch def } forall
+end
+/Default exch /Halftone defineRes pop
+} EndLoad
+/int {
+dup 2 index sub 3 index 5 index sub div 6 -2 roll sub mul
+exch pop add exch pop
+} bd
+/limit {
+dup 2 index le { exch } if pop
+dup 2 index ge { exch } if pop
+} bd
+_ColorSep5044? StartLoad {
+/_sfc
+{
+_fp null eq
+{ _fcs type /arraytype eq
+{_fcs 0 get /Separation eq
+{
+_fcs 1 get /All eq
+{
+_fc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _fcs 3 get exec _fcs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_fc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sp null eq
+{ _scs type /arraytype eq
+{_scs 0 get /Separation eq
+{
+_scs 1 get /All eq
+{
+_sc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _scs 3 get exec _scs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_sc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sp setpattern }
+ifelse
+} bind dd
+} EndLoad
+%%EndFile
+%%BeginFile: pdftext.prc
+%%Copyright: Copyright 1987-1994 Adobe Systems Incorporated. All Rights Reserved.
+PDF /PDFText 51 dict dup begin put
+/initialize { PDFText begin } bd
+/terminate { end } bd
+/CopyFont {
+{
+1 index /FID ne 2 index /UniqueID ne and
+{ def } { pop pop } ifelse
+} forall
+} bd
+/modEnc {
+/_enc xdd
+/_icode 0 dd
+counttomark 1 sub -1 0
+{
+index
+dup type /nametype eq
+{
+_enc _icode 3 -1 roll put
+_icode 1 add
+}
+if
+/_icode xdd
+} for
+cleartomark
+_enc
+} bd
+/trEnc {
+/_enc xdd
+255 -1 0 {
+exch dup -1 eq
+{ pop /.notdef }
+{ Encoding exch get }
+ifelse
+_enc 3 1 roll put
+} for
+pop
+_enc
+} bd
+/TE {
+/_i xdd
+StandardEncoding 256 array copy modEnc
+_pdfEncodings exch _i exch put
+} bd
+/TZ
+{
+/_usePDFEncoding xdd
+findfont
+dup length 2 add dict
+begin
+{
+1 index /FID ne { def } { pop pop } ifelse
+} forall
+/FontName exch def
+_usePDFEncoding 0 ge
+{
+/Encoding _pdfEncodings _usePDFEncoding get def
+pop
+}
+{
+_usePDFEncoding -1 eq
+{
+counttomark 0 eq
+{ pop }
+{
+Encoding 256 array copy
+modEnc /Encoding exch def
+}
+ifelse
+}
+{
+256 array
+trEnc /Encoding exch def
+}
+ifelse
+}
+ifelse
+FontName currentdict
+end
+definefont pop
+}
+bd
+/_pdfIsLevel2
+systemdict /languagelevel known
+{languagelevel 2 ge}
+{false}
+ifelse
+def
+_pdfIsLevel2
+{
+/_pdfFontStatus
+{
+dup /Font resourcestatus
+{pop pop pop true}
+{
+/CIDFont /Category resourcestatus
+{
+pop pop
+/CIDFont resourcestatus
+{pop pop true}
+{false}
+ifelse
+}
+{ pop false }
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfFontStatusString 50 string def
+_pdfFontStatusString 0 (fonts/) putinterval
+/_pdfFontStatus
+{
+_pdfFontStatusString 6 42 getinterval
+cvs length 6 add
+_pdfFontStatusString exch 0 exch getinterval
+status
+{ pop pop pop pop true}
+{ false }
+ifelse
+} bd
+}
+ifelse
+/_pdfString100 100 string def
+/_pdfComposeFontName
+{
+dup length 1 eq
+{
+0 get
+1 index
+type /nametype eq
+{
+_pdfString100 cvs
+length dup dup _pdfString100 exch (-) putinterval
+_pdfString100 exch 1 add dup _pdfString100 length exch sub getinterval
+2 index exch cvs length
+add 1 add _pdfString100 exch 0 exch getinterval
+exch pop
+true
+}
+{
+pop pop
+false
+}
+ifelse
+}
+{
+false
+}
+ifelse
+} bd
+systemdict /composefont known
+{
+/_pdfComposeFont
+{
+1 index /CMap resourcestatus
+{pop pop true}
+{false}
+ifelse
+1 index true exch
+{
+_pdfFontStatus not
+{pop false exit}
+if
+}
+forall
+and
+{composefont true}
+{
+_pdfComposeFontName
+{
+dup _pdfFontStatus
+{ findfont definefont true }
+{ pop pop false }
+ifelse
+}
+{
+dup _pdfFontStatus
+{ findfont true }
+{ pop false }
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfComposeFont
+{
+_pdfComposeFontName not
+{
+dup
+}
+if
+2 copy _pdfFontStatus
+{ pop findfont definefont true }
+{
+eq
+{pop false}
+{
+dup _pdfFontStatus
+{findfont true}
+{pop false}
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+ifelse
+/_pdfFaceByStyleDict 4 dict dup begin
+_pdfIsLevel2
+{
+/Serif
+/Ryumin-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /Ryumin-Light}
+{/HeiseiMin-W3}
+ifelse
+def
+/SansSerif
+/GothicBBB-Medium-83pv-RKSJ-H /Font resourcestatus
+{pop pop /GothicBBB-Medium}
+{/HeiseiKakuGo-W5}
+ifelse
+def
+/Jun101-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /Jun101-Light def }
+{
+/HeiseiMaruGo-W4-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /HeiseiMaruGo-W4 def}
+if
+}
+ifelse
+/Default Serif def
+}
+{
+/Serif /Ryumin-Light def
+/SansSerif /GothicBBB-Medium def
+{
+(fonts/Jun101-Light-83pv-RKSJ-H) status
+}stopped
+{pop}{
+{pop pop pop pop /RoundSansSerif /Jun101-Light def }
+if
+}ifelse
+/Default Serif def
+}
+ifelse
+end
+def
+/TZzero
+{
+/_styleArr xdd
+3 copy
+_pdfComposeFont
+{exch pop exch pop exch pop}
+{
+[
+0 1 _styleArr length 1 sub
+{
+_styleArr exch get
+_pdfFaceByStyleDict exch 2 copy known not
+{ pop /Default }
+if
+get
+}
+for
+]
+exch pop
+2 index 3 1 roll
+_pdfComposeFont
+{exch pop}
+{
+findfont
+dup length dict
+begin
+{1 index /FID ne {def}{pop pop} ifelse }
+forall
+currentdict
+end
+}
+ifelse
+}
+ifelse
+definefont pop
+}
+bd
+/swj {
+dup 4 1 roll
+dup length exch stringwidth
+exch 5 -1 roll 3 index mul add
+4 1 roll 3 1 roll mul add
+6 2 roll /_cnt 0 dd
+{1 index eq {/_cnt _cnt 1 add dd} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} bd
+/jss {
+4 1 roll
+{
+2 npop
+(0) exch 2 copy 0 exch put
+gsave
+32 eq
+{
+exch 6 index 6 index 6 index 5 -1 roll widthshow
+currentpoint
+}
+{
+false charpath currentpoint
+4 index setmatrix stroke
+}
+ifelse
+grestore
+moveto
+2 copy rmoveto
+} exch cshow
+6 npop
+} def
+/jsp
+{
+{
+2 npop
+(0) exch 2 copy 0 exch put
+32 eq
+{ exch 5 index 5 index 5 index 5 -1 roll widthshow }
+{ false charpath }
+ifelse
+2 copy rmoveto
+} exch cshow
+5 npop
+} bd
+/trj { _cx 0 32 _ax 0 6 5 roll } bd
+/pjsf { trj sfc awidthshow } bd
+/pjss { trj _ctm ssc jss } bd
+/pjsc { trj jsp } bd
+/_Tjdef [
+/pjsf load
+/pjss load
+{
+dup
+currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+} bind
+{
+trj swj rmoveto
+} bind
+{
+dup currentpoint 4 2 roll gsave
+pjsf
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll
+currentpoint gsave newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll gsave
+dup currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+/pjsc load
+] def
+/BT
+{
+/_inT true dd
+_ctm currentmatrix pop matrix _tm copy pop
+0 _rise translate _hs 1 scale
+0 0 moveto
+} bd
+/ET
+{
+/_inT false dd
+_tr 3 gt {clip} if
+_ctm setmatrix newpath
+} bd
+/Tr {
+_inT { _tr 3 le {currentpoint newpath moveto} if } if
+dup /_tr xdd
+_Tjdef exch get /_Tj xdd
+} bd
+/Tj {
+userdict /$$copystring 2 index put
+_Tj
+} bd
+/iTm { _ctm setmatrix _tm concat 0 _rise translate _hs 1 scale } bd
+/Tm { _tm astore pop iTm 0 0 moveto } bd
+/Td { _mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto } bd
+/TD { dup /_ld xdd Td } bd
+/Tf {
+dup 1000 div /_fScl xdd
+exch findfont exch scalefont setfont
+} bd
+/TL { neg /_ld xdd } bd
+/Tw { /_cx xdd } bd
+/Tc { /_ax xdd } bd
+/Ts { /_rise xdd currentpoint iTm moveto } bd
+/Tz { 100 div /_hs xdd iTm } bd
+/Tk { exch pop _fScl mul neg 0 rmoveto } bd
+/T* { 0 _ld Td } bd
+/' { T* Tj } bd
+/" { exch Tc exch Tw ' } bd
+/TJ {
+{
+dup type /stringtype eq
+{ Tj }
+{ 0 exch Tk }
+ifelse
+} forall
+} bd
+/T- { _hy Tj } bd
+/d0/setcharwidth ld
+/d1 { setcachedevice /sfc{}dd /ssc{}dd } bd
+/nND {{/.notdef} repeat} bd
+/T3Defs {
+/BuildChar
+{
+1 index /Encoding get exch get
+1 index /BuildGlyph get exec
+}
+def
+/BuildGlyph {
+exch begin
+GlyphProcs exch get exec
+end
+} def
+} bd
+/MakeBold {
+findfont dup dup length 2 add dict
+begin
+CopyFont
+/PaintType 2 def
+/StrokeWidth .03 0 FontMatrix idtransform pop def
+/dummybold currentdict
+end
+definefont
+8 dict begin
+/_basefont exch def
+/_basefonto exch def
+/FontType 3 def
+/FontMatrix[1 0 0 1 0 0]def
+/FontBBox[0 0 1 1]def
+/Encoding StandardEncoding def
+/BuildChar
+{
+exch begin
+_basefont setfont
+( )dup 0 4 -1 roll put
+dup stringwidth
+1 index 0 ne { exch .03 add exch }if
+setcharwidth
+0 0 moveto
+gsave
+dup show
+grestore
+_basefonto setfont
+show
+end
+}bd
+currentdict
+end
+definefont pop
+}bd
+/MakeItalic {
+findfont _italMtx makefont
+dup length dict
+begin
+CopyFont
+currentdict
+end
+definefont pop
+}bd
+/MakeBoldItalic {
+/dummybold exch
+MakeBold
+/dummybold
+MakeItalic
+}bd
+currentdict readonly pop end
+%%EndFile
+PDFText begin
+[39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis
+/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute
+/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde
+/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex
+/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls
+/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash
+/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef
+/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash
+/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef
+/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe
+/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide
+/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright
+/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand
+/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex
+/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex
+/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla
+/hungarumlaut/ogonek/caron
+0 TE
+[1/dotlessi/caron 39/quotesingle 96/grave 
+127/bullet/bullet/bullet/quotesinglbase/florin/quotedblbase/ellipsis
+/dagger/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright/quotedblleft
+/quotedblright/bullet/endash/emdash/tilde/trademark/scaron
+/guilsinglright/oe/bullet/bullet/Ydieresis/space/exclamdown/cent/sterling
+/currency/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree/plusminus
+/twosuperior/threesuperior/acute/mu/paragraph/periodcentered/cedilla
+/onesuperior/ordmasculine/guillemotright/onequarter/onehalf/threequarters
+/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash
+/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde
+/ograve/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+1 TE
+end
+currentdict readonly pop
+end end
+/currentpacking where {pop setpacking}if
+PDFVars/InitAll{[PDF PDFText]{/initialize get exec}forall initgs 0 Tr}put
+PDFVars/TermAll{[PDFText PDF]{/terminate get exec}forall}put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+/N5 8 dict dup begin
+/SA false def
+/OP false def
+/HT /Default /Halftone findRes def
+end /ExtGState defineRes pop
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N13/Times-Italic -1 TZ
+% End encoding-delta
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N4/Times-Roman -1 TZ
+% End encoding-delta
+PDFVars/TermAll get exec end end
+
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 45.6 -45.6 0 268.058 303.56 Tm
+0 0 0 rg
+0.002 Tc
+[(I)3 (nput/O)3 (ut)6 (put)]TJ
+0 33.12 -33.12 0 370.964 352.04 Tm
+0 Tc
+0.004 Tw
+[(Fred Long)]TJ
+0 24.96 -24.96 0 408.829 182.84 Tm
+0 Tw
+[(based on sli)9 (d)0 (es o)10 (r)-4 (igi)9 (n)0 (all)9 (y)0 ( wri)9 (tte)11 (n by Mike Tedd)]TJ
+3.558 -1.192 TD
+[(and m)9 (odi)9 (fie)11 (d)0 ( by Edel )10 (Sherr)6 (a)2 (tt)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 2 2
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (2)]TJ
+0 45.6 -45.6 0 131.76 308.84 Tm
+0 Tc
+(Introduction)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.004 Tw
+[(\225)-498 (D)-3 (evices vary)-7 ( )8 (enormo)-7 (u)0 (sly:)]TJ
+0 29.04 -29.04 0 251.736 149.24 Tm
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (s)3 (i)7 (m)3 (pl)7 (e ch)6 (arac)8 (te)8 (r I/O, e)8 (.)-4 (g)6 (.)4 (, t)7 (e)0 (rmin)6 (al)7 (s)]TJ
+0 -1.322 TD
+[(\226)-300 (f)-4 (i)7 (x)-2 (e)8 (d)6 ( )-8 (si)7 (ze)8 ( bl)7 (oc)8 (ks,)4 ( e.)4 (g.)4 (,)4 ( di)7 (scs)]TJ
+T*
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (v)0 (a)-6 (r)-2 (i)-7 (a)2 (b)-8 (l)1 (e)-6 ( si)-7 (ze)-6 ( bl)-7 (oc)-6 (ks,)-10 ( e.)-10 (g.,)-10 ( mag)-8 (n)0 (e)-6 (t)1 (i)-7 (c)2 ( t)-7 (a)2 (p)-8 (e)2 (s)]TJ
+0 33.12 -33.12 0 371.328 111.8 Tm
+0.001 Tc
+[(\225)-497 (I)1 (/O speed var)8 (i)-4 (es enormou)-6 (sly:)]TJ
+0 29.04 -29.04 0 410.616 149.24 Tm
+-0.004 Tc
+[(\226)-306 (k)0 (e)-6 (y)0 (b)-8 (o)0 (a)-6 (r)-2 (d)-8 (:)1 ( )-8 (at)-7 ( most)-7 ( a)-6 ( fe)-6 (w )-8 (ch)-8 (ar)-10 (ac)-6 (te)-6 (rs p)-8 (e)2 (r)-10 ( sec)-6 (o)0 (n)-8 (d)]TJ
+T*
+-0.001 Tc
+-0.001 Tw
+[(\226)-303 (V)-6 (DU)-6 ( scr)-7 (e)5 (en: perhaps 1000 chars )-8 (per second)]TJ
+T*
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (d)6 (isc)8 (s)3 (: mil)7 (l)-1 (i)7 (o)-2 (n)6 (s)3 ( of )-8 (c)8 (p)-2 (s a)8 (t)-1 ( pe)8 (ak)6 ( bu)6 (t ty)6 (pi)7 (c)8 (a)0 (l)7 (l)-1 (y)]TJ
+0.802 -1.083 TD
+0.001 Tc
+-0.003 Tw
+[(a)7 (r)-5 (o)5 (u)-3 (n)5 (d)-3 ( 30)5 ( co)5 (mpl)6 (e)-1 (t)6 (e)-1 ( op)5 (erat)6 (io)5 (ns p)5 (e)-1 (r )-8 (se)7 (co)5 (nd)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 3 3
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (3)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.002 Tc
+-0.006 Tw
+[(\225)-496 (P)0 (rocesses want:)]TJ
+0 29.04 -29.04 0 146.616 149.24 Tm
+-0.005 Tw
+[(\226)-299 (c)9 (on)7 (ve)9 (ni)8 (en)7 (t op)7 (er)5 (at)8 (io)7 (ns,)5 ( e.)5 (g)7 (.)-3 (,)5 ( re)9 (co)7 (rd)7 ( I/)8 (O)]TJ
+0 -1.446 TD
+[(\226)-299 (d)7 (ev)7 (ic)9 (e in)7 (de)9 (pe)9 (nd)7 (en)7 (ce)]TJ
+0 -1.438 TD
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (s)-3 (en)-8 (sib)-8 (l)1 (e)-6 ( su)-8 (pp)-8 (or)-10 (t f)-10 (o)0 (r)-10 ( l)-7 (o)0 (g)-8 (i)1 (c)-6 (a)2 (l)-7 ( co)-8 (ll)-7 (ec)-6 (ti)-7 (on)-8 (s of)-10 ( d)-8 (a)2 (t)-7 (a)]TJ
+0 33.12 -33.12 0 277.248 111.8 Tm
+0.001 Tc
+[(\225)-497 (T)3 (he operating )8 (sy)-6 (stem bridges this gap)]TJ
+0.848 -1.203 TD
+[(between physical demands )8 (o)-6 (f)8 ( th)-6 (e dev)-6 (i)4 (ces)]TJ
+0 -1.196 TD
+[(and )8 (logical demand)-6 (s )8 (of the )8 (p)-6 (r)8 (o)-6 (c)3 (esses)]TJ
+-0.848 -1.442 TD
+-0.002 Tc
+-0.002 Tw
+[(\225)-500 (A)-5 (t )-8 (the)-7 ( l)-7 (o)-2 (w)-5 (e)-7 (st l)-7 (e)0 (v)-9 (e)0 (l,)-6 ( )-8 (the)-7 ( )]TJ
+/N13 1 Tf
+10.37 0.009 TD
+-0.001 Tc
+0.005 Tw
+[(de)-6 (v)-6 (i)2 (ce)-6 ( driv)-6 (er)]TJ
+/N4 1 Tf
+-9.522 -1.212 TD
+0.001 Tc
+-0.005 Tw
+[(provides )-8 (\223r)8 (aw\224 I/O )-8 (and h)-6 (i)4 (des all )-8 (th)-6 (e)]TJ
+0 -1.203 TD
+0.003 Tw
+[(physical problems )8 (of the device)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 4 4
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (4)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+-0.005 Tw
+[(\225)-497 (D)-2 (evice )-8 (drivers try to mak)-6 (e)3 ( )-8 (all )-8 (devices )-8 (look)]TJ
+0.848 -1.196 TD
+0.004 Tc
+[(si)7 (mi)7 (la)6 (r)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he f)8 (i)-4 (ling )8 (sy)-6 (stem under)8 (s)-1 (tan)-6 (d)1 (s )8 (the layout )8 (of)]TJ
+0.848 -1.203 TD
+0 Tc
+-0.004 Tw
+[(file-stru)-7 (c)2 (tu)-7 (red )-8 (devices, and )-8 (translates file-)]TJ
+T*
+0.004 Tw
+[(oriented requ)-7 (ests )8 (in)-7 (to dev)-7 (i)3 (ce-oriented ones)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (L)3 (ibrary )-8 (co)-6 (de, linked )-8 (into a p)-6 (rogram, )-8 (will)]TJ
+0.848 -1.196 TD
+0.003 Tw
+[(handle the )8 (block)-6 (i)4 (ng and)-6 ( )8 (unb)-6 (locking of)]TJ
+0 -1.203 TD
+-0.005 Tw
+[(records )-8 (\(such librar)8 (y)-6 ( code is often )-8 (called )-8 (the)]TJ
+/N13 1 Tf
+0 -1.194 TD
+0.003 Tc
+-0.007 Tw
+(access method)Tj
+/N4 1 Tf
+5.826 -0.009 TD
+(\))Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 5 5
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (5)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+92.64 421.88 174.48 -299.04 re
+S 
+1 J
+1 j
+217.2 122.84 m
+217.2 421.64 l
+S 
+0 J
+0 j
+136.32 303.56 31.2 -118.56 re
+S 
+BT
+0 20.64 -20.64 0 117.696 141.56 Tm
+0 Tc
+0.006 Tw
+[(A)-11 (pplication Proce)-9 (s)5 (s)]TJ
+8.744 -2.105 TD
+-0.003 Tc
+[(r)-7 (eco)-15 (rd_)-15 (x)]TJ
+-7.779 -1.756 TD
+0 Tc
+-0.006 Tw
+[(read)-12 (\()7 (c)-9 (hann)-12 (el_3,)-6 ( rec)-9 (o)0 (r)7 (d)-12 (_x\))]TJ
+ET
+229.68 316.04 24.96 -168.24 re
+S 
+229.92 185.48 m
+229.44 185 l
+229.68 184.76 l
+229.92 185 l
+229.92 185.48 l
+f 
+231.12 185.48 m
+230.88 185.48 l
+230.64 185.24 l
+230.64 185 l
+230.88 184.76 l
+231.12 184.76 l
+231.36 185 l
+231.36 185.48 l
+231.12 185.48 l
+f 
+232.56 185.48 m
+232.32 185.48 l
+232.08 185.24 l
+232.08 185 l
+232.32 184.76 l
+232.56 184.76 l
+232.8 185 l
+232.8 185.48 l
+232.56 185.48 l
+f 
+234 185.48 m
+233.76 185.48 l
+233.52 185.24 l
+233.52 185 l
+233.76 184.76 l
+234 184.76 l
+234.24 185 l
+234.24 185.48 l
+234 185.48 l
+f 
+235.44 185.48 m
+235.2 185.48 l
+234.96 185.24 l
+234.96 185 l
+235.2 184.76 l
+235.44 184.76 l
+235.68 185 l
+235.68 185.48 l
+235.44 185.48 l
+f 
+236.88 185.48 m
+236.64 185.48 l
+236.4 185.24 l
+236.4 185 l
+236.64 184.76 l
+236.88 184.76 l
+237.12 185 l
+237.12 185.48 l
+236.88 185.48 l
+f 
+238.32 185.48 m
+238.08 185.48 l
+237.84 185.24 l
+237.84 185 l
+238.08 184.76 l
+238.32 184.76 l
+238.56 185 l
+238.56 185.48 l
+238.32 185.48 l
+f 
+239.76 185.48 m
+239.52 185.48 l
+239.28 185.24 l
+239.28 185 l
+239.52 184.76 l
+239.76 184.76 l
+240 185 l
+240 185.48 l
+239.76 185.48 l
+f 
+241.2 185.48 m
+240.96 185.48 l
+240.72 185.24 l
+240.72 185 l
+240.96 184.76 l
+241.2 184.76 l
+241.44 185 l
+241.44 185.48 l
+241.2 185.48 l
+f 
+242.64 185.48 m
+242.4 185.48 l
+242.16 185.24 l
+242.16 185 l
+242.4 184.76 l
+242.64 184.76 l
+242.88 185 l
+242.88 185.48 l
+242.64 185.48 l
+f 
+244.08 185.48 m
+243.84 185.48 l
+243.6 185.24 l
+243.6 185 l
+243.84 184.76 l
+244.08 184.76 l
+244.32 185 l
+244.32 185.48 l
+244.08 185.48 l
+f 
+245.52 185.48 m
+245.28 185.48 l
+245.04 185.24 l
+245.04 185 l
+245.28 184.76 l
+245.52 184.76 l
+245.76 185 l
+245.76 185.48 l
+245.52 185.48 l
+f 
+246.96 185.48 m
+246.72 185.48 l
+246.48 185.24 l
+246.48 185 l
+246.72 184.76 l
+246.96 184.76 l
+247.2 185 l
+247.2 185.48 l
+246.96 185.48 l
+f 
+248.4 185.48 m
+248.16 185.48 l
+247.92 185.24 l
+247.92 185 l
+248.16 184.76 l
+248.4 184.76 l
+248.64 185 l
+248.64 185.48 l
+248.4 185.48 l
+f 
+249.84 185.48 m
+249.6 185.48 l
+249.36 185.24 l
+249.36 185 l
+249.6 184.76 l
+249.84 184.76 l
+250.08 185 l
+250.08 185.48 l
+249.84 185.48 l
+f 
+251.28 185.48 m
+251.04 185.48 l
+250.8 185.24 l
+250.8 185 l
+251.04 184.76 l
+251.28 184.76 l
+251.52 185 l
+251.52 185.48 l
+251.28 185.48 l
+f 
+252.72 185.48 m
+252.48 185.48 l
+252.24 185.24 l
+252.24 185 l
+252.48 184.76 l
+252.72 184.76 l
+252.96 185 l
+252.96 185.48 l
+252.72 185.48 l
+f 
+254.16 185.48 m
+253.92 185.48 l
+253.68 185.24 l
+253.68 185 l
+253.92 184.76 l
+254.16 184.76 l
+254.4 185 l
+254.4 185.48 l
+254.16 185.48 l
+f 
+229.92 254.12 m
+229.44 253.64 l
+229.68 253.4 l
+229.92 253.64 l
+229.92 254.12 l
+f 
+231.12 254.12 m
+230.88 254.12 l
+230.64 253.88 l
+230.64 253.64 l
+230.88 253.4 l
+231.12 253.4 l
+231.36 253.64 l
+231.36 254.12 l
+231.12 254.12 l
+f 
+232.56 254.12 m
+232.32 254.12 l
+232.08 253.88 l
+232.08 253.64 l
+232.32 253.4 l
+232.56 253.4 l
+232.8 253.64 l
+232.8 254.12 l
+232.56 254.12 l
+f 
+234 254.12 m
+233.76 254.12 l
+233.52 253.88 l
+233.52 253.64 l
+233.76 253.4 l
+234 253.4 l
+234.24 253.64 l
+234.24 254.12 l
+234 254.12 l
+f 
+235.44 254.12 m
+235.2 254.12 l
+234.96 253.88 l
+234.96 253.64 l
+235.2 253.4 l
+235.44 253.4 l
+235.68 253.64 l
+235.68 254.12 l
+235.44 254.12 l
+f 
+236.88 254.12 m
+236.64 254.12 l
+236.4 253.88 l
+236.4 253.64 l
+236.64 253.4 l
+236.88 253.4 l
+237.12 253.64 l
+237.12 254.12 l
+236.88 254.12 l
+f 
+238.32 254.12 m
+238.08 254.12 l
+237.84 253.88 l
+237.84 253.64 l
+238.08 253.4 l
+238.32 253.4 l
+238.56 253.64 l
+238.56 254.12 l
+238.32 254.12 l
+f 
+239.76 254.12 m
+239.52 254.12 l
+239.28 253.88 l
+239.28 253.64 l
+239.52 253.4 l
+239.76 253.4 l
+240 253.64 l
+240 254.12 l
+239.76 254.12 l
+f 
+241.2 254.12 m
+240.96 254.12 l
+240.72 253.88 l
+240.72 253.64 l
+240.96 253.4 l
+241.2 253.4 l
+241.44 253.64 l
+241.44 254.12 l
+241.2 254.12 l
+f 
+242.64 254.12 m
+242.4 254.12 l
+242.16 253.88 l
+242.16 253.64 l
+242.4 253.4 l
+242.64 253.4 l
+242.88 253.64 l
+242.88 254.12 l
+242.64 254.12 l
+f 
+244.08 254.12 m
+243.84 254.12 l
+243.6 253.88 l
+243.6 253.64 l
+243.84 253.4 l
+244.08 253.4 l
+244.32 253.64 l
+244.32 254.12 l
+244.08 254.12 l
+f 
+245.52 254.12 m
+245.28 254.12 l
+245.04 253.88 l
+245.04 253.64 l
+245.28 253.4 l
+245.52 253.4 l
+245.76 253.64 l
+245.76 254.12 l
+245.52 254.12 l
+f 
+246.96 254.12 m
+246.72 254.12 l
+246.48 253.88 l
+246.48 253.64 l
+246.72 253.4 l
+246.96 253.4 l
+247.2 253.64 l
+247.2 254.12 l
+246.96 254.12 l
+f 
+248.4 254.12 m
+248.16 254.12 l
+247.92 253.88 l
+247.92 253.64 l
+248.16 253.4 l
+248.4 253.4 l
+248.64 253.64 l
+248.64 254.12 l
+248.4 254.12 l
+f 
+249.84 254.12 m
+249.6 254.12 l
+249.36 253.88 l
+249.36 253.64 l
+249.6 253.4 l
+249.84 253.4 l
+250.08 253.64 l
+250.08 254.12 l
+249.84 254.12 l
+f 
+251.28 254.12 m
+251.04 254.12 l
+250.8 253.88 l
+250.8 253.64 l
+251.04 253.4 l
+251.28 253.4 l
+251.52 253.64 l
+251.52 254.12 l
+251.28 254.12 l
+f 
+252.72 254.12 m
+252.48 254.12 l
+252.24 253.88 l
+252.24 253.64 l
+252.48 253.4 l
+252.72 253.4 l
+252.96 253.64 l
+252.96 254.12 l
+252.72 254.12 l
+f 
+254.16 254.12 m
+253.92 254.12 l
+253.68 253.88 l
+253.68 253.64 l
+253.92 253.4 l
+254.16 253.4 l
+254.4 253.64 l
+254.4 254.12 l
+254.16 254.12 l
+f 
+BT
+0 20.64 -20.64 0 248.256 334.52 Tm
+0.002 Tc
+[(buffe)4 (r)]TJ
+ET
+322.8 384.44 131.04 -217.92 re
+S 
+BT
+0 20.64 -20.64 0 347.856 185 Tm
+0.001 Tc
+-0.007 Tw
+[(Fili)12 (n)-11 (g)1 ( Sy)-11 (s)6 (t)0 (em)]TJ
+ET
+416.16 228.92 25.2 -37.68 re
+416.16 291.08 25.2 -37.44 re
+S 
+BT
+0 20.64 -20.64 0 404.016 185 Tm
+[(fi)12 (le)-8 ( co)-11 (ntr)8 (o)-11 (l)12 ( )-12 (block)-11 (s)]TJ
+ET
+1 j
+2.4 w
+204.72 241.16 m
+218.16 241.16 l
+S 
+217.68 234.92 m
+229.68 241.16 l
+217.68 247.16 l
+217.68 234.92 l
+f* 
+273.12 265.88 m
+305.28 265.88 l
+S 
+304.8 259.64 m
+316.8 265.88 l
+304.8 271.88 l
+304.8 259.64 l
+f* 
+BT
+0 20.64 -20.64 0 298.176 284.6 Tm
+0 Tc
+-0.006 Tw
+[(read)-12 (\()7 (c)-9 (hann)-12 (el_3,)-6 ( bloc)-9 (k_17)-12 (,)6 ( )-12 (buffer\))7 (;)]TJ
+ET
+0 j
+0.72 w
+354 720.44 93.6 -106.08 re
+S 
+BT
+0 20.64 -20.64 0 379.056 633.08 Tm
+0.009 Tc
+[(Di)20 (sc)]TJ
+0 -1.209 TD
+0.011 Tc
+[(De)13 (v)11 (i)10 (c)13 (e)]TJ
+0 -1.198 TD
+0.01 Tc
+[(Dr)17 (i)9 (v)10 (er)]TJ
+ET
+1 j
+2.4 w
+397.68 396.68 m
+397.68 590.6 l
+S 
+403.92 590.12 m
+397.68 602.12 l
+391.68 590.12 l
+403.92 590.12 l
+f* 
+BT
+0 20.64 -20.64 0 422.496 415.4 Tm
+-0.001 Tc
+[(r)-5 (ead)-13 (\(dis)-7 (c_7,)]TJ
+0 -1.209 TD
+0 Tc
+[( )-12 (  )-12 ( b)-12 (l)11 (o)-12 (c)2 (ks)-6 ( 39)-12 (3 )-12 (t)11 (o)-12 ( 39)-12 (6\))]TJ
+ET
+1 J
+0.72 w
+105.12 664.28 m
+105.36 658.52 l
+105.6 653 l
+107.04 642.44 l
+108 637.64 l
+109.44 632.84 l
+110.64 628.52 l
+112.32 624.68 l
+114 621.08 l
+115.92 617.72 l
+118.08 614.84 l
+120 612.44 l
+122.4 610.76 l
+124.8 609.32 l
+127.2 608.36 l
+129.6 608.12 l
+236.16 608.12 l
+238.8 608.36 l
+241.2 609.32 l
+243.6 610.76 l
+245.76 612.44 l
+247.92 614.84 l
+249.84 617.72 l
+251.76 621.08 l
+253.44 624.68 l
+255.12 628.52 l
+256.56 632.84 l
+257.76 637.64 l
+258.72 642.44 l
+259.68 647.72 l
+260.16 653 l
+260.64 658.52 l
+260.64 670.04 l
+260.16 675.56 l
+259.68 680.84 l
+258.72 686.12 l
+257.76 690.92 l
+256.56 695.48 l
+255.12 699.8 l
+253.44 703.88 l
+251.76 707.48 l
+249.84 710.6 l
+247.92 713.48 l
+245.76 715.88 l
+243.6 717.8 l
+241.2 719 l
+238.8 719.96 l
+236.16 720.2 l
+129.6 720.2 l
+127.2 719.96 l
+124.8 719 l
+122.4 717.8 l
+120 715.88 l
+118.08 713.48 l
+115.92 710.6 l
+114 707.48 l
+112.32 703.88 l
+110.64 699.8 l
+109.44 695.48 l
+108 690.92 l
+107.04 686.12 l
+105.6 675.56 l
+105.36 670.04 l
+105.12 664.28 l
+h
+129.6 608.12 m
+132 608.36 l
+134.4 609.32 l
+136.8 610.76 l
+139.2 612.44 l
+141.36 614.84 l
+143.28 617.72 l
+145.2 621.08 l
+146.88 624.68 l
+148.56 628.52 l
+150 632.84 l
+151.2 637.64 l
+152.16 642.44 l
+153.6 653 l
+154.08 658.52 l
+154.08 670.04 l
+153.6 675.56 l
+152.16 686.12 l
+151.2 690.92 l
+150 695.48 l
+148.56 699.8 l
+146.88 703.88 l
+145.2 707.48 l
+143.28 710.6 l
+141.36 713.48 l
+139.2 715.88 l
+136.8 717.8 l
+134.4 719 l
+132 719.96 l
+129.6 720.2 l
+S 
+BT
+0 20.64 -20.64 0 204.816 639.32 Tm
+0.009 Tc
+[(Di)20 (sc)]TJ
+ET
+0 J
+2.4 w
+336.24 664.28 m
+284.64 664.28 l
+S 
+335.76 658.04 m
+347.76 664.28 l
+335.76 670.28 l
+335.76 658.04 l
+f* 
+285.12 670.52 m
+273.12 664.28 l
+285.12 658.28 l
+285.12 670.52 l
+f* 
+BT
+0 20.64 -20.64 0 303.216 677.96 Tm
+-0.001 Tc
+[(phy)-13 (sica)-10 (l)]TJ
+T*
+[(co)-13 (mmands)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 6 6
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (6)]TJ
+0 45.6 -45.6 0 131.76 128.36 Tm
+(S)Tj
+ET
+q
+90.72 78.92 50.88 715.92 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 153.8 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 176.601 Tm
+0 Tc
+(nchronous/As)Tj
+ET
+q
+90.72 78.92 50.88 715.92 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 430.044 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 452.844 Tm
+0.001 Tc
+-0.004 Tw
+(nchronous I/O)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+(\225)Tj
+/N13 1 Tf
+0.848 0.009 TD
+0 Tc
+[(Synch)-7 (r)-2 (onous)]TJ
+/N4 1 Tf
+5.181 -0.009 TD
+0.002 Tc
+-0.006 Tw
+(, or )Tj
+/N13 1 Tf
+1.587 0.009 TD
+0 Tc
+[(blo)-7 (c)2 (king)]TJ
+/N4 1 Tf
+3.449 -0.009 TD
+0.003 Tc
+0.001 Tw
+[(, I)10 (/)-2 (O )8 (is )8 (when t)6 (h)3 (e)]TJ
+-10.217 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(process making )8 (a r)8 (e)-4 (quest is blocked )8 (u)-6 (n)1 (til)]TJ
+T*
+0.003 Tc
+0.001 Tw
+[(t)6 (h)3 (e re)5 (quest)6 ( ca)5 (n be )8 (com)6 (p)3 (le)5 (te)5 (d)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (P)-1 (roblems )-8 (for two types of )-8 (process:)]TJ
+0 29.04 -29.04 0 385.896 149.24 Tm
+0.004 Tc
+-0.006 Tw
+[(\226)-298 (t)9 (ho)8 (se wi)9 (th)8 ( ot)9 (he)10 (r wo)8 (rk)8 ( th)8 (at)9 ( )-8 (c)10 (o)0 (u)8 (l)1 (d)8 ( be)10 ( )-8 (d)8 (o)0 (n)8 (e)2 ( w)7 (h)0 (i)9 (l)1 (e)]TJ
+0.802 -1.207 TD
+[(t)9 (h)0 (i)9 (s)5 ( )-8 (I)6 (/)1 (O)7 ( re)10 (qu)8 (est)9 ( )-8 (i)9 (s)5 ( ha)10 (nd)8 (le)10 (d,)6 ( e.)6 (g.)6 (,)6 ( ba)10 (ck)8 (-u)8 (ps to)]TJ
+0 -1.198 TD
+-0.003 Tc
+0.001 Tw
+[(ta)-5 (pe)-5 ( f)-9 (r)-1 (o)-7 (m)-2 ( di)-6 (sc,)-9 ( a )-8 (pr)-9 (og)-7 (ra)-5 (m wi)-6 (th)-7 ( se)-5 (ve)-5 (ra)-5 (l t)-6 (h)1 (r)-9 (e)3 (a)-5 (d)1 (s)]TJ
+T*
+-0.004 Tc
+0.002 Tw
+[(bu)-8 (t )-8 (a si)-7 (ng)-8 (le)-6 ( O)-9 (S)-2 ( p)-8 (r)-2 (o)-8 (c)2 (e)-6 (s)-3 (s)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 7 7
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (7)]TJ
+0 29.04 -29.04 0 99.816 149.24 Tm
+0.005 Tc
+0.001 Tw
+[(\226)-297 (p)9 (roc)11 (e)11 (s)6 (s)6 (e)3 (s)6 ( )8 (th)9 (at)10 ( )8 (wa)11 (nt)10 ( t)10 (o)1 ( )8 (w)8 (a)3 (i)10 (t)2 ( )8 (fo)9 (r )8 (m)6 (o)9 (re)11 ( t)10 (h)1 (a)11 (n)1 ( )8 (o)9 (n)1 (e)]TJ
+0.802 -1.207 TD
+-0.006 Tw
+[(d)8 (e)2 (v)8 (i)1 (c)10 (e)2 ( or)6 ( ot)9 (he)10 (r re)10 (qu)8 (est)]TJ
+0 33.12 -33.12 0 181.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (H)-2 (ence )8 (the need for )]TJ
+/N13 1 Tf
+8.703 0.009 TD
+[(asynchrono)-6 (us)]TJ
+/N4 1 Tf
+5.572 -0.009 TD
+-0.002 Tc
+0.006 Tw
+(, or )Tj
+/N13 1 Tf
+1.587 0.009 TD
+0 Tc
+(non)Tj
+/N4 1 Tf
+1.5 -0.009 TD
+(-)Tj
+/N13 1 Tf
+-16.514 -1.194 TD
+[(blo)-7 (c)2 (king)]TJ
+/N4 1 Tf
+3.449 -0.009 TD
+0.004 Tc
+0 Tw
+[(, I)11 (/)-1 (O)]TJ
+-4.297 -1.442 TD
+-0.002 Tc
+0.006 Tw
+[(\225)-500 (H)-5 (e)-7 (r)5 (e)-7 (,)-6 ( )8 (th)-9 (e I/O)-5 ( re)-7 (que)-7 (st is de)-7 (alt)-7 ( )8 (w)-5 (i)-7 (th if)]TJ
+0.848 -1.203 TD
+0.001 Tc
+-0.005 Tw
+[(possible bu)-6 (t, if )-8 (not, )-8 (the pro)-6 (cess is qu)-6 (ick)-6 (l)4 (y)]TJ
+0 -1.196 TD
+0 Tc
+[(returned to, )-8 (with an )-8 (indicatio)-7 (n of )-8 (status)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he process then )8 (continues, an)-6 (d )8 (it is)]TJ
+0.848 -1.203 TD
+[(notified wh)-6 (en the I)8 (/)-4 (O )8 (request completes)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 8 8
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (8)]TJ
+0 45.6 -45.6 0 131.76 339.8 Tm
+0 Tc
+0.003 Tw
+(Unix I/O)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.003 Tc
+0.001 Tw
+[(\225)-495 (In Uni)6 (x)3 (, )8 (al)6 (l )8 (devi)6 (ces,)7 ( fi)6 (l)6 (e)-2 (s, )8 (et)6 (c.)7 (, )8 (are)5 ( t)6 (r)3 (ea)5 (te)5 (d as)]TJ
+0.848 -1.08 TD
+0.001 Tc
+0.003 Tw
+(simple streams of bytes)Tj
+-0.848 -1.319 TD
+0.003 Tc
+0.001 Tw
+[(\225)-495 (D)0 (evi)6 (c)-2 (e)5 (s)1 ( ha)5 (ve)5 ( na)5 (mes )8 (in )8 (the)5 ( fi)6 (l)6 (e)-2 ( syst)6 (em)6 (, )8 (e.g.)7 (,)]TJ
+0.848 -1.08 TD
+0.004 Tc
+-0.008 Tw
+[(/)7 (d)4 (ev/t)7 (t)7 (y)4 (03  )-8 (  )-8 (/)7 (d)4 (ev/r)11 (mt)7 (2)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (E)3 (ach)-6 ( proces)-9 (s has a )-8 (\223standard )-8 (input\224 )-8 (stream)]TJ
+0.848 -1.08 TD
+0.003 Tw
+[(and )8 (a \223standard outpu)-6 (t\224 stream, )8 (in)-6 (herited)]TJ
+T*
+[(from its )8 (parent)]TJ
+-0.848 -1.319 TD
+0.003 Tc
+0.001 Tw
+[(\225)-495 (T)5 (hese )8 (str)10 (eam)6 (s a)5 (r)3 (e )8 (typi)6 (ca)5 (ll)6 (y c)5 (o)-4 (nne)5 (ct)6 (ed t)6 (o)3 ( t)6 (h)3 (e)]TJ
+0.848 -1.08 TD
+0.001 Tc
+-0.005 Tw
+[(keyboard and )-8 (screen)-6 ( of )-8 (the current )-8 (ter)8 (m)-4 (inal)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 9 9
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (9)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he standard I/O streams )8 (can)-6 ( )8 (be )8 (set to be)]TJ
+0.848 -0.964 TD
+[(files or )8 (p)-6 (i)4 (pes)]TJ
+-0.848 -1.203 TD
+-0.005 Tw
+[(\225)-497 (T)3 (his is sup)-6 (ported b)-6 (y)1 ( the )-8 (command)-6 ( line)]TJ
+0.848 -0.964 TD
+-0.001 Tc
+0.005 Tw
+[(int)-6 (e)1 (rfa)-6 (ce)-6 ( shel)-6 (ls:)]TJ
+0 29.04 -29.04 0 236.616 149.24 Tm
+-0.002 Tc
+0 Tw
+[(\226)-304 (p)2 (r)-8 (o)-6 (g < )-8 (file_x)-6 ( > f)-8 (i)3 (le_)-6 (y)]TJ
+0 -1.198 TD
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (p)0 (r)-10 (o)-8 (g_)-8 (a |)-11 ( pr)-10 (og)-8 (_b)]TJ
+0 33.12 -33.12 0 310.608 111.8 Tm
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (In )-8 (t)6 (h)3 (e sec)5 (o)-4 (nd exam)6 (ple)5 (,)-1 ( the shel)6 (l wi)6 (ll)6 ( )-8 (fi)6 (rst)]TJ
+0.848 -0.964 TD
+0.001 Tc
+-0.005 Tw
+[(cr)8 (eate a pipe, )-8 (then it )-8 (will run )-8 (prog_)-6 (a )-8 (passing)]TJ
+T*
+0 Tc
+0.004 Tw
+[(the pipe )8 (as stdout, an)-7 (d )8 (pro)-7 (g_b with the pipe)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+(as stdin)Tj
+-0.848 -1.203 TD
+0.003 Tw
+[(\225)-497 (T)3 (he two child processes )8 (will be )8 (unaware of)]TJ
+0.848 -0.957 TD
+[(the nature of the )8 (I/O)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 10 10
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (10)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (\221)0 (Standard\222 Unix)-7 ( )8 (has )8 (o)-7 (n)0 (ly synchronous I/O)]TJ
+0 -1.391 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (his )8 (leads to costly an)-6 (d )8 (clumsy use of )8 (extr)8 (a)]TJ
+0.848 -1.203 TD
+0.002 Tc
+(processes)Tj
+-0.848 -1.442 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (B)0 (SD and Sun Unix hav)-7 (e)2 ( a simple )8 (form )8 (o)-7 (f)]TJ
+0.848 -1.203 TD
+(non-blocking I/O)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 11 11
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (11)]TJ
+0 45.6 -45.6 0 131.76 285.32 Tm
+(Filin)Tj
+ET
+q
+90.72 235.88 50.88 558.96 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 371.721 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 394.521 Tm
+-0.003 Tc
+0 Tw
+( S)Tj
+ET
+q
+90.72 235.88 50.88 558.96 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 431.242 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 454.042 Tm
+0.001 Tc
+(stems)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+-0.005 Tw
+[(\225)-497 (D)-2 (iscs are usually o)-6 (r)8 (g)-6 (a)3 (nised )-8 (by )-8 (a )]TJ
+/N13 1 Tf
+14.051 0.009 TD
+-0.003 Tc
+[(fi)-8 (lin)-10 (g)]TJ
+-13.203 -1.203 TD
+0.003 Tc
+(system)Tj
+/N4 1 Tf
+2.674 -0.009 TD
+-0.001 Tc
+0.005 Tw
+( \(FS\))Tj
+-3.522 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (C)1 (o)-6 (llections of data are )8 (g)-6 (i)4 (ven )8 (n)-6 (a)3 (mes and)]TJ
+0.848 -1.203 TD
+0.003 Tc
+0.001 Tw
+[(al)6 (l)6 (o)3 (cat)6 (ed )8 (space)5 ( on t)6 (h)3 (e )8 (disc)]TJ
+-0.848 -1.435 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (P)-1 (rocesses \(and u)-6 (s)-1 (ers\) )-8 (refer to)-6 ( the )-8 (data )-8 (by)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(file names, and)-7 ( )8 (by th)-7 (e position of )8 (the )8 (data)]TJ
+T*
+-0.002 Tc
+0.006 Tw
+[(w)-5 (i)1 (t)-7 (h)-2 (in file)-7 (s)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 12 12
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (12)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he FS hides )8 (consideratio)-6 (ns )8 (o)-6 (f)8 ( physical)]TJ
+0.848 -1.196 TD
+0 Tc
+(layout)Tj
+-0.848 -1.442 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (S)-1 (ome o)-6 (t)4 (her devices are )-8 (organised b)-6 (y)1 ( the)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(filing system too)-7 (,)4 ( e.g., tapes, bulk memory,)]TJ
+T*
+0.001 Tc
+0.003 Tw
+(CD drives)Tj
+-0.848 -1.442 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (W)-5 (e refer )8 (to )]TJ
+/N13 1 Tf
+5.659 0.009 TD
+-0.001 Tc
+[(f)-6 (ile)-6 (-struc)-6 (tu)-8 (red)]TJ
+/N4 1 Tf
+5.739 -0.009 TD
+0.001 Tc
+0.003 Tw
+( devices)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 13 13
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (13)]TJ
+0 45.6 -45.6 0 131.76 221.96 Tm
+0 Tc
+(Lo)Tj
+ET
+q
+90.72 172.52 50.88 622.32 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 272.601 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 295.401 Tm
+-0.003 Tw
+(ical View of Files)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.004 Tw
+[(\225)-498 (O)-3 (ne )8 (disc is split into)-7 ( )8 (one or )8 (more )]TJ
+/N13 1 Tf
+14.435 0.009 TD
+0.003 Tc
+[(vol)6 (u)3 (mes)]TJ
+/N4 1 Tf
+-13.587 -1.212 TD
+0.001 Tc
+0.003 Tw
+[(which con)-6 (t)4 (ain f)8 (i)-4 (les)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+279.36 652.04 168.24 -460.8 re
+S 
+BT
+0 20.64 -20.64 0 304.416 209.96 Tm
+[(V)-10 (o)1 (lume)]TJ
+ET
+311.04 465.32 31.44 -112.32 re
+S 
+BT
+0 20.64 -20.64 0 334.176 369.56 Tm
+[(D)-10 (i)12 (rec)-8 (t)0 (or)8 (y)]TJ
+ET
+360.96 353.24 31.2 -112.08 re
+S 
+BT
+0 20.64 -20.64 0 384.096 257.48 Tm
+[(D)-10 (i)12 (rec)-8 (t)0 (or)8 (y)]TJ
+ET
+360.96 602.36 31.2 -112.32 re
+S 
+BT
+0 20.64 -20.64 0 384.096 506.36 Tm
+[(D)-10 (i)12 (rec)-8 (t)0 (or)8 (y)]TJ
+ET
+413.76 546.2 25.2 -56.16 re
+S 
+BT
+0 20.64 -20.64 0 433.776 502.04 Tm
+(File)Tj
+ET
+1 j
+1.44 w
+241.92 508.76 m
+310.56 409.16 l
+341.52 365.48 m
+360.24 303.32 l
+341.52 390.44 m
+366.48 384.2 l
+341.52 427.88 m
+366.48 434.12 l
+341.52 452.6 m
+360.24 545.96 l
+391.44 502.52 m
+409.92 452.6 l
+391.44 589.64 m
+409.92 626.84 l
+391.44 533.48 m
+416.16 521.24 l
+391.44 564.68 m
+416.16 577.16 l
+391.44 265.88 m
+409.92 216.2 l
+391.44 334.52 m
+409.92 371.72 l
+391.44 297.08 m
+416.16 297.08 l
+S 
+BT
+0 24.96 -24.96 0 484.944 141.56 Tm
+0 Tc
+0 Tw
+[(A fu)10 (ll f)6 (i)-1 (l)9 (e)2 (name )10 (w)-9 (i)9 (ll)9 ( be the)11 ( path f)6 (r)-4 (om)9 ( th)10 (e system)9 ( roo)10 (t)]TJ
+0 -1.192 TD
+[(e.g., )10 (    /usr/)9 (s)-5 (poo)10 (l/News/com)9 (p)0 (/r)6 (isks/)9 (371)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 14 14
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (14)]TJ
+0 45.6 -45.6 0 131.76 319.64 Tm
+0 Tc
+0.003 Tw
+(File Tables)Tj
+0 33.12 -33.12 0 209.568 111.8 Tm
+0.001 Tc
+[(\225)-497 (I)1 (t is usual to hav)-6 (e)3 ( a table )8 (in )8 (each volume,)]TJ
+0.848 -0.964 TD
+[(with )8 (an entry )8 (for ev)-6 (ery file in the )8 (vo)-6 (lume)]TJ
+T*
+(\(Unix calls these \223inode\224s\))Tj
+-0.848 -1.196 TD
+-0.005 Tw
+[(\225)-497 (F)-1 (iles )-8 (are identified )-8 (\(by the FS in)-6 (ter)8 (n)-6 (ally\) as)]TJ
+0.848 -0.964 TD
+0 Tc
+[(position)-7 ( numbers in the )-8 (file )-8 (table)]TJ
+-0.848 -1.203 TD
+0.001 Tc
+[(\225)-497 (S)-1 (o, )-8 (pointers from a d)-6 (i)4 (rectory)-6 ( \223go )-8 (through\224)]TJ
+0.848 -0.964 TD
+-0.002 Tc
+-0.002 Tw
+[(the)-7 ( )-8 (file)-7 ( t)-7 (a)0 (bl)-7 (e)]TJ
+-0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (his )8 (is )8 (do)-6 (ne so that we get: improved)]TJ
+0.848 -0.964 TD
+0 Tc
+0.004 Tw
+[(res)-10 (ilience; )8 (easier file mov)-7 (i)3 (ng; a )8 (place to)-7 ( )8 (put)]TJ
+T*
+[(oth)-7 (e)2 (r file )8 (information)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 15 15
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (15)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+117.6 683.24 367.44 -510.48 re
+S 
+BT
+0 20.64 -20.64 0 142.656 197.48 Tm
+[(V)-10 (o)1 (lume)]TJ
+ET
+192.24 341 267.84 -131.04 re
+S 
+1 J
+1 j
+241.92 209.96 m
+241.92 340.76 l
+273.12 209.96 m
+273.12 340.76 l
+304.32 209.96 m
+304.32 340.76 l
+335.28 209.96 m
+335.28 340.76 l
+366.48 209.96 m
+366.48 340.76 l
+397.68 209.96 m
+397.68 340.76 l
+428.64 209.96 m
+428.64 340.76 l
+S 
+BT
+0 20.64 -20.64 0 211.056 234.92 Tm
+(File)Tj
+0 -1.198 TD
+0.005 Tc
+[(Ta)7 (b)-7 (l)16 (e)]TJ
+ET
+0 J
+0 j
+242.64 539.96 31.44 -112.08 re
+S 
+BT
+0 20.64 -20.64 0 265.776 444.2 Tm
+0.001 Tc
+[(D)-10 (i)12 (rec)-8 (t)0 (or)8 (y)]TJ
+ET
+339.12 583.64 25.2 -56.4 re
+S 
+BT
+0 20.64 -20.64 0 359.136 539.24 Tm
+(File)Tj
+ET
+395.04 583.64 25.2 -56.4 re
+S 
+BT
+0 20.64 -20.64 0 415.296 539.24 Tm
+(File)Tj
+ET
+1 j
+2.4 w
+254.4 303.32 m
+254.4 416.36 l
+S 
+260.64 415.88 m
+254.4 427.88 l
+248.4 415.88 l
+260.64 415.88 l
+f* 
+347.76 303.32 m
+347.76 515.72 l
+S 
+354 515.24 m
+347.76 527.24 l
+341.76 515.24 l
+354 515.24 l
+f* 
+409.92 303.32 m
+409.92 515.72 l
+S 
+416.16 515.24 m
+409.92 527.24 l
+403.92 515.24 l
+416.16 515.24 l
+f* 
+273 452.12 0.24 -0.72 re
+f* 
+273.24 452.6 0.24 -1.2 re
+f* 
+273.48 453.08 0.24 -1.92 re
+f* 
+273.72 453.56 0.24 -2.4 re
+f* 
+273.96 453.32 0.24 -2.4 re
+f* 
+274.2 453.32 0.24 -2.4 re
+f* 
+274.44 453.08 0.24 -2.4 re
+f* 
+274.68 453.08 0.24 -2.64 re
+f* 
+274.92 452.84 0.24 -2.4 re
+f* 
+275.16 452.84 0.24 -2.64 re
+f* 
+275.4 452.6 0.24 -2.4 re
+f* 
+275.64 452.6 0.24 -2.64 re
+f* 
+275.88 452.36 0.24 -2.64 re
+f* 
+276.12 452.36 0.24 -2.64 re
+f* 
+276.36 452.12 0.24 -2.64 re
+f* 
+276.6 451.88 0.24 -2.4 re
+f* 
+276.84 451.88 0.24 -2.64 re
+f* 
+277.08 451.64 0.24 -2.4 re
+f* 
+277.32 451.64 0.24 -2.64 re
+f* 
+277.56 451.4 0.24 -2.64 re
+f* 
+277.8 451.4 0.24 -2.64 re
+f* 
+278.04 451.16 0.24 -2.64 re
+f* 
+278.28 451.16 0.24 -2.88 re
+f* 
+278.52 450.92 0.24 -2.64 re
+f* 
+278.76 450.92 0.24 -2.88 re
+f* 
+279 450.68 0.24 -2.64 re
+f* 
+279.24 450.44 0.24 -2.64 re
+f* 
+279.48 450.44 0.24 -2.88 re
+f* 
+279.72 450.2 0.24 -2.64 re
+f* 
+279.96 449.96 0.24 -2.64 re
+f* 
+280.2 449.96 0.24 -2.88 re
+f* 
+280.44 449.72 0.24 -2.88 re
+f* 
+280.68 449.72 0.24 -2.88 re
+f* 
+280.92 449.48 0.24 -2.88 re
+f* 
+281.16 449.24 0.24 -2.88 re
+f* 
+281.4 449.24 0.24 -3.12 re
+f* 
+281.64 449 0.24 -3.12 re
+f* 
+281.88 448.76 0.24 -2.88 re
+f* 
+282.12 448.52 0.24 -2.88 re
+f* 
+282.36 448.52 0.24 -3.12 re
+f* 
+282.6 448.28 0.24 -3.12 re
+f* 
+282.84 448.04 0.24 -3.12 re
+f* 
+283.08 447.8 0.24 -3.12 re
+f* 
+283.32 447.56 0.24 -3.12 re
+f* 
+283.56 447.56 0.24 -3.12 re
+f* 
+283.8 447.32 0.24 -3.12 re
+f* 
+284.04 447.08 0.24 -3.12 re
+f* 
+284.28 446.84 0.24 -3.12 re
+f* 
+284.52 446.6 0.24 -3.12 re
+f* 
+284.76 446.36 0.24 -3.12 re
+f* 
+285 446.12 0.24 -3.12 re
+f* 
+285.24 446.12 0.24 -3.6 re
+f* 
+285.48 445.88 0.24 -3.6 re
+f* 
+285.72 445.64 0.24 -3.6 re
+f* 
+285.96 445.4 0.24 -3.84 re
+f* 
+286.2 445.16 0.24 -3.84 re
+f* 
+286.44 444.92 0.24 -3.84 re
+f* 
+286.68 444.68 0.24 -4.08 re
+f* 
+286.92 444.2 0.24 -3.84 re
+f* 
+287.16 443.96 0.24 -4.08 re
+f* 
+287.4 443.72 0.24 -4.08 re
+f* 
+287.64 443.24 0.24 -4.08 re
+f* 
+287.88 443 0.24 -4.08 re
+f* 
+288.12 442.76 0.24 -4.08 re
+f* 
+288.36 442.28 0.24 -4.08 re
+f* 
+288.6 442.04 0.24 -4.08 re
+f* 
+288.84 441.56 0.24 -4.08 re
+f* 
+289.08 441.32 0.24 -4.08 re
+f* 
+289.32 440.84 0.24 -4.08 re
+f* 
+289.56 440.6 0.24 -4.32 re
+f* 
+289.8 440.36 0.24 -4.56 re
+f* 
+290.04 439.88 0.24 -4.56 re
+f* 
+290.28 439.64 0.24 -4.8 re
+f* 
+290.52 439.16 0.24 -4.8 re
+f* 
+290.76 438.92 0.24 -5.04 re
+f* 
+291 438.44 0.24 -4.8 re
+f* 
+291.24 437.96 0.24 -5.04 re
+f* 
+291.48 437.48 0.24 -5.28 re
+f* 
+291.72 437 0.24 -5.52 re
+f* 
+291.96 436.52 0.24 -5.52 re
+f* 
+292.2 436.04 0.24 -5.76 re
+f* 
+292.44 435.56 0.24 -6 re
+f* 
+292.68 435.08 0.24 -6 re
+f* 
+292.92 434.6 0.24 -6 re
+f* 
+293.16 434.6 0.24 -6.96 re
+f* 
+293.4 433.64 0.24 -6.72 re
+f* 
+293.64 432.92 0.24 -6.72 re
+f* 
+293.88 432.2 0.24 -6.96 re
+f* 
+294.12 431.48 0.24 -6.96 re
+f* 
+294.36 430.76 0.24 -6.72 re
+f* 
+294.6 430.28 0.24 -7.44 re
+f* 
+294.84 429.8 0.24 -7.68 re
+f* 
+295.08 429.56 0.24 -8.16 re
+f* 
+295.32 428.6 0.24 -8.16 re
+f* 
+295.56 427.64 0.24 -7.92 re
+f* 
+295.8 426.92 0.24 -8.16 re
+f* 
+296.04 426.2 0.24 -7.92 re
+f* 
+296.28 425.24 0.24 -8.16 re
+f* 
+296.52 424.52 0.24 -8.4 re
+f* 
+296.76 424.04 0.24 -8.88 re
+f* 
+297 422.84 0.24 -8.64 re
+f* 
+297.24 422.12 0.24 -8.88 re
+f* 
+297.48 421.4 0.24 -9.12 re
+f* 
+297.72 420.44 0.24 -8.64 re
+f* 
+297.96 419.72 0.24 -9.36 re
+f* 
+298.2 418.76 0.24 -9.6 re
+f* 
+298.44 418.28 0.24 -10.32 re
+f* 
+298.68 417.08 0.24 -10.08 re
+f* 
+298.92 416.12 0.24 -10.32 re
+f* 
+299.16 415.16 0.24 -10.08 re
+f* 
+299.4 414.2 0.24 -10.56 re
+f* 
+299.64 413.24 0.24 -10.8 re
+f* 
+299.88 412.28 0.24 -11.04 re
+f* 
+300.12 411.8 0.24 -11.52 re
+f* 
+300.36 410.36 0.24 -11.28 re
+f* 
+300.6 409.16 0.24 -10.8 re
+f* 
+300.84 407.96 0.24 -11.28 re
+f* 
+301.08 407 0.24 -11.52 re
+f* 
+301.32 405.8 0.24 -11.52 re
+f* 
+301.56 405.08 0.24 -12 re
+f* 
+301.8 403.64 0.24 -11.76 re
+f* 
+302.04 402.44 0.24 -11.52 re
+f* 
+302.28 401.24 0.24 -11.52 re
+f* 
+302.52 400.28 0.24 -11.76 re
+f* 
+302.76 399.08 0.24 -11.76 re
+f* 
+303 398.36 0.24 -12.24 re
+f* 
+303.24 396.68 0.24 -11.76 re
+f* 
+303.48 395.24 0.24 -11.04 re
+f* 
+303.72 394.04 0.24 -13.44 re
+f* 
+303.96 392.84 0.24 -14.64 re
+f* 
+304.2 391.64 0.24 -14.88 re
+f* 
+304.44 390.2 0.24 -17.28 re
+f* 
+304.68 389 0.24 -18.72 re
+f* 
+304.92 387.8 0.24 -18.96 re
+f* 
+305.16 386.36 0.24 -23.52 re
+f* 
+305.4 385.16 0.24 -24.48 re
+f* 
+305.64 384.44 0.24 -30 re
+f* 
+305.88 381.8 0.24 -29.52 re
+f* 
+306.12 379.88 0.24 -33.6 re
+f* 
+306.36 377.96 0.24 -33.84 re
+f* 
+306.6 376.76 0.24 -36.48 re
+f* 
+306.84 372.92 0.24 -35.28 re
+f* 
+307.08 370.28 0.24 -34.08 re
+f* 
+307.32 368.84 0.24 -35.28 re
+f* 
+307.56 362.84 0.24 -31.2 re
+f* 
+307.8 360.68 0.24 -30.96 re
+f* 
+308.04 354.44 0.24 -25.68 re
+f* 
+308.28 352.28 0.24 -25.2 re
+f* 
+308.52 346.28 0.24 -20.4 re
+f* 
+308.76 344.12 0.24 -18.96 re
+f* 
+309 340.28 0.24 -16.32 re
+f* 
+309.24 337.64 0.24 -14.4 re
+f* 
+309.48 336.2 0.24 -13.92 re
+f* 
+309.72 333.56 0.24 -11.76 re
+f* 
+309.96 331.64 0.24 -11.04 re
+f* 
+310.2 329.72 0.24 -10.08 re
+f* 
+310.44 328.76 0.24 -10.08 re
+f* 
+310.68 327.08 0.24 -9.36 re
+f* 
+310.92 325.88 0.24 -9.12 re
+f* 
+311.16 325.16 0.24 -9.12 re
+f* 
+311.4 323.96 0.24 -8.64 re
+f* 
+311.64 323 0.24 -8.4 re
+f* 
+311.88 322.28 0.24 -8.4 re
+f* 
+312.12 321.08 0.24 -7.68 re
+f* 
+312.36 320.12 0.24 -7.44 re
+f* 
+312.6 319.4 0.24 -7.44 re
+f* 
+312.84 318.44 0.24 -6.96 re
+f* 
+313.08 317.48 0.24 -6.72 re
+f* 
+313.32 316.52 0.24 -6.24 re
+f* 
+313.56 316.04 0.24 -6.48 re
+f* 
+313.8 315.32 0.24 -6.48 re
+f* 
+314.04 314.6 0.24 -6.24 re
+f* 
+314.28 313.88 0.24 -6 re
+f* 
+314.52 313.4 0.24 -6 re
+f* 
+314.76 312.68 0.24 -6 re
+f* 
+315 311.96 0.24 -5.76 re
+f* 
+315.24 311.48 0.24 -5.76 re
+f* 
+315.48 310.76 0.24 -5.52 re
+f* 
+315.72 310.04 0.24 -5.28 re
+f* 
+315.96 309.56 0.24 -5.28 re
+f* 
+316.2 309.08 0.24 -5.28 re
+f* 
+316.44 308.36 0.24 -5.04 re
+f* 
+316.68 307.88 0.24 -5.04 re
+f* 
+316.92 307.4 0.24 -5.04 re
+f* 
+317.16 306.92 0.24 -5.04 re
+f* 
+317.4 306.44 0.24 -5.04 re
+f* 
+317.64 305.96 0.24 -5.04 re
+f* 
+317.88 305.48 0.24 -5.04 re
+f* 
+318.12 305 0.24 -5.04 re
+f* 
+318.36 304.52 0.24 -5.04 re
+f* 
+318.6 304.04 0.24 -5.04 re
+f* 
+318.84 303.56 0.24 -5.04 re
+f* 
+319.08 303.08 0.24 -5.04 re
+f* 
+319.32 302.6 0.24 -5.04 re
+f* 
+319.56 302.12 0.24 -5.04 re
+f* 
+319.8 301.64 0.24 -5.04 re
+f* 
+320.04 301.16 0.24 -5.04 re
+f* 
+320.28 300.68 0.24 -5.04 re
+f* 
+320.52 300.2 0.24 -5.04 re
+f* 
+320.76 299.72 0.24 -4.8 re
+f* 
+321 299.24 0.24 -4.8 re
+f* 
+321.24 298.76 0.24 -4.56 re
+f* 
+321.48 298.28 0.24 -4.56 re
+f* 
+321.72 297.8 0.24 -4.32 re
+f* 
+321.96 297.32 0.24 -4.32 re
+f* 
+322.2 296.84 0.24 -4.32 re
+f* 
+322.44 296.6 0.24 -4.32 re
+f* 
+322.68 296.12 0.24 -4.32 re
+f* 
+322.92 295.88 0.24 -4.32 re
+f* 
+323.16 295.4 0.24 -4.32 re
+f* 
+323.4 295.16 0.24 -4.32 re
+f* 
+323.64 294.68 0.24 -4.32 re
+f* 
+323.88 294.2 0.24 -4.08 re
+f* 
+324.12 293.96 0.24 -4.32 re
+f* 
+324.36 293.48 0.24 -4.32 re
+f* 
+324.6 293.24 0.24 -4.32 re
+f* 
+324.84 292.76 0.24 -4.32 re
+f* 
+325.08 292.52 0.24 -4.32 re
+f* 
+325.32 292.04 0.24 -4.32 re
+f* 
+325.56 291.8 0.24 -4.56 re
+f* 
+325.8 291.32 0.24 -4.32 re
+f* 
+326.04 290.84 0.24 -4.08 re
+f* 
+326.28 290.6 0.24 -4.32 re
+f* 
+326.52 290.12 0.24 -4.08 re
+f* 
+326.76 289.88 0.24 -4.08 re
+f* 
+327 289.4 0.24 -4.08 re
+f* 
+327.24 288.92 0.24 -3.84 re
+f* 
+327.48 288.68 0.24 -3.84 re
+f* 
+327.72 288.44 0.24 -4.08 re
+f* 
+327.96 287.96 0.24 -3.84 re
+f* 
+328.2 287.72 0.24 -3.84 re
+f* 
+328.44 287.48 0.24 -3.84 re
+f* 
+328.68 287.24 0.24 -3.84 re
+f* 
+328.92 286.76 0.24 -3.84 re
+f* 
+329.16 286.52 0.24 -3.84 re
+f* 
+329.4 286.28 0.24 -3.84 re
+f* 
+329.64 285.8 0.24 -3.6 re
+f* 
+329.88 285.56 0.24 -3.6 re
+f* 
+330.12 285.32 0.24 -3.84 re
+f* 
+330.36 285.08 0.24 -3.84 re
+f* 
+330.6 284.6 0.24 -3.6 re
+f* 
+330.84 284.36 0.24 -3.6 re
+f* 
+331.08 284.12 0.24 -3.6 re
+f* 
+331.32 283.88 0.24 -3.6 re
+f* 
+331.56 283.64 0.24 -3.6 re
+f* 
+331.8 283.16 0.24 -3.36 re
+f* 
+332.04 282.92 0.24 -3.36 re
+f* 
+332.28 282.68 0.24 -3.36 re
+f* 
+332.52 282.44 0.24 -3.36 re
+f* 
+332.76 282.2 0.24 -3.36 re
+f* 
+333 281.96 0.24 -3.36 re
+f* 
+333.24 281.72 0.24 -3.36 re
+f* 
+333.48 281.48 0.24 -3.12 re
+f* 
+333.72 281.24 0.24 -3.12 re
+f* 
+333.96 281 0.24 -3.12 re
+f* 
+334.2 280.76 0.24 -2.88 re
+f* 
+334.44 280.52 0.24 -2.88 re
+f* 
+334.68 280.28 0.24 -2.88 re
+f* 
+334.92 280.04 0.24 -2.88 re
+f* 
+335.16 280.04 0.24 -2.88 re
+f* 
+335.4 279.8 0.24 -2.88 re
+f* 
+335.64 279.56 0.24 -2.88 re
+f* 
+335.88 279.56 0.24 -2.88 re
+f* 
+336.12 279.32 0.24 -2.88 re
+f* 
+336.36 279.08 0.24 -2.88 re
+f* 
+336.6 278.84 0.24 -2.64 re
+f* 
+336.84 278.84 0.24 -2.88 re
+f* 
+337.08 278.6 0.24 -2.88 re
+f* 
+337.32 278.36 0.24 -2.88 re
+f* 
+337.56 278.36 0.24 -2.88 re
+f* 
+337.8 278.12 0.24 -2.88 re
+f* 
+338.04 277.88 0.24 -2.88 re
+f* 
+338.28 277.88 0.24 -2.88 re
+f* 
+338.52 277.64 0.24 -2.88 re
+f* 
+338.76 277.4 0.24 -2.64 re
+f* 
+339 277.16 0.24 -2.64 re
+f* 
+339.24 277.16 0.24 -2.64 re
+f* 
+339.48 276.92 0.24 -2.64 re
+f* 
+339.72 276.68 0.24 -2.4 re
+f* 
+339.96 276.68 0.24 -2.64 re
+f* 
+340.2 276.44 0.24 -2.4 re
+f* 
+340.44 276.44 0.24 -2.64 re
+f* 
+340.68 276.2 0.24 -2.4 re
+f* 
+340.92 276.2 0.24 -2.64 re
+f* 
+341.16 275.96 0.24 -2.4 re
+f* 
+341.4 275.96 0.24 -2.4 re
+f* 
+341.64 275.72 0.24 -2.4 re
+f* 
+341.88 275.72 0.24 -2.4 re
+f* 
+342.12 275.48 0.24 -2.4 re
+f* 
+342.36 275.48 0.24 -2.4 re
+f* 
+342.6 275.24 0.24 -2.16 re
+f* 
+342.84 275.24 0.24 -2.4 re
+f* 
+343.08 275.24 0.24 -2.4 re
+f* 
+343.32 275 0.24 -2.4 re
+f* 
+343.56 275 0.24 -2.4 re
+f* 
+343.8 274.76 0.24 -2.4 re
+f* 
+344.04 274.76 0.24 -2.4 re
+f* 
+344.28 274.76 0.24 -2.4 re
+f* 
+344.52 274.52 0.24 -2.4 re
+f* 
+344.76 274.52 0.24 -2.4 re
+f* 
+345 274.52 0.24 -2.4 re
+f* 
+345.24 274.28 0.24 -2.4 re
+f* 
+345.48 274.28 0.24 -2.4 re
+f* 
+345.72 274.28 0.24 -2.4 re
+f* 
+345.96 274.04 0.24 -2.4 re
+f* 
+346.2 274.04 0.24 -2.4 re
+f* 
+346.44 274.04 0.24 -2.4 re
+f* 
+346.68 273.8 0.24 -2.4 re
+f* 
+346.92 273.8 0.24 -2.4 re
+f* 
+347.16 273.8 0.24 -2.4 re
+f* 
+347.4 273.56 0.24 -2.4 re
+f* 
+347.64 273.56 0.24 -2.4 re
+f* 
+347.88 273.56 0.24 -1.44 re
+f* 
+348.12 273.32 0.24 -0.48 re
+f* 
+273.48 503.72 0.24 -2.4 re
+f* 
+273.72 503.72 0.24 -2.4 re
+f* 
+273.96 503.72 0.24 -2.4 re
+f* 
+274.2 503.72 0.24 -2.4 re
+f* 
+274.44 503.72 0.24 -2.4 re
+f* 
+274.68 503.72 0.24 -2.4 re
+f* 
+274.92 503.72 0.24 -2.4 re
+f* 
+275.16 503.72 0.24 -2.4 re
+f* 
+275.4 503.72 0.24 -2.4 re
+f* 
+275.64 503.72 0.24 -2.4 re
+f* 
+275.88 503.72 0.24 -2.4 re
+f* 
+276.12 503.72 0.24 -2.4 re
+f* 
+276.36 503.72 0.24 -2.4 re
+f* 
+276.6 503.72 0.24 -2.4 re
+f* 
+276.84 503.72 0.24 -2.4 re
+f* 
+277.08 503.96 0.24 -2.64 re
+f* 
+277.32 503.96 0.24 -2.4 re
+f* 
+277.56 503.96 0.24 -2.4 re
+f* 
+277.8 503.96 0.24 -2.4 re
+f* 
+278.04 503.96 0.24 -2.4 re
+f* 
+278.28 503.96 0.24 -2.4 re
+f* 
+278.52 503.96 0.24 -2.4 re
+f* 
+278.76 503.96 0.24 -2.4 re
+f* 
+279 503.96 0.24 -2.4 re
+f* 
+279.24 503.96 0.24 -2.4 re
+f* 
+279.48 503.96 0.24 -2.4 re
+f* 
+279.72 503.96 0.24 -2.4 re
+f* 
+279.96 503.96 0.24 -2.4 re
+f* 
+280.2 503.96 0.24 -2.4 re
+f* 
+280.44 503.96 0.24 -2.4 re
+f* 
+280.68 503.96 0.24 -2.4 re
+f* 
+280.92 503.96 0.24 -2.4 re
+f* 
+281.16 503.96 0.24 -2.4 re
+f* 
+281.4 503.96 0.24 -2.4 re
+f* 
+281.64 503.96 0.24 -2.4 re
+f* 
+281.88 503.96 0.24 -2.4 re
+f* 
+282.12 503.96 0.24 -2.4 re
+f* 
+282.36 503.96 0.24 -2.4 re
+f* 
+282.6 503.96 0.24 -2.4 re
+f* 
+282.84 503.96 0.24 -2.4 re
+f* 
+283.08 503.96 0.24 -2.4 re
+f* 
+283.32 503.96 0.24 -2.4 re
+f* 
+283.56 503.96 0.24 -2.4 re
+f* 
+283.8 503.96 0.24 -2.4 re
+f* 
+284.04 503.96 0.24 -2.4 re
+f* 
+284.28 503.96 0.24 -2.4 re
+f* 
+284.52 503.96 0.24 -2.4 re
+f* 
+284.76 503.96 0.24 -2.4 re
+f* 
+285 503.96 0.24 -2.4 re
+f* 
+285.24 503.96 0.24 -2.4 re
+f* 
+285.48 503.96 0.24 -2.4 re
+f* 
+285.72 503.96 0.24 -2.4 re
+f* 
+285.96 503.72 0.24 -2.4 re
+f* 
+286.2 503.72 0.24 -2.4 re
+f* 
+286.44 503.72 0.24 -2.4 re
+f* 
+286.68 503.72 0.24 -2.4 re
+f* 
+286.92 503.72 0.24 -2.4 re
+f* 
+287.16 503.72 0.24 -2.4 re
+f* 
+287.4 503.72 0.24 -2.4 re
+f* 
+287.64 503.72 0.24 -2.4 re
+f* 
+287.88 503.48 0.24 -2.4 re
+f* 
+288.12 503.48 0.24 -2.4 re
+f* 
+288.36 503.48 0.24 -2.4 re
+f* 
+288.6 503.48 0.24 -2.4 re
+f* 
+288.84 503.48 0.24 -2.4 re
+f* 
+289.08 503.48 0.24 -2.4 re
+f* 
+289.32 503.48 0.24 -2.4 re
+f* 
+289.56 503.24 0.24 -2.4 re
+f* 
+289.8 503.24 0.24 -2.4 re
+f* 
+290.04 503.24 0.24 -2.4 re
+f* 
+290.28 503.24 0.24 -2.4 re
+f* 
+290.52 503.24 0.24 -2.4 re
+f* 
+290.76 503.24 0.24 -2.4 re
+f* 
+291 503 0.24 -2.4 re
+f* 
+291.24 503 0.24 -2.4 re
+f* 
+291.48 503 0.24 -2.4 re
+f* 
+291.72 503 0.24 -2.4 re
+f* 
+291.96 503 0.24 -2.4 re
+f* 
+292.2 502.76 0.24 -2.4 re
+f* 
+292.44 502.76 0.24 -2.4 re
+f* 
+292.68 502.76 0.24 -2.4 re
+f* 
+292.92 502.76 0.24 -2.4 re
+f* 
+293.16 502.52 0.24 -2.4 re
+f* 
+293.4 502.52 0.24 -2.4 re
+f* 
+293.64 502.52 0.24 -2.4 re
+f* 
+293.88 502.28 0.24 -2.4 re
+f* 
+294.12 502.28 0.24 -2.4 re
+f* 
+294.36 502.28 0.24 -2.4 re
+f* 
+294.6 502.28 0.24 -2.4 re
+f* 
+294.84 502.04 0.24 -2.4 re
+f* 
+295.08 502.04 0.24 -2.4 re
+f* 
+295.32 502.04 0.24 -2.4 re
+f* 
+295.56 501.8 0.24 -2.4 re
+f* 
+295.8 501.8 0.24 -2.4 re
+f* 
+296.04 501.8 0.24 -2.4 re
+f* 
+296.28 501.56 0.24 -2.4 re
+f* 
+296.52 501.56 0.24 -2.16 re
+f* 
+296.76 501.56 0.24 -2.4 re
+f* 
+297 501.56 0.24 -2.4 re
+f* 
+297.24 501.32 0.24 -2.4 re
+f* 
+297.48 501.32 0.24 -2.4 re
+f* 
+297.72 501.32 0.24 -2.64 re
+f* 
+297.96 501.08 0.24 -2.4 re
+f* 
+298.2 501.08 0.24 -2.64 re
+f* 
+298.44 500.84 0.24 -2.4 re
+f* 
+298.68 500.84 0.24 -2.64 re
+f* 
+298.92 500.6 0.24 -2.4 re
+f* 
+299.16 500.6 0.24 -2.64 re
+f* 
+299.4 500.36 0.24 -2.4 re
+f* 
+299.64 500.36 0.24 -2.64 re
+f* 
+299.88 500.12 0.24 -2.64 re
+f* 
+300.12 500.12 0.24 -2.64 re
+f* 
+300.36 499.88 0.24 -2.64 re
+f* 
+300.6 499.88 0.24 -2.64 re
+f* 
+300.84 499.64 0.24 -2.64 re
+f* 
+301.08 499.64 0.24 -2.64 re
+f* 
+301.32 499.4 0.24 -2.64 re
+f* 
+301.56 499.16 0.24 -2.4 re
+f* 
+301.8 499.16 0.24 -2.64 re
+f* 
+302.04 498.92 0.24 -2.64 re
+f* 
+302.28 498.92 0.24 -2.64 re
+f* 
+302.52 498.68 0.24 -2.64 re
+f* 
+302.76 498.68 0.24 -2.64 re
+f* 
+303 498.44 0.24 -2.64 re
+f* 
+303.24 498.44 0.24 -2.64 re
+f* 
+303.48 498.2 0.24 -2.64 re
+f* 
+303.72 497.96 0.24 -2.4 re
+f* 
+303.96 497.96 0.24 -2.88 re
+f* 
+304.2 497.72 0.24 -2.64 re
+f* 
+304.44 497.72 0.24 -2.88 re
+f* 
+304.68 497.48 0.24 -2.88 re
+f* 
+304.92 497.48 0.24 -3.12 re
+f* 
+305.16 497.24 0.24 -2.88 re
+f* 
+305.4 497 0.24 -2.88 re
+f* 
+305.64 496.76 0.24 -2.88 re
+f* 
+305.88 496.76 0.24 -3.12 re
+f* 
+306.12 496.52 0.24 -2.88 re
+f* 
+306.36 496.28 0.24 -2.88 re
+f* 
+306.6 496.04 0.24 -2.88 re
+f* 
+306.84 496.04 0.24 -3.12 re
+f* 
+307.08 495.8 0.24 -2.88 re
+f* 
+307.32 495.56 0.24 -2.88 re
+f* 
+307.56 495.32 0.24 -2.88 re
+f* 
+307.8 495.32 0.24 -3.12 re
+f* 
+308.04 495.08 0.24 -3.12 re
+f* 
+308.28 494.84 0.24 -3.12 re
+f* 
+308.52 494.6 0.24 -3.12 re
+f* 
+308.76 494.6 0.24 -3.36 re
+f* 
+309 494.36 0.24 -3.36 re
+f* 
+309.24 494.12 0.24 -3.36 re
+f* 
+309.48 493.88 0.24 -3.12 re
+f* 
+309.72 493.64 0.24 -3.12 re
+f* 
+309.96 493.4 0.24 -3.12 re
+f* 
+310.2 493.16 0.24 -3.12 re
+f* 
+310.44 492.92 0.24 -3.12 re
+f* 
+310.68 492.68 0.24 -3.12 re
+f* 
+310.92 492.44 0.24 -3.12 re
+f* 
+311.16 492.44 0.24 -3.36 re
+f* 
+311.4 492.2 0.24 -3.36 re
+f* 
+311.64 491.96 0.24 -3.36 re
+f* 
+311.88 491.72 0.24 -3.36 re
+f* 
+312.12 491.48 0.24 -3.36 re
+f* 
+312.36 491.24 0.24 -3.6 re
+f* 
+312.6 491 0.24 -3.6 re
+f* 
+312.84 490.76 0.24 -3.6 re
+f* 
+313.08 490.52 0.24 -3.6 re
+f* 
+313.32 490.28 0.24 -3.6 re
+f* 
+313.56 490.04 0.24 -3.6 re
+f* 
+313.8 489.8 0.24 -3.6 re
+f* 
+314.04 489.32 0.24 -3.36 re
+f* 
+314.28 489.08 0.24 -3.6 re
+f* 
+314.52 488.84 0.24 -3.6 re
+f* 
+314.76 488.6 0.24 -3.6 re
+f* 
+315 488.36 0.24 -3.6 re
+f* 
+315.24 488.12 0.24 -3.6 re
+f* 
+315.48 487.88 0.24 -3.6 re
+f* 
+315.72 487.64 0.24 -3.6 re
+f* 
+315.96 487.16 0.24 -3.6 re
+f* 
+316.2 486.92 0.24 -3.6 re
+f* 
+316.44 486.68 0.24 -3.6 re
+f* 
+316.68 486.44 0.24 -3.6 re
+f* 
+316.92 486.2 0.24 -3.6 re
+f* 
+317.16 485.96 0.24 -3.84 re
+f* 
+317.4 485.72 0.24 -3.84 re
+f* 
+317.64 485.24 0.24 -3.6 re
+f* 
+317.88 485 0.24 -3.6 re
+f* 
+318.12 484.76 0.24 -3.6 re
+f* 
+318.36 484.52 0.24 -3.84 re
+f* 
+318.6 484.28 0.24 -3.84 re
+f* 
+318.84 483.8 0.24 -3.6 re
+f* 
+319.08 483.56 0.24 -3.6 re
+f* 
+319.32 483.32 0.24 -3.6 re
+f* 
+319.56 483.08 0.24 -3.84 re
+f* 
+319.8 482.84 0.24 -3.84 re
+f* 
+320.04 482.36 0.24 -3.6 re
+f* 
+320.28 482.12 0.24 -3.84 re
+f* 
+320.52 481.88 0.24 -3.84 re
+f* 
+320.76 481.64 0.24 -3.84 re
+f* 
+321 481.4 0.24 -4.08 re
+f* 
+321.24 480.92 0.24 -3.84 re
+f* 
+321.48 480.68 0.24 -3.84 re
+f* 
+321.72 480.44 0.24 -4.08 re
+f* 
+321.96 479.96 0.24 -3.84 re
+f* 
+322.2 479.72 0.24 -3.84 re
+f* 
+322.44 479.48 0.24 -4.08 re
+f* 
+322.68 479 0.24 -3.84 re
+f* 
+322.92 478.76 0.24 -3.84 re
+f* 
+323.16 478.52 0.24 -4.08 re
+f* 
+323.4 478.04 0.24 -3.84 re
+f* 
+323.64 477.8 0.24 -4.08 re
+f* 
+323.88 477.56 0.24 -4.08 re
+f* 
+324.12 477.08 0.24 -3.84 re
+f* 
+324.36 476.84 0.24 -4.08 re
+f* 
+324.6 476.6 0.24 -4.08 re
+f* 
+324.84 476.12 0.24 -4.08 re
+f* 
+325.08 475.88 0.24 -4.08 re
+f* 
+325.32 475.4 0.24 -4.08 re
+f* 
+325.56 475.16 0.24 -4.08 re
+f* 
+325.8 474.92 0.24 -4.08 re
+f* 
+326.04 474.44 0.24 -4.08 re
+f* 
+326.28 474.2 0.24 -4.08 re
+f* 
+326.52 473.72 0.24 -4.08 re
+f* 
+326.76 473.48 0.24 -4.08 re
+f* 
+327 473 0.24 -4.08 re
+f* 
+327.24 472.76 0.24 -4.08 re
+f* 
+327.48 472.52 0.24 -4.32 re
+f* 
+327.72 472.04 0.24 -4.08 re
+f* 
+327.96 471.8 0.24 -4.08 re
+f* 
+328.2 471.32 0.24 -4.08 re
+f* 
+328.44 471.08 0.24 -4.08 re
+f* 
+328.68 470.6 0.24 -4.08 re
+f* 
+328.92 470.36 0.24 -4.08 re
+f* 
+329.16 469.88 0.24 -4.08 re
+f* 
+329.4 469.64 0.24 -4.08 re
+f* 
+329.64 469.4 0.24 -4.08 re
+f* 
+329.88 468.92 0.24 -4.08 re
+f* 
+330.12 468.68 0.24 -4.08 re
+f* 
+330.36 468.2 0.24 -4.08 re
+f* 
+330.6 467.96 0.24 -4.08 re
+f* 
+330.84 467.48 0.24 -4.08 re
+f* 
+331.08 467.24 0.24 -4.08 re
+f* 
+331.32 467 0.24 -4.32 re
+f* 
+331.56 466.52 0.24 -4.08 re
+f* 
+331.8 466.28 0.24 -4.08 re
+f* 
+332.04 465.8 0.24 -4.08 re
+f* 
+332.28 465.56 0.24 -4.08 re
+f* 
+332.52 465.08 0.24 -4.08 re
+f* 
+332.76 464.84 0.24 -4.08 re
+f* 
+333 464.36 0.24 -4.08 re
+f* 
+333.24 464.12 0.24 -4.08 re
+f* 
+333.48 463.64 0.24 -3.84 re
+f* 
+333.72 463.4 0.24 -4.08 re
+f* 
+333.96 462.92 0.24 -3.84 re
+f* 
+334.2 462.68 0.24 -4.08 re
+f* 
+334.44 462.44 0.24 -4.08 re
+f* 
+334.68 461.96 0.24 -4.08 re
+f* 
+334.92 461.72 0.24 -4.08 re
+f* 
+335.16 461.24 0.24 -4.08 re
+f* 
+335.4 461 0.24 -4.08 re
+f* 
+335.64 460.52 0.24 -3.84 re
+f* 
+335.88 460.28 0.24 -4.08 re
+f* 
+336.12 459.8 0.24 -3.84 re
+f* 
+336.36 459.56 0.24 -4.08 re
+f* 
+336.6 459.08 0.24 -3.84 re
+f* 
+336.84 458.84 0.24 -4.08 re
+f* 
+337.08 458.6 0.24 -4.08 re
+f* 
+337.32 458.12 0.24 -4.08 re
+f* 
+337.56 457.88 0.24 -4.08 re
+f* 
+337.8 457.4 0.24 -3.84 re
+f* 
+338.04 457.16 0.24 -4.08 re
+f* 
+338.28 456.92 0.24 -4.08 re
+f* 
+338.52 456.44 0.24 -4.08 re
+f* 
+338.76 456.2 0.24 -4.08 re
+f* 
+339 455.72 0.24 -4.08 re
+f* 
+339.24 455.48 0.24 -4.08 re
+f* 
+339.48 455 0.24 -4.08 re
+f* 
+339.72 454.76 0.24 -4.08 re
+f* 
+339.96 454.52 0.24 -4.32 re
+f* 
+340.2 454.04 0.24 -4.08 re
+f* 
+340.44 453.8 0.24 -4.32 re
+f* 
+340.68 453.32 0.24 -4.08 re
+f* 
+340.92 453.08 0.24 -4.32 re
+f* 
+341.16 452.6 0.24 -4.32 re
+f* 
+341.4 452.36 0.24 -4.32 re
+f* 
+341.64 451.88 0.24 -4.32 re
+f* 
+341.88 451.64 0.24 -4.32 re
+f* 
+342.12 451.16 0.24 -4.32 re
+f* 
+342.36 450.92 0.24 -4.32 re
+f* 
+342.6 450.44 0.24 -4.32 re
+f* 
+342.84 449.96 0.24 -4.08 re
+f* 
+343.08 449.72 0.24 -4.32 re
+f* 
+343.32 449.24 0.24 -4.08 re
+f* 
+343.56 449 0.24 -4.32 re
+f* 
+343.8 448.52 0.24 -4.08 re
+f* 
+344.04 448.28 0.24 -4.32 re
+f* 
+344.28 447.8 0.24 -4.32 re
+f* 
+344.52 447.56 0.24 -4.32 re
+f* 
+344.76 447.08 0.24 -4.32 re
+f* 
+345 446.84 0.24 -4.32 re
+f* 
+345.24 446.36 0.24 -4.32 re
+f* 
+345.48 446.12 0.24 -4.32 re
+f* 
+345.72 445.64 0.24 -4.32 re
+f* 
+345.96 445.16 0.24 -4.08 re
+f* 
+346.2 444.92 0.24 -4.32 re
+f* 
+346.44 444.44 0.24 -4.32 re
+f* 
+346.68 444.2 0.24 -4.32 re
+f* 
+346.92 443.72 0.24 -4.32 re
+f* 
+347.16 443.48 0.24 -4.32 re
+f* 
+347.4 443 0.24 -4.32 re
+f* 
+347.64 442.76 0.24 -4.32 re
+f* 
+347.88 442.28 0.24 -4.32 re
+f* 
+348.12 441.8 0.24 -4.08 re
+f* 
+348.36 441.56 0.24 -4.32 re
+f* 
+348.6 441.08 0.24 -4.32 re
+f* 
+348.84 440.84 0.24 -4.32 re
+f* 
+349.08 440.36 0.24 -4.32 re
+f* 
+349.32 440.12 0.24 -4.32 re
+f* 
+349.56 439.64 0.24 -4.32 re
+f* 
+349.8 439.4 0.24 -4.32 re
+f* 
+350.04 438.92 0.24 -4.32 re
+f* 
+350.28 438.44 0.24 -4.08 re
+f* 
+350.52 438.2 0.24 -4.32 re
+f* 
+350.76 437.72 0.24 -4.32 re
+f* 
+351 437.48 0.24 -4.32 re
+f* 
+351.24 437 0.24 -4.32 re
+f* 
+351.48 436.76 0.24 -4.32 re
+f* 
+351.72 436.28 0.24 -4.32 re
+f* 
+351.96 436.04 0.24 -4.56 re
+f* 
+352.2 435.56 0.24 -4.56 re
+f* 
+352.44 435.08 0.24 -4.32 re
+f* 
+352.68 434.84 0.24 -4.56 re
+f* 
+352.92 434.36 0.24 -4.56 re
+f* 
+353.16 434.12 0.24 -4.8 re
+f* 
+353.4 433.64 0.24 -4.56 re
+f* 
+353.64 433.16 0.24 -4.56 re
+f* 
+353.88 432.68 0.24 -4.56 re
+f* 
+354.12 432.44 0.24 -4.8 re
+f* 
+354.36 431.96 0.24 -4.8 re
+f* 
+354.6 431.48 0.24 -4.56 re
+f* 
+354.84 431 0.24 -4.56 re
+f* 
+355.08 430.76 0.24 -4.8 re
+f* 
+355.32 430.28 0.24 -4.8 re
+f* 
+355.56 429.8 0.24 -4.56 re
+f* 
+355.8 429.32 0.24 -4.56 re
+f* 
+356.04 428.84 0.24 -4.56 re
+f* 
+356.28 428.6 0.24 -4.8 re
+f* 
+356.52 428.12 0.24 -4.8 re
+f* 
+356.76 427.64 0.24 -4.8 re
+f* 
+357 427.16 0.24 -4.8 re
+f* 
+357.24 426.92 0.24 -5.04 re
+f* 
+357.48 426.44 0.24 -5.04 re
+f* 
+357.72 425.96 0.24 -5.04 re
+f* 
+357.96 425.48 0.24 -5.04 re
+f* 
+358.2 425 0.24 -5.04 re
+f* 
+358.44 424.52 0.24 -5.04 re
+f* 
+358.68 424.04 0.24 -5.04 re
+f* 
+358.92 423.56 0.24 -5.04 re
+f* 
+359.16 423.08 0.24 -5.04 re
+f* 
+359.4 422.6 0.24 -4.8 re
+f* 
+359.64 422.12 0.24 -5.04 re
+f* 
+359.88 421.64 0.24 -5.04 re
+f* 
+360.12 421.16 0.24 -5.04 re
+f* 
+360.36 420.68 0.24 -5.28 re
+f* 
+360.6 420.2 0.24 -5.28 re
+f* 
+360.84 419.72 0.24 -5.28 re
+f* 
+361.08 419.48 0.24 -5.76 re
+f* 
+361.32 418.76 0.24 -5.52 re
+f* 
+361.56 418.28 0.24 -5.52 re
+f* 
+361.8 417.8 0.24 -5.52 re
+f* 
+362.04 417.08 0.24 -5.52 re
+f* 
+362.28 416.6 0.24 -5.52 re
+f* 
+362.52 416.12 0.24 -5.52 re
+f* 
+362.76 415.4 0.24 -5.28 re
+f* 
+363 414.92 0.24 -5.28 re
+f* 
+363.24 414.44 0.24 -5.52 re
+f* 
+363.48 413.96 0.24 -5.76 re
+f* 
+363.72 413.24 0.24 -5.52 re
+f* 
+363.96 412.76 0.24 -5.76 re
+f* 
+364.2 412.28 0.24 -6 re
+f* 
+364.44 411.8 0.24 -6 re
+f* 
+364.68 411.32 0.24 -6.24 re
+f* 
+364.92 411.08 0.24 -6.72 re
+f* 
+365.16 410.36 0.24 -6.48 re
+f* 
+365.4 409.64 0.24 -6.48 re
+f* 
+365.64 408.92 0.24 -6.24 re
+f* 
+365.88 408.44 0.24 -7.2 re
+f* 
+366.12 407.72 0.24 -7.44 re
+f* 
+366.36 407 0.24 -7.68 re
+f* 
+366.6 406.52 0.24 -7.92 re
+f* 
+366.84 405.8 0.24 -8.4 re
+f* 
+367.08 405.08 0.24 -8.4 re
+f* 
+367.32 404.6 0.24 -8.88 re
+f* 
+367.56 403.88 0.24 -9.12 re
+f* 
+367.8 403.4 0.24 -9.12 re
+f* 
+368.04 402.2 0.24 -9.6 re
+f* 
+368.28 401.24 0.24 -9.84 re
+f* 
+368.52 400.28 0.24 -10.08 re
+f* 
+368.76 399.32 0.24 -10.32 re
+f* 
+369 398.6 0.24 -10.8 re
+f* 
+369.24 397.4 0.24 -10.8 re
+f* 
+369.48 396.68 0.24 -11.28 re
+f* 
+369.72 395.72 0.24 -11.04 re
+f* 
+369.96 394.76 0.24 -12 re
+f* 
+370.2 394.28 0.24 -12.96 re
+f* 
+370.44 392.6 0.24 -12.72 re
+f* 
+370.68 391.4 0.24 -12.96 re
+f* 
+370.92 390.2 0.24 -13.2 re
+f* 
+371.16 389 0.24 -13.44 re
+f* 
+371.4 387.8 0.24 -13.2 re
+f* 
+371.64 386.6 0.24 -14.4 re
+f* 
+371.88 385.4 0.24 -14.88 re
+f* 
+372.12 384.68 0.24 -15.84 re
+f* 
+372.36 382.76 0.24 -15.6 re
+f* 
+372.6 381.32 0.24 -15.84 re
+f* 
+372.84 379.88 0.24 -15.36 re
+f* 
+373.08 378.44 0.24 -16.8 re
+f* 
+373.32 377 0.24 -17.28 re
+f* 
+373.56 375.56 0.24 -18 re
+f* 
+373.8 374.6 0.24 -18.96 re
+f* 
+374.04 372.2 0.24 -17.76 re
+f* 
+374.28 370.52 0.24 -18.72 re
+f* 
+374.52 368.84 0.24 -18.96 re
+f* 
+374.76 367.16 0.24 -19.2 re
+f* 
+375 365.48 0.24 -19.44 re
+f* 
+375.24 364.52 0.24 -19.68 re
+f* 
+375.48 361.64 0.24 -20.16 re
+f* 
+375.72 359.72 0.24 -19.44 re
+f* 
+375.96 357.56 0.24 -19.2 re
+f* 
+376.2 355.64 0.24 -18.72 re
+f* 
+376.44 354.44 0.24 -18.48 re
+f* 
+376.68 351.8 0.24 -17.76 re
+f* 
+376.92 349.88 0.24 -17.28 re
+f* 
+377.16 347.96 0.24 -16.08 re
+f* 
+377.4 346.04 0.24 -15.36 re
+f* 
+377.64 344.84 0.24 -15.12 re
+f* 
+377.88 341.48 0.24 -12.72 re
+f* 
+378.12 340.28 0.24 -12.24 re
+f* 
+378.36 338.36 0.24 -12 re
+f* 
+378.6 336.92 0.24 -11.76 re
+f* 
+378.84 335.96 0.24 -12.24 re
+f* 
+379.08 334.04 0.24 -11.52 re
+f* 
+379.32 332.6 0.24 -10.8 re
+f* 
+379.56 331.88 0.24 -11.52 re
+f* 
+379.8 330.44 0.24 -11.04 re
+f* 
+380.04 329.24 0.24 -10.8 re
+f* 
+380.28 328.52 0.24 -11.04 re
+f* 
+380.52 327.08 0.24 -10.56 re
+f* 
+380.76 325.88 0.24 -10.08 re
+f* 
+381 324.68 0.24 -10.08 re
+f* 
+381.24 323.72 0.24 -9.84 re
+f* 
+381.48 322.52 0.24 -9.6 re
+f* 
+381.72 321.8 0.24 -9.6 re
+f* 
+381.96 320.36 0.24 -9.12 re
+f* 
+382.2 319.4 0.24 -8.64 re
+f* 
+382.44 318.44 0.24 -8.64 re
+f* 
+382.68 317.48 0.24 -8.64 re
+f* 
+382.92 316.52 0.24 -8.4 re
+f* 
+383.16 315.8 0.24 -8.4 re
+f* 
+383.4 314.6 0.24 -8.16 re
+f* 
+383.64 313.88 0.24 -7.92 re
+f* 
+383.88 312.92 0.24 -7.92 re
+f* 
+384.12 312.2 0.24 -7.92 re
+f* 
+384.36 311.24 0.24 -7.44 re
+f* 
+384.6 310.76 0.24 -7.68 re
+f* 
+384.84 309.8 0.24 -7.44 re
+f* 
+385.08 308.84 0.24 -6.96 re
+f* 
+385.32 308.12 0.24 -6.96 re
+f* 
+385.56 307.4 0.24 -6.72 re
+f* 
+385.8 306.44 0.24 -6.24 re
+f* 
+386.04 305.96 0.24 -6.48 re
+f* 
+386.28 305 0.24 -6 re
+f* 
+386.52 304.28 0.24 -5.76 re
+f* 
+386.76 303.8 0.24 -5.76 re
+f* 
+387 303.08 0.24 -5.52 re
+f* 
+387.24 302.36 0.24 -5.28 re
+f* 
+387.48 301.88 0.24 -5.28 re
+f* 
+387.72 301.16 0.24 -5.04 re
+f* 
+387.96 300.68 0.24 -5.04 re
+f* 
+388.2 300.2 0.24 -5.04 re
+f* 
+388.44 299.48 0.24 -4.8 re
+f* 
+388.68 299 0.24 -4.8 re
+f* 
+388.92 298.76 0.24 -5.04 re
+f* 
+389.16 298.04 0.24 -4.8 re
+f* 
+389.4 297.56 0.24 -4.8 re
+f* 
+389.64 297.08 0.24 -4.8 re
+f* 
+389.88 296.6 0.24 -4.8 re
+f* 
+390.12 296.12 0.24 -4.8 re
+f* 
+390.36 295.64 0.24 -4.8 re
+f* 
+390.6 295.16 0.24 -4.8 re
+f* 
+390.84 294.68 0.24 -4.8 re
+f* 
+391.08 294.2 0.24 -4.8 re
+f* 
+391.32 293.72 0.24 -4.56 re
+f* 
+391.56 293.24 0.24 -4.56 re
+f* 
+391.8 292.76 0.24 -4.56 re
+f* 
+392.04 292.28 0.24 -4.32 re
+f* 
+392.28 291.8 0.24 -4.32 re
+f* 
+392.52 291.32 0.24 -4.32 re
+f* 
+392.76 290.84 0.24 -4.08 re
+f* 
+393 290.6 0.24 -4.32 re
+f* 
+393.24 290.12 0.24 -4.08 re
+f* 
+393.48 289.88 0.24 -4.32 re
+f* 
+393.72 289.4 0.24 -4.08 re
+f* 
+393.96 289.16 0.24 -4.32 re
+f* 
+394.2 288.68 0.24 -4.08 re
+f* 
+394.44 288.44 0.24 -4.32 re
+f* 
+394.68 287.96 0.24 -4.08 re
+f* 
+394.92 287.72 0.24 -4.08 re
+f* 
+395.16 287.24 0.24 -3.84 re
+f* 
+395.4 287 0.24 -3.84 re
+f* 
+395.64 286.52 0.24 -3.6 re
+f* 
+395.88 286.28 0.24 -3.84 re
+f* 
+396.12 285.8 0.24 -3.6 re
+f* 
+396.36 285.56 0.24 -3.6 re
+f* 
+396.6 285.32 0.24 -3.6 re
+f* 
+396.84 285.08 0.24 -3.6 re
+f* 
+397.08 284.84 0.24 -3.6 re
+f* 
+397.32 284.6 0.24 -3.6 re
+f* 
+397.56 284.12 0.24 -3.36 re
+f* 
+397.8 283.88 0.24 -3.36 re
+f* 
+398.04 283.64 0.24 -3.36 re
+f* 
+398.28 283.4 0.24 -3.6 re
+f* 
+398.52 283.16 0.24 -3.6 re
+f* 
+398.76 282.92 0.24 -3.6 re
+f* 
+399 282.68 0.24 -3.6 re
+f* 
+399.24 282.44 0.24 -3.6 re
+f* 
+399.48 282.2 0.24 -3.6 re
+f* 
+399.72 281.96 0.24 -3.6 re
+f* 
+399.96 281.48 0.24 -3.12 re
+f* 
+400.2 281.24 0.24 -3.12 re
+f* 
+400.44 281 0.24 -3.12 re
+f* 
+400.68 280.76 0.24 -3.12 re
+f* 
+400.92 280.52 0.24 -2.88 re
+f* 
+401.16 280.28 0.24 -2.88 re
+f* 
+401.4 280.04 0.24 -2.88 re
+f* 
+401.64 280.04 0.24 -3.12 re
+f* 
+401.88 279.8 0.24 -2.88 re
+f* 
+402.12 279.56 0.24 -2.88 re
+f* 
+402.36 279.32 0.24 -2.88 re
+f* 
+402.6 279.32 0.24 -3.12 re
+f* 
+402.84 279.08 0.24 -2.88 re
+f* 
+403.08 278.84 0.24 -2.88 re
+f* 
+403.32 278.6 0.24 -2.88 re
+f* 
+403.56 278.6 0.24 -3.12 re
+f* 
+403.8 278.36 0.24 -2.88 re
+f* 
+404.04 278.12 0.24 -2.88 re
+f* 
+404.28 277.88 0.24 -2.88 re
+f* 
+404.52 277.88 0.24 -3.12 re
+f* 
+404.76 277.64 0.24 -3.12 re
+f* 
+405 277.4 0.24 -2.88 re
+f* 
+405.24 277.16 0.24 -2.88 re
+f* 
+405.48 277.16 0.24 -3.12 re
+f* 
+405.72 276.92 0.24 -3.12 re
+f* 
+405.96 276.68 0.24 -2.88 re
+f* 
+406.2 276.44 0.24 -2.88 re
+f* 
+406.44 276.44 0.24 -3.12 re
+f* 
+406.68 276.2 0.24 -3.12 re
+f* 
+406.92 275.96 0.24 -2.88 re
+f* 
+407.16 275.72 0.24 -2.88 re
+f* 
+407.4 275.72 0.24 -3.12 re
+f* 
+407.64 275.48 0.24 -3.12 re
+f* 
+407.88 275.24 0.24 -2.88 re
+f* 
+408.12 275 0.24 -2.88 re
+f* 
+408.36 275 0.24 -3.12 re
+f* 
+408.6 274.76 0.24 -3.12 re
+f* 
+408.84 274.52 0.24 -2.88 re
+f* 
+409.08 274.28 0.24 -2.88 re
+f* 
+409.32 274.28 0.24 -3.12 re
+f* 
+409.56 274.04 0.24 -2.64 re
+f* 
+409.8 273.8 0.24 -1.92 re
+f* 
+410.04 273.56 0.24 -1.44 re
+f* 
+410.28 273.56 0.24 -1.2 re
+f* 
+410.52 273.32 0.24 -0.48 re
+f* 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 16 16
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (16)]TJ
+0 45.6 -45.6 0 131.76 157.88 Tm
+-0.001 Tc
+(Or)Tj
+ET
+q
+90.72 108.44 50.88 686.4 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 205.881 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 228.681 Tm
+0.001 Tc
+0.002 Tw
+[(anisation of )6 (a )6 (Sin)]TJ
+ET
+q
+90.72 355.64 50.88 439.2 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 546.922 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 569.722 Tm
+(le File)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.003 Tc
+[(\225)-495 (O)0 (bj)6 (ect)6 (i)6 (v)3 (es:)]TJ
+0 29.04 -29.04 0 251.736 149.24 Tm
+-0.001 Tc
+0.007 Tw
+[(\226)-303 (a)5 (void wasting )8 (disc space, )8 (e.g.)-7 (, )8 (thr)-7 (o)3 (ugh)]TJ
+0.802 -1.083 TD
+0.002 Tc
+[(frag)6 (me)8 (nt)7 (at)7 (io)6 (n)]TJ
+-0.802 -1.322 TD
+-0.005 Tw
+[(\226)-299 (k)7 (ee)9 (p bl)8 (oc)9 (ks o)7 (f)-3 ( th)7 (e sa)9 (me fi)8 (le)9 ( on)7 ( )-8 (t)8 (h)-1 (e)9 ( same)9 ( or)]TJ
+0.802 -1.083 TD
+-0.001 Tc
+-0.001 Tw
+[(near)-7 (by cylinder to )-8 (minimise head )-8 (movement)]TJ
+0 33.12 -33.12 0 395.808 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (hree approaches:)]TJ
+0 29.04 -29.04 0 435.096 149.24 Tm
+0.003 Tc
+[(\226)-299 (c)9 (on)7 (ti)8 (gu)7 (ou)7 (s f)5 (i)0 (l)8 (e)1 (s)]TJ
+0 -1.322 TD
+0.302 Tc
+-0.296 Tw
+[(\226c)308 (h)298 (a)308 (i)299 (n)306 (e)300 (d)306 ( f)304 (i)299 (l)307 (e)300 (s)]TJ
+0 -1.314 TD
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (f)-10 (ile)-6 ( e)-6 (x)0 (t)-7 (e)2 (n)-8 (t)1 (s)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 17 17
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (17)]TJ
+0 45.6 -45.6 0 131.76 266.12 Tm
+(Conti)Tj
+ET
+q
+90.72 216.68 50.88 578.16 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 367.641 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 390.442 Tm
+0 Tc
+0.003 Tw
+(uous Files)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+[(\225)-497 (E)3 (ach)-6 ( )8 (file is held as a sing)-6 (le )8 (contiguous area)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+(on disc)Tj
+0 29.04 -29.04 0 298.536 149.24 Tm
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (s)3 (i)7 (m)3 (pl)7 (e in)6 ( co)6 (nc)8 (ep)6 (t)]TJ
+0 -1.438 TD
+-0.005 Tc
+0.011 Tw
+[(\226)-307 (e)1 (f)-11 (f)-11 (i)0 (ci)-8 (en)-9 (t in)-9 ( )8 (use)]TJ
+0 -1.446 TD
+-0.001 Tc
+-0.001 Tw
+[(\226)-303 (p)3 (r)-7 (o)-5 (blems of f)-7 (r)1 (agmentation)]TJ
+0 -1.438 TD
+0.003 Tc
+-0.005 Tw
+[(\226)-299 (d)7 (iffic)9 (u)7 (lt)8 ( )-8 (t)8 (o)-1 ( g)7 (r)-3 (o)7 (w)-2 ( fi)8 (le)9 (s)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 18 18
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (18)]TJ
+0 45.6 -45.6 0 131.76 295.4 Tm
+0 Tc
+-0.003 Tw
+(Chained Files)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (A)-2 ( )-8 (f)8 (i)-4 (le is held )-8 (as a linked )-8 (list of )-8 (blo)-6 (c)3 (ks)]TJ
+0 29.04 -29.04 0 258.696 149.24 Tm
+-0.001 Tc
+-0.001 Tw
+[(\226)-303 (a)5 (voids )-8 (most fr)-7 (agmentation)]TJ
+0 -1.438 TD
+-0.002 Tc
+0 Tw
+[(\226)-304 (l)3 (o)-6 (t)3 (s )-8 (of)-8 ( head)-6 ( mo)-6 (vemen)-6 (t)3 ( u)-6 (n)2 (less )-8 (very)-6 ( carefu)-6 (l)]TJ
+0.802 -1.207 TD
+-0.004 Tc
+0.002 Tw
+[(al)-7 (lo)-8 (ca)-6 (ti)-7 (on)-8 (, c)-6 (a)2 (n)-8 ( d)-8 (e)2 (t)-7 (e)2 (r)-10 (i)1 (o)-8 (r)-2 (a)-6 (t)1 (e )-8 (ba)-6 (dl)-7 (y o)-8 (n)0 ( )-8 (ne)-6 (ar)-10 (ly)-8 ( fu)-8 (ll)]TJ
+0 -1.198 TD
+[(di)-7 (scs)]TJ
+-0.802 -1.446 TD
+[(\226)-306 (r)-10 (and)-8 (o)0 (m )-8 (ac)-6 (ce)-6 (ss di)-7 (ff)-10 (ic)-6 (ul)-7 (t)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+441.12 359.48 50.16 -68.64 re
+S 
+1 J
+1 j
+441.12 340.76 m
+491.04 340.76 l
+S 
+0 J
+2.4 w
+466.08 347 m
+466.08 378.92 l
+S 
+472.32 378.44 m
+466.08 390.44 l
+460.08 378.44 l
+472.32 378.44 l
+f* 
+0 j
+0.72 w
+441.12 459.08 50.16 -68.64 re
+S 
+1 J
+1 j
+441.12 440.12 m
+491.04 440.12 l
+S 
+0 J
+2.4 w
+466.08 446.36 m
+466.08 478.52 l
+S 
+472.32 478.04 m
+466.08 490.04 l
+460.08 478.04 l
+472.32 478.04 l
+f* 
+0 j
+0.72 w
+441.12 558.68 50.16 -68.64 re
+S 
+1 J
+1 j
+441.12 539.72 m
+491.04 539.72 l
+S 
+0 J
+2.4 w
+466.08 545.96 m
+466.08 578.12 l
+S 
+472.32 577.64 m
+466.08 589.64 l
+460.08 577.64 l
+472.32 577.64 l
+f* 
+BT
+0 20.64 -20.64 0 459.936 122.84 Tm
+0.001 Tc
+0.005 Tw
+[(Pointer f)8 (r)-3 (om)]TJ
+0 -1.209 TD
+-0.007 Tw
+[(fi)12 (le)-8 ( table)]TJ
+ET
+466.08 234.92 m
+466.08 279.32 l
+S 
+472.32 278.84 m
+466.08 290.84 l
+460.08 278.84 l
+472.32 278.84 l
+f* 
+BT
+0 20.64 -20.64 0 472.416 602.12 Tm
+-0.002 Tc
+[(en)-14 (d)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 19 19
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (19)]TJ
+0 45.6 -45.6 0 131.76 311.96 Tm
+0.002 Tw
+(File Extents)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+-0.005 Tw
+[(\225)-497 (A)-2 ( )-8 (f)8 (i)-4 (le is stored )-8 (as a set )-8 (of contiguou)-6 (s pieces,)]TJ
+0.848 -1.08 TD
+0.003 Tc
+-0.007 Tw
+[(wi)6 (th a ta)5 (bl)6 (e showing )-8 (t)6 (h)3 (ei)6 (r siz)5 (e)-2 (s )-8 (a)5 (nd )-8 (where)]TJ
+T*
+-0.001 Tc
+0.005 Tw
+[(the)-6 (y)-1 ( are)]TJ
+0 29.04 -29.04 0 323.496 149.24 Tm
+-0.002 Tc
+0 Tw
+[(\226)-304 (t)3 (h)-6 (e)4 ( )-8 (FS)-8 ( can )-8 (do)-6 ( ar)-8 (ithmetic )-8 (to)-6 ( find)-6 ( a file location)-6 (,)]TJ
+0.802 -1.074 TD
+-0.004 Tc
+0.002 Tw
+[(e.)-10 (g.,)-10 ( in)-8 ( e)-6 (x)0 (a)-6 (m)-3 (pl)-7 (e o)-8 (n)0 ( )-8 (ne)-6 (xt)-7 ( sli)-7 (d)0 (e)-6 (,)-2 ( l)-7 (o)0 (c)-6 (a)2 (t)-7 (i)1 (o)-8 (n)0 ( 1)-8 (7)0 (0)-8 (0)0 ( )-8 (is)]TJ
+0 -1.083 TD
+0.003 Tc
+[(o)7 (ffse)9 (t)8 ( 2)7 (0)-1 (0)7 ( )8 (in)7 ( t)8 (h)-1 (e)9 ( )8 (th)7 (ird )8 (ex)7 (te)9 (nt)]TJ
+-0.802 -1.322 TD
+[(\226)-299 (w)-2 (o)7 (r)-3 (k)7 (s)4 ( )8 (ve)9 (ry)7 ( w)6 (e)9 (ll)8 ( so)7 ( )8 (lo)7 (ng)7 ( a)9 (s)4 ( )8 (th)7 (e )8 (di)8 (sc )8 (i)8 (s)4 ( n)7 (o)-1 (t)]TJ
+0.802 -1.083 TD
+0 Tc
+-0.002 Tw
+[(almost f)-6 (u)4 (ll)]TJ
+-0.802 -1.322 TD
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (l)7 (arge)8 ( )-8 (fil)7 (e)0 (s ma)8 (y ne)8 (ed)6 ( ex)6 (tra le)8 (ve)8 (l)7 (s)3 ( )-8 (o)6 (f)-4 ( t)7 (a)0 (b)6 (l)-1 (e)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 20 20
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (20)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+204.72 334.76 124.56 -99.84 re
+S 
+1 J
+1 j
+260.64 234.92 m
+260.64 334.52 l
+285.6 234.92 m
+285.6 334.52 l
+235.68 234.92 m
+235.68 334.52 l
+S 
+BT
+0 20.64 -20.64 0 227.136 253.64 Tm
+0 Tc
+[(100)-12 (0)]TJ
+0.535 -1.209 TD
+(500)Tj
+0.058 -1.326 TD
+(600)Tj
+ET
+0 J
+0 j
+130.08 564.92 81.12 -93.6 re
+S 
+BT
+0 20.64 -20.64 0 127.536 521.96 Tm
+[(100)-12 (0)]TJ
+ET
+248.16 627.08 81.12 -93.6 re
+S 
+BT
+0 20.64 -20.64 0 245.856 594.44 Tm
+(500)Tj
+ET
+360.24 571.16 81.12 -93.6 re
+S 
+BT
+0 20.64 -20.64 0 357.936 538.52 Tm
+(600)Tj
+ET
+1 j
+2.4 w
+217.2 334.52 m
+136.08 461.72 l
+S 
+141.84 464.6 m
+130.08 471.32 l
+131.52 457.88 l
+141.84 464.6 l
+f* 
+248.16 334.52 m
+248.16 521.96 l
+S 
+254.4 521.48 m
+248.16 533.48 l
+242.16 521.48 l
+254.4 521.48 l
+f* 
+273.12 334.52 m
+354.48 467.72 l
+S 
+359.28 464.12 m
+360.24 477.56 l
+348.96 470.36 l
+359.28 464.12 l
+f* 
+BT
+0 20.64 -20.64 0 110.256 124.28 Tm
+0.001 Tc
+0.005 Tw
+[(Pointer f)8 (r)-3 (om)]TJ
+0 -1.209 TD
+-0.007 Tw
+[(fi)12 (le)-8 ( table)]TJ
+ET
+142.56 178.76 m
+196.32 227.24 l
+S 
+200.16 222.2 m
+204.72 234.92 l
+191.76 231.32 l
+200.16 222.2 l
+f* 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 21 21
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (21)]TJ
+0 45.6 -45.6 0 131.76 309.56 Tm
+0 Tc
+0.003 Tw
+(Unix Inodes)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (U)-2 (nix)-6 ( uses the id)-6 (ea of )-8 (file )-8 (exten)-6 (t)4 (s, )-8 (but with)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(fixed size ex)-7 (ten)-7 (t)3 (s)]TJ
+-0.848 -1.442 TD
+0.498 Tc
+[(\225A)495 (n)498 ( )]TJ
+/N13 1 Tf
+2.326 0.009 TD
+-0.001 Tc
+(inode)Tj
+/N4 1 Tf
+2.225 -0.009 TD
+[( is a singl)-6 (e file)-6 ( ta)-6 (ble)-6 ( )8 (e)-6 (n)-1 (try)]TJ
+-4.551 -1.442 TD
+0 Tc
+-0.004 Tw
+[(\225)-498 (U)-3 (ses in)-7 (direction )-8 (for the )-8 (later block)-7 (s)]TJ
+0 -1.435 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (Increases the lev)-6 (e)3 (l )8 (of indirection )8 (as the )8 (file)]TJ
+0.848 -1.203 TD
+(gets larger)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 22 22
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (22)]TJ
+ET
+0 0 0 RG
+0 J
+0 j
+0.72 w
+10 M
+[]0 d
+80.16 334.76 392.4 -199.44 re
+S 
+1 J
+1 j
+136.32 135.32 m
+136.32 334.52 l
+273.12 135.32 m
+273.12 334.52 l
+316.8 135.32 m
+316.8 334.52 l
+354 135.32 m
+354 334.52 l
+397.68 135.32 m
+397.68 334.52 l
+434.88 135.32 m
+434.88 334.52 l
+167.28 135.32 m
+167.28 334.52 l
+198.48 135.32 m
+198.48 334.52 l
+235.68 135.32 m
+235.68 334.52 l
+S 
+BT
+0 20.64 -20.64 0 458.736 154.04 Tm
+-0.01 Tc
+0.004 Tw
+[(T)-15 (r)-14 (ip)-22 (le)-19 ( i)-11 (n)-10 (d)-10 (i)-11 (r)-14 (e)-8 (c)-19 (t)]TJ
+0.058 1.814 TD
+0 Tc
+0.006 Tw
+[(D)-11 (ouble indirect)]TJ
+0 1.802 TD
+(Single indirect)Tj
+0 2.116 TD
+-0.006 Tw
+[(D)-11 (i)11 (rec)-9 (t)-1 ( bloc)-9 (ks)]TJ
+0 11.698 TD
+-0.002 Tc
+-0.004 Tw
+[(A)-13 (cce)-11 (ss)-8 ( c)-11 (ontr)5 (o)-14 (l)]TJ
+0 -1.209 TD
+0.001 Tc
+[(infor)8 (m)0 (a)-8 (t)0 (i)12 (o)-11 (n)]TJ
+0 -1.5 TD
+0.003 Tc
+-0.009 Tw
+[(O)-8 (w)4 (n)-9 (e)5 (r \(2\))]TJ
+0 -1.756 TD
+0.004 Tw
+[(Time s)7 (t)1 (amps \()9 (3)2 (\))]TJ
+0 -1.512 TD
+-0.001 Tc
+-0.005 Tw
+[(Size)-10 ( \()-5 (bytes)-7 (\))]TJ
+0 -1.802 TD
+0.007 Tw
+[(B)-8 (l)-2 (ock co)-13 (unt)]TJ
+0 -2.116 TD
+0.006 Tc
+[(..)12 (.)]TJ
+ET
+0 J
+2.4 w
+329.04 334.52 m
+179.76 409.16 l
+335.28 334.52 m
+179.76 508.76 l
+347.76 334.52 m
+179.76 614.36 l
+S 
+0 j
+0.72 w
+434.88 446.6 87.36 -24.96 re
+167.28 434.36 25.2 -25.2 re
+167.28 533.72 25.2 -24.96 re
+167.28 639.56 25.2 -25.2 re
+316.8 459.08 87.36 -24.96 re
+304.32 546.2 24.96 -24.96 re
+304.32 614.6 24.96 -24.96 re
+304.32 683.24 24.96 -25.2 re
+S 
+1 j
+2.4 w
+329.04 458.84 m
+316.8 521.24 l
+354 458.84 m
+316.8 589.64 l
+378.96 458.84 m
+316.8 658.04 l
+S 
+0 j
+0.72 w
+385.2 509 87.36 -25.2 re
+372.72 596.12 25.2 -25.2 re
+372.72 664.52 25.2 -25.2 re
+372.72 732.92 25.2 -25.2 re
+S 
+1 j
+2.4 w
+397.68 508.76 m
+385.2 570.92 l
+422.4 508.76 m
+385.2 639.32 l
+447.36 508.76 m
+385.2 707.72 l
+S 
+0 j
+0.72 w
+453.6 562.52 87.36 -22.8 re
+441.12 641 25.2 -22.8 re
+441.12 702.44 25.2 -22.56 re
+441.12 764.12 25.2 -22.8 re
+S 
+1 j
+2.4 w
+466.08 562.28 m
+453.6 618.2 l
+491.04 562.28 m
+453.6 679.88 l
+515.76 562.28 m
+453.6 741.32 l
+366.48 334.52 m
+335.28 434.12 l
+403.92 334.52 m
+459.84 421.64 l
+453.6 446.36 m
+403.92 483.8 l
+484.8 446.36 m
+484.8 539.72 l
+372.72 334.52 m
+372.72 371.72 l
+385.2 334.52 m
+403.92 371.72 l
+422.4 334.52 m
+447.36 359.24 l
+S 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 23 23
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (23)]TJ
+0 45.6 -45.6 0 131.76 196.28 Tm
+0 Tc
+-0.003 Tw
+(Free Space Mana)Tj
+ET
+q
+90.72 146.84 50.88 648 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 512.844 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 535.644 Tm
+0.001 Tc
+(ement)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he FS has to keep track of free )8 (space so)]TJ
+0.848 -1.08 TD
+-0.005 Tw
+[(that )-8 (it can)-6 ( allo)-6 (cate suitable space )-8 (for new )-8 (or)]TJ
+T*
+0 Tc
+0.004 Tw
+[(expan)-7 (d)0 (ing files)]TJ
+-0.848 -1.319 TD
+[(\225)-498 (F)-2 (ree )8 (sp)-7 (ace ch)-7 (ain)-7 (i)3 (ng is not very )8 (suitable )8 (for)]TJ
+0.848 -1.08 TD
+0.004 Tc
+0 Tw
+[(al)7 (l)7 (o)4 (cat)7 (i)7 (n)4 (g )8 (spac)6 (e i)7 (n)4 ( t)7 (h)4 (e )8 (most)7 ( e)6 (ffic)6 (i)-1 (e)6 (n)4 (t )8 (pla)6 (c)-1 (e)6 (s)2 (,)]TJ
+T*
+0 Tc
+0.004 Tw
+[(or for )8 (amalgamating adjacent )8 (free blo)-7 (c)2 (ks)]TJ
+-0.848 -1.319 TD
+-0.001 Tc
+[(\225)-499 (I)-1 (t is usua)-6 (l to hav)-8 (e)1 ( a )]TJ
+/N13 1 Tf
+8.87 0.009 TD
+0.001 Tc
+-0.005 Tw
+(bit map )Tj
+/N4 1 Tf
+3.283 -0.009 TD
+0 Tc
+(or )Tj
+/N13 1 Tf
+1.087 0.009 TD
+0.003 Tc
+0.001 Tw
+[(bi)6 (t)6 ( ve)5 (ct)6 (or)]TJ
+/N4 1 Tf
+3.812 -0.009 TD
+0.004 Tc
+0 Tw
+( \227)Tj
+-16.203 -1.08 TD
+0 Tc
+0.004 Tw
+[(an )8 (array of bits, one for each disc block to)]TJ
+T*
+-0.001 Tc
+[(show)-4 ( if it is free)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 24 24
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (24)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he bit map is held )8 (o)-6 (n)1 ( )8 (disc \(it )8 (is )8 (large\))]TJ
+0 -1.319 TD
+-0.005 Tw
+[(\225)-497 (R)1 (ecent processors have bit-manipulatio)-6 (n)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(ins)-10 (t)3 (ructions)-10 (, e.g., to return )8 (the offset )8 (in a)]TJ
+T*
+[(word of )8 (the first )8 (set bit)]TJ
+-0.848 -1.319 TD
+[(\225)-498 (T)2 (he bit map enables a natural amalgamation)]TJ
+0.848 -1.08 TD
+0.004 Tc
+0 Tw
+[(of a)6 (d)4 (ja)6 (ce)6 (nt)7 ( f)11 (r)4 (ee)6 ( spac)6 (e)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (C)1 (an easily )8 (look in the )8 (part of )8 (the )8 (bit map)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(that relates to th)-7 (e current cy)-7 (lind)-7 (e)2 (r)]TJ
+-0.848 -1.326 TD
+-0.001 Tc
+[(\225)-499 (I)-1 (t is usua)-6 (l to rec)-6 (onstruc)-6 (t the)-6 ( bit ma)-6 (p aft)-6 (e)1 (r a)]TJ
+0.848 -1.08 TD
+0.002 Tc
+-0.006 Tw
+[(system crash)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 25 25
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (25)]TJ
+0 45.6 -45.6 0 131.76 208.76 Tm
+-0.002 Tc
+[(Cach)-7 (in)]TJ
+ET
+q
+90.72 159.32 50.88 635.52 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 338.122 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 360.922 Tm
+-0.001 Tc
+-0.002 Tw
+( Disc Accesses)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he FS uses a set of )8 (main )8 (store buffer)8 (s)-9 ( )8 (to)]TJ
+0.848 -1.08 TD
+0 Tc
+-0.004 Tw
+[(hold frequently)-7 ( acces)-10 (s)-2 (ed )-8 (data)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+[(\225)-497 (T)3 (his gives major saving)-6 (s in accessing:)]TJ
+0 29.04 -29.04 0 331.416 149.24 Tm
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (f)-10 (ile)-6 ( t)-7 (a)2 (b)-8 (l)1 (e)]TJ
+0 -1.314 TD
+0.004 Tc
+-0.006 Tw
+[(\226)-298 (e)10 (xt)9 (en)8 (t da)10 (ta)10 ( fo)8 (r op)8 (en)8 ( fi)9 (le)10 (s)]TJ
+0 -1.322 TD
+0.302 Tc
+-0.296 Tw
+[(\226b)306 (i)299 (t)307 ( m)303 (a)308 (p)]TJ
+T*
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (f)-4 (req)6 (u)-2 (e)8 (n)6 (tl)7 (y ac)8 (ce)8 (ssed)6 ( di)7 (re)8 (ct)7 (orie)8 (s)]TJ
+0 33.12 -33.12 0 489.168 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (A)-3 (ny ch)-7 (anged information is written back to)]TJ
+0.848 -1.087 TD
+0.001 Tc
+-0.005 Tw
+[(dis)-9 (c)3 ( )-8 (at regular intervals)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 26 26
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (26)]TJ
+0 45.6 -45.6 0 131.76 259.88 Tm
+0 Tc
+0.003 Tw
+(File Compression)Tj
+0 33.12 -33.12 0 209.568 111.8 Tm
+-0.004 Tw
+[(\225)-498 (I)0 (t )-8 (is )-8 (possib)-7 (l)3 (e to)-7 ( represent )-8 (data in more)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(ef)8 (ficient )8 (ways, )8 (using different coding)]TJ
+T*
+[(schemes, and takin)-6 (g)1 ( )8 (advantage )8 (of patterns)]TJ
+0 -0.957 TD
+-0.002 Tc
+0.006 Tw
+[(in th)-9 (e dat)-7 (a)]TJ
+-0.848 -1.203 TD
+-0.001 Tc
+0.005 Tw
+[(\225)-499 (E)1 (ve)-6 (n w)-4 (itho)-8 (u)-1 (t losi)-6 (ng )8 (d)-8 (a)1 (ta)-6 (,)-5 ( )8 (c)-6 (o)-1 (mp)-8 (re)-6 (ssio)-8 (n)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(ratios of 2, 10, )8 (sometimes ev)-6 (en 100, )8 (can )8 (be)]TJ
+T*
+0.004 Tc
+[(ac)6 (hie)6 (v)4 (ed)]TJ
+-0.848 -1.203 TD
+0 Tc
+-0.004 Tw
+[(\225)-498 (I)0 (t )-8 (depend)-7 (s crucially )-8 (on )-8 (the nature o)-7 (f)0 ( th)-7 (e)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(data )8 (\(compressed )8 (data wo)-6 (n\222t compress)]TJ
+T*
+0 Tc
+0.004 Tw
+[(mu)-7 (ch further\))]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 27 27
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (27)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (C)0 (o)-7 (m)3 (pression is an)-7 ( )8 (old )8 (idea wh)-7 (ose time )8 (has)]TJ
+0.848 -1.08 TD
+0.001 Tc
+0.003 Tw
+(come, we now have:)Tj
+0 29.04 -29.04 0 175.656 149.24 Tm
+-0.003 Tc
+0.009 Tw
+[(\226)-305 (f)-9 (aste)-5 (r pr)-9 (oc)-5 (esso)-7 (rs)]TJ
+0 -1.322 TD
+[(\226)-304 (b)2 (ut not )8 (that much )8 (f)-8 (a)4 (ster)-8 ( )8 (discs)]TJ
+T*
+0.002 Tc
+0.004 Tw
+[(\226)-300 (g)6 (re)8 (at)7 (er u)6 (s)3 (e )8 (o)6 (f)-4 ( )8 (ne)8 (tworks)]TJ
+0 -1.314 TD
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (m)-3 (or)-10 (e )-8 (\221i)-7 (dl)-7 (e\222)-10 ( ti)-7 (me)]TJ
+0 -1.322 TD
+[(\226)-306 (m)-3 (or)-10 (e )-8 (use)-6 ( of)-10 ( p)-8 (i)1 (c)-6 (t)1 (u)-8 (r)-2 (e)-6 (s)-3 ( an)-8 (d )-8 (vi)-7 (de)-6 (o)]TJ
+0 33.12 -33.12 0 372.048 111.8 Tm
+0.001 Tc
+[(\225)-497 (S)-1 (o, now we co)-6 (mmonly see tools )8 (to)]TJ
+0.848 -1.08 TD
+-0.005 Tw
+[(compress files for )-8 (distribution)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 28 28
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (28)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+-0.005 Tw
+[(\225)-497 (D)-2 (e facto standards )-8 (exist )-8 (for distrib)-6 (u)1 (ting)]TJ
+0.848 -0.964 TD
+0.003 Tc
+-0.007 Tw
+[(com)6 (presse)5 (d dat)6 (a)-2 (,)7 ( )-8 (such as:)]TJ
+0 29.04 -29.04 0 164.856 149.24 Tm
+0.004 Tc
+-0.006 Tw
+[(\226)-298 (Z)3 (i)9 (p)0 ( fo)8 (r ob)8 (je)10 (c)10 (t)1 ( co)8 (de)10 ( di)9 (str)6 (i)1 (b)8 (u)0 (t)9 (i)1 (o)8 (n)]TJ
+0 -1.207 TD
+-0.003 Tc
+0.001 Tw
+[(\226)-305 (G)-8 (IF)-9 ( an)-7 (d )-8 (JPG)-8 ( fo)-7 (r )-8 (images)]TJ
+0 -1.198 TD
+[(\226)-305 (P)-9 (DF)-9 ( fo)-7 (r )-8 (do)-7 (cu)-7 (men)-7 (t)2 (s)]TJ
+T*
+-0.001 Tc
+-0.001 Tw
+[(\226)-303 (M)4 (P)-7 (E)-2 (G)-6 ( fo)-5 (r )-8 (video)]TJ
+0 -1.207 TD
+-0.003 Tc
+0.001 Tw
+[(\226)-305 (M)2 (P)-9 (3)-7 ( fo)-7 (r )-8 (au)-7 (dio)]TJ
+0 33.12 -33.12 0 343.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (here are products \(e.g., Stacker)8 (\))1 ( and )8 (OS)]TJ
+0.848 -0.964 TD
+0.003 Tc
+0.001 Tw
+[(fa)5 (ci)6 (li)6 (t)6 (i)-2 (e)5 (s)1 ( \(e)5 (.g.,)7 ( i)6 (n)3 ( MS )8 (Wi)6 (ndows\) )8 (to )8 (hol)6 (d)]TJ
+T*
+0 Tc
+0.004 Tw
+[(data )8 (on)-7 ( )8 (disc in co)-7 (mpressed form)]TJ
+-0.848 -1.203 TD
+-0.002 Tc
+-0.002 Tw
+[(\225)-500 (F)-4 (ile)-7 (s )-8 (are)-7 ( c)-7 (o)-2 (mp)-9 (re)-7 (sse)-7 (d a)-7 (s)-4 ( )-8 (the)-7 (y)-2 ( a)-7 (r)-2 (e )-8 (w)-5 (r)-2 (it)-7 (ten)-9 (,)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(and )8 (u)-6 (n)1 (compressed as th)-6 (ey are )8 (read, in \221real)]TJ
+T*
+-0.003 Tc
+[(ti)-8 (me)-8 (\222)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 29 29
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (29)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (A)-3 (t a cost in processor time, space )8 (is)-10 ( )8 (being)]TJ
+0.848 -1.08 TD
+0.001 Tc
+0.003 Tw
+[(saved on disc \227 )8 (the disc might \221feel\222 twice)]TJ
+T*
+0.004 Tc
+0 Tw
+[(t)7 (h)4 (e si)7 (ze)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he smaller )8 (compressed data transfers)]TJ
+0.848 -1.08 TD
+-0.001 Tc
+0.005 Tw
+[(qui)-6 (cke)-6 (r)-1 (, w)-4 (h)-1 (ic)-6 (h ca)-6 (n me)-6 (an tha)-6 (t)2 ( the)-6 ( syste)-6 (m)2 ( is)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(\(overall\) faster o)-6 (n)1 ( the )-8 (fastest processors)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (W)-4 (e are even starting to see products that)]TJ
+0.848 -1.087 TD
+-0.005 Tw
+[(hold main s)-9 (t)4 (ore )-8 (data in compressed )-8 (f)8 (o)-6 (rm)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 30 30
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (30)]TJ
+0 45.6 -45.6 0 131.76 183.8 Tm
+-0.004 Tw
+[(Windows NT File )-6 (S)]TJ
+ET
+q
+90.72 134.36 50.88 660.48 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 550.285 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 573.085 Tm
+-0.001 Tc
+(stem)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (A)0 ( )-8 (f)10 (i)-2 (l)6 (e)-2 ( in the)5 ( )-8 (NT)5 (FS is not a sim)6 (p)3 (le)5 ( )-8 (byte)]TJ
+0.848 -1.08 TD
+[(st)6 (rea)5 (m)-2 (, as in Unix)]TJ
+-0.848 -1.319 TD
+0 Tc
+-0.004 Tw
+[(\225)-498 (Instead, )-8 (it is)-10 ( a structured )-8 (object )-8 (con)-7 (s)-2 (isting)]TJ
+0.848 -1.08 TD
+(of )Tj
+/N13 1 Tf
+1.087 0.009 TD
+0.001 Tc
+(attributes)Tj
+/N4 1 Tf
+-1.935 -1.328 TD
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (E)5 (ac)5 (h at)6 (t)6 (r)3 (ibut)6 (e is a )-8 (byt)6 (e stre)5 (am)]TJ
+0 -1.319 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (S)-1 (ome attributes )-8 (are s)-9 (t)4 (an)-6 (dard )-8 (for all files,)]TJ
+0.848 -1.08 TD
+0.004 Tc
+-0.008 Tw
+[(e.)8 (g.,)8 ( )-8 (t)7 (h)4 (e )-8 (fi)7 (l)7 (e)-1 ( na)6 (me)]TJ
+-0.848 -1.319 TD
+0 Tc
+-0.004 Tw
+[(\225)-498 (O)-3 (ther attributes )-8 (depend)-7 ( on )-8 (the )-8 (file type)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 31 31
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (31)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (A)-3 ( directo)-7 (r)7 (y)-7 ( )8 (has attributes that implement an)]TJ
+0.848 -1.08 TD
+0.001 Tc
+-0.005 Tw
+[(ind)-6 (e)3 (x )-8 (for the file )-8 (names in the )-8 (directory)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (O)-2 (rdinary data files hav)-6 (e)3 ( an attribute )8 (that)]TJ
+0.848 -1.08 TD
+(contains the data)Tj
+-0.848 -1.319 TD
+-0.005 Tw
+[(\225)-497 (E)3 (very )-8 (file is referenced )-8 (by )-8 (the )]TJ
+/N13 1 Tf
+13.203 0.009 TD
+-0.001 Tc
+0.005 Tw
+[(m)-4 (a)-1 (st)-6 (er fi)-6 (le)]TJ
+-12.355 -1.08 TD
+-0.002 Tc
+[(tab)-9 (l)1 (e)]TJ
+/N4 1 Tf
+2.007 -0.009 TD
+0 Tc
+-0.004 Tw
+( \(MTF\))Tj
+-2.855 -1.319 TD
+0.004 Tc
+0 Tw
+[(\225)-494 (S)2 (m)7 (a)-1 (l)7 (l)7 ( at)7 (t)7 (r)4 (ibut)7 (es )8 (are)6 ( st)7 (or)11 (ed i)7 (n)4 ( t)7 (h)4 (e )8 (MT)6 (F )8 (it)7 (se)6 (lf)]TJ
+T*
+0.003 Tc
+0.001 Tw
+[(\225)-495 (L)5 (arge)5 ( at)6 (t)6 (r)3 (ibut)6 (es )8 (are)5 ( st)6 (or)10 (ed i)6 (n)3 ( e)5 (x)-4 (t)6 (e)5 (nt)6 (s, )8 (wi)6 (th)]TJ
+0.848 -1.087 TD
+-0.007 Tw
+[(point)6 (ers to ea)5 (ch )-8 (e)5 (x)3 (te)5 (nt)6 ( store)5 (d in the)5 ( )-8 (MT)5 (F)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (V)-2 (er)8 (y)-6 ( large files, )-8 (or highly)-6 ( fragmented )-8 (ones,)]TJ
+0.848 -1.08 TD
+0.003 Tw
+[(may need to use )8 (indirection)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 32 32
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (32)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he NTFS name )8 (space is organised)-6 ( )8 (as )8 (a)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(hierar)7 (chy of directo)-7 (r)0 (ies)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (E)3 (very directory )8 (uses a )]TJ
+/N13 1 Tf
+10.036 0.009 TD
+-0.001 Tc
+0.005 Tw
+[(B+ tre)-6 (e)]TJ
+/N4 1 Tf
+3.101 -0.009 TD
+0 Tc
+-0.004 Tw
+[( to store )-8 (an)]TJ
+-12.29 -1.08 TD
+0.001 Tc
+0.003 Tw
+[(ind)-6 (e)3 (x of the )8 (file names )8 (in )8 (the dir)8 (ectory)]TJ
+-0.848 -1.319 TD
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (A)0 ( )-8 (B+ tr)10 (ee is used )-8 (be)5 (ca)5 (use)5 (:)]TJ
+0 29.04 -29.04 0 298.776 149.24 Tm
+-0.005 Tc
+0.011 Tw
+[(\226)-307 (r)-11 (eor)-11 (g)-9 (ani)-8 (s)-4 (in)-9 (g th)-9 (e )8 (t)-8 (r)-3 (e)-7 (e)1 ( is )8 (v)-9 (e)1 (r)-11 (y)-1 ( ef)-11 (fi)-8 (ci)-8 (en)-9 (t)]TJ
+0 -1.322 TD
+0.01 Tw
+[(\226)-306 (e)2 (v)-8 (e)2 (r)-10 (y)0 ( pa)-6 (th)-8 ( )8 (fr)-10 (om th)-8 (e )8 (r)-10 (o)0 (o)-8 (t)1 ( to)-8 ( )8 (a le)-6 (af)-10 ( )8 (ha)-6 (s )8 (t)-7 (h)0 (e)-6 ( )8 (same)]TJ
+0.802 -1.083 TD
+[(le)-7 (ng)-9 (th)]TJ
+0 33.12 -33.12 0 411.408 111.8 Tm
+0.003 Tc
+[(\225)-495 (T)5 (he )]TJ
+/N13 1 Tf
+2.659 0.009 TD
+0 Tc
+0.004 Tw
+(index root)Tj
+/N4 1 Tf
+4.094 -0.009 TD
+[( )8 (of a directory contains )8 (the)]TJ
+-5.906 -1.08 TD
+0.001 Tc
+0.003 Tw
+[(top)-6 ( )8 (level of )8 (the B+ tree)]TJ
+-0.848 -1.319 TD
+-0.005 Tw
+[(\225)-497 (F)-1 (or large d)-6 (i)4 (recto)-6 (r)8 (ies, )-8 (all b)-6 (u)1 (t )-8 (the root will )-8 (be)]TJ
+0.848 -1.08 TD
+0.003 Tw
+[(contained in extents )8 (n)-6 (ormally held on disc)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Trailer
+%%EOF

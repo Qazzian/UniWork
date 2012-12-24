@@ -1,0 +1,443 @@
+
+%
+% slide 1
+%
+\begin{slide}{}
+\begin{center}
+{\large \bf CS24210 Syntax Analysis and Topics in Programming Languages}\\
+\vspace{3ex}
+{\small Edel Sherratt}
+\end{center}
+
+{\bf About this Module}
+
+Your Aim: to become familiar with the concepts required for
+specifying and implementing  programming lanuguages
+
+Why?
+
+\end{slide}
+%
+% slide 2
+%
+\begin{slide}{}
+{\bf Learning Outcomes -- for the whole course}
+
+On successful completion of this course, you should be able to
+\begin{itemize}
+\item make effective use of compilers and other language processing software; 
+\item apply the techniques and algorithms used in compilation to other areas 
+      of software engineering;
+\item understand the need for implementation independent semantics of
+     programming languages; 
+\end{itemize}
+\end{slide}
+%
+% slide 3
+%
+\begin{slide}{}
+{\bf How the course will work}
+
+\begin{itemize}
+\item lectures, will require input from you
+\item scheduled practicals 
+\item reading -- web based materials and library 
+\item own practical work 
+\end{itemize}
+\end{slide}
+%
+% slide 4
+%
+\begin{slide}{}
+{\small
+{\bf About the Course}
+
+\begin{itemize}
+\item Syllabus -- \\
+ www.aber.ac.uk/\~~dcswww/Dept/Teaching/\\Syllabus/1999-00/
+\item The order will change
+\item The content will vary from year to year
+\item The examination will be based on the course {\em as taught}
+\item For the highest marks,  evidence of additional reading, and 
+more specially, {\em coherent thought}  about the taught material
+will be demanded
+\item This means that your work should be paced
+\item Please point out any problems with the course content or
+presentation quickly -- during the lecture, if necessary
+\end{itemize}
+}
+\end{slide}
+
+%
+% slide 5
+%
+\begin{slide}{}
+{\small
+{\bf Useful sources of information}
+\begin{itemize}
+\item www.aber.ac.uk/\~~dcswww/Dept/Teaching/\\Courses/CS24210
+\item N.B. Bennett is not available - so please ignore the statement
+in the syllabus that it is essential to purchase that book
+\item Alternatives should be in the bookshops during the coming week
+\item Aho, Sethi and Ullman, {\em Compilers: Principles, Techniques and Tools,} ISBN~0-201-10194-7
+\item Fischer, C.N. and Leblanc, R.J. {\em Crafting a compiler with C,}
+ISBN~0-8053-2166-7 (this will be probably be changed to the Java edition 
+for next year's course -- which will affect its resale value)
+\item Wirth, {\em Compiler Construction}, ISBN~0-201-40353-6 
+\end{itemize}
+}
+\end{slide}
+
+
+%
+% Overview of Language Processing Software - 1 lecture
+%
+% Learning outcomes - following this lecture, you should
+% 
+% be aware of the variety and scope of language processing software that you
+% have already used or are likely to want to use during your course/career
+%
+% know why you need to balance practice with transferable knowledge and skills
+% 
+
+%
+% slide 5
+%
+\begin{slide}{}
+{\bf Language Processing Software}
+\begin{itemize}
+\item Editors -- e.g. nedit, gvim, vi, sed, \ldots
+%\vspace{10ex}
+\item Compilers and Interpreters -- e.g. javac, gcc, perl, bash, csh \ldots
+%\vspace{10ex}
+\item Text formatters -- e.g. \LaTeX, nroff \ldots
+%\vspace{10ex}
+\end{itemize}
+\end{slide}
+%
+% slide 6
+%
+\begin{slide}{}
+{\small
+{\bf \ldots and the Languages they process}
+\begin{itemize}
+\item gvim: ascii text, programming languages, markup languages
+\item javac: java programs
+\item gcc: ANSI C programs
+\item LaTeX: text marked up with latex formatting instructions
+\item html: text marked up with html formatting instructions
+\item perl: perl scripts
+\item bash: bash shell commands
+\item csh: C shell commands
+\end{itemize}
+}
+\end{slide}
+%
+% slide 7
+%
+\begin{slide}{}
+{\bf How do we learn to use Language Processing Software Effectively?}
+\begin{itemize}
+\item Learn all of these languages and software systems individually?
+\item In a 10-credit module -- \\ 80 hours of your time???!
+\item How do we cope with new languages and tools?
+\item How do we make sure our knowledge is good for life?
+\end{itemize}
+\end{slide}
+%
+% slide 8
+%
+\begin{slide}{}
+{\bf Lasting, transferable knowledge and skills in Language Processing}
+
+\begin{itemize}
+\item We need some practice 
+\item and also some abstract knowledge -- transferable skills -- 
+\end{itemize}
+
+Recall CS12220/12320 -- abstraction as a tool for dealing with complexity.
+Read this before the next lecture. Think hard about what it means for
+the study of language.
+\end{slide}
+%\setcounter{slide}{9}
+%
+% lect 2
+%
+% Objectives: students should be able to
+% analyse the meaning of abstraction with regard to the study of language
+% name and describe three major aspects of language study: 
+%   viz. syntax, semantics and pragmatics
+% state what is meant by a lexeme
+% present examples of correct and incorrect Java lexical syntax 
+% write regular expressions using the notation described in the Unix chapter 5 man page
+%
+% slide 9
+%
+\begin{slide}{}
+{\small
+{\bf Abstraction as a tool to support effective use of language processing software}
+
+\begin{itemize}
+\item What kind of information do we need to keep in mind?\\
+  depends on what we're thinking about
+\begin{itemize}
+\item all languages: the fact that languages have structure; 
+\item Java: class structure;
+\item perl: pattern structure, loop structure, \ldots
+\end{itemize}
+\item What kind of information do we omit?
+\begin{itemize}
+\item all languages: possible structures 
+\item Java: semicolons etc.
+\item perl: * / $<$ $>$ . etc.
+\end{itemize}
+\item Different abstractions for different purposes?\\
+\begin{itemize}
+\item different levels of abstraction level (as above)
+\item OR different perspectives (next slide)
+\end{itemize}
+\end{itemize}
+Note - there are many other ways to use abstraction when thinking
+about formal language.
+}
+\end{slide}
+%
+% slide 10
+%
+\begin{slide}{}
+{\bf Three aspects of language}
+\begin{itemize}
+\item syntax -- form, shape, structure 
+\item semantics -- meaning
+\item pragmatics -- use
+\end{itemize}
+\end{slide}
+%
+% slide 11 
+%
+\begin{slide}{}
+{\bf Lexical errors in Java}
+
+What's wrong with
+
+\begin{verbatim}
+    fruit = 7peach;
+\end{verbatim}
+
+An identifier may not begin with a digit
+
+\end{slide}
+%
+% slide 12
+%
+\begin{slide}{}
+{\bf Lexical errors in Java}
+
+How about
+
+\begin{verbatim}
+    fred = _fred_value:
+    joan = _joan_value;
+\end{verbatim}
+
+statement delimiter is ; not :
+\end{slide}
+%
+% slide 13
+%
+\begin{slide}{}
+{\bf Lexical errors in Java}
+
+Or maybe
+
+\begin{verbatim}
+Abstract Class StackD {
+  Abstract Object accept(StackVisitorI ask);
+}
+\end{verbatim}
+
+keywords `abstract', `class' and `object' should contain only lowercase letters
+\end{slide}
+%
+% slide 14
+%
+\begin{slide}{}
+{\bf Lexical errors in Java}
+
+Or even
+
+\begin{verbatim}
+    my_counter = 7 * (loop_counter + 5o5);
+\end{verbatim}
+
+the letter `o' should not appear in a number
+\end{slide}
+%
+% slide 15
+%
+\begin{slide}{}
+{\small
+{\bf Lexical errors in Java}
+
+What elements of the Java programming language were affected by
+these lexical errors?
+\begin{itemize}
+\item identifier
+\item delimiter
+\item keyword
+\item number (unsigned integer)
+\end{itemize}
+
+%\vspace{7ex}
+
+What constitutes the lexis of a programming language?
+
+identifiers, delimiters, keywords, numbers (of various kinds),
+comments, \ldots
+%\vspace{7ex}
+
+What part of the compiler catches lexical errors?
+
+the scanner
+%\vspace{7ex}
+
+How do we specify the lexis of a programming language?
+
+We use regular expressions -- we'll come back to this later.
+
+%\vspace{7ex}
+}
+\end{slide}
+
+%
+% slide 16
+%
+\begin{slide}{}
+{\bf Structure of a Compiler}
+
+\vspace{3ex}
+\epsfbox{CompStructFun.eps}
+\end{slide}
+%
+% slide 17
+%
+\begin{slide}{}
+{\bf Main Jobs of a Compiler}
+
+{\bf ANALYSIS of the Source Program}
+    \begin{itemize}
+    \item lexical analysis
+    \item syntactic analysis
+    \item context checking
+    \end{itemize}
+
+{\bf SYNTHESIS of the Target Program}
+    \begin{itemize}
+    \item generation of intermediate representation
+    \item optimisation
+    \item code generation
+    \end{itemize}
+
+\end{slide}
+
+%
+% slide 18
+%
+\begin{slide}{}
+{\bf The Scanner}
+
+The first job a compiler must do is to read the input
+character by character, and group the characters into
+useful bits called lexemes.  This task is called
+lexical analysis.
+
+Here are some Ada lexemes
+
+%{\tt
+
+%\hspace{3em}    for i in NumberofItems loop \\
+
+%\vspace{2ex}
+
+%\hspace{3em}    ins := 42;
+
+%}
+\vspace{3ex}
+\epsfbox{lexemes1.eps}
+
+There are some nontrivial problems; illustrated by these
+FORTRAN lexemes:
+
+%{\tt
+
+%\hspace{3em}    2.E3 \\
+
+%\vspace{2ex}
+
+%\hspace{3em}    2.EQ.I
+
+%}
+\vspace{3ex}
+\epsfbox{lexemes2.eps}
+\end{slide}
+
+%
+% slide 8 
+%
+\begin{slide}{}
+{\small
+{\bf The Scanner}
+
+The lexemes are represented as tokens -- often integers -- to 
+facilitate further processing by the compiler.
+
+Tokens indicate the lexical class of the lexeme -- identifier,
+reserved word, delimeter, \ldots \&c. -- and usually include
+a reference to the lexeme itself.
+
+A typical encoding uses one or two digits to represent the lexical
+class of a token, with other digits acting as indices into tables
+where the lexemes themselves are stored.
+
+For example,
+\begin{quote}
+
+    ins := 42;
+
+\end{quote}
+might be encoded as
+\begin{quote}
+
+    0233 0076 0062 0011
+
+\end{quote}
+where the lowest order digit indicates the lexical class
+of the token, and the other digits index an entry for
+the token itself.
+}
+\end{slide}
+%
+% slide 10
+%
+\begin{slide}{}
+{\bf Other jobs done by the scanner}
+
+As well as doing its main job -- recognising lexemes
+and encoding them as tokens -- the scanner
+\begin{itemize}
+\item eliminates comments and ``white space'',
+\item formats and lists the source program, and
+\item processes compiler directives.
+\end{itemize}
+
+\end{slide}
+%
+% slide 11
+%
+\begin{slide}{}
+{\bf The Scanner in Context}
+
+\vspace{3ex}
+\epsfbox{Scanner.eps}
+
+\end{slide}

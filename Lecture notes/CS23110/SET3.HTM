@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CS23110 - Part 3.  Jem Rowland.  Univ. Wales, Aberystwyth.</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (WinNT; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR><A HREF="set2.htm">Back to part 2.</A> 
+<HR></P>
+
+<P><B>Real Time Operating Systems and Kernels.</B> </P>
+
+<P>What might an operating system provide? </P>
+
+<UL>
+<LI>A `virtual machine' upon which applications are run. ...to isolate
+the applications programmer from the hardware, if possible. (Often NOT
+possible in real time systems.) </LI>
+
+<LI>Support for multi-tasking: </LI>
+
+<UL>
+<LI>task management, </LI>
+
+<LI>interprocess communication. </LI>
+</UL>
+
+<LI>Filestore access and management. </LI>
+
+<UL>
+<LI>(Many real time systems do not have filestore. In those that do, care
+is needed - filestore has its own real-time constraints!) </LI>
+</UL>
+
+<LI>Memory management. </LI>
+
+<UL>
+<LI>partition and protect memory on a per task basis. </LI>
+</UL>
+
+<LI>Provide support for development tools. (We expect this of a normal
+operating system. For embedded systems it is not essential because it can
+be better to use separate tools for development.) </LI>
+</UL>
+
+<P>Software Structure: </P>
+
+<P><B>System = Applications Software + Virtual Machine</B> </P>
+
+<P>The <B>Applications Software</B> is a set of individual tasks that are
+to run concurrently. </P>
+
+<P>The <B>Virtual Machine</B> consists of: </P>
+
+<DL >
+<DT>Real Time Kernel: </DT>
+
+<DD>In the simplest case this is just the interrupt structure of the processor.
+When multiple continuous tasks are involved then the kernel needs to support
+task management and scheduling, and IPC. </DD>
+
+<DT>Memory Management: </DT>
+
+<DD>Normally provided by a good kernel. </DD>
+
+<DT>I/O support: </DT>
+
+<DD>This is normally possible only when the system hardware has been supplied
+by one manufacturer - who also supplies the I/O library. (Device drivers
+are hardware-specific.) </DD>
+
+<DT>Filestore support: </DT>
+
+<DD>Not always available, not always desirable, not always needed! </DD>
+</DL>
+
+<P>So, some applications use a complete real time operating system; some
+use just a kernel. </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Host - Target Development</B> </P>
+
+<UL>
+<LI>The architecture of a real time embedded systems is normally specific
+to the application. </LI>
+
+<LI>Such architectures are normally unable to support development tools.
+(Design tools, editors, compilers, linkers, decent debuggers etc.) </LI>
+
+<LI>Software development is normally done on a `host' - a computer system
+that is designed to support development. </LI>
+
+<LI>Facilities are available that allow the host to download object code
+to the `target' system and to debug it while it is running in the target.
+</LI>
+
+<LI>The host needs a full `conventional' operating system. </LI>
+
+<LI>The target needs a real time operating system, or just a kernel. </LI>
+
+<LI>When development is complete the host is removed. </LI>
+</UL>
+
+<P><B>Real Time Kernel Functions</B> </P>
+
+<P>...are similar to those of a `normal' o/s kernel (covered in CS22210):
+</P>
+
+<UL>
+<LI>start, suspend &amp; stop tasks </LI>
+
+<LI>allow tasks to self terminate or self suspend </LI>
+
+<LI>wait for events </LI>
+
+<LI>assign and manage task priorities </LI>
+
+<LI>support periodic execution </LI>
+
+<LI>handle IPC through some appropriate mechanism (semaphores etc.) </LI>
+</UL>
+
+<P><B>Kernels and Interrupts:</B> </P>
+
+<P>Interrupt handling is often left to the processor itself - for `run
+to completion' tasks. </P>
+
+<P>Interrupts can also be used to signal to the kernel...</P>
+
+<UL>
+<LI>to cause immediate execution of a service task (`pre-emptive' scheduling)
+</LI>
+
+<LI>to simply indicate that the appropriate task is now `runnable' </LI>
+
+<UL>
+<LI>It will then be placed in the `runnable' queue </LI>
+
+<LI>and will run in its turn - either on the basis of priority or on a
+`round-robin' basis. </LI>
+</UL>
+</UL>
+
+<P>Under a non-pre-emptive strategy timed interrupts can cause the kernel
+to regularly assess the state of the system and perform any necessary task
+switch. </P>
+
+<P><B>Tasks may themselves initiate a task switch:</B> </P>
+
+<UL>
+<LI>They may <I>terminate</I> on completion of execution. (and may run
+again later) </LI>
+
+<LI>They may <I>suspend</I> themselves - because all currently available
+data has been processed, the output buffer is full, etc. </LI>
+</UL>
+
+<P>In each case this will be achieved by calling a kernel function. </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Data Structures Associated with the Kernel</B> </P>
+
+<P>A <I>process descriptor</I> for each task: </P>
+
+<UL>
+<LI>location of its entry point </LI>
+
+<LI>location of its data area </LI>
+
+<LI>location of its stack area </LI>
+
+<LI>its volatile environment (processor registers) </LI>
+
+<LI>its state (executing, runnable, suspended, terminated). </LI>
+</UL>
+
+<P>A <I>runnable queue</I>. </P>
+
+<P>A <I>suspended queue</I>. </P>
+
+<P><B>Kernel - various considerations:</B> </P>
+
+<P>Use of a pre-emptive strategy is often necessary to ensure real time
+constraints are met. </P>
+
+<P>The overhead imposed by a kernel can be significant - consumes processor
+power and memory space but modern real time kernels are becoming small
+and efficient. </P>
+
+<P>The correctness (or otherwise) of the kernel will be reflected in the
+correctness of the system that uses it. Select one that has been well tried!
+</P>
+
+<P>Relatively simple applications may not justify the use of a kernel.
+</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Commercially available RT kernels and O/Ss:</B> </P>
+
+<P>Remember: </P>
+
+<UL>
+<LI>Kernel provides only task management and ipc. </LI>
+
+<LI>O/S is a kernel plus some or all of: </LI>
+
+<UL>
+<LI>I/O support (only for proprietary hardware), </LI>
+
+<LI>Filestore support (but doesn't protect you from the timing constraints
+of the file system, or of its DMA). </LI>
+
+<LI>Memory management (included in some kernels and all O/Ss). Beware of
+dynamic allocation of memory - if it is needed it implies that there may
+not be enough memory for the worst case. Can't rely on swapping to disc
+- may not be there, and would probably violate timing criteria. </LI>
+</UL>
+</UL>
+
+<P><B>Some Real Time Kernels:</B> </P>
+
+<P>Normally:</P>
+
+<UL>
+<LI>Can be purchased as relocatable object code. </LI>
+
+<LI>Available for various processors. </LI>
+
+<LI>Provides kernel functions and memory management. </LI>
+
+<LI>Configuration tables tailor it to specific applications. </LI>
+
+<LI>No filestore support. </LI>
+
+<LI>No I/O drivers. </LI>
+
+<LI>No development facilities - optimised for host/target development.
+</LI>
+
+<LI>Well respected! </LI>
+</UL>
+
+<P><B>Some Real Time Operating Systems:</B> </P>
+
+<P>These are characterised by being capable of allowing the target system
+also to be used as the development system. </P>
+
+<UL>
+<LI>They support design tools, editors, compilers, debuggers etc. </LI>
+
+<LI>They often required that the target system architecture must have some
+extra bits added to support development (screen, keyboard, discs...), unless
+these bits are to be part of the target application. </LI>
+
+<LI>For the embedded application much of the O/S can be stripped away,
+leaving the kernel plus any appropriate run-time support. </LI>
+
+<LI>This approach has to be used with care - changing the system after
+you have developed and tested it is a risky business! </LI>
+
+<LI>Is perhaps more appropriate in less critical applications. </LI>
+</UL>
+
+<P><B>Some examples of real-time kernels and real-time operating systems,
+with links to their web sites: </B></P>
+
+<UL>
+<LI><A HREF="http://www.artesyncp.com/html/vxworks.html">VxWorks</A>,
+</LI>
+
+<LI><A HREF="http://www.wrs.com/products/html/psosystem3_ds.html">pSOS</A>, </LI>
+
+<LI><A HREF="http://www.mentor.com/microtec/brochures/vrtx.html">VRTX 
+</A>, </LI>
+
+<LI><A HREF="http://www.lynuxworks.com/products/whatislos.html">LynxOS,</A></LI>
+
+<LI><A HREF="http://www.enea.com/PRODUCT/i_prod.htm">OSE.</A></LI>
+<LI><A HREF="http://www.qnx.com/products/os/qnxrtos.html">QNX.</A></LI>
+<LI><A HREF="http://anubis.dkuug.dk/JTC1/SC22/WG15/">POSIX</A>  and <A HREF="http://www.rtmx.com/"> an example of Real Time POSIX.</A></LI>
+</UL>
+
+<P><B>Some alternative approaches:</B> </P>
+
+<UL>
+<LI>MASCOT provides a kernel upon which applications can be run. </LI>
+
+<LI>Ada, occam, Java, provide multitasking and IPC facilities <I>within the language</I>.
+</LI>
+
+<LI>The Intel 80386 and later X86 family processors contain hardware process
+descriptors and a task switch instruction. This effectively moves part
+of the kernel into the processor hardware. </LI>
+
+</UL>
+
+<P>
+<HR><BR>
+<HR></P>
+<A HREF="lectures.htm"><B>Back to index.</B> </A>
+<P>
+<HR WIDTH="100%"></P>
+
+</BODY>
+</HTML>

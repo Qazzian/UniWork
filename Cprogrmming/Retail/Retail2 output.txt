@@ -1,0 +1,118 @@
+		Copy of the output created by Retail2 (in Dos).
+
+D:\My Documents\Cprogs>Retail2
+Do you want to
+ 0) Exit
+ 1) Print tree
+ 2) Buy Groceries
+        ? 1
+All Stock sold at 0p per . 0 in stock, 0 on order
+Vegetables sold at 0p per . 0 in stock, 0 on order
+Carrots sold at 10p per pound. 50 in stock, 20 on order
+There are no varieties
+
+Potatoes sold at 0p per . 0 in stock, 0 on order
+Maris Piper sold at 3p per pound. 200 in stock, 50 on order
+There are no varieties
+
+Line White sold at 4p per pound. 150 in stock, 30 on order
+There are no varieties
+
+Cabbage sold at 5p per pound. 110 in stock, 10 on order
+There are no varieties
+
+Fruit sold at 0p per . 0 in stock, 0 on order
+Apples sold at 0p per . 0 in stock, 0 on order
+Granny Smith sold at 22p per pound. 50 in stock, 15 on order
+There are no varieties
+
+Disrouery sold at 23p per pound. 30 in stock, 10 on order
+There are no varieties
+
+Mellons sold at 57p per individual. 12 in stock, 4 on order
+There are no varieties
+
+Plums sold at 25p per pound. 50 in stock, 10 on order
+There are no varieties
+
+Do you want to
+ 0) Exit
+ 1) Print tree
+ 2) Buy Groceries
+        ? 2
+All Stock
+Vegetables
+Carrots sold at 10p per pound. 50 in stock, 20 on order
+How much do you want to buy?  10
+Potatoes
+Maris Piper sold at 3p per pound. 200 in stock, 50 on order
+How much do you want to buy?  5
+Line White sold at 4p per pound. 150 in stock, 30 on order
+How much do you want to buy?  5
+sub totle  20p
+sub totle  35p
+Cabbage sold at 5p per pound. 110 in stock, 10 on order
+How much do you want to buy?  5
+sub totle  25p
+sub totle  60p
+sub totle  160p
+Fruit
+Apples
+Granny Smith sold at 22p per pound. 50 in stock, 15 on order
+How much do you want to buy?  8
+Disrouery sold at 23p per pound. 30 in stock, 10 on order
+How much do you want to buy?  4
+sub totle  92p
+sub totle  268p
+Mellons sold at 57p per individual. 12 in stock, 4 on order
+How much do you want to buy?  2
+Plums sold at 25p per pound. 50 in stock, 10 on order
+How much do you want to buy?  6
+sub totle  150p
+sub totle  264p
+sub totle  532p
+sub totle  532p
+sub totle  692p
+sub totle  692p
+Total: 692p
+Do you want to
+ 0) Exit
+ 1) Print tree
+ 2) Buy Groceries
+        ? 1
+All Stock sold at 0p per . 0 in stock, 0 on order
+Vegetables sold at 0p per . 0 in stock, 0 on order
+Carrots sold at 10p per pound. 40 in stock, 20 on order
+There are no varieties
+
+Potatoes sold at 0p per . 0 in stock, 0 on order
+Maris Piper sold at 3p per pound. 195 in stock, 50 on order
+There are no varieties
+
+Line White sold at 4p per pound. 145 in stock, 30 on order
+There are no varieties
+
+Cabbage sold at 5p per pound. 105 in stock, 10 on order
+There are no varieties
+
+Fruit sold at 0p per . 0 in stock, 0 on order
+Apples sold at 0p per . 0 in stock, 0 on order
+Granny Smith sold at 22p per pound. 42 in stock, 15 on order
+There are no varieties
+
+Disrouery sold at 23p per pound. 26 in stock, 10 on order
+There are no varieties
+
+Mellons sold at 57p per individual. 10 in stock, 4 on order
+There are no varieties
+
+Plums sold at 25p per pound. 44 in stock, 10 on order
+There are no varieties
+
+Do you want to
+ 0) Exit
+ 1) Print tree
+ 2) Buy Groceries
+        ? 0
+
+D:\My Documents\Cprogs>

@@ -1,0 +1,40 @@
+Script started on Tue 14 Dec 1999 08:46:38 PM GMT
+
+         * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         *           Sussex Poplog Version 15.0              *
+         *     See HELP NEWS for details of new features     *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * *
+manuel% lex little.l
+manuel% yacc little.y
+manuel% gcc -o little y.tab.c -ly -ll tree.o
+manuel% more example.little
+mabel := 7; fred := 100;
+while mabel < fred do
+  mabel += 1
+endwhile
+$
+
+manuel% little < example.little
+     
+    
+    
+
+sequ
+:=
+id (mabel)
+number (7)
+sequ
+:=
+id (fred)
+number (100)
+while
+<
+id (mabel)
+id (fred)
++=
+id (mabel)
+number (1)
+
+
+manuel% exit
+script done on Tue 14 Dec 1999 08:47:16 PM GMT

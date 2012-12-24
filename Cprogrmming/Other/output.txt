@@ -1,0 +1,33 @@
+competitor's name (First_Second):
+qw
+Time for cycle race (hours minutes seconds):
+1 2 3
+Time for the swim (hours minutes seconds):
+1 2 3
+Time for the running race (hours minutes seconds):
+1 2 3
+Can we even get to this point?
+It works so far.
+Competitor  has a total time of 3Hrs 6Mins 9Secs.
+competitor's name (First_Second):
+Ian_wallis
+Time for cycle race (hours minutes seconds):
+3 2 1
+Time for the swim (hours minutes seconds):
+3 2 1
+Time for the running race (hours minutes seconds):
+3 2 1
+Can we even get to this point?
+It works so far.
+Competitor  has a total time of 9Hrs 6Mins 3Secs.
+NAME        competitor number  Cycle time  swim time  run time   total time
+-=========================================================================-
+                             1769108571   1H  2M  3S  1H  2M  3S  1H  2M  3S  3H
+  6M  9S                             1769108571   3H  2M  1S  3H  2M  1S  3H  2M
+  1S  9H  6M  3SNAME        competitor number  Cycle time  swim time  run time
+ total time
+-=========================================================================-
+                             1769108571   3H  2M  1S  3H  2M  1S  3H  2M  1S  9H
+  6M  3S                             1769108571   1H  2M  3S  1H  2M  3S  1H  2M
+  3S  3H  6M  9S
+D:\My Documents\Cprogs>

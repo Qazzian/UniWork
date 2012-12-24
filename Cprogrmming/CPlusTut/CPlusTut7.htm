@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.cprogramming.com/tutorial/lesson7.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut7_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut7_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut7_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut7_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut7_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut7_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut7_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut7_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut7_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut7_files/6031084.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 7: Structures </H3><BR>Before discussing classes, this 
+            lesson will be an introduction to data structures similar to 
+            classes. Structures are a way of storing many different variables of 
+            different types under the same name. This makes it a more modular 
+            program, which is easier to modify because its design makes things 
+            more compact. It is also useful for databases.<BR><BR>The format for 
+            declaring a structure(in C++, it is different in C) is <PRE>struct NAME
+{
+  VARIABLES;
+};</PRE>Where NAME is the name of the entire type of structure. To 
+            actually create a single structure the syntax is NAME 
+            name_of_single_structure; To access a variable of the structure it 
+            goes name_of_single_structure.name_of_variable;<BR><BR>For example:<PRE>struct example
+{
+  int x;
+};
+
+example an_example;  //Treating it like a normal variable type
+an_example.x=33;     //How to access it
+</PRE>Here is an example program: <PRE>struct database
+{
+  int id_number;
+  int age;
+  float salary;
+};
+int main()
+{
+  database employee;  //There is now an employee variable that has modifiable 
+			    //variables inside it.
+  employee.age=22;
+  employee.id_number=1;
+  employee.salary=12000.21;
+  return 0;
+}
+</PRE>The struct database declares that database has three variables 
+            in it, age, id_number, and salary.<BR><BR>You can use database like 
+            a variable type like int. You can create an employee with the 
+            database type as I did above. Then, to modify it you call everything 
+            with the 'employee.' in front of it. You can also return structures 
+            from functions by defining their return type as a structure type. 
+            Example:<BR><BR>struct database fn();<BR><BR>I suppose I should 
+            explain unions a little bit. They are like structures except that 
+            all the variables share the same memory. When a union is declared 
+            the compiler allocates enough memory for the largest data-type in 
+            the union. Its like a giant storage chest where you can store one 
+            large item, or a bunch of small items, but never the both at the 
+            same time.<BR><BR>The '.' operator is used to access different 
+            variables inside a union also. <BR><BR>As a final note, if you wish 
+            to have a pointer to a structure, to actually access the information 
+            stored inside the structure that is pointed to, you use the -&gt; 
+            operator in place of the . operator.<BR><BR>A quick example: <PRE>#include &lt;iostream.h&gt;
+struct xampl
+{
+  int x;
+};
+
+int main()
+{  
+  xampl structure;
+  xampl *ptr;
+  structure.x=12;
+  ptr=&amp;structure; //Yes, you need the &amp; when dealing with structures
+	     //and using pointers to them
+  cout&lt;&lt;ptr-&gt;x;  //The -&gt; acts somewhat like the * when used with pointers
+			//It says, get whatever is at that memory address
+			//Not "get what that memory address is"
+  return 0;
+}</PRE></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut7_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

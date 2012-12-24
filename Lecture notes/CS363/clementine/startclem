@@ -1,0 +1,5 @@
+#!/bin/csh
+##
+setenv CLEO /usr/local/misc/clementine
+source $CLEO/COM/clemsetup
+/usr/local/misc/clementine/BIN/clementine -m 15

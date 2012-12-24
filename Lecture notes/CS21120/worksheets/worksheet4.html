@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS21120 Worksheet4: Use Case Modelling 1</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">CS21120 Worksheet 4: Use Case Modelling 1</P>
+</B></FONT><FONT SIZE=2><P>&nbsp;</P>
+</FONT><B><I><FONT FACE="Arial"><P>Introduction</P>
+</B></I></FONT><P>The aims of this exercise ensure that you understand the basic principles of use case modelling, are able to develop a simple use case model and can express this using Rational Rose.  This will be achieved by following the Unified Process to develop a use case model for the Confectionery Vending Machine system.  You will continue to develop this system during later exercises.  We are really following a generic iteration through the Unified Process.  Aspects of the Unified Process will be skipped, since they are more appropriate to larger problems.</P>
+<P>You may wish to undertake this exercise in a group.</P>
+<B><I><FONT FACE="Arial"><P>System Description</P>
+</B></I></FONT><P>The Confectionery Vending Machine (CVM) will accept choices, coins and stock from its users.  It will also discharge coins (change, rejected coins and takings), sweets and messages to its users.  Users include customers, and maintenance engineers.  Maintenance engineers can remove takings, and add new stock.  The system deals with a single user at a time.  When prompted, a customer makes a choice of confectionery, inserts the money and takes the confectionery released by the CVM.</P>
+<P>The confectionery items stocked by the system are initially chocolate, toffee and gum (the CVM can only handle three kinds of confectionery).  Each has a price and a stock level.  The maximum stock level for each is 100, however variable quantities may be placed in the machine by the maintenance engineer.  The price may vary and it should be easy to configure the system to use various prices.  Also, different kinds of confectionery may be used.  Again, it should be easy to configure the system to deal with this.</P>
+<P>The coins accepted by the CVM are 10p, 20p, 50p, £1.  The machine will handle £10 of 10p coins, £20 or 20p coins, £50 of 50p coins and £50 of £1 coins.  These can be re-stocked by the maintenance engineer to any level (not necessarily to the maximum).</P>
+<P>When the machine is switched on, a display indicates the choices available and their prices (assume in the simulation that graphical buttons represent touch sensitive buttons in a real machine).  When a choice is made by a customer, the price is indicated.  The customer may then enter any combination of coins.  The displayed price decreases as coins are inserted.  The confectionery is delivered, with any change, when the amount of the inserted coins exceeds its price.  Any unknown coin inserted is rejected.  A customer has up to 30 seconds to insert each coin.  If this is exceeded, all the coins inserted by the customer are rejected.</P>
+<P>The CVM is restocked and coins are removed and added via a different interface to the display.  This simulates the act of opening the machine by the maintenance engineer.</P>
+<P>When a confectionery item goes out of stock this should be reflected on the display.  When all confectionery items are out of stock the system should shut down.  When the maximum number of coins have been received the CVM should display an appropriate message and shut down.  The engineer is also able to switch off the machine.  When switched back on the system must be able to operate in the same state that it was in before being switched off (same stock levels etc).</P>
+<B><I><FONT FACE="Arial"><P>Steps</P>
+<OL>
+
+</B></I></FONT><LI>Carefully read the system description (above).  If you find ambiguities in this statement you may change roles and temporarily become the client to find a reasonable statement of clarification.  However, consider what impact amendments will have later on.</LI>
+<LI>Start by identifying and listing potential actors using the list of Unified Process questions provided on the course slides.</LI>
+<LI>Create a new model in Rose, and add the actors to the Use Case view of this model.  Add a brief description for each actor describing the actor’s role.</LI>
+<LI>Identify and list potential use cases using the list of Unified Process questions provided on the course slides.  At this stage, don’t worry about factoring out common use cases or representing alternative behaviour using extension use cases.  We’ll come back to this.</LI>
+<LI>Add the use cases to the Use Case view of your model.  Add a brief description of the use case in the use case documentation window.</LI>
+<LI>Draw the use case diagram, adding communication associations between actors and the use cases they interact with.  Note that Rose does not support the system box, so you’ll have to leave this off the diagram.</LI>
+<LI>In Word (or whatever) write a more detailed textual description (also called the flow of events description) for the &quot;Obtain Confectionery Item&quot; (or similarly named) use case.  Within the description, include a normal flow of events section and a section for any alternative flows of events; what happens when things go wrong.</LI>
+<LI>Add a link to this file from your &quot;Obtain Confectionery Item&quot; use case.</LI></OL>
+</BODY>
+</HTML>

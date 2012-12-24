@@ -1,0 +1,132 @@
+
+
+
+link(2)								      link(2)
+
+
+
+NAME
+  link - Creates a hard link to an existing file on the local file system
+
+SYNOPSIS
+
+  #include <unistd.h>
+
+  int link (
+	  const char *path1,
+	  const char *path2 );
+
+STANDARDS
+
+  Interfaces documented on this reference page conform to industry standards
+  as follows:
+
+  link():  XSH5.0
+
+  Refer to the standards(5) reference page for more information about indus-
+  try standards and associated tags.
+
+PARAMETERS
+
+  path1	    Points to the pathname of an existing file.
+
+  path2	    Points to the pathname for the directory entry to be created.  If
+	    the path2 parameter names a symbolic link, an error is returned.
+
+DESCRIPTION
+
+  The link() function creates an additional hard link (directory entry) for
+  an existing file.  The old and the new link share equal access rights to
+  the underlying object.  The link() function atomically creates a new link
+  for the existing file and increments the link count of the file by one.
+
+  Both the path1 and  path2 parameters must reside on the same file system. A
+  hard link to a directory cannot be created.
+
+  Upon successful completion, the link() function marks the st_ctime field of
+  the file for update, and marks the st_ctime and st_mtime fields of the
+  directory containing the new entry for update.
+
+  A process must have write permission in the target directory with respect
+  to all access control policies configured on the system.
+
+  See symlink(2) for information about making symbolic links, including Con-
+  text Dependent Symbolic Links (CDSLs).
+
+RETURN VALUES
+
+  Upon successful completion, the link() function returns a value of 0
+  (zero). If the link() function fails, a value of -1 is returned, no link is
+  created, and errno is set to indicate the error.
+
+ERRORS
+
+  If the link() function fails, errno may be set to one of the following
+  values:
+
+  [EACCES]  The requested link requires writing in a directory with a mode
+	    that denies write permission, or a component of either the path1
+	    or path2 parameter denies search permission.
+
+  [EACCES]  The requested link requires writing in a directory to which the
+	    process does not have write access with respect to one or more of
+	    the system's configured access policies.
+
+  [EDQUOT]  The directory in which the entry for the new link is being placed
+	    cannot be extended because the user's quota of disk blocks on the
+	    file system containing the directory has been exhausted.
+
+  [EEXIST]  The link named by the path2 parameter already exists.
+
+  [EFAULT]  The path1 or path2 parameter is an invalid address.
+
+  [ELOOP]   Too many links were encountered in translating path1 or path2.
+
+  [EMLINK]  The number of links to the file named by path1 would exceed
+	    LINK_MAX.
+
+  [ENAMETOOLONG]
+	    The length of the path1 or path2 string exceeds PATH_MAX or a
+	    pathname component is longer than NAME_MAX.
+
+  [ENOENT]  The file named by the path1 parameter does not exist or the path1
+	    or path2 parameter is an empty string.
+
+  [ENOSPC]  The directory in which the entry for the new link is being placed
+	    cannot be extended because there is no space left on the file
+	    system containing the directory.
+
+  [ENOTDIR] A component of either path prefix is not a directory.
+
+  [EPERM]   The file named by the path1 parameter is a directory.
+
+  [EROFS]   The requested link requires writing in a directory on a read-only
+	    file system.
+
+  [EXDEV]   The link named by the path2 parameter and the file named by the
+	    path1 parameter are on different file systems.
+
+  [Tru64 UNIX]	For NFS file access, if the link() function fails, errno may
+  also be set to one of the following values:
+
+  [ENFILE]  Indicates that the system file table is full or there are too
+	    many files currently open in the system.
+
+  [ESTALE]  Indicates a stale NFS file handle.	An opened file was deleted by
+	    the server or another client; a client cannot open a file because
+	    the server has unmounted or unexported the remote directory; or
+	    the directory that contains an opened file was unmounted or unex-
+	    ported by the server.
+
+RELATED INFORMATION
+
+  Commands: link(1), unlink(1)
+
+  Functions: unlink(2), symlink(2)
+
+  Standards: standards(5)
+
+
+
+
+

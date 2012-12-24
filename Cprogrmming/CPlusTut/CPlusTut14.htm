@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://www.cprogramming.com/tutorial/lesson14.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut14_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut14_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut14_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut14_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut14_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut14_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut14_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut14_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut14_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut14_files/6122926.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 14: Accepting command line arguments</H3>In C++ it is 
+            possible to accept command line arguments. To do so, you must first 
+            understand the full definition of int main(). It actually accepts 
+            two arguments, one is number of command line arguments, the other is 
+            a listing of the command line arguments. <BR><BR>It looks like 
+            this:<BR><BR>int main(int argc, char* argv[])<BR><BR>The interger, 
+            argc is the ARGument Count (hence argc). It is the number of 
+            arguments passed into the program from the command line, including 
+            the path to and name of the program. <BR><BR>The array of character 
+            pointers is the listing of all the arguments. argv[0] is entire path 
+            to the program including its name. After that, every element number 
+            less than argc are command line arguments. You can use each argv 
+            element just like a string, or use argv as a two dimensional 
+            array.<BR><BR>How could this be used? Almost any program that wants 
+            it parameters to be set when it is executed would use this. One 
+            common use is to write a function that takes the name of a file and 
+            outputs the entire text of it onto the screen.<BR><PRE>#include &lt;fstream.h&gt; //Needed to manipulate files
+#include &lt;iostream.h&gt;
+#include &lt;io.h&gt;      //Used to check file existence
+int main(int argc, char * argv[])
+{
+  if(argc!=2)
+  {
+    cout&lt;&lt;"Correct input is: filename"; 
+    return 0;   
+  }             
+  if(access(argv[1], 00)) //access returns 0 if the file can be accessed 
+  {		   //under the specified method (00)
+    cout&lt;&lt;"File does not exist";  //because it checks file existence
+    return 0;
+  }
+  ifstream the_file;  //ifstream is used for file input
+  the_file.open(argv[1]); //argv[1] is the second argument passed in 
+			 //presumably the file name 
+  char x;
+  the_file.get(x);  
+  while(x!=EOF)  //EOF is defined as the end of the file
+  {
+    cout&lt;&lt;x;
+    the_file.get(x);//Notice we always let the loop check x for the end of   
+  }  //file to avoid bad output when it is reached
+  the_file.close();  //Always clean up
+  return 0;
+} 
+</PRE>This program is fairly simle. It incorporates the full version 
+            of main. Then it first checks to ensure the user added the second 
+            argument, theoretically a file name. It checks this, using the 
+            access function, which accepts a file name and an access type, with 
+            00 being a check for existence. <B>This is not a standard C++ 
+            function. It may not work on your compiler</B> Then it creates an 
+            instance of the file input class,and it opens the second argument 
+            passed into main. If you have not seen get before, it is a standard 
+            function used in input and output that is used to input a single 
+            character into the character passed to it, or by returning the 
+            character. EOF is simply the end of file marker, and x is checked to 
+            make sure that the next output is not 
+        bad.<BR><BR></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut14_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

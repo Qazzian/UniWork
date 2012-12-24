@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://users.aber.ac.uk/infoman/compsci/exam99/semester1/cs26210.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List
+href="./CS26210Artificial%20Intelligence%20Concepts_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="./CS26210Artificial%20Intelligence%20Concepts_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS26210:Artificial Intelligence Concepts</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Wallis</o:Author>
+  <o:LastAuthor>Ian Wallis</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>4</o:TotalTime>
+  <o:LastPrinted>2001-01-19T13:19:00Z</o:LastPrinted>
+  <o:Created>2001-01-19T13:15:00Z</o:Created>
+  <o:LastSaved>2001-01-19T13:19:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>400</o:Words>
+  <o:Characters>2280</o:Characters>
+  <o:Company>U.W.Aberystwyth</o:Company>
+  <o:Lines>19</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2800</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:green;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:697240881;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2039087570 1206696782 1404350856 1103634786 510578812 -694512678 -1100168418 98995952 643867434 149725404;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1099301763;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-274925108 -2002481876 852773708 24537308 1533313264 -660679408 1808679200 -861119650 -1757494868 -2064856382;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta content="CS26210:Artificial Intelligence Concepts" name=TITLE>
+<meta content="Computer Science" name=CREATOR>
+<meta content="1999, Degree, Examinations, Semester 1" name=SUBJECT>
+<meta content="DATAPREP - Information Services" name=PUBLISHER>
+<meta name=date VALUE="13-04-99">
+</head>
+
+<body bgcolor=white lang=EN-GB link=green vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p><b>Time allowed: 2 hours</b> </p>
+
+<p><i>Answer</i> <b>THREE</b> <i>from</i> <b>FIVE</b> <i>questions <o:p></o:p></i></p>
+
+<p><i>All questions carry equal marks</i> </p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe A* search and indicate how it improves on blind
+  search and other heuristic search approaches.</p>
+  </td>
+  <td width="15%" valign=bottom style='width:15.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7 marks]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Prove that A* search will find an optimal goal state.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[11]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>From the map shown in figure 1 (and the straight line
+  distances from each town to town H, given), show how A* search will find a
+  route from D to H more readily than naive greedy search.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[12]</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=4 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><img width=305
+  height=264 id="_x0000_i1025"
+  src="CS26210Artificial%20Intelligence%20Concepts_files\cs2.gif"></p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=4 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><img width=269
+  height=181 id="_x0000_i1026"
+  src="CS26210Artificial%20Intelligence%20Concepts_files\cs7.gif"></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>State the improvements that can be made to A* search to
+  make it more efficient.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[3]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2.</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Write notes on each of the following (each topic carries
+  the same proportion of the total number of marks)</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a) Heuristic functions<br>
+  b) Expectiminimax<br>
+  c) Bayes Theorem<br>
+  d) Semantic nets<br>
+  e) The Lighthill Report</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[33]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>3.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>State what is meant by saying that a logical sentence is
+  &quot;valid&quot;.</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[5]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>By means of truth tables (or otherwise) demonstrate the
+  validity of : </p>
+  <p>((P =&gt; Q) ^ P) =&gt; Q</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[6]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A professor of Computer Science expresses the following
+  opinions: </p>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>Computer scientists
+       are better educated than biologists </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>There is at least
+       one geneticist who is better eductated that any economist </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>All geneticists are
+       biologists </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>The relation
+       &quot;better educated&quot; is transitive </li>
+  </ul>
+  <p class=MsoNormal><br>
+  Translate these opinions into first order predicate logic.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[9]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Given that Herbert is a computer scientist, and Milton is
+  an economist (which you will also have to translate into logical form), use
+  the professor's opinions above and the following rules of inference: </p>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>And Introduction </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>And Elimination </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>Existential Instantiation
+       </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>Universal
+       Instantiation</li>
+  </ul>
+  <p class=MsoNormal><br>
+  to show that Herbert is better educated than Milton</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[13]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>4.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe what is meant by an Expert System.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[6]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the components of an Expert System.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[13]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Discuss the strengths and weaknesses of Rule-based Expert
+  Systems and describe ways in which the weaknesses you have identified are
+  being addressed.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[14]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>5.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>State the difference between probability and fuzzy sets.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[5]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the form of a fuzzy set. (You may use a concept
+  such as &quot;<i>tall</i>&quot; to aid your description.)</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[9]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe how the logical operators of conjunction,
+  disjunction and negation (&quot;and&quot;, &quot;or&quot; and
+  &quot;not&quot;) are used within fuzzy logic. (You may wish to use concepts
+  such as <i>tall</i> and <i>small</i> to aid your description.)</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[9]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Explain what is meant by <i>fuzzification</i> and <i>defuzzification</i>
+  (Illustrate your answer by means of examples.)</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[10]</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

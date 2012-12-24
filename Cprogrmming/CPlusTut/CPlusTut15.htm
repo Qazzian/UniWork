@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://www.cprogramming.com/tutorial/lesson15.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut15_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut15_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut15_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut15_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut15_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut15_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut15_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut15_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut15_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut15_files/6124201.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 15: Singly linked lists</H3>Linked lists are a way to 
+            store data with structures so that the programmer can automatically 
+            create a new place to store data whenever necessary. Specifically, 
+            the programmer writes a struct or class definition that contains 
+            variables holding information about something, and then has a 
+            pointer to a struct of its type. Each of these individual struct or 
+            classes in the list is known as a node.<BR><BR>Think of it like a 
+            train. The programmer always stores the first node of the list. This 
+            would be the engine of the train. The pointer is the connector 
+            between cars of the train. Every time the train ads a car, it uses 
+            the connectors to add a new car. This is like a programmer using the 
+            keyword new to create a pointer to a new struct or class. <BR>In 
+            memory it is often described as looking like this:<BR><PRE>----------        ----------
+- Data   -       &gt;- Data   -    
+----------     -  ----------   
+- Pointer- - -    - Pointer-  
+----------        ----------
+</PRE>Each of the big blocks is a struct (or class) that has a 
+            pointer to another one. Remember that the pointer only stores the 
+            memory location of something, it is not that thing, so the arrow 
+            goes to the next one. At the end, there is nothing for the pointer 
+            to point to, so it does not point to anything, it should be set to 
+            "NULL" to prevent it from accidentally pointing to a totally 
+            arbitrary and random location in memory (which is very bad). 
+            <BR><BR>So far we know what the node struct should look like: <PRE>struct node
+{
+  int x;
+  node *next;
+};
+int main()
+{
+  node *root;  //This will be the unchanging first node
+  root=new node; //Now root points to a node struct
+  root-&gt;next=NULL; //The node root points to has its next pointer
+				   //set equal to NULL
+  root-&gt;x=5;   //By using the -&gt; operator, you can modify the node
+  return 0;	   //a struct (root in this case) points to.
+}    </PRE>This so far is not very useful for doing anything. It is 
+            necessary to understand how to traverse (go through) the linked list 
+            before going further. <BR><BR>Think back to the train. Lets imagine 
+            a conductor who can only enter the train through the engine, and can 
+            walk through the train down the line as long as the connector 
+            connects to another car. This is how the program will traverse the 
+            linked list. The conductor will be a pointer to node, and it will 
+            first point to root, and then, if the root's pointer to the next 
+            node is pointing to something, the "conductor" (not a technical 
+            term) will be set to point to the next node. In this fashion, the 
+            list can be traversed. Now, as long as there is a pointer to 
+            something, the traversal will continue. Once it reaches a NULL 
+            pointer, meaning there are no more nodes (train cars) then it will 
+            be at the end of the list, and a new node can subsequently be added 
+            if so desired.<BR><BR>Here's what that looks like: <PRE>struct node
+{
+  int x;
+  node *next;
+};
+int main()
+{
+  node *root; //This won't change, or we would lose the list in memory
+  node *conductor; //This will point to each node as it traverses
+				   //the list
+  root=new node; //Sets it to actually point to something
+  root-&gt;next=NULL; //Otherwise it would not work well
+  root-&gt;x=12;
+  conductor=root; //The conductor points to the first node
+  if(conductor!=NULL)
+  {
+    while(conductor-&gt;next!=NULL)
+    {
+      conductor=conductor-&gt;next;   
+    }
+  }
+  conductor-&gt;next=new node; //Creates a node at the end of the list
+  conductor=conductor-&gt;next; //Points to that node
+  conductor-&gt;next=NULL; //Prevents it from going any further
+  conductor-&gt;x=42;
+}</PRE>That is the basic code for traversing a list. The if 
+            statement ensures that there is something to begin with (a first 
+            node). In the example it will always be so, but if it was changed, 
+            it might not be true. If the if statement is true, then it is okay 
+            to try and access the node pointed to by conductor. The while loop 
+            will continue as long as there is another pointer in the next. The 
+            conductor simply moves along. It changes what it points to by 
+            getting the address of conductor-&gt;next. <BR><BR>Finally, the code 
+            at the end can be used to add a new node to the end. Once the while 
+            loop as finished, the conductor will point to the last node in the 
+            array. (Remember the conductor of the train will move on until there 
+            is nothing to move on to? It works the same way in the while loop.) 
+            Therefore, conductor-&gt;next is set to null, so it is okay to 
+            allocate a new area of memory for it to point to. Then the conductor 
+            traverses one more element(like a train conductor moving on the the 
+            newly added car) and makes sure that it has its pointer to next set 
+            to NULL so that the list has an end. The NULL functions like a 
+            period, it means there is no more beyond. Finally, the new node has 
+            its x value set. (It can be set through user input. I simply wrote 
+            in the '=42' as an example.) <BR><BR>To print a linked list, the 
+            traversal function is almost the same. It is necessary to ensure 
+            that the last element is printed after the while loop terminates. 
+            <BR><BR>For example:<PRE>conductor=root;
+if(conductor!=NULL) //Makes sure there is a place to start
+{
+  while(conductor-&gt;next!=NULL)
+  {
+    cout&lt;&lt;conductor-&gt;x;
+    conductor=conductor-&gt;next;
+  }
+  cout&lt;&lt;conductor-&gt;x;
+}</PRE>The final output is necessary because the while loop will not 
+            run once it reaches the last node, but it will still be necessary to 
+            output the contents of the next node. Consequently, the last output 
+            deals with this. </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut15_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

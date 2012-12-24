@@ -1,0 +1,4 @@
+#!/bin/sh
+rm -r -f HTML
+mkdir HTML
+cd HTML;jade -t sgml -d ../html.dsl ../$1

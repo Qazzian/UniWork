@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+ <TITLE>Bit Fields</TITLE> 
+</HEAD>
+<BODY>
+ <H1>Bit Fields</H1> 
+ <P><H2>Bit Fields</H2>
+</P>
+<P><H2>A means to use one location and split it’s BITs</H2>
+<H2>into separate accessible items.</H2>
+<H2>struct mys{</H2>
+<H2>                  unsigned p1:3,p2:4,p3:1;</H2>
+<H2>                  int x;</H2>
+<H2>                 } z;</H2>
+<H2>/* Z is a structure of type struct mys. It has</H2>
+<H2>  four members, p1,p2,p3 and x. p1, p2, p3 are</H2>
+<H2>  bit fields and x is an integer.</H2>
+<H2>  CANNOT ask for address of bit fields.</H2>
+<H2>  i.e.   &Z.p2     is ILLEGAL  */</H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld007.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld009.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld008.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

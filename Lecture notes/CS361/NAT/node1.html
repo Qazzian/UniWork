@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 1: Introduction</TITLE>
+<META NAME="description" CONTENT="Lecture 1: Introduction">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="NAT.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html21"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html19"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html13"
+ HREF="NAT.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html22"
+ HREF="node2.html">Lecture 2: GOFAI and</A>
+<B> Up:</B> <A NAME="tex2html20"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html14"
+ HREF="NAT.html">No Title</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00010000000000000000">
+Lecture 1: Introduction</A>
+</H1>
+<P>
+<FONT SIZE="+4">CS36110</FONT>
+<P>
+<DIV ALIGN="CENTER">
+<BIG>ADVANCED</BIG>
+<BIG>ARTIFICIAL INTELLIGENCE</BIG>
+<BIG>CONCEPTS</BIG>
+</DIV>
+<P><BIG>Structure of the Module</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Natural and Artificial Intelligence -- Nick Gotts
+<DT>2.
+<DD>Model-Based Reasoning -- George Coghill
+<DT>3.
+<DD>Advanced  Topics in Machine Learning -- Ross King
+</DL>
+<BIG>Assessment:</BIG>
+2-hour exam, three sections with two questions each, answer one from
+each section.
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+4">CS36110: Part 1</FONT>
+<P><FONT SIZE="+4">Natural</FONT>
+<P><FONT SIZE="+4">And</FONT>
+<P><FONT SIZE="+4">Artificial</FONT>
+<P><FONT SIZE="+4">Intelligence</FONT>
+</DIV>
+
+<P>
+<BIG>Part 1: Main Questions</BIG>
+<P><UL>
+<LI> How do the achievements of AI research
+compare with human intelligence?
+<LI> How has study of natural problem-solving systems contributed to
+AI research?
+<LI> How has AI research contributed to the understanding of natural
+problem-solving systems, and of intelligence in general.
+</UL>
+
+<P>
+<BIG>AI, Science And Engineering</BIG>
+<UL>
+<LI> ``Scientists explore what is. Engineers create what has never
+been'' -- von Kalman.
+<LI> The only uncontroversial
+``intelligent agents'' are human beings. For <EM>some</EM> kinds of
+problem, how they (or other
+``natural problem solvers'') solve them may be the AI engineer's best guide.
+<LI> When considering human information processing, what <EM>level</EM>
+should we work at?
+<LI> Other <EM>natural problem-solvers</EM>: non-human animals,
+populations of organisms, ant colonies, immune systems,
+organisations...
+</UL>
+
+<P>
+<BIG>What Computers Can Do: 1</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Play a very good game of chess.
+<DT>2.
+<DD>Write computer programs.
+<DT>3.
+<DD>Produce a complete timetable of exams for a university, taking
+all constraints into account.
+<DT>4.
+<DD>Produce a good translation of a technical text; produce a
+mediocre translation of non-technical texts; produce a useful summary
+of a newspaper story.
+<DT>5.
+<DD>Diagnose faults in mechanical equipment.
+</DL>
+
+<P>
+<BIG>What Computers Can Do: 2</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Distinguish male from female faces. 
+<DT>2.
+<DD>Pick out people in a video of a street scene.
+<DT>3.
+<DD>Learn to recognise particular faces, despite changes in expression.
+<DT>4.
+<DD>Keep a thin, jointed pole balanced on its tip.
+<DT>5.
+<DD>Produce drawings of significant aesthetic merit.
+</DL>
+
+<P>
+<BIG>Garry Kasparov And Deep Blue</BIG>
+<P>
+In 1997, world chess champion Kasparov, was defeated in a
+6-game match by IBM's ``Deep Blue''. This event, and reactions to it,
+provide a way into this part of the module.
+<UL>
+<LI> How does Deep Blue choose a move?
+<LI> How does Garry Kasparov choose a move?
+<LI> Is Deep Blue intelligent? Has it passed the Turing Test? Does it
+really ``play chess''?
+<LI> In 1957, Herbert Simon predicted that within ten years of that
+date, a machine would be world chess champion. Why was he so wrong?
+<LI> How useful are chess and other ``microworlds'' in AI research?
+</UL>
+
+<P>
+<BIG>How Deep Blue Chooses A Move</BIG>
+<UL>
+<LI> Special purpose hardware.
+<LI> Minimaxing (14-15 ply, with refinements).
+</UL>
+<P>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="641" HEIGHT="238" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="\epsfig {figure=minimax2.eps}
+"></DIV>
+<P>
+<P>
+<BIG>How Garry Kasparov Chooses A Move</BIG>
+<UL>
+<LI> Practice for more than 30 years, building up a repertoire of
+recognisable patterns.
+<LI> Study the opponent in advance, seeking to understand their style
+of play.
+<LI> Plan and replan during the game, using your pattern repertoire.
+<LI> Aim to disturb and disconcert the opponent.
+</UL>
+
+<P>
+<BIG>The Turing Test For Artificial Intelligence</BIG>
+<UL>
+<LI> Proposed by mathematician and computer pioneer Alan Turing in 1950.
+<LI> Usually described, inaccurately, as follows: a computer can be
+regarded as intelligent if an &quot;interrogator&quot; is unable to tell, from
+its typed responses to questions, that it is a machine rather than a
+human.
+<LI> As Turing actually posed it, slightly more complicated: can a
+computer fool the interrogator into thinking it's a <EM>woman</EM>, as often as
+a <EM>man</EM> can?
+<P></UL>
+
+<P>
+<BIG>Deep Blue And The Turing Test</BIG>
+<UL>
+<LI> Clearly, Deep Blue did not pass (or ``sit'') the Turing Test.
+<LI> Nevertheless, it did <EM>appear</EM> to do something normally
+<EM>thought</EM> to require intelligence. So:
+<UL>
+<LI> Does its ``BFI'' approach undermine its claim to intelligence?
+<LI> Does the fact that it did not know it <EM>was</EM> playing chess?
+<LI> Is playing (very good) chess sufficient evidence of intelligence?
+</UL></UL>
+
+<P><BIG>Formal, Expert and Mundane Tasks</BIG>
+<UL>
+<LI> <EM>Formal</EM> tasks include playing board or card games; solving
+puzzles, and mathematical and logical problems; and programming. They
+do <EM>not</EM> require knowledge of the real world. These have turned
+out to be the <EM>easiest</EM> tasks for AI.
+<LI> <EM>Expert</EM> tasks include medical diagnosis, engineering,
+architectural or computer hardware design, and scheduling
+(e.g. airline flights, school or university classes, manufacturing
+processes).
+<LI> <EM>Mundane</EM> tasks include things we might not think of as
+tasks or problems at all: understanding everyday speech and written
+language, making sense of what we see, and walking. These have turned
+out to be the <EM>hardest</EM> tasks for AI.
+</UL>
+
+<P>
+<BIG>How To Pass The Turing Test</BIG>
+<P>
+What would an AI program need to do to pass the Turing test?
+<DL COMPACT>
+<DT>1.
+<DD>Understand (typed) natural language.
+<DT>2.
+<DD>Produce (typed) natural language.
+<DT>3.
+<DD>Understand conversational structure.
+<DT>4.
+<DD>Display everyday knowledge.
+<DT>5.
+<DD>Display appropriate specialist knowledge.
+<DT>6.
+<DD>Model what its interrogator does and does not know.
+<DT>7.
+<DD>Model what <EM>it</EM> does and does not know.
+</DL>
+
+<P>
+<BIG>Everyday Knowledge</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Knowledge of time, space, and the physical world.
+<DT>2.
+<DD>Knowledge of the social and personal worlds.
+<DT>3.
+<DD>Knowledge of specific people, places, events...
+<DT>4.
+<DD>Knowledge of the <EM>appearances</EM> of things.
+<DT>5.
+<DD>Knowledge of your own past: ``episodic memory''.
+<DT>6.
+<DD>Knowledge about your own knowledge: ``metaknowledge''.
+<DT>7.
+<DD>Knowledge about what most people do and don't know.
+</DL>
+
+<P>
+<BIG>More Rash Predictions</BIG>
+<UL>
+<LI> ``... within twenty years machines will be
+capable of doing any work a man can do.'' -- Herbert Simon, 1965.
+<LI> ``I believe that in about fifty years' time it will be possible
+to programme computers... to play the imitation game so well that an
+average interrogator will not have more than 70% chance of making the
+right identification after five minutes of questioning.'' -- Alan
+Turing, 1950.
+</UL>
+
+<P>
+<BIG>Why Will Turing Be Wrong?</BIG>
+<P>
+Here are several possible answers:
+<UL>
+<LI> Hardware limitations.
+<LI> More <EM>knowledge</EM> needed than he realised.
+<LI> Better machine learning techniques needed.
+<LI> Intelligence must be based on sensory-motor
+interaction with the world.
+<LI> Intelligence requires social interaction.
+<LI> Intelligence requires something which is present in human
+brains, but not in silicon chips.
+</UL>
+
+<P>
+<BIG>Microworlds and World Knowledge</BIG>
+<UL>
+<LI> ``Microworlds'': self-contained, limited range of
+possible actions, and requirements for knowledge.
+<LI> Much early AI work on them, using general
+techniques of search and matching.
+<LI> Problems with ``scaling up'' to more realistic domains.
+<LI> General conclusion: need for <EM>
+domain-specific knowledge</EM>. Microworlds are useless.
+<LI> Minority opinion (Hofstadter). Knowledge is not
+enough. We have scarcely begun to understand intelligence.
+Microworlds a vital research tool.
+</UL>
+
+<P>
+<BIG>Lecture 1: Main Points</BIG>
+<UL>
+<LI> AI has made substantial progress, but far less than most of the
+``pioneers'' expected.
+<LI> Tasks <EM>thought</EM> to be at the pinnacle of intelligence
+(e.g. chess) turn out to be (relatively!) easy, compared to
+``mundane'' tasks (holding a conversation, seeing, sweeping
+floors). <EM>General, flexible</EM> artificial intelligence still far off.
+<LI> The best route towards such full-scale AI (and even whether it
+is possible) remain open questions.
+</UL>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html21"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html19"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html13"
+ HREF="NAT.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html22"
+ HREF="node2.html">Lecture 2: GOFAI and</A>
+<B> Up:</B> <A NAME="tex2html20"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html14"
+ HREF="NAT.html">No Title</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

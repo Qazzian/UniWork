@@ -1,0 +1,29 @@
+Script started on Tue 14 Dec 1999 05:14:37 PM GMT
+
+         * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         *           Sussex Poplog Version 15.0              *
+         *     See HELP NEWS for details of new features     *
+         * * * * * * * * * * * * * * * * * * * * * * * * * * *
+manuel% ls
+installId.c     little.y        tree.h
+little          little_decls.h  tree.o
+little.l        tree.c          typescript
+manuel% lex little.l
+manuel% yacc little.y
+manuel% gcc -o little y.tab.c -ly -ll tree.o
+manuel% little
+fred := 1; while fred do joe := 7 endwhile
+         
+$
+sequ
+:=
+id (fred)
+number (1)
+while
+id (fred)
+:=
+id (joe)
+number (7)
+
+^Dmanuel% exit
+script done on Tue 14 Dec 1999 05:15:28 PM GMT

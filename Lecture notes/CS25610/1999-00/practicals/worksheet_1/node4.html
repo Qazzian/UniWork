@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Client connection and disconnection</TITLE>
+<META NAME="description" CONTENT="Client connection and disconnection">
+<META NAME="keywords" CONTENT="worksheet_1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="worksheet_1.css">
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html53"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html51"
+ HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html45"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html54"
+ HREF="node5.html">Message Formats</A>
+<B> Up:</B> <A NAME="tex2html52"
+ HREF="node3.html">The PoemService Protocol</A>
+<B> Previous:</B> <A NAME="tex2html46"
+ HREF="node3.html">The PoemService Protocol</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H2><A NAME="SECTION00031000000000000000">
+Client connection and disconnection</A>
+</H2>
+<P>
+The protocol is very simple. The server is sitting listening
+for incoming TCP calls on port number 4000. On receiving an incoming
+call, the server will extract one line of text from the socket,
+split the line of text into three tokens and use these to decide
+how to respond. The server will then send some messages
+back to the client and then close the socket.  If the client
+wishes to send another command line into
+the server, then the client must open another TCP connection to the server
+and send the new command on that new connection.
+<P>
+<BR><HR>
+<ADDRESS>
+<I>DAVID  PRICE</I>
+<BR><I>3/3/2000</I>
+</ADDRESS>
+</BODY>
+</HTML>

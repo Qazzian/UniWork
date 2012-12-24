@@ -1,0 +1,85 @@
+<!doctype book public '-//OASIS//DTD DocBook V3.1//EN'[
+<!entity administration system "administration.sgml">
+<!entity introduction system "introduction.sgml">
+<!entity overview system "overview.sgml">
+<!entity model system "model.sgml">
+<!entity sql system "sql.sgml">
+<!entity postgres system "postgres.sgml">
+<!entity integrityrules system "integrityrules.sgml">
+
+<!entity nulls system "nulls.sgml">
+<!entity transactions system "transactions.sgml">
+
+<!entity firstpostgres system "Exercises/FirstPostgres/d.sgml">
+
+<!entity foreignkey system "Exercises/foreignkey/doc.sgml">
+<!entity make-sql system "Exercises/foreignkey/make.sql">
+<!entity eg-sql system "Exercises/foreignkey/eg.sql">
+<!entity kill-sql system "Exercises/foreignkey/kill.sql">
+<!entity tables-sql system "Exercises/foreignkey/tables.sql">
+<!entity function-sql system "Exercises/foreignkey/function.sql">
+<!entity trigger-sql system "Exercises/foreignkey/trigger.sql">
+
+<!entity applications system "applications.sgml">
+
+<!entity JDBCexamples system "JDBC/examples.sgml">
+<!entity trivial system "JDBC/Applications/Trivial/Trivial.java">
+
+<!entity normalisation system "normalisation.sgml">
+<!entity modelling system "modelling.sgml">
+
+]>
+<book>
+  <bookinfo>
+    <title>CS27310 - Database Management Systems</title>
+    <subtitle>Session 2000-2001</subtitle>
+    <authorgroup>
+      <author>
+	<firstname>Nigel</firstname>
+	<surname>Hardy</surname>
+	<authorblurb>
+	  <simpara><ulink
+url="mailto:nwh@aber.ac.uk">nwh@aber.ac.uk</ulink></simpara>
+	  <simpara>Module Co-ordinator</simpara>
+	</authorblurb>
+      </author>
+      <author>
+	<firstname>Horst</firstname>
+	<surname>Holstein</surname>
+	<authorblurb>
+	  <simpara><ulink
+url="mailto:hoh@aber.ac.uk">hoh@aber.ac.uk</ulink></simpara>
+	</authorblurb>
+      </author>
+    </authorgroup>
+    <releaseinfo>Version: $Revision: 1.11 $</releaseinfo>
+    <date>$Date: 2001/02/06 12:56:35 $</date>
+  </bookinfo>
+  <preface><title>The Module</title>
+    <simpara>The syllabus details for this module are available  <ulink
+url="http://www.aber.ac.uk/modules/current/CS27310.html">on-line.</ulink>
+The material you are now reading is available both as <ulink
+url="http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/CS27310/course.pdf">pdf</ulink>
+for printing and <ulink
+url="http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/CS27310/">
+on-line.</ulink> Lecture slides and some documents produced using
+Microsoft Word are available with the on-line version.</simpara>
+  </preface>
+&administration;
+&introduction;
+&overview;
+<!--
+&model;
+&sql;
+&postgres;
+&firstpostgres;
+&integrityrules;
+&foreignkey;
+&applications;
+&JDBCexamples;
+&normalisation;
+&modelling;
+&nulls;
+&transactions;
+-->
+</book>

@@ -1,0 +1,2248 @@
+%!PS-Adobe-3.0
+%%Title: (AcroAAAglg5U_)
+%%Version: 1 2
+%%CreationDate: (D:19991204171311)
+%%DocumentData: Clean7Bit
+%%BoundingBox: 0 0 842 595
+%%Pages: 12
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentSuppliedResources:
+%%+ font Times-Italic
+%%+ font Times-Roman
+%%+ procset (Adobe Acrobat - PDF operators) 1.2 0
+%%+ procset (Adobe Acrobat - type operators) 1.2 0
+%%EndComments
+%%BeginDefaults
+%%EndDefaults
+%%BeginProlog
+%%EndProlog
+%%BeginSetup
+/currentpacking where{pop currentpacking true setpacking}if
+userdict /PDF 85 dict put
+%%BeginFile: pdfvars.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+userdict /PDFVars 75 dict dup begin put
+/_save 0 def
+/_cshow 0 def
+/InitAll 0 def
+/TermAll 0 def
+/_lp /none def
+/_doClip 0 def
+/sfc 0 def
+/_sfcs 0 def
+/_sfc 0 def
+/ssc 0 def
+/_sscs 0 def
+/_ssc 0 def
+/_fcs 0 def
+/_scs 0 def
+/_fp 0 def
+/_sp 0 def
+/_f0 0 array def
+/_f1 1 array def
+/_f3 3 array def
+/_f4 4 array def
+/_fc null def
+/_s0 0 array def
+/_s1 1 array def
+/_s3 3 array def
+/_s4 4 array def
+/_sc null def
+/_cpcf null def
+/_cpcs null def
+/_inT false def
+/_tr -1 def
+/_rise 0 def
+/_ax 0 def
+/_cx 0 def
+/_ld 0 def
+/_tm matrix def
+/_ctm matrix def
+/_mtx matrix def
+/_hy (-) def
+/_fScl 0 def
+/_hs 1 def
+/_pdfEncodings 2 array def
+/_Tj 0 def
+/_italMtx[1 0 .212557 1 0 0]def
+/_basefont 0 def
+/_basefonto 0 def
+/_categories 10 dict def
+/_sa? true def
+/_op? false def
+/_ColorSep5044? false def
+/_tmpcolr? [] def
+/_tmpop? {} def
+end
+%%EndFile
+PDFVars begin PDF begin
+%%BeginFile: pdfutil.prc
+%%Copyright: Copyright 1993 Adobe Systems Incorporated. All Rights Reserved.
+/bd {bind def} bind def
+/ld {load def} bd
+/dd { PDFVars 3 1 roll put } bd
+/xdd { exch dd } bd
+/Level2?
+/languagelevel where { pop languagelevel 2 ge } { false } ifelse
+def
+/here {
+dup currentdict exch known
+{ currentdict exch get true }
+{ pop false }
+ifelse
+} bd
+/isdefined? { where { pop true } { false } ifelse } bd
+/StartLoad { dup dup not { /_save save dd } if } bd
+/EndLoad { if not { _save restore } if } bd
+/npop { { pop } repeat } bd
+%%EndFile
+%%BeginFile: l2compat
+%%Copyright: Copyright 1987-1993 Adobe Systems Incorporated. All Rights Reserved.
+/cshow isdefined? not StartLoad {
+/cshow {
+exch /_cshow xdd
+{ 0 0 _cshow exec } forall
+} bd
+} EndLoad
+/setcmykcolor isdefined? not StartLoad {
+/setcmykcolor {
+1 sub 4 1 roll
+3 {
+3 index add neg dup 0 lt { pop 0 } if
+3 1 roll
+} repeat
+setrgbcolor
+pop
+} bd
+} EndLoad
+/rectclip isdefined? not StartLoad {
+/re 0 def
+/rectclip { newpath re clip newpath } bd
+} EndLoad
+/execform isdefined? not StartLoad {
+/execform {
+gsave dup begin
+Matrix concat
+BBox aload pop
+exch 3 index sub
+exch 2 index sub
+rectclip
+PaintProc end grestore
+} def
+} EndLoad
+/sethalftone isdefined? not StartLoad {
+/sethalftone {
+begin
+HalftoneType 1 eq
+{ Frequency Angle /SpotFunction load setscreen }
+if
+end
+} bd
+} EndLoad
+%%EndFile
+%%BeginFile: pdf.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+/initialize {
+_ColorSep5044? {sep_ops begin 50 dict begin} if
+newpath
+} bd
+/terminate {
+_ColorSep5044? {end end} if
+} bd
+Level2? StartLoad
+{ /m/moveto ld
+/l/lineto ld
+/c/curveto ld
+/setSA/setstrokeadjust ld
+} EndLoad
+Level2? not StartLoad
+{
+/pl {
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} bd
+/m { _sa? { pl } if moveto } bd
+/l { _sa? { pl } if lineto } bd
+/c { _sa? { pl } if curveto } bd
+/setSA { /_sa? xdd } bd
+} EndLoad
+/v { currentpoint 6 2 roll c } bd
+/y { 2 copy c } bd
+/h/closepath ld
+/d/setdash ld
+/j/setlinejoin ld
+/J/setlinecap ld
+/M/setmiterlimit ld
+/w/setlinewidth ld
+/cf currentflat def
+/i {
+dup 0 eq { pop cf } if
+setflat
+} bd
+/ilp { /_lp /none dd } bd
+/sfc {
+_lp /fill ne {
+_sfcs
+_sfc
+/_lp /fill dd
+} if
+} dd
+/ssc {
+_lp /stroke ne {
+_sscs
+_ssc
+/_lp /stroke dd
+} if
+} dd
+/n {
+_doClip 1 ge {
+_doClip 1 eq { clip } { eoclip } ifelse
+/_doClip 0 dd
+} if
+newpath
+} bd
+/f {
+_doClip 1 ge
+{
+gsave sfc fill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc fill }
+ifelse
+} bd
+/f* {
+_doClip 1 ge
+{
+gsave sfc eofill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc eofill }
+ifelse
+} bd
+/S {
+_doClip 1 ge
+{
+gsave ssc stroke grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ ssc stroke }
+ifelse
+} bd
+/s { h S } bd
+/B {
+_doClip dup 1 ge
+gsave f grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b { h B } bd
+/B* {
+_doClip dup 1 ge
+gsave f* grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b* { h B* } bd
+/W { /_doClip 1 dd } bd
+/W* { /_doClip 2 dd } bd
+/q/save ld
+/Q { restore ilp } bd
+Level2? StartLoad
+{ /defineRes/defineresource ld
+/findRes/findresource ld
+currentglobal
+true systemdict /setglobal get exec
+[/Function /ExtGState /Form]
+{ /Generic /Category findresource dup length dict copy /Category defineresource pop }
+forall
+systemdict /setglobal get exec
+} EndLoad
+Level2? not StartLoad
+{ /AlmostFull?
+{ dup maxlength exch length sub 2 le
+} bind def
+/Expand
+{ 1 index maxlength mul cvi dict
+dup begin exch { def } forall end
+} bind def
+/xput
+{ 3 2 roll
+dup 3 index known not
+{ dup AlmostFull? { 1.5 Expand } if
+} if
+dup 4 2 roll put
+} bind def
+/defineRes
+{ _categories 1 index known not
+{ /_categories _categories 2 index 10 dict xput store
+} if
+_categories exch 2 copy get 5 -1 roll 4 index xput put
+} bind def
+/findRes
+{ _categories exch get exch get
+} bind def
+} EndLoad
+/cs
+{
+dup where { pop load } if
+dup /_fcs xdd
+ucs
+_cpcf exch get
+/_fc xdd
+/_fp null dd
+} bd
+/CS
+{
+dup where { pop load } if
+dup /_scs xdd ucs _cpcs exch get /_sc xdd /_sp null dd
+} bd
+/ucs {
+dup type /arraytype eq
+{ dup 0 get
+dup /Indexed eq
+{ pop 0 get }
+{ /Pattern eq
+{ dup length 2 eq
+{ 1 get ucs }
+{ 0 get }
+ifelse }
+{ 0 get }
+ifelse }
+ifelse }
+if }
+bd
+/_cpcf
+15 dict dup begin
+/DefaultGray _f1 def
+/DeviceGray _f1 def
+/DefaultRGB _f3 def
+/DeviceRGB _f3 def
+/DeviceCMYK _f4 def
+/CalGray _f1 def
+/CalRGB _f3 def
+/CalCMYK _f4 def
+/Lab _f3 def
+/Pattern _f0 def
+/Indexed _f1 def
+/Separation _f1 def
+/CIEBasedA _f1 def
+/CIEBasedABC _f3 def
+end
+dd
+/_cpcs
+15 dict dup begin
+/DefaultGray _s1 def
+/DeviceGray _s1 def
+/DefaultRGB _s3 def
+/DeviceRGB _s3 def
+/DeviceCMYK _s4 def
+/CalGray _s1 def
+/CalRGB _s3 def
+/CalCMYK _s4 def
+/Lab _s3 def
+/Pattern _s0 def
+/Indexed _s1 def
+/Separation _s1 def
+/CIEBasedA _s1 def
+/CIEBasedABC _s3 def
+end
+dd
+Level2? not StartLoad {
+/ri/pop ld
+/makePat/pop ld
+} EndLoad
+Level2? StartLoad {
+/ri
+{
+/findcolorrendering isdefined?
+{
+mark exch
+findcolorrendering
+counttomark 2 eq
+{ type /booleantype eq
+{ dup type /nametype eq
+{ dup /ColorRendering resourcestatus
+{ pop pop
+dup /DefaultColorRendering ne
+{
+/ColorRendering findresource
+setcolorrendering
+} if
+} if
+} if
+} if
+} if
+cleartomark
+}
+{ pop
+} ifelse
+} bd
+/makePat /makepattern ld
+} EndLoad
+Level2? not _ColorSep5044? or StartLoad
+{
+/L1setcolor {
+aload length
+dup 0 eq
+{ pop .5 setgray }
+{ dup 1 eq
+{ pop setgray }
+{ 3 eq
+{ setrgbcolor }
+{ setcmykcolor }
+ifelse }
+ifelse }
+ifelse
+} bind dd
+/_sfcs { } dd
+/_sscs { } dd
+} EndLoad
+Level2? not _ColorSep5044? not and StartLoad
+{
+/_sfc { _fc L1setcolor } dd
+/_ssc { _sc L1setcolor } dd
+} EndLoad
+Level2? _ColorSep5044? not and StartLoad
+{
+/_sfcs
+{
+_fcs setcolorspace
+} bind dd
+/_sscs
+{
+_scs setcolorspace
+} bind dd
+/_sfc
+{
+_fc aload pop
+_fp null eq
+{ setcolor }
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sc aload pop
+_sp null eq { setcolor } { _sp setpattern } ifelse
+} bind dd
+} EndLoad
+/sc
+{
+_fc astore pop
+ilp
+} bd
+/SC
+{
+_sc astore pop
+ilp
+} bd
+/scn {
+dup type /dicttype eq
+{ dup /_fp xdd
+/PaintType get 1 eq
+{ /_fc _f0 dd ilp }
+{ /_fc _cpcf _fcs ucs get dd
+sc }
+ifelse }
+{ sc }
+ifelse
+} bd
+/SCN {
+dup type /dicttype eq
+{ dup /_sp xdd
+/PaintType get 1 eq
+{ /_sc _s0 dd ilp }
+{ /_sc _cpcs _scs ucs get dd
+SC }
+ifelse }
+{ SC }
+ifelse
+} bd
+/g { /DefaultGray cs sc } bd
+/rg { /DefaultRGB cs sc } bd
+/k { /DeviceCMYK cs sc } bd
+/G { /DefaultGray CS SC } bd
+/RG { /DefaultRGB CS SC } bd
+/K { /DeviceCMYK CS SC } bd
+/cm { _mtx astore concat } bd
+/re {
+4 2 roll m
+1 index 0 rlineto
+0 exch rlineto
+neg 0 rlineto
+h
+} bd
+/RC/rectclip ld
+/EF/execform ld
+/PS { cvx exec } bd
+/initgs {
+/DefaultGray where
+{ pop }
+{ /DefaultGray /DeviceGray dd }
+ifelse
+/DefaultRGB where
+{ pop }
+{ /DefaultRGB /DeviceRGB dd }
+ifelse
+0 g 0 G
+[] 0 d 0 j 0 J 10 M 1 w
+true setSA
+} bd
+21 dict dup begin
+/CosineDot
+{ 180 mul cos exch 180 mul cos add 2 div } bd
+/Cross
+{ abs exch abs 2 copy gt { exch } if pop neg } bd
+/Diamond
+{ abs exch abs 2 copy add .75 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 2 copy add 1.23 le
+{ .85 mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse }
+ifelse } bd
+/Double
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add } bd
+/DoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add } bd
+/Ellipse
+{ abs exch abs 2 copy 3 mul exch 4 mul add 3 sub dup 0 lt
+{ pop dup mul exch .75 div dup mul add 4 div
+1 exch sub }
+{ dup 1 gt
+{pop 1 exch sub dup mul exch 1 exch sub
+.75 div dup mul add 4 div 1 sub }
+{ .5 exch sub exch pop exch pop }
+ifelse }
+ifelse } bd
+/EllipseA
+{ dup mul .9 mul exch dup mul add 1 exch sub } bd
+/EllipseB
+{ dup 5 mul 8 div mul exch dup mul exch add sqrt 1 exch sub } bd
+/EllipseC
+{ dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+exch
+dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+add -2 div } bd
+/InvertedDouble
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedDoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedEllipseA
+{ dup mul .9 mul exch dup mul add 1 sub } bd
+/InvertedSimpleDot
+{ dup mul exch dup mul add 1 sub } bd
+/Line
+{ exch pop abs neg } bd
+/LineX
+{ pop } bd
+/LineY
+{ exch pop } bd
+/Rhomboid
+{ abs exch abs 0.9 mul add 2 div } bd
+/Round
+{ abs exch abs 2 copy add 1 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse } bd
+/SimpleDot
+{ dup mul exch dup mul add 1 exch sub } bd
+/Square
+{ abs exch abs 2 copy lt { exch } if pop neg } bd
+end
+{ /Function defineRes pop } forall
+/Identity {} /Function defineRes pop
+Level2? StartLoad {
+/gs
+{
+begin
+/SA here { setstrokeadjust } if
+/OP here { setoverprint } if
+/BG here { setblackgeneration } if
+/UCR here { setundercolorremoval } if
+/HT here { sethalftone } if
+/sethalftonephase isdefined? { /HTP here { sethalftonephase } if } if
+/TR here
+{
+dup xcheck { settransfer } { aload pop setcolortransfer } ifelse
+} if
+end
+} bd
+{ /Default /Halftone findresource pop } stopped
+{
+currenthalftone exch defineresource pop }
+if
+} EndLoad
+Level2? not StartLoad {
+/gs
+{
+begin
+/SA here { /_sa? xdd } if
+/OP here { dup /_op? xdd
+/setoverprint where {pop setoverprint}
+{pop} ifelse
+} if
+/HT here { sethalftone } if
+/TR here { dup xcheck
+{ settransfer }
+{ pop }
+ifelse } if
+end
+} bd
+5 dict dup
+begin
+currentscreen 1 [/HalftoneType /SpotFunction /Angle /Frequency]
+{ exch def } forall
+end
+/Default exch /Halftone defineRes pop
+} EndLoad
+/int {
+dup 2 index sub 3 index 5 index sub div 6 -2 roll sub mul
+exch pop add exch pop
+} bd
+/limit {
+dup 2 index le { exch } if pop
+dup 2 index ge { exch } if pop
+} bd
+_ColorSep5044? StartLoad {
+/_sfc
+{
+_fp null eq
+{ _fcs type /arraytype eq
+{_fcs 0 get /Separation eq
+{
+_fcs 1 get /All eq
+{
+_fc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _fcs 3 get exec _fcs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_fc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sp null eq
+{ _scs type /arraytype eq
+{_scs 0 get /Separation eq
+{
+_scs 1 get /All eq
+{
+_sc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _scs 3 get exec _scs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_sc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sp setpattern }
+ifelse
+} bind dd
+} EndLoad
+%%EndFile
+%%BeginFile: pdftext.prc
+%%Copyright: Copyright 1987-1994 Adobe Systems Incorporated. All Rights Reserved.
+PDF /PDFText 51 dict dup begin put
+/initialize { PDFText begin } bd
+/terminate { end } bd
+/CopyFont {
+{
+1 index /FID ne 2 index /UniqueID ne and
+{ def } { pop pop } ifelse
+} forall
+} bd
+/modEnc {
+/_enc xdd
+/_icode 0 dd
+counttomark 1 sub -1 0
+{
+index
+dup type /nametype eq
+{
+_enc _icode 3 -1 roll put
+_icode 1 add
+}
+if
+/_icode xdd
+} for
+cleartomark
+_enc
+} bd
+/trEnc {
+/_enc xdd
+255 -1 0 {
+exch dup -1 eq
+{ pop /.notdef }
+{ Encoding exch get }
+ifelse
+_enc 3 1 roll put
+} for
+pop
+_enc
+} bd
+/TE {
+/_i xdd
+StandardEncoding 256 array copy modEnc
+_pdfEncodings exch _i exch put
+} bd
+/TZ
+{
+/_usePDFEncoding xdd
+findfont
+dup length 2 add dict
+begin
+{
+1 index /FID ne { def } { pop pop } ifelse
+} forall
+/FontName exch def
+_usePDFEncoding 0 ge
+{
+/Encoding _pdfEncodings _usePDFEncoding get def
+pop
+}
+{
+_usePDFEncoding -1 eq
+{
+counttomark 0 eq
+{ pop }
+{
+Encoding 256 array copy
+modEnc /Encoding exch def
+}
+ifelse
+}
+{
+256 array
+trEnc /Encoding exch def
+}
+ifelse
+}
+ifelse
+FontName currentdict
+end
+definefont pop
+}
+bd
+/_pdfIsLevel2
+systemdict /languagelevel known
+{languagelevel 2 ge}
+{false}
+ifelse
+def
+_pdfIsLevel2
+{
+/_pdfFontStatus
+{
+dup /Font resourcestatus
+{pop pop pop true}
+{
+/CIDFont /Category resourcestatus
+{
+pop pop
+/CIDFont resourcestatus
+{pop pop true}
+{false}
+ifelse
+}
+{ pop false }
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfFontStatusString 50 string def
+_pdfFontStatusString 0 (fonts/) putinterval
+/_pdfFontStatus
+{
+_pdfFontStatusString 6 42 getinterval
+cvs length 6 add
+_pdfFontStatusString exch 0 exch getinterval
+status
+{ pop pop pop pop true}
+{ false }
+ifelse
+} bd
+}
+ifelse
+/_pdfString100 100 string def
+/_pdfComposeFontName
+{
+dup length 1 eq
+{
+0 get
+1 index
+type /nametype eq
+{
+_pdfString100 cvs
+length dup dup _pdfString100 exch (-) putinterval
+_pdfString100 exch 1 add dup _pdfString100 length exch sub getinterval
+2 index exch cvs length
+add 1 add _pdfString100 exch 0 exch getinterval
+exch pop
+true
+}
+{
+pop pop
+false
+}
+ifelse
+}
+{
+false
+}
+ifelse
+} bd
+systemdict /composefont known
+{
+/_pdfComposeFont
+{
+1 index /CMap resourcestatus
+{pop pop true}
+{false}
+ifelse
+1 index true exch
+{
+_pdfFontStatus not
+{pop false exit}
+if
+}
+forall
+and
+{composefont true}
+{
+_pdfComposeFontName
+{
+dup _pdfFontStatus
+{ findfont definefont true }
+{ pop pop false }
+ifelse
+}
+{
+dup _pdfFontStatus
+{ findfont true }
+{ pop false }
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfComposeFont
+{
+_pdfComposeFontName not
+{
+dup
+}
+if
+2 copy _pdfFontStatus
+{ pop findfont definefont true }
+{
+eq
+{pop false}
+{
+dup _pdfFontStatus
+{findfont true}
+{pop false}
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+ifelse
+/_pdfFaceByStyleDict 4 dict dup begin
+_pdfIsLevel2
+{
+/Serif
+/Ryumin-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /Ryumin-Light}
+{/HeiseiMin-W3}
+ifelse
+def
+/SansSerif
+/GothicBBB-Medium-83pv-RKSJ-H /Font resourcestatus
+{pop pop /GothicBBB-Medium}
+{/HeiseiKakuGo-W5}
+ifelse
+def
+/Jun101-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /Jun101-Light def }
+{
+/HeiseiMaruGo-W4-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /HeiseiMaruGo-W4 def}
+if
+}
+ifelse
+/Default Serif def
+}
+{
+/Serif /Ryumin-Light def
+/SansSerif /GothicBBB-Medium def
+{
+(fonts/Jun101-Light-83pv-RKSJ-H) status
+}stopped
+{pop}{
+{pop pop pop pop /RoundSansSerif /Jun101-Light def }
+if
+}ifelse
+/Default Serif def
+}
+ifelse
+end
+def
+/TZzero
+{
+/_styleArr xdd
+3 copy
+_pdfComposeFont
+{exch pop exch pop exch pop}
+{
+[
+0 1 _styleArr length 1 sub
+{
+_styleArr exch get
+_pdfFaceByStyleDict exch 2 copy known not
+{ pop /Default }
+if
+get
+}
+for
+]
+exch pop
+2 index 3 1 roll
+_pdfComposeFont
+{exch pop}
+{
+findfont
+dup length dict
+begin
+{1 index /FID ne {def}{pop pop} ifelse }
+forall
+currentdict
+end
+}
+ifelse
+}
+ifelse
+definefont pop
+}
+bd
+/swj {
+dup 4 1 roll
+dup length exch stringwidth
+exch 5 -1 roll 3 index mul add
+4 1 roll 3 1 roll mul add
+6 2 roll /_cnt 0 dd
+{1 index eq {/_cnt _cnt 1 add dd} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} bd
+/jss {
+4 1 roll
+{
+2 npop
+(0) exch 2 copy 0 exch put
+gsave
+32 eq
+{
+exch 6 index 6 index 6 index 5 -1 roll widthshow
+currentpoint
+}
+{
+false charpath currentpoint
+4 index setmatrix stroke
+}
+ifelse
+grestore
+moveto
+2 copy rmoveto
+} exch cshow
+6 npop
+} def
+/jsp
+{
+{
+2 npop
+(0) exch 2 copy 0 exch put
+32 eq
+{ exch 5 index 5 index 5 index 5 -1 roll widthshow }
+{ false charpath }
+ifelse
+2 copy rmoveto
+} exch cshow
+5 npop
+} bd
+/trj { _cx 0 32 _ax 0 6 5 roll } bd
+/pjsf { trj sfc awidthshow } bd
+/pjss { trj _ctm ssc jss } bd
+/pjsc { trj jsp } bd
+/_Tjdef [
+/pjsf load
+/pjss load
+{
+dup
+currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+} bind
+{
+trj swj rmoveto
+} bind
+{
+dup currentpoint 4 2 roll gsave
+pjsf
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll
+currentpoint gsave newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll gsave
+dup currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+/pjsc load
+] def
+/BT
+{
+/_inT true dd
+_ctm currentmatrix pop matrix _tm copy pop
+0 _rise translate _hs 1 scale
+0 0 moveto
+} bd
+/ET
+{
+/_inT false dd
+_tr 3 gt {clip} if
+_ctm setmatrix newpath
+} bd
+/Tr {
+_inT { _tr 3 le {currentpoint newpath moveto} if } if
+dup /_tr xdd
+_Tjdef exch get /_Tj xdd
+} bd
+/Tj {
+userdict /$$copystring 2 index put
+_Tj
+} bd
+/iTm { _ctm setmatrix _tm concat 0 _rise translate _hs 1 scale } bd
+/Tm { _tm astore pop iTm 0 0 moveto } bd
+/Td { _mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto } bd
+/TD { dup /_ld xdd Td } bd
+/Tf {
+dup 1000 div /_fScl xdd
+exch findfont exch scalefont setfont
+} bd
+/TL { neg /_ld xdd } bd
+/Tw { /_cx xdd } bd
+/Tc { /_ax xdd } bd
+/Ts { /_rise xdd currentpoint iTm moveto } bd
+/Tz { 100 div /_hs xdd iTm } bd
+/Tk { exch pop _fScl mul neg 0 rmoveto } bd
+/T* { 0 _ld Td } bd
+/' { T* Tj } bd
+/" { exch Tc exch Tw ' } bd
+/TJ {
+{
+dup type /stringtype eq
+{ Tj }
+{ 0 exch Tk }
+ifelse
+} forall
+} bd
+/T- { _hy Tj } bd
+/d0/setcharwidth ld
+/d1 { setcachedevice /sfc{}dd /ssc{}dd } bd
+/nND {{/.notdef} repeat} bd
+/T3Defs {
+/BuildChar
+{
+1 index /Encoding get exch get
+1 index /BuildGlyph get exec
+}
+def
+/BuildGlyph {
+exch begin
+GlyphProcs exch get exec
+end
+} def
+} bd
+/MakeBold {
+findfont dup dup length 2 add dict
+begin
+CopyFont
+/PaintType 2 def
+/StrokeWidth .03 0 FontMatrix idtransform pop def
+/dummybold currentdict
+end
+definefont
+8 dict begin
+/_basefont exch def
+/_basefonto exch def
+/FontType 3 def
+/FontMatrix[1 0 0 1 0 0]def
+/FontBBox[0 0 1 1]def
+/Encoding StandardEncoding def
+/BuildChar
+{
+exch begin
+_basefont setfont
+( )dup 0 4 -1 roll put
+dup stringwidth
+1 index 0 ne { exch .03 add exch }if
+setcharwidth
+0 0 moveto
+gsave
+dup show
+grestore
+_basefonto setfont
+show
+end
+}bd
+currentdict
+end
+definefont pop
+}bd
+/MakeItalic {
+findfont _italMtx makefont
+dup length dict
+begin
+CopyFont
+currentdict
+end
+definefont pop
+}bd
+/MakeBoldItalic {
+/dummybold exch
+MakeBold
+/dummybold
+MakeItalic
+}bd
+currentdict readonly pop end
+%%EndFile
+PDFText begin
+[39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis
+/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute
+/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde
+/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex
+/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls
+/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash
+/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef
+/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash
+/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef
+/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe
+/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide
+/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright
+/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand
+/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex
+/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex
+/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla
+/hungarumlaut/ogonek/caron
+0 TE
+[1/dotlessi/caron 39/quotesingle 96/grave 
+127/bullet/bullet/bullet/quotesinglbase/florin/quotedblbase/ellipsis
+/dagger/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright/quotedblleft
+/quotedblright/bullet/endash/emdash/tilde/trademark/scaron
+/guilsinglright/oe/bullet/bullet/Ydieresis/space/exclamdown/cent/sterling
+/currency/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree/plusminus
+/twosuperior/threesuperior/acute/mu/paragraph/periodcentered/cedilla
+/onesuperior/ordmasculine/guillemotright/onequarter/onehalf/threequarters
+/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash
+/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde
+/ograve/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+1 TE
+end
+currentdict readonly pop
+end end
+/currentpacking where {pop setpacking}if
+PDFVars/InitAll{[PDF PDFText]{/initialize get exec}forall initgs 0 Tr}put
+PDFVars/TermAll{[PDFText PDF]{/terminate get exec}forall}put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+/N5 8 dict dup begin
+/SA false def
+/OP false def
+/HT /Default /Halftone findRes def
+end /ExtGState defineRes pop
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N10/Times-Italic -1 TZ
+% End encoding-delta
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N4/Times-Roman -1 TZ
+% End encoding-delta
+PDFVars/TermAll get exec end end
+
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (1)]TJ
+0 45.6 -45.6 0 109.68 237.08 Tm
+0 Tc
+-0.003 Tw
+(Distributed S)Tj
+ET
+q
+68.64 187.64 50.88 607.2 re
+W n 
+BT
+0 45.6 -45.6 0 109.68 479.243 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 109.68 502.043 Tm
+(stems)Tj
+-3.416 -1.079 TD
+( )Tj
+0 33.12 -33.12 0 158.688 357.8 Tm
+0.002 Tc
+-0.006 Tw
+[(F)7 (r)2 (ed Long)]TJ
+0 24.96 -24.96 0 189.744 183.08 Tm
+0 Tc
+0 Tw
+[(based on sli)9 (d)0 (es o)10 (r)-4 (igi)9 (n)0 (all)9 (y)0 ( wri)9 (tte)11 (n by Cli)9 (v)0 (e King)]TJ
+0.26 -1.067 TD
+[(and m)9 (odi)9 (fie)11 (d)0 ( by Mike Tedd)10 (  and Edel)9 ( Sherr)6 (a)2 (tt)]TJ
+0 33.12 -33.12 0 265.728 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (O)-2 (ne of )-8 (the main )-8 (aims )-8 (of a n)-6 (e)3 (two)-6 (r)8 (k)-6 ( is to)]TJ
+0.848 -1.196 TD
+[(allow )-8 (data that phy)-6 (sically )-8 (r)8 (e)-4 (sid)-6 (e)3 (s )-8 (on )-8 (one)]TJ
+0 -1.203 TD
+0.003 Tw
+[(machine )8 (to be visible )8 (on)-6 ( )8 (other machines)]TJ
+-0.848 -1.442 TD
+[(\225)-497 (D)-2 (istributed file systems attempt )8 (to )8 (prov)-6 (ide )8 (a)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(mechan)-7 (ism for )8 (consistent and)-7 ( )8 (reliable)]TJ
+T*
+0.003 Tc
+0.001 Tw
+[(ac)5 (ce)5 (ss t)6 (o)3 ( dat)6 (a)-2 ( )8 (store)5 (d at)6 ( )8 (one)5 ( l)6 (o)3 (cat)6 (i)6 (o)3 (n )8 (ac)5 (ross a)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(network of )8 (a variety)-6 ( )8 (of architectures)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 2 2
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (2)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.003 Tc
+[(\225)-495 (T)5 (he )]TJ
+/N10 1 Tf
+2.659 0.009 TD
+0.001 Tc
+0.003 Tw
+(Network File System)Tj
+/N4 1 Tf
+8.297 -0.009 TD
+0 Tc
+0.004 Tw
+[( \(NFS\) develo)-7 (ped)]TJ
+-10.109 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(by Sun )8 (g)-6 (i)4 (ves )8 (a )8 (remote file system the)]TJ
+T*
+[(appearance )8 (o)-6 (f)8 ( being locally mounted)]TJ
+-0.848 -1.203 TD
+[(\225)-497 (T)3 (he NFS )8 (p)-6 (rotocol was designed to be)]TJ
+0.848 -0.964 TD
+(portable across different machines,)Tj
+0 -0.957 TD
+[(operating systems, network )8 (architectures,)]TJ
+0 -0.964 TD
+-0.005 Tw
+[(and transp)-6 (ort )-8 (protocols)]TJ
+-0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (N)-3 (FS portability )8 (is )8 (ach)-7 (i)3 (ev)-7 (ed by using)-7 ( )8 (R)-7 (P)5 (C)]TJ
+0.848 -0.964 TD
+-0.004 Tw
+[(primitives on)-7 ( to)-7 (p of )-8 (an )]TJ
+/N10 1 Tf
+9.377 0.009 TD
+0.003 Tc
+-0.007 Tw
+[(eX)5 (t)6 (e)-2 (rnal Data)]TJ
+-9.377 -0.964 TD
+-0.001 Tc
+[(Re)-6 (pre)-6 (s)-3 (ent)-6 (a)-1 (ti)-6 (on)]TJ
+/N4 1 Tf
+6.072 -0.009 TD
+0.003 Tc
+[( \(XDR\))]TJ
+-6.92 -1.203 TD
+-0.006 Tw
+[(\225)-496 (T)4 (his solution )-8 (allows )-8 (N)7 (FS to be)]TJ
+0.848 -0.964 TD
+0.001 Tc
+-0.005 Tw
+[(implemented )-8 (on )-8 (a )-8 (wide range of )-8 (systems,)]TJ
+0 -0.957 TD
+0.003 Tc
+0.001 Tw
+[(e.)7 (g.,)7 ( Unix,)7 ( VMS,)7 ( CM VMS,)7 ( MS-)10 (DOS, )8 (etc.)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 3 3
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (3)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (N)0 (FS)8 ( )-8 (a)5 (s)-7 (sum)6 (e)-2 (s a hi)6 (er)10 (archi)6 (c)-2 (a)5 (l)-2 ( fi)6 (le)5 ( )-8 (syst)6 (em)6 (,)]TJ
+0.848 -1.08 TD
+0.001 Tc
+-0.005 Tw
+[(with directories )-8 (at all but the )-8 (bottom level)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (E)3 (ach)-6 ( )8 (entry in a dir)8 (ectory has a )8 (str)8 (i)-4 (ng name)]TJ
+T*
+-0.005 Tw
+[(\225)-497 (D)-2 (ifferent op)-6 (erating)-6 ( systems may)-6 ( have)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(res)-10 (t)3 (rictio)-7 (ns )8 (on)-7 ( )8 (th)-7 (e depth of )8 (the tree or on )8 (the)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(names )8 (u)-6 (s)-1 (ed, )8 (as well )8 (as using different)]TJ
+T*
+(syntax to represent a \223pathname\224)Tj
+-0.848 -1.319 TD
+0.003 Tc
+0.001 Tw
+[(\225)-495 (A)0 ( \223)5 (f)3 (i)6 (l)-2 (e)5 ( syst)6 (em)6 (\224 i)6 (s)1 ( vi)6 (ewe)5 (d)3 ( a)5 (s)1 ( a )8 (tr)10 (ee )8 (on a)]TJ
+0.848 -1.087 TD
+0.001 Tc
+-0.005 Tw
+[(sin)-6 (g)1 (le server )-8 (\(usually)-6 ( a single d)-6 (i)4 (sc )-8 (or)]TJ
+0 -1.08 TD
+0.003 Tw
+[(physical partition\) with a )8 (specified )8 (\223root\224)]TJ
+T*
+-0.002 Tc
+[(loc)-7 (a)-7 (tion)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 4 4
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (4)]TJ
+0 33.12 -33.12 0 94.368 111.8 Tm
+0.003 Tw
+[(\225)-497 (T)3 (he NFS )8 (p)-6 (rotocol was intend)-6 (ed to be )8 (as)]TJ
+/N10 1 Tf
+0.848 -0.832 TD
+-0.001 Tc
+[(sta)-8 (t)2 (el)-6 (ess)]TJ
+/N4 1 Tf
+3.399 -0.009 TD
+0.001 Tc
+[( as )8 (possible)]TJ
+-4.246 -1.08 TD
+[(\225)-497 (T)3 (hat is, )8 (a server )8 (sho)-6 (u)1 (ld not need to)-6 ( )8 (maintain)]TJ
+0.848 -0.841 TD
+-0.005 Tw
+[(any p)-6 (r)8 (o)-6 (t)4 (ocol )-8 (state informatio)-6 (n about any )-8 (of)]TJ
+T*
+[(its clients in ord)-6 (er )-8 (to )-8 (function )-8 (correctly)]TJ
+-0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (S)-2 (tateles)-10 (s)-2 ( )8 (servers have a dis)-10 (tinct ad)-7 (vantag)-7 (e)]TJ
+0.848 -0.841 TD
+[(over )8 (stateful )8 (servers in th)-7 (e event of failure)]TJ
+0 29.04 -29.04 0 309.336 149.24 Tm
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (a)2 ( )-8 (cl)-7 (ie)-6 (nt)-7 ( ne)-6 (ed)-8 ( o)-8 (n)0 (l)-7 (y)0 ( r)-10 (e)2 (t)-7 (r)-2 (y)-8 ( a)-6 ( re)-6 (qu)-8 (est)-7 ( u)-8 (n)0 (ti)-7 (l )-8 (th)-8 (e)]TJ
+0.802 -0.843 TD
+0 Tc
+0.006 Tw
+[(ser)-6 (v)4 (er responds)]TJ
+-0.802 -1.074 TD
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (a)8 ( )-8 (c)8 (l)-1 (i)7 (e)0 (n)6 (t)-1 ( n)6 (e)0 (e)8 (d)-2 ( no)6 (t b)6 (e)0 ( aware t)7 (h)-2 (a)8 (t)-1 ( t)7 (h)-2 (e)8 ( )-8 (se)8 (rv)6 (er fa)8 (il)7 (ed)6 (,)]TJ
+0.802 -0.843 TD
+[(o)7 (r)-3 ( th)7 (at)8 ( th)7 (e ne)9 (tw)6 (or)5 (k t)8 (e)1 (mp)7 (or)5 (ar)5 (il)8 (y we)9 (nt)8 ( do)7 (wn)]TJ
+0 33.12 -33.12 0 424.608 111.8 Tm
+0.001 Tc
+[(\225)-497 (In )-8 (contrast, )-8 (the client o)-6 (f)8 ( )-8 (a stateful )-8 (server)]TJ
+0.848 -0.841 TD
+0.003 Tw
+[(will need to either )8 (detect )8 (a )8 (server )8 (failure)]TJ
+T*
+[(and )8 (rebuild the )8 (server)8 (\222)1 (s state )8 (when it comes)]TJ
+T*
+-0.005 Tw
+[(back )-8 (up, o)-6 (r)8 ( )-8 (cause )-8 (clien)-6 (t)4 ( o)-6 (p)1 (erations to fail)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 5 5
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (5)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.003 Tc
+0.001 Tw
+[(\225)-495 (W)-2 (hi)6 (le)5 ( NF)8 (S i)6 (s)1 ( t)6 (h)3 (e )8 (most)6 ( wi)6 (del)6 (y)3 ( used)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(dis)-9 (t)4 (ributed file system, a numb)-6 (e)3 (r of )8 (other)8 (s)]TJ
+T*
+(have emerged:)Tj
+0 29.04 -29.04 0 196.776 149.24 Tm
+(\226)Tj
+/N10 1 Tf
+0.802 0.007 TD
+0.002 Tc
+0.004 Tw
+[(Re)8 (mote)8 ( Fi)7 (le)8 ( )8 (Sy)8 (ste)8 (m)]TJ
+/N4 1 Tf
+7.876 -0.007 TD
+-0.004 Tc
+0.01 Tw
+[( )8 (\()-10 (R)2 (F)-10 (S)-2 (\))-10 ( )8 (de)-6 (ve)-6 (lo)-8 (pe)-6 (d by)]TJ
+-7.876 -0.959 TD
+0 Tc
+-0.002 Tw
+[(A)-5 (T)-1 (&T, aims to provide the same services as)]TJ
+0 -0.967 TD
+-0.004 Tc
+0.002 Tw
+[(N)-9 (F)-2 (S)-10 ( bu)-8 (t )-8 (is st)-7 (at)-7 (ef)-10 (ul)-7 ( an)-8 (d )-8 (at)-7 (te)-6 (mpt)-7 (s)-3 ( to)-8 ( p)-8 (r)-2 (o)-8 (v)0 (i)-7 (d)0 (e)-6 ( fu)-8 (ll)]TJ
+0 -0.959 TD
+-0.001 Tc
+-0.001 Tw
+[(U)-6 (n)3 (ix system semantics such as )-8 (file )-8 (and r)-7 (e)5 (cor)-7 (d)]TJ
+T*
+-0.004 Tc
+0.002 Tw
+[(lo)-8 (ck)-8 (in)-8 (g )-8 (wh)-8 (ic)-6 (h N)-9 (F)-2 (S)-10 ( c)-6 (a)2 (n)-8 (n)0 (o)-8 (t)1 ( d)-8 (o)]TJ
+-0.802 -1.198 TD
+-0.002 Tc
+0 Tw
+[(\226)-304 (N)-7 (FS)-8 ( do)-6 (es )-8 (no)-6 (t allow)-7 ( fo)-6 (r )-8 (replicatio)-6 (n o)-6 (f)0 ( )-8 (file)]TJ
+0.802 -0.959 TD
+-0.004 Tc
+0.002 Tw
+[(syst)-7 (ems )-8 (to)-8 ( pr)-10 (ov)-8 (id)-8 (e )-8 (hi)-7 (gh)-8 (er)-10 ( av)-8 (ai)-7 (la)-6 (bi)-7 (li)-7 (ty)-8 ( sho)-8 (u)0 (l)-7 (d)]TJ
+T*
+0.004 Tc
+[(o)8 (n)0 (e)10 ( s)5 (e)10 (rv)8 (er)6 ( )8 (fa)10 (il)]TJ
+-0.802 -1.207 TD
+-0.002 Tc
+0 Tw
+[(\226)-304 (A)-7 ( number of )-8 (research f)-8 (i)3 (le )-8 (systems exist )-8 (that )-8 (do)]TJ
+0.802 -0.959 TD
+-0.004 Tc
+0.002 Tw
+[(pr)-10 (o)-8 (v)0 (i)-7 (d)0 (e )-8 (re)-6 (pl)-7 (ic)-6 (at)-7 (io)-8 (n, )-8 (suc)-6 (h)0 ( a)-6 (s)-3 ( t)-7 (h)0 (e)-6 ( )]TJ
+/N10 1 Tf
+12.702 0.007 TD
+0.001 Tc
+-0.003 Tw
+[(Andre)7 (w)-1 ( Fi)6 (le)]TJ
+-12.702 -0.959 TD
+-0.004 Tc
+[(Sy)-6 (ste)-6 (m)]TJ
+/N4 1 Tf
+2.769 -0.007 TD
+0.011 Tw
+[( de)-7 (ve)-7 (lo)-9 (pe)-7 (d )8 (a)-7 (t)0 ( Ca)-7 (rn)-9 (eg)-9 (ie Me)-7 (ll)-8 (on)]TJ
+-2.769 -0.959 TD
+0.004 Tc
+[(Un)8 (i)9 (v)0 (e)10 (r)-2 (s)5 (i)9 (ty)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 6 6
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (6)]TJ
+0 45.6 -45.6 0 131.76 251.24 Tm
+0 Tc
+(Director)Tj
+ET
+q
+90.72 201.8 50.88 593.04 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 403.162 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 425.962 Tm
+0.001 Tc
+0.002 Tw
+( Services)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+-0.005 Tw
+[(\225)-497 (D)-2 (irectory services prov)-6 (ide the )-8 (basis )-8 (f)8 (o)-6 (r)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(dis)-10 (t)3 (ributed programming)-7 ( )8 (and interhost)]TJ
+T*
+-0.002 Tc
+[(c)-7 (o)-2 (mm)-7 (unic)-7 (a)-7 (tion)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (O)-2 (n a small )8 (network, it is feasible for )8 (all)]TJ
+0.848 -1.08 TD
+0 Tc
+-0.004 Tw
+[(info)-7 (r)7 (mation)-7 ( relating)-7 ( to)-7 ( other )-8 (hosts and)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(networks to be )8 (stored an)-6 (d )8 (retrieved )8 (from)]TJ
+T*
+-0.005 Tw
+[(local )-8 (tables that reside on)-6 ( each )-8 (host)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (A)-2 (n administrator may )8 (up)-6 (date each )8 (ho)-6 (st)]TJ
+0.848 -1.08 TD
+0 Tc
+-0.004 Tw
+[(when any )-8 (of the in)-7 (f)7 (o)-7 (rmation)-7 ( chan)-7 (ges)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 7 7
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (7)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.002 Tc
+0.002 Tw
+[(\225)-496 (A)-1 (s a network )8 (incr)9 (eases in size above )8 (a )8 (few)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(tens of )8 (no)-7 (des, )8 (it is clearly not feasib)-7 (le for an)]TJ
+T*
+[(administrator to take )8 (responsib)-7 (ility for)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(keeping the )8 (tables on each)-6 ( )8 (nod)-6 (e up to date)]TJ
+-0.848 -1.319 TD
+(\225)Tj
+/N10 1 Tf
+0.848 0.009 TD
+-0.001 Tc
+0.005 Tw
+[(Netw)-8 (ork Info)-8 (r)-3 (ma)-8 (tion)-8 ( )8 (Service)]TJ
+/N4 1 Tf
+11.645 -0.009 TD
+0.003 Tc
+-0.007 Tw
+[( )-8 (\()10 (N)0 (IS+\) is an)]TJ
+-11.645 -1.08 TD
+0.001 Tc
+-0.005 Tw
+[(attempt to p)-6 (rovide a )-8 (repository )-8 (of )-8 (network)]TJ
+T*
+[(names and )-8 (attrib)-6 (utes that addresses )-8 (the)]TJ
+0 -1.087 TD
+0.003 Tw
+[(problems )8 (of management and resource)]TJ
+0 -1.08 TD
+-0.005 Tw
+[(location)-6 ( in heterogeneo)-6 (u)1 (s distrib)-6 (u)1 (ted)]TJ
+T*
+0.002 Tc
+(systems)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 8 8
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (8)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.003 Tw
+[(\225)-497 (A)-2 ( specific design goal )8 (of NIS+ is that it will)]TJ
+0.848 -1.08 TD
+[(work with a )8 (range )8 (of operating system)]TJ
+T*
+(platforms)Tj
+-0.848 -1.319 TD
+-0.002 Tc
+0.006 Tw
+[(\225)-500 (N)-5 (IS+ al)-7 (lows a c)-7 (lie)-7 (nt,)-6 ( such a)-7 (s)-4 ( )8 (a)-7 (n)-2 ( )8 (a)-7 (ppl)-7 (ic)-7 (ati)-7 (o)-2 (n)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(program, )8 (to look up information on network)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(res)-9 (ources )8 (and access the )8 (resources in a)]TJ
+T*
+-0.005 Tw
+[(location)-6 ( indep)-6 (e)3 (ndent way)]TJ
+-0.848 -1.326 TD
+0.003 Tw
+[(\225)-497 (T)3 (he server )8 (side of  )8 (NIS+)7 ( is a )8 (repository)]TJ
+0.848 -1.08 TD
+[(which acts as a )8 (central )8 (location )8 (for network)]TJ
+T*
+-0.002 Tc
+[(info)-9 (rm)-7 (a)-7 (tion)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 9 9
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-19149 (9)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.003 Tc
+[(\225)-495 (T)5 (he )]TJ
+/N10 1 Tf
+2.659 0.009 TD
+-0.001 Tc
+0.005 Tw
+[(Do)-8 (m)-4 (a)-1 (in Nam)-4 (e)-6 ( )8 (S)-8 (e)1 (rv)-6 (ic)-6 (e)]TJ
+/N4 1 Tf
+9.022 -0.009 TD
+0.001 Tc
+0.003 Tw
+( \(DNS\) is a)Tj
+-10.833 -1.08 TD
+[(dis)-9 (t)4 (ributed database and protocol )8 (for)]TJ
+T*
+0.002 Tc
+[(mapping I)9 (P)0 ( addresses )8 (to )8 (hostnames )8 (over a)]TJ
+T*
+0 Tc
+0.004 Tw
+[(potentially heterogen)-7 (e)2 (ous)-10 ( )8 (network)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he f)8 (u)-6 (ndamental idea of )8 (DNS is )8 (a)]TJ
+0.848 -1.08 TD
+0.003 Tc
+0.001 Tw
+[(hi)6 (erar)10 (chic)5 (al)6 ( na)5 (me)5 ( spac)5 (e,)7 ( wi)6 (th )8 (the)5 ( hie)5 (r)3 (arc)5 (h)3 (y)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(roughly corresponding )8 (to organisational)]TJ
+0 -1.087 TD
+[(structure, )8 (and names usin)-6 (g )8 (\223.\224 as the)]TJ
+0 -1.08 TD
+[(character to mark the )8 (bou)-6 (ndary)-6 ( )8 (between)]TJ
+T*
+[(hierar)8 (chy levels)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 10 10
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (10)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+-0.005 Tw
+[(\225)-497 (DNS has three )-8 (major )-8 (components:)]TJ
+0 29.04 -29.04 0 146.616 149.24 Tm
+(\226)Tj
+/N10 1 Tf
+0.802 0.007 TD
+0.003 Tc
+[(Do)7 (ma)7 (in)7 ( Na)7 (me)9 ( Sp)7 (ac)9 (e an)7 (d Re)9 (sou)7 (r)4 (ce)9 ( )-8 (Re)9 (co)7 (rds)]TJ
+/N4 1 Tf
+0 -1.214 TD
+0.001 Tc
+-0.003 Tw
+[(\(R)7 (R)7 (\))-5 (:)6 ( )-8 (sp)5 (ec)7 (ific)7 (at)6 (io)5 (ns for )-8 (a)7 ( tree)7 ( )-8 (st)6 (ru)5 (ct)6 (ured)5 ( na)7 (me)]TJ
+0 -1.198 TD
+0.002 Tc
+-0.004 Tw
+[(sp)6 (ac)8 (e an)6 (d d)6 (a)0 (t)7 (a)0 ( asso)6 (ci)7 (at)7 (e)8 (d)-2 ( wi)7 (th)6 ( th)6 (e na)8 (mes)]TJ
+-0.802 -1.438 TD
+(\226)Tj
+/N10 1 Tf
+0.802 0.007 TD
+-0.003 Tc
+0.001 Tw
+[(Na)-7 (me)-5 ( S)-7 (e)3 (rv)-5 (ers)]TJ
+/N4 1 Tf
+5.57 -0.007 TD
+0.009 Tw
+[(:)-6 ( )8 (ser)-9 (v)1 (e)-5 (r)-1 ( pr)-9 (og)-7 (ra)-5 (ms )8 (wh)-7 (ic)-5 (h ho)-7 (ld)]TJ
+-5.57 -1.207 TD
+0.002 Tc
+-0.004 Tw
+[(i)7 (n)-2 (fo)6 (rma)8 (t)7 (io)6 (n ab)6 (ou)6 (t t)7 (h)-2 (e)8 ( )-8 (d)6 (o)-2 (ma)8 (in)6 ( tree)8 (\222s struc)8 (t)-1 (u)6 (r)-4 (e)]TJ
+0 -1.198 TD
+-0.002 Tc
+0 Tw
+[(an)-6 (d )-8 (set in)-6 (fo)-6 (rmation)]TJ
+-0.802 -1.438 TD
+(\226)Tj
+/N10 1 Tf
+0.802 0.007 TD
+0.001 Tc
+[(Re)7 (sol)6 (v)-1 (e)7 (r)2 (s)]TJ
+/N4 1 Tf
+3.876 -0.007 TD
+0.004 Tc
+0.002 Tw
+[(: )8 (pr)6 (og)8 (ra)10 (m)5 (s)5 ( )8 (th)8 (at)9 ( e)10 (x)0 (t)9 (r)-2 (a)10 (c)2 (t)9 ( )8 (in)8 (fo)8 (rm)5 (a)10 (t)1 (i)9 (o)0 (n)]TJ
+-3.876 -1.207 TD
+-0.001 Tc
+-0.001 Tw
+[(f)-7 (r)1 (om name server)-7 (s in r)-7 (e)5 (sponse )-8 (to client r)-7 (e)5 (quests)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 11 11
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (11)]TJ
+0 45.6 -45.6 0 131.76 342.92 Tm
+(CORBA)Tj
+0 33.12 -33.12 0 209.568 111.8 Tm
+0.003 Tw
+[(\225)-497 (E)3 (veryth)-6 (i)4 (ng is becoming object oriented, but)]TJ
+0.848 -0.964 TD
+-0.005 Tw
+[(suppo)-6 (r)8 (t)-4 ( for )-8 (OO b)-6 (r)8 (eaks do)-6 (wn when )-8 (faced)]TJ
+T*
+-0.001 Tc
+-0.003 Tw
+[(with distrib)-8 (u)-1 (tio)-8 (n)]TJ
+-0.848 -1.196 TD
+0.003 Tc
+[(\225)-495 (T)5 (he )]TJ
+/N10 1 Tf
+2.659 0.009 TD
+0.001 Tc
+0.003 Tw
+[(Common Object )8 (Request Broker)]TJ
+-1.812 -0.964 TD
+-0.001 Tc
+[(Arc)-6 (h)-1 (it)-6 (ec)-6 (ture)]TJ
+/N4 1 Tf
+5.014 -0.009 TD
+0.001 Tc
+[( \()8 (C)-6 (ORBA\) provides a standard)]TJ
+-5.014 -0.964 TD
+0 Tc
+-0.004 Tw
+[(for )-8 (the distribu)-7 (tion)-7 ( of )-8 (objects)]TJ
+-0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (C)1 (OR)-6 (BA is )8 (an )]TJ
+/N10 1 Tf
+6.674 0.009 TD
+0 Tc
+0.004 Tw
+(ad hoc)Tj
+/N4 1 Tf
+2.696 -0.009 TD
+0.001 Tc
+0.003 Tw
+( standard being)Tj
+-8.522 -0.964 TD
+-0.005 Tw
+[(developed b)-6 (y)1 ( the )-8 (Object M)-9 (a)3 (nagement)]TJ
+T*
+0 Tc
+0.004 Tw
+[(Group \(OMG\), a main)-7 (ly industrial-based)]TJ
+T*
+-0.004 Tw
+[(committee fo)-7 (unded by)-7 ( SunSoft )-8 (in )-8 (1989)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 12 12
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.001 Tc
+-0.001 Tw
+[(U)-10 (W)-5 ( A)-10 (b)1 (e)-5 (rys)-10 (tw)-10 (yth)-12466 (C)-15 (S)7 (2)1 (2)-16 (210)-18649 (12)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0 Tc
+-0.004 Tw
+[(\225)-498 (C)0 (OR)-7 (BA )-8 (lay)-7 (s)-2 ( down)-7 ( th)-7 (e )-8 (standards to be)]TJ
+0.848 -1.08 TD
+0.001 Tc
+0.003 Tw
+(adopted by an )Tj
+/N10 1 Tf
+5.877 0.009 TD
+-0.001 Tc
+-0.003 Tw
+[(Obje)-6 (ct)-6 ( re)-6 (que)-6 (st )-8 (Brok)-6 (er)]TJ
+/N4 1 Tf
+8.913 -0.009 TD
+0.001 Tc
+0.003 Tw
+( \(ORB\))Tj
+-15.638 -1.319 TD
+[(\225)-497 (A)-2 (n ORB provides the integration)-6 ( )8 (and)]TJ
+0.848 -1.08 TD
+[(communication mechan)-6 (isms for objects)]TJ
+-0.848 -1.319 TD
+[(\225)-497 (C)1 (OR)-6 (BA goes on to define )]TJ
+/N10 1 Tf
+11.681 0.009 TD
+0.003 Tc
+(services)Tj
+/N4 1 Tf
+3.239 -0.009 TD
+0.005 Tc
+-0.009 Tw
+[( whi)8 (c)7 (h)]TJ
+-14.072 -1.08 TD
+0 Tc
+-0.004 Tw
+[(may )-8 (be supp)-7 (orted, )-8 (e.g., )-8 (namin)-7 (g, )-8 (ev)-7 (ents,)]TJ
+T*
+[(properties, secu)-7 (rity, trans)-10 (a)2 (ctio)-7 (ns, )-8 (etc.)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (In wr)8 (iting )8 (a CORB)-6 (A )8 (compliant ap)-6 (plication,)]TJ
+0.848 -1.087 TD
+-0.005 Tw
+[(one d)-6 (e)3 (fin)-6 (e)3 (s )-8 (the d)-6 (a)3 (ta )-8 (structures in DDL, )-8 (the)]TJ
+0 -1.08 TD
+0 Tc
+0.004 Tw
+[(interfaces in IDL, an)-7 (d )8 (the meth)-7 (ods )8 (in )8 (an)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(OOP \(currently, C)-6 (+)7 (+, Ada, Java and)]TJ
+T*
+0 Tc
+[(SmallTalk are )-8 (suppo)-7 (rted)-7 (\))]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Trailer
+%%EOF

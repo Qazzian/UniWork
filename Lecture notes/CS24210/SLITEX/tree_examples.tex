@@ -1,0 +1,81 @@
+%
+% slide 1
+%
+\begin{slide}{}
+{\bf Recall the grammar}
+\begin{verbatim}
+
+PROGRAM -> SEQU
+SEQU    -> COMMAND | COMMAND ; SEQU
+COMMAND -> id := EXPR |
+   if EXPR then SEQU else SEQU endif |
+   while EXPR do SEQU endwhile
+EXPR    -> number | id
+
+\end{verbatim}
+
+Give some examples of programs written in this language.
+
+Draw parse trees for your programs.
+\end{slide}
+
+%
+% slide 2
+%
+\begin{slide}{}
+{\bf Tree building routines}
+
+What kind of abstract syntax trees do we want?
+
+What kind of tree building routines should be added to our grammar
+to build these?
+\begin{verbatim}
+PROGRAM -> SEQU 
+
+SEQU    -> COMMAND 
+    | COMMAND ; SEQU
+
+COMMAND -> id := EXPR 
+
+    | if EXPR then SEQU else SEQU endif 
+
+    | while EXPR do SEQU endwhile
+
+EXPR    -> number | id
+\end{verbatim}
+\end{slide}
+\begin{slide}{}
+{\small
+{\bf Tree building routines}
+\begin{verbatim}
+PROGRAM -> SEQU                        { 
+        PROGRAM.treeptr = SEQU.treeptr }
+
+SEQU    -> COMMAND                     { 
+        SEQU.treeptr = COMMAND.treeptr }
+
+  | COMMAND ; SEQU                     { 
+        SEQU.treeptr = makenode(sequ,
+          COMMAND.treeptr, SEQU.treeptr); }
+  
+COMMAND -> id := EXPR { 
+        COMMAND.treeptr =
+          makenode(':=',makeleaf(id), EXPR.treeptr); }
+
+  | if EXPR then SEQU else SEQU endif   {
+        COMMAND.treeptr = makenode(if,EXPR.treeptr, 
+          makenode(branch, SEQU1.treeptr, 
+            SEQU2.treeptr);}
+
+  | while EXPR do SEQU endwhile         { 
+        COMMAND.treeptr =
+           makenode(while,EXPR.treeptr,SEQU.treeptr); }
+ 
+EXPR    -> number   {EXPR.treeptr = makeleaf(number)};
+
+  | id              {EXPR.treeptr = makeleaf(id);}
+
+\end{verbatim}
+}
+\end{slide}
+

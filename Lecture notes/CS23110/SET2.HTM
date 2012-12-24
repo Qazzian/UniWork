@@ -1,0 +1,971 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CS23110 - Part 2.  Jem Rowland, Univ. Wales, Aberystwyth.</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+   <META NAME="Author" CONTENT="jjr">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR></P>
+
+<P><A HREF="set1.htm">Back to previous material.</A></P>
+
+<P>
+<HR></P>
+
+<P><B>The Need for Close Integration<BR>
+of Hardware &amp;Software</B> </P>
+
+<P><B>Real-time performance</B> requires <I>adequate</I> computing power.
+This can be achieved with: </P>
+
+<UL>
+<LI>a single processor of suitable performance, </LI>
+
+<LI>a number of processors, allocated to different (sets of) tasks, </LI>
+
+<LI>hardware to speed up processor operation (e.g. FPU, DMA) </LI>
+
+<LI>special hardware that implements part of the system's function (e.g.
+pattern matching, signal processing, code conversion). </LI>
+</UL>
+
+<P><B>Real-time systems</B> are often I/O intensive, and require large
+amounts of `conventional' I/O and/or specialised interfaces. The I/O requirements
+influence the design from both hardware and software viewpoints. </P>
+
+<P>To optimise cost/performance the hardware and software need to be designed
+together, with decisions made as to which system functions are to be implemented
+in software and which in hardware. </P>
+
+<P><B>Examples of interfaces and their application.</B> </P>
+
+<P>Parallel interfaces (e.g. Interface chips 6821, 6522, 68230, 8255). </P>
+<P>Parallel interfaces on microcontrollers such as the 68HC11, 68302 etc.
+
+<P>As (multiple) single bit inputs, </P>
+
+<UL>
+<LI>switches (e.g. for operator input), </LI>
+
+<LI>binary (on/off) sensors e.g. </LI>
+
+<UL>
+<LI>float switch (above/below required level) </LI>
+
+<LI>pressure switch (above/below required level) </LI>
+
+<LI>optical beam (e.g. for counting products) </LI>
+</UL>
+</UL>
+
+<P>As multi-bit inputs (with or without handshake): </P>
+
+<UL>
+<LI>for parallel data passed from another computer system, </LI>
+
+<LI>a peripheral (e.g. a bar-code reader), or a measuring instrument. </LI>
+</UL>
+
+<P>Parallel output interfaces. </P>
+
+<P>As (multiple) single bit outputs allow on/off control (via additional
+circuitry to handle the electrical load) of, e.g.: </P>
+
+<UL>
+<LI>lights </LI>
+
+<LI>liquid/gas valves </LI>
+
+<LI>pumps </LI>
+
+<LI>motors </LI>
+
+<LI>heaters </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<P>As multi bit outputs (with or without handshake) for e.g.: </P>
+
+<UL>
+<LI>printer, </LI>
+
+<LI>or for data transfer to, and control of, machines or instruments of
+various sorts. </LI>
+</UL>
+
+<P>Serial interfaces for data acquisition and data transfer, e.g.
+RS 422, modem, ethernet, USB, Firewire (IEEE 1394). 
+<P>
+<P>Serial interfaces (via network controller chips) for network-based distributed
+real-time control (e.g. cars, aircraft, manufacturing and process industries).
+e.g. CAN bus, Fieldbus.
+</P>
+
+<P>Instrumentation Interfaces such as the IEEE-488 bus, which allows convenient
+control of and data acquisition from diverse measuring instruments. Special
+interface chips available. </P>
+
+<P>Interface devices for frequency measurement, pulse counting, pulse generation
+etc. (e.g. 6840 PTM, timers in 6522 VIA and 68230 PIT). </P>
+
+<P>Stepper and other motor controllers: special motor controller chips
+are available for accurate control of rotation angle, position, speed,
+torque, etc. of various types of electric motor. </P>
+
+<P>Where system functions are implemented in hardware rather than software
+they are likely to appear as I/O to the rest of the system.</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Analogue signals are particularly important.</B> </P>
+
+<P>``An analogue parameter is one which may take <I>any value</I> between
+predefined limits.'' </P>
+
+<P>Many `real-world' parameters are analogue, for example: temperature,
+pressure, length, velocity, acceleration, direction, mass, force, volume,
+light intensity, rate of liquid flow, etc., etc. </P>
+
+<P>It's an analogue world. </P>
+
+<P>Real-time systems usually interact with real-world devices and often
+need to accept analogue input signals and to produce analogue output signals.
+</P>
+
+<P>BUT computers are digital; they can only handle discrete values. Analogue
+signals must therefore be digitised on entry to a computer - done to a
+certain resolution (typically 8, 10, 12, 14 or 16 bits). The devices that
+do this are: </P>
+
+<UL>
+<LI>analogue to digital converters (`A to D' or `ADC'). </LI>
+
+<LI>digital to analogue converters (`D to A' or `DAC'). </LI>
+</UL>
+
+<P>Can also use: </P>
+
+<UL>
+<LI>a voltage to frequency converter (`v to f') plus frequency measurement,
+</LI>
+
+<LI>a frequency to voltage converter (`f to v') plus frequency generation.
+</LI>
+</UL>
+
+<P>In each case the computer handles the value as a binary number of some
+type. </P>
+
+<P>Furthermore, each number is a `sample' of the analogue signal, so that
+a `continuous' analogue signal is input or output as a sequence of samples.
+</P>
+
+<P><B>(8-bit) Analog to Digital Conversion</B></P>
+
+<P><IMG SRC="adc.gif" HEIGHT=287 WIDTH=667></P>
+
+<P><IMG SRC="dac.jpg" HEIGHT=198 WIDTH=581></P>
+
+<P><B>The effect of quantisation on an analogue signal:</B></P>
+
+<P><IMG SRC="sin.jpg" HEIGHT=357 WIDTH=612></P>
+
+<P>Red: a plot of voltage against time (arbitrary units) of a sinusoidal
+signal that is to be digitised.</P>
+
+<P>Green: The signal that would be 'seen' by a 3-bit analogue to digital
+converter, showing the quantisation effect.</P>
+
+<P>A 3-bit converter is used here for illustrative purposes only, to give
+big step sizes that you can see easily. Real converters are typically 8,
+10, 12, 14, or 16 bit.</P>
+
+<P>A similar effect occurs when outputting a signal via a (3-bit) digital
+to analogue converter: the red line indicates the ideal signal and the
+green line the signal that is actually output.</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P>The other important effect is<B> time discretisation</B>: the individual
+signal samples represent an instant of time. They need to be made at precisely
+defined time intervals or distortion of the signal will occur. This is
+true of both input and output of analogue signals. This means, of course,
+that signal sampling is a 'hard' real-time process.</P>
+
+<P>Obviously, the degree to which a set of samples represents a sampled
+analogue signal depends on how frequently those samples are taken (or are
+output in the case of signal generation).</P>
+
+<P>The 'Sampling Theorem' requires the sampling frequency to be at least
+twice the frequency of the highest frequency in the signal that is to be
+sampled. If this is not the case, a form of signal distortion known as
+'aliasing' occurs, in which the apparent frequency is reduced.</P>
+
+<P><IMG SRC="nyquist.jpg" HEIGHT=478 WIDTH=612></P>
+
+<P>Illustration of the effect of aliasing caused by the use of too low
+a sampling frequency.</P>
+
+<P>(Acknowledgement to Dr. Alun Jones, whose diagram this is.)</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P>For input of analogue signals, those signals must be in the form of
+a voltage (or current). Many other real-world parameters may need to be
+input to real-time systems. These need to be converted into an electrical
+signal - via <B>transducers</B>. </P>
+
+<P>A <B>transducer</B> expresses one physical quantity in terms of another.
+Some (general) examples: </P>
+
+<UL>
+<LI>a mercury thermometer converts temperature into length, </LI>
+
+<LI>an analogue clock converts time into rotation, </LI>
+
+<LI>a car speedometer converts speed to rotation. </LI>
+</UL>
+
+<P>In each case something that is difficult for people to measure directly
+is converted, by means of a transducer, to a quantity that we can measure
+easily. </P>
+
+<P>For input to a computer system, all measurements must be converted to
+electrical measurements - voltage, current, number of (voltage or current)
+pulses, time between pulses, etc. </P>
+
+<P>`Transduction' refers to the conversion. `Sensing' includes <I>interpretation</I>
+of the transducer output in terms of the original quantity that was to
+be measured. </P>
+
+<P>Transducers are available for most quantities of potential interest:
+</P>
+
+<UL>
+<LI>force (e.g. strain gauges, piezoelectric, piezoresistive) </LI>
+
+<LI>linear displacement (e.g. potentiometers, inductive) </LI>
+
+<LI>rotation, (e.g. optical encoders, potentiometers) </LI>
+
+<LI>light - presence/absence, intensity, (e.g. photoresistive, photoconductive,
+photovoltaic) </LI>
+
+<LI>temperature, (e.g. thermistors, pyro-electric, infra-red) </LI>
+
+<LI>ultrasonics, (piezo or capacitive) </LI>
+
+<LI>proximity, (e.g. inductive, magnetic, optical, ultrasound etc.) </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<P><B>The software must interact with these I/O devices</B> by </P>
+
+<UL>
+<LI>Programming the registers in the interface chips with the correct options
+for the application. </LI>
+
+<LI>Reading and responding to their status registers, for `input data waiting',
+`output data gone', `error detected', `interrupt request pending' and other
+indications. </LI>
+
+<LI>Reading and writing the various I/O data registers to perform the I/O.
+</LI>
+
+<LI>Setting up and Responding to interrupts, which may be caused by an
+external event or by an internal timing or status signal (such as `DMA
+complete'). </LI>
+</UL>
+
+<P>The architecture, I/O strategy, and s/w design all interact and all
+must be taken into account in the design process if real-time operation
+is to be successfully achieved - no events missed, critical times met.
+ALWAYS. </P>
+
+<P><B>Ways in which a system may respond to events.</B> </P>
+
+<P>Polling: </P>
+
+<UL>
+<LI>A task checks the status registers of all I/O devices successively
+and repeatedly to detect those that need attention. </LI>
+
+<LI>A possible disadvantage is that because of execution time variations,
+polling cannot be precisely regular. In many circumstances it is also wasteful
+of processor power. </LI>
+</UL>
+
+<P>Event Interrupts: </P>
+
+<UL>
+<LI>I/O events generate interrupt requests. </LI>
+
+<LI>In principle, `immediate' servicing can be achieved. </LI>
+
+<LI>In practice we need to ascribe priorities - to handle multiple interrupts.
+</LI>
+</UL>
+
+<P>Timed Interrupts: </P>
+
+<UL>
+<LI>Certain I/O devices are polled, or specific actions initiated, on regular
+<I>timed interrupts</I>. </LI>
+
+<LI>This is convenient in some circumstances, where certain tasks need
+to run regularly. </LI>
+</UL>
+
+<P>In practice, a real-time system will use some or all of these. </P>
+
+<P><B>A simple example of real-time operation.</B> </P>
+
+<P>Consider a shaft encoder, perhaps monitoring the angle of a joint in
+a robot arm. </P>
+
+<P>Shaft encoders normally output pulses in two phases, to allow direction
+to be determined. For simplicity we assume that some hardware has been
+added which gives instead: </P>
+
+<UL>
+<LI>a pulse every 0.1 degrees of rotation, </LI>
+
+<LI>a high/low signal that indicates `forward/reverse'. </LI>
+</UL>
+
+<P>Suppose we are required to produce a simple real-time system whose function
+is to keep note of the current joint angle in a variable, and that the
+two signal are input via two bits of a parallel port. </P>
+
+<P>The critical aspects of this are: </P>
+
+<UL>
+<LI>pulses must not be missed, </LI>
+
+<LI>the variable must be updated on a timescale comparable with the speed
+at which the pulses arrive (so that the variable reflects the true state
+of the joint, not what is WAS some time ago). </LI>
+</UL>
+
+<P>Some `lag' is inevitable, and acceptable provided it is small. </P>
+
+<P>Assume that we `poll' the input port. The code would be something like:
+</P>
+
+<PRE><TT>repeat
+  repeat read_port until pulse:= high;
+  repeat read_port until pulse = low;
+  if direction = forward 
+    then angle:= angle + 0.1
+  else angle:= angle - 0.1;
+forever;</TT></PRE>
+
+<P>Note that we have to wait for the pulse to go away before looking for
+the next one - with a shaft encoder (and many other devices) the pulse
+length can vary and there is a risk of counting the same pulse many times!
+</P>
+
+<P>Consider timing diagrams for this (assume a pathetically slow processor):
+</P>
+
+<P><IMG SRC="sl36.gif" HEIGHT=324 WIDTH=700></P>
+
+<P>This will work correctly provided that the time interval between pulses
+is longer than the time taken to calculate the new position. </P>
+
+<P>What happens if this proviso is violated? </P>
+
+<P><IMG SRC="sl37.gif" HEIGHT=367 WIDTH=700></P>
+
+<P>How to avoid missing pulses? </P>
+
+<UL>
+<LI>use more processing power, or, </LI>
+
+<LI>use special hardware (e.g. a counter!), or, </LI>
+
+<LI>reduce the maximum permitted speed of the robot arm. (In general a
+real-time system should not intrude upon the outside world!). </LI>
+</UL>
+
+<P>In this simple example, note: </P>
+
+<UL>
+<LI>the processor power wasted in polling for the input to go high, </LI>
+
+<LI>...and also in polling for the input to go low (to ensure we count
+each pulse only once). </LI>
+</UL>
+
+<P>How else can we ensure that each pulse is counted once only? </P>
+
+<P>Use an edge-triggered latched input for pulse input (note that where
+a pulse is a handshake signal indicating arrival of parallel data then
+edge triggering also ensures that <I>the data </I>is read only once.):</P>
+
+<UL>
+<LI>...such as one of the handshake lines on a parallel port, which can
+often be programmed to perform in that way. </LI>
+
+<LI>the `active' edge will set a flag in the chip's status register. This
+can be detected by the software and indicates that an edge has occurred.
+The flag is cleared when the software acknowledges the event. </LI>
+
+<LI>Each pulse can therefore be counted only once - because it has only
+one rising edge. </LI>
+
+<LI>The fact that it is latched means that the processor can `count' the
+pulse after it has `gone away'. This is the simplest case of `buffering'
+(in the software sense) - a `buffer' is a temporary store of events or
+data that are waiting to be processed. </LI>
+</UL>
+
+<P>Buffering can spread the load where events or data come in bursts. It
+permits the system to handle, over short periods, greater loads than it
+can handle in steady-state. It is of no benefit where the data (event)
+rate is too high continuously. </P>
+
+<P>Consider a cross roads with traffic lights. There is a car sensor at
+each entry: </P>
+
+<P><IMG SRC="sl40.gif" HEIGHT=596 WIDTH=700></P>
+
+<P>The latching (buffering) allows the system to respond to events that
+occur at intervals less than the execution time of the process that runs
+in response to those events......provided that the processor acknowledges
+one event (to clear the I/O device) before the next event occurs, and ...</P>
+
+<P>...provided that not more than one further event occurs during the execution
+time of the process that runs in immediate response to an event (because
+the buffer size is 1). </P>
+
+<P><IMG SRC="sl41.gif" HEIGHT=313 WIDTH=700></P>
+
+<UL>
+<LI>2 &amp;3 occur while 1 is being processed, </LI>
+
+<LI>1 is acknowledged before 2 occurs, </LI>
+
+<LI>the rising edge of 2 sets the flag again, </LI>
+
+<LI>when 3 arrives the flag is still set, <I>so 3 is missed</I>. </LI>
+</UL>
+
+<P>In summary, some general principles: </P>
+
+<UL>
+<LI>The processing time associated with each event must be less than the
+average interval between events. </LI>
+
+<LI>The bigger the buffer the greater the number of events that can be
+queued but a longer time is required to `catch up'. So bigger buffers handle
+denser peaks of activity but cannot increase the overall throughput. </LI>
+
+<LI>Buffering allows events to be processed asynchronously. </LI>
+
+<LI>Buffering can be used to queue events from multiple sources. </LI>
+
+<LI>More generally, buffering can be used to spread the load wherever data
+is passed from one concurrent process to another. </LI>
+
+<LI>Edge triggering can be used to respond correctly to incoming pulses.
+</LI>
+</UL>
+
+<P>We have up to now considered <I>polled</I> systems. </P>
+
+<UL>
+<LI>The processor has repeatedly checked to see whether there is an event
+to which it must respond. </LI>
+
+<LI>We have assumed that there is only one event source. </LI>
+
+<LI>We have assumed that the processor's task is <I>only</I> to respond
+directly to those events. </LI>
+</UL>
+
+<P>In practice there will usually be several (or many!) potential event
+sources. For example, at our road junction: </P>
+
+<UL>
+<LI>the other three traffic sensors, </LI>
+
+<LI>eight pedestrian push-buttons. </LI>
+</UL>
+
+<P>Events from different sources may be (will be!) unrelated in time and
+may occur simultaneously. Consequently: </P>
+
+<UL>
+<LI>Event inputs must be latched by the input devices until the processor
+acknowledges them, </LI>
+
+<LI>and may be further buffered in software. </LI>
+</UL>
+
+<P>A processor will normally have more to do than simply to `make a note
+of' input events. In our traffic lights the system will need to: </P>
+
+<UL>
+<LI>count cars at each entry, </LI>
+
+<LI>count pedestrian requests for each road, </LI>
+
+<LI>determine optimal traffic and pedestrian flow, </LI>
+
+<LI>operate the lights. </LI>
+</UL>
+
+<P>Polling involves continually reading the status registers of I/O devices
+looking for and responding to event flags. </P>
+
+<P>If it spends all its time polling for people and cars it's never going
+to operate the lights! </P>
+
+<P>In many circumstances the use of <B>interrupts</B> releases processing
+power for other purposes but still allows the system to respond to events.
+</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Interrupts - A Review.</B> </P>
+
+<P>Signals received on certain bus lines cause the processor to interrupt
+its current processing and to execute an interrupt service routine. </P>
+
+<UL>
+<LI>the 6800 has IRQ and NMI, the 68000 has IPL0, IPL1, IPL2, etc. </LI>
+
+<LI>the signals on these lines are normally generated by I/O devices </LI>
+
+<UL>
+<LI>in reponse to events detected by those devices, </LI>
+
+<LI>provided that those I/O devices have been programmed to generate interrupts.
+</LI>
+</UL>
+</UL>
+
+<P>How does a processor respond to an interrupt? </P>
+
+<P>Provided the interrupt is of a priority level (see later) which is currently
+enabled: </P>
+
+<UL>
+<LI>the processor finishes the current (machine) instruction, </LI>
+
+<LI>stacks its program counter, status register, and other relevant registers,
+</LI>
+
+<LI>obtains the address of the appropriate interrupt service routine from
+an interrupt vector, </LI>
+
+<LI>starts executing the service routine. </LI>
+
+<LI>At the end of the service routine a special machine instruction is
+(normally) used that restores the processor registers from the stack and
+causes resumption of the interrupted program at the point at which it was
+interrupted. </LI>
+</UL>
+
+<P><B>Most processors have interrupt prioritisation:</B> </P>
+
+<UL>
+<LI>The way in which the I/O devices are connected governs the priority
+ascribed to the interrupts they generate. E.g. On a 68000 </LI>
+
+<UL>
+<LI>the three IPL lines take a 3-bit number, supplied by the I/O circuitry,
+that indicates the priority of a current interrupt requrest, </LI>
+
+<LI>3 bits in the processor's SSR allow the software to control the level
+below which interrupts will be ignored (so 7 is non maskable). </LI>
+</UL>
+
+<LI>In processors that do not have a similar facility `interrupt priority
+controller' chips can be used for the purpose. </LI>
+</UL>
+
+<P>During execution of an interrupt service routine, interrupts of an equal
+or lower priority than that being serviced are normally automatically disabled
+by the processor (but can be re-enabled in software). </P>
+
+<P>Interrupt service routines can themselves be interrupted by interrupts
+of a higher priority. </P>
+
+<P>Inappropriate priority allocation can lead to missed lower level interrupts:
+</P>
+
+<UL>
+<LI>e.g. if during execution of a high priority service routine several
+interrupt requests are generated by a lower priority interrupt source then
+only the last of these will be serviced. </LI>
+
+<LI>careful thought needed in assigning priorities. </LI>
+
+<LI>may need to shorten the interrupt service time for the high priority
+event and to add buffering. </LI>
+
+<LI>a (software) `round robin' can be used to treat each device `fairly',
+but this is not always appropriate. </LI>
+</UL>
+
+<P>Note that a sequence of high priority interrupts can cause a low priority
+one to be locked out and could cause it to be delayed unacceptably.</P>
+
+<P><B>Interrupt Vectors.</B> </P>
+
+<P>The start addresses of interrupt service routines for different interrupt
+sources are stored in `vector locations': </P>
+
+<UL>
+<LI>In the 6800 each of the two interrupt input lines has its own vector.
+</LI>
+
+<LI>In the 68000 autovector mode each priority level has its own vector.
+</LI>
+
+<LI>In some cases the I/O devices themselves can supply all or part of
+the vector, automatically indicating the routine that is to run in response
+to an event that they detect. (68000 peripherals can do this). This allows
+a much greater number of individual vectors to be used. </LI>
+</UL>
+
+<P>If there are more potential interrupt sources than available vectors,
+the interrupt service routine must poll to determine which of the possible
+sources of that interrupt has actually requested it. This: </P>
+
+<UL>
+<LI>is wasteful of resources, </LI>
+
+<LI>introduces a further (software) prioritisation. </LI>
+
+<LI>Care is needed in this poll: </LI>
+
+<UL>
+<LI>If only the first one found in any poll is serviced, then those higher
+up in the poll sequence are more likely to be serviced than those lower
+down. This can lead to the necessity to poll lower priority devices higher
+in the poll sequence, leading to a slower response time for the higher
+priority events! </LI>
+
+<LI>If all potential sources are polled each time the interrupt service
+routine runs then the response time to other interrupts may be inadequate.
+</LI>
+</UL>
+</UL>
+
+<P>The way out of the problem (should it arise) is to use a processor that
+has a good number of priority levels and if necessary add further prioritisation
+facilities in hardware. </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>To apply interrupts to our traffic lights:</B> </P>
+
+<UL>
+<LI>Previously we polled for events. </LI>
+
+<LI>The processor was continually either polling or processing the event.
+</LI>
+
+<LI>Where do we get the processor power to control the traffic flow? </LI>
+
+<UL>
+<LI>Use a bigger processor? Costs more! </LI>
+
+<LI>Use interrupts instead of polling - allows the power previously wasted
+in polling to be used for something more useful. </LI>
+</UL>
+</UL>
+
+<UL>
+<LI>each car sensor pulse causes the input device to generate an interrupt
+request, </LI>
+
+<LI>the interrupt request from each pulse remains <I>pending</I> until
+it is acknowledged - in the same way that the status flag is latched. </LI>
+
+<LI>the processor no longer needs to poll for cars - when a car comes,
+the processor is interrupted, </LI>
+
+<LI>this releases the time previously spent polling for use in controlling
+the traffic. </LI>
+</UL>
+
+<P><IMG SRC="sl52.gif" HEIGHT=260 WIDTH=700></P>
+
+<P>Interrupts have considerable benefits in such applications. </P>
+
+<P>(There is a school of thought that says `do not use interrupts in highly
+safety critical applications', on the grounds that programs that use interrupts
+are extremely difficult (impossible?) to prove correct under all circumstances.
+However, avoiding interrupts can lead to implementation difficulties, and
+there isn't universal adherence to the above view.) </P>
+
+<P><IMG SRC="sl53.gif" HEIGHT=260 WIDTH=700></P>
+
+<P>We can now add the rest of the junction, making a total number of inputs
+of 4 car sensors and 8 pedestrian pushbuttons. </P>
+
+<P>There are also numerous lights to control, on the basis of the inputs
+received. </P>
+
+<P>All the inputs can be handled on interrupt. </P>
+
+<P>Priorities? </P>
+
+<UL>
+<LI>One road rather than another? </LI>
+
+<LI>Different priorities at different times of day? </LI>
+
+<LI>Pedestrian buttons higher priority than cars? So that they are not
+missed when the traffic is heavy? </LI>
+</UL>
+
+<P><B>The Main Tasks:</B> <IMG SRC="sl54.gif" HEIGHT=501 WIDTH=700></P>
+
+<P>These tasks: </P>
+
+<UL>
+<LI>Operate asynchronously with the external events, through latching and
+buffering. </LI>
+
+<LI>Operate asynchronously with each other - conceptually in parallel (assuming
+only one processor), i.e. concurrently. </LI>
+
+<LI>Communicate with one another. </LI>
+</UL>
+
+<P><B>Implementation:</B> </P>
+
+<P>Data collection - via simple interrupt service routines. Each places
+event data in shared memory for access by the main task, ensuring that
+all accesses to individual data items are indivisible. Event data may be:
+</P>
+
+<UL>
+<LI>which road sensor, </LI>
+
+<LI>time the event occurred. </LI>
+</UL>
+
+<P>The Main Task: </P>
+
+<UL>
+<LI>is a background task, which continually reads the data passed from
+the data collection tasks and controls the lights appropriately, </LI>
+
+<LI>is interrupted by the data collection tasks, </LI>
+
+<LI>on termination of the service routine, resumes from the point at which
+it was interrupted. </LI>
+</UL>
+
+<P>This is a simple case of multi-tasking: </P>
+
+<UL>
+<LI>a continuous background task, </LI>
+
+<LI>plus a number of `run-to-completion' tasks, </LI>
+
+<LI>task-switching uses only the processor's interrupt mechanism, </LI>
+
+<LI>interrupt priorities are determined by hardware, or by a poll within
+the service routine. </LI>
+
+<LI>sometimes the continuous background task can itself be a sequence of
+run-to-completion tasks. </LI>
+</UL>
+
+<P>Many small applications are suited to implementation in this way: </P>
+
+<UL>
+<LI>measuring instruments, </LI>
+
+<LI>consumer goods, </LI>
+
+<LI>computer peripherals - e.g. a dot-matrix printer </LI>
+</UL>
+
+<P>A related approach uses timed interrupts - poll input devices at regular
+intervals. The polling is done inside interrupt routines that run according
+to requests generated by a timer chip. This can be an easy way of implementing
+simple control applications e.g.: </P>
+
+<UL>
+<LI>where a short `measure', `determine error', `calculate correction'
+`apply correction' sequence has to run at regular time intervals. </LI>
+
+<LI>the background tasks may be to accept operator commands, drive displays
+etc. </LI>
+</UL>
+
+<P>In these simple forms of multi-tasking, task switching occurs: </P>
+
+<UL>
+<LI>when an interrupt is serviced, </LI>
+
+<LI>when an interrupt service routine terminates. </LI>
+</UL>
+
+<P>What if we have an application that involves: </P>
+
+<UL>
+<LI>a number of continuous tasks, </LI>
+
+<LI>plus, perhaps, a few run-to-completion tasks? </LI>
+</UL>
+
+<P>How do we partition processor time between these continuous tasks? </P>
+
+<UL>
+<LI>while maintaining priorities? </LI>
+
+<LI>How is task switching achieved? </LI>
+</UL>
+
+<P>Seek help from a `kernel' or an `operating system' . </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Real-time software is normally designed as a set of individually
+runnable tasks that may run conceptually or actually in parallel (i.e.
+concurrently) and communicate as necessary.</B> </P>
+
+<UL>
+<LI>They may run on a single processor. </LI>
+
+<UL>
+<LI>Multi-tasking. </LI>
+
+<LI>Inter process communication. </LI>
+</UL>
+
+<LI>They may be distributed across a number of processors. </LI>
+
+<UL>
+<LI>Unlikely that there will be one processor per task, so some or all
+processors are multi-tasking. </LI>
+
+<LI>Inter processor communication as well as inter process communication.
+</LI>
+</UL>
+</UL>
+
+<P><B>Inter Process Communication</B> </P>
+
+<P><IMG SRC="sl60.gif" HEIGHT=202 WIDTH=700></P>
+
+<P>Two concurrent tasks A &amp;B. </P>
+
+<P>B requires data that is produced by A. </P>
+
+<UL>
+<LI>A writes the data to a `shared' area of memory, </LI>
+
+<LI>B reads it from the shared memory. </LI>
+</UL>
+
+<P>BUT </P>
+
+<UL>
+<LI>What if B reads the data while A is updating it? </LI>
+
+<LI>What if A updates while B is reading? </LI>
+</UL>
+
+<P>B probably gets corrupt data. </P>
+
+<P>Accesses to shared data must be indivisible. </P>
+
+<P>This applies whether data is passing between an interrupt routine and
+a background task (interrupts must be disabled whilst the background task
+is accessing the shared data, unless the access is inherently indivisible),
+or whether we are dealing with a more complex concurrent system. </P>
+
+<P>There are two generalised approaches to the IPC problem - synchronous
+IPC and asynchronous IPC. </P>
+
+<P>In <B>synchronous IPC</B> the processes `synchronise': </P>
+
+<UL>
+<LI>When a process wishes to transfer data to or from another it waits,
+or is suspended, until the other process is also ready to transfer the
+data and then the transfer occurs. </LI>
+</UL>
+
+<P>In synchronous IPC the `shared data area' may be hidden within the operating
+system or the language run-time system. </P>
+
+<P>Examples of synchronous IPC are the Ada `rendezvous', and the <TT>occam</TT>
+`channel'. </P>
+
+<P>In <B>asynchronous IPC</B>: </P>
+
+<UL>
+<LI>either process can access the shared data area at any time EXCEPT when
+the other is accessing it. </LI>
+
+<LI>the shared data area needs to be protected by `access procedures' that
+ensure mutual exclusion. </LI>
+
+<LI>Provided that reads and writes to the shared data area always use these
+procedures, there is no need for the processes to synchronise, so that
+</LI>
+
+<LI>data may be written at (almost) any time and </LI>
+
+<LI>data may be read at almost any time. </LI>
+</UL>
+
+<P>Therefore there is no enforced temporal relationship between the two
+communicating processes - they can run <I>asynchronously</I> with one another.
+</P>
+
+<P>There are also hardware solutions - special dual ported memory that
+effectively allows transparent read/write access to shared data. </P>
+
+<P>Asynchronous IPC: </P>
+
+<UL>
+<LI>The consumer process doesn't have to wait for data. </LI>
+
+<LI>It can read the data area and continue. </LI>
+
+<LI>The data received may not be the most recent (which perhaps is about
+to be written). </LI>
+</UL>
+
+<P>Synchronous IPC: </P>
+
+<UL>
+<LI>Synchronous IPC forces the consumer process to wait for new data. </LI>
+
+<LI>This can cause additional problems when trying to meet real-time constraints.
+</LI>
+
+<LI>More likely to exhibit deadlock. </LI>
+</UL>
+
+<P>
+<HR><A HREF="set3.htm"><B>To next.</B> </A>
+<HR></P>
+
+<P>
+<HR></P>
+
+</BODY>
+</HTML>

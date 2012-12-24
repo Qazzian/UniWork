@@ -1,0 +1,1112 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Internet Assistant for Word 1.0Z">
+  <META NAME="AUTHOR" CONTENT="Kate Salafia">
+  <TITLE>The Multifunctional Desktop Enviroment</TITLE>
+</HEAD>
+<BODY vlink="#F2F2F2" bgcolor="#ffffff">
+<P>
+Paper on:
+<H2 ALIGN=Center>
+  THE MULTIFUNCTIONAL DESKTOP ENVIRONMENT
+</H2>
+<H2 ALIGN=Center>
+  A USER SPECIFICATION.<BR>
+</H2>
+<P>
+Date: <B>30th September 1992</B> 
+  <HR>
+<P>
+By: <BR>
+<I>ANDY RICHARDSON</I> <BR>
+IT Service Development Manager, <BR>
+Id Computing &amp; Telecommunications, United Kingdom. <BR>
+Tel: <B>+44 928 511424</B>. Fax: <B>+44 928 581287</B>.
+<P>
+<I>DAVID PRICE.</I> <BR>
+University of Wales, United Kingdom. <BR>
+Tel: <B>+44 970 622428</B>. Fax:<B> +44 970 617172</B>.
+<P>
+<I>JEAN DORLEANS,</I> <BR>
+Saint-Gobain, France. <BR>
+Tel: <B>+33 1 47 623605</B>. Fax: <B>+33 1 47 625064</B>. 
+  <HR>
+<H3>
+  <A NAME="con"></A>CONTENTS.
+</H3>
+<P>
+<A HREF="#sec1">1. INTRODUCTION.</A>
+<BLOCKQUOTE>
+  1.1 WHAT IS MDE? <BR>
+  1.2 WHAT FUNCTIONS SHOULD MDE PROVIDE? <BR>
+  1.3 WHERE WILL THE MDE BE USED? <BR>
+  1.4 WHAT ARE THE CONSTRAINTS ON MDE? <BR>
+  1.4.1 Large Corporate Requirements. <BR>
+  1.4.2 An Evolutionary Approach. <BR>
+  1.4.3 Pragmatic &amp; Deliverable. <BR>
+  1.5 DEFINING AN MDE TERMINOLOGY.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec2">2. OVERVIEW OF THE MDE ARCHITECTURE.</A>
+<BLOCKQUOTE>
+  2.1 TODAY'S DESKTOP ENVIRONMENT. <BR>
+  2.1 OVERVIEW OF THE MDE ARCHITECTURE.
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    2.1.1 Graphical User Interface. <BR>
+    2.1.2 User Applications/Tools. <BR>
+    2.1.3 Computing Platform. <BR>
+    2.1.4 Communications.
+  </BLOCKQUOTE>
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec3">3. PERSONAL PRODUCTIVITY TOOLS.</A>
+<BLOCKQUOTE>
+  3.1 MULTLTIMEDIA AUTHORING. <BR>
+  3.2 ELECTRONIC DOCUMENTATION SYSTEMS. <BR>
+  3.3 DOCUMENT IMAGING SYSTEMS.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec4">4. INTERACTIVE COMMUNICATION TOOLS.</A>
+<BLOCKQUOTE>
+  4.1 VOICE TELEPHONY.
+  <BLOCKQUOTE>
+    4.1.1 The Telephone Interface. <BR>
+    4.1.2 HDE Workstation to Network Connection. <BR>
+    4.1.3 Telephony Signaling. <BR>
+    4.1.4 Audio Input Function. <BR>
+    4.1.5 Telephone Directory Services. <BR>
+    4.1.6 Computer Supported Telephony.
+  </BLOCKQUOTE>
+  <P>
+  4.2 DESKTOP CONFERENCING.
+  <BLOCKQUOTE>
+    4.2.1 Shared Screen Images. <BR>
+    4.2.2 Whiteboard. <BR>
+    4.2.3 File Transfer. <BR>
+    4.2.4 Audio Voice.
+  </BLOCKQUOTE>
+  <P>
+  4.3 VIDEO TELEPHONY.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec5">5. COLLABORATIVE WORKING TOOLS.</A>
+<BLOCKQUOTE>
+  5.1 TELEX. <BR>
+  5.2 FACSIMILE. <BR>
+  5.3 ELECTRONIC HAIL. <BR>
+  5.4 VOICEMAIL. <BR>
+  5.5 VIDEOMAIL. <BR>
+  5.6 GROUPWARE. <BR>
+  5.7 ELECTRONIC DIARY.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec6">6. ACCESS TO EXTERNAL SERVICES.</A>
+<BLOCKQUOTE>
+  6.1 ACCESS TO IBM MAINFRAME SERVICES. <BR>
+  6.2 ACCESS TO DEC MINI SERVICES. <BR>
+  6.3 ACCESS TO UNIX SERVICES. <BR>
+  6.4 ACCESS TO LOCAL/REMOTE LAN SERVICES. <BR>
+  6.5 ACCESS TO REMOTE MDE WORKSTATIONS. <BR>
+  6.6 ACCESS BETWEEN MDE WORKSTATIONS ON LANs. <BR>
+  6.7 ACCESS TO MDE WORKSTATIONS ON LANs.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec7">7. SUPPORT UTILITIES.</A>
+<BLOCKQUOTE>
+  <BR>
+  7.1 DOCUMENT SCANNER. <BR>
+  7.2 AUDIO MANAGER. <BR>
+  7.3 FILE TRANSFER. <BR>
+  7.4 DIRECTORY SERVICE. <BR>
+  7.5 VIDEO CAPTURE. <BR>
+  7.6 WINDOW MANAGER.
+</BLOCKQUOTE>
+<P>
+<A HREF="#sec8">8. MDE SUPPORT COMPONENTS &amp; EXTERNAL FACTORS.</A>
+<BLOCKQUOTE>
+  8.1 SUPPORT COMPONENTS.
+  <BLOCKQUOTE>
+    8.1.1 Multimedia Graphical User Interface. <BR>
+    8.1.2 Application Programming Interface. <BR>
+    8.1.3 MDE/ISDN Interface. <BR>
+    8.1.4 ISDN/LAN Interface.
+  </BLOCKQUOTE>
+  <P>
+  8.2 EXTERNAL INFLUENCING FACTORS.
+</BLOCKQUOTE>
+<P>
+<A HREF="#appa">APPENDIX A: THE MDE COMPUTING PLATFORM.</A>
+<BLOCKQUOTE>
+  A.1 THE IBM PERSONAL COMPUTER PLATFORM. <BR>
+  A.2 THE APPLE MACINTOSH COMPUTING PLATFORM. <BR>
+  A. 3 THE UNIX WORKSTATION COMPUTING PLATFORM.
+</BLOCKQUOTE>
+<P>
+<A HREF="#appb">APPENDIX B: THE COMMUNICATIONS PLATFORM.</A>
+<BLOCKQUOTE>
+  B.1 LOCAL AREA COMMUNICATIONS. <BR>
+  B.2 WIDE AREA COMMUNICATIONS.
+</BLOCKQUOTE>
+<P>
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <U><B><A NAME="sec1">SECTION 1: INTRODUCTION.</A></B></U>
+</H2>
+<H3>
+  1.1 WHAT IS MDE?.
+</H3>
+<P>
+The concept of the 'Multifunctional Desktop Environment' was developed to
+encompass the converging technologies of personal computing. personal
+telecommunications and multi-function, multimedia applications.
+<P>
+The objective of the Multifunctional Desktop Environment concept is to provide
+an architecture/model/blueprint for a workstation that provides its user
+with a complete working environment where he/she can access, manipulate and
+communicate information in a variety of mediums (text, image, audio and video).
+<P>
+In essence, the Multifunctional Desktop Environment (MDE) concept fulfils
+a number of roles:
+<UL>
+  <LI>
+    As an architecture, the MDE can be used to show how existing and emerging
+    technology concepts fit into an overall infrastructure model.
+</UL>
+<UL>
+  <LI>
+    As an infrastructure model, the MDE can be used to identify the functions
+    and services it would offer to its users.
+</UL>
+<UL>
+  <LI>
+    As a 'blueprint', the MDE can be used as the basis for constructing an actual
+    MDE workstation.
+</UL>
+<H3>
+  1.2 WHAT FUNCTIONS SHOULD THE MDE PROVIDE?
+</H3>
+<P>
+The main sections of this document outline the user specification for the
+MDE. The specification attempts to define the functional requirements from
+an end user standpoint (rather than state the use of specific standards and
+technologies).
+<P>
+Essentially, the MDE should provide the following:
+<UL>
+  <LI>
+    It should support all the current personal productivity tools (eg. application
+    packages such as word-processing, spreadsheets, graphic design tools etc.).
+</UL>
+<UL>
+  <LI>
+    It should support interactive communication tools (eg. voice telephony, video
+    telephony etc.). These should be available for both internal communication
+    (within the company) and external communication (between the company and
+    the outside world).
+</UL>
+<UL>
+  <LI>
+    It should support collaborative working tools (eg. telex, fax, electronic
+    mail etc), again allowing-both internal and external company communication.
+</UL>
+<UL>
+  <LI>
+    It should support a limited set of wide area network (WAN) connections (ie.
+    basic rate and/or primary rate ISDN).
+</UL>
+<UL>
+  <LI>
+    It should support a limited set of Local Area Network (LAN) connections
+    (including Token Ring and Ethernet) to allow access to local LANs.
+</UL>
+<UL>
+  <LI>
+    It should support a limited set of LAN operating systems (including Netware
+    and LAN Manger) to allow access to LAN services.
+</UL>
+<UL>
+  <LI>
+    It should support a limited set of transport protocols (such as TCP/IP) to
+    allow communication to distributed Systems.
+</UL>
+<UL>
+  <LI>
+    It should support MDE to remote LAN connections (via ISDN).
+</UL>
+<UL>
+  <LI>
+    It should support terminal emulation packages to allow access to corporate
+    mainframe/mini computing facilities (eg support for protocol emulators simulating
+    IBM 3270, DEC VT etc). Such packages could also be used to access external
+    computer based services (such as public databases etc).
+</UL>
+<H3>
+  1.3 WHERE WILL THE MDE BE USED?.
+</H3>
+<P>
+The MDE is likely to be sited in one of the following environments:
+<UL>
+  <LI>
+    Within a corporate site where it would have complete access to all the corporate
+    IT infrastructure (eg. a connection to the site LAN, the site PABX, the corporate
+    WAN etc).
+</UL>
+<UL>
+  <LI>
+    At a smaller corporate location (eg. a small sales office, retail outlet
+    etc), where access to the corporate IT infrastructure would be limited and
+    probably only accessible via public network connections.
+</UL>
+<UL>
+  <LI>
+    At a location not owned by the company (eg an employees home, hotel, a customers
+    premises etc). Here again, access to the corporate IT infrastructure would
+    be limited to that available via public network connections.
+</UL>
+<P>
+In practice, the physical location of the MDE will in most cases define the
+level of service it would provide to its user.
+<H3>
+  1.4 WHAT ARE THE CONSTRAINTS ON THE MDE?.
+</H3>
+<P>
+The MDE concept is intended to be a pragmatic solution for the personal working
+environment of users in large corporations. From this viewpoint, a number
+of constraints/statements can be stated regarding the MDE.
+<H4>
+  1.4.1 Large Corporate Requirements.
+</H4>
+<P>
+The MDE was developed on the basis that it would meet the needs of the. majority
+of users in large corporates. To this end, the MDE architecture focuses on
+the technologies, products and vendors widely used by the large corporate
+organisations. For example, the-personal. computing platforms that could
+be used for the MDE workstation have been limited to those normally used
+by the large corporates (ie. IBM PC, Apple Macintosh and Unix workstation).
+Other computer platforms will not be included within this architecture. The
+same limitation approach applies to the MDE's communications, applications
+etc.
+<H4>
+  1.4.2 An Evolutionary Approach.
+</H4>
+<P>
+The capital investment in existing technologies means that the implementation
+of the MDE concept must be evolutionary rather than revolutionary, building
+on existing platforms rather than requiring wholesale equipment replacement.
+For this reason, the MDE workstation utilizes the existing personal computing
+platforms and their associated multi-tasking operating Systems. In essence,
+the functionality provided by the MDE is obtained by the 'add-on' hardware
+and software components to existing computing platforms.
+<P>
+The MDE workstation would also have to make use of the most cost effective
+communications available, the 'Integrated Services Digital Network' (ISDN)
+in many cases being the ideal wide area solution through its provision of
+fast call setup, high speed transmission, low error rates, flexible call
+routing and usage dependent charging.
+<H4>
+  1.4.3 Pragmatic &amp; Deliverable.
+</H4>
+<P>
+The MDE workstation must be something that is practical and that can be delivered
+quickly (ie. within the next 12 months), therefore it will only encompass
+technologies which either exist today, or that are likely to arrive within
+the foreseeable future, and that are available in (at least.) across Western
+Europe and North America.
+<P>
+This approach is necessary so as to allow large corporates to negotiate
+customer/supplier contacts with a number of vendors (eg computer vendors,
+public telecom operators, PABX vendors etc).
+<H3>
+  1.5 DEFINING AN MDE TERMINOLOGY.
+</H3>
+<P>
+Given the abundant use of acronyms, synonyms and buzz words within the
+Information Technology (IT) community, an important role of the MDE. architecture
+is to define a set of associated terms and their meaning (these can be found
+in Appendix C: MDE Terminology). 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec2"><U><B>SECTION 2: OVERVIEW OF THE MDE
+  ARCHITECTURE.</B></U><B> </B></A>
+</H2>
+<H3>
+  2.1 TODAYS DESKTOP ENVIRONMENT.
+</H3>
+<P>
+Users of information technology (IT) today typically have an office desktop
+which contains either an IBM compatible personal computer (running either
+DOS, DOS/Windows or OS/2), a Macintosh, or a UNIX workstation. Such users
+typically use several standalone application packages (ie Word-processing,
+Spreadsheets, CAD/CAM, Publishing etc).
+<P>
+A growing number of user's have a Local Area Network (LAN) connection which
+gives them access to file servers, print servers etc. Wide Area Network (WAN)
+data communication is generally provided via' LAN/WAN gateways, although
+many standalone computers have dial-up modem capability.
+<P>
+The only other common IT item on the desktop is the telephone, generally
+used only for voice communication. This telephone will be connected either
+directly to the public network or via a site telephone exchange.
+<P>
+The Multifunctional Desktop Environment concept was developed partly to describe
+the above physical personal computing and telecommunications environment.
+The-main emphasis behind the MDE however was to describe the convergence
+of this physical infrastructure with the emerging multi-function, multimedia
+applications. In essence, the MDE describes a complete working environment
+where the user can access, manipulate and communicate information in a variety
+of mediums (text-, image, audio and video).
+<H3>
+  2.2 OVERVIEW OF THE MDE ARCHITECTURE.
+</H3>
+<P>
+The MDE can be encapsulated in a simple architectural model (shown in Figure
+1). The MDE Model describes the main components of the MDE: the user interface;
+applications/tools; computing platform and communications.
+<H4>
+  2.2.1 Graphical User Interface.
+</H4>
+<P>
+At the top of the model is the Graphical User Interface (GUI). The GUI is
+the primary interface between the user and the MDE. The GUI presents information
+in a multimedia format, combining one or more mediums such as text, graphics,
+still image, animation and full-motion video, alongside audio sound.
+<H4>
+  2.2.2 User Applications/Tools.
+</H4>
+<P>
+Below the GUI is the user's applications or 'Tools'. The HDE model divides
+these tools into five main categories:
+<UL>
+  <LI>
+    Personal Productivity Tools which covers all the users standalone applications
+    (eg. word-processing, CAD tools, publishing);
+</UL>
+<UL>
+  <LI>
+    Interactive Communication Tools which provides the user with all his real-time
+    communication services (eg. voice telephony);
+</UL>
+<UL>
+  <LI>
+    Collaborative Working Tools which covers applications which allows information
+    to be communicated from the MDE workstation to other devices (eg. facsimile);
+  <LI>
+    Access to External Services which provides the user with access to applications
+    and services which are not within the immediate MDE environment (eg. access
+    to a printer on a local LAN, access to a remote host computer);
+</UL>
+<UL>
+  <LI>
+    Support Utilities are tools which provide some form of function or service
+    to the above four categories (eg. document imaging which allows scanned documents
+    to be input to applications such as word-processing).
+</UL>
+<P>
+  <HR>
+<P>
+Figure 1 (below) shows where individual tools reside within the architectural
+model.
+<P>
+<IMG SRC="paper5a.jpg" ALIGN="BOTTOM">
+<P>
+<B>1</B>. <U>PERSONAL PRODUCTIVITY TOOLS</U>: Existing User Packages (eg
+Lotus 123); Multimedia Authoring; Electronic Documentation; CAD/CAM tools.
+<P>
+<B>2</B>. <U>INTERACTIVE COMMUNICATION TOOLS</U>: Voice Telphony; Video
+Telephony; Desktop Conferencing.
+<P>
+<B>3</B>. <U>COLLABERATIVE WORKING TOOLS</U>: Telex; Fax; E-mail; Voicemail;
+Videomail; Groupware; Diary.
+<P>
+<B>4</B>. <U>ACCESS TO EXTERNAL SERVICES</U>: Access to IBM Services; Access
+to DEC Services; Access to LAN Services; Access to Remote MDE; Access between
+MDEs and LANs; Access to UNIX Services.
+<P>
+<B>5</B>. <U>SUPPORT UTILITIES</U>: Document Imaging; Audio Manager; File
+Transfer; Directory; Windows Manager. 
+  <HR>
+<H4>
+  2.2.3 Computing Platform.
+</H4>
+<P>
+The tools reside on a personal computing platform, which in the case of the
+MDE architectural model is limited to three main hardware technologies and
+four operating systems:
+<UL>
+  <LI>
+    The IBM personal computer (or compatible) hardware with either DOS/Windows
+    or 0S12 operating systems;
+</UL>
+<UL>
+  <LI>
+    The Apple Macintosh; personal computer with the System 'n' operating system;
+</UL>
+<UL>
+  <LI>
+    The High-end Workstation with the UNIX operating system.
+</UL>
+<H4>
+  2.2.4 Communications.
+</H4>
+<P>
+The bottom layer of the MDE architectural model describes the communications:
+<P>
+either a direct link from the personal computing platform to public/private
+ISDN and/or a link to a LAN (either Ethernet, Token Ring, FDDI or ATM) which
+has a LAN/ISDN gateway. 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec3"><U><B>SECTION 3: PERSONAL PRODUCTIVITY
+  TOOLS</B></U><B>.</B></A>
+</H2>
+<P>
+The Multifunctional Desktop Environment should support all existing personal
+productivity tools. This would include packages such as word-processing,
+spreadsheets, CAD/CAM, desktop publishing etc.
+<P>
+In addition, the HDE should support emerging personal productivity tools
+which are focused more specifically towards the MDE environment. Such tools
+include Multimedia Authoring and Electronic Documentation.
+<H3>
+  3.1 MULTIMEDIA AUTHORING.
+</H3>
+<P>
+Multimedia Authoring packages allow the user to develop information presentation
+objects that include text, still image, full-motion video, animation and
+voice annotation.
+<P>
+Potential uses for such presentations include multimedia electronic documents,
+multimedia mail etc.
+<P>
+Multimedia Authoring packages would obtain their raw information from other
+application packages (for example, text produced by wordprocessors, still
+image captured by Document Imaging systems, full-motion video from Video
+Capture Systems etc).
+<H3>
+  3.2 ELECTRONIC DOCUMENTATION SYSTEMS.
+</H3>
+<P>
+The MDE workstation should optionally support remote access to electronic
+documentation databases. This system would allow the user to view electronically
+stored books, manuals, word processed documents etc.
+<H3>
+  3.3 DOCUMENT IMAGING SYSTEMS.
+</H3>
+<P>
+The MDE workstation should optionally support Document Imaging Systems. This
+would provide the user with the facility to store, retrieve and manipulate
+images captured via document scanners, video capture devices etc.
+<P>
+The Document Imaging System may also support text recognition allowing image
+characters to be converted into word processable text. 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec4"><U><B>SECTION 4: INTERACTIVE COMMUNICATION
+  TOOLS</B></U><B>.</B></A>
+</H2>
+<P>
+The Multi-functional Desktop Environment should support interactive, real-time
+communication services. Such services would allow two or more people to
+instantaneously communicate using any combination of voice, image, text and
+full-motion video.
+<P>
+Interactive Communication currently comprises three main tools:
+<OL>
+  <LI>
+    Voice Telephony.
+  <LI>
+    Desktop Conferencing.
+  <LI>
+    Video Telephony.
+</OL>
+<H3>
+  4.1 VOICE TELEPHONY.
+</H3>
+<P>
+The MDE architecture should include voice telephony as a mandatory service
+requirement. As a minimum it should provide the user with all the features
+currently associated with a standard telephone.
+<P>
+To support Voice Telephony, the MDE workstation would require the following
+hardware/software features:
+<H4>
+  4.1.1 The Telephone Interface.
+</H4>
+<P>
+The MDE workstation should have an integral telephone interface (ie. a handset
+or speaker-phone. which is either physically part of the MDE workstation
+and/or the provision of a telephone interface socket to allow the attachment
+of an external device). The telephone interface should be digital in operation,
+and optionally support 'hands. free' operation.
+<P>
+The MDE workstation should optionally provide an analogue socket interface
+(to allow connection of existing analogue handsets).
+<H4>
+  4.1.2 MDE Workstation to Network Connection.
+</H4>
+<P>
+The MDE workstation should support a minimum of one ISDN basic rate digital
+circuit connection (to allow connection to either a public or private ISDN).
+<P>
+The MDE workstation should optionally support analogue circuit connection
+(to allow connection to either a private of public analogue network).
+<H4>
+  4.1.3 Telephony Signalling.
+</H4>
+<P>
+The MDE workstation should support ISDN signalling protocols.
+<P>
+The MDE workstation should optionally support analogue signalling protocols.
+<P>
+The above hardware/software would provide the MDE workstation with additional
+capabilities:
+<H4>
+  4.1.4 Audio Input Function.
+</H4>
+<P>
+The telephone interface (handset or speaker-phone) could be used as the audio
+input device to the MDE workstation (eg. it would allow audio input to voice
+annotation applications, voicemail systems etc).
+<H4>
+  4.1.5 Telephone Directory Services.
+</H4>
+<P>
+The integration of the MDE directory (see Section 7.4) with Voice
+<P>
+Telephony would allow the MDE workstation to manage outgoing calls and
+<P>
+identify incoming callers.
+<H4>
+  4.1.6 Computer Supported Telephony.
+</H4>
+<P>
+The MDE workstation could support computer supported telephony applications
+(ie. incoming calls could activate applications on the workstation).
+<H3>
+  4.2 DESKTOP CONFERENCING.
+</H3>
+<P>
+The MDE architecture should include desktop conferencing as a mandatory service
+requirement. Desktop Conferencing provides the ability for two or more people
+to communicate interactively using audio voice and shared screen images (such
+as word processed documents, spreadsheets, photographs etc).
+<P>
+Desktop Conferencing can be sub-divided into a number of functions, namely:
+<H4>
+  4.2.1 Shared Screen Images.
+</H4>
+<P>
+Users can share the screen images amongst the people in the desktop conference.
+The images could be created by any user package, with any changes to the
+master image being quickly passed to the other users. The transmitted image
+may be the whole screen, or selected windows within the screen.
+<H4>
+  4.2.2 Whiteboard.
+</H4>
+<P>
+The screen could be used as a whiteboard, the writing implement being either
+the mouse, a lightpen, stylus, keyboard etc. The whiteboard could also be
+used to display scanned document images, still photos, video stills etc.
+<H4>
+  4.2.3 File Transfer.
+</H4>
+<P>
+Desktop Conferencing users should have a file transfer option to allow one-to-one
+or one-to-many real-time file transfer (this function may be provided by
+the file transfer utility within the Support Utility. Tools -see Section
+7.1.3).
+<H4>
+  4.2.4 Audio Voice.
+</H4>
+<P>
+The audio voice within desktop conferencing should be provided by the voice
+telephony tool (see Section 4.1).
+<P>
+Desktop Conferencing should conform to a set of international standards (yet
+to be defined).
+<P>
+Desktop Conferencing should support additional standards to allow for the
+integration and/or interworking between desktop conferencing and video telephony.
+<H3>
+  4.3 VIDEO TELEPHONY.
+</H3>
+<P>
+The MDE architecture should optionally support video telephony. Video Telephony
+will provide the user with full-motion video and audio communication to other
+video telephony devices, video conferencing studios, video mail systems etc.
+<P>
+Video Telephony should conform to the emerging international standards for
+interactive, full-motion video and audio communication (ie. CCITT H.320).
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec5"><U><B>SECTION 5: COLLABORATIVE WORKING TOOLS.</B></U><B>
+  </B></A>
+</H2>
+<P>
+The Multifunctional Desktop Environment should support collaborative working
+tools. Such tools basically allow information to be rapidly communicated
+between specific locations or devices (as opposed to interactive communication
+tools which allow real-time communication between individuals).
+<P>
+Collaborative Working tools therefore include telex, facsimile, electronic
+mail, voicemail, videomail and groupware.
+<P>
+The MDE workstation should be able to communicate to other MDE workstations
+as well as existing fax machines, telex machines, electronic mail services
+etc.
+<H3>
+  5.1 TELEX.
+</H3>
+<P>
+The MDE workstation should optionally support a telex interface (either
+internally using a telex card/software package or via a link to a telex server).
+<H3>
+  5.2 FACSIMILE.
+</H3>
+<P>
+The MDE workstation should optionally support both Group 3 and Group 4 facsimile
+(either internally using a facsimile card/software package or via a link
+to a fax server).
+<H3>
+  5.3 ELECTRONIC MAIL.
+</H3>
+<P>
+The MDE workstation should optionally support electronic mail applications,
+including compound documents and multimedia mail.
+<P>
+The workstation should be able to create, transmit, receive and display any
+form of electronic document/mail. This includes documents/mail containing
+voice, text, image or full-motion video.
+<H3>
+  5.4 VOICE MAIL.
+</H3>
+<P>
+The MDE workstation should optionally support voicemail (either as an internal
+application or via a link to a voicemail server).
+<H3>
+  5.5 VIDEOMAIL.
+</H3>
+<P>
+The MDE workstation should optionally support videomail (either as an internal
+application or via a link to a videomail server/VCR).
+<H3>
+  5.6 GROUPWARE.
+</H3>
+<P>
+Groupware enables dispersed groups of people to work as a single unified
+team (through access to shared information databases).
+<P>
+The MDE workstation should optionally support groupware applications.
+<H3>
+  5.7 ELECTRONIC DIARY.
+</H3>
+<P>
+The MDE workstation should optionally support electronic diary Systems which
+allow the co-ordination of personal diaries amongst groups of people. 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <U><B><A NAME="sec6">SECTION 6: ACCESS TO EXTERNAL
+  SERVICES</A></B></U><B> </B>
+</H2>
+<P>
+The Multifunctional Desktop Environment requires access to a range of external
+services which are located outside its own immediate environment. Such services
+could be located locally within an office/building (ie. LAN based services
+such as file servers, printers etc), or alternatively the external services
+could be located on the other side of the world (ie. mainframe databases,
+remote PABXs etc).
+<P>
+Most large corporate user organisations use IBM, DEC or UNIX hosts, therefore
+specific reference to these products are made within this section. This does
+not mean the MDE architecture specifically excludes any other manufacturers
+host product, but rather that the architecture is attempting to address most
+large corporate requirements within the minimum possible number of proprietary
+products and protocols.
+<H3>
+  6.1 ACCESS TO IBM MAINFRAME SERVICES.
+</H3>
+<P>
+The MDE workstation should optionally support access to local and remote
+IBM mainframes (see Figure 2 at end of section). Access should be provided
+both at the physical connection and terminal emulation levels.
+<P>
+The MDE workstation should be able to physically connect via cluster controllers
+Token Ring LANs and FEPs. The host machine may be either local (requiring
+the MDE workstation to support local interface mechanisms) or. remote (via
+ISDN links).
+<P>
+The MDE workstation should also support terminal emulation packages (eg.
+IBM 3270 emulators).
+<P>
+<IMG SRC="paper5b.jpg" ALIGN="BOTTOM">
+<H3>
+  6.2 ACCESS TO DEC MINI SERVICES.
+</H3>
+<P>
+The MDE workstation should optionally support access to local and remote
+DEC
+<P>
+VAXs (both physical connection and terminal emulation).
+<P>
+The MDE workstation should be able to physically connect via direct VAX
+interfaces or Ethernet. The host machine may be either local (requiring the
+MDE workstation to support local interface mechanisms) or remote (via ISDN
+links).
+<P>
+The MDE workstation should also support terminal emulation packages (eg.VT
+emulation).
+<H3>
+  6.3 ACCESS TO UNIX SERVICES.
+</H3>
+<P>
+The MDE workstation should optionally support access to local and remote
+UNIX machines.
+<P>
+The MDE workstation should be able to physically connect via direct connections
+or via LANs. The host machine may be either local (requiring the MDE workstation
+to support local interface mechanisms) or remote (via ISDN links).
+<H3>
+  6.4 ACCESS TO LOCAL/REMOTE LAN SERVICES.
+</H3>
+<P>
+The MDE workstation should support access to local and remote LANs (see Figure
+3 below). LAN technologies to be supported are Token Ring, Ethernet, FDDI
+and ATM.
+<P>
+The MDE workstation should be able to physically connect via local interface
+mechanisms or remotely via ISDN links.
+<H3>
+  6.5 ACCESS TO REMOTE MDE WORKSTATIONS.
+</H3>
+<P>
+The MDE workstation should be able to access a remote MDE workstation via
+ISDN links (see Figure 4). The keyboard and screen of the local workstation
+should then be able to operate the processor of the remote machine (this
+functionality would be particularly useful for someone with a portable MDE
+workstation who is working away from the office but requiring access to desktop
+machine).
+<P>
+Due to obvious technical constraints, this functionality may be limited in
+the short/medium term to MDE workstations based on identical platforms/operating
+systems (ie. between two PC's using Windows rather than between a PC and
+a Macintosh).
+<H3>
+  6.6 ACCESS BETWEEN MDE WORKSTATIONS ON LANs.
+</H3>
+<P>
+A LAN based MDE workstation should be able to access a remote LAN based MDE
+workstation via LAN-to-LAN interconnection over ISDN (see Figure 5).
+<H3>
+  6.7 ACCESS TO MDE WORKSTATIONS ON LANs.
+</H3>
+<P>
+The MDE workstation should be able to access a remote LAN based MDE workstation
+via ISDN (see figure 5 below).
+<P>
+<IMG SRC="paper5c.jpg" ALIGN="BOTTOM"> 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec7"><U><B>SECTION 7: SUPPORT UTILITIES</B></U><B> </B></A>
+</H2>
+<P>
+Many of the tools overviewed in the previous sections of this report require
+access to one or more common services/utilities. The following outlines those
+services/utilities:
+<H3>
+  7.1 DOCUMENT SCANNER.
+</H3>
+<P>
+The MDE workstation should optionally support a document scanner facility.
+<P>
+This would provide the user with the facility to scan in paper based documents
+and store the image either on local or remote storage devices.
+<P>
+The document scanner would provide a service to tools such as Document Imaging,
+Desktop Conferencing, word-processing etc.
+<H3>
+  7.2 AUDIO MANAGER.
+</H3>
+<P>
+The MDE workstation requires a mechanism to manage the various audio sources
+(in a similar way presentation manager manages visual images).
+<P>
+The Audio Manager would provide a service to tools such as Voice Telephony,
+voice annotated electronic mail, multimedia documents etc.
+<H3>
+  7.3 FILE TRANSFER.
+</H3>
+<P>
+File Transfer Utility would allow various forms of information to be transferred
+between MDE workstations and other. computing platforms (eg. mainframes).
+<P>
+The file transfer utility should use a limited set of international standard
+and de-facto protocols.
+<P>
+The File Transfer Utility would provide a service to tools such as Desktop
+Conferencing, IBM and DEC host access etc.
+<H3>
+  7.4 DIRECTORY SERVICE.
+</H3>
+<P>
+The Directory Service would pull together all the naming and addressing needs
+of the various MDE tools.
+<P>
+The Directory Service should be based on the X.500 international standard
+for directories.
+<H3>
+  7.5 VIDEO CAPTURE.
+</H3>
+<P>
+The MDE workstation should optionally support a video capture facility. This
+would provide the user with the facility to store still images from various
+video inputs (such as camcorders, stills cameras, TV etc).
+<P>
+The video capture facility would provide a. service to tools such as Document
+Imaging, Desktop Conferencing graphics design packages etc.
+<H3>
+  7.7 WINDOW MANAGER.
+</H3>
+<P>
+The MDE workstation requires a mechanism to manage the various window sources
+being generated by the various applications. 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <A NAME="sec8"><U><B>SECTION 8: MDE SUPPORT COMPONENTS &amp; EXTERNAL
+  FACTORS.</B></U><B> </B></A>
+</H2>
+<H3>
+  8.1 SUPPORT COMPONENTS.
+</H3>
+<P>
+Figure 6 (below) outlines a number of hardware/software components which
+although outside the MDE architecture provide an MDE workstation with essential
+services.
+<H4>
+  8.1.1 Multimedia Graphical User Interface.
+</H4>
+<P>
+The Graphical User Interface (GUI) must be capable of supporting Multimedia
+information. For Microsoft, it is Windows 3.1 Multimedia Extensions. For
+IBM, OS/2 2.0 Multimedia Extensions. Also the X Windows System and Quicktime.
+<H4>
+  8.1.2 Application Programming Interface.
+</H4>
+<P>
+The MDE workstation requires as a minimum a common application programming
+interface (API) to allow any ISDN application to interwork with any suitable
+ISDN card.
+<P>
+Ideally, the API should allow any communications oriented application to
+interwork with any communications card (be it ISDN Token Ring, Ethernet etc)
+via a common API.
+<H4>
+  8.1.3 MDE/ISDN Interface.
+</H4>
+<P>
+The MDE workstation should support a common network interface so that the
+workstation could operate on any ISDN in any country. This assumes therefore
+that all ISDN user/network interfaces comply to a common standard.
+<H4>
+  8.1.4 ISDN/LAN Interface.
+</H4>
+<P>
+As with 8.1.3 above, the LAN to ISDN user/network interface should conform
+to a common standard on all ISDNs.
+<H3>
+  8.2 EXTERNAL INFLUENCING FACTORS.
+</H3>
+<P>
+Figure 7 outlines a number of areas which although outside the MDE architecture,
+are an essential requirement for MDE workstation development.
+<P>
+In summary, these areas are International Standards; Conformance Testing,
+Interoperability Testing; and Management &amp; Security.
+<P>
+<IMG SRC="paper5d.jpg" ALIGN="BOTTOM">
+<P>
+<IMG SRC="paper5e.jpg" ALIGN="BOTTOM"> 
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt;</A>
+<H2>
+  <U><B><A NAME="appa">APPENDIX A: THE MDE COMPUTING
+  PLATFORM</A></B></U><B> </B>
+</H2>
+<P>
+The following section details the three main computing platforms to be used
+by an MDE workstation.
+<H3>
+  A.1 THE IBM PERSONAL COMPUTER PLATFORM.
+</H3>
+<P>
+The IBM Personal Computer (or compatible) variant of the MDE would require
+the following minimum configuration:
+<UL>
+  <LI>
+    A 80486 processor.
+</UL>
+<UL>
+  <LI>
+    A minimum of 4 Mbytes of memory.
+</UL>
+<UL>
+  <LI>
+    VGA colour screen, capable of supporting a minimum of 256 colours.
+</UL>
+<UL>
+  <LI>
+    Have access to fixed disc drive capacity of at least 100 Mbytes.
+</UL>
+<UL>
+  <LI>
+    DOS/Windows, OS/2, or UNIX Operating System.
+</UL>
+<H3>
+  A.2 THE APPLE MACINTOSH COMPUTING PLATFORM.
+</H3>
+<P>
+The Apple Macintosh Computer variant of the HDE would require the following
+minimum configuration:
+<UL>
+  <LI>
+    A Motorola 68000 series processor.
+</UL>
+<UL>
+  <LI>
+    5 Mbytes of memory.
+</UL>
+<UL>
+  <LI>
+    A colour screen of 1 million pixels capable of supporting a minimum of 256
+    colours.
+</UL>
+<UL>
+  <LI>
+    Have access to fixed disc drive capacity of at least 160 Mbytes.
+</UL>
+<UL>
+  <LI>
+    System 7 operating system.
+</UL>
+<H3>
+  A.3 THE UNIX WORKSTATION COMPUTING PLATFORM.
+</H3>
+<P>
+It is expected that the MI)E could be hosted on any of the current popular
+UNIX workstations. A typical UNIX variant of the HDE would require the following
+minimum configuration:
+<UL>
+  <LI>
+    The processor could be from any of the major manufacturers. The processors
+    SPARC, ALPHA, HIPS and both RISC and CISC processors of Motorola or Intel
+    are all suitable. Other powerful processors should prove sufficient too.
+</UL>
+<UL>
+  <LI>
+    The memory required is likely to be at least 8 Mbytes with 16 Mbytes or more
+    being the ideal.
+</UL>
+<UL>
+  <LI>
+    A colour screen with 1 million pixels, each capable of being set to one of
+    256 colours is necessary.
+</UL>
+<UL>
+  <LI>
+    The disc space requirement is likely to be influenced by the underlying operating
+    system than by the presence of the HDE. The MDE will probably add around
+    50 Mbytes to the requirement. This may be supplied on the local hard disc
+    or from a fileserver accessed over a LAN.
+</UL>
+<P>
+UNIX System V or OSF/l are likely to be the operating systems. The X Window
+System will also be required with either the Openlook or MOTIF look and feel.
+  <HR>
+<P>
+<A HREF="#con">&lt;BACK TO TOP&gt; </A>
+<H2>
+  <U><B><A NAME="appb">APPENDIX B: THE COMMUNICATIONS
+  PLATFORM</A></B></U><B> </B>
+</H2>
+<P>
+The following section details the local area and wide area communication
+requirements of the MDE workstation.
+<H3>
+  B.1 LOCAL AREA COMMUNICATIONS.
+</H3>
+<P>
+The HDE workstation should support at least one LAN interface card (ie Token
+Ring, Ethernet, FDDI or ATH).
+<P>
+Optionally, the workstation should be capable of supporting several LAN interface
+cards.
+<H3>
+  B.2 WIDE AREA COMMUNICATIONS.
+</H3>
+<P>
+The MDE workstation should support ISDN.
+<P>
+ISDN connectivity should normally be provided in the form of an ISDN interface
+card. This card should include:
+<UL>
+  <LI>
+    The 1.420 Basic Rate Interface (BRI) connection to ISDN.
+</UL>
+<UL>
+  <LI>
+    A standardised API between the card and user application.
+</UL>
+<UL>
+  <LI>
+    A physical connector to support a digital telephone handset and optionally
+    a physical connector for an analogue handset.
+</UL>
+<P>
+Optionally, the HDE workstation should be capable of supporting several BRI's
+(either on a single PC card, or by providing the workstation with the capacity
+to support several BRI PC cards).
+<P>
+Optionally, the MDE workstation should be capable of supporting a Primary
+Rate Interface (PRI) card.
+<P>
+Optionally, the MDE workstation should have the facility to create U-channels
+in accordance with CCITT standards. Such channels should range in speed from
+128 Kbit/s to 1920 Kbit/s or more.
+<P>
+<IMG SRC="line.gif" ALT="-----------------------------" ALIGN="BOTTOM">
+<P>
+<A HREF="poslist.html#poslist"><IMG border=off SRC="poslist.jpg" ALT="RETURN TO THE LIST OF POSITION PAPERS"
+    ALIGN="BOTTOM"></A>
+<H3>
+  For more information contact:
+</H3>
+<BLOCKQUOTE>
+  European Commission<BR>
+  DG XIII/A/3 <BR>
+  EIUF Secretariat <BR>
+  c/o Ms. S. Schwarz <BR>
+  200, rue de la Loi <BR>
+  1049 Bruxelles <BR>
+  Belgium<BR>
+  Tel: +32.2-296-8628 <BR>
+  Fax: +32.2-296-1740
+</BLOCKQUOTE>
+</BODY></HTML>

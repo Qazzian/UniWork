@@ -1,0 +1,27 @@
+
+This is your fantasy directory; see the assignment sheet for detail 
+about its initial contents.
+
+Modify and use the shell scripts in .../fantasy/etc to set and 
+reset your path.  (Your modification should replace /dcs/eds/fantasy...
+the path to your own fantasy directory).
+
+There are both bash and c-shell versions.
+
+Modify the paths in location.h in .../fantasy/src in a similar way,
+so that they point to your own fantasy directory.
+
+.../fantasy/world can be initialised from the tar file in ../fantasy/etc
+Use `tar xvf initial_world.tar' to do this.
+
+From the directory .../fantasy/src, use `make' to create your initial set 
+of binaries.  The makefile in that directory also allows you to make
+individual commands and to print off laser copies of all the C sources.
+
+The commands `start', `quit' and `look' are supplied.  You will create the
+other commands during the course of this assignment.  You will also 
+create an independent dragon that will roam the fantasy world.
+
+The `quit' command will generate an error message because the `score'
+command is not yet available.  This will be corrected when you have
+written the `score' command.

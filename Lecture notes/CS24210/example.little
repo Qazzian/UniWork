@@ -1,0 +1,6 @@
+mabel := 7; fred := 100;
+while mabel < fred do
+  mabel += 1
+endwhile
+$
+

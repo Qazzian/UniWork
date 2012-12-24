@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS21120 Worksheet 5: Creating Class Diagrams</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">CS21120 Worksheet 5: Creating class diagrams for the CVM</P>
+</B></FONT><FONT SIZE=2><P>&nbsp;</P>
+</FONT><B><I><FONT FACE="Arial"><P>Introduction</P>
+</B></I></FONT><P>This exercise will help you understand the notation used in class diagrams, the process used during the Analysis workflow to construct them from a use case description and the use of Rose to draw class diagrams.</P>
+<P>This will be achieved by realising the Obtain Confectionery Item use case of the CVM.</P>
+<B><I><FONT FACE="Arial"><P>Steps</P>
+<OL>
+
+</B></I></FONT><LI>Use the technique of noun identification (and complementary questions) to select a candidate set of classes from the Obtain Confectionery Item use case description, and any related inclusion or extension use case descriptions.</LI>
+<LI>Find any further candidates by asking specific questions.  See below.</LI>
+<LI>Whittle down this list of candidates by asking refinement questions, listed below.  Explicitly record rationale for excluding candidates since this will form a useful audit that you may want to come back to later on.</LI>
+<LI>Find any further classes by following the Unified Process recommendations: identifying entity, boundary and control classes, see below.</LI>
+<LI>Add these classes to your Rose logical view package with a brief description of the role that each plays in the realisation.  Do not add attributes or operations at present.</LI>
+<LI>Use the technique of verb and verb-phrase identification to list candidate associations and their kind (e.g. normal, containment, aggregation etc).  This tends to be less useful than the noun-identification technique.  Most of the time you will have to use your judgement when finding associations.  If objects of two classes need to send each other messages, then you will probably need an association between them.</LI>
+<LI>Whittle down this list of candidates by asking refinement questions, as listed below.  Again, explicitly record rationale for excluding candidates.</LI>
+<LI>Draw the analysis-level class diagram for the Obtain Confectionery Item use case using selected classes and associations.  Name the class diagram something like: Obtain Confectionery Item Realisation-Analysis, to make it clear what the purpose of the class diagram is.  Note that Rose does not support the analysis class stereotype icons.  Instead you will have to use normal class elements with appropriate stereotype labels.  You may find that you need to add further classes or associations that were not identified earlier or exclude some.  This is a creative process and there are usually many ways to realise a use case, each with its own merits but not necessarily better than others.  Inevitably, you will have to make several attempts before you produce a diagram that you are happy with.</LI>
+<LI>Identify candidate attributes by looking for nouns, adjectives and possessive phrases.  Some attributes may have already been identified during class rationalisation.</LI>
+<LI>Whittle down this list by asking refinement questions (below).  Include only those attributes that are required for the Obtain Confectionery Item use case realisation.</LI>
+<LI>Assign attributes to the classes they naturally belong to, using the high cohesion rule.</LI>
+<LI>If you can identify opportunities for factoring out common attributes then you might like to define super-classes and use generalisation associations.</LI></OL>
+
+<B><FONT FACE="Arial" SIZE=4><P>Techniques for finding and refining classes, associations and attributes</P>
+</B></FONT><P>Use the following questions to help you identify potential classes, associations and attributes and also to whittle down the candidates based on certain criteria.  Do this when examining a use case description that you wish to realise as a class diagram.</P>
+<P>You will also want to apply the guidelines suggested by the Unified Process to help identify analysis classes (also attached below).  Try and combine all the techniques when constructing your analysis class diagram realisation for the Obtain Confectionery Item use case.</P>
+<P>&nbsp;</P>
+<B><I><FONT FACE="Arial"><P>Noun identification technique for finding classes</P>
+</B></I></FONT><P>Look for nouns in the use case description &amp; in the general problem domain.</P>
+<P>In addition, you might find a few more classes by asking the following specific questions:</P>
+
+<UL>
+<LI>Do we have information to be stored, transformed or handled?</LI>
+<LI>Are there any external actors that need representing internally?  You might need to maintain some local state about an actor, in which case you need a class.</LI>
+<LI>Do we have any patterns, class libraries and components from earlier projects to reuse?  For this exercise you won’t find this question very useful.  In a real project you might find this useful.</LI></UL>
+
+<FONT SIZE=3>
+</FONT><B><P>Refining the candidate list of classes</P>
+</B><P>The following questions will help you remove inappropriate classes.</P>
+
+<UL>
+<LI>Are there any redundant classes?  That is, do you have several classes, perhaps with different names, that are really the same class?</LI>
+<LI>Are there any classes out of scope?  For example, Account and Customer in the ATM System example.  Classes that really belong to other systems and not the system you are modelling.</LI>
+<LI>Are there any vague classes, and are you using the most descriptive role names?  Make your class names as specific as possible.  Make sure every class has a useful role in the use case class diagram realisation.</LI>
+<LI>Are there any attributes masquerading as classes?  Simple values should be represented as attributes and not classes.  E.g. The car is a hatchback.  &quot;Hatchback&quot; is a noun but would be an attribute of the class car (called type) and not a class in its own right.</LI>
+<LI>Are there any operations masquerading as classes?  This can conflict with Unified Process control classes, since these tend to have operation names.  Apart from these special control classes, other classes with names that appear to be operations should probably be changed to be analysis responsibilities (assigned as a responsibility statement in an appropriate class).</LI>
+<LI>Is the class really a design or implementation entity?  You’re trying to create an analysis model, not a design model.  Make sure you’re only representing problem space entities.</LI>
+<LI>Is the class really a meta-language concept?  For the CVM an example would be &quot;Simulation&quot;.  This would not be a class because it’s a property of the CVM system.</LI></UL>
+
+<B><I><FONT FACE="Arial"><P>Verb identification technique for finding associations</P>
+</B></I></FONT><P>Examine the use case description for verb phrases.  These may turn into associations, e.g.</P>
+
+<UL>
+<LI>those indicating physical juxtaposition of objects (e.g. entity1 <I>next to</I> entity2),</LI>
+<LI>directed actions (e.g. entity1 <I>drives</I> entity2),</LI>
+<LI>communication events (e.g. entity1 <I>sends message to</I> entity2),</LI>
+<LI>ownership (e.g. entity1 <I>contained in</I> entity2), etc.</LI></UL>
+
+
+<P>Here the phrases in italics would map to candidate associations between the classes entity1 and entity2.  If you’ve got containment you might want to use an aggregation or composition association.  You might also want to use a qualified association if that adds useful extra information to the class diagram.</P>
+
+<B><P>Questions to help rationalise the candidates</B>: </P>
+
+<UL>
+<LI>Are there any associations between eliminated classes?  If so then you don’t need these associations.</LI>
+<LI>Are there any misnamed associations?  You use the most descriptive names.  You don’t have to use the names you found in the use case description.</LI>
+<LI>During design workflow avoid associations, the links of which would be short-lived.  That is, think how you would implement the class in code.  If the association is to be implemented as a class member variable then it is long-lived.  If the association between two classes is temporary, e.g. an object reference sent as a parameter and used temporarily by a method, then don’t represent this as a UML association between these classes.</LI></UL>
+
+<B><I><FONT FACE="Arial"><P>Noun/adjective/possessive phrase technique for finding attributes</P>
+
+<UL>
+</B></I></FONT><LI>Candidate attributes and the classes they belong to can be found by looking for nouns, adjectives and possessive phrases in the use case description.</LI></UL>
+
+
+<B><P>Questions can help us rationalise the candidates</B>:</P>
+
+<UL>
+<LI>Is the attribute really a class?  If it can have attributes of its own then it is probably a class.</LI>
+<LI>Is it really a qualifier attribute rather than a class attribute?  For example, you might decide to move the ISBN attribute from a Book class to the qualified association between a Browser class and the Book class.  You should try and avoid duplicating the attribute in several places.</LI>
+<LI>Is the attribute really an association?  During analysis, make sure that references between classes are represented by associations and not attributes.</LI>
+<LI>Is the object class attribute really an association class attribute?  If you find that an attribute is duplicated across several classes and there is a many to many association between them, then it might be better to define an association class that contains the attribute and is attached to the many to many association.</LI>
+<LI>Does the attribute belong to the class (high cohesion)?  Only logically related attributes should be combined.</LI></UL>
+
+<B><I><FONT FACE="Arial"><P>Unified Process Guidelines for finding analysis classes</P>
+
+<UL>
+</B></I></FONT><LI>For entity classes, study use case description and any domain model in detail to identify passive information.</LI>
+<LI>Identify one main boundary class for each human actor.</LI>
+<LI>Identify one primitive boundary class for each entity class found earlier.</LI>
+<LI>Identify one main boundary class for each external system actor.</LI>
+<LI>Identify one control class that handles coordination of use case realisation.</LI></UL>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+ <TITLE>PP Presentation</TITLE> 
+</HEAD>
+<BODY>
+ <H1>PP Presentation</H1> 
+ <P><H2>/**</H2>
+<H2>  * Block until the processor has transitioned to the given state.</H2>
+<H2> * Return false if the transition failed.</H2>
+<H2> * This is taken from Sun's examples.</H2>
+<H2> */</H2>
+<H2> boolean waitForState(int state) {</H2>
+<H2>   synchronized (waitSync) {</H2>
+<H2>     try {</H2>
+<H2>       while (player.getState() != state</H2>
+<H2>                   && stateTransitionOK)</H2>
+<H2>         waitSync.wait();</H2>
+<H2>     } catch (Exception e) {}</H2>
+<H2>   }</H2>
+<H2>   return stateTransitionOK;</H2>
+<H2> }
+</H2>
+<H2></H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld036.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld038.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld037.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

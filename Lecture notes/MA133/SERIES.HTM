@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.aber.ac.uk/~matacc2/ma13310/series/series.html -->
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>series</TITLE>
+<META content=series name=description>
+<META content=series name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR>
+<META content=text/css http-equiv=Content-Style-Type><LINK 
+href="series_files/series.css" rel=STYLESHEET></HEAD>
+<BODY>
+<P><FONT size=+1></FONT>
+<P><FONT size=+1></FONT>
+<DIV align=center><FONT size=+1><B>Sequences and Series</B> </FONT></DIV><FONT 
+size=+1>In computer science summations occur when trying to find the number of 
+operations performed by the execution of a program. This is important when 
+trying to analyze the efficiency of a particular algorithm. Formulae exist for 
+the summation of certain types of series while for others a guess of the closed 
+form solution may be attempted and then proved using mathematical induction. 
+</FONT>
+<P><FONT size=+1>A set of numbers, stated in a definite order, such that each 
+number can be obtained from the previous number according to some rule, is a 
+<B>sequence</B>. Each number of the sequence is called a <B>term</B>. Each of 
+the following is an example of a sequence: </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1,3,5,7,9,\ldots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1,3,5,7,9,\ldots\end{displaymath} border=0 height=29 
+src="series_files/img1.gif" width=85> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1,4,9,16,25,\ldots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1,4,9,16,25,\ldots\end{displaymath} border=0 height=29 
+src="series_files/img2.gif" width=99> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+2,4,8,16,32,\ldots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}2,4,8,16,32,\ldots\end{displaymath} border=0 height=29 
+src="series_files/img3.gif" width=100> </DIV><BR clear=all>
+<P></P><FONT size=+1>The `<IMG align=bottom alt=$\ldots$ border=0 height=18 
+src="series_files/img4.gif" width=25>' at the end of a sequence shows that each 
+one goes on indefinitely, i.e., the sequence is <B>infinite</B>. However, if we 
+only wanted to consider a limited number of terms in a sequence, we could write 
+for example, </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1,3,5,7,9,\ldots,47.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1,3,5,7,9,\ldots,47.\end{displaymath} border=0 height=29 
+src="series_files/img5.gif" width=114> </DIV><BR clear=all>
+<P></P><FONT size=+1>The final full stop shows that the sequence ends when the 
+number 47 is reached. This is an example of a <B>finite</B> sequence. </FONT>
+<P><FONT size=+1></FONT>
+<P><FONT size=+1>An expression for the <IMG align=bottom alt=$n$ border=0 
+height=18 src="series_files/img6.gif" width=16>th term of a sequence, usually 
+written <IMG align=middle alt=$T_{n}$ border=0 height=32 
+src="series_files/img7.gif" width=24>, is useful since any specific term of the 
+sequence can be obtained from it. The <IMG align=bottom alt=$n$ border=0 
+height=18 src="series_files/img6.gif" width=16>th term of the sequence 
+</FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1,4,9,16,25,\ldots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1,4,9,16,25,\ldots\end{displaymath} border=0 height=29 
+src="series_files/img2.gif" width=99> </DIV><BR clear=all>
+<P></P><FONT size=+1>is <IMG align=bottom alt=$n^{2}$ border=0 height=21 
+src="series_files/img8.gif" width=23>. Thus for <IMG align=bottom alt=$n=1$ 
+border=0 height=18 src="series_files/img9.gif" width=43> we obtain the first 
+term, <IMG align=middle alt=$T_1=1^2=1$ border=0 height=36 
+src="series_files/img10.gif" width=84>, for <IMG align=bottom alt=$n=2$ border=0 
+height=18 src="series_files/img11.gif" width=43> we obtain the second term, <IMG 
+align=middle alt=$T_2=2^2=4$ border=0 height=36 src="series_files/img12.gif" 
+width=84>, for <IMG align=bottom alt=$n=3$ border=0 height=18 
+src="series_files/img13.gif" width=43> we obtain the third term. <IMG 
+align=middle alt=$T_3=3^2=9$ border=0 height=36 src="series_files/img14.gif" 
+width=84>, etc. </FONT>
+<P><FONT size=+1>The sum of the terms of a sequence is called a <B>series</B>. 
+The following are example of series: </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1+3+5+7+9+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1+3+5+7+9+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img15.gif" width=144> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1+4+9+16+25+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1+4+9+16+25+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img16.gif" width=158> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+2+4+8+16+32+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}2+4+8+16+32+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img17.gif" width=159> </DIV><BR clear=all>
+<P></P>
+<P><FONT size=+1></FONT>
+<DIV align=left><FONT size=+1><B>The <IMG align=middle alt=$\sum$ border=0 
+height=34 src="series_files/img18.gif" width=23> Notation</B> </FONT></DIV><FONT 
+size=+1>It is useful to have a concise way of writing expressions such as 
+</FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1^2+2^2+3^2+\cdots+n^2.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1^2+2^2+3^2+\cdots+n^2.\end{displaymath} border=0 
+height=28 src="series_files/img19.gif" width=151> </DIV><BR clear=all>
+<P></P><FONT size=+1>This is done by writing </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+\sum_{r=1}^{n} r^{2},
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}\sum_{r=1}^{n} r^{2},\end{displaymath}" border=0 
+height=54 src="series_files/img20.gif" width=41> </DIV><BR clear=all>
+<P></P><FONT size=+1>which means, `the sum of all terms like <IMG align=bottom 
+alt=$r^2$ border=0 height=21 src="series_files/img21.gif" width=21> beginning 
+with <IMG align=bottom alt=$r=1$ border=0 height=18 src="series_files/img22.gif" 
+width=42> and ending with <IMG align=bottom alt=$r=n$ border=0 height=18 
+src="series_files/img23.gif" width=43>.' In general, </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+\sum_{r=1}^{n} f(r) = f(1)+f(2)+\cdots+f(n).
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}\sum_{r=1}^{n} f(r) = f(1)+f(2)+\cdots+f(n).\end{displaymath}" 
+border=0 height=54 src="series_files/img24.gif" width=232> </DIV><BR clear=all>
+<P></P>
+<P><FONT size=+1></FONT>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 1</B> &nbsp; Write out in full: <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+\sum_{m=2}^{5} 2^{m}.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}\sum_{m=2}^{5} 2^{m}.\end{displaymath}" border=0 
+height=56 src="series_files/img25.gif" width=50> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR></FONT>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 2</B> &nbsp; Write using the <IMG align=middle alt=$\sum$ 
+border=0 height=34 src="series_files/img18.gif" width=23> notation: <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}.\end{displaymath} 
+border=0 height=40 src="series_files/img26.gif" width=127> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT>
+<P><FONT size=+1></FONT>
+<DIV align=left><FONT size=+1><B>Arithmetic Progressions</B> </FONT></DIV><FONT 
+size=+1>The following are example of arithmetic progressions: </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+1+3+5+\cdots+99,
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}1+3+5+\cdots+99,\end{displaymath} border=0 height=29 
+src="series_files/img27.gif" width=130> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+7+11+15+\cdots+79,
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}7+11+15+\cdots+79,\end{displaymath} border=0 height=29 
+src="series_files/img28.gif" width=145> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+-2-4-6-\cdots-16.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}-2-4-6-\cdots-16.\end{displaymath} border=0 height=28 
+src="series_files/img29.gif" width=141> </DIV><BR clear=all>
+<P></P><FONT size=+1>In such a series, any term may be obtained from the 
+previous term by adding a certain number, called the <B>common difference</B>. 
+The common differences in the above progressions are 2,4 and -2, respectively. 
+In the general case, if the first term is represented by <IMG align=bottom 
+alt=$a$ border=0 height=18 src="series_files/img30.gif" width=15> and the common 
+difference by <IMG align=bottom alt=$d$ border=0 height=19 
+src="series_files/img31.gif" width=15>, the general arithmetic progression would 
+be </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+a+(a+d)+(a+2d)+\cdots+[a+(n-1)d]+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}a+(a+d)+(a+2d)+\cdots+[a+(n-1)d]+\cdots\end{displaymath} 
+border=0 height=30 src="series_files/img32.gif" width=320> </DIV><BR clear=all>
+<P></P><FONT size=+1>where <IMG align=middle alt=$a+(n-1)d$ border=0 height=34 
+src="series_files/img33.gif" width=87> is the expression for the <IMG 
+align=bottom alt=$n$ border=0 height=18 src="series_files/img6.gif" width=16>th 
+term in the series. We write </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+T_n=a+(n-1)d.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}T_n=a+(n-1)d.\end{displaymath} border=0 height=30 
+src="series_files/img34.gif" width=120> </DIV><BR clear=all>
+<P></P><FONT size=+1>Let us now find an expression for the sum, <IMG 
+align=middle alt=$S_N$ border=0 height=32 src="series_files/img35.gif" 
+width=27>, of the first <IMG align=bottom alt=$N$ border=0 height=19 
+src="series_files/img36.gif" width=21> terms in an arithmetic progression. We 
+write </FONT><BR>
+<DIV align=right><!-- MATH
+ \begin{equation}
+S_N=a+(a+d)+(a+2d)+\cdots+[a+(N-2)d]+[a+(N-1)d].
+\end{equation}
+ -->
+<TABLE align=center width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD align=middle noWrap><IMG 
+      alt="\begin{displaymath}&#10;S_N=a+(a+d)+(a+2d)+\cdots+[a+(N-2)d]+[a+(N-1)d].&#10;\end{displaymath}" 
+      border=0 height=30 src="series_files/img37.gif" width=445></TD>
+    <TD align=right width=10>(1)</TD></TR></TBODY></TABLE><BR clear=all></DIV>
+<P></P><FONT size=+1>We now write these terms in reverse order: </FONT><BR>
+<DIV align=right><!-- MATH
+ \begin{equation}
+S_N = [a+(N-1)d]+[a+(N-2)d]+\cdots+(a+2d)+(a+d)+a,
+\end{equation}
+ -->
+<TABLE align=center width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD align=middle noWrap><IMG 
+      alt="\begin{displaymath}&#10;S_N = [a+(N-1)d]+[a+(N-2)d]+\cdots+(a+2d)+(a+d)+a,&#10;\end{displaymath}" 
+      border=0 height=30 src="series_files/img38.gif" width=445></TD>
+    <TD align=right width=10>(2)</TD></TR></TBODY></TABLE><BR clear=all></DIV>
+<P></P><FONT size=+1>Adding (1) and (2) we obtain </FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+2S_N & = & [2a+(N-1)d]+[2a+(N-1)d]+\cdots+[2a+(N-1)d] \\
+     & = & N[2a+(N-1)d]
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;2S_N &amp; = &amp; [2a+(N-1)d]+[2a+(N-1)d]+\cdots+[2a+(N-1)d] \\&#10;&amp; = &amp; N[2a+(N-1)d]&#10;\end{eqnarray*}" 
+border=0 height=53 src="series_files/img39.gif" width=441> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+1>Therefore, </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+S_N = \frac{N}{2}[2a+(N-1)d].
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}S_N = \frac{N}{2}[2a+(N-1)d].\end{displaymath}" border=0 
+height=41 src="series_files/img40.gif" width=160> </DIV><BR clear=all>
+<P></P><FONT size=+1>The <IMG align=bottom alt=$N$ border=0 height=19 
+src="series_files/img36.gif" width=21>th term, <IMG align=middle alt=$a+(N-1)d$ 
+border=0 height=34 src="series_files/img41.gif" width=92>, is the last term in 
+the sum over <IMG align=bottom alt=$N$ border=0 height=19 
+src="series_files/img36.gif" width=21> terms. If we denote this last term by 
+<IMG align=bottom alt=$l$ border=0 height=19 src="series_files/img42.gif" 
+width=12>, we can write </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+S_N=\frac{N}{2}[a+[a+(N-1)d]]=\frac{N}{2}[a+l].
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}S_N=\frac{N}{2}[a+[a+(N-1)d]]=\frac{N}{2}[a+l].\end{displaymath} 
+border=0 height=41 src="series_files/img43.gif" width=264> </DIV><BR clear=all>
+<P></P>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 3</B> &nbsp; Find <IMG align=middle alt=$T_{15}$ border=0 
+height=32 src="series_files/img44.gif" width=28> and <IMG align=middle alt=$S_8$ 
+border=0 height=32 src="series_files/img45.gif" width=23> of the arithmetic 
+progression <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+2+5+8+11+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}2+5+8+11+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img46.gif" width=126> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 4</B> &nbsp; The fifth term of an AP is 23 and the twelfth term 
+is 37. Find the first term, the common difference and the sum of the first 
+eleven terms.</DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT>
+<P><FONT size=+1></FONT>
+<DIV align=left><FONT size=+1><B>Geometric Progressions</B> </FONT></DIV><FONT 
+size=+1>The following are examples of geometric progressions: </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+2+6+18+54+162+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}2+6+18+54+162+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img47.gif" width=174> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+4+20+100+500+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}4+20+100+500+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img48.gif" width=156> </DIV><BR clear=all>
+<P></P><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+24+12+6+3+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}24+12+6+3+\cdots\end{displaymath} border=0 height=28 
+src="series_files/img49.gif" width=133> </DIV><BR clear=all>
+<P></P><FONT size=+1>In such a series any term term may be obtained from the 
+previous term by multiplying it by a certain number, called the <B>common 
+ratio</B>. The general geometric progression may be written </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+a+ar+ar^2+ar^3+\cdots+ar^{n-1}+\cdots
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}a+ar+ar^2+ar^3+\cdots+ar^{n-1}+\cdots\end{displaymath} 
+border=0 height=28 src="series_files/img50.gif" width=248> </DIV><BR clear=all>
+<P></P><FONT size=+1>where <IMG align=bottom alt=$ar^{n-1}$ border=0 height=21 
+src="series_files/img51.gif" width=45> is the expression for the <IMG 
+align=bottom alt=$n$ border=0 height=18 src="series_files/img6.gif" width=16>th 
+term in the series. We write </FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+T_n=ar^{n-1}.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}T_n=ar^{n-1}.\end{displaymath} border=0 height=29 
+src="series_files/img52.gif" width=78> </DIV><BR clear=all>
+<P></P><FONT size=+1>It should be noted that the common ratio may be postive, 
+negative and fractional. </FONT>
+<P><FONT size=+1>To find the sum of the first <IMG align=bottom alt=$N$ border=0 
+height=19 src="series_files/img36.gif" width=21> terms of a GP, <IMG 
+align=middle alt=$S_N$ border=0 height=32 src="series_files/img35.gif" 
+width=27>, we write </FONT><BR>
+<DIV align=right><!-- MATH
+ \begin{equation}
+S_N = a +ar+ar^2 +\cdots+ar^{N-2}+ar^{N-1}
+\end{equation}
+ -->
+<TABLE align=center width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD align=middle noWrap><IMG 
+      alt="\begin{displaymath}&#10;S_N = a +ar+ar^2 +\cdots+ar^{N-2}+ar^{N-1}&#10;\end{displaymath}" 
+      border=0 height=29 src="series_files/img53.gif" width=275></TD>
+    <TD align=right width=10>(3)</TD></TR></TBODY></TABLE><BR clear=all></DIV>
+<P></P><FONT size=+1>Hence, </FONT><BR>
+<DIV align=right><!-- MATH
+ \begin{equation}
+rS_N = ar+ar^2+\cdots+ar^{N-1}+ar^N.
+\end{equation}
+ -->
+<TABLE align=center width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD align=middle noWrap><IMG 
+      alt="\begin{displaymath}&#10;rS_N = ar+ar^2+\cdots+ar^{N-1}+ar^N.&#10;\end{displaymath}" 
+      border=0 height=29 src="series_files/img54.gif" width=246></TD>
+    <TD align=right width=10>(4)</TD></TR></TBODY></TABLE><BR clear=all></DIV>
+<P></P><FONT size=+1>Subtracting (4) from (3) we obtain </FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+S_N-rS_N & = & a - ar^{N}  \\
+(1-r)S_N & = & a(1-r^{N}) \\
+    S_N  & = & \frac{a(1-r^{N})}{(1-r)}
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;S_N-rS_N &amp; = &amp; a - ar^{N} \\&#10;(1-r)S_N &amp; = &amp; a(1-r^{N}) \\&#10;S_N &amp; = &amp; \frac{a(1-r^{N})}{(1-r)}&#10;\end{eqnarray*}" 
+border=0 height=95 src="series_files/img55.gif" width=173> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 5</B> &nbsp; Find the fifth term and the sum of the first five 
+terms of the GP <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+\frac{12}{25}+\frac{6}{5}+3+\cdots.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}\frac{12}{25}+\frac{6}{5}+3+\cdots.\end{displaymath} 
+border=0 height=40 src="series_files/img56.gif" width=114> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT>
+<P><FONT size=+1></FONT>
+<P>
+<DIV><B>Example 6</B> &nbsp; In a GP <IMG align=middle alt=$T_3=32$ border=0 
+height=32 src="series_files/img57.gif" width=57>, <IMG align=middle alt=$T_6=4$ 
+border=0 height=32 src="series_files/img58.gif" width=50>; find <IMG 
+align=bottom alt=$a$ border=0 height=18 src="series_files/img30.gif" width=15> 
+and <IMG align=bottom alt=$r$ border=0 height=18 src="series_files/img59.gif" 
+width=14>, and the sum of the first eight terms of the GP.</DIV>
+<P></P>
+<P><FONT size=+1><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></FONT>
+<P><BR>
+<HR>
+
+<ADDRESS><I>matacc2@aber.ac.uk <BR>2000-03-02</I> </ADDRESS></BODY></HTML>

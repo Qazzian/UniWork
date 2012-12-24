@@ -1,0 +1,12 @@
+Competitors Name: ian
+Weight of fish from the River Competiton(Stones Pounds Ounces): 1 2 3
+Weight of fish from the Sea Competiton(Stones Pounds Ounces): 1 2 3
+Weight of fish from the Fly Competiton(Stones Pounds Ounces): 1 2 3
+Competitors Name: lou
+Weight of fish from the River Competiton(Stones Pounds Ounces): 1 2 3
+Weight of fish from the Sea Competiton(Stones Pounds Ounces): 1 2 3
+Weight of fish from the Fly Competiton(Stones Pounds Ounces): 1 2 3
+NAME        competitor number  river fishing  sea fishing    fly fishing    total weight
+====
+ian                  1         1St  2Pd  3Oz   1St  2Pd  3Oz   1St  2Pd  3Oz   3St  6Pd  9Oz
+lou                  2         1St  2Pd  3Oz   1St  2Pd  3Oz   1St  2Pd  3Oz   3St  6Pd  9Oz

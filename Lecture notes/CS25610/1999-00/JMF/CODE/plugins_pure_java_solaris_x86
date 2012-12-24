@@ -1,0 +1,63 @@
+PlugInManager reports 11 PlugIns of type DEMULTIPLEXER
+Plugin is com.ibm.media.parser.video.MpegParser
+Plugin is com.sun.media.parser.audio.WavParser
+Plugin is com.sun.media.parser.audio.AuParser
+Plugin is com.sun.media.parser.audio.AiffParser
+Plugin is com.sun.media.parser.audio.GsmParser
+Plugin is com.sun.media.parser.RawStreamParser
+Plugin is com.sun.media.parser.RawBufferParser
+Plugin is com.sun.media.parser.RawPullStreamParser
+Plugin is com.sun.media.parser.RawPullBufferParser
+Plugin is com.sun.media.parser.video.QuicktimeParser
+Plugin is com.sun.media.parser.video.AviParser
+PlugInManager reports 32 PlugIns of type CODEC
+Plugin is com.sun.media.codec.audio.mpa.JavaDecoder
+Plugin is com.sun.media.codec.video.cinepak.JavaDecoder
+Plugin is com.ibm.media.codec.video.h263.JavaDecoder
+Plugin is com.sun.media.codec.video.colorspace.JavaRGBConverter
+Plugin is com.sun.media.codec.video.colorspace.JavaRGBToYUV
+Plugin is com.ibm.media.codec.audio.PCMToPCM
+Plugin is com.ibm.media.codec.audio.rc.RCModule
+Plugin is com.sun.media.codec.audio.msadpcm.JavaDecoder
+Plugin is com.ibm.media.codec.audio.ulaw.JavaDecoder
+Plugin is com.ibm.media.codec.audio.alaw.JavaDecoder
+Plugin is com.ibm.media.codec.audio.dvi.JavaDecoder
+Plugin is com.ibm.media.codec.audio.g723.JavaDecoder
+Plugin is com.ibm.media.codec.audio.gsm.JavaDecoder
+Plugin is com.ibm.media.codec.audio.gsm.JavaDecoder_ms
+Plugin is com.ibm.media.codec.audio.ima4.JavaDecoder
+Plugin is com.ibm.media.codec.audio.ima4.JavaDecoder_ms
+Plugin is com.ibm.media.codec.audio.ulaw.JavaEncoder
+Plugin is com.ibm.media.codec.audio.dvi.JavaEncoder
+Plugin is com.ibm.media.codec.audio.gsm.JavaEncoder
+Plugin is com.ibm.media.codec.audio.gsm.JavaEncoder_ms
+Plugin is com.ibm.media.codec.audio.ima4.JavaEncoder
+Plugin is com.ibm.media.codec.audio.ima4.JavaEncoder_ms
+Plugin is com.sun.media.codec.audio.ulaw.Packetizer
+Plugin is com.sun.media.codec.audio.ulaw.DePacketizer
+Plugin is com.sun.media.codec.audio.mpa.Packetizer
+Plugin is com.sun.media.codec.audio.mpa.DePacketizer
+Plugin is com.ibm.media.codec.audio.gsm.Packetizer
+Plugin is com.ibm.media.codec.audio.g723.Packetizer
+Plugin is com.sun.media.codec.video.jpeg.Packetizer
+Plugin is com.sun.media.codec.video.jpeg.DePacketizer
+Plugin is com.sun.media.codec.video.mpeg.Packetizer
+Plugin is com.sun.media.codec.video.mpeg.DePacketizer
+PlugInManager reports 0 PlugIns of type EFFECT
+PlugInManager reports 5 PlugIns of type RENDERER
+Plugin is com.sun.media.renderer.audio.JavaSoundRenderer
+Plugin is com.sun.media.renderer.audio.SunAudioRenderer
+Plugin is com.sun.media.renderer.video.AWTRenderer
+Plugin is com.sun.media.renderer.video.LightWeightRenderer
+Plugin is com.sun.media.renderer.video.JPEGRenderer
+PlugInManager reports 10 PlugIns of type MULTIPLEXER
+Plugin is com.sun.media.multiplexer.RawBufferMux
+Plugin is com.sun.media.multiplexer.RawSyncBufferMux
+Plugin is com.sun.media.multiplexer.RTPSyncBufferMux
+Plugin is com.sun.media.multiplexer.audio.GSMMux
+Plugin is com.sun.media.multiplexer.audio.MPEGMux
+Plugin is com.sun.media.multiplexer.audio.WAVMux
+Plugin is com.sun.media.multiplexer.audio.AIFFMux
+Plugin is com.sun.media.multiplexer.audio.AUMux
+Plugin is com.sun.media.multiplexer.video.AVIMux
+Plugin is com.sun.media.multiplexer.video.QuicktimeMux

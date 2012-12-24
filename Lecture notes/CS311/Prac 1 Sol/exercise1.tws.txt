@@ -1,0 +1,2 @@
+workspace.diagram.active = <oiref:design#Class#id2n0ocd56m20phd56mzpbx.diagram:oiref>
+workspace.diagram.open.0 = <oiref:design#Class#id2n0ocd56m20phd56mzpbx.diagram:oiref>

@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Another way of Representing Trees</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial"><P>Another way of Representing Trees</P>
+</B></FONT><FONT FACE="Arial" SIZE=2>
+<P>You will sometimes see code for trees done somewhat less recursively (the code is still recursive but the definition of the tree is less so):</P>
+
+<P>public class BinarySearchTree {</P>
+<P>&#9;private TreeNode root;</P>
+<P>//***********************************************************************</P>
+<P>&#9;private class TreeNode {</P>
+<P>&#9;&#9;private Comparable key;</P>
+<P>&#9;&#9;private TreeNode left;</P>
+<P>&#9;&#9;private TreeNode right;</P>
+<P>&#9;&#9;private TreeNode (Comparable k) {</P>
+<P>&#9;&#9;&#9;key=k;</P>
+<P>&#9;&#9;}</P>
+<P>&#9;}</P>
+<P>//************************************************************************</P>
+<P>//instead of using insert  we let it call a recursive version – insertKey</P>
+<P>//this code is more or less from Standish</P>
+<DIR>
+<DIR>
+
+<P>public void insert (Comparable k) {</P>
+<P>&#9;root=insertKey(root ,k);</P>
+<P>}</P>
+
+<P>private TreeNode insertKey(TreeNode t, Comparable k) {</P>
+<P>&#9;if (t==null) {</P>
+<P>&#9;&#9;TreeNode temp=new TreeNode(k);</P>
+<P>&#9;&#9;return temp;</P>
+<P>&#9;}</P>
+<P>&#9;else &#9;if (k.compareTo(t.key) &lt;0) {</P>
+<P>&#9;&#9;&#9;t.left=insertKey(t.left, k);</P>
+<P>&#9;&#9;&#9;return t;</P>
+<P>&#9;}</P>
+<P>&#9;else &#9;if (k.compareTo(t.key) &gt;0) {</P>
+<P>&#9;&#9;&#9;t.right=insertKey(t.right, k);</P>
+<P>&#9;&#9;&#9;return t;</P>
+<P>&#9;}</P>
+<P>&#9;else //equal – a duplicate – what do you want to do??</P>
+<P>}</P></DIR>
+</DIR>
+
+<P>//**************************************************************************</P>
+<P>//in the code below we go one further and don’t use recursion</P>
+<P>&#9;</P>
+<P>     &#9;public TreeNode find(Comparable k) {   </P><DIR>
+<DIR>
+
+<P>TreeNode T = root;</P>
+<P>while (T != null) {</P>
+<P>         &#9;&#9;if (k.compareTo(T.key)) &lt; 0) {</P>
+<P>           &#9;&#9;&#9;T = T.left;</P>
+<P>         &#9;&#9;} </P><DIR>
+<DIR>
+
+<P>else if (k.compareTo(T.key)==0) {</P></DIR>
+</DIR>
+
+<P>           &#9;&#9;&#9;return T;</P></DIR>
+</DIR>
+
+<P>        &#9;&#9;&#9; } </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>else {          </P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>           &#9;&#9;&#9;&#9;T = T.right;</P>
+<P>         &#9;&#9;&#9;}</P>
+<P>       &#9;&#9;}</P>
+<P>      &#9;&#9;return T;                        // returns null, if search failed</P>
+<P>     &#9;}</P>
+<DIR>
+<DIR>
+
+<P>&#9;&#9;&#9;</P>
+</DIR>
+</DIR>
+</FONT></BODY>
+</HTML>

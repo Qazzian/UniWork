@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.aber.ac.uk/~matacc2/ma13310/growth/growth.html -->
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>growth</TITLE>
+<META content=growth name=description>
+<META content=growth name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR>
+<META content=text/css http-equiv=Content-Style-Type><LINK 
+href="growth_files/growth.css" rel=STYLESHEET></HEAD>
+<BODY>
+<P><FONT size=+1></FONT>
+<P><FONT size=+1></FONT>
+<DIV align=center><FONT size=+1><B>Rates of Growth of Functions</B> 
+</FONT></DIV>The rate of growth or order of magnitude of a function is important 
+in the analysis of algorithms. In analyzing an algorithm, we identify the 
+important tasks the algorithm must perform. Usually the number of such tasks 
+will depend upon the size of the input. For example, searching a list of <IMG 
+align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" width=16> 
+elements or multiplying two <IMG align=middle alt="$n \times n$" border=0 
+height=31 src="growth_files/img2.gif" width=43> matrices will require more work 
+as <IMG align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" 
+width=16> increases. 
+<P>A major concern in Computer Science (both theoretical and practical branches 
+of the subject) is the design of algorithms for performing such tasks, and 
+implementations of them, which are as efficient as possible in that they 
+minimize both the length of computer time required and the resources (memory, 
+for example). We shall look at the time complexity of algorithms. 
+<P>The time required to carry out a computing operation depends on the nature of 
+the algorithm. Some examples are: 
+<UL>
+  <LI>the time required to print <IMG align=bottom alt=$n$ border=0 height=18 
+  src="growth_files/img1.gif" width=16> items of data is proportional to <IMG 
+  align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" width=16>; 
+
+  <LI>the time required to sort data into alphabetical or numerical order is 
+  proportional to <IMG align=middle alt="$n \log n$" border=0 height=32 
+  src="growth_files/img3.gif" width=49> or <IMG align=bottom alt=$n^2$ border=0 
+  height=21 src="growth_files/img4.gif" width=23>, depending on the sorting 
+  algorithm used; 
+  <LI>The time required to solve <IMG align=bottom alt=$n$ border=0 height=18 
+  src="growth_files/img1.gif" width=16> simultaneous equations is proportional 
+  to <IMG align=bottom alt=$n^3$ border=0 height=21 src="growth_files/img5.gif" 
+  width=23>. 
+  <LI>the time taken to find the shortest route visiting <IMG align=bottom 
+  alt=$n$ border=0 height=18 src="growth_files/img1.gif" width=16> towns is 
+  proportional to <IMG align=bottom alt=$n!$ border=0 height=19 
+  src="growth_files/img6.gif" width=20> (<IMG align=bottom alt=$n$ border=0 
+  height=18 src="growth_files/img1.gif" width=16> factorial where <!-- MATH
+ $n!=1 \times 2 \times 3
+\times \cdots \times n$
+ --><IMG 
+  align=middle alt="$n!=1 \times 2 \times 3&#10;\times \cdots \times n$" 
+  border=0 height=32 src="growth_files/img7.gif" width=162>). </LI></UL>
+<P>
+<P>
+<DIV><B>Example 1</B> &nbsp; Suppose that it takes two seconds to process 100 
+items of data; how long will it take to process 1000 items of data in each of 
+the above cases.</DIV>
+<P></P>First, we have to determine the constant of proportionality <IMG 
+align=bottom alt=$k$ border=0 height=19 src="growth_files/img8.gif" width=15> in 
+each case. This is found by using the first piece of information in the 
+question. This constant will vary between each of the above algorithms. 
+<P>
+<DIV align=center>
+<TABLE border=1 cellPadding=3>
+  <TBODY>
+  <TR>
+    <TD align=middle>Process Time</TD>
+    <TD align=middle><IMG align=bottom alt=$k$ border=0 height=19 
+      src="growth_files/img8.gif" width=15></TD>
+    <TD align=middle>Time for <IMG align=bottom alt=$n=100$ border=0 height=18 
+      src="growth_files/img9.gif" width=58></TD>
+    <TD align=middle>Time for <IMG align=bottom alt=$n=1000$ border=0 
+      height=18 src="growth_files/img10.gif" width=66></TD></TR>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$kn$ border=0 height=19 
+      src="growth_files/img11.gif" width=24></TD>
+    <TD align=middle>0.02</TD>
+    <TD align=middle>2</TD>
+    <TD align=middle>20</TD></TR>
+  <TR>
+    <TD align=middle><IMG align=middle alt="$kn \log n$" border=0 height=32 
+      src="growth_files/img12.gif" width=57></TD>
+    <TD align=middle>0.01</TD>
+    <TD align=middle>2</TD>
+    <TD align=middle>30</TD></TR>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$kn^3$ border=0 height=21 
+      src="growth_files/img13.gif" width=31></TD>
+    <TD align=middle><!-- MATH
+ $2 \times 10^{-6}$
+ --><IMG align=middle 
+      alt="$2 \times 10^{-6}$" border=0 height=36 src="growth_files/img14.gif" 
+      width=64></TD>
+    <TD align=middle>2</TD>
+    <TD align=middle>2000</TD></TR>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$kn!$ border=0 height=19 
+      src="growth_files/img15.gif" width=28></TD>
+    <TD align=middle><!-- MATH
+ $\displaystyle{\frac{2}{100!}}$
+ --><IMG 
+      align=middle alt=$\displaystyle{\frac{2}{100!}}$ border=0 height=51 
+      src="growth_files/img16.gif" width=37></TD>
+    <TD align=middle>2</TD>
+    <TD align=middle><!-- MATH
+ $2 \times 10^{900}$
+ --><IMG align=middle 
+      alt="$2 \times 10^{900}$" border=0 height=36 src="growth_files/img17.gif" 
+      width=66></TD></TR></TBODY></TABLE></DIV>
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<P>For comparison the age of the universe is estimated at only <IMG align=bottom 
+alt=$10^{18}$ border=0 height=21 src="growth_files/img18.gif" width=35> seconds. 
+Therefore an estimate of the rate of growth of the number of operations with 
+increasing <IMG align=bottom alt=$n$ border=0 height=18 
+src="growth_files/img1.gif" width=16> is important if one wants to obtain a 
+solution to a problem before old age! The function of <IMG align=bottom alt=$n$ 
+border=0 height=18 src="growth_files/img1.gif" width=16> which defines the 
+process time is known as the <B>time complexity function</B>. The above example 
+illustrates that there is some sort of ordering of time complexity functions as 
+<IMG align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" 
+width=16> becomes large. 
+<P>Note that even if each computation step takes much less time the relative 
+growth rates between these time complexity functions still follow the same 
+pattern. 
+<DIV align=left><B>Domination Ordering of Functions</B> </DIV>An understanding 
+of the behaviour of time complexity functions for large values of <IMG 
+align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" width=16> is 
+important. We say that <IMG align=middle alt=$g$ border=0 height=31 
+src="growth_files/img19.gif" width=15> <B>dominates</B> <IMG align=middle 
+alt=$f$ border=0 height=32 src="growth_files/img20.gif" width=16> if, for some 
+<IMG align=bottom alt=$n$ border=0 height=18 src="growth_files/img1.gif" 
+width=16>, <!-- MATH
+ $f(m) \leq g(m)$
+ --><IMG align=middle 
+alt="$f(m) \leq g(m)$" border=0 height=34 src="growth_files/img21.gif" width=93> 
+for all <IMG align=middle alt="$m \geq n$" border=0 height=31 
+src="growth_files/img22.gif" width=49>. It is the eventual behaviours of the 
+functions which are important. For example, if <IMG align=middle 
+alt=$f(n)=2n+15$ border=0 height=34 src="growth_files/img23.gif" width=106> and 
+<IMG align=middle alt=$g(n)=n^2$ border=0 height=36 src="growth_files/img24.gif" 
+width=71> then <IMG align=middle alt=$g$ border=0 height=31 
+src="growth_files/img19.gif" width=15> dominates <IMG align=middle alt=$f$ 
+border=0 height=32 src="growth_files/img20.gif" width=16> eventually - for <IMG 
+align=middle alt="$n \geq 5$" border=0 height=31 src="growth_files/img25.gif" 
+width=43>. The function <IMG align=bottom alt=$n^2$ border=0 height=21 
+src="growth_files/img4.gif" width=23> has a faster rate of growth than the 
+function <IMG align=bottom alt=$n$ border=0 height=18 
+src="growth_files/img1.gif" width=16> with increasing <IMG align=bottom alt=$n$ 
+border=0 height=18 src="growth_files/img1.gif" width=16>. 
+<P>We say that an algorithm can be performed in <B>polynomial time</B> if its 
+time complexity function is bounded by some polynomial, i.e., if there exists 
+positive constants <IMG align=bottom alt=$k$ border=0 height=19 
+src="growth_files/img8.gif" width=15>, <IMG align=bottom alt=$n$ border=0 
+height=18 src="growth_files/img1.gif" width=16> and <IMG align=bottom alt=$r$ 
+border=0 height=18 src="growth_files/img26.gif" width=14> such that <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+f(m) \leq k m^{r},\;\;\mbox{for }\;m \geq n.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}f(m) \leq k m^{r},\;\;\mbox{for }\;m \geq n.\end{displaymath}" 
+border=0 height=30 src="growth_files/img27.gif" width=168> </DIV><BR clear=all>
+<P></P>
+<P><BR><BR>
+<P>Let <IMG align=bottom alt=$S$ border=0 height=19 src="growth_files/img28.gif" 
+width=17> be the set of all functions with domain and co-domain the non-negative 
+integers. We can define a binary relation <IMG align=bottom alt=$\approx$ 
+border=0 height=18 src="growth_files/img29.gif" width=19> on <IMG align=bottom 
+alt=$S$ border=0 height=19 src="growth_files/img28.gif" width=17> by <IMG 
+align=middle alt="$f \approx g$" border=0 height=32 src="growth_files/img30.gif" 
+width=44> if there exists positive constants <IMG align=middle alt=$n_0$ 
+border=0 height=31 src="growth_files/img31.gif" width=23>, <IMG align=middle 
+alt=$c_1$ border=0 height=31 src="growth_files/img32.gif" width=20> and <IMG 
+align=middle alt=$c_2$ border=0 height=31 src="growth_files/img33.gif" width=20> 
+such that, for all <IMG align=middle alt="$n \geq n_0$" border=0 height=31 
+src="growth_files/img34.gif" width=52>, <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+c_1 g(n) \leq f(n) \leq c_2 g(n).
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}c_1 g(n) \leq f(n) \leq c_2 g(n).\end{displaymath}" 
+border=0 height=30 src="growth_files/img35.gif" width=154> </DIV><BR clear=all>
+<P></P>The relation <IMG align=bottom alt=$\approx$ border=0 height=18 
+src="growth_files/img29.gif" width=19> is an equivalence relation on <IMG 
+align=bottom alt=$S$ border=0 height=19 src="growth_files/img28.gif" width=17>. 
+To prove <IMG align=middle alt="$f \approx f$" border=0 height=32 
+src="growth_files/img36.gif" width=45>, i.e., <IMG align=bottom alt=$\approx$ 
+border=0 height=18 src="growth_files/img29.gif" width=19> is reflexive choose 
+<IMG align=middle alt=$n_0=c_1=c_2=1$ border=0 height=31 
+src="growth_files/img37.gif" width=116> and we have <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+(1)f(n) \leq f(n) \leq (1)f(n).
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}(1)f(n) \leq f(n) \leq (1)f(n).\end{displaymath}" 
+border=0 height=30 src="growth_files/img38.gif" width=168> </DIV><BR clear=all>
+<P></P>To prove that <IMG align=bottom alt=$\approx$ border=0 height=18 
+src="growth_files/img29.gif" width=19> is symmetric suppose that <IMG 
+align=middle alt="$f \approx g$" border=0 height=32 src="growth_files/img30.gif" 
+width=44>. We need to show that <IMG align=middle alt="$g \approx f$" border=0 
+height=32 src="growth_files/img39.gif" width=44>. Now <IMG align=middle 
+alt="$f \approx g$" border=0 height=32 src="growth_files/img30.gif" width=44> 
+implies that there exists positive constants <IMG align=middle alt=$n_0$ 
+border=0 height=31 src="growth_files/img31.gif" width=23>, <IMG align=middle 
+alt=$c_1$ border=0 height=31 src="growth_files/img32.gif" width=20> and <IMG 
+align=middle alt=$c_2$ border=0 height=31 src="growth_files/img33.gif" 
+width=20>, such that <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+c_1 g(n) \leq f(n) \leq c_2 g(n),\;\;\mbox{for }n \geq n_O.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}c_1 g(n) \leq f(n) \leq c_2 g(n),\;\;\mbox{for }n \geq n_O.\end{displaymath}" 
+border=0 height=30 src="growth_files/img40.gif" width=240> </DIV><BR clear=all>
+<P></P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR>
+<P>To prove that <IMG align=bottom alt=$\approx$ border=0 height=18 
+src="growth_files/img29.gif" width=19> is transitive suppose that <IMG 
+align=middle alt="$f \approx g$" border=0 height=32 src="growth_files/img30.gif" 
+width=44> and <IMG align=middle alt="$g \approx h$" border=0 height=32 
+src="growth_files/img41.gif" width=43>. We need to show that <IMG align=middle 
+alt="$f \approx h$" border=0 height=32 src="growth_files/img42.gif" width=45>. 
+Now <IMG align=middle alt="$f \approx g$" border=0 height=32 
+src="growth_files/img30.gif" width=44> implies that there exists positive 
+constants <IMG align=middle alt=$n_O$ border=0 height=31 
+src="growth_files/img43.gif" width=26>, <IMG align=middle alt=$c_1$ border=0 
+height=31 src="growth_files/img32.gif" width=20> and <IMG align=middle alt=$c_2$ 
+border=0 height=31 src="growth_files/img33.gif" width=20>, such that <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+c_1 g(n) \leq f(n) \leq c_2 g(n),\;\;\mbox{for }n \geq n_O.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}c_1 g(n) \leq f(n) \leq c_2 g(n),\;\;\mbox{for }n \geq n_O.\end{displaymath}" 
+border=0 height=30 src="growth_files/img40.gif" width=240> </DIV><BR clear=all>
+<P></P>Similarly, <IMG align=middle alt="$g \approx h$" border=0 height=32 
+src="growth_files/img41.gif" width=43> implies that there exists positive 
+constants <IMG align=middle alt=$m_0$ border=0 height=31 
+src="growth_files/img44.gif" width=27>, <IMG align=middle alt=$d_1$ border=0 
+height=32 src="growth_files/img45.gif" width=21> and <IMG align=middle alt=$d_2$ 
+border=0 height=32 src="growth_files/img46.gif" width=21>, such that <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+d_1 h(n) \leq g(n) \leq d_2 h(n),\;\;\mbox{for }n \geq m_O.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}d_1 h(n) \leq g(n) \leq d_2 h(n),\;\;\mbox{for }n \geq m_O.\end{displaymath}" 
+border=0 height=30 src="growth_files/img47.gif" width=248> </DIV><BR clear=all>
+<P></P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<P>If <IMG align=middle alt="$f \approx g$" border=0 height=32 
+src="growth_files/img30.gif" width=44> we say that <IMG align=middle alt=$f$ 
+border=0 height=32 src="growth_files/img20.gif" width=16> and <IMG align=middle 
+alt=$g$ border=0 height=31 src="growth_files/img19.gif" width=15> belong to the 
+same <B>equivalence</B> or <B>complexity class</B>. 
+<P>
+<P>
+<DIV><B>Example 2</B> &nbsp; Consider the time complexity functions <IMG 
+align=middle alt=$f(n)=n^2+n$ border=0 height=36 src="growth_files/img48.gif" 
+width=99>, <IMG align=middle alt=$g(n)=n^2$ border=0 height=36 
+src="growth_files/img24.gif" width=71> and <IMG align=middle alt=$h(n)=n^3$ 
+border=0 height=36 src="growth_files/img49.gif" width=72>. Comment on the 
+domination ordering of these functions.</DIV>
+<P></P>Note that <IMG align=middle alt="$f \approx g$" border=0 height=32 
+src="growth_files/img30.gif" width=44> since 
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+f(n)  & = & n^2 +n \\
+      & \leq &     \\
+      & = &        \\
+      & = &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;f(n) &amp; = &amp; n^2 +n \\&#10;&amp; \leq &amp; \\&#10;&amp; = &amp; \\&#10;&amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=94 src="growth_files/img50.gif" width=113> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P>and 
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+g(n) & = & n^2   \\
+     & \leq &     \\
+     & =    &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;g(n) &amp; = &amp; n^2 \\&#10;&amp; \leq &amp; \\&#10;&amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=71 src="growth_files/img51.gif" width=84> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR>
+<P>However, for no value of <IMG align=bottom alt=$k$ border=0 height=19 
+src="growth_files/img8.gif" width=15> does <IMG align=bottom alt=$kn^2$ border=0 
+height=21 src="growth_files/img52.gif" width=31> dominate over <IMG align=bottom 
+alt=$n^3$ border=0 height=21 src="growth_files/img5.gif" width=23>. A polynomial 
+is always the order of magnitude of its highest degree term; lower order terms 
+and all coefficients can be ignored. For large values of <IMG align=bottom 
+alt=$n$ border=0 height=18 src="growth_files/img1.gif" width=16> the highest 
+degree term will dominate. 
+<P>
+<DIV align=left><B>Exponential Rates of Growth</B> </DIV>An algorithm is said to 
+have <B>exponential time complexity</B> if its time complexity function is 
+bounded below by a function of the form <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+f(n)=a^{n},\mbox{ where }a>1.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}f(n)=a^{n},\mbox{ where }a>1.\end{displaymath}" border=0 
+height=30 src="growth_files/img53.gif" width=158> </DIV><BR clear=all>
+<P></P>
+<P>
+<DIV align=center>
+<TABLE border=1 cellPadding=3>
+  <TBODY>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$n$ border=0 height=18 
+      src="growth_files/img1.gif" width=16></TD>
+    <TD align=right>1</TD>
+    <TD align=right>2</TD>
+    <TD align=right>3</TD>
+    <TD align=right>5</TD>
+    <TD align=right>10</TD>
+    <TD align=right>15</TD></TR>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$2^n$ border=0 height=18 
+      src="growth_files/img54.gif" width=23></TD>
+    <TD align=right>2</TD>
+    <TD align=right>4</TD>
+    <TD align=right>8</TD>
+    <TD align=right>32</TD>
+    <TD align=right>1024</TD>
+    <TD align=right>32768</TD></TR>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$3^n$ border=0 height=18 
+      src="growth_files/img55.gif" width=23></TD>
+    <TD align=right>3</TD>
+    <TD align=right>9</TD>
+    <TD align=right>27</TD>
+    <TD align=right>243</TD>
+    <TD align=right>59049</TD>
+    <TD align=right>14348907</TD></TR></TBODY></TABLE></DIV>
+<P>Note the exponential function grows at a fantastic rate! Because of this 
+enormous growth rate, algorithms not of polynomial order are generally not 
+useful for large values of <IMG align=bottom alt=$n$ border=0 height=18 
+src="growth_files/img1.gif" width=16>. Problems for which no polynomial time 
+algorithm exists are called <B>intractable</B>. 
+<P>Sometimes algorithms which are not polynomial in the worst case may still be 
+useful for <EM>average</EM> input cases. However, for the sake of efficiency we 
+should ask whether a different algorithm exists whose complexity is of a lower 
+order of magnitude before we worry about the details of fine-tuning a given 
+algorithm. 
+<P>
+<DIV align=left><B>Logarithmic Rates of Growth</B> </DIV>There are functions 
+which grow more slowly than any positive power of <IMG align=bottom alt=$n$ 
+border=0 height=18 src="growth_files/img1.gif" width=16>. Consider the function 
+<IMG align=middle alt="$\log n$" border=0 height=32 src="growth_files/img56.gif" 
+width=38>, for example. Time complexity functions of this type occur for 
+recursive divide and conquer algorithms where a problem is split into two parts, 
+each of which is similar to the original problem. The solution thus has the 
+structure of a binary tree, and a binary tree with <IMG align=bottom alt=$n$ 
+border=0 height=18 src="growth_files/img1.gif" width=16> leaves has depth <IMG 
+align=middle alt="$k\log n$" border=0 height=32 src="growth_files/img57.gif" 
+width=49> where <IMG align=bottom alt=$k$ border=0 height=19 
+src="growth_files/img8.gif" width=15> is some constant. 
+<P>
+<DIV align=left><B>Rates of Growth of <IMG align=middle alt="$\log n$" border=0 
+height=32 src="growth_files/img56.gif" width=38> and <IMG align=middle 
+alt="$\log\log n$" border=0 height=32 src="growth_files/img58.gif" width=60></B> 
+</DIV>
+<DIV align=center>
+<TABLE border=1 cellPadding=3>
+  <TBODY>
+  <TR>
+    <TD align=left><IMG align=bottom alt=$n$ border=0 height=18 
+      src="growth_files/img1.gif" width=16></TD>
+    <TD align=right>2</TD>
+    <TD align=right>4</TD>
+    <TD align=right>16</TD>
+    <TD align=right>256</TD>
+    <TD align=right>65536</TD>
+    <TD align=right>4294967296</TD></TR>
+  <TR>
+    <TD align=left><IMG align=middle alt="$\log n$" border=0 height=32 
+      src="growth_files/img56.gif" width=38></TD>
+    <TD align=right>1</TD>
+    <TD align=right>2</TD>
+    <TD align=right>4</TD>
+    <TD align=right>8</TD>
+    <TD align=right>16</TD>
+    <TD align=right>32</TD></TR>
+  <TR>
+    <TD align=left><IMG align=middle alt="$\log\log n$" border=0 height=32 
+      src="growth_files/img58.gif" width=60></TD>
+    <TD align=right>0</TD>
+    <TD align=right>1</TD>
+    <TD align=right>2</TD>
+    <TD align=right>3</TD>
+    <TD align=right>4</TD>
+    <TD align=right>5</TD></TR></TBODY></TABLE></DIV>
+<P>
+<P>
+<DIV><B>Example 3</B> &nbsp; Place the following time complexity functions into 
+complexity classes and order those classes: <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+n^3,3^{n},n^{2}+\log n,n,\log n,2n^{3}+3n,4n^{2},7^{n}.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}n^3,3^{n},n^{2}+\log n,n,\log n,2n^{3}+3n,4n^{2},7^{n}.\end{displaymath}" 
+border=0 height=29 src="growth_files/img59.gif" width=281> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<P>
+<DIV align=left><B>Stirling's Approximation to Factorial</B> </DIV>For large 
+values of <IMG align=bottom alt=$n$ border=0 height=18 
+src="growth_files/img1.gif" width=16>, <IMG align=bottom alt=$n!$ border=0 
+height=19 src="growth_files/img6.gif" width=20> may be approximated using <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+n! \approx \sqrt{2 \pi n} \; n^{n} \exp(-n).
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}n! \approx \sqrt{2 \pi n} \; n^{n} \exp(-n).\end{displaymath}" 
+border=0 height=30 src="growth_files/img60.gif" width=152> </DIV><BR clear=all>
+<P></P>The approximation is easier to compute than <IMG align=bottom alt=$n!$ 
+border=0 height=19 src="growth_files/img6.gif" width=20>. 
+<P>
+<DIV align=center>
+<TABLE border=1 cellPadding=3>
+  <TBODY>
+  <TR>
+    <TD align=middle><IMG align=bottom alt=$n$ border=0 height=18 
+      src="growth_files/img1.gif" width=16></TD>
+    <TD align=middle><IMG align=bottom alt=$n!$ border=0 height=19 
+      src="growth_files/img6.gif" width=20></TD>
+    <TD align=middle>Stirling's Approx.</TD>
+    <TD align=middle>Relative Error</TD></TR>
+  <TR>
+    <TD align=middle>2</TD>
+    <TD align=middle>2</TD>
+    <TD align=middle>1.92</TD>
+    <TD align=middle>0.0405</TD></TR>
+  <TR>
+    <TD align=middle>5</TD>
+    <TD align=middle>120</TD>
+    <TD align=middle>118.02</TD>
+    <TD align=middle>0.0165</TD></TR>
+  <TR>
+    <TD align=middle>6</TD>
+    <TD align=middle>720</TD>
+    <TD align=middle>710.08</TD>
+    <TD align=middle>0.0138</TD></TR>
+  <TR>
+    <TD align=middle>10</TD>
+    <TD align=middle>3,628,800</TD>
+    <TD align=middle>3,598,695.60</TD>
+    <TD align=middle>0.0083</TD></TR></TBODY></TABLE></DIV>
+<P>
+<DIV align=center>The relative error = <!-- MATH
+ $\displaystyle {\frac{n! - \mbox{Stirling's } \mbox{Approx}}{n!}}$
+ --><IMG 
+align=middle 
+alt="$\displaystyle {\frac{n! - \mbox{Stirling's } \mbox{Approx}}{n!}}$" 
+border=0 height=52 src="growth_files/img61.gif" width=154>. </DIV><BR>
+<HR>
+
+<ADDRESS><I>matacc2@aber.ac.uk <BR>2000-03-31</I> </ADDRESS></BODY></HTML>

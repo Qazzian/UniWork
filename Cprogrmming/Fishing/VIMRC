@@ -1,0 +1,5 @@
+set cindent
+set hlsearch
+set iskeyword=!-~,^*,^|,^\"
+set mouse=a
+set readonly

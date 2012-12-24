@@ -1,0 +1,376 @@
+\setcounter{slide}{22}
+%
+% slide 12
+%
+\begin{slide}{}
+{\bf Regular Expressions}
+
+Regular expressions provide a notation for describing
+the tokens used in modern programming languages.
+
+A regular expression specifies a pattern.  The set of
+character strings that match a regular expression is
+called a regular set.
+
+For example,
+
+    $ (underscore|letter)(underscore|letter|digit)* $
+
+is a regular expression that specifies the set of
+Java identifiers -- provided \ldots
+
+\end{slide}
+%
+% slide 13
+%
+\begin{slide}{}
+{\small
+{\bf Regular expressions and what they match}
+
+\begin{tabular}{|p{4.5cm}|p{3cm}|p{6cm}|}
+\hline
+Conventional notation & Unix notation & matches \\
+\hline
+\hline
+$\phi$ & & no string \\
+&&\\
+\hline
+$\epsilon$ & & the empty string \\
+&&\\
+\hline
+$s$ & $s$ & the string $s$ \\
+&&\\
+\hline
+$A|B$ & $[AB]$ & any string that matches $A$ or $B$ \\
+&&\\
+\hline
+$AB$ & $AB$ & any string that can be split into a part that matches $A$ followed by a part that matches $B$\\
+&&\\
+\hline
+$A*$ & $A*$& any string that consists of zero or more $A$'s \\
+&&\\
+\hline
+\end{tabular}
+
+$s$ is any character string\\
+$A$ and $B$ are regular expressions
+}
+\end{slide}
+
+%
+% slide 14
+%
+\begin{slide}{}
+{\bf Shorthands}
+\begin{itemize}
+\item $ A+ $ one or more A's\\
+equivalent to $ AA* $
+\item $ A? $ zero or one A \\
+equivalent to $[\epsilon A]$
+\item $ [0-9] = [0123456789] $
+\end{itemize}
+\end{slide}
+%
+% slide 15
+%
+\begin{slide}{}
+{\bf Using Regular Expressions}
+\begin{itemize}
+\item Unix applications 
+\begin{itemize}
+\item substitution using gvim\\{\small $<range>s/<regexp>/<substitution>$}
+\item searching files for patterns\\$grep~<regexp>~<path>$
+\end{itemize}
+\item Specifying valid input \ldots
+\vfill
+\item perl pattern specifications\\
+ $t.e$ matches $the$ or $tee$ but not $tale$
+\end{itemize}
+\end{slide}
+%
+% slide 16
+%
+\begin{slide}{}
+{\bf Constructing regular expressions}
+
+Write a regular expression that matches the Java keyword {\bf class}
+\vfill
+\end{slide}
+%
+% slide 17
+%
+\begin{slide}{}
+{\bf Constructing regular expressions}
+
+Using conventional notation, extend your regular expression so that it
+matches any of the Java keywords: {\bf abstract} {\bf class} {\bf extends}
+
+\vspace{10ex}
+
+Write an equivalent regular expression using Unix notation.
+
+\vspace{10ex}
+\end{slide}
+%
+% slide 18
+%
+\begin{slide}{}
+{\bf Constructing regular expressions}
+
+Using conventional notation,
+write a regular expression that matches unsigned integers
+
+\vspace{7ex}
+
+Do the same, this time using Unix notation.
+
+\vspace{7ex}
+\end{slide}
+%
+% slide 18
+%
+\begin{slide}{}
+{\bf Constructing regular expressions}
+
+Extend each of your previous regular expressions so that they
+match signed integers.
+
+\vfill
+\end{slide}
+%
+% slide 15
+%
+\begin{slide}{}
+{\bf More information}
+
+To find out all about regular expressions in Unix, see
+\begin{verbatim}
+
+man -s 5 regexp
+\end{verbatim}
+\end{slide}
+
+%
+% slide 15
+%
+\begin{slide}{}
+{\bf Finite State Automata}
+
+A finite state automaton (FSA) recognises strings
+that belong to a regular set.
+
+It consists of
+\begin{itemize}
+\item a finite set of states,
+\item a set of transitions from state to state,
+\item a start state and
+\item a set of final states, called ``accept states''.
+\end{itemize}
+
+A FSA can be represented by a transition diagram -- a
+directed graph whose nodes are labelled with state symbols,
+and whose edges are labelled with characters.
+\end{slide}
+%
+% slide 16
+%
+\begin{slide}{}
+{\bf FSA that recognises numbers}
+
+\vspace{3ex}
+\epsfbox{FSAnum.eps}
+
+This FSA is deterministic -- for a given state and
+input character, the next state is uniquely determined.
+\end{slide}
+%
+% slide 17
+%
+\begin{slide}{}
+{\bf Fragment FSA for a typical programming language}
+
+\vspace{3ex}
+\epsfbox{FSAfragment.eps}
+
+\end{slide}
+%
+% slide 18
+%
+\begin{slide}{}
+{\bf Pseudo code for a scanner}
+
+Assume one character, `ch', has been read by `getch', which
+reads a character, skips white space and produces a listing.
+
+\begin{verbatim}
+    case ch of:
+        `;' : token := semi
+              getch
+        `:' : getch; if ch = `='
+                        then token := assign
+                             getch
+                        else token := colon
+        `0' .. `9' : token := number
+                     while ch in [`0' .. `9']
+                           getch
+                     endwhile
+        ... &c.
+\end{verbatim}
+
+\end{slide}
+%
+% slide 18
+%
+
+\begin{slide}{}
+{\bf Transition Tables}
+
+In general, a deterministic FSA can be programmed as a language
+independent driver that interprets a transition table.
+The transition table for the FSA that recognises numbers
+looks like this.
+
+\begin{tabular}{|l||c|c|c|c|c|c|c|}\hline
+& \multicolumn{7}{c|}{Character}\\ \cline{2-8}
+State & + & - & . & e & E & 0 \ldots 9 & other \\
+\hline
+0 & 1 & 1 & & & & 2 & \\
+1 & & & & & & 2 & \\
+2 & & & 4 & 5 & 5 & 2 & 3\\
+3 & & & & & & & \\
+4 & & & & 5 & 5 & 4 & 8 \\
+5 & 6 & 6 & & & & 7 & \\
+6 & & & & & & 7 & \\
+7 & & & & & & 7 & 8 \\
+8 & & & & & & & \\
+\hline
+\end{tabular}
+
+\end{slide}
+%
+% slide 19
+%
+\begin{slide}{}
+{\bf A scanner driver}
+
+\begin{verbatim}
+
+    State:= InitialState;
+    Read(CurrentChar);
+    loop
+        NextState := TT(State,CurrentChar);
+        exit when NextState = Error or
+                  CurrentChar = EOF;
+        State := NextState;
+        Read(CurrentChar);
+    end loop
+    if State in FinalStates
+        then return valid token
+        else lexical error
+    end if;
+
+\end{verbatim}
+\end{slide}
+%
+% slide 20
+%
+\begin{slide}{}
+{\small
+{\bf Using a Scanner Generator}
+
+There are algorithms for translating regular expressions 
+to nondeterministic
+finite state automata (NFA), and for translating NFA 
+to deterministic finite state automata (DFA).
+
+These are used in scanner generators like lex, developed by
+M.E. Lesk and E. Schmidt of Bell labs.
+
+\vspace{3ex}
+\epsfbox{ScannerGen.eps}
+
+Programming effort is limited to describing
+lexemes -- an example of declarative programming.
+
+Given input consisting of character class definitions,
+regular expressions with corresponding actions, and
+subroutines, 
+lex generates a scanner called yylex.
+}
+\end{slide}
+
+%
+% slide 21
+%
+\begin{slide}{}
+{\bf Symbol Tables}
+
+The compiler uses symbol tables to collect and use information
+about names that appear in a source program.
+
+Each time the scanner encounters a new name, it makes a symbol
+table entry for the name.  Further information is added during
+syntactic analysis, and this information is used (and further
+extended) during semantic analysis and code generation.
+
+\end{slide}
+%
+% slide 22
+%
+\begin{slide}{}
+{\small
+{\bf Symbol Tables}
+
+The kind of information stored in a symbol table entry includes items like
+\begin{itemize}
+\item the string of characters denoting the name,
+\item the block or procedure in which the name occurs,
+\item attributes of the name (e.g. type and scope),
+\item the use to which the name is put (e.g. formal parameter, label \ldots)
+\item parameters, such as the number of dimensions in an array and their
+      upper and lower limits, and
+\item the position in storage to be allocated to the name (perhaps).
+\end{itemize}
+}
+
+\end{slide}
+%
+% slide 23
+%
+\begin{slide}{}
+{\small
+{\bf The Symbol Table as an Abstract Data Type}
+
+Conceptually, a symbol table is a collection of pairs:
+\begin{quote}
+    (name,information)
+\end{quote}
+with operations to
+\begin{itemize}
+\item determine whether or not a name is in the table,
+\item add a new name,
+\item access the information associated with a given name,
+\item add new information for a given name, and
+\item delete a name, or a group of names.
+\end{itemize}
+}
+\end{slide}
+%
+% slide 24
+%
+\begin{slide}{}
+{\bf Symbol Table Implementation}
+
+Symbol tables are typically implemented using
+\begin{itemize}
+\item linear lists,
+\item hash tables, or
+\item various tree structures.
+\end{itemize}
+
+In selecting an implementation, speed of access is traded
+against structural complexity.
+
+\end{slide}
+
+

@@ -1,0 +1,49 @@
+#
+# JMF Version 2.0
+#
+
+## Platform: SunOS, sparc, 5.7
+## Java VM: Sun Microsystems Inc., 1.2
+
+$$ Profile: instantiation: 39 ms
+
+## Player created: com.sun.media.content.unknown.Handler@8725d2
+##   using DataSource: com.sun.media.protocol.file.DataSource@20e537
+
+$$ Profile: parsing: 647 ms
+
+## Building flow graph for: file:bluescreen2.mov
+
+## Building Track: 0
+## Input: ima4, 44100.0 Hz, 16-bit, Stereo, BigEndian, Signed, FrameSize=544 bits
+
+
+## Building Track: 1
+## Input: JPEG, 160x120, FrameRate=12.0, Length=3574
+
+
+## Here's the completed flow graph:
+  com.sun.media.parser.video.QuicktimeParser@16986ed
+     connects to: com.ibm.media.codec.audio.ima4.JavaDecoder@1196dd3
+     format: ima4, 44100.0 Hz, 16-bit, Stereo, BigEndian, Signed, FrameSize=544 bits
+     protocol: 1
+  com.ibm.media.codec.audio.ima4.JavaDecoder@1196dd3
+     connects to: com.sun.media.renderer.audio.JavaSoundRenderer@11849cd
+     format: LINEAR, 44100.0 Hz, 16-bit, Stereo, BigEndian, Signed
+     protocol: 3
+  com.sun.media.parser.video.QuicktimeParser@16986ed
+     connects to: com.sun.media.codec.video.jpeg.NativeDecoder@796a79
+     format: JPEG, 160x120, FrameRate=12.0, Length=3574
+     protocol: 1
+  com.sun.media.codec.video.jpeg.NativeDecoder@796a79
+     connects to: com.sun.media.renderer.video.XLibRenderer@195376b
+     format: RGB, 160x120, FrameRate=12.0, Length=19200, 32-bit, Masks=255:65280:16711680, LineStride=160, class [I
+     protocol: 3
+
+
+$$ Profile: graph building: 5793 ms
+
+$$ Profile: realize, post graph building: 1093 ms
+
+## Computed latency for video: 779 ms
+

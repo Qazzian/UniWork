@@ -1,0 +1,42 @@
+#include <sys/types.h>
+#include <stdio.h>
+#include <stdlib.h>   /* atoi definition */
+#include <unistd.h>   /* fork definition */
+#include <sys/wait.h> /* wait definition */
+int main(int argc, char **argv)
+{
+  pid_t shell_id, pid;
+
+  if (argc != 2)    {
+     fprintf(stderr, "usage %s $$\n", argv[0]);
+     exit(1);
+  }
+
+  shell_id = atoi(argv[1]);
+
+  /* fork creates a new child process. This is discussed in detail later */
+
+  if ((pid = fork()) == -1)    {
+     fprintf(stderr, "fork failed\n");
+     exit(1);
+  }
+
+  if (pid == 0)    {
+    printf("The process group of the child %ld is %ld\n",
+                   getpid(), getpgrp());
+    setpgrp();
+    printf("\nI am not a number, I am a free process %ld of group %ld\n",
+                  getpid(), getpgrp());
+    exit(0);  /* the child exits */
+  }
+  /* The parent process waits for the child to exit */
+  wait(0);
+
+  printf("\nI am the parent with a process ID of %ld and \n", getpid());
+  printf("process group ID of %ld\n", getpgrp());
+
+  printf("\nmy parent, the shell process ID is %ld\n",shell_id);
+  printf("and a process group ID of %ld\n", getpgid(shell_id));
+
+  return 0;
+}

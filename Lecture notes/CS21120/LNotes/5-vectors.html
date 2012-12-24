@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>More on classes</TITLE>
+<META NAME="Microsoft Theme" CONTENT="blends 011">
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY TEXT="#000000" LINK="#800000" VLINK="#0000ff">
+
+<B><FONT SIZE=5 COLOR="#000080"><P><A NAME="_Toc459690078">Utility Classes: Vectors</A></P>
+</B></FONT><P><A HREF="#_Toc459690078"><FONT FACE="Trebuchet MS,Arial">Utility Classes: Vectors</FONT></A></P><DIR>
+
+<P><A HREF="#_Toc459690079"><FONT FACE="Trebuchet MS,Arial">Adding to end</FONT></A></P>
+<P><A HREF="#_Toc459690080"><FONT FACE="Trebuchet MS,Arial">Adding in middle</FONT></A></P>
+<P><A HREF="#_Toc459690081"><FONT FACE="Trebuchet MS,Arial">Changing an object</FONT></A></P>
+<P><A HREF="#_Toc459690082"><FONT FACE="Trebuchet MS,Arial">Retrieving an object</FONT></A></P>
+<P><A HREF="#_Toc459690083"><FONT FACE="Trebuchet MS,Arial">Removing an object from a vector</FONT></A></P>
+<P><A HREF="#_Toc459690084"><FONT FACE="Trebuchet MS,Arial">Iterating across a Vector – The Iterator Interface</FONT></A></P>
+<P><A HREF="#_Toc459690085"><FONT FACE="Trebuchet MS,Arial">An example</FONT></A></P>
+<P><A HREF="#_Toc459690086"><FONT FACE="Trebuchet MS,Arial">Building a sorted vector</FONT></A></P></DIR>
+
+<FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P>
+<P>Java provides a number of very useful facilities in the package <B>java.util</B>. Basically these classes are a set of tools for storing and managing data in a variety of different ways.</P>
+<P>The example that we will look at is that of the Vector class – this provides an array that automatically expands to accommodate however many objects you require.</P>
+<P>Vectors can be used to store any type of object – just as with our Stacks and Queues, you will need to cast the objects as you retrieve them from the vector.</P>
+<P>Like arrays, vectors only hold references to objects, not the actual objects themselves/</P>
+<P>There are three constructors for building vectors:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;Vector myVector = new Vector();&#9;&#9;</P>
+<P>// initial size 10&#9;</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>The default <B>capacity </B>is ten objects and when you add objects to a full Vector it will double in size.</P>
+<P>If you need a larger initial value then you could use:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;Vector myVector = new Vector(100);&#9;</P>
+<P>//initial size 100</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>This capacity will still double in size when the vector fills. Alternatively you could use the constructor:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;Vector myVector = new Vector(100,10);</P>
+<P>// initial size 100</P>
+<P>&#9;// will increment by 10 when it fills</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P>
+<P>The process of incrementing the capacity takes time. The bigger the vector is, the longer the copy takes and the greater the impact on performance when it grows.</P>
+<P>The <B>capacity</B> is the maximum number of objects that can be stored at a given instant. Obviously this changes through time as, and when, the vector fills up.</P>
+<P>The <B>capacity</B>() method passes back the current capacity.</P>
+<P>The <B>size</B>() method passes back the given number of objects in the vector. The size changes as objects are added and removed from the vector.</P>
+<P>The method <B>setSize(int theSize)</B> explicitly sets the size. Object references beyond the size are set to null.</P>
+<P>To find out the number of free locations:</P><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>int freeCount = myVector.capacity() – myVector.size();</P>
+<P>myVector.trimToSize();&#9;// remove unneeded capacity</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P></DIR>
+</DIR>
+
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690079">Adding to end</A></P><DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>myVector.addElement(anObject);// adds an object at end of Vecto</FONT><FONT FACE="Courier New">r</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P></DIR>
+</DIR>
+
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690080">Adding in middle</A></P><DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>myVector.insertElementAt(anObject,2);</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>// shunts those in loc. 2 onwards</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690081">Changing an object</A></P><DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>myVector.setElementAt(anObject,2);&#9;// change object in location 2</P>
+</FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P></DIR>
+</DIR>
+
+</FONT><FONT COLOR="#000080"><P><A NAME="_Toc459690082">Retrieving an object</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>Again this is quite straightforward but you need to cast the object returned. Let us assume that our objects were all of class Product, then:</P><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>Product theProduct = (Product)myVector.firstElement();</P></DIR>
+</DIR>
+
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>Or</P><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>Product theProduct = (Product)myVector.elementAt(theLocation);</P></DIR>
+</DIR>
+
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>Where theLocation is the index of the element to be retrieved.</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690083">Removing an object from a vector</A></P><DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>MyVector.removeElementAt(1);</P></DIR>
+</DIR>
+
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>This will remove the reference from the Vector and shunt the other objects down by one.</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690084">Iterating across a Vector – The Iterator Interface</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>Sometimes we want to be able to access all the objects in a collection, one at a time. The best way to do this is to use an Iterator<B>. </B>It provides two methods:</P><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>hasNext()&#9;&#9;true if there are more available in a list </P>
+<P>next ()&#9;&#9;returns the next object that is in the sequence</P></DIR>
+</DIR>
+
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>To use a vector with an iterator is easy:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;Iterator theList = myVector.iterator();</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>By using <B>iterator()</B>, we are able to iterate over all the objects:</P><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>Iterator theList = myVector.iterator();</P>
+<P>while (theList.hasNext ())</P>
+<P>{</P>
+<P>&#9;Product theProduct = (Product)theList.next();</P>
+<P>&#9;System.out.println(theProduct);</P>
+<P>}</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P></DIR>
+</DIR>
+
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459690085">An example</A></P><DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>import java.util.*;&#9;//gets Vector and Iterator</P>
+<P>public class Queue </P>
+<P>{</P>
+<P>private Vector theQueue = new Vector();</P>
+<P>/* And now to the operations */</P>
+<P>public void addTo (Object item) {</P>
+<P>theQueue.addElement(item);</P>
+<P>}</P>
+<P>public Object removeFrom() {</P>
+<P>Object temp = theQueue.firstElement();</P>
+<P>theQueue.removeElementAt(0);</P>
+<P>return temp;</P>
+<P>}</P>
+<P>public int lengthOf() {</P>
+<P>return theQueue.size();</P>
+<P>}</P>
+<P>}</P>
+<P>public static void main (String args[]) {</P>
+<P>Queue q = new Queue();</P>
+<P>q.addTo("mary");</P>
+<P>q.addTo("bill");</P>
+<P>q.addTo("sue");</P>
+<P>}</P>
+<P>}</P></DIR>
+</DIR>
+
+</B></FONT><FONT SIZE=4 COLOR="#000080"><P><A NAME="_Toc459690086">Building a sorted vector</A></P>
+</FONT><FONT FACE="Trebuchet MS,Arial"><P>Let us assume that we want to have a class which has all the functionality of a vector but which is also sorted.</P>
+<P>There are two possibilities.</P>
+<P>First we could extend vector in the following way:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;public class SortedVector extends Vector</P>
+<P>&#9;&#9;public SortedVector()</P>
+<P>&#9;&#9;{&#9;</P>
+<P>&#9;&#9;&#9;super();</P>
+<P>&#9;&#9;}</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>&#9;&#9;</P>
+<P>However this approach has a problem. Many of the methods are defined to be final, that is they cannot be extended. In particular, we would not be able to redefine insertElementAt() or addElement(). </P>
+<P>We could add our own method insertedSorted(), but how can we guarantee that the list remains sorted? We cannot stop a user using the standard routines.</P>
+<P>We could also have a method sortVector() and a method checkIsSorted() but this approach is not entirely satisfactory.</P>
+<P>An alternative approach would be to define an aggregate, that is a new class which includes a Vector as an internal attribute:</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&#9;public class SortedVector </P>
+<P>{</P>
+<P>&#9;&#9;private Vector theList;</P>
+<P>&#9;&#9;public SortedVector()</P>
+<P>&#9;&#9;{</P>
+<P>&#9;&#9;&#9;theList = new Vector();</P>
+<P>&#9;&#9;}</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>This approach would be OK but would be tedious to write. We would also have to write another class to provide iteration over the vector – it could implement the <B>iterator</B> class but it would be more work.</P></FONT></BODY>
+</HTML>

@@ -1,0 +1,132 @@
+
+
+
+link(2)								      link(2)
+
+
+
+NAME
+  lliinnkk - Creates a hard link to an existing file on the local file system
+
+SYNOPSIS
+
+  ##iinncclluuddee <<uunniissttdd..hh>>
+
+  iinntt lliinnkk ((
+	  ccoonnsstt cchhaarr **_p_a_t_h_1,,
+	  ccoonnsstt cchhaarr **_p_a_t_h_2 ));;
+
+STANDARDS
+
+  Interfaces documented on this reference page conform to industry standards
+  as follows:
+
+  lliinnkk(()):  XSH5.0
+
+  Refer to the ssttaannddaarrddss(5) reference page for more information about indus-
+  try standards and associated tags.
+
+PARAMETERS
+
+  _p_a_t_h_1	    Points to the pathname of an existing file.
+
+  _p_a_t_h_2	    Points to the pathname for the directory entry to be created.  If
+	    the _p_a_t_h_2 parameter names a symbolic link, an error is returned.
+
+DESCRIPTION
+
+  The lliinnkk(()) function creates an additional hard link (directory entry) for
+  an existing file.  The old and the new link share equal access rights to
+  the underlying object.  The lliinnkk(()) function atomically creates a new link
+  for the existing file and increments the link count of the file by one.
+
+  Both the _p_a_t_h_1 and  _p_a_t_h_2 parameters must reside on the same file system. A
+  hard link to a directory cannot be created.
+
+  Upon successful completion, the lliinnkk(()) function marks the sstt__ccttiimmee field of
+  the file for update, and marks the sstt__ccttiimmee and sstt__mmttiimmee fields of the
+  directory containing the new entry for update.
+
+  A process must have write permission in the target directory with respect
+  to all access control policies configured on the system.
+
+  See ssyymmlliinnkk(2) for information about making symbolic links, including Con-
+  text Dependent Symbolic Links (CDSLs).
+
+RETURN VALUES
+
+  Upon successful completion, the lliinnkk(()) function returns a value of 0
+  (zero). If the lliinnkk(()) function fails, a value of -1 is returned, no link is
+  created, and eerrrrnnoo is set to indicate the error.
+
+ERRORS
+
+  If the lliinnkk(()) function fails, eerrrrnnoo may be set to one of the following
+  values:
+
+  [[EEAACCCCEESS]]  The requested link requires writing in a directory with a mode
+	    that denies write permission, or a component of either the _p_a_t_h_1
+	    or _p_a_t_h_2 parameter denies search permission.
+
+  [[EEAACCCCEESS]]  The requested link requires writing in a directory to which the
+	    process does not have write access with respect to one or more of
+	    the system's configured access policies.
+
+  [[EEDDQQUUOOTT]]  The directory in which the entry for the new link is being placed
+	    cannot be extended because the user's quota of disk blocks on the
+	    file system containing the directory has been exhausted.
+
+  [[EEEEXXIISSTT]]  The link named by the _p_a_t_h_2 parameter already exists.
+
+  [[EEFFAAUULLTT]]  The _p_a_t_h_1 or _p_a_t_h_2 parameter is an invalid address.
+
+  [[EELLOOOOPP]]   Too many links were encountered in translating _p_a_t_h_1 or _p_a_t_h_2.
+
+  [[EEMMLLIINNKK]]  The number of links to the file named by _p_a_t_h_1 would exceed
+	    LINK_MAX.
+
+  [[EENNAAMMEETTOOOOLLOONNGG]]
+	    The length of the _p_a_t_h_1 or _p_a_t_h_2 string exceeds PATH_MAX or a
+	    pathname component is longer than NAME_MAX.
+
+  [[EENNOOEENNTT]]  The file named by the _p_a_t_h_1 parameter does not exist or the _p_a_t_h_1
+	    or _p_a_t_h_2 parameter is an empty string.
+
+  [[EENNOOSSPPCC]]  The directory in which the entry for the new link is being placed
+	    cannot be extended because there is no space left on the file
+	    system containing the directory.
+
+  [[EENNOOTTDDIIRR]] A component of either path prefix is not a directory.
+
+  [[EEPPEERRMM]]   The file named by the _p_a_t_h_1 parameter is a directory.
+
+  [[EERROOFFSS]]   The requested link requires writing in a directory on a read-only
+	    file system.
+
+  [[EEXXDDEEVV]]   The link named by the _p_a_t_h_2 parameter and the file named by the
+	    _p_a_t_h_1 parameter are on different file systems.
+
+  [Tru64 UNIX]	For NFS file access, if the lliinnkk() function fails, eerrrrnnoo may
+  also be set to one of the following values:
+
+  [[EENNFFIILLEE]]  Indicates that the system file table is full or there are too
+	    many files currently open in the system.
+
+  [[EESSTTAALLEE]]  Indicates a stale NFS file handle.	An opened file was deleted by
+	    the server or another client; a client cannot open a file because
+	    the server has unmounted or unexported the remote directory; or
+	    the directory that contains an opened file was unmounted or unex-
+	    ported by the server.
+
+RELATED INFORMATION
+
+  Commands: lliinnkk(1), uunnlliinnkk(1)
+
+  Functions: uunnlliinnkk(2), ssyymmlliinnkk(2)
+
+  Standards: ssttaannddaarrddss(5)
+
+
+
+
+

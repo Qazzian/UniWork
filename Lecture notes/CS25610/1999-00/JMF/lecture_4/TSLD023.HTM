@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+ <TITLE>Making a DataSink</TITLE> 
+</HEAD>
+<BODY>
+ <H1>Making a DataSink</H1> 
+ <P><H2>Making a DataSink</H2>
+</P>
+<P><H2>DataSource outputData = processor.getDataOutput(); </H2>
+<H2> MediaLocator outMediaLocator = new MediaLocator(outputFile);            </H2>
+<H2> try {</H2>
+<H2>     outSink = Manager.createDataSink( outputData,</H2>
+<H2>                                                         outMediaLocator);</H2>
+<H2>      outSink.open();</H2>
+<H2> } catch (Exception e) {</H2>
+<H2>      System.out.println("Exception occured " + e);</H2>
+<H2>      System.exit(0);</H2>
+<H2> } </H2>
+<H2> outSink.addDataSinkListener(this);</H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld022.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld024.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld023.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

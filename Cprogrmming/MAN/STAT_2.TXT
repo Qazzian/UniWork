@@ -1,0 +1,216 @@
+
+
+
+STAT(2)                    System calls                   STAT(2)
+
+
+NAME
+       stat, fstat, lstat - get file status
+
+SYNOPSIS
+       #include <sys/types.h>
+       #include <sys/stat.h>
+       #include <unistd.h>
+
+       int stat(const char *file_name, struct stat *buf);
+       int fstat(int filedes, struct stat *buf);
+       int lstat(const char *file_name, struct stat *buf);
+
+DESCRIPTION
+       These  functions  return  information  about the specified
+       file.  You do not need any access rights to  the  file  to
+       get  this  information  but  you need search rights to all
+       directories named in the path leading to the file.
+
+       stat stats the file pointed to by file_name and  fills  in
+       buf.
+
+       lstat  is  identical  to  stat,  only  the  link itself is
+       stated, not the file  that  is  obtained  by  tracing  the
+       links.
+
+       fstat  is identical to stat, only the open file pointed to
+       by filedes (as returned by open(2)) is stated in place  of
+       file_name.
+
+
+       They  all return a stat structure, which contains the fol­
+       lowing fields:
+
+              struct stat
+              {
+                  dev_t         st_dev;      /* device */
+                  ino_t         st_ino;      /* inode */
+                  mode_t        st_mode;     /* protection */
+                  nlink_t       st_nlink;    /* number of hard links */
+                  uid_t         st_uid;      /* user ID of owner */
+                  gid_t         st_gid;      /* group ID of owner */
+                  dev_t         st_rdev;     /* device type (if inode device) */
+                  off_t         st_size;     /* total size, in bytes */
+                  unsigned long st_blksize;  /* blocksize for filesystem I/O */
+                  unsigned long st_blocks;   /* number of blocks allocated */
+                  time_t        st_atime;    /* time of last access */
+                  time_t        st_mtime;    /* time of last modification */
+                  time_t        st_ctime;    /* time of last change */
+              };
+
+       The value st_blocks gives the size of the file in 512-byte
+       blocks.  The value st_blksize gives the "preferred" block­
+       size for efficient file system I/O.  (Writing to a file in
+       smaller  chunks  may  cause  an  inefficient  read-modify-
+       rewrite.)
+
+       Not all of the Linux filesystems implement all of the time
+       fields.   Traditionally,  st_atime is changed by mknod(2),
+       utime(2), read(2), write(2), and truncate(2).
+
+       Traditionally, st_mtime is changed by mknod(2),  utime(2),
+       and  write(2).  The st_mtime is not changed for changes in
+       owner, group, hard link count, or mode.
+
+       Traditionally, st_ctime is changed by writing or  by  set­
+       ting  inode  information  (i.e., owner, group, link count,
+       mode, etc.).
+
+       The following POSIX macros are defined to check  the  file
+       type:
+
+              S_ISLNK(m)  is it a symbolic link?
+
+              S_ISREG(m)  regular file?
+
+              S_ISDIR(m)  directory?
+
+              S_ISCHR(m)  character device?
+
+              S_ISBLK(m)  block device?
+
+              S_ISFIFO(m) fifo?
+
+              S_ISSOCK(m) socket?
+
+       The following flags are defined for the st_mode field:
+
+       S_IFMT     0170000   bitmask for the file type bitfields
+       S_IFSOCK   0140000   socket
+       S_IFLNK    0120000   symbolic link
+       S_IFREG    0100000   regular file
+       S_IFBLK    0060000   block device
+       S_IFDIR    0040000   directory
+       S_IFCHR    0020000   character device
+       S_IFIFO    0010000   fifo
+       S_ISUID    0004000   set UID bit
+       S_ISGID    0002000   set GID bit (see below)
+       S_ISVTX    0001000   sticky bit (see below)
+       S_IRWXU    00700     mask for file owner permissions
+       S_IRUSR    00400     owner has read permission
+       S_IWUSR    00200     owner has write permission
+       S_IXUSR    00100     owner has execute permission
+       S_IRWXG    00070     mask for group permissions
+       S_IRGRP    00040     group has read permission
+       S_IWGRP    00020     group has write permission
+       S_IXGRP    00010     group has execute permission
+       S_IRWXO    00007     mask for permissions for others (not in group)
+       S_IROTH    00004     others have read permission
+       S_IWOTH    00002     others have write permisson
+       S_IXOTH    00001     others have execute permission
+
+       The  set GID bit (S_ISGID) has several special uses: For a
+       directory it indicates that BSD semantics is  to  be  used
+       for  that  directory:  files  created  there inherit their
+       group ID from the directory, not from the effective gid of
+       the  creating  process, and directories created there will
+       also get the S_ISGID bit set.  For a file  that  does  not
+       have  the  group execution bit (S_IXGRP) set, it indicates
+       mandatory file/record locking.
+
+       The `sticky' bit (S_ISVTX) on a  directory  means  that  a
+       file  in  that directory can be renamed or deleted only by
+       the owner of the file, by the owner of the directory,  and
+       by root.
+
+RETURN VALUE
+       On  success,  zero is returned.  On error, -1 is returned,
+       and errno is set appropriately.
+
+ERRORS
+       EBADF  filedes is bad.
+
+       ENOENT A component of the path file_name does  not  exist,
+              or the path is an empty string.
+
+       ENOTDIR
+              A component of the path is not a directory.
+
+       ELOOP  Too  many symbolic links encountered while travers­
+              ing the path.
+
+       EFAULT Bad address.
+
+       EACCES Permission denied.
+
+       ENOMEM Out of memory (i.e. kernel memory).
+
+       ENAMETOOLONG
+              File name too long.
+
+CONFORMING TO
+       The stat and fstat calls conform  to  SVr4,  SVID,  POSIX,
+       X/OPEN,  BSD  4.3.   The lstat call conforms to 4.3BSD and
+       SVr4.  SVr4 documents additional  fstat  error  conditions
+       EINTR,  ENOLINK, and EOVERFLOW.  SVr4 documents additional
+       stat and lstat error conditions EACCES, EINTR,  EMULTIHOP,
+       ENOLINK,  and EOVERFLOW.  Use of the st_blocks and st_blk­
+       size fields may be less portable. (They were introduced in
+       BSD.   Are not specified by POSIX. The interpretation dif­
+       fers between systems, and possibly on a single system when
+       NFS mounts are involved.)
+       POSIX  does  not  describe  the S_IFMT, S_IFSOCK, S_IFLNK,
+       S_IFREG, S_IFBLK, S_IFDIR, S_IFCHR, S_IFIFO, S_ISVTX bits,
+       but  instead demands the use of the macros S_ISDIR(), etc.
+       Unix  V7  (and  later  systems)  had  S_IREAD,   S_IWRITE,
+       S_IEXEC,  where  POSIX  prescribes  the  synonyms S_IRUSR,
+       S_IWUSR, S_IXUSR.
+
+OTHER SYSTEMS
+       Values that have been (or are) in use on various systems:
+
+       hex    name       ls   octal    description
+       f000   S_IFMT          170000   mask for file type
+       0000                   000000   SCO out-of-service inode, BSD unknown type
+                                       SVID-v2 and XPG2 have both 0 and 0100000 for ordinary file
+       1000   S_IFIFO    p|   010000   fifo (named pipe)
+       2000   S_IFCHR    c    020000   character special (V7)
+       3000   S_IFMPC         030000   multiplexed character special (V7)
+       4000   S_IFDIR    d/   040000   directory (V7)
+       5000   S_IFNAM         050000   XENIX named special file
+                                       with two subtypes, distinguished by st_rdev values 1, 2:
+       0001   S_INSEM    s    000001   XENIX semaphore subtype of IFNAM
+       0002   S_INSHD    m    000002   XENIX shared data subtype of IFNAM
+       6000   S_IFBLK    b    060000   block special (V7)
+       7000   S_IFMPB         070000   multiplexed block special (V7)
+       8000   S_IFREG    -    100000   regular (V7)
+       9000   S_IFCMP         110000   VxFS compressed
+       9000   S_IFNWK    n    110000   network special (HP-UX)
+       a000   S_IFLNK    l@   120000   symbolic link (BSD)
+       b000   S_IFSHAD        130000   Solaris shadow inode for ACL (not seen by userspace)
+       c000   S_IFSOCK   s=   140000   socket (BSD; also "S_IFSOC" on VxFS)
+       d000   S_IFDOOR   D    150000   Solaris door
+       e000   S_IFWHT    w%   160000   BSD whiteout (not used for inode)
+
+       0200   S_ISVTX         001000   `sticky bit': save swapped text even after use (V7)
+                                       reserved (SVID-v2)
+                                       On non-directories: don't cache this file (SunOS)
+                                       On directories: restricted deletion flag (SVID-v4.2)
+       0400   S_ISGID         002000   set group ID on execution (V7)
+                                       for directories: use BSD semantics for propagation of gid
+       0400   S_ENFMT         002000   SysV file locking enforcement (shared w/ S_ISGID)
+       0800   S_ISUID         004000   set user ID on execution (V7)
+       0800   S_CDF           004000   directory is a context dependent file (HP-UX)
+
+       A sticky command appeared in Version 32V AT&T UNIX.
+
+
+SEE ALSO
+       chmod(2), chown(2), readlink(2), utime(2)
+	   

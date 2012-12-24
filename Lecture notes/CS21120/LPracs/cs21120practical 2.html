@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS21120</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial"><P>CS21120&#9;&#9;Practical 2&#9;&#9;Must be signed off by Nov 30</P>
+</B><P>Note change of data!!!</P>
+<B>
+</B><P>Again this practical is about filling in the blanks in what we did in class.</P>
+
+<P>Write a class to implement a SortedList as a linked structure.</P>
+
+<P>Here is a start: you’ll find this in the Lcode directory off the web page or at /aber/compsci/public_html/Dept/Teaching/Courses/CS21120/Lcode/practical2</P>
+
+<P>This code is very nasty but adds into a sorted list</P>
+
+<P>public class ListImplementedLinked {</P>
+<P>    protected  Node head;</P>
+<P>    protected Node current;</P>
+
+<P>    public void add(int theItem) {</P>
+<P>       Node newOne=new Node(theItem);</P>
+<P>       if (head==null){                //empty list</P>
+<P>           head=newOne;</P>
+<P>       }</P>
+<P>       else {</P>
+<P>        Node current=head;</P>
+<P>        Node next=head;</P>
+<P>        while (true) {</P>
+<P>            if (current.data&gt;theItem) break;    //start - jump out</P>
+<P>            next=current.next;</P>
+<P>            if (next==null) break;              //end - jump out</P>
+<P>            if (next.data&gt;theItem) break;       //middle - jump out</P>
+<P>            current = next;</P>
+<P>        }</P>
+
+<P>        if (head==current &amp; current==next) {      //at start</P>
+<P>            head=newOne;</P>
+<P>            newOne.next=current;</P>
+<P>        }</P>
+<P>        else if (next==null) {       //at end</P>
+<P>            current.next=newOne;</P>
+<P>        }</P>
+<P>        else {                       //in middle</P>
+<P>            current.next=newOne;</P>
+<P>            newOne.next=next;</P>
+<P>        }</P>
+<P>       }</P>
+<P>    }</P>
+<P>    </P>
+<P>    public void display() {</P>
+<P>        Node current=head;</P>
+<P>        System.out.println("=========");</P>
+<P>        while (current!=null) {</P>
+<P>            System.out.println(current.data);</P>
+<P>            current=current.next;</P>
+<P>        }</P>
+<P>    }</P>
+<P>    </P>
+<P>    public static void main(String args[]) {</P>
+<P>        ListImplementedLinked l = new ListImplementedLinked();</P>
+<P>        l.add(3); l.add(7); l.add(5); l.add(1);</P>
+<P>        l.add(0);l.add(6);l.add(21);</P>
+<P>        l.display();</P>
+<P>       </P>
+<P>    }</P>
+
+<P>//////////////////////Node is Inner Class here</P>
+<P>class Node {</P>
+<P>    private int data;</P>
+<P>    private Node next;</P>
+
+<P>    protected Node(int theData) {</P>
+<P>        data=theData;</P>
+<P>        next=null;</P>
+<P>    }</P>
+<P>}</P>
+<P>}</P>
+
+<P>This works – you may well be able to improve on it!</P>
+
+<P>There is also a complete listing of Mark’s Linked List code in the Lcode directory – but it doesn’t look at keeping the list sorted – which of necessity involves inserting in the middle.</P>
+
+<P>Anyway – your job is to insert the appropriate code for searching and deleting. Also make the List a List of things that implement the Sortable interface rather than just ints!</P>
+
+<P>If you want even more fun, then implement an iterator for this list.</P>
+
+<P>One way to simplify this tedious code is to have all Lists hold a ‘dummy head node’. That means that the list is never physically empty. It always hold something in the first position that is not logically counted. This cuts down the number of special cases. Having a ‘dummy tail node’ does so even more. </P>
+
+<P>Think about this and try the code that way if you have time.</P></FONT></BODY>
+</HTML>

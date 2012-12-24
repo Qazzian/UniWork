@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.cprogramming.com/tutorial/lesson9.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut9_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut9_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut9_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut9_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut9_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut9_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut9_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut9_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut9_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut9_files/6028366.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 9: Strings</H3>In C++ strings are really arrays, but 
+            there are some different functions that are used for strings, like 
+            adding to strings, finding the length of strings, and also of 
+            checking to see if strings match. <BR><BR>The definition of a string 
+            would be anything that contains more than one character strung 
+            together. For example, "This" is a string. However, single 
+            characters will not be strings, though they can be used as 
+            strings.<BR><BR>Strings are arrays of chars. Static strings are 
+            words surrounded by double quotation marks.<BR><BR>"This is a static 
+            string"<BR><BR>To declare a string of 50 letters, you would want to 
+            say:<BR><BR>char string[50];<BR><BR><BR>This would declare a string 
+            with a length of 50 characters. Do not forget that arrays begin at 
+            zero, not 1 for the index number. In addition, a string ends with a 
+            null character, literally a '/0' character. However, just remember 
+            that there will be an extra character on the end on a string. It is 
+            like a period at the end of a sentence, it is not counted as a 
+            letter, but it still takes up a space. Technically, in a fifty char 
+            array you could only hold 49 letters and one null character at the 
+            end to terminate the string.<BR><BR>TAKE NOTE: char *arry; <BR>Can 
+            also be used as a string. If you have read the tutorial on pointers, 
+            you can do something such as:<BR><BR>arry = new 
+            char[256];<BR><BR>which allows you to access arry just as if it were 
+            an array. Keep in mind that to use delete you must put [] between 
+            delete and arry to tell it to free all 256 bytes of memory 
+            allocated.<BR><BR>For example,<BR>delete [] arry.<BR><BR>Strings are 
+            useful for holding all types of long input. If you want the user to 
+            input his or her name, you must use a string. <BR><BR>Using 
+            cin&gt;&gt; to input a string works, but it will terminate the 
+            string after it reads the first space. The best way to handle this 
+            situation is to use the function cin.getline. Technically cin is a 
+            class, and you are calling one of its member functions. The most 
+            important thing is to understand how to use the function however. 
+            <BR><BR>The prototype for that function is:<BR>cin.getline(char 
+            *buffer, int length, char terminal_char);<BR><BR>The char *buffer is 
+            a pointer to the first element of the character array, so that it 
+            can actually be used to access the array. The int length is simply 
+            how long the string to be input can be at its maximum (how big the 
+            array is). The char terminal_char means that the string will 
+            terminate if the user inputs whatever that character is. Keep in 
+            mind that it will discard whatever the terminal character is. 
+            <BR><BR>It is possible to make a function call of cin.getline(arry, 
+            '\n'); without the length, or vice versa, cin.getline(arry, 50); 
+            without the terminal character. Note that \n is the way of actually 
+            telling the compiler you mean a new line, i.e. someone hitting the 
+            enter key. <BR><BR>For a example:<BR><PRE>#include &lt;iostream.h&gt;
+int main()
+{
+  char string[256];   //A nice long string
+  cout&lt;&lt;"Please enter a long string: ";
+  cin.getline(string, 256, '\n'); //The user input goes into string
+  cout&lt;&lt;"Your long string was:"&lt;&lt;endl&lt;&lt;string;
+  return 0;
+}</PRE>Remember that you are actually passing the address of the 
+            array when you pass string because arrays do not require a reference 
+            operator (&amp;) to be used to pass their address. Other than that, 
+            you could make \n any character you want (make sure to enclose it 
+            with single quotes to inform the compiler of its character status) 
+            to have the getline terminate on that character. <BR><BR>String.h is 
+            a header file that contains many functions for manipulating strings. 
+            One of these is the string comparison function.<BR><BR>int 
+            strcmp(const char *s1, const char *s2);<BR><BR>strcmp will accept 
+            two strings. It will return an integer. This integer will either 
+            be:<BR>Negative if s1 is less than s2.<BR>Zero if s1 and s2 are 
+            equal.<BR>Positive if s1 is greater than s2.<BR><BR>Strcmp is case 
+            sensitive. Strcmp also passes the address of the character array to 
+            the function to allow it to be accessed.<BR><BR>int strcmpi(const 
+            char *s1, const char *s2);<BR><BR>strcmp will accept two strings. It 
+            will return an integer. This integer will either be:<BR>Negative if 
+            s1 is less than s2.<BR>Zero if the s1 and s2 are equal.<BR>Positive 
+            if s1 is greater than s2.<BR><BR>Strcmpi is not case sensitive, if 
+            the words are capitalized it does not matter.<B>Not ANSI 
+            C++</B><BR><BR>char *strcat(char *desc, char *src);<BR><BR>strcat is 
+            short for string concatenate, which means to add to the end, or 
+            append. It adds the second string to the first string. It returns a 
+            pointer to the concatenated string. <BR><BR>char *strupr(char 
+            *s);<BR><BR>strupr converts a string to uppercase. It also returns a 
+            string, which will all be in uppercase. The input string, if it is 
+            an array and not a static string, will also all be uppercase. <B>Not 
+            ANSI C++</B><BR><BR>char *strlwr(char *s);<BR><BR>strlwr converts a 
+            string to lowercase. It also returns a string, which will all be in 
+            uppercase. The input string, if it is an array, will also all be 
+            uppercase.<BR><BR>size_t strlen(const char *s);<BR><BR>strlen will 
+            return the length of a string, minus the termating character(/0). 
+            The size_t is nothing to worry about. Just treat it as an integer, 
+            which it is.<BR><BR><BR>Here is a small program using many of the 
+            previously described functions:<BR><PRE>#include &lt;iostream.h&gt;   //For cout
+#include &lt;string.h&gt;     //For many of the string functions
+int main()
+{
+  char name[50];            //Declare variables
+  char lastname[50];        //This could have been declared on the last line...
+  cout&lt;&lt;"Please enter your name: ";   //Tell the user what to do
+  cin.getline(name, 50, '\n');       //Use gets to input strings with spaces or 
+//just to get strings after the user presses enter
+  if(!strcmpi("Alexander", name))  //The ! means not, strcmpi returns 0 for
+  {                                //equal strings
+    cout&lt;&lt;"That's my name too."&lt;&lt;endl; //Tell the user if its my name
+  }
+  else                              //else is used to keep it from always 
+  {						//outputting this line
+     cout&lt;&lt;"That's not my name.";	 
+  } 
+   cout&lt;&lt;"What is your name in uppercase..."&lt;&lt;endl; 
+  strupr(name);                   //strupr converts the string to uppercase
+  cout&lt;&lt;name&lt;&lt;endl;               
+  cout&lt;&lt;"And, your name in lowercase..."&lt;&lt;endl;
+  strlwr(name);                    //strlwr converts the string to lowercase
+  cout&lt;&lt;name&lt;&lt;endl;
+  cout&lt;&lt;"Your name is "&lt;&lt;strlen(name)&lt;&lt;" letters long"&lt;&lt;endl;  //strlen returns 
+//the length of the string
+  cout&lt;&lt;"Enter your last name:";
+  cin.getline(lastname, 50, '\n'); //lastname is also a string
+  strcat(name, " ");			//We want to space the two names apart
+  strcat(name, lastname);      //Now we put them together, we a space in 
+//the middle
+  cout&lt;&lt;"Your full name is "&lt;&lt;name; //Outputting it all...
+  return 0;
+}
+</PRE></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut9_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

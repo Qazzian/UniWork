@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Development Tools for Embedded Systems</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR></P>
+
+<P><B><FONT SIZE=+1>Hardware/Software Tradeoff.</FONT></B> </P>
+
+<P>Designs are normally modular. The modules are often system functions
+(as in MASCOT). </P>
+
+<P>A module may, in principle, be implemented either in software or in
+hardware. (e.g. MASCOT system elements may be implemented in either.) </P>
+
+<P><B>How to decide?</B> </P>
+
+<P>Let us consider some properties of...Software: </P>
+
+<UL>
+<LI>written in a `conventional' programming language, </LI>
+
+<LI>to run on one or more `conventional' processors. </LI>
+</UL>
+
+<P>Hardware: </P>
+
+<UL>
+<LI>`general purpose' LSI/VLSI - logic devices of varying complexity, plus
+assorted analogue devices. Purchased `off-the-shelf'. </LI>
+
+<LI>ASICS (Application Specific Integrated Circuits). These are chips designed
+for a specific purpose (e.g. a telephone, a calculator), or a specific
+function within a system (e.g. looking for a specific pattern in a data
+stream.) Designed using software tools - including `silicon compilers'.
+A program results in a chip instead of object code! </LI>
+</UL>
+
+<P>A comparison...</P>
+
+<PRE>
+<TT>                          software                 hardware
+                                         gen. purpose     ASICS
+------------------------------------------------------------------
+speed of operation         `low'          `v.high'       `v.high'
+easy to achieve complexity? yes              no             yes
+development costs           ---------------comparable-----------
+maintenance costs
+   - component degradation  nil        appreciable   appreciable 
+   - bug fixes,
+     product enhancement   low-high      high-v.high        high
+------------------------------------------------------------------</TT></PRE>
+
+<P>Hardware potentially gives much more `processing power' than a software
+implementation. Software can be changed but hardware has to be dedicated
+to a specific function. </P>
+
+<P>Hardware implementation of a sub-function adds cost to each unit produced
+(unless it replaces processor, memory, I/O). </P>
+
+<P>Making multiple copies of software is cheap. </P>
+
+<P>Making multiple copies of an ASIC is cheap provided the number is high.
+</P>
+
+<P>PLD's (programmable logic devices) are ASICS of relatively low complexity
+that can be easily user-configured. </P>
+
+<P>Neglecting bug fixes and product enhancement high volume products favour:
+</P>
+
+<UL>
+<LI>software &amp;conventional architecture </LI>
+
+<LI>ASICS </LI>
+
+<LI>or a combination of them (e.g. PCs). </LI>
+</UL>
+
+<P>Low volume products can support more extensive use of general purpose
+chips. (Higher assembly costs.) </P>
+
+<P><B>Some Maintenance Considerations.</B> </P>
+
+<P>Software cannot degrade or drift. Hardware can and does. </P>
+
+<P>A hardware component may suddenly fail. Software that performs correctly
+under a precisely defined set of circumstances will not suddenly cease
+to do so provided that the set of circumstances does not change. </P>
+
+<P>From this point of view software is preferable. </P>
+
+<P>BUT...Software can contain `bugs'. </P>
+
+<P>Hardware and ASICS can contain design errors. These too are `bugs'.
+</P>
+
+<UL>
+<LI>Correcting bugs in delivered products is easier with software (issue
+new ROM, disc, tape) but finding the bug may be expensive. </LI>
+
+<LI>Correcting design errors in `general purpose' logic designs is a major
+task - involves replacement of circuit boards. Expensive! </LI>
+
+<LI>Correcting design errors in ASICS involves replacement (cf PLDs). This
+may involve replacing circuit boards. </LI>
+</UL>
+
+<P>Similar considerations apply to product enhancement, except where enhancement
+opportunities are foreseen at design time. </P>
+
+<P>Determining the appropriate hardware/software tradeoff is not easy:
+</P>
+
+<UL>
+<LI>A hardware implementation always provides more (dedicated) `processing
+power' </LI>
+
+<UL>
+<LI>but there is no point in providing more processing power than is needed
+</LI>
+
+<LI>with hardware, unit costs are likely to be higher, </LI>
+
+<LI>hardware maintenance is likely to be (even) more expensive than software
+maintenance. </LI>
+</UL>
+</UL>
+
+<P>Some simple examples: FPU, DMA, pattern matching, extra processors (DSP?).
+</P>
+
+<P>
+<HR></P>
+
+<ADDRESS><I>jjr@dcs.aber.ac.uk <BR>
+Tue Mar 11 12:52:21 GMT 1997</I> </ADDRESS>
+
+<ADDRESS>
+<HR WIDTH="100%"></ADDRESS>
+
+</BODY>
+</HTML>

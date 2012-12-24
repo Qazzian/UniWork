@@ -1,0 +1,5190 @@
+%-12345X@PJL JOB
+@PJL SET RESOLUTION = 600
+@PJL ENTER LANGUAGE = POSTSCRIPT 
+
+%!PS-Adobe-3.0
+%%Title: PowerPoint -batch_2.ppt
+%%Creator: PSCRIPT.DRV Version 4.0
+%%CreationDate: 02/12/01 11:04:32
+%%BoundingBox: 14 13 581 829 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 2
+%%EndComments
+
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(This job requires more memory than is available in this printer.) 100 500
+(Try one or more of the following, and then print again:) 100 485
+(In the PostScript dialog box, click Optimize For Portability.) 115 470
+(In the Device Options dialog box, make sure the Available Printer Memory is accurate.) 115 455
+(Reduce the number of fonts in the document.) 115 440
+(Print the document in parts.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Nup 2.0 0
+U `/realshowpage 0 |/$m matrix |/nx_nup 0 |/ny_nup 0 |/pagew_nup 0 |/pageh_nup
+0 |/paperw_nup 0 |/paperh_nup 0 |/nups 0 |/pgx_nup 0 |/pgy_nup 0 |
+/papermarg_nup 1 |/pagemarg_nup 10 |/framenup T |/nupv 5 array |/xoffset 0 |
+/yoffset 0 |/borderlinewidth 0 |/angle 0 | E/definenup{/LH/nupshowpage , |
+nupv astore !/pgx_nup 0 store/pgy_nup 0 store}bind |/startnup{/pgy_nup ~ store
+/pgx_nup ~ store nupv aload !/ny_nup ~ store/nx_nup ~ store/pageh_nup ~ store
+/pagew_nup ~ store @/angle ~ store R clippath/nups pathbbox 3 -1 $ sub
+papermarg_nup sub ny_nup V pagemarg_nup sub pageh_nup V ~ 3 -1 $ sub
+papermarg_nup sub nx_nup V pagemarg_nup sub pagew_nup V 2 copy gt{~}if ! store
+nups @ +S/paperw_nup pagew_nup pagemarg_nup nups V add store/paperh_nup
+pageh_nup pagemarg_nup nups V add store pathbbox $m aload ! pagemarg_nup nups
+V @ 8 ^ 11 ^ sub paperh_nup ny_nup mul sub add 2 V ~ 9 ^ 12 ^ sub paperw_nup
+nx_nup mul sub add 2 V 8 -2 $ add 0 gt{9}{neg 7}? ^ add 4 -1 $ sub ~ 5 -2 $
+add 0 gt{5}{neg 3}? ^ add 3 -1 $ sub 2 copy/yoffset ~ store/xoffset ~ store +
+! ! ! !/paperw_nup paperw_nup paperh_nup $m idtransform abs/paperh_nup ~ store
+abs store/pagew_nup pagew_nup pageh_nup $m idtransform abs/pageh_nup ~ store
+abs store $m 0 get abs $m 1 get abs lt{/nx_nup ny_nup/ny_nup nx_nup store
+store}if 0.48 nups V @/borderlinewidth ~ store Lw $m concat pgx_nup paperw_nup
+mul pgy_nup paperh_nup mul + $m matrix invertmatrix concat N startpage}bind |
+/reinitnup{startnup}bind |/startpage{: 0 0 $m transform pagew_nup pageh_nup $m
+dtransform rc}bind |/realshowpage/LH , |/nupshowpage{; $m concat framenup{
+pagemarg_nup 2 V nups V @ $m idtransform abs neg ~ abs neg ~ paperw_nup
+paperh_nup rs}if/pgx_nup pgx_nup 1 add @ nx_nup eq{! 0 store paperw_nup 1
+nx_nup sub mul/pgy_nup pgy_nup 1 add @ ny_nup eq{! 0 store paperh_nup 1 ny_nup
+sub mul}{store paperh_nup}?}{store paperw_nup 0}? + $m matrix invertmatrix
+concat startpage}bind |/finalpage{; realshowpage/LH/realshowpage , |}bind |
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 0 1.000 -1.000 0 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+
+    1 dict
+    dup /Policies 2 dict dup /PageSize 2 put dup /MediaType 0 put put
+    setpagedevice
+    1 dict 
+    dup /ManualFeed false put 
+    setpagedevice
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize A4
+
+    1 dict
+    dup /Policies 2 dict dup /PageSize 2 put dup /MediaType 0 put put
+    setpagedevice
+    2 dict
+    dup /PageSize [595 842] put
+    dup /ImagingBBox null put
+    setpagedevice
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0 0.120 0.120 0 14.000 13.000 ] | 
+%%EndSetup
+
+/$m mysetup store
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Envelope Feeder Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+0 581 829 2 2 definenup
+0 0 startnup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Graphics 2.0 0
+/SavedCTM null |/CTMsave{/SavedCTM SavedCTM currentmatrix |}b/CTMrestore{
+SavedCTM setmatrix}b/mp null |/ADO_mxRot null |/GDIHMatrix null |
+/GDIHPatternDict 22 dict | GDIHPatternDict `/PatternType 1 |/PaintType 2 |
+/Reps L2?{1}{5}? |/XStep 8 Reps mul |/YStep XStep |/BBox[0 0 XStep YStep]|
+/TilingType 1 |/PaintProc{` 1 Lw[]0 setdash PaintData , exec E}b/FGnd null |
+/BGnd null |/HS_Horizontal{horiz}b/HS_Vertical{vert}b/HS_FDiagonal{fdiag}b
+/HS_BDiagonal{biag}b/HS_Cross{horiz vert}b/HS_DiagCross{fdiag biag}b/MaxXYStep
+XStep YStep gt{XStep}{YStep}? |/horiz{Reps{0 4 M XStep 0 - 0 8 +}repeat 0 -8
+Reps mul + K}b/vert{Reps{4 0 M 0 YStep - 8 0 +}repeat 0 -8 Reps mul + K}b/biag
+{Reps{0 0 M MaxXYStep @ - 0 YStep neg M MaxXYStep @ - 0 8 +}repeat 0 -8 Reps
+mul + 0 YStep M 8 8 - K}b/fdiag{Reps{0 0 M MaxXYStep @ neg - 0 YStep M
+MaxXYStep @ neg - 0 8 +}repeat 0 -8 Reps mul + MaxXYStep @ M 8 -8 - K}b E
+/makehatch{GDIHPatternDict/PaintData 3 -1 $ put CTMsave GDIHMatrix setmatrix
+GDIHPatternDict matrix mp CTMrestore ~ U ~ 2 ^ put}b/h0{/h0/HS_Horizontal
+makehatch}b/h1{/h1/HS_Vertical makehatch}b/h2{/h2/HS_FDiagonal makehatch}b/h3{
+/h3/HS_BDiagonal makehatch}b/h4{/h4/HS_Cross makehatch}b/h5{/h5/HS_DiagCross
+makehatch}b/GDIBWPatternDict 17 dict @ `/PatternType 1 |/PaintType L2?{1}{2}?
+|/RepsV L2?{1}{6}? |/RepsH L2?{1}{5}? |/BBox[0 0 RepsH 1]|/TilingType 1 |
+/XStep 1 |/YStep 1 |/Height 8 RepsV mul |/Width 8 |/mx[Width 0 0 Height neg 0
+Height]|/FGnd null |/BGnd null |/SetBGndFGnd L2?{{BGnd null ne{BGnd aload !
+sgco BBox aload ! 2 ^ sub ~ 3 ^ sub ~ rf}if FGnd null ne{FGnd aload ! sgco}if}
+}{{}}? b/PaintProc{` SetBGndFGnd RepsH{Width Height F mx PaintData imagemask
+Width 0 +}repeat E}b E |/GDIBWPatternMx null |/pfprep{save 4 1 $
+/PatternOfTheDay 4 1 $ GDIBWPatternDict `/PaintData ~ |/BGnd ~ |/FGnd ~ | E
+CTMsave GDIBWPatternMx setmatrix GDIBWPatternDict matrix mp CTMrestore ~ !}b
+/hrf null |/prf{pfprep ~ 6 1 $ 5 hrf restore}b/GraphInit{GDIHMatrix null eq{
+/SavedCTM matrix | : ADO_mxRot concat 0 0 snap + : 0.48 @ GDIHPatternDict `
+YStep mul ~ XStep mul ~ dsnap YStep V ~ XStep V ~ E +S/GDIHMatrix matrix
+currentmatrix readonly | ; : 0.24 -0.24 +S GDIBWPatternDict ` Width Height E
+dsnap +S/GDIBWPatternMx matrix currentmatrix readonly | ; ;}if}b/cirp{360 0 An
+C}b/ellp{CTMsave + +S 0.5 0 M 0 0 0.5 360 0 An C CTMrestore}b/rrp{/rad ~ |/y2
+~ |/x2 ~ |/y1 ~ |/x1 ~ | x2 x1 add 2 V y1 M x1 y1 x1 y2 rad arct x1 y2 x2 y2
+rad arct x2 y2 x2 y1 rad arct x2 y1 x1 y1 rad arct C}b/RRp{CTMsave + +S/dyS ~
+|/dxS ~ | dxS 2 V 0 M 0 0 0 dyS 0.5 arct 0 dyS dxS dyS 0.5 arct dxS dyS dxS 0
+0.5 arct dxS 0 0 0 0.5 arct C CTMrestore}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L1 2.0 0
+L2? not g{/arct{arcto ! ! ! !}b/GDIpattfill{@ ` BGnd null ne PaintType 2 eq
+and{: BGnd aload ! sgco fEOFill{O}{L}? ; FGnd aload ! U/fGray 2 ^ put{2}{4}?
+-1 $}if E @ patterncalc : 4 ^/PaintType get 2 eq{fGray{6 -1 $ sg}{8 -3 $ sco}?
+}if fEOFill{eoclip}{clip}? N patternfill ; N}b/hrf{/fGray 1 ^ 6 eq | -4 $ N rp
+C/fEOFill F | GDIpattfill}b/hfMain{/fEOFill ~ |/fGray ~ | GDIpattfill}b/hf{T
+hfMain}b/hfW{F hfMain}b/hs{currentpoint strokepath M hfW}b/pfMain{/fEOFill ~ |
+pfprep GDIpattfill restore N}b/pf{T pfMain}b/pfW{F pfMain}b/ps{currentpoint
+strokepath M pfW}b/mpstr 1 string |/mp{~ @ length 12 add dict copy `
+/PatternCTM matrix currentmatrix |/PatternMatrix ~ |/PatWidth XStep mpstr
+length mul |/PatHeight YStep |/FontType 3 |/Encoding 256 array | 3 string 0 1
+255{Encoding ~ @ 3 ^ cvs cvn put}for !/FontMatrix matrix |/FontBBox BBox |
+/BuildChar{! @ ` XStep 0 FontBBox aload ! setcachedevice/PaintProc , E : exec
+;}b & E ~ @ 3 -1 $ definefont}b/patterncalc{` : PatternCTM setmatrix
+PatternMatrix concat BBox aload ! ! ! + pathbbox ; PatHeight V ceiling 4 1 $
+PatWidth V ceiling 4 1 $ PatHeight V floor 4 1 $ PatWidth V floor 4 1 $ 2 ^
+sub cvi abs ~ 3 ^ sub cvi abs ~ 4 2 $ PatHeight mul ~ PatWidth mul ~ E}b
+/patternfill{5 -1 $ @ ` Ji PatternCTM setmatrix PatternMatrix concat 0 2 ^ 2 ^
+M 0 1 mpstr length 1 sub{1 ^ mpstr 3 1 $ put}for ! 2 ^{currentpoint 5 ^{mpstr
+S}repeat YStep add M}repeat ! ! ! ! E}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L2 2.0 0
+L2? g{/mp/makepattern , |/hrf{6 eq setAorABC setpattern rectfill}b/hf{
+setAorABC setpattern O}b/hfW{setAorABC setpattern L}b/hs{setAorABC setpattern
+K}b/pf{pfprep setpattern O restore N}b/pfW{pfprep setpattern L restore N}b/ps{
+pfprep setpattern K restore N}b}e
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text_Bold 2.0 0
+/mBF{@ 4 copyfont `/FontName ~ |/OrigFontType ~ |/OrigFontName ~ | 0
+FontMatrix idtransform ! &/PaintType known{PaintType 0 eq{/PaintType 2 |
+/StrokeWidth ~ |}{PaintType 1 eq PaintType 2 eq or PaintType 3 eq or &
+/StrokeWidth known and{StrokeWidth add/StrokeWidth ~ |}{!}?}?}{!}? @ & E
+definefont Pscript_Windows_Font 3 1 $ put}b/xBF{Pscript_Windows_Font ` 1 ^
+/FontName get 1 ^ scalefont 3 1 $ scalefont 2 copy ~ | ~ ! | E}b/xMBF{mFM
+astore Pscript_Windows_Font ` 1 ^/FontName get 1 ^ makefont 3 1 $ makefont 2
+copy ~ | ~ ! | E}b/xBF2{/sB0 ~ mBF/sB1 sB0 3 -1 $ xBF sB1}b/xMBF2{/sB0 ~ mBF
+mFM astore/sB1 sB0 3 -1 $ xMBF sB1}b/sB{: Pscript_Windows_Font currentfont get
+Ji @ S ; S}b/asB{: Pscript_Windows_Font currentfont get Ji 3 copy A ; A}b/wsB{
+: Pscript_Windows_Font currentfont get Ji 4 copy W ; W}b/awsB{:
+Pscript_Windows_Font currentfont get Ji 6 copy D ; D}b/sBT3{: @ S ; 1 1 -M S}b
+/asBT3{: 3 copy A ; 1 1 -M A}b/wsBT3{: 4 copy W ; 1 1 -M W}b/awsBT3{: 6 copy D
+; 1 1 -M D}b/mIF{iMat 4 3 -1 $ put 2 copyfont `/OrigFontType ~ |/OrigFontName
+~ | @ & E definefont iMat makefont Pscript_Windows_Font 3 1 $ put}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images 2.0 0
+/iw 0 |/ih 0 |/im_save 0 |/s 0 |/polarity 0 |/smoothflag 0 |/mystring 0 |/bpc
+0 |/setup1asciiproc{[currentfile mystring/readhexstring cvx/! cvx]cvx bind}b
+/setup1binaryproc{[currentfile mystring/readstring cvx/! cvx]cvx bind}b
+/setup2asciiproc{currentfile/ASCII85Decode filter/RunLengthDecode filter}b
+/setup2binaryproc{currentfile/RunLengthDecode filter}b/mycolorspace{colspABC}|
+/myimagedict{/myimagedict 10 dict | myimagedict @ `/ImageType 1 |
+/MultipleDataSource F | E}b/imageprocarray[/setup1binaryproc/setup1asciiproc
+/setup2binaryproc/setup2asciiproc/setup1binarydecodeproc/setup1asciidecodeproc
+]|/L2Polarity{{[1 0]}{[0 1]}?}b/Q{/im_save save | imageprocarray ~ get/s ~ , |
+L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring ~
+string |/bpc ~ |/ih ~ |/iw ~ |}b/X{/im_save save | imageprocarray ~ get/s ~ ,
+| L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring
+~ string |/bpc ~ |/ih ~ |/iw ~ |}b/Z{im_save restore}b/Y{sgco myimagedict @ `
+/Width iw |/Height ih |/Decode polarity |/ImageMatrix[iw 0 0 ih 0 0]|
+/DataSource s |/BitsPerComponent 1 |/Interpolate smoothflag | E imagemask}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images_L1 2.0 0
+L2? not g{/setup2asciiproc{[/Level2ImagesError , aload ! T FatalErrorIf}b
+/setup2binaryproc/setup2asciiproc , |/L2Polarity{}|/Y{sgco iw ih polarity[iw 0
+0 ih 0 0]s imagemask}b}e
+%%EndResource
+
+userdict /Level2ImagesError [
+(This job contains a bitmapped image that can be printed only on) 100 500
+(PostScript(R) Level 2 printers.  Please send this file to a PostScript) 100 485
+(Level 2 printer, or print your document again with the correct printer) 100 470
+(selected.) 100 455
+12 /Times-Roman
+] put
+
+%%BeginResource: file Pscript_Win_Co_Images_L1 2.0 0
+L2? not g{/testsystemdict{where{systemdict eq{T}{F}?}{F}?}b/c 1 |/colorimage
+where{! T}{F}?{/c 0 statusdict `/processcolors where{! ! processcolors}{
+/deviceinfo where{! deviceinfo/Colors known{!{deviceinfo/Colors get}}if}if}? E
+| c 0 ne{/colorimage testsystemdict/setcolortransfer testsystemdict
+/currentcolortransfer testsystemdict/currentcmykcolor testsystemdict and and
+and not{/c 0 |}if}if}if c @ 1 ne ~ @ 3 ne ~ 4 ne and and{/c 0 |}if c 1 eq g{
+/expandbw{expandfactor mul round cvi bwclut ~ get 255 V}b/doclutimage{!/bwclut
+~ | bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/expandfactor ~ |[/expandbw ,/exec , @
+currenttransfer ~]cvx bind settransfer iw ih bpc[iw 0 0 ih 0 0]s image}b}e c @
+3 eq ~ 4 eq or g{/nullproc{{}}|/concatutil{/exec , 7 -1 $/exec ,}b/defsubclut{
+1 add getinterval |}b/spconcattransfer{/Dclut ~ |/Cclut ~ |/Bclut ~ |/Aclut ~
+|/ncompute ~ , | currentcolortransfer[{Aclut ncompute}concatutil]cvx[{Bclut
+ncompute}concatutil]cvx[{Cclut ncompute}concatutil]cvx[{Dclut ncompute}
+concatutil]cvx setcolortransfer}b/setuprgbcluts{/bit3x rgbclut length 3 sub |
+/bit1x bit3x 3 idiv |/rclut rgbclut |/gclut rclut 1 bit3x defsubclut/bclut
+rclut 2 bit3x defsubclut}b}e c 3 eq g{/3compute{~ bit3x mul round cvi get 255
+V}b/doclutimage{/rgbclut ~ | ! setuprgbcluts/3compute rclut gclut bclut @
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @]cvx nullproc nullproc
+T 3 colorimage}b}e c 4 eq g{/ftoint{1 ~ sub 255 mul round cvi}b/stuffclut{
+cmykindex 3 -1 $ put}b/4compute{~ bit4x mul round cvi get 255 V}b
+/invalidcolortable? T |/computecmykclut{setuprgbcluts/bit4x rgbclut length 3
+idiv 4 mul 4 sub |/cmykclut bit4x 4 add string |/cclut cmykclut |/mclut cclut
+1 bit4x defsubclut/yclut cclut 2 bit4x defsubclut/kclut cclut 3 bit4x
+defsubclut/cmykindex 0 | 0 1 bit1x{@/cmykindex ~ bit1x ~ sub 4 mul | 3 mul @
+rclut ~ get 255 V ~ @ gclut ~ get 255 V ~ bclut ~ get 255 V setrgbcolor
+currentcmykcolor ftoint kclut stuffclut ftoint yclut stuffclut ftoint mclut
+stuffclut ftoint cclut stuffclut}for}b/doclutimage{/rgbclut ~ | !
+invalidcolortable?{computecmykclut}if/4compute cclut mclut yclut kclut
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @ @]cvx nullproc
+nullproc nullproc T 4 colorimage}b}e c 0 eq g{/a{3 mul 3 getinterval
+putinterval ~ 3 add ~ 3 copy}b/8lookup/a , |/4lookup{/byte 1 ^ | -4 bitshift a
+byte 15 and a}b/2lookup{/byte 1 ^ | -6 bitshift a byte -4 bitshift 3 and a
+byte -2 bitshift 3 and a byte 3 and a}b/colorexpand{mystringexp 0 rgbclut 3
+copy 7 -1 $/mylookup , forall ! ! ! ! !}b/createexpandstr{/mystringexp ~
+mystring length mul string |}b/doclutimage{/rgbclut ~ | !/mylookup bpc 8 eq{3
+createexpandstr/8lookup}{bpc 4 eq{6 createexpandstr/4lookup}{12
+createexpandstr/2lookup}?}? , | iw ih bpc[iw 0 0 ih 0 0][s/exec ,/colorexpand
+,/exec ,]cvx F 3 colorimage}b}e/colorimage where{! T}{F}? g{/do24image{iw ih 8
+[iw 0 0 ih 0 0]s F 3 colorimage}b}DefIf_El{/rgbtogray{/str ~ |/len str length
+|/smlen len 3 idiv |/rstr str |/gstr str 1 len 1 sub getinterval |/bstr str 2
+len 2 sub getinterval | str @ 0 1 smlen 1 sub{@ 3 mul rstr 1 ^ get 0.3 mul
+gstr 2 ^ get 0.59 mul add bstr 3 -1 $ get 0.11 mul add round cvi put @}for ! 0
+smlen getinterval}b/do24image{iw ih 8[iw 0 0 ih 0 0][s/exec ,/rgbtogray ,/exec
+,]cvx bind image}b}e/doNimage{bpc 24 eq{do24image}{iw ih bpc[iw 0 0 ih 0 0]s
+image}?}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Co_Images_L2 2.0 0
+L2? g{/doclutimage{/rgbclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[
+/Indexed colspABC hival rgbclut]setcolorspace myimagedict @ `/Width iw |
+/Height ih |/Decode[0 hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |
+/BitsPerComponent bpc |/Interpolate smoothflag | E image}b/doCMYKclutimage{
+/CMYKclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[/Indexed/DeviceCMYK
+hival CMYKclut]setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0
+hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent bpc |
+/Interpolate smoothflag | E image}b/doNimage{bpc 24 eq{colspABC}{colspA}?
+setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode bpc 24 eq{[0 1 0 1
+0 1]}{[0 1]}? |/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent
+bpc 24 eq{8}{bpc}? |/Interpolate smoothflag | E image}b/doCMYKimage{
+/DeviceCMYK setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0 1 0
+1 0 1 0 1]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent 8 |
+/Interpolate smoothflag | E image}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Type1_Hdr 2.0 0
+/FEbuf 2 string |/FEglyph 3 string |/FE{(G00)FEglyph copy ! 1 ~{@ 16 lt{
+/offset 2 store}{/offset 1 store}? @ 16 FEbuf cvrs FEglyph ~ offset ~
+putinterval 1 ^ ~ FEglyph cvn put}for}bind |/Type1Hdr{11 dict `/FontName ~ |
+/PaintType ~ |/FontType 1 |/FontMatrix[1 3 ^ V 0 0 1 6 ^ V 0 0]| !/Encoding
+256 array 0 1 255{1 ^ ~/.notdef put}for 3 ^ 3 ^ FE | ! !/FontBBox{0 0 0 0}| &
+E currentfile eexec}bind |
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Type3_Hdr 2.0 0
+/GreNewFont{10 dict @ 3 1 $ | @ ` 4 1 $/FontType 3 |/FontMatrix ~ |/FontBBox ~
+|/Encoding 256 array | 0 1 255{Encoding ~/.notdef put}for/CharProcs 257 dict |
+CharProcs/.notdef{}put/Metrics 257 dict | Metrics/.notdef 3 -1 $ put/BuildChar
+{/char ~ |/fontdict ~ |/charname fontdict/Encoding get char get | fontdict
+/Metrics get charname get aload ! setcachedevice fontdict ` Encoding char get
+CharProcs ~ get E exec}| E definefont !}|/AddChar{` Encoding 3 1 $ put
+CharProcs 3 1 $ put Metrics 3 1 $ put E}|
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Compat 2.0 0
+userdict/Pscript_Win_Compat 13 dict dup begin/bd{bind def}bind def/ld{load def
+}bd/CB{pop pop pop pop}bind def/B{pop pop pop pop}bind def/$x matrix def/SS{
+/pagesave save def}bind def/RS{/pagesave where{pop pagesave restore}{$x matrix
+invertmatrix concat}ifelse}bind def/ANSIVec[0/grave 1/acute 2/circumflex 3
+/tilde 4/macron 5/breve 6/dotaccent 7/dieresis 8/ring 9/cedilla 10
+/hungarumlaut 11/ogonek 12/caron 13/dotlessi 39/quotesingle 96/grave 124/bar
+130/quotesinglbase 131/florin 132/quotedblbase 133/ellipsis 134/dagger 135
+/daggerdbl 136/circumflex 137/perthousand 138/Scaron 139/guilsinglleft 140/OE
+145/quoteleft 146/quoteright 147/quotedblleft 148/quotedblright 149/bullet 150
+/endash 151/emdash 152/tilde 153/trademark 154/scaron 155/guilsinglright 156
+/oe 159/Ydieresis 160/space 161/exclamdown 164/currency 165/yen 166/brokenbar
+167/section 168/dieresis 169/copyright 170/ordfeminine 171/guillemotleft 172
+/logicalnot 173/hyphen 174/registered 175/macron 176/degree 177/plusminus 178
+/twosuperior 179/threesuperior 180/acute 181/mu 182/paragraph 183
+/periodcentered 184/cedilla 185/onesuperior 186/ordmasculine 187
+/guillemotright 188/onequarter 189/onehalf 190/threequarters 191/questiondown
+192/Agrave 193/Aacute 194/Acircumflex 195/Atilde 196/Adieresis 197/Aring 198
+/AE 199/Ccedilla 200/Egrave 201/Eacute 202/Ecircumflex 203/Edieresis 204
+/Igrave 205/Iacute 206/Icircumflex 207/Idieresis 208/Eth 209/Ntilde 210/Ograve
+211/Oacute 212/Ocircumflex 213/Otilde 214/Odieresis 215/multiply 216/Oslash
+217/Ugrave 218/Uacute 219/Ucircumflex 220/Udieresis 221/Yacute 222/Thorn 223
+/germandbls 224/agrave 225/aacute 226/acircumflex 227/atilde 228/adieresis 229
+/aring 230/ae 231/ccedilla 232/egrave 233/eacute 234/ecircumflex 235/edieresis
+236/igrave 237/iacute 238/icircumflex 239/idieresis 240/eth 241/ntilde 242
+/ograve 243/oacute 244/ocircumflex 245/otilde 246/odieresis 247/divide 248
+/oslash 249/ugrave 250/uacute 251/ucircumflex 252/udieresis 253/yacute 254
+/thorn 255/ydieresis]def currentdict{dup type/operatortype eq{[exch]cvx def}{
+pop pop}ifelse}forall/initialize{currentdict exch begin begin}bind def
+/terminate{/@FL where not{pop end end}{pop}ifelse}bind def/suspend/terminate
+load def/resume/initialize load def/M/moveto load def end put/Courier findfont
+10 scalefont setfont
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 
+4134 4611 N M 2265 0 - 0 -398 - -3852 -2322 - 168 124 - 137 105 - 155 133 - 150 141 - 220 238 - 195 254 - 142 222 - 124 230 - 96 229 - 72 209 - 48 177 - 46 220 - 22 192 - 12 246 - C clip C 
+2547 4611 N M 49 -2720 rr : 0.659 0.659 0.659 sco O ; 
+2596 4611 N M 48 -2720 rr : 0.651 0.651 0.651 sco O ; 
+2644 4611 N M 49 -2720 rr : 0.651 0.651 0.651 sco O ; 
+2693 4611 N M 49 -2720 rr : 0.643 0.643 0.643 sco O ; 
+2742 4611 N M 48 -2720 rr : 0.631 0.631 0.631 sco O ; 
+2790 4611 N M 49 -2720 rr : 0.631 0.631 0.631 sco O ; 
+2839 4611 N M 49 -2720 rr : 0.627 0.627 0.627 sco O ; 
+2888 4611 N M 47 -2720 rr : 0.620 0.620 0.620 sco O ; 
+2935 4611 N M 49 -2720 rr : 0.616 0.616 0.616 sco O ; 
+2984 4611 N M 48 -2720 rr : 0.608 0.608 0.608 sco O ; 
+3032 4611 N M 49 -2720 rr : 0.604 0.604 0.604 sco O ; 
+3081 4611 N M 49 -2720 rr : 0.592 0.592 0.592 sco O ; 
+3130 4611 N M 48 -2720 rr : 0.592 0.592 0.592 sco O ; 
+3178 4611 N M 49 -2720 rr : 0.584 0.584 0.584 sco O ; 
+3227 4611 N M 49 -2720 rr : 0.580 0.580 0.580 sco O ; 
+3276 4611 N M 48 -2720 rr : 0.573 0.573 0.573 sco O ; 
+3324 4611 N M 49 -2720 rr : 0.569 0.569 0.569 sco O ; 
+3373 4611 N M 49 -2720 rr : 0.565 0.565 0.565 sco O ; 
+3422 4611 N M 48 -2720 rr : 0.557 0.557 0.557 sco O ; 
+3470 4611 N M 49 -2720 rr : 0.549 0.549 0.549 sco O ; 
+3519 4611 N M 49 -2720 rr : 0.545 0.545 0.545 sco O ; 
+3568 4611 N M 48 -2720 rr : 0.541 0.541 0.541 sco O ; 
+3616 4611 N M 49 -2720 rr : 0.533 0.533 0.533 sco O ; 
+3665 4611 N M 49 -2720 rr : 0.529 0.529 0.529 sco O ; 
+3714 4611 N M 47 -2720 rr : 0.522 0.522 0.522 sco O ; 
+3761 4611 N M 49 -2720 rr : 0.518 0.518 0.518 sco O ; 
+3810 4611 N M 48 -2720 rr : 0.514 0.514 0.514 sco O ; 
+3858 4611 N M 49 -2720 rr : 0.506 0.506 0.506 sco O ; 
+3907 4611 N M 49 -2720 rr : 0.498 0.498 0.498 sco O ; 
+3956 4611 N M 48 -2720 rr : 0.494 0.494 0.494 sco O ; 
+4004 4611 N M 49 -2720 rr : 0.494 0.494 0.494 sco O ; 
+4053 4611 N M 49 -2720 rr : 0.478 0.478 0.478 sco O ; 
+4102 4611 N M 48 -2720 rr : 0.475 0.475 0.475 sco O ; 
+4150 4611 N M 49 -2720 rr : 0.471 0.471 0.471 sco O ; 
+4199 4611 N M 49 -2720 rr : 0.471 0.471 0.471 sco O ; 
+4248 4611 N M 48 -2720 rr : 0.459 0.459 0.459 sco O ; 
+4296 4611 N M 49 -2720 rr : 0.451 0.451 0.451 sco O ; 
+4345 4611 N M 49 -2720 rr : 0.451 0.451 0.451 sco O ; 
+4394 4611 N M 48 -2720 rr : 0.443 0.443 0.443 sco O ; 
+4442 4611 N M 49 -2720 rr : 0.439 0.439 0.439 sco O ; 
+4491 4611 N M 48 -2720 rr : 0.431 0.431 0.431 sco O ; 
+4539 4611 N M 49 -2720 rr : 0.424 0.424 0.424 sco O ; 
+4588 4611 N M 48 -2720 rr : 0.424 0.424 0.424 sco O ; 
+4636 4611 N M 48 -2720 rr : 0.416 0.416 0.416 sco O ; 
+4684 4611 N M 49 -2720 rr : 0.408 0.408 0.408 sco O ; 
+4733 4611 N M 49 -2720 rr : 0.404 0.404 0.404 sco O ; 
+4782 4611 N M 48 -2720 rr : 0.400 0.400 0.400 sco O ; 
+4830 4611 N M 49 -2720 rr : 0.396 0.396 0.396 sco O ; 
+4879 4611 N M 49 -2720 rr : 0.388 0.388 0.388 sco O ; 
+4928 4611 N M 48 -2720 rr : 0.380 0.380 0.380 sco O ; 
+4976 4611 N M 49 -2720 rr : 0.376 0.376 0.376 sco O ; 
+5025 4611 N M 49 -2720 rr : 0.373 0.373 0.373 sco O ; 
+5074 4611 N M 48 -2720 rr : 0.365 0.365 0.365 sco O ; 
+5122 4611 N M 49 -2720 rr : 0.357 0.357 0.357 sco O ; 
+5171 4611 N M 49 -2720 rr : 0.353 0.353 0.353 sco O ; 
+5220 4611 N M 48 -2720 rr : 0.345 0.345 0.345 sco O ; 
+5268 4611 N M 49 -2720 rr : 0.341 0.341 0.341 sco O ; 
+5317 4611 N M 48 -2720 rr : 0.333 0.333 0.333 sco O ; 
+5365 4611 N M 49 -2720 rr : 0.329 0.329 0.329 sco O ; 
+5414 4611 N M 49 -2720 rr : 0.325 0.325 0.325 sco O ; 
+5463 4611 N M 47 -2720 rr : 0.318 0.318 0.318 sco O ; 
+5510 4611 N M 49 -2720 rr : 0.314 0.314 0.314 sco O ; 
+5559 4611 N M 49 -2720 rr : 0.306 0.306 0.306 sco O ; 
+5608 4611 N M 48 -2720 rr : 0.302 0.302 0.302 sco O ; 
+5656 4611 N M 49 -2720 rr : 0.298 0.298 0.298 sco O ; 
+5705 4611 N M 694 -2720 rr : 0.298 0.298 0.298 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+-280.500 4611.500 + 8819 7075 +S 
+0 0 0.500 -0.008 -81.436 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 924 450 5476 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1309 450 M 
+-0.696 0 (C)A 
+-1.456 0 (S)A 
+0.392 0 (2)A 
+-0.608 0 (3)A 
+-1.608 0 (7)A 
+0.304 0 32 -0.608 0 (10 )D 
+0.392 0 32 -0.696 0 (C )D 
+-1.456 0 (P)A 
+0.456 0 (r)A 
+-1.608 0 (o)A 
+-0.608 0 (g)A 
+-0.544 0 (r)A 
+-0.608 0 (a)A 
+-1.544 0 (m)A 
+-0.544 0 (m)A 
+0.304 0 (i)A 
+-0.608 0 (n)A 
+-1.608 0 (g)A 
+; : 924 890 5476 411 rc 0 0 0 sco F0_368
+Ji 
+1309 890 M 
+-0.544 0 (\()A 
+-0.696 0 32 -0.608 0 (and )D 
+0.304 0 (U)A 
+-0.696 0 (N)A 
+-0.304 0 (I)A 
+-2.456 0 (X)A 
+-1.760 0 32 0.456 0 (\) )D 
+-0.456 0 (B)A 
+-0.608 0 (a)A 
+-0.304 0 (t)A 
+(c)S 
+-1.608 0 (h)A 
+-0.608 0 (_)A 
+-0.848 0 (T)A 
+-0.696 0 (w)A 
+-0.608 0 (o)A 
+; : 621 2588 5779 295 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.891 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+910 2588 M 
+0.948 0 (D)A 
+-0.104 0 (a)A 
+1.000 0 (v)A 
+0.052 0 (i)A 
+0.500 0 32 (d )W 
+0.104 0 (P)A 
+-0.578 0 (r)A 
+0.052 0 (i)A 
+0.896 0 (ce)A 
+; : 621 2971 5779 295 rc 0 0 0 sco F2_266
+Ji 
+910 2971 M 
+0.578 0 (C)A 
+(o)S 
+1.052 0 (m)A 
+(pu)S 
+0.052 0 (t)A 
+0.896 0 (e)A 
+-0.922 0 32 0.422 0 (r )D 
+0.104 0 (S)A 
+0.896 0 (c)A 
+0.052 0 (i)A 
+0.896 0 (e)A 
+(n)S 
+-0.104 0 (c)A 
+0.896 0 (e)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Page: 2 2
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1130 113 5270 393 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1515 95 M 
+-0.696 0 (D)A 
+-0.608 0 (e)A 
+-1.000 0 (c)A 
+-0.696 0 (i)A 
+(s)S 
+-0.696 0 (i)A 
+0.304 0 32 -0.608 0 (on )D 
+-1.608 0 (o)A 
+-1.760 0 32 0.456 0 (r )D 
+0.304 0 (C)A 
+-1.608 0 (o)A 
+-0.608 0 (n)A 
+0.392 0 (d)A 
+-0.696 0 (i)A 
+-0.304 0 (t)A 
+-0.696 0 (i)A 
+-0.608 0 (ona)A 
+0.304 0 (l)A 
+; : 2088 534 4312 411 rc 0 0 0 sco F0_368
+Ji 
+2473 534 M 
+-0.456 0 (S)A 
+-0.304 0 (t)A 
+-1.608 0 (a)A 
+-0.304 0 (t)A 
+-0.608 0 (e)A 
+-1.544 0 (m)A 
+0.392 0 (e)A 
+-0.608 0 (n)A 
+-1.304 0 (t)A 
+-1.000 0 (s)A 
+; : 1668 1150 4732 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1910 1150 M 
+0.226 0 (i)A 
+-0.661 0 32 0.411 0 (f )D 
+0.339 0 32 -0.589 0 (\( )D 
+1.548 0 (e)A 
+-0.500 0 (x)A 
+-0.548 0 (p)A 
+1.548 0 (r)A 
+-0.452 0 (e)A 
+-0.637 0 (s)A 
+1.363 0 (s)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+1.298 0 32 -0.548 0 (n )D 
+-0.661 0 32 0.411 0 (\) )D 
+0.363 0 (s)A 
+0.411 0 (t)A 
+0.500 0 (a)A 
+-0.589 0 (t)A 
+0.548 0 (e)A 
+-0.089 0 (m)A 
+0.548 0 (e)A 
+-0.548 0 (n)A 
+0.411 0 (t)A 
+; : 1668 1710 4732 263 rc 0 0 0 sco F2_233
+Ji 
+1910 1710 M 
+0.226 0 (i)A 
+-0.661 0 32 0.411 0 (f )D 
+0.339 0 32 -0.589 0 (\( )D 
+1.548 0 (e)A 
+-0.500 0 (x)A 
+-0.548 0 (p)A 
+1.548 0 (r)A 
+-0.452 0 (e)A 
+-0.637 0 (s)A 
+1.363 0 (s)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+1.298 0 32 -0.548 0 (n )D 
+-0.661 0 32 0.411 0 (\) )D 
+0.363 0 (s)A 
+0.411 0 (t)A 
+0.500 0 (a)A 
+-0.589 0 (t)A 
+0.548 0 (e)A 
+-0.089 0 (m)A 
+0.548 0 (e)A 
+-0.548 0 (n)A 
+0.411 0 (t)A 
+0.500 0 (1)A 
+; : 1668 1991 4732 263 rc 0 0 0 sco F2_233
+Ji 
+1910 1991 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.452 0 (e)A 
+0.226 0 (l)A 
+0.363 0 (s)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.363 0 (s)A 
+0.411 0 (t)A 
+0.500 0 (a)A 
+0.411 0 (t)A 
+-0.452 0 (e)A 
+0.911 0 (m)A 
+-0.452 0 (e)A 
+0.452 0 (n)A 
+-0.589 0 (t)A 
+0.500 0 (2)A 
+; : 847 2553 5553 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+0 232 12 sSU 
+1100 2553 M 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+1.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (ss)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+-998 sU 
+; : 1845 2553 4555 262 rc 0 0 0 sco F4_233
+Ji 
+2098 2553 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+; : 400 113 6000 4500 rc 0 0 0 sco %%IncludeFont: Symbol
+(F6) cvn
+1.010 
+ (Symbol) cvn /Type1 
+F 
+(Symbol) cvn
+mF 
+(F6_200) cvn
+F6
+200 
+xF 
+F6_200
+Ji 
+2215 2560 M 
+0.800 0 32 -0.800 0 (\272  )D 
+; : 2217 2579 4183 226 rc 0 0 0 sco (F2_200) cvn
+F2
+200 
+xF 
+F2_200
+Ji 
+2424 2579 M 
+-0.200 0 (F)A 
+0.600 0 (A)A 
+-0.400 0 (L)A 
+-0.200 0 (S)A 
+0.600 0 (E)A 
+; : 2852 2582 3548 225 rc 0 0 0 sco (F4_200) cvn
+F4
+200 
+xF 
+F4_200
+Ji 
+3069 2582 M 
+(   )S 
+-0.600 0 (i)A 
+-0.400 0 32 0.400 0 (f  )D 
+0.200 0 (ze)A 
+0.400 0 (r)A 
+(o)S 
+; : 883 2832 5517 225 rc 0 0 0 sco F4_200
+Ji 
+1100 2832 M 
+(                          )S 
+; : 2193 2829 4207 226 rc 0 0 0 sco F2_200
+Ji 
+2400 2829 M 
+-0.400 0 (T)A 
+0.600 0 (R)A 
+-0.400 0 (UE)A 
+; : 2738 2832 3662 225 rc 0 0 0 sco F4_200
+Ji 
+2955 2832 M 
+( o)S 
+-0.600 0 (t)A 
+(h)S 
+1.200 0 (e)A 
+-0.600 0 (r)A 
+-0.400 0 (w)A 
+0.400 0 (i)A 
+0.200 0 (s)A 
+-0.800 0 (e)A 
+; : 1375 3252 5025 260 rc 0 0 0 sco %%IncludeFont: Times-BoldItalic
+(F10) cvn
+0.901 
+ (Times-BoldItalic) cvn /Type1 
+T 
+(Times-BoldItalic) cvn
+mF 
+(F10_233) cvn
+F10
+233 
+xF 
+F10_233
+Ji 
+0 233 12 sSU 
+1650 3252 M 
+-0.452 0 (e)A 
+1.226 0 (l)A 
+-0.637 0 (s)A 
+0.548 0 (e)A 
+-363 sU 
+; : 1760 3253 4640 262 rc 0 0 0 sco F4_233
+Ji 
+2013 3253 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 ( )W 
+-0.274 0 (m)A 
+0.548 0 (a)A 
+0.226 0 (t)A 
+-0.452 0 (c)A 
+0.500 0 (h)A 
+0.548 0 (e)A 
+-0.613 0 32 0.363 0 (s )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+0.202 0 32 0.548 0 (e )D 
+-0.452 0 (c)A 
+-0.774 0 (l)A 
+0.500 0 (o)A 
+0.363 0 (s)A 
+0.548 0 (e)A 
+-0.637 0 (s)A 
+-0.476 0 32 0.226 0 (t )D 
+1.548 0 (e)A 
+-0.774 0 (l)A 
+0.363 0 (s)A 
+-0.452 0 (e)A 
+1.226 0 (l)A 
+-0.452 0 (e)A 
+-0.637 0 (s)A 
+-0.613 0 32 0.363 0 (s )D 
+; : 4543 3252 1857 260 rc 0 0 0 sco F10_233
+Ji 
+0 233 12 sSU 
+4818 3252 M 
+0.226 0 (i)A 
+0.411 0 (f)A 
+-143 sU 
+; : 1397 3814 5003 262 rc 0 0 0 sco F4_233
+Ji 
+1650 3814 M 
+0.637 0 (L)A 
+-0.452 0 (a)A 
+0.500 0 (y)A 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+1.524 0 32 -0.774 0 (t )D 
+0.226 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.500 0 (pu)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.226 0 (l)A 
+1.250 0 32 -0.500 0 (y )D 
+0.548 0 (c)A 
+-0.500 0 (o)A 
+0.500 0 (nv)A 
+-0.452 0 (e)A 
+-0.500 0 (n)A 
+0.226 0 (ti)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+0.548 0 (a)A 
+0.226 0 (l)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 2 ]%%)  =
+%%PageTrailer
+
+%%Page: 3 3
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1720 445 4680 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2105 445 M 
+-0.608 0 (Lo)A 
+-1.608 0 (o)A 
+0.392 0 (p)A 
+-0.696 0 (i)A 
+0.304 0 32 -0.608 0 (ng )D 
+-0.696 0 (C)A 
+-0.608 0 (o)A 
+-1.608 0 (n)A 
+-0.304 0 (t)A 
+-0.544 0 (r)A 
+-0.608 0 (o)A 
+0.304 0 (l)A 
+; : 1323 884 5077 411 rc 0 0 0 sco F0_368
+Ji 
+1708 884 M 
+0.240 0 32 -0.544 0 (- )D 
+-0.304 0 (t)A 
+-0.608 0 (h)A 
+1.304 0 32 -1.608 0 (e )D 
+-0.696 0 (w)A 
+-0.608 0 (h)A 
+-0.696 0 (i)A 
+1.304 0 (l)A 
+1.304 0 32 -1.608 0 (e )D 
+-1.000 0 (s)A 
+-0.304 0 (t)A 
+0.392 0 (a)A 
+-1.304 0 (t)A 
+-0.608 0 (e)A 
+-1.544 0 (m)A 
+-0.608 0 (en)A 
+-0.304 0 (t)A 
+; : 1558 2100 4842 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1800 2100 M 
+0.774 0 (w)A 
+-0.548 0 (h)A 
+1.226 0 (i)A 
+-0.774 0 (l)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.661 0 32 0.411 0 (\( )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.452 0 (p)A 
+-0.452 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (ss)A 
+-0.774 0 (i)A 
+0.500 0 (o)A 
+-0.702 0 32 0.452 0 (n )D 
+1.339 0 32 -0.589 0 (\) )D 
+0.363 0 (s)A 
+0.411 0 (t)A 
+-0.500 0 (a)A 
+0.411 0 (t)A 
+-0.452 0 (e)A 
+0.911 0 (m)A 
+-0.452 0 (e)A 
+1.452 0 (n)A 
+-0.589 0 (t)A 
+; : 1097 2953 5303 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+1350 2953 M 
+0.637 0 (E)A 
+-0.500 0 (v)A 
+0.548 0 (a)A 
+-0.774 0 (l)A 
+0.500 0 (u)A 
+0.548 0 (a)A 
+0.226 0 (t)A 
+-0.798 0 32 0.548 0 (e )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+1.202 0 32 -0.452 0 (e )D 
+0.548 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (ss)A 
+-0.774 0 (i)A 
+0.500 0 (on)A 
+-0.250 0 (, )A 
+0.226 0 (i)A 
+-0.661 0 32 0.411 0 (f )D 
+0.226 0 (i)A 
+-1.476 0 32 1.226 0 (t )D 
+-0.774 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.226 0 (t)A 
+0.411 0 (r)A 
+0.500 0 (u)A 
+-0.452 0 (e)A 
+; : 1097 3233 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 3233 M 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (n )D 
+0.548 0 (e)A 
+-0.500 0 (x)A 
+0.548 0 (ec)A 
+-0.500 0 (u)A 
+0.226 0 (t)A 
+-0.798 0 32 0.548 0 (e )D 
+0.226 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.363 0 (s)A 
+0.226 0 (t)A 
+-0.452 0 (a)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+-0.274 0 (m)A 
+-0.452 0 (e)A 
+0.500 0 (n)A 
+-1.476 0 32 1.226 0 (t )D 
+-0.452 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+-0.774 0 (l)A 
+0.500 0 (oo)A 
+1.250 0 32 -0.500 0 (p b)D 
+1.548 0 (a)A 
+-0.452 0 (c)A 
+1.250 0 32 -0.500 0 (k )D 
+-0.774 0 (t)A 
+0.500 0 (o)A 
+; : 1097 3514 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 3514 M 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.411 0 (-)A 
+0.548 0 (e)A 
+-0.500 0 (v)A 
+-0.452 0 (a)A 
+1.226 0 (l)A 
+0.500 0 (u)A 
+-0.452 0 (a)A 
+-0.774 0 (t)A 
+0.202 0 32 0.548 0 (e )D 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.548 0 (c)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.363 0 (s)A 
+0.226 0 (i)A 
+-0.500 0 (d)A 
+-0.452 0 (e)A 
+0.339 0 32 0.411 0 (r )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 0.548 0 (e )D 
+-0.452 0 (e)A 
+-0.500 0 (x)A 
+0.500 0 (p)A 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (ss)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.750 0 (.)A 
+; : 1097 3794 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 3794 M 
+0.411 0 (I)A 
+1.339 0 32 -0.589 0 (f )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e )D 
+-0.452 0 (e)A 
+0.500 0 (xp)A 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (ss)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+1.250 0 32 -0.500 0 (n )D 
+-0.774 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.411 0 (f)A 
+-0.452 0 (a)A 
+1.226 0 (l)A 
+0.363 0 (s)A 
+0.202 0 32 -0.452 0 (e )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (n g)D 
+0.226 0 (i)A 
+-0.500 0 (v)A 
+-0.798 0 32 0.548 0 (e )D 
+0.500 0 (u)A 
+-0.500 0 (p)A 
+0.750 0 (.)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 3 ]%%)  =
+%%PageTrailer
+
+%%Page: 4 4
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1720 445 4680 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2105 445 M 
+-0.608 0 (Lo)A 
+-1.608 0 (o)A 
+0.392 0 (p)A 
+-0.696 0 (i)A 
+0.304 0 32 -0.608 0 (ng )D 
+-0.696 0 (C)A 
+-0.608 0 (o)A 
+-1.608 0 (n)A 
+-0.304 0 (t)A 
+-0.544 0 (r)A 
+-0.608 0 (o)A 
+0.304 0 (l)A 
+; : 1537 884 4863 411 rc 0 0 0 sco F0_368
+Ji 
+1922 884 M 
+0.240 0 32 -0.544 0 (- )D 
+-0.304 0 (t)A 
+-0.608 0 (h)A 
+1.304 0 32 -1.608 0 (e )D 
+0.392 0 (d)A 
+-0.696 0 32 -0.608 0 (o )D 
+-1.000 0 (s)A 
+-0.304 0 (t)A 
+-0.608 0 (a)A 
+-0.304 0 (t)A 
+0.392 0 (e)A 
+-1.544 0 (m)A 
+-0.608 0 (e)A 
+-1.608 0 (n)A 
+-0.304 0 (t)A 
+; : 1358 1950 5042 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1600 1950 M 
+0.452 0 (d)A 
+-0.750 0 32 0.500 0 (o )D 
+0.363 0 (s)A 
+-0.589 0 (t)A 
+0.500 0 (a)A 
+0.411 0 (t)A 
+-0.452 0 (e)A 
+0.911 0 (m)A 
+-0.452 0 (e)A 
+0.452 0 (n)A 
+-0.661 0 32 0.411 0 (t )D 
+-0.226 0 (w)A 
+0.452 0 (h)A 
+0.226 0 (il)A 
+-0.798 0 32 0.548 0 (e )D 
+0.339 0 32 -0.589 0 (\( )D 
+1.548 0 (e)A 
+-0.500 0 (x)A 
+-0.548 0 (p)A 
+1.548 0 (r)A 
+-0.452 0 (e)A 
+-0.637 0 (s)A 
+1.363 0 (s)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+1.298 0 32 -0.548 0 (n )D 
+-0.661 0 32 0.411 0 (\) ;)D 
+; : 4730 1953 1670 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+4983 1953 M 
+-0.250 0 32 ( )W 
+; : 847 2903 5553 262 rc 0 0 0 sco F4_233
+Ji 
+1100 2903 M 
+0.637 0 (E)A 
+-0.500 0 (x)A 
+0.548 0 (ec)A 
+-0.500 0 (u)A 
+0.226 0 (t)A 
+0.202 0 32 -0.452 0 (e )D 
+1.226 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.363 0 (s)A 
+-0.774 0 (t)A 
+1.548 0 (a)A 
+-0.774 0 (t)A 
+-0.452 0 (e)A 
+1.726 0 (m)A 
+-0.452 0 (e)A 
+-0.500 0 (n)A 
+0.226 0 (t)A 
+1.000 0 32 -0.250 0 (, )D 
+0.548 0 (e)A 
+-0.500 0 (v)A 
+0.548 0 (a)A 
+-0.774 0 (l)A 
+0.500 0 (u)A 
+0.548 0 (a)A 
+0.226 0 (t)A 
+-0.798 0 32 0.548 0 (e )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+1.202 0 32 -0.452 0 (e )D 
+0.548 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (ss)A 
+-0.774 0 (i)A 
+0.500 0 (on)A 
+; : 847 3183 5553 262 rc 0 0 0 sco F4_233
+Ji 
+1100 3183 M 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.226 0 (i)A 
+-0.661 0 32 0.411 0 (f )D 
+-0.774 0 (i)A 
+-1.476 0 32 1.226 0 (t )D 
+0.226 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.637 0 (T)A 
+-0.411 0 (R)A 
+0.774 0 (U)A 
+1.113 0 32 -0.363 0 (E )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (n )D 
+0.226 0 (l)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (op b)D 
+-0.452 0 (a)A 
+0.548 0 (c)A 
+-0.750 0 32 0.500 0 (k )D 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+-0.500 0 (d)A 
+; : 847 3464 5553 262 rc 0 0 0 sco F4_233
+Ji 
+1100 3464 M 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.548 0 (e)A 
+-0.452 0 (c)A 
+0.500 0 (u)A 
+0.226 0 (t)A 
+-0.798 0 32 0.548 0 (e )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 0.548 0 (e )D 
+-0.637 0 (s)A 
+0.226 0 (t)A 
+-0.452 0 (a)A 
+1.226 0 (t)A 
+-0.452 0 (e)A 
+-0.274 0 (m)A 
+0.548 0 (e)A 
+0.500 0 (n)A 
+1.524 0 32 -0.774 0 (t )D 
+-0.452 0 (a)A 
+-0.500 0 (g)A 
+1.548 0 (a)A 
+-0.774 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+-0.452 0 (e)A 
+1.226 0 (t)A 
+-0.452 0 (c)A 
+-0.250 0 (.)A 
+0.750 0 (.)A 
+; : 847 3744 5553 262 rc 0 0 0 sco F4_233
+Ji 
+1100 3744 M 
+0.411 0 (I)A 
+1.339 0 32 -0.589 0 (f )D 
+0.548 0 (a)A 
+1.250 0 32 -0.500 0 (n )D 
+-0.452 0 (e)A 
+0.500 0 (v)A 
+-0.452 0 (a)A 
+0.226 0 (l)A 
+0.500 0 (u)A 
+-0.452 0 (a)A 
+0.226 0 (ti)A 
+-0.750 0 32 0.500 0 (on o)D 
+0.339 0 32 -0.589 0 (f )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+0.202 0 32 0.548 0 (e )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (s)A 
+1.363 0 (s)A 
+-0.774 0 (i)A 
+-0.750 0 32 0.500 0 (on y)D 
+-0.774 0 (i)A 
+0.548 0 (e)A 
+0.226 0 (l)A 
+0.500 0 (d)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.452 0 (a)A 
+; : 847 4024 5553 262 rc 0 0 0 sco F4_233
+Ji 
+1100 4024 M 
+0.452 0 (F)A 
+-0.226 0 (A)A 
+0.637 0 (L)A 
+0.452 0 (S)A 
+-0.887 0 32 0.637 0 (E )D 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (s)A 
+-0.500 0 (u)A 
+-0.476 0 32 0.226 0 (lt t)D 
+-0.500 0 (h)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (n g)D 
+0.226 0 (i)A 
+-0.500 0 (v)A 
+0.202 0 32 0.548 0 (e )D 
+-0.500 0 (u)A 
+0.500 0 (p)A 
+-0.250 0 (.)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 4 ]%%)  =
+%%PageTrailer
+
+%%Page: 5 5
+%%BeginPageSetup
+finalpage
+[{
+%%BeginFeature: *Optional Envelope Feeder Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+0 581 829 2 2 definenup
+0 0 startnup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1720 245 4680 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2105 245 M 
+-0.608 0 (Lo)A 
+-1.608 0 (o)A 
+0.392 0 (p)A 
+-0.696 0 (i)A 
+0.304 0 32 -0.608 0 (ng )D 
+-0.696 0 (C)A 
+-0.608 0 (o)A 
+-1.608 0 (n)A 
+-0.304 0 (t)A 
+-0.544 0 (r)A 
+-0.608 0 (o)A 
+0.304 0 (l)A 
+; : 1528 684 4872 411 rc 0 0 0 sco F0_368
+Ji 
+1913 684 M 
+0.240 0 32 -0.544 0 (- )D 
+-0.304 0 (t)A 
+-0.608 0 (h)A 
+1.304 0 32 -1.608 0 (e )D 
+0.696 0 (f)A 
+-0.608 0 (o)A 
+0.240 0 32 -0.544 0 (r )D 
+-1.000 0 (s)A 
+-0.304 0 (t)A 
+-1.608 0 (a)A 
+-0.304 0 (t)A 
+-0.608 0 (e)A 
+-0.544 0 (m)A 
+-0.608 0 (en)A 
+-1.304 0 (t)A 
+; : 1408 1300 4992 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1650 1300 M 
+0.411 0 (f)A 
+0.500 0 (o)A 
+0.202 0 32 -0.452 0 (r )D 
+0.339 0 32 0.411 0 (\( )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.452 0 (p)A 
+-0.452 0 (re)A 
+1.363 0 (s)A 
+-0.637 0 (s)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+0.452 0 (n)A 
+1.250 0 32 -0.500 0 (1 )D 
+0.339 0 32 -0.589 0 (; )D 
+0.548 0 (e)A 
+0.500 0 (x)A 
+-0.548 0 (p)A 
+0.548 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (ss)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+-0.548 0 (n)A 
+-0.750 0 32 0.500 0 (2 )D 
+0.339 0 32 0.411 0 (; )D 
+; : 1408 1580 4992 263 rc 0 0 0 sco F2_233
+Ji 
+1650 1580 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 ( )W 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.452 0 (p)A 
+-0.452 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (ss)A 
+-0.774 0 (i)A 
+0.500 0 (o)A 
+0.452 0 (n)A 
+-0.750 0 32 0.500 0 (3 )D 
+-0.661 0 32 0.411 0 (\) )D 
+0.363 0 (s)A 
+-0.589 0 (t)A 
+0.500 0 (a)A 
+0.411 0 (t)A 
+-0.452 0 (e)A 
+0.911 0 (m)A 
+-0.452 0 (e)A 
+0.452 0 (n)A 
+0.411 0 (t)A 
+; : 1097 2153 5303 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+1350 2153 M 
+-0.452 0 (e)A 
+0.500 0 (v)A 
+0.548 0 (a)A 
+0.226 0 (l)A 
+-0.500 0 (u)A 
+0.548 0 (a)A 
+0.226 0 (t)A 
+0.202 0 32 -0.452 0 (e )D 
+1.548 0 (e)A 
+-0.500 0 (x)A 
+0.500 0 (p)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (s)A 
+-0.637 0 (s)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.500 0 (1)A 
+; : 1097 2714 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 2714 M 
+-0.452 0 (e)A 
+0.500 0 (v)A 
+0.548 0 (a)A 
+0.226 0 (l)A 
+-0.500 0 (u)A 
+0.548 0 (a)A 
+0.226 0 (t)A 
+0.202 0 32 -0.452 0 (e )D 
+1.548 0 (e)A 
+-0.500 0 (x)A 
+0.500 0 (p)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (s)A 
+-0.637 0 (s)A 
+0.226 0 (i)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.500 0 (2)A 
+; : 1097 3274 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 3274 M 
+0.226 0 (i)A 
+-0.661 0 32 0.411 0 (f )D 
+0.637 0 (T)A 
+-0.411 0 (R)A 
+0.774 0 (U)A 
+-0.363 0 (E)A 
+-1.000 0 32 0.750 0 (, )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.548 0 (e)A 
+-0.452 0 (c)A 
+0.500 0 (u)A 
+-0.774 0 (t)A 
+-1.798 0 32 1.548 0 (e )D 
+0.363 0 (s)A 
+-0.774 0 (t)A 
+-0.452 0 (a)A 
+1.226 0 (t)A 
+-0.452 0 (e)A 
+-0.274 0 (m)A 
+0.548 0 (e)A 
+0.500 0 (n)A 
+-0.476 0 32 0.226 0 (t )D 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.226 0 (t)A 
+0.500 0 (h)A 
+-0.452 0 (e)A 
+-0.750 0 32 0.500 0 (n )D 
+-0.452 0 (e)A 
+0.500 0 (v)A 
+0.548 0 (a)A 
+0.226 0 (l)A 
+-0.500 0 (u)A 
+1.548 0 (a)A 
+-0.774 0 (t)A 
+-0.452 0 (e)A 
+; : 2897 3554 3503 262 rc 0 0 0 sco F4_233
+Ji 
+3150 3554 M 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+1.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (ss)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (n 3 )D 
+-0.452 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+; : 1097 3834 5303 262 rc 0 0 0 sco F4_233
+Ji 
+1350 3834 M 
+0.500 0 (o)A 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+0.774 0 (w)A 
+0.226 0 (i)A 
+-0.637 0 (s)A 
+0.548 0 (e)A 
+-1.000 0 32 0.750 0 (, )D 
+0.500 0 (g)A 
+-0.774 0 (i)A 
+0.500 0 (v)A 
+-0.798 0 32 0.548 0 (e )D 
+0.500 0 (up)A 
+; 
+4800 3713 N M 31 0 - 30 0 - 39 0 - 39 0 - 22 0 - 32 0 - 23 0 - 30 0 - 38 0 - 39 0 - 23 0 - 31 0 - 30 0 - 24 0 - 23 -8 - 30 0 - 23 0 - 24 -8 - 23 0 - 30 0 - 32 0 - 38 -7 - 39 -9 - 30 -7 - 31 -7 - 30 -9 - 32 -14 - 23 -16 - 22 -23 - 32 -31 - 14 -30 - 16 -24 - 8 -23 - 15 -30 - 8 -23 - 15 -39 - 0 -24 - 0 -23 - 8 -23 - 0 -30 - 7 -31 - 0 -23 - 0 -77 - 0 -30 - 0 -31 - 0 -23 - 0 -32 - 0 -30 - 0 -23 - 0 -24 - 0 -30 - 0 -23 - -7 -23 - -16 -38 - -15 -23 - -46 -39 - -23 -15 - -31 -32 - -30 -14 - -23 -16 - -32 -23 - -92 -15 - -23 -9 - -30 -14 - -23 0 - -24 -16 - -30 0 - -39 -7 - -31 -9 - -30 0 - -23 -7 - -77 -15 - -78 -8 - -30 -8 - -77 -7 - -23 0 - -24 0 - -30 -9 - -77 -7 - -107 -7 - -77 0 - -47 -16 - -23 -7 - -23 0 - -30 -9 - -139 -7 - -23 0 - -38 0 - -24 -8 - -23 0 - -23 -7 - -23 0 - -31 0 - -92 0 - -31 0 - -30 0 - -23 0 - -32 0 - -22 0 - -23 0 - -47 0 - -38 0 - -24 0 - -30 0 - -31 0 - -39 0 - -38 0 - -38 0 - -24 0 - -30 0 - -23 0 - -23 0 - -24 0 - -30 0 - -31 0 - -30 0 - -23 0 - -39 0 - -38 0 - -47 0 - -23 0 - -23 0 - -23 0 - -23 0 - -23 0 - -31 0 - -30 0 - -32 0 - -22 0 - -23 0 - -23 0 - -24 0 - -19 0 - -19 -8 - -108 0 - -107 0 - -32 0 - -77 0 - -30 0 - -23 0 - -23 0 - -77 0 - -154 0 - -184 0 - -555 0 - -22 0 - -23 0 - -23 0 - -24 0 - -108 0 - -92 0 - -169 0 - -77 0 - -23 0 - -23 0 - -23 0 - -23 0 - -24 0 - -23 8 - -23 15 - -22 23 - -16 23 - -16 23 - -7 23 - -7 24 - 0 23 - 0 23 - 0 30 - 0 24 - 0 23 - 23 7 - 23 16 - 22 7 - 23 16 - 23 7 - 24 0 - 2 1 - 74 11 - 50 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0 0 0 sco K 
+930 2903 N M 45 -76 - -20 -84 - 245 120 - -270 40 - C : 0 0 0 sco O ; : 447 4203 5953 262 rc 0 0 0 sco F4_233
+Ji 
+700 4203 M 
+0.774 0 (N)A 
+-0.500 0 (o)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+-1.476 0 32 1.226 0 (: )D 
+-0.452 0 (c)A 
+0.548 0 (a)A 
+-0.750 0 32 0.500 0 (n o)D 
+-0.274 0 (m)A 
+0.226 0 (i)A 
+1.524 0 32 -0.774 0 (t )D 
+0.548 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+0.500 0 (1)A 
+1.000 0 32 -0.250 0 (, )D 
+-0.452 0 (e)A 
+-0.500 0 (x)A 
+-0.750 0 32 0.500 0 (p2 o)D 
+-0.661 0 32 0.411 0 (r )D 
+-0.452 0 (e)A 
+0.500 0 (xp)A 
+-0.500 0 (3)A 
+-1.000 0 32 0.750 0 (, )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+-0.500 0 (p)A 
+-0.750 0 32 0.500 0 (2 )D 
+1.548 0 (a)A 
+-0.637 0 (s)A 
+0.363 0 (s)A 
+0.500 0 (u)A 
+-0.274 0 (m)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+0.637 0 (T)A 
+-0.411 0 (R)A 
+0.774 0 (U)A 
+-0.363 0 (E)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 5 ]%%)  =
+%%PageTrailer
+
+%%Page: 6 6
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1854 665 4546 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2239 665 M 
+-0.696 0 (w)A 
+-0.608 0 (h)A 
+-0.696 0 (il)A 
+1.304 0 32 -0.608 0 (e e)D 
+-1.000 0 (x)A 
+-1.608 0 (a)A 
+-0.544 0 (m)A 
+-0.608 0 (p)A 
+0.304 0 (l)A 
+-1.608 0 (e)A 
+; : 1458 1500 4942 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1700 1500 M 
+-1.024 0 32 0.774 0 (X )D 
+1.560 0 32 -0.810 0 (= )D 
+-0.500 0 (1)A 
+1.411 0 (;)A 
+; : 1458 1780 4942 263 rc 0 0 0 sco F2_233
+Ji 
+1700 1780 M 
+0.774 0 (w)A 
+-0.548 0 (h)A 
+1.226 0 (i)A 
+-0.774 0 (l)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.661 0 32 0.411 0 (\( )D 
+-1.024 0 32 0.774 0 (X )D 
+1.560 0 32 -0.810 0 (< )D 
+1.250 0 32 -0.500 0 (5 )D 
+0.411 0 (\))A 
+; : 1458 2060 4942 263 rc 0 0 0 sco F2_233
+Ji 
+1700 2060 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+-0.448 0 32 0.198 0 ({ )D 
+-1.024 0 32 0.774 0 (X )D 
+-1.440 0 32 1.190 0 (= )D 
+-0.024 0 32 -0.226 0 (X )D 
+0.560 0 32 0.190 0 (+ )D 
+-0.500 0 (1)A 
+1.411 0 (;)A 
+; : 1458 2341 4942 263 rc 0 0 0 sco F2_233
+Ji 
+1700 2341 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+1.452 0 (p)A 
+-0.452 0 (r)A 
+-0.774 0 (i)A 
+0.452 0 (n)A 
+-0.661 0 32 0.411 0 (tf \()D 
+-0.315 0 (")A 
+-1.024 0 32 0.774 0 (X )D 
+-0.440 0 32 0.190 0 (= )D 
+(%)S 
+1.452 0 (d)A 
+-0.774 0 (\\)A 
+0.452 0 (n)A 
+0.685 0 (")A 
+-0.250 0 (, )A 
+0.774 0 (X)A 
+-0.589 0 (\))A 
+0.411 0 (;)A 
+; : 1458 2621 4942 263 rc 0 0 0 sco F2_233
+Ji 
+1700 2621 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.198 0 (})A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 6 ]%%)  =
+%%PageTrailer
+
+%%Page: 7 7
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 2067 665 4333 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2452 665 M 
+-0.696 0 32 -0.608 0 (do )D 
+0.392 0 (e)A 
+-1.000 0 (x)A 
+-0.608 0 (a)A 
+-1.544 0 (m)A 
+-0.608 0 (p)A 
+0.304 0 (l)A 
+-0.608 0 (e)A 
+; : 1658 2050 4742 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1900 2050 M 
+-1.024 0 32 0.774 0 (X )D 
+1.560 0 32 -0.810 0 (= )D 
+-0.500 0 (1)A 
+1.411 0 (;)A 
+; : 1658 2330 4742 263 rc 0 0 0 sco F2_233
+Ji 
+1900 2330 M 
+0.452 0 (d)A 
+-0.750 0 32 0.500 0 (o )D 
+-0.448 0 32 0.198 0 ({ )D 
+-1.024 0 32 0.774 0 (X )D 
+-0.440 0 32 0.190 0 (= )D 
+-1.024 0 32 0.774 0 (X )D 
+0.560 0 32 0.190 0 (+ )D 
+1.250 0 32 -0.500 0 (1 )D 
+-0.589 0 (;)A 
+; : 1658 2610 4742 263 rc 0 0 0 sco F2_233
+Ji 
+1900 2610 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+0.452 0 (p)A 
+-0.452 0 (r)A 
+0.226 0 (i)A 
+0.452 0 (n)A 
+-0.589 0 (t)A 
+-0.661 0 32 0.411 0 (f \()D 
+0.685 0 (")A 
+0.976 0 32 -0.226 0 (X )D 
+0.560 0 32 -0.810 0 (= )D 
+1.000 0 (%)A 
+0.452 0 (d)A 
+-0.774 0 (\\)A 
+1.452 0 (n)A 
+-0.315 0 (")A 
+1.000 0 32 -0.250 0 (, )D 
+0.976 0 32 -0.226 0 (X )D 
+0.339 0 32 -0.589 0 (\) )D 
+0.411 0 (;)A 
+; : 1658 2891 4742 263 rc 0 0 0 sco F2_233
+Ji 
+1900 2891 M 
+-0.250 0 32 ( )W 
+0.750 0 32 ( )W 
+-0.250 0 32 (  )W 
+0.750 0 32 ( )W 
+-0.802 0 (})A 
+; : 1658 3171 4742 263 rc 0 0 0 sco F2_233
+Ji 
+1900 3171 M 
+0.774 0 (w)A 
+-0.548 0 (h)A 
+1.226 0 (i)A 
+-0.774 0 (l)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.661 0 32 0.411 0 (\( )D 
+-1.024 0 32 0.774 0 (X )D 
+1.560 0 32 -0.810 0 (< )D 
+1.250 0 32 -0.500 0 (5 )D 
+0.411 0 (\))A 
+-0.589 0 (;)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 7 ]%%)  =
+%%PageTrailer
+
+%%Page: 8 8
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 2057 665 4343 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2442 665 M 
+-0.304 0 (f)A 
+-0.608 0 (o)A 
+0.240 0 32 -0.544 0 (r )D 
+-1.608 0 (e)A 
+(x)S 
+-0.608 0 (a)A 
+-1.544 0 (m)A 
+-0.608 0 (p)A 
+-0.696 0 (l)A 
+0.392 0 (e)A 
+; : 1558 2150 4842 263 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.914 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1800 2150 M 
+0.411 0 (f)A 
+0.500 0 (o)A 
+0.202 0 32 -0.452 0 (r )D 
+0.339 0 32 0.411 0 (\( )D 
+1.976 0 32 -1.226 0 (X )D 
+-0.440 0 32 0.190 0 (= )D 
+-0.750 0 32 0.500 0 (1 )D 
+-1.661 0 32 1.411 0 (; )D 
+-0.024 0 32 -0.226 0 (X )D 
+0.560 0 32 0.190 0 (< )D 
+1.250 0 32 -0.500 0 (5 )D 
+-0.661 0 32 0.411 0 (; )D 
+-0.024 0 32 -0.226 0 (X )D 
+0.190 0 (+)A 
+-1.440 0 32 1.190 0 (+ )D 
+-0.589 0 (\))A 
+; : 2158 2710 4242 263 rc 0 0 0 sco F2_233
+Ji 
+2400 2710 M 
+0.452 0 (p)A 
+-0.452 0 (r)A 
+0.226 0 (i)A 
+0.452 0 (n)A 
+-0.589 0 (t)A 
+0.411 0 (f\()A 
+0.685 0 (")A 
+0.976 0 32 -0.226 0 (X )D 
+0.560 0 32 -0.810 0 (= )D 
+1.000 0 (%)A 
+0.452 0 (d)A 
+-0.774 0 (\\)A 
+1.452 0 (n)A 
+-0.315 0 (")A 
+1.000 0 32 -0.250 0 (, )D 
+0.976 0 32 -0.226 0 (X )D 
+0.339 0 32 -0.589 0 (\) )D 
+0.411 0 (;)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 8 ]%%)  =
+%%PageTrailer
+
+%%Page: 9 9
+%%BeginPageSetup
+finalpage
+[{
+%%BeginFeature: *Optional Envelope Feeder Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+0 581 829 2 2 definenup
+0 0 startnup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 814 665 5586 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1199 665 M 
+-0.456 0 (S)A 
+-0.608 0 (o)A 
+-1.544 0 (m)A 
+-0.696 0 32 -0.608 0 (e )D 
+0.304 0 (C)A 
+-1.608 0 (o)A 
+-0.544 0 (mm)A 
+-0.608 0 (o)A 
+1.304 0 32 -1.608 0 (n )D 
+-0.696 0 (C)A 
+-0.608 0 (on)A 
+-1.000 0 (s)A 
+-0.304 0 (t)A 
+-0.544 0 (r)A 
+-0.608 0 (u)A 
+(c)S 
+-1.304 0 (t)A 
+-1.000 0 (s)A 
+; : 1324 1425 5076 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+1600 1425 M 
+0.948 0 (w)A 
+0.104 0 (h)A 
+0.052 0 (i)A 
+1.052 0 (l)A 
+1.604 0 32 -1.104 0 (e )D 
+-0.922 0 32 0.422 0 (\( )D 
+-1.500 0 32 1.000 0 (1 )D 
+-1.922 0 32 1.422 0 (\) )D 
+1.000 0 (\205\205)A 
+(\205)S 
+1.000 0 (\205)A 
+0.500 0 (.)A 
+-0.500 0 (.)A 
+; : 1947 2024 4453 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+2200 2024 M 
+0.500 0 (p)A 
+0.411 0 (r)A 
+-0.500 0 (o)A 
+0.500 0 (v)A 
+0.226 0 (i)A 
+-0.500 0 (d)A 
+0.548 0 (e)A 
+0.387 0 32 -0.637 0 (s )D 
+1.548 0 (a)A 
+1.250 0 32 -0.500 0 (n )D 
+-0.452 0 (e)A 
+-0.500 0 (n)A 
+0.500 0 (d)A 
+1.226 0 (l)A 
+-0.452 0 (e)A 
+-0.637 0 (s)A 
+-0.613 0 32 0.363 0 (s )D 
+1.226 0 (l)A 
+0.500 0 (o)A 
+-0.500 0 (o)A 
+0.500 0 (p)A 
+; : 1324 2585 5076 295 rc 0 0 0 sco F2_266
+Ji 
+1600 2585 M 
+0.948 0 (w)A 
+0.104 0 (h)A 
+0.052 0 (i)A 
+1.052 0 (l)A 
+1.604 0 32 -1.104 0 (e )D 
+-0.922 0 32 0.422 0 (\( )D 
+-0.448 0 32 0.948 0 (X )D 
+0.422 0 (!)A 
+1.120 0 32 -0.620 0 (= )D 
+0.500 0 32 (0 )W 
+0.078 0 32 0.422 0 (\) )D 
+1.000 0 (\205)A 
+(\205)S 
+1.000 0 (\205\205)A 
+; : 1947 3184 4453 262 rc 0 0 0 sco F4_233
+Ji 
+2200 3184 M 
+0.226 0 (i)A 
+1.387 0 32 -0.637 0 (s )D 
+0.226 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.363 0 (s)A 
+0.548 0 (a)A 
+-0.274 0 (m)A 
+1.202 0 32 -0.452 0 (e )D 
+0.548 0 (a)A 
+0.363 0 (s)A 
+; : 1324 3746 5076 295 rc 0 0 0 sco F2_266
+Ji 
+1600 3746 M 
+0.948 0 (w)A 
+0.104 0 (h)A 
+0.052 0 (i)A 
+1.052 0 (l)A 
+1.604 0 32 -1.104 0 (e )D 
+-0.922 0 32 0.422 0 (\( )D 
+-0.448 0 32 0.948 0 (X )D 
+0.078 0 32 0.422 0 (\) )D 
+(\205)S 
+1.000 0 (\205\205)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 9 ]%%)  =
+%%PageTrailer
+
+%%Page: 10 10
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1649 665 4751 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2034 665 M 
+-0.304 0 (I)A 
+-0.608 0 (n)A 
+-1.608 0 (p)A 
+0.392 0 (u)A 
+-0.304 0 (t )A 
+-1.608 0 (a)A 
+0.304 0 32 -0.608 0 (nd )D 
+-0.304 0 (O)A 
+-1.608 0 (u)A 
+-0.304 0 (t)A 
+-0.608 0 (pu)A 
+-1.304 0 (t)A 
+; : 997 1453 5403 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1250 1453 M 
+0.452 0 (S)A 
+-0.452 0 (ee)A 
+-1.476 0 32 1.226 0 (: )D 
+-0.226 0 (K)A 
+0.548 0 (e)A 
+0.226 0 (l)A 
+-0.774 0 (l)A 
+1.548 0 (e)A 
+1.250 0 32 -0.500 0 (y )D 
+-0.452 0 (a)A 
+-0.500 0 (n)A 
+-0.750 0 32 0.500 0 (d )D 
+1.452 0 (P)A 
+-0.500 0 (o)A 
+0.500 0 (h)A 
+-0.476 0 32 0.226 0 (l )D 
+-0.411 0 (C)A 
+0.500 0 (h)A 
+0.548 0 (a)A 
+0.500 0 (p)A 
+-0.774 0 (t)A 
+-0.452 0 (e)A 
+0.339 0 32 0.411 0 (r )D 
+-0.500 0 (1)A 
+0.500 0 (1)A 
+; : 975 2013 5425 260 rc 0 0 0 sco %%IncludeFont: Times-BoldItalic
+(F4) cvn
+0.901 
+ (Times-BoldItalic) cvn /Type1 
+T 
+(Times-BoldItalic) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+1250 2013 M 
+0.774 0 (NO)A 
+-1.363 0 (T)A 
+; : 1476 2014 4924 262 rc 0 0 0 sco F2_233
+Ji 
+1729 2014 M 
+-0.250 0 32 ( )W 
+0.411 0 (`)A 
+0.589 0 (C)A 
+0.411 0 (\222)A 
+-0.250 0 (, )A 
+0.500 0 (bu)A 
+1.524 0 32 -0.774 0 (t l)D 
+0.226 0 (i)A 
+0.500 0 (b)A 
+0.411 0 (r)A 
+-0.452 0 (a)A 
+0.411 0 (r)A 
+-0.750 0 32 0.500 0 (y )D 
+0.411 0 (f)A 
+0.500 0 (u)A 
+-0.500 0 (n)A 
+0.548 0 (c)A 
+-0.774 0 (t)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+1.363 0 (s)A 
+; : 997 2574 5403 262 rc 0 0 0 sco F2_233
+Ji 
+1250 2574 M 
+0.452 0 (S)A 
+0.226 0 (t)A 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+-0.500 0 (d)A 
+0.548 0 (a)A 
+0.411 0 (r)A 
+1.250 0 32 -0.500 0 (d )D 
+0.411 0 (I)A 
+0.976 0 32 -0.226 0 (O )D 
+-0.774 0 (l)A 
+0.226 0 (i)A 
+0.500 0 (b)A 
+0.411 0 (r)A 
+-0.452 0 (a)A 
+0.411 0 (r)A 
+0.500 0 (y)A 
+; : 997 3134 5403 262 rc 0 0 0 sco F2_233
+Ji 
+1250 3134 M 
+0.774 0 (O)A 
+-0.589 0 (f)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+1.250 0 32 -0.500 0 (n )D 
+0.411 0 (\()A 
+-0.500 0 (n)A 
+0.500 0 (o)A 
+-0.589 0 (r)A 
+-0.274 0 (m)A 
+1.548 0 (a)A 
+-0.774 0 (l)A 
+0.226 0 (l)A 
+-0.500 0 (y)A 
+-1.661 0 32 1.411 0 (\) )D 
+0.500 0 (n)A 
+-0.452 0 (e)A 
+0.548 0 (e)A 
+1.250 0 32 -0.500 0 (d )D 
+-0.774 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+0.548 0 (\223)A 
+0.226 0 (i)A 
+0.500 0 (n)A 
+-0.452 0 (c)A 
+0.226 0 (l)A 
+-0.500 0 (u)A 
+0.500 0 (d)A 
+0.548 0 (e)A 
+-0.452 0 (\224)A 
+; : 997 3415 5403 262 rc 0 0 0 sco F2_233
+Ji 
+1250 3415 M 
+0.500 0 (v)A 
+-0.452 0 (a)A 
+0.411 0 (r)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.500 0 (d)A 
+1.548 0 (e)A 
+-0.589 0 (f)A 
+0.226 0 (i)A 
+0.500 0 (n)A 
+0.226 0 (i)A 
+-0.774 0 (t)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+-1.613 0 32 1.363 0 (s )D 
+-0.589 0 (f)A 
+0.411 0 (r)A 
+0.500 0 (o)A 
+1.024 0 32 -0.274 0 (m )D 
+-0.500 0 (h)A 
+-0.452 0 (e)A 
+1.548 0 (a)A 
+-0.500 0 (d)A 
+-0.452 0 (e)A 
+0.339 0 32 0.411 0 (r )D 
+-0.589 0 (f)A 
+0.226 0 (il)A 
+-0.452 0 (e)A 
+0.363 0 (s)A 
+-0.250 0 (.)A 
+; : 974 3976 5426 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F6) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F6_266) cvn
+F6
+266 
+xF 
+F6_266
+Ji 
+1250 3976 M 
+(#)S 
+0.052 0 (i)A 
+1.104 0 (n)A 
+-0.104 0 (c)A 
+0.052 0 (l)A 
+1.104 0 (u)A 
+0.104 0 (d)A 
+-1.396 0 32 0.896 0 (e )D 
+0.380 0 (<)A 
+-0.474 0 (s)A 
+0.422 0 (t)A 
+1.104 0 (d)A 
+0.052 0 (i)A 
+(o)S 
+0.500 0 (.)A 
+0.104 0 (h)A 
+0.380 0 (>)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 10 ]%%)  =
+%%PageTrailer
+
+%%Page: 11 11
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1304 665 5096 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1689 665 M 
+-0.456 0 (S)A 
+-0.696 0 (i)A 
+-1.544 0 (m)A 
+-0.608 0 (p)A 
+0.304 0 (l)A 
+0.304 0 32 -0.608 0 (e )D 
+-0.696 0 (C)A 
+-0.608 0 (h)A 
+-1.608 0 (a)A 
+0.456 0 (r)A 
+-1.608 0 (a)A 
+-1.000 0 (c)A 
+-0.304 0 (t)A 
+-0.608 0 (e)A 
+0.240 0 32 -0.544 0 (r )D 
+-0.304 0 (I)A 
+0.696 0 (/)A 
+-2.304 0 (O)A 
+; : 1474 1725 4926 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+1750 1725 M 
+0.104 0 (p)A 
+1.104 0 (u)A 
+-0.578 0 (t)A 
+0.896 0 (c)A 
+0.104 0 (h)A 
+(a)S 
+-0.396 0 32 0.896 0 (r )D 
+1.078 0 32 -0.578 0 (\( )D 
+0.896 0 (c)A 
+-0.604 0 32 0.104 0 (h )D 
+0.078 0 32 0.422 0 (\) )D 
+-0.578 0 (;)A 
+; : 1474 2365 4926 295 rc 0 0 0 sco F2_266
+Ji 
+1750 2365 M 
+0.896 0 (c)A 
+-0.604 0 32 0.104 0 (h )D 
+0.120 0 32 0.380 0 (= )D 
+(g)S 
+0.896 0 (e)A 
+0.422 0 (t)A 
+-1.104 0 (c)A 
+1.104 0 (h)A 
+1.000 0 (a)A 
+1.604 0 32 -1.104 0 (r )D 
+1.422 0 (\()A 
+1.078 0 32 -0.578 0 (\) ;)D 
+; : 1047 3203 5353 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+1300 3203 M 
+0.452 0 (S)A 
+0.226 0 (i)A 
+-0.500 0 (n)A 
+0.500 0 (g)A 
+0.226 0 (l)A 
+0.202 0 32 -0.452 0 (e )D 
+0.548 0 (c)A 
+0.500 0 (h)A 
+-0.452 0 (a)A 
+0.411 0 (r)A 
+-0.452 0 (a)A 
+1.548 0 (c)A 
+-0.774 0 (t)A 
+-0.452 0 (e)A 
+0.339 0 32 0.411 0 (r )D 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+0.226 0 (t)A 
+-0.500 0 (p)A 
+0.500 0 (u)A 
+-0.476 0 32 0.226 0 (t )D 
+0.500 0 (o)A 
+-0.661 0 32 0.411 0 (r )D 
+0.226 0 (i)A 
+-0.500 0 (n)A 
+0.500 0 (pu)A 
+0.524 0 32 0.226 0 (t )D 
+0.339 0 32 -0.589 0 (\( )D 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+0.226 0 (t)A 
+0.500 0 (u)A 
+0.548 0 (a)A 
+-0.774 0 (l)A 
+0.226 0 (l)A 
+-0.750 0 32 0.500 0 (y )D 
+-0.274 0 (m)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+1.411 0 (r)A 
+-0.500 0 (o)A 
+0.363 0 (s)A 
+0.411 0 (\))A 
+-0.250 0 (.)A 
+; : 1047 3483 5353 262 rc 0 0 0 sco F4_233
+Ji 
+1300 3483 M 
+0.774 0 (N)A 
+-0.500 0 (o)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+-1.476 0 32 1.226 0 (: )D 
+; : 1602 3482 4798 260 rc 0 0 0 sco %%IncludeFont: Times-BoldItalic
+(F6) cvn
+0.901 
+ (Times-BoldItalic) cvn /Type1 
+T 
+(Times-BoldItalic) cvn
+mF 
+(F6_233) cvn
+F6
+233 
+xF 
+F6_233
+Ji 
+1877 3482 M 
+-0.452 0 (c)A 
+0.452 0 (h)A 
+; : 1857 3483 4543 262 rc 0 0 0 sco F4_233
+Ji 
+2110 3483 M 
+-0.250 0 32 ( )W 
+0.226 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.500 0 (o)A 
+-0.661 0 32 0.411 0 (f )D 
+0.226 0 (t)A 
+-0.500 0 (y)A 
+0.500 0 (p)A 
+-0.798 0 32 0.548 0 (e )D 
+; : 2821 3482 3579 260 rc 0 0 0 sco F6_233
+Ji 
+3096 3482 M 
+0.226 0 (i)A 
+0.452 0 (n)A 
+-0.774 0 (t)A 
+; : 3102 3483 3298 262 rc 0 0 0 sco F4_233
+Ji 
+3355 3483 M 
+-0.250 0 32 ( )W 
+0.226 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+1.226 0 (i)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.452 0 (e)A 
+0.500 0 (x)A 
+0.548 0 (a)A 
+-0.274 0 (m)A 
+0.500 0 (p)A 
+-0.774 0 (l)A 
+0.548 0 (e)A 
+0.750 0 (.)A 
+; : 1047 3764 5353 262 rc 0 0 0 sco F4_233
+Ji 
+1300 3764 M 
+0.774 0 (N)A 
+-0.500 0 (o)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+-1.476 0 32 1.226 0 (: )D 
+-0.452 0 (a)A 
+-0.476 0 32 0.226 0 (t )D 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (nd o)D 
+0.339 0 32 -0.589 0 (f )D 
+0.411 0 (f)A 
+0.226 0 (i)A 
+-0.774 0 (l)A 
+1.548 0 (e)A 
+-0.250 0 (, )A 
+; : 2937 3760 3463 263 rc 0 0 0 sco (F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+3179 3760 M 
+0.500 0 (g)A 
+-0.452 0 (e)A 
+0.411 0 (t)A 
+-0.452 0 (c)A 
+0.452 0 (h)A 
+0.500 0 (a)A 
+-0.452 0 (r)A 
+0.411 0 (\(\))A 
+; : 3833 3764 2567 262 rc 0 0 0 sco F4_233
+Ji 
+4086 3764 M 
+-0.250 0 32 ( )W 
+0.411 0 (r)A 
+0.548 0 (e)A 
+-0.774 0 (t)A 
+0.500 0 (u)A 
+0.411 0 (r)A 
+0.500 0 (n)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e )D 
+0.500 0 (v)A 
+-0.452 0 (a)A 
+0.226 0 (l)A 
+-0.500 0 (u)A 
+1.548 0 (e)A 
+; : 1058 4041 5342 263 rc 0 0 0 sco F2_233
+Ji 
+1300 4041 M 
+-0.411 0 (E)A 
+1.726 0 (O)A 
+-1.363 0 (F)A 
+; : 1526 4044 4874 262 rc 0 0 0 sco F4_233
+Ji 
+1779 4044 M 
+-0.250 0 32 ( )W 
+0.774 0 (w)A 
+0.500 0 (h)A 
+-0.774 0 (i)A 
+-0.452 0 (c)A 
+-0.750 0 32 0.500 0 (h )D 
+1.226 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+0.500 0 (d)A 
+-0.452 0 (e)A 
+0.411 0 (f)A 
+0.226 0 (i)A 
+-0.500 0 (n)A 
+0.548 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+0.226 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.363 0 (s)A 
+-0.774 0 (t)A 
+0.500 0 (d)A 
+-0.774 0 (i)A 
+0.500 0 (o)A 
+-0.250 0 (.)A 
+0.500 0 (h)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 11 ]%%)  =
+%%PageTrailer
+
+%%Page: 12 12
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 997 665 5403 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1382 665 M 
+0.152 0 32 -0.456 0 (A )D 
+-1.000 0 (c)A 
+-1.608 0 (o)A 
+0.456 0 (m)A 
+-1.544 0 (m)A 
+-0.608 0 (o)A 
+1.304 0 32 -1.608 0 (n )D 
+-0.608 0 (p)A 
+0.304 0 (i)A 
+-0.608 0 (e)A 
+-1.000 0 (c)A 
+-0.696 0 32 -0.608 0 (e o)D 
+-1.000 0 32 0.696 0 (f )D 
+-1.000 0 (c)A 
+-0.608 0 (o)A 
+-1.608 0 (d)A 
+-0.608 0 (e)A 
+; : 924 1425 5476 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+1200 1425 M 
+0.948 0 (w)A 
+0.104 0 (h)A 
+0.052 0 (i)A 
+1.052 0 (l)A 
+1.604 0 32 -1.104 0 (e )D 
+-0.922 0 32 0.422 0 (\( )D 
+-1.922 0 32 1.422 0 (\( )D 
+0.604 0 32 -0.104 0 (c )D 
+0.120 0 32 0.380 0 (= )D 
+(g)S 
+0.896 0 (e)A 
+-0.578 0 (t)A 
+0.896 0 (c)A 
+0.104 0 (h)A 
+(a)S 
+0.896 0 (r)A 
+-0.578 0 (\()A 
+0.078 0 32 0.422 0 (\) )D 
+1.078 0 32 -0.578 0 (\) )D 
+0.422 0 (!)A 
+-1.880 0 32 1.380 0 (= )D 
+-0.422 0 (E)A 
+1.052 0 (O)A 
+0.026 0 32 0.474 0 (F )D 
+-0.578 0 (\))A 
+; : 1524 1745 4876 295 rc 0 0 0 sco F2_266
+Ji 
+1800 1745 M 
+0.196 0 ({)A 
+; : 1524 2065 4876 295 rc 0 0 0 sco F2_266
+Ji 
+1800 2065 M 
+1.000 0 (\205)A 
+(\205)S 
+1.000 0 (\205\205)A 
+(\205)S 
+; : 1524 2384 4876 295 rc 0 0 0 sco F2_266
+Ji 
+1800 2384 M 
+1.000 0 (\205)A 
+(\205)S 
+1.000 0 (\205\205)A 
+(\205)S 
+; : 1524 2704 4876 295 rc 0 0 0 sco F2_266
+Ji 
+1800 2704 M 
+1.000 0 (\205)A 
+(\205)S 
+1.000 0 (\205\205)A 
+(\205)S 
+; : 1524 3024 4876 295 rc 0 0 0 sco F2_266
+Ji 
+1800 3024 M 
+0.196 0 (})A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 12 ]%%)  =
+%%PageTrailer
+
+%%Page: 13 13
+%%BeginPageSetup
+finalpage
+[{
+%%BeginFeature: *Optional Envelope Feeder Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+0 581 829 2 2 definenup
+0 0 startnup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1914 415 4486 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2299 415 M 
+-0.608 0 (p)A 
+-0.544 0 (r)A 
+-0.696 0 (i)A 
+-0.608 0 (n)A 
+0.696 0 (t)A 
+-1.000 0 32 -0.304 0 (f f)D 
+-0.608 0 (un)A 
+-1.000 0 (c)A 
+-1.304 0 (t)A 
+1.304 0 (i)A 
+-1.608 0 (o)A 
+-0.608 0 (n)A 
+; : 475 1125 5925 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+751 1125 M 
+0.104 0 (p)A 
+0.896 0 (r)A 
+0.052 0 (i)A 
+1.104 0 (n)A 
+-0.578 0 (t)A 
+-0.922 0 32 0.422 0 (f \()D 
+0.500 0 32 ( )W 
+-0.630 0 (")A 
+1.422 0 (f)A 
+(o)S 
+-0.104 0 (r)A 
+1.422 0 (m)A 
+(a)S 
+0.078 0 32 0.422 0 (t )D 
+-0.474 0 (s)A 
+0.422 0 (t)A 
+-0.104 0 (r)A 
+0.052 0 (i)A 
+1.104 0 (n)A 
+(g)S 
+0.370 0 (")A 
+-1.000 0 32 0.500 0 (, )D 
+1.000 0 (a)A 
+0.896 0 (r)A 
+(g1)S 
+0.500 0 (, )A 
+(a)S 
+-0.104 0 (r)A 
+(g2)S 
+0.500 0 (, )A 
+(a)S 
+0.896 0 (r)A 
+(g3)S 
+0.500 0 (, )A 
+(\205)S 
+0.500 0 (. )A 
+-0.578 0 (\))A 
+0.422 0 (;)A 
+; : 798 1754 5602 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+1051 1754 M 
+0.637 0 (T)A 
+-0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e )D 
+0.411 0 (f)A 
+0.500 0 (o)A 
+-0.589 0 (r)A 
+0.726 0 (m)A 
+-0.452 0 (a)A 
+-0.476 0 32 0.226 0 (t )D 
+1.363 0 (s)A 
+-0.774 0 (t)A 
+-0.589 0 (r)A 
+1.226 0 (i)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (g )D 
+-0.274 0 (m)A 
+-0.452 0 (a)A 
+-0.750 0 32 0.500 0 (y )D 
+0.548 0 (c)A 
+0.500 0 (on)A 
+-0.774 0 (t)A 
+-0.452 0 (a)A 
+1.226 0 (i)A 
+-0.750 0 32 0.500 0 (n n)D 
+-0.500 0 (o)A 
+-0.589 0 (r)A 
+0.726 0 (m)A 
+0.548 0 (a)A 
+1.524 0 32 -0.774 0 (l )D 
+-0.452 0 (c)A 
+-0.500 0 (h)A 
+1.548 0 (a)A 
+-0.589 0 (r)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+1.226 0 (t)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+-0.637 0 (s)A 
+; : 798 2034 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 2034 M 
+0.774 0 (w)A 
+-0.500 0 (h)A 
+0.226 0 (i)A 
+-0.452 0 (c)A 
+-0.750 0 32 0.500 0 (h )D 
+1.226 0 (t)A 
+-0.500 0 (h)A 
+0.548 0 (e)A 
+1.250 0 32 -0.500 0 (n g)D 
+0.548 0 (e)A 
+-0.476 0 32 0.226 0 (t )D 
+0.500 0 (p)A 
+-0.589 0 (r)A 
+1.226 0 (i)A 
+-0.500 0 (n)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+-0.750 0 32 0.500 0 (d o)D 
+-0.661 0 32 0.411 0 (r )D 
+-0.452 0 (c)A 
+0.500 0 (on)A 
+-0.500 0 (v)A 
+0.548 0 (e)A 
+0.411 0 (r)A 
+-0.637 0 (s)A 
+1.226 0 (i)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (n )D 
+0.363 0 (s)A 
+0.500 0 (p)A 
+-0.452 0 (e)A 
+0.548 0 (c)A 
+0.226 0 (i)A 
+0.411 0 (f)A 
+-0.774 0 (i)A 
+-0.452 0 (c)A 
+1.548 0 (a)A 
+-0.774 0 (t)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+0.363 0 (s)A 
+; : 798 2595 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 2595 M 
+0.911 0 (%)A 
+-0.500 0 (d)A 
+; : 1398 2595 5002 262 rc 0 0 0 sco F4_233
+Ji 
+1651 2595 M 
+0.500 0 (n)A 
+-0.452 0 (e)A 
+-0.500 0 (x)A 
+-1.476 0 32 1.226 0 (t )D 
+0.548 0 (a)A 
+0.411 0 (r)A 
+-0.500 0 (g)A 
+0.500 0 (u)A 
+-0.274 0 (m)A 
+-0.452 0 (e)A 
+0.500 0 (n)A 
+-1.476 0 32 1.226 0 (t )D 
+0.500 0 (d)A 
+-0.452 0 (ec)A 
+1.226 0 (i)A 
+-0.274 0 (m)A 
+-0.452 0 (a)A 
+-1.476 0 32 1.226 0 (l )D 
+-0.774 0 (i)A 
+0.500 0 (n)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+0.500 0 (g)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+; : 798 2875 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 2875 M 
+0.911 0 (%)A 
+-0.500 0 (o)A 
+; : 2598 2875 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 2875 M 
+0.500 0 (o)A 
+-0.452 0 (c)A 
+0.226 0 (t)A 
+0.548 0 (a)A 
+-0.774 0 (l)A 
+; : 798 3155 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 3155 M 
+0.911 0 (%)A 
+-0.500 0 (x)A 
+; : 2598 3155 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 3155 M 
+0.500 0 (h)A 
+-0.452 0 (e)A 
+-0.500 0 (x)A 
+1.548 0 (a)A 
+-0.500 0 (d)A 
+-0.452 0 (e)A 
+1.548 0 (c)A 
+-0.774 0 (i)A 
+-0.274 0 (m)A 
+1.548 0 (a)A 
+-0.774 0 (l)A 
+; : 798 3435 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 3435 M 
+0.911 0 (%)A 
+-0.452 0 (c)A 
+; : 2598 3435 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 3435 M 
+0.363 0 (s)A 
+-0.774 0 (i)A 
+0.500 0 (ng)A 
+0.226 0 (l)A 
+1.202 0 32 -0.452 0 (e c)D 
+-0.500 0 (h)A 
+1.548 0 (a)A 
+0.411 0 (r)A 
+-0.452 0 (ac)A 
+1.226 0 (t)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+; : 798 3716 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 3716 M 
+0.911 0 (%)A 
+-0.637 0 (s)A 
+; : 2598 3716 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 3716 M 
+0.363 0 (s)A 
+-0.774 0 (t)A 
+0.411 0 (r)A 
+0.226 0 (i)A 
+0.500 0 (n)A 
+-0.500 0 (g)A 
+; : 798 3996 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 3996 M 
+0.911 0 (%)A 
+-0.589 0 (f)A 
+; : 2598 3996 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 3996 M 
+0.411 0 (f)A 
+0.226 0 (l)A 
+-0.500 0 (o)A 
+0.548 0 (a)A 
+0.524 0 32 -0.774 0 (t )D 
+0.500 0 (o)A 
+0.339 0 32 0.411 0 (r )D 
+-0.500 0 (d)A 
+0.500 0 (ou)A 
+-0.500 0 (b)A 
+0.226 0 (l)A 
+0.548 0 (e)A 
+; : 798 4276 5602 262 rc 0 0 0 sco F4_233
+Ji 
+1051 4276 M 
+0.911 0 (%)A 
+-0.089 0 (%)A 
+; : 2598 4276 3802 262 rc 0 0 0 sco F4_233
+Ji 
+2851 4276 M 
+-0.452 0 (a)A 
+-0.750 0 32 0.500 0 (n )D 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+1.226 0 (t)A 
+0.500 0 (u)A 
+-0.452 0 (a)A 
+1.524 0 32 -0.774 0 (l )D 
+-1.161 0 32 0.911 0 (% )D 
+-0.452 0 (c)A 
+0.500 0 (h)A 
+0.548 0 (a)A 
+-0.589 0 (r)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 13 ]%%)  =
+%%PageTrailer
+
+%%Page: 14 14
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1364 665 5036 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1749 665 M 
+-1.544 0 (m)A 
+-0.608 0 (o)A 
+0.392 0 (d)A 
+-0.696 0 (i)A 
+-0.304 0 (f)A 
+-1.000 0 (y)A 
+-0.696 0 (i)A 
+0.392 0 (n)A 
+1.304 0 32 -1.608 0 (g )D 
+-0.304 0 (t)A 
+-0.696 0 32 -0.608 0 (he o)D 
+0.392 0 (u)A 
+-0.304 0 (t)A 
+-0.608 0 (p)A 
+-1.608 0 (u)A 
+-0.304 0 (t)A 
+; : 947 1653 5453 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1200 1653 M 
+0.774 0 (Y)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (u )D 
+0.548 0 (ca)A 
+1.250 0 32 -0.500 0 (n )D 
+-0.774 0 (i)A 
+0.500 0 (n)A 
+0.363 0 (s)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+1.524 0 32 -0.774 0 (t )D 
+-0.500 0 (v)A 
+1.548 0 (a)A 
+-0.589 0 (r)A 
+0.226 0 (i)A 
+0.500 0 (ou)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.452 0 (c)A 
+-0.500 0 (h)A 
+1.548 0 (a)A 
+-0.589 0 (r)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+1.387 0 32 -0.637 0 (s )D 
+0.548 0 (e)A 
+-0.774 0 (t)A 
+-0.798 0 32 0.548 0 (c )D 
+1.226 0 (t)A 
+1.250 0 32 -0.500 0 (o g)D 
+-0.452 0 (a)A 
+0.226 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.726 0 (m)A 
+0.500 0 (o)A 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+; : 947 1933 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 1933 M 
+-0.452 0 (c)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+1.226 0 (t)A 
+-0.589 0 (r)A 
+0.500 0 (o)A 
+1.524 0 32 -0.774 0 (l )D 
+-0.500 0 (o)A 
+0.500 0 (v)A 
+0.548 0 (e)A 
+0.339 0 32 0.411 0 (r )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.500 0 (ou)A 
+-0.774 0 (t)A 
+0.500 0 (pu)A 
+0.226 0 (t)A 
+-1.000 0 32 0.750 0 (. )D 
+-0.363 0 (T)A 
+-0.500 0 (h)A 
+0.548 0 (e)A 
+0.363 0 (s)A 
+1.202 0 32 -0.452 0 (e )D 
+0.548 0 (c)A 
+-0.500 0 (h)A 
+0.548 0 (a)A 
+0.411 0 (r)A 
+-0.452 0 (a)A 
+0.548 0 (c)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+1.387 0 32 -0.637 0 (s )D 
+0.548 0 (a)A 
+-0.589 0 (r)A 
+-0.798 0 32 0.548 0 (e )D 
+0.226 0 (i)A 
+0.500 0 (n)A 
+-0.637 0 (s)A 
+-0.452 0 (e)A 
+1.411 0 (r)A 
+-0.774 0 (t)A 
+0.548 0 (e)A 
+0.500 0 (d)A 
+; : 947 2214 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 2214 M 
+0.500 0 (b)A 
+-0.452 0 (e)A 
+0.226 0 (t)A 
+-0.226 0 (w)A 
+0.548 0 (e)A 
+-0.452 0 (e)A 
+-0.750 0 32 0.500 0 (n )D 
+1.226 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.750 0 32 ( )W 
+-0.250 0 32 ( )W 
+-1.161 0 32 0.911 0 (%  )D 
+0.750 0 32 ( )W 
+-0.250 0 32 ( )W 
+-0.452 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 0.548 0 (e )D 
+-0.589 0 (f)A 
+-0.500 0 (o)A 
+0.411 0 (r)A 
+0.726 0 (m)A 
+-0.452 0 (a)A 
+0.524 0 32 0.226 0 (t )D 
+-0.452 0 (c)A 
+0.500 0 (h)A 
+0.548 0 (a)A 
+-0.589 0 (r)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+-0.250 0 (.)A 
+; : 947 2774 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 2774 M 
+-0.661 0 32 0.411 0 (- )D 
+0.750 0 32 ( )W 
+-0.250 0 32 ( )W 
+0.226 0 (i)A 
+-0.274 0 (m)A 
+0.500 0 (p)A 
+-0.774 0 (l)A 
+1.226 0 (i)A 
+-0.452 0 (e)A 
+-0.613 0 32 0.363 0 (s )D 
+0.226 0 (l)A 
+0.548 0 (e)A 
+-0.589 0 (f)A 
+0.524 0 32 0.226 0 (t )D 
+-0.452 0 (a)A 
+-0.774 0 (l)A 
+1.226 0 (i)A 
+0.500 0 (g)A 
+-0.500 0 (n)A 
+0.548 0 (e)A 
+-0.500 0 (d)A 
+; : 947 3054 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 3054 M 
+1.162 0 32 -0.412 0 (+ )D 
+-0.250 0 32 ( )W 
+1.226 0 (i)A 
+-0.274 0 (m)A 
+-0.500 0 (p)A 
+0.226 0 (li)A 
+0.548 0 (e)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.774 0 (i)A 
+0.500 0 (n)A 
+0.363 0 (s)A 
+0.548 0 (e)A 
+-0.589 0 (r)A 
+-1.476 0 32 1.226 0 (t )D 
+0.500 0 (p)A 
+-0.774 0 (l)A 
+0.500 0 (u)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.500 0 (o)A 
+-1.661 0 32 1.411 0 (r )D 
+-0.274 0 (m)A 
+0.226 0 (i)A 
+-0.500 0 (n)A 
+0.500 0 (u)A 
+-0.613 0 32 0.363 0 (s s)D 
+0.226 0 (i)A 
+0.500 0 (gn)A 
+; : 947 3334 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 3334 M 
+0.411 0 (f)A 
+0.226 0 (i)A 
+-0.452 0 (e)A 
+-0.774 0 (l)A 
+-0.750 0 32 0.500 0 (d )D 
+0.774 0 (w)A 
+0.226 0 (i)A 
+-0.500 0 (d)A 
+1.226 0 (t)A 
+-0.750 0 32 0.500 0 (h )D 
+-0.452 0 (a)A 
+-0.750 0 32 0.500 0 (nd p)D 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.548 0 (c)A 
+0.226 0 (i)A 
+-0.637 0 (s)A 
+0.226 0 (i)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (n )D 
+1.548 0 (e)A 
+-0.250 0 (.)A 
+0.500 0 (g)A 
+-0.250 0 (.)A 
+; : 1547 3895 4853 262 rc 0 0 0 sco F2_233
+Ji 
+1800 3895 M 
+0.911 0 (%)A 
+-0.500 0 (1)A 
+0.500 0 (0)A 
+-0.250 0 (.)A 
+0.500 0 (4)A 
+-0.589 0 (f)A 
+; : 947 4175 5453 262 rc 0 0 0 sco F2_233
+Ji 
+1200 4175 M 
+0.500 0 (h)A 
+-0.250 0 (,)A 
+0.226 0 (l)A 
+-0.250 0 (,)A 
+-0.750 0 32 0.500 0 (d )D 
+0.226 0 (i)A 
+0.726 0 (m)A 
+-0.500 0 (p)A 
+0.226 0 (li)A 
+0.548 0 (e)A 
+1.387 0 32 -0.637 0 (s s)D 
+0.500 0 (ho)A 
+0.411 0 (r)A 
+-0.774 0 (t)A 
+-1.000 0 32 0.750 0 (, )D 
+0.226 0 (l)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (ng o)D 
+-0.661 0 32 0.411 0 (r )D 
+0.226 0 (l)A 
+-0.500 0 (o)A 
+-0.750 0 32 0.500 0 (ng d)D 
+-0.500 0 (o)A 
+0.500 0 (ub)A 
+-0.774 0 (l)A 
+-0.452 0 (e)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 14 ]%%)  =
+%%PageTrailer
+
+%%Page: 15 15
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 1884 665 4516 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+2269 665 M 
+-1.000 0 (s)A 
+(c)S 
+-0.608 0 (an)A 
+1.000 0 32 -1.304 0 (f )D 
+-0.304 0 (f)A 
+-0.608 0 (un)A 
+-1.000 0 (c)A 
+-0.304 0 (t)A 
+-0.696 0 (i)A 
+-0.608 0 (o)A 
+0.392 0 (n)A 
+; : 874 1825 5526 295 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.891 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_266) cvn
+F2
+266 
+xF 
+F2_266
+Ji 
+1150 1825 M 
+0.526 0 (s)A 
+-0.104 0 (c)A 
+(a)S 
+1.104 0 (n)A 
+-0.922 0 32 0.422 0 (f \()D 
+0.500 0 32 ( )W 
+0.370 0 (")A 
+0.422 0 (f)A 
+(o)S 
+-0.104 0 (r)A 
+0.422 0 (m)A 
+(a)S 
+1.422 0 (t)A 
+0.370 0 (")A 
+-1.000 0 32 0.500 0 (, )D 
+1.000 0 (a)A 
+-1.104 0 (r)A 
+1.000 0 (g)A 
+(1)S 
+-1.000 0 32 0.500 0 (, )D 
+1.000 0 (a)A 
+-0.104 0 (r)A 
+1.000 0 (g)A 
+(2)S 
+-1.000 0 32 0.500 0 (, )D 
+1.000 0 (a)A 
+-0.104 0 (r)A 
+1.000 0 (g)A 
+(3)S 
+-1.000 0 32 0.500 0 (, )D 
+-0.500 0 32 1.000 0 (\205 )D 
+-0.578 0 (\))A 
+0.422 0 (;)A 
+; : 400 2903 6000 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_233) cvn
+F4
+233 
+xF 
+F4_233
+Ji 
+650 2903 M 
+0.637 0 (T)A 
+-0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e a)D 
+-0.589 0 (r)A 
+0.500 0 (g)A 
+-0.500 0 (1)A 
+-1.000 0 32 0.750 0 (, )D 
+0.548 0 (a)A 
+-0.589 0 (r)A 
+-0.750 0 32 0.500 0 (g2 )D 
+0.548 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+-0.637 0 (s)A 
+-0.750 0 32 0.500 0 (o on )D 
+-0.274 0 (m)A 
+0.500 0 (u)A 
+0.363 0 (s)A 
+0.524 0 32 0.226 0 (t )D 
+-0.589 0 (r)A 
+0.548 0 (e)A 
+-0.589 0 (f)A 
+0.548 0 (e)A 
+1.339 0 32 -0.589 0 (r )D 
+-0.774 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+1.226 0 (t)A 
+-0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e )D 
+-0.452 0 (a)A 
+0.500 0 (d)A 
+-0.500 0 (d)A 
+0.411 0 (r)A 
+0.548 0 (e)A 
+0.363 0 (ss)A 
+-0.452 0 (e)A 
+0.363 0 (s)A 
+; : 400 3183 6000 262 rc 0 0 0 sco F4_233
+Ji 
+650 3183 M 
+0.500 0 (o)A 
+-0.661 0 32 0.411 0 (f )D 
+0.500 0 (p)A 
+-0.774 0 (l)A 
+0.548 0 (ac)A 
+-0.452 0 (e)A 
+1.387 0 32 -0.637 0 (s )D 
+0.774 0 (w)A 
+-0.500 0 (h)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+-0.798 0 32 0.548 0 (e )D 
+1.226 0 (t)A 
+-0.500 0 (h)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.774 0 (i)A 
+0.500 0 (np)A 
+-0.500 0 (u)A 
+-1.476 0 32 1.226 0 (t )D 
+-0.452 0 (ac)A 
+0.500 0 (qu)A 
+0.226 0 (i)A 
+-0.589 0 (r)A 
+1.548 0 (e)A 
+1.250 0 32 -0.500 0 (d )D 
+-0.452 0 (c)A 
+0.548 0 (a)A 
+-0.750 0 32 0.500 0 (n b)D 
+0.202 0 32 -0.452 0 (e )D 
+0.500 0 (p)A 
+-0.774 0 (l)A 
+0.548 0 (ac)A 
+-0.452 0 (e)A 
+-0.500 0 (d)A 
+0.750 0 (.)A 
+; : 400 3464 6000 262 rc 0 0 0 sco F4_233
+Ji 
+650 3464 M 
+-0.452 0 (\223)A 
+0.411 0 (f)A 
+0.500 0 (o)A 
+0.411 0 (r)A 
+-0.274 0 (m)A 
+-0.452 0 (a)A 
+1.226 0 (t)A 
+1.202 0 32 -0.452 0 (\224 )D 
+-0.774 0 (i)A 
+-0.613 0 32 0.363 0 (s )D 
+1.363 0 (s)A 
+-0.774 0 (i)A 
+0.726 0 (m)A 
+-0.774 0 (i)A 
+0.226 0 (l)A 
+0.548 0 (a)A 
+0.339 0 32 -0.589 0 (r )D 
+1.226 0 (t)A 
+-0.750 0 32 0.500 0 (o p)D 
+-0.589 0 (r)A 
+0.226 0 (i)A 
+0.500 0 (n)A 
+0.226 0 (t)A 
+-0.589 0 (f)A 
+-0.250 0 (, )A 
+1.363 0 (s)A 
+1.202 0 32 -0.452 0 (ee )D 
+-0.226 0 (K)A 
+0.548 0 (e)A 
+0.226 0 (ll)A 
+-0.452 0 (e)A 
+1.250 0 32 -0.500 0 (y )D 
+0.548 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+-0.548 0 (P)A 
+-0.500 0 (o)A 
+0.500 0 (h)A 
+-1.476 0 32 1.226 0 (l )D 
+0.500 0 (p)A 
+-0.452 0 (a)A 
+0.500 0 (g)A 
+-0.798 0 32 0.548 0 (e )D 
+0.500 0 (4)A 
+-0.500 0 (9)A 
+0.500 0 (9)A 
+; : 400 3744 6000 262 rc 0 0 0 sco F4_233
+Ji 
+650 3744 M 
+0.411 0 (f)A 
+0.500 0 (o)A 
+0.339 0 32 -0.589 0 (r )D 
+0.500 0 (d)A 
+0.548 0 (e)A 
+0.226 0 (t)A 
+-0.452 0 (a)A 
+0.226 0 (il)A 
+-0.613 0 32 0.363 0 (s )D 
+0.500 0 (o)A 
+-0.661 0 32 0.411 0 (r )D 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+-0.589 0 (-)A 
+0.226 0 (l)A 
+1.226 0 (i)A 
+-0.500 0 (n)A 
+1.202 0 32 -0.452 0 (e )D 
+-0.274 0 (m)A 
+0.548 0 (a)A 
+-0.750 0 32 0.500 0 (n p)D 
+-0.452 0 (a)A 
+0.500 0 (g)A 
+-0.452 0 (e)A 
+0.363 0 (s)A 
+0.750 0 (.)A 
+; 
+pagesave restore
+LH 
+
+(%%[ Page: 15 ]%%)  =
+%%PageTrailer
+
+%%Page: 16 16
+%%BeginPageSetup
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 7016 4958 rf ; 
+%%EndPageSetup
+
+: 400 113 6000 4500 rc 
+400 113 N M 6002 4502 rr : 1.000 1.000 1.000 sco O ; ; : 
+5920 4603 N M 472 1 - 0 -1954 - -2457 -1497 - 210 156 - 172 135 - 193 169 - 188 178 - 275 303 - 244 322 - 177 281 - 154 291 - 122 290 - 89 266 - 61 225 - 56 278 - 28 244 - 16 312 - C clip C 
+3935 4604 N M 32 -3451 rr : 0.671 0.671 0.671 sco O ; 
+3967 4604 N M 31 -3451 rr : 0.675 0.675 0.675 sco O ; 
+3998 4604 N M 30 -3451 rr : 0.675 0.675 0.675 sco O ; 
+4028 4604 N M 31 -3451 rr : 0.678 0.678 0.678 sco O ; 
+4059 4604 N M 32 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4091 4604 N M 31 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4122 4604 N M 30 -3451 rr : 0.686 0.686 0.686 sco O ; 
+4152 4604 N M 31 -3451 rr : 0.690 0.690 0.690 sco O ; 
+4183 4604 N M 32 -3451 rr : 0.694 0.694 0.694 sco O ; 
+4215 4604 N M 31 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4246 4604 N M 30 -3451 rr : 0.698 0.698 0.698 sco O ; 
+4276 4604 N M 31 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4307 4604 N M 32 -3451 rr : 0.706 0.706 0.706 sco O ; 
+4339 4604 N M 31 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4370 4604 N M 30 -3451 rr : 0.710 0.710 0.710 sco O ; 
+4400 4604 N M 31 -3451 rr : 0.714 0.714 0.714 sco O ; 
+4431 4604 N M 32 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4463 4604 N M 31 -3451 rr : 0.718 0.718 0.718 sco O ; 
+4494 4604 N M 30 -3451 rr : 0.722 0.722 0.722 sco O ; 
+4524 4604 N M 31 -3451 rr : 0.725 0.725 0.725 sco O ; 
+4555 4604 N M 31 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4586 4604 N M 32 -3451 rr : 0.729 0.729 0.729 sco O ; 
+4618 4604 N M 30 -3451 rr : 0.733 0.733 0.733 sco O ; 
+4648 4604 N M 31 -3451 rr : 0.737 0.737 0.737 sco O ; 
+4679 4604 N M 31 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4710 4604 N M 32 -3451 rr : 0.741 0.741 0.741 sco O ; 
+4742 4604 N M 30 -3451 rr : 0.745 0.745 0.745 sco O ; 
+4772 4604 N M 31 -3451 rr : 0.749 0.749 0.749 sco O ; 
+4803 4604 N M 31 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4834 4604 N M 32 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4866 4604 N M 30 -3451 rr : 0.753 0.753 0.753 sco O ; 
+4896 4604 N M 31 -3451 rr : 0.761 0.761 0.761 sco O ; 
+4927 4604 N M 31 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4958 4604 N M 32 -3451 rr : 0.765 0.765 0.765 sco O ; 
+4990 4604 N M 30 -3451 rr : 0.765 0.765 0.765 sco O ; 
+5020 4604 N M 31 -3451 rr : 0.773 0.773 0.773 sco O ; 
+5051 4604 N M 31 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5082 4604 N M 32 -3451 rr : 0.776 0.776 0.776 sco O ; 
+5114 4604 N M 30 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5144 4604 N M 31 -3451 rr : 0.780 0.780 0.780 sco O ; 
+5175 4604 N M 31 -3451 rr : 0.784 0.784 0.784 sco O ; 
+5206 4604 N M 32 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5238 4604 N M 30 -3451 rr : 0.788 0.788 0.788 sco O ; 
+5268 4604 N M 31 -3451 rr : 0.792 0.792 0.792 sco O ; 
+5299 4604 N M 31 -3451 rr : 0.796 0.796 0.796 sco O ; 
+5330 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5361 4604 N M 31 -3451 rr : 0.800 0.800 0.800 sco O ; 
+5392 4604 N M 31 -3451 rr : 0.804 0.804 0.804 sco O ; 
+5423 4604 N M 31 -3451 rr : 0.808 0.808 0.808 sco O ; 
+5454 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5485 4604 N M 31 -3451 rr : 0.812 0.812 0.812 sco O ; 
+5516 4604 N M 31 -3451 rr : 0.816 0.816 0.816 sco O ; 
+5547 4604 N M 31 -3451 rr : 0.820 0.820 0.820 sco O ; 
+5578 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5609 4604 N M 31 -3451 rr : 0.824 0.824 0.824 sco O ; 
+5640 4604 N M 31 -3451 rr : 0.827 0.827 0.827 sco O ; 
+5671 4604 N M 31 -3451 rr : 0.831 0.831 0.831 sco O ; 
+5702 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5733 4604 N M 31 -3451 rr : 0.835 0.835 0.835 sco O ; 
+5764 4604 N M 31 -3451 rr : 0.839 0.839 0.839 sco O ; 
+5795 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5826 4604 N M 31 -3451 rr : 0.843 0.843 0.843 sco O ; 
+5857 4604 N M 31 -3451 rr : 0.847 0.847 0.847 sco O ; 
+5888 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5919 4604 N M 31 -3451 rr : 0.851 0.851 0.851 sco O ; 
+5950 4604 N M 442 -3451 rr : 0.851 0.851 0.851 sco O ; ; : 400 113 6000 4500 rc 
+N CTMsave 
+400.000 4604.500 + 11030 8975 +S 
+0 0 0.500 -0.006 -90.000 An 
+CTMrestore 
+8 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0.851 0.851 0.851 sco K ; : 835 445 5565 411 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_368) cvn
+F0
+368 
+xF 
+F0_368
+Ji 
+1220 445 M 
+-1.000 0 (s)A 
+(c)S 
+-0.608 0 (an)A 
+1.000 0 32 -1.304 0 (f )D 
+-0.608 0 (e)A 
+(x)S 
+-0.608 0 (a)A 
+-1.544 0 (m)A 
+-0.608 0 (p)A 
+-0.696 0 (l)A 
+-1.696 0 32 0.392 0 (e )D 
+-1.760 0 32 0.456 0 (- )D 
+-1.456 0 (A)A 
+-0.544 0 (mm)A 
+-1.608 0 (e)A 
+0.456 0 (r)A 
+-1.608 0 (a)A 
+-0.608 0 (a)A 
+-0.696 0 (l)A 
+; : 2607 884 3793 411 rc 0 0 0 sco F0_368
+Ji 
+2992 884 M 
+-0.608 0 (p1)A 
+-1.608 0 (5)A 
+0.392 0 (7)A 
+; : 1151 1653 5249 262 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.897 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_233) cvn
+F2
+233 
+xF 
+F2_233
+Ji 
+1404 1653 M 
+0.637 0 (E)A 
+-0.500 0 (x)A 
+0.548 0 (a)A 
+-0.274 0 (m)A 
+-0.500 0 (p)A 
+1.226 0 (l)A 
+-0.452 0 (e)A 
+0.226 0 (:)A 
+; : 1093 2217 5307 332 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F4) cvn
+0.890 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F4_300) cvn
+F4
+300 
+xF 
+F4_300
+Ji 
+1404 2217 M 
+0.200 0 (p)A 
+-0.200 0 (r)A 
+-0.400 0 (i)A 
+0.200 0 (n)A 
+0.100 0 (tf\()A 
+0.500 0 (")A 
+-0.100 0 (E)A 
+-0.800 0 (n)A 
+0.100 0 (t)A 
+0.800 0 (e)A 
+0.200 0 32 -0.200 0 (r )D 
+(a)S 
+-0.200 0 32 0.200 0 (n )D 
+-0.400 0 (i)A 
+0.200 0 (n)A 
+0.100 0 (t)A 
+-0.200 0 (e)A 
+(g)S 
+-0.200 0 (er)A 
+0.100 0 (:)A 
+-0.500 0 (")A 
+0.100 0 (\);)A 
+; : 1093 2577 5307 332 rc 0 0 0 sco F4_300
+Ji 
+1404 2577 M 
+0.300 0 (s)A 
+-0.200 0 (c)A 
+(a)S 
+0.200 0 (n)A 
+0.100 0 (f\()A 
+-0.500 0 (")A 
+(%)S 
+0.200 0 (d)A 
+0.500 0 (")A 
+(, )S 
+0.100 0 (&)A 
+-0.800 0 (n)A 
+0.100 0 (\);)A 
+; : 1093 2938 5307 332 rc 0 0 0 sco F4_300
+Ji 
+1404 2938 M 
+0.200 0 (p)A 
+-0.200 0 (r)A 
+-0.400 0 (i)A 
+0.200 0 (n)A 
+0.100 0 (tf\()A 
+0.500 0 (")A 
+-0.100 0 (E)A 
+-0.800 0 (n)A 
+0.100 0 (t)A 
+0.800 0 (e)A 
+0.200 0 32 -0.200 0 (r )D 
+(a )S 
+-1.200 0 (c)A 
+1.200 0 (h)A 
+(a)S 
+-1.200 0 (r)A 
+(a)S 
+0.800 0 (c)A 
+0.100 0 (t)A 
+-0.200 0 (er)A 
+0.100 0 (:)A 
+0.500 0 (")A 
+0.100 0 (\))A 
+-0.900 0 (;)A 
+; : 1093 3298 5307 332 rc 0 0 0 sco F4_300
+Ji 
+1404 3298 M 
+0.300 0 (s)A 
+-0.200 0 (c)A 
+(a)S 
+0.200 0 (n)A 
+0.100 0 (f\()A 
+0.500 0 32 -0.500 0 (" )D 
+(%)S 
+0.800 0 (c)A 
+-0.500 0 (")A 
+(, )S 
+-0.900 0 (&)A 
+0.800 0 (c)A 
+-0.800 0 (h)A 
+0.100 0 (\);)A 
+; : 497 4003 5903 262 rc 0 0 0 sco F2_233
+Ji 
+750 4003 M 
+0.774 0 (N)A 
+-0.500 0 (o)A 
+0.226 0 (t)A 
+-0.452 0 (e)A 
+-1.476 0 32 1.226 0 (: )D 
+0.226 0 (t)A 
+-0.500 0 (h)A 
+0.226 0 (i)A 
+-0.613 0 32 0.363 0 (s s)D 
+-0.500 0 (p)A 
+0.548 0 (a)A 
+-0.452 0 (c)A 
+-1.798 0 32 1.548 0 (e )D 
+0.226 0 (i)A 
+1.387 0 32 -0.637 0 (s )D 
+-0.774 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+0.548 0 (c)A 
+-0.452 0 (a)A 
+0.500 0 (u)A 
+0.363 0 (s)A 
+-0.798 0 32 0.548 0 (e )D 
+1.202 0 32 -0.452 0 (a )D 
+-0.637 0 (s)A 
+0.500 0 (k)A 
+1.226 0 (i)A 
+1.250 0 32 -0.500 0 (p o)D 
+1.339 0 32 -0.589 0 (f )D 
+-0.774 0 (t)A 
+0.500 0 (h)A 
+-0.798 0 32 0.548 0 (e )D 
+0.500 0 (n)A 
+-0.452 0 (e)A 
+0.774 0 (w)A 
+0.226 0 (li)A 
+0.500 0 (n)A 
+0.202 0 32 -0.452 0 (e )D 
+0.500 0 (p)A 
+0.411 0 (r)A 
+-0.452 0 (e)A 
+0.363 0 (s)A 
+-0.637 0 (s)A 
+1.548 0 (e)A 
+-0.500 0 (d)A 
+; : 497 4283 5903 262 rc 0 0 0 sco F2_233
+Ji 
+750 4283 M 
+-0.452 0 (a)A 
+0.411 0 (f)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+0.339 0 32 -0.589 0 (r )D 
+1.226 0 (t)A 
+0.500 0 (h)A 
+0.202 0 32 -0.452 0 (e )D 
+0.226 0 (i)A 
+-0.500 0 (n)A 
+0.226 0 (t)A 
+0.548 0 (e)A 
+0.500 0 (g)A 
+-0.452 0 (e)A 
+0.411 0 (r)A 
+-0.250 0 (.)A 
+; 
+1900 4063 N M 31 15 - 8 -31 - 22 -23 - 8 -23 - 15 -23 - 16 -23 - 31 -24 - 23 -23 - 23 -23 - 23 -22 - 23 -23 - 8 -23 - 8 -23 - 0 -24 - 3 -3 - 38 -50 - 50 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0 0 0 sco K 
+2205 3819 N M -45 -76 - -84 -24 - 224 -156 - -95 256 - C : 0 0 0 sco O ; 
+pagesave restore
+LH 
+
+(%%[ Page: 16 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+finalpage
+%%DocumentNeededFonts: Helvetica
+%%+ Times-Roman
+%%+ Times-Bold
+%%+ Symbol
+%%+ Times-BoldItalic
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 16
+(%%[ LastPage ]%%)  =
+%%EOF
+%-12345X@PJL EOJ
+%-12345X

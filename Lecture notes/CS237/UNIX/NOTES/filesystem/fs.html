@@ -1,0 +1,1718 @@
+<head>
+<title>UNIX File System: Body</title>
+<base target="fsFrame">
+</head>
+<!--#config timefmt="%e %b %Y" -->
+ 
+<body bgcolor=#e0f0a0>
+
+<a name="introduction"></a>
+<h1 align=center>UNIX File System</h1>
+
+Chris Loftus, 26 January 1998
+<br>
+Updated by Edel Sherratt, 9 March 1999 and 15 March 2000
+<br>
+Updated by Helen Fuell, 23 March 2001
+
+
+<h3>Introduction</h3>
+
+In UNIX a file is an abstract entity that contains information of some
+type with no imposed structure. In UNIX nearly every software concept is a file.
+
+<ul>
+<li> Terminals - keyboards, communications lines, modem.
+<li> Disks.
+<li> Tape drives.
+<li> Speakers.
+<li> Remote filesystems.
+<li> CD-ROM.
+</ul>
+
+<p>
+Files can be classified as regular files and special files. 
+
+<h3>Regular files</h3> 
+
+These include latex files, C source code, binaries, directories.
+<pre>
+artemis:cmk&gt; bin/ls -l /usr/5bin
+total 988
+-rwxr-xr-x  1 root         1552 Oct 11  1990 ar
+-rwxr-xr-x  1 root        16384 Oct 11  1990 cat
+-rwxr-xr-x  1 root         1661 Oct 11  1990 cflow
+-rwxr-xr-x  1 root        16384 Oct 11  1990 chmod
+. . . . . . . . . . . . . . . . .
+ 
+artemis:cmk&gt; file /usr/5bin/*
+ar:             executable shell script
+cat:            sparc demand paged dynamically linked executable
+cflow:          executable shell script
+chmod:          sparc demand paged dynamically linked executable
+. . . . . . . . . . . . . . . . .
+</pre>
+
+<p>
+The nature of a file (whether shell script, dynamically linked executable etc)
+is determined by commands such as <em>file</em> by examining the file's
+contents. System wide or application specific header files detail how
+such files should be organised (see section 4 of the man pages).
+
+<p>
+Ordinary files consist of a series of bytes. The file itself has no imposed
+structure and is stored as a stream of bytes. The programs reading or writing
+them will impose any required structure (e.g. integer, float etc). What are the 
+implications of this feature for implementing a database?
+
+<h3>Special files.</h3>
+
+These are devices such as tape drives, disks, speakers which
+by convention live in /dev or its subdirectories. A few are shown below:
+
+<pre>
+marilyn &gt; file /dev/*
+/dev/arp:       character special (11/44)
+/dev/audio:     character special (108/0)
+/dev/audioctl:  character special (108/128)
+/dev/bd.off:    character special (29/1)
+/dev/be:        character special (11/106)
+/dev/conslog:   character special (21/0)
+/dev/console:   character special (0/0)
+/dev/cua:       directory
+/dev/dsk:       directory
+
+marilyn &gt; file /dev/dsk/*
+/dev/dsk/c0t3d0s0:      block special (32/24)
+/dev/dsk/c0t3d0s1:      block special (32/25)
+/dev/dsk/c0t3d0s2:      block special (32/26)
+/dev/dsk/c0t3d0s3:      block special (32/27)
+</pre>
+
+<hr>
+<a name="directory"></a>
+<h3>The directory</h3>
+
+Directories are regular files but can only be updated using special system
+calls (e.g. <em>mknod</em> and <em>unlink</em>). Every directory has a least
+two entries ("." and "..").
+Each entry in a directory exists independently of that directory. The
+directory entry (called confusingly a link) points to an inode structure
+which, in turn, has a pointer to a file on the disk. The inode structure
+itself will also be on a disk, but in a special location (although the
+list containing it will be partly cached in memory).
+An inode structure
+defines a file within a disk. Each inode contains information about a file such
+as its owner, group, permissions and physical disk addresses.
+ 
+<p>
+
+<img src="../../gif/internal_dir.gif" alt="Directory internals" align=middle border=1> 
+
+<p>
+
+The <em>od</em> command gives a dump of a file in a format specified, -c ASCII, -b
+octal, -a characters (see <em>od(1)</em>). Below is a dump of a directory in
+ascii format. Note the names of files such as ., .., bin, and also
+the partial filenames.  The numbers refer to the inode associated
+with the file entry. Directories will never shrink in size. Removing a
+directory entry simply leaves an unused (free) entry space where the
+inode number is set to zero. When a new
+entry is created (by creating a file or another directory) the file system
+will either use a free slot or else append a new entry on to the end of the
+directory file. This is done for performance reasons, since removing deleted
+entries would require the physical reordering of data on the disk. In most
+cases non-shrinking directories cause few problems.
+
+<pre>
+marilyn &gt; od -c /usr | more
+0000000  \0  \0  \0 002  \0  \f  \0 001   .  \0  \0  \0  \0  \0  \0 002
+0000020  \0  \f  \0 002   .   .  \0  \0  \0  \0  \0 003  \0 024  \0  \n
+0000040   l   o   s   t   +   f   o   u   n   d  \0  \0  \0  \0 016 300
+0000060  \0 020  \0 005   s   h   a   r   e  \0  \0  \0  \0  \0   ;  \0
+0000100  \0  \f  \0 003   b   i   n  \0  \0  \0   I 300  \0  \f  \0 003
+0000120   c   c   s  \0  \0  \0   g   @  \0 020  \0 004   d   e   m   o
+0000140  \0  \0  \0  \0  \0  \0   v  \0  \0 020  \0 005   g   a   m   e
+0000160   s  \0  \0  \0  \0  \0 204 300  \0 020  \0 006   k   e   r   n
+0000200   e   l  \0  \0  \0  \0 354  \0  \0  \f  \0 003   k   v   m  \0
+0000220  \0  \0 372 300  \0  \f  \0 003   l   i   b  \0  \0  \0  \0 004
+0000240  \0 020  \0 004   m   a   i   l  \0  \0  \0  \0  \0 003   +   @
+0000260  \0  \f  \0 003   n   e   t  \0  \0  \0  \0 005  \0 020  \0 004
+0000300   n   e   w   s  \0  \0  \0  \0  \0 003   W 200  \0  \f  \0 003
+0000320   o   l   d  \0  \0 003   f   @  \0 020  \0 007   o   p   e   n
+0000340   w   i   n  \0  \0 003   u  \0  \0 024  \0  \b   p   l   a   t
+0000360   f   o   r   m  \0  \0  \0  \0  \0  \0  \0 006  \0 024  \0  \b
+0000400   p   r   e   s   e   r   v   e  \0  \0  \0  \0  \0  \0  \0 007
+0000420  \0  \f  \0 003   p   u   b  \0  \0 003 203 300  \0 020  \0 004
+0000440   s   a   d   m  \0  \0  \0  \0  \0 003 371 300  \0 020  \0 004
+0000460   s   b   i   n  \0  \0  \0  \0  \0  \0  \0  \b  \0 020  \0 005
+0000500   s   p   o   o   l  \0  \0  \0  \0  \0  \0  \t  \0  \f  \0 003
+0000520   s   r   c  \0  \0  \0  \0  \n  \0  \f  \0 003   t   m   p  \0
+...
+</pre>
+
+<a name="inode"></a>
+<h3>The inode</h3>
+
+The inode structure contains information on:
+
+<ol>
+<li> User ID.
+<li> Group ID.
+<li> Protection bits.
+<li> Physical disk address.
+<li> File size.
+<li> Time of creation.
+<li> Time last used.
+<li> Time of last modification to file (last update).
+<li> Time of last modification to inode structure.
+<li> Number of links to the file.
+<li> Whether the file is:
+<ol>
+<li> Directory.
+<li> Ordinary file.
+<li> Character special file.
+<li> Block special file.
+<li> Pipe.
+</ol>
+</ol>
+
+<p>
+The simplified structure defining the inode is given below. See
+(/usr/include/sys/fs/ufs_inode.h).
+
+<pre>
+struct inode {
+        struct  inode *i_chain[2];      /* must be first */
+        struct  vnode i_vnode;  /* vnode associated with this inode */
+        struct  vnode *i_devvp; /* vnode for block I/O */
+        u_short i_flag;
+        dev_t   i_dev;          /* device where inode resides */
+        ino_t   i_number;       /* i number, 1-to-1 with device address */
+        off_t   i_diroff;       /* offset in dir, where we found last entry */
+        ...
+        struct  icommon {
+           o_mode_t ic_smode;      /*  0: mode and type of file */
+           short   ic_nlink;       /*  2: number of links to file */
+           o_uid_t ic_suid;        /*  4: owner's user id */
+           o_gid_t ic_sgid;        /*  6: owner's group id */
+           quad    ic_size;        /*  8: number of bytes in file */
+           ...
+           time_t  ic_atime;       /* 16: time last accessed */
+           long    ic_atspare;
+           time_t  ic_mtime;       /* 24: time last modified */
+           long    ic_mtspare;
+           time_t  ic_ctime;       /* 32: last time inode changed */
+           long    ic_ctspare;
+           daddr_t ic_db[NDADDR];  /* 40: disk block addresses */
+           daddr_t ic_ib[NIADDR];  /* 88: indirect blocks */
+           long    ic_flags;       /* 100: status, currently unused */
+           long    ic_blocks;      /* 104: blocks actually held */
+           long    ic_gen;         /* 108: generation number */
+           long    ic_shadow;      /* 112: shadow inode */
+           uid_t   ic_uid;         /* 116: long EFT version of uid */
+           gid_t   ic_gid;         /* 120: long EFT version of gid */
+           ulong   ic_oeftflag;    /* 124: reserved */
+       } i_ic;
+};
+</pre>
+
+For details of storage of files on the physical disk see page 578 
+<a href="../references.html#DET90">[DET90]</a>, and Chapter 4 <a href="../references.html#BACH86">[BACH86]</a>.
+
+<hr>
+<a name="permissions"></a>
+<h3>File access permissions</h3>
+
+The permissions associated with a file exist to determine if an
+operation such as opening a file, reading from a file, etc, can be
+performed. The information about file permission is stored in the
+file's inode structure (in the ic_imode field). 
+It is stored as an unsigned short int number 
+which can be changed by C's bitwise inclusive OR operator "|". For example,
+this would be done to set a permission mode when creating a new file.
+
+<p>
+An example of using the "|" operator on two 16 bit binary numbers is:
+
+<pre>
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1         Decimal 1 or octal 1 in binary
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0         Decimal 256 or octal 400 in binary
+|
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1         Result: Decimal 257 or octal 401 in binary
+</pre>
+
+Since the byte size of a Sun is 8 bits, a short, which is 2 bytes
+on a Sun, is 16 bits. Each of these 16 bits switches on or off a particular
+file mode (some of which are concerned with permissions). 
+
+<p>
+UNIX protects files with reference to three classes of  user:
+
+<ul>
+<li> Owner of the file.
+<li> Group owner of the file.
+<li> Other potential users of the file.
+</ul>
+
+<p>
+Every file will have a separate set of permissions for each of these three user groups.
+These determine whether these users can
+read, write or execute the file. These modes (permissions and others) are:
+
+<table>
+<tr>
+<td><b>Mode (octal)</b></td> <td><b>Description</b></td>
+</tr>
+<tr>
+<td>400</td> <td>Read by owner.</td>
+</tr>
+<tr>
+<td>200</td> <td>Write by owner.</td>
+</tr>
+<tr>
+<td>100</td> <td> Execute (search in directory) by owner.</td>
+</tr>
+<tr>
+<td>040</td> <td>Read by group.</td>
+</tr>
+<tr>
+<td>020</td> <td>Write by group. </td>
+</tr>
+<tr>
+<td>010</td> <td>Execute (search in directory) by group.</td>
+</tr>
+<tr>
+<td>004</td> <td>Read by others.</td>
+</tr>
+<tr>
+<td>002</td> <td>Write by others.</td>
+</tr>
+<tr>
+<td>001</td> <td>Execute (search in directory) by others.</td>
+</tr>
+<tr>
+<td>4000</td> <td>Set user ID on execution.</td>
+</tr>
+<tr>
+<td>2000</td> <td>Set group ID on execution.</td>
+</tr>
+<tr>
+<td>1000</td> <td>Set sticky bit.</td>
+</tr>
+</table>
+
+Octal numbers are usually used when setting file modes. For example, 
+the shell command <em>chmod</em> is often given file permissions in this
+form. Hence <em>chmod 777 file</em> is equivalent to <em>chmod a=rwx file</em>.
+A combination  of 0641 (in C placing a 0 as the first digit indicates that
+a literal number should be treated as an octal) when defining a file
+mode would mean:
+
+<ul>
+<li> no set-uid, gid-uid or sticky bit permissions.
+<li> read and write permissions for owner.
+<li> read permissions for group.
+<li> execute permission for others. (search if a directory).
+</ul>
+
+<p>
+<em>ls -l</em> on a file that had this mode would give:
+
+<pre>
+-rw-r----x   1 cwl      staff       1655 Apr 16  1996 vmstat.log
+</pre>
+
+Note how the last 9 binary digits of 000000000110100001 corresponds to the above.
+The upper half of this number is used for other mode information (e.g. digits 10 to 12
+for set id and sticky bits).
+
+<p>
+As directories cannot be executed, the execute bit has a special meaning, i.e.
+that the directory can be searched by the owner, group or others depending
+on whether it is set or unset for each of these users.
+
+<hr>
+<a name="umask"></a>
+<h4>Umask</h4>
+
+It is often useful to set a mask which will, by default, mask out specific
+permissions, e.g. make sure that all files created have no write permission for others
+or the group. <em>umask</em> can be used to set such a mask and can be called from either
+the shell or from within a program.
+
+<p>
+A child process will inherit the mask of its parent. That way, if you set
+the mask in your .cshrc file you know that any program you start will
+inherit this mask (it may of course override it). Whenever you create a file
+using <em>open</em> or <em>fopen</em> (or any file/directory creation call)
+the mask is implicitly applied to the user's supplied file creation mode.
+UNIX will use the bitwise AND ("&") operator in the following expression:
+
+<pre>
+(~mask)&supplied_mode
+</pre>
+
+For example if the mask is set to 033 (----wx-wx) this means prevent the creation
+of files with write and execte permissions for the group and others. If the user
+program then tries to create a file with the mode 0655 (rw-r-xr-x) the negation
+of the mask (i.e. rwxr--r--) is ANDed with this mode causing the unwanted permissions
+to be switched off (set to zero) leading to a final file mode 0644 (rw-r--r--).
+
+<p>
+If you want to make sure that the mode provided during file creation is not
+masked, then you should call <em>umask</em> with the value 0. <em>umask</em>
+will also return the value of the previous mask. This allows you to temporarily
+change a mask and then reset it later.
+
+<p>
+The following code provides a more complex example:
+
+<pre>
+#include &lt;fcntl.h&gt;    /* Required for flags O_RDWR etc */
+#include &lt;stdio.h&gt;    /* Defines IO library functions */
+ 
+void main(int argc, char **argv)
+{
+  int fd;
+  FILE *filedes;
+  int origmask, mask = 0033, zero_mask = 0;
+ 
+  /* Remove any previous files created */
+
+  unlink(argv[1]);    unlink(argv[2]);
+  unlink(argv[3]);    unlink(argv[4]);
+ 
+  /* Set the mask to prevent writing and execution permissions for
+     group users or other users being set when creating new files.
+     Keep hold of the original mask. */
+
+  origmask = umask(mask);
+ 
+  /* Create a new file using open system call and specify the mode as rw-r-xr-x.
+     The mask will be applied implicitly and filter out
+     the two execute permissions for group and other users.
+     The file will actually be created with: rw-r--r-- */
+
+  if (( fd = open(argv[1], O_RDWR | O_CREAT, 0655)) == -1) {
+    (void) fprintf(stderr, "open failed\n");
+    exit(1);
+  }
+  (void)close(fd);
+
+  /* Create a new file using the fopen library function with 
+     the intention of appending. Although
+     we don't explicitly say what the mode is for each of the three
+     groups of users, the system will set the mode to read and write
+     for each kind of user. However because the mask is set to screen
+     out rw for group and others the file will actually be created with
+     permissions: rw-r--r-- */
+
+  if ((filedes = fopen(argv[2], "a+")) == NULL)    {
+    (void) fprintf(stderr, "fopen failed\n");
+    exit(1);
+  }
+  (void)fclose(filedes);
+ 
+  /* We now set the mask to zero so that file modes are unaffected during
+     file creation */
+
+  origmask = umask(zero_mask);
+ 
+  /* This time the file will be created with rw-r-xr-x */
+
+  if (( fd = open(argv[3], O_RDWR | O_CREAT, 0655)) == -1) {
+    (void) fprintf(stderr, "open failed\n");
+    exit(1);
+  }
+  (void)close(fd);
+
+  /* This time the file will be created with rw-rw-rw- */
+
+  if (( filedes = fopen(argv[4], "a+")) == NULL)    {
+    (void) fprintf(stderr, "fopen failed\n");
+    exit(1);
+  }
+ 
+  (void) fclose(filedes);  
+}
+</pre>
+
+This gives:
+
+<pre>
+marilyn.dcs.aber.ac.uk 53 &gt; main one two three four
+marilyn.dcs.aber.ac.uk 54 &gt; ls -l
+total 16
+-rw-rw-rw-   1 cwl      staff          0 Feb  5 09:48 four
+-rw-r--r--   1 cwl      staff          0 Feb  5 09:48 one
+-rw-r-xr-x   1 cwl      staff          0 Feb  5 09:48 three
+-rw-r--r--   1 cwl      staff          0 Feb  5 09:48 two
+</pre>
+
+<hr>
+<a name="setid"></a>
+<h4>set-uid and Set-gid</h4>
+
+The patent for this concept is held by Dennis Ritchie and involves
+setting the permissions of a file so that when executed, the program process
+will execute with the permissions that the owner of the file has, not
+with the permissions of the user executing it (which is the default).
+
+<p>
+An example of the use of setting the user id is the file containing the
+program which changes a password entry (nispasswd on Computer Science).
+For obvious security reasons the central database containing password
+information (a Network Information Service password map file) must
+only be updatable by root on the machine containing that database. It
+is inconvenient for users to have to request that the administrator
+change their passwords. Instead, because the root user has set the
+set-uid bit for the nispasswd program file, it will take on the
+identity of root (the file's owner) during execution. In this way
+the humble user is able to change his/her password information.
+
+<pre>
+-r-sr-sr-x   3 root     sys        15688 Oct 25  1995 /usr/bin/nispasswd
+</pre>
+
+Note that the set-uid and set-gid bits have been set for nispasswd since
+the process should take on the identity of both the root user and his
+group (sys). <em> ls -l</em> displays set-id information as an "s" in place
+of the normal "x". There are potential dangers associated with
+setting the set-id bits. A user who does this to one of his/her programs
+creates a potential security loop-hole through which other users can
+pass. For example, the program might update his/her local files.
+
+<hr>
+<a name="sticky"></a>
+<h4>The Sticky bit</h4>
+
+As described in the <a href="../overview/ov.html#process">Overview notes</a>
+a process has a number of
+sections. The text section of a process will be the same for all processes
+running the same program (e.g. multiple executions of <em>ls</em>) at the
+same time. Therefore the
+system need only keep one copy in memory for any number of concurrent
+invocations of that program. 
+
+<p>
+Normally, when the program text is no longer required by any processes it
+is deleted from memory. For frequently executed programs this is
+inefficient, since creating the program image in memory is expensive requiring
+lots of disk activity (e.g. dynamic linking etc). However, if the
+sticky-bit (also called save-text-image bit) on the executable file is
+set then once a image is used, it will not be
+deleted from memory, but swapped out into secondary memory so that
+when it is next used it is just swapped back in, instead of being
+searched for and loaded from the filesystem. The sticky-bit can only be
+set by root since its use has an impact on the system (swap disk space
+may become exhausted).
+
+<p>
+Set-uid, set-gid and the sticky bit are set either using <em>chmod(2)</em>
+or from within a program as part of the mode argument.
+
+<p>
+A simple shell script can be used to find all files that are set-uid,
+set-gid and have the sticky bit set in a filesystem (this
+would have taken a lot more lines of C to write).
+
+<pre>
+#!/bin/sh
+# A script to find various file types
+ 
+for file in `find $1 -type f -print`
+  do
+     if [ -u $file ] ; then
+        echo $file " is a set-id file"
+     fi
+     if [ -g $file ] ; then
+        echo $file " is a set-gid file"
+     fi
+     if [ -k $file ] ; then
+        echo $file " has the sticky bit set"
+     fi
+   done
+</pre>
+
+<hr>
+<a name="IO"></a>
+<h3>Unbuffered Input/Output</h3>
+
+The collection of primitives (system calls) which can be put under the
+heading of unbuffered I/O are:
+
+<ul>
+<li> open - opens or creates a file for reading and/or writing.
+<li> read - reads bytes from a file.
+<li> write - writes bytes to a file.
+<li> unlink - removes a file.
+<li> lseek - moves to a specified byte in a file.
+<li> close - closes a previously opened file.
+</ul>
+
+<p>
+Since the UNIX file has no imposed structure, being a stream of
+bytes, the above primitives do not need to take any structure into
+account. The calls give direct access to the I/O facilities
+that the kernel provides. Irrespective of the type of file (special or
+regular) it will ultimately be accessed via these system calls (there
+are a couple of general purpose IO related system calls (fcntl and ioctl) but these
+can be ignore for the moment). They are the building blocks for all I/O.
+
+<p>
+The interface (e.g. functions and constants) is described 
+in <em>fcntl.h</em> and this header file
+should be included in all programs that use unbuffered I/O.
+
+<p>
+This form of IO is termed unbuffered because, unlike the standard
+IO libraries (fopen etc), no buffering is done on behalf of the
+user program (except by the kernel for performance reasons). Instead, the
+user program is required to provide a buffer into which bytes are read. The
+user program is then responsible for interpreting and managing that buffer.
+
+<p>
+We now describe each of the above system calls. Note that the
+return values of most (but not all) system calls are as follows:
+
+<ul>
+<li> 0 or positive number on success. 
+<li> -1 or NULL on failure. This will set the external variable <em>errno</em>
+to indicate the error (see Intro(2) for error numbers and what they mean).
+</ul>
+
+<p>
+<hr>
+<a name="open"></a>
+<h4>Open</h4>
+
+<pre>
+     int open(char* path, int flags [, int mode]);
+</pre>
+
+This call is used to open or create a file for reading and/or writing. It
+takes a UNIX pathname and returns a 
+file descriptor which should be used by other IO system calls
+accessing the file. The file descriptor is just an index into the process'
+file descriptor table. This table then enables access to the inode structure
+for the file. Each process is allowed only a finite number of file descriptors.
+Also, by default, each process inherits the file descriptors of its parent
+(e.g. standard input, standard output and standard error).
+
+<p>
+The flags argument comprises a logical OR (the "|" C operator) of 
+one or more flags like those in the list below.   This argument indicates
+what is done with the file when it is opened.
+
+<p>
+<ul>
+<li> <b>O_RDONLY</b> Open for reading only.
+<li> <b>O_WRONLY</b> Open for writing only.
+<li> <b>O_RDWR</b>  Open for reading and writing.
+<li> <b>O_CREAT</b> Create the file if it doesn't already exist.
+<li> <b>O_APPEND</b> File pointer is set to the end of the file
+     before each write.
+<li> <b>O_TRUNC</b> Truncates the file to length 0 if it exists.
+<li> <b>O_EXCL</b> Open fails if the file exists.
+</ul>
+<p>
+
+The mode (as shown <a href="#permissions">earlier</a>) argument specifies
+the permissions of a new file to be created (specified by the O_CREAT
+flag).  This parameter is ignored if the file already exists.
+
+<p>
+<em>open</em> can be used to create lock files which act as binary semaphores
+(netscape creates such a file in your .netscape directory). These lock files
+are then used to control access to a resource (such as writing to
+another file where only one process should write to the file at a time). A process
+wishing to write to such a file would attempt to create the lock file with
+the O_CREAT and O_EXCL flags set. If the file already exists, it means another
+process has already acquired the resource. If not, then the lock file is created
+and the process acquires the resource (in this case updates the file).
+
+<p>
+<hr>
+<a name="read"></a>
+<h4>Read</h4>
+
+<pre>
+int read(int fd, void* buf, int nbyte);
+</pre>
+
+<em>read()</em> attempts to read <em>nbyte</em> bytes of data from the object referenced
+by the descriptor <em>fd</em> into the buffer pointed to by <em>buf</em>. It returns the
+number of bytes read, or -1 on error.
+
+<p>
+If there are no bytes to read then end of file (EOF) is returned (value 0).
+A call to <em>read</em> will block until the IO request is serviced (the data
+is read from the disk). This can be a problem sometimes and so it is possible to
+either stop blocking using the <em>fcntl</em> system call or to set an
+alarm signal to fire after a user-defined time (see <a href="../ipc/interprocess.html#signals">signal
+notes</a>).
+
+<p>
+It is often a good idea (for performance reasons) to set the 
+buffer size to <em>BUFSIZ</em> (a constant defined
+in stdio.h) since this is the size of chunks of data read to and from the disk
+and the kernel.
+
+<p>
+The <em>void*</em> pointer type means that you can read bytes into any kind
+of pointer data structure (e.g. pointer to structs, strings, arrays, ints etc).
+Remember that you are simply reading a stream of bytes and that it is the
+program which assigns structure and type to that information.
+
+<hr>
+<a name="write"></a>
+<h4>Write</h4>
+
+<pre>
+int write(int fd, void* buf, int nbyte);
+</pre>
+
+<em> write()</em> attempts to write <em>nbyte</em> bytes of data to the object referenced
+by the descriptor <em>fd</em> from the buffer pointed to by <em>buf</em>. It returns the
+number of bytes written, or -1 on error.
+
+<p>
+<em>write</em> can block due to full kernel buffers (waiting for buffers to be written
+to disk). Again, an alarm signal can be set to cause a timeout to avoid excessive
+blocking. Again, <em>void*</em> means that you can write out any kind of data structure
+via a supplied pointer to that data structure.
+
+<hr>
+<a name="lseek"></a>
+<h4>Lseek</h4>
+
+<pre>
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+ 
+off_t lseek(int fd, off_t offset, int whence);
+</pre>
+
+<em>lseek()</em>  sets the file pointer to a specified location in the
+file. The file pointer is a marker to the location of the last read or write.
+
+<p>
+There are three parameters. <em>fd</em> is an open file descriptor. <em>offset</em>
+is the number of bytes to move the file pointer (forwards if positive or backwards
+if negative) from the current position or from the start or end of the file.
+<em>whence</em> is used to indicate the start position:
+
+<ul>
+<li> <b>SEEK_SET</b> - Start of the file plus offset.
+<li> <b>SEEK_CUR</b> - Current location plus offset.
+<li> <b>SEEK_END</b> - Size of the file plus offset.
+</ul>
+
+<p>
+<em>lseek</em> returns the number of bytes from the start of the file.
+Some devices (in particular character special files)
+such as audio devices are incapable of seeking.
+
+<hr>
+<a name="unlink"></a>
+<h4>Unlink</h4>
+
+<pre>
+int unlink(char* path);
+</pre>
+
+<em>unlink()</em> removes the reference to a file from a directory entry and
+decrements the link count in the inode structure of the file referenced. If
+this becomes zero then the inode structure will be placed on a list of free
+available inodes, and the associated file data blocks are placed on a list
+of free and available data blocks.
+
+<p>
+If a relative pathname is given then <em>unlink</em> searches from
+the current working directory. Only the last element of the pathname is removed.
+
+<hr>
+<a name="close"></a>
+<h4>Close</h4>
+
+<pre>
+int close(int fd);
+</pre>
+
+<em>close</em> deletes a descriptor from the per-process object reference
+table thereby closing the file.
+When a process exits, all open file descriptors are closed.
+
+<hr>
+<a name="example"></a>
+<h4>Example program</h4>
+
+The following program demonstrates the use of the IO system calls. It
+<ul>
+<li> takes a filename from the command line, 
+<li> opens or creates the file,
+<li> appends some text to the file,
+<li> reads a chunk of data from the start of the file,
+<li> executes the <em>ls</em> command 
+<li> removes the file from its directory entry.
+</ul>
+
+<p>
+<pre>
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;    /* only for BUFSIZ definition and sprintf */
+#include &lt;malloc.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+ 
+#define PROG_BUFSIZE BUFSIZ     /* buffer size, same as block size 1024 */
+#define COMMAND "/bin/ls -l"    /* command to be executed */
+ 
+char *thing_to_write = "a thing to write\n";
+extern char *sys_errlist[];       /* external list of all error messages */
+ 
+main(int argc, char **argv)
+{
+   int filedes;      /* A file descriptor */
+   char *inbuf;      /* buffer to read into */
+   char command[40]; /* command to execute  ls -l */
+ 
+   (void) sprintf(command, "%s %s",COMMAND, argv[1]);
+ 
+   /* open file for reading and writing, append output to end of file */
+
+   if ((filedes = open(argv[1], O_RDWR | O_APPEND | O_CREAT, 0644)) == -1) {
+      (void) fprintf(stderr, "error opening file %s : %s\n",
+                              argv[1], sys_errlist[errno]);
+      exit(1);
+   }
+ 
+   /* Write out some text. Note that we find the size of char
+      when calculating the number of bytes is to be written. This isn't
+      strictly necessary since char = 1 byte, but it makes our code more
+      portable (just in case another machine perversely used 2 bytes to
+      implement a char!) */
+
+   if ((write(filedes, thing_to_write, 
+              strlen(thing_to_write) * sizeof(char))) == -1)   {
+      (void)fprintf(stderr, "error writing to file %s : %s\n",
+                             argv[1], sys_errlist[errno]);
+      exit(1);
+   }
+ 
+  lseek(filedes, 0, SEEK_SET); /* set file pointer to start of file */
+ 
+  /* Create a buffer of an optimal size */
+
+  inbuf = (char *) malloc(PROG_BUFSIZE * sizeof(char));
+  if (inbuf == NULL) {  /* test if malloc failed */
+     (void)fprintf(stderr, "malloc failed allocating inbuf :
+                            %s\n", sys_errlist[errno]);
+     exit(1);
+  }
+
+  /* Now try and fill inbuf with data from the file */
+
+  if((read(filedes, inbuf, PROG_BUFSIZE)) == -1) { /*read file descriptor*/
+     (void)fprintf(stderr, "error reading from file %s : %s\n",
+                            argv[1], sys_errlist[errno]);
+     exit(1);
+  }
+ 
+  close(filedes);
+ 
+  /* system is a quick way of starting other processes from this process */
+
+  system(command);
+  unlink(argv[1]);
+
+  /* This time, ls -l will not list the file */
+  system(command);
+ 
+  /* Now write directly to standard output. No test needed. */
+  write(1,inbuf, strlen(inbuf) * sizeof(char)); 
+
+  free(inbuf);   /* deallocated memory allocated by malloc */
+ 
+  /* The following is very dangerous since inbuf is now deallocated. It
+     may produce the same output but it may also write garbage
+     or cause a segmentation violation (outside process' address space)*/
+
+  write(1, inbuf, strlen(inbuf));
+}
+</pre>
+
+<hr>
+<a name="getc"></a>
+<h4>The implementation of getc</h4>
+
+<em>getc</em> is a macro defined in the system header file stdio.h.
+It demonstrates how buffering is managed by the standard IO library.
+Its definition is:
+
+<pre>
+#define getc(p)         (--(p)-&gt;_cnt&lt;0 ? (__filbuf(p) : (int)*(p)-&gt;_ptr++)
+</pre>
+
+This is interpreted as:
+
+<ul>
+<li> p - the FILE* stream to be read from
+<li> _cnt - characters remaining in the buffer
+<li> _ptr - next character in the buffer
+</ul>
+
+<p>
+<em>getc</em> is a macro which on each call returns the first character in the
+buffer <em>_ptr</em>, decrements the count <em>_cnt</em>, and advances the 
+pointer <em>_ptr</em>
+to indicate the next character to be returned in the event of that
+stream being read. When the count <em>_cnt</em> gets to 0 then the <em>_filbuf</em> 
+function is
+called to read a block of characters (1024) from stream <em>p</em> into a
+buffer <em>_ptr</em>. <em>_filbuf</em> returns the first character in the buffer.
+
+<p>
+The macro uses one of those strange C conditional expressions. Basically,
+the first part of the expression (<em>--(p)-&gt;_cnt&lt;0</em> says that if after decrementing
+_cnt by 1 it is less than zero then return true else return false. 
+If it returned false, then <em>((int)*(p)-&gt;_ptr++)</em> is executed, i.e. return
+the character being pointed to by <em>_ptr</em> and increment the pointer by one. If it
+returned true, then <em>_filebuf(p)</em> is called and the buffer gets refilled.
+
+<p>
+This avoids reading a single character every time getc is called, and
+is called buffering. UNIX is most efficient when it reads from a file
+in multiples of the system block size (BUFSIZ).
+ 
+<pre>
+#include &lt;stdio.h&gt;
+ 
+main()
+{
+  char c;
+ 
+  for(;;) {
+    c = getc(stdin);
+    (void) printf("%c\n",c);
+  }
+}
+</pre>
+
+<hr>
+
+<a name="stat"></a>
+<h3>Stat and Statvfs</h3>
+
+<pre>
+int stat(char* path, struct stat* buf);
+</pre>
+
+<em>stat</em>, <em>lstat</em> and <em>fstat</em> obtain information about a
+file's status, the information is derived from the file's inode structure.
+ 
+<ul>
+<li> <b>stat</b> - file is named by a path e.g. /usr/bin/cc. It obtains information
+     about the file pointed to by path.
+<li> <b>lstat</b> - lstat behaves the same as stat except where the named file
+     is a symbolic link. In that case lstat returns information about the symbolic link
+     file, while stat returns information about the file the link references.
+<li> <b>fstat</b> - here an open file is referenced by a open file
+     descriptor (returned from fopen). Behaves the same as stat.
+</ul>
+
+<p>
+<em>stat</em> (stat is used as a generic term for stat, lstat and fstat;
+only the description of how the file is named differs). It takes as
+its second argument a pointer to a structure into which information is
+placed. The form of the stat structure is described in the header file
+/usr/include/sys/stat.h and is shown below.
+ 
+<pre>
+dev_t          st_dev;     /* device file resides on */
+ino_t          st_ino;     /* the file serial number */
+mode_t         st_mode;    /* file mode */
+nlink_t        st_nlink;   /* number of hard links to the file */
+uid_t          st_uid;     /* user ID of owner */
+gid_t          st_gid;     /* group ID of owner */
+dev_t          st_rdev;    /* the device identifier (special files only) used 
+                              to find device driver*/
+off_t          st_size;    /* total size of file, in bytes */
+timestruc_t    st_atime;   /* file last access time */
+timestruc_t    st_mtime;   /* file last modify time */
+timestruc_t    st_ctime;   /* file last status change time */
+long           st_blksize; /* preferred blocksize for file system I/O*/
+long           st_blocks;  /* actual number of blocks allocated */
+</pre>
+
+A number of macros are available which can be used to test the <em>st_mode</em>
+field using bitwise arithmetic to determine various attributes 
+of the file. These are also defined in
+stat.h and stat(2) and most are described below:
+
+<p>
+Macro tests for file types:
+
+<p>
+<table>
+<tr>
+<td>S_ISDIR(m) </td> <td>Test for directory file. </td>
+</tr>
+<tr>
+<td>S_ISCHR(m) </td> <td>Test for character special file. </td>
+</tr>
+<tr>
+<td>S_ISBLK(m) </td> <td>Test for block special file. </td>
+</tr>
+<tr>
+<td>S_ISREG(m) </td> <td>Test for regular file. </td>
+</tr>
+<tr>
+<td>S_ISLNK(m) </td> <td>Test for a symbolic link. </td>
+</tr>
+<tr>
+<td>S_ISSOCK(m) </td> <td>Test for a socket. </td>
+</tr>
+<tr>
+<td>S_ISFIFO(m) </td> <td>Test for pipe or FIFO special file. </td>
+</tr>
+</table>
+
+<p>
+Predefined constants for other mode information (permissions, set-id).
+For each you can use C's bitwise AND ("&") operator to see if the st_mode
+has the given mode set:
+
+<pre>
+if (mode & S_IRUSR) { /* Will be > 0 if set */
+   printf("User has read permission set\n");
+}
+</pre>
+
+<p>
+Owner permissions:
+
+<p>
+<table>
+<tr>
+<td>S_IRWXU </td> <td>Read, write,  or execute permissions mask.</td>
+</tr>
+<tr>
+<td>S_IRUSR </td> <td>Read permission  bit.</td>
+</tr>
+<tr>
+<td>S_IWUSR </td> <td>Write permission bit. </td>
+</tr>
+<tr>
+<td>S_IXUSR </td> <td>Execute permission bit. </td>
+</tr>
+</table>
+
+<p>
+Group permissions:
+
+<p>
+<table>
+<tr>
+<td>S_IRWXG </td> <td>Read, write,  or execute permissions mask.</td>
+</tr>
+<tr>
+<td>S_IRGRP </td> <td>Read permission  bit.</td>
+</tr>
+<tr>
+<td>S_IWGRP </td> <td>Write permission bit. </td>
+</tr>
+<tr>
+<td>S_IXGRP </td> <td>Execute permission bit. </td>
+</tr>
+</table>
+
+<p>
+Permissions for others:
+
+<p>
+<table>
+<tr>
+<td>S_IRWXO </td> <td>Read, write,  or execute permissions mask.</td>
+</tr>
+<tr>
+<td>S_IROTH </td> <td>Read permission  bit.</td>
+</tr>
+<tr>
+<td>S_IWOTH </td> <td>Write permission bit. </td>
+</tr>
+<tr>
+<td>S_IXOTH </td> <td>Execute permission bit. </td>
+</tr>
+</table>
+
+<p>
+Set-id modes:
+
+<p>
+<table>
+<tr>
+<td>S_ISUID </td> <td>Set user  ID  on  execution. </td>
+</tr>
+<tr>
+<td>S_ISGID </td> <td>Set group ID  on  execution. </td>
+</tr>
+</table>
+
+<p>
+If the file is a directory, then the execute permission bit indicates whether
+the directory can be searched.
+ 
+<p>
+The following program determines if a file's owner has write
+permission.
+
+<pre>
+#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+ 
+main(int argc, char **argv)
+{
+  struct stat buf;
+ 
+  if (stat(argv[1], &buf) == -1)    {
+     perror("stat failed");  /* perror will display a system generated
+                                message followed by the string argument */
+     exit(1);
+  }
+ 
+  if (buf.st_mode & S_IWUSR) {
+     printf("%s has write permission\n", argv[1]);
+     printf("%o\n",buf.st_mode & S_IWUSR);
+  }
+}
+</pre>
+
+<em>statvfs</em> returns information about a mounted file system.
+The following is an example of its use.
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/statvfs.h&gt;   /* for statvfs */
+#include &lt;sys/stat.h&gt;
+#include &lt;errno.h&gt;
+ 
+extern int errno;   /* declaration of system error messages */
+extern char *sys_errlist[];
+void file_sys_stats(char *);
+ 
+main(int argc, char **argv)
+{
+  struct stat buf;
+ 
+  if (stat(argv[1], &buf) == -1)      {
+     (void) fprintf(stderr, "stat failed - %s\n", sys_errlist[errno]);
+     exit(1);
+  }
+ 
+  if (S_ISDIR(buf.st_mode))   /* test if the file is a directory */
+     file_sys_stats(argv[1]);
+  else
+     (void) printf("File %s has a uid = %d and a  gid = %d\n",
+                   argv[1], buf.st_uid, buf.st_gid);
+}
+ 
+void file_sys_stats(char *file_system)
+{
+  struct statvfs buf;
+    
+  if (statvfs(file_system, &buf) == -1)   {
+     (void) fprintf(stderr, "statfs failed - %s\n",sys_errlist[errno]);
+     exit(1);
+  }
+ 
+  (void) printf("\n\t FILE SYSTEM STATISTICS FOR %s\n", file_system);
+  (void) printf("\tfundamental system block size     - %d\n",buf.f_bsize);
+  (void) printf("\ttotal blocks in the system        - %d\n",buf.f_blocks);
+  (void) printf("\tfree blocks                       - %d\n",buf.f_bfree);
+  (void) printf("\tfree blocks available to non-root - %d\n",buf.f_bavail);
+  (void) printf("\ttotal file nodes in the system    - %d\n",buf.f_files);
+  (void) printf("\tfree file nodes in fs             - %d\n",buf.f_ffree);
+  (void) printf("\tfile system id\t\t\t  - %d\n",buf.f_fsid);
+}
+</pre>
+
+You may want to use statvfs to see if there is enough space on the file system
+when writing data to files.
+
+<hr>
+<a name="special"></a>
+<h3>Special files</h3>
+
+Special files such as printers, disks, tapes etc are, from the point
+of view of the programmer, read from and written to in the same way as
+regular files. All operations on all files use the primitives of 
+<em>open, read, write, lseek, unlink, close</em>. So a read from a disk is
+conceptually the same as a read from a terminal. The kernel, via the
+device driver, presents the hardware with information in an
+appropriate form. Therefore the interface for communication with
+devices is the same as communications with regular files. This is one of the
+features that is most attractive about UNIX.
+
+<p>
+Ultimately, all file system regular files map to special files. 
+When your program opens a regular file, the kernel will find its block
+special file and will read and write directly via this special file. 
+In effect the kernel is providing an abstraction: you deal with the concepts
+of the file system and the kernel translates your requests to disk operations.
+
+<p>
+The screen is a special file which can be written to (not
+all operations need to be supported by the device driver). Each
+Xterminal will have a pseudo-terminal associated with it which can be
+read from and written to.
+
+<p>
+Input/Output is performed as a stream of bytes. Each 
+special file is identified by a major device number (specifies
+which device driver to use) and a minor device number (specifies which device
+the device driver should use). These values are contained in the <em>st_rdev</em> field
+returned by <em>stat</em>
+
+<hr>
+<a name="filesystem"></a>
+<h3>The file system</h3>
+
+A file system is a collection of files and directories that are
+organised in a hierachical structure and are visible on a machine. The
+files or directories do not need to be physically on the machine.
+File systems can be mounted from other machines and inserted into the
+directory hierarchy.
+
+<p>
+The following diagram represents a file system.
+
+<p>
+<img src="../../gif/directory_hier.gif" alt="A simplified and incomplete Unix filesystem." 
+align=middle border=1>
+
+<p>
+Going from left to right:
+
+<ul>
+<li> /dcs and /mntfs/pgrad1 to /mntfs/other2 are mount points. That is they are locations
+in one file system where parts of other file systems can be mounted such
+that they appear to me local. More is said about <em>mount</em> below. Note
+that dcs file systems come from the Computer Science LAN whereas the
+others are mounted from the Computer Unit LAN. 
+
+<li> /dev and /devices contains special files.
+
+<li> /etc contains utility programs such as <em>ls</em> and <em>cat</em>.
+
+<li> /var contains OS workspace, e.g. for printer spool files.
+
+<li> /usr contains system object code libraries, include files, administration
+    utility programs and locally installed software and its associated libraries
+    and binaries.
+
+<li> /kernel contains the kernel program and important system binaries such as
+    the scheduler.
+
+<li> /sbin contains admin utility programs and start-up scripts.
+
+<li> /proc contains file representations of running process images.
+</ul>
+
+<p>
+The dotted lines represent symbolic links.
+
+<hr>
+<a name="mount"></a>
+<h3>Mount points</h3>
+
+The <em>mount</em> command attaches a named file system to the file system hierarchy at the
+specified pathname directory. The attachment point is known as a mount point and
+looks like a directory. It is possible to either mount file systems
+from local disk partitions or to mount them from remote disk partitions. The latter
+is achieved via several daemon processes (run as kernel threads):
+
+<ul>
+<li> Networked File System daemon (nfsd).
+<li> Block IO daemon (biod).
+<li> Mount daemon (mountd).
+<li> Automount daemon (amd).
+</ul>
+
+<p>
+The kernel knows from kernel data structures whether a file is local or
+remote. If remote it uses the above daemons (and underlying RPC mechanisms)
+to enable access to the file. As far as the user is concerned the file
+appears to be local (apart from a slower response time). The automount
+daemon enables the mount operation to be performed by the kernel only
+when it needs to be, i.e. when a request is made to access a remote file via
+the mount point. In this way coupling between machines is reduced. Also, the
+automounter provides several other advantages such as the ability to decide which
+remote file system to mount from several alternatives (e.g. if one machine is
+down another can be used instead). This topic is
+discussed in detail in <a href="../references.html#CB94">[CB94]</a>.
+
+<p>
+Mount is a privileged command that only root ( superuser ) can
+execute, however you can print out all the file systems mounted with
+/usr/etc/mount -p
+
+<p>
+<em>umount</em> unmounts a file system.
+
+<hr>
+<a name="links"></a>
+<h3>File links</h3>
+
+A file can have a "link" to it. This implies that more
+than one directory entry can contain a reference to the same inode.
+These are called hard links. They cannot be created between
+file systems. This is because inode numbers are file system specific.
+Also, they cannot be created to directories (except by using mkdir and mknod). 
+This is to stop circular
+paths from being created in the file system (note that ".." and "." are
+the exceptions, but are created by the kernel as a side-effect of the
+<em>mknod</em> system call). The <em>mknod</em> system
+call must be used if a directory needs creating.
+Hard links can be created from the command line using:
+
+<pre>
+ln filename linkname
+</pre>
+
+<em>filename</em> is the name of the original file or directory. 
+<em>linkname</em> is the new name. This makes <em>linkname</em> point to the same
+inode as <em>filename</em>. Links can only be made to existing files.
+Links are created using the <em>link</em> system call.
+
+<pre>
+int link(char* path1, char* path2);
+</pre>
+
+<em>path1</em> is the existing file, <em>path2</em> is the new directory entry.
+ 
+A symbolic link (BSD UNIX and derivatives only, including solaris) permit the creation
+of a link which can span a file system. These links are implemented by
+storing the name of the file being linked to rather than the inode in
+the directory link.  Therefore a reference can exist to a file that
+does not exist; there are no checks made by the kernel and the link count of
+the inode structure of the referenced file is not changed.
+
+<pre>
+void:cmk>ls -l
+total 5
+-rw-r--r--  2 cmk          1077 Oct 21 18:59 hard_link.bib
+lrwxrwxrwx  1 cmk             8 Oct 21 19:00 softlink.bib -> unix.bib
+-rw-r--r--  2 cmk          1077 Oct 21 18:59 unix.bib
+odin:cmk>od -c src
+0000000 \0 001   l 260  \0  \f  \0 001   .  \0  \0  \0  \0  \0 364   1
+0000020 \0  \f  \0 002   .   .  \0  \0  \0 001   l 261  \0 024  \0  \b
+0000040  u   n   i   x   .   b   i   b  \0  \0  \0  \0  \0 001   l 261
+0000060 \0 030  \0  \r   h   a   r   d   _   l   i   n   k   .   b   i
+0000100  b  \0  \0  \0  \0 001   l 262 001 274  \0  \f   s   o   f   t
+0000120  l   i   n   k   .   b   i   b  \0  \0  \0  \0  \0  \0  \0  \0
+0000140 \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+</pre>
+
+The number before softlink.bib is a pointer to a memory location containing
+the soft link value (e.g. unix.bib in this case). For hard link entries
+this pointer would be to an inode number instead.
+
+
+<hr>
+<a name="fcntl"></a>
+<h3>Fcntl, Dup and Dup2</h3>
+
+The <em>fcntl</em> system call provides a significant degree of control over an
+already open file. It is intended to perform a variety of functions
+such as:
+ 
+<ul>
+<li> File locking.
+<li> Get various file descriptor attributes.
+<li> Duplicate a file descriptor.
+<li> Help control the interaction of files and processes, e.g. ensuring that
+     fds are closed when a child process is started.
+<li> Setting non-blocking I/O so that reads and write always immediately return
+     (and with the value 0 if nothing was read or written).
+</ul>
+
+<p>
+<pre>
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
+ 
+int fcntl(int fd, int cmd, int arg);
+</pre>
+
+The following is an example that:
+
+<ul>
+<li> Opens a file.
+<li> Obtains the access intentions associated with the file descriptor.
+<li> Duplicates a file descriptor.
+<li> Finds the access intentions associated with the duplicated descriptor.
+</ul>
+
+<p>
+<pre>
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+ 
+void fd_mode(int);
+ 
+int main(int argc, char **argv)
+{
+  int filedes, newfdes;
+ 
+  if (argc != 2) {
+    (void) fprintf(stdout, "format %s filename\n", argv[0]);
+    exit(1);
+  }
+ 
+  if (( filedes = open(argv[1], O_RDWR | O_APPEND)) == -1)    {
+    (void) fprintf(stderr, "open failed\n");
+    exit(1);
+  }
+ 
+  /* Show the access intentions associated with filedes */
+
+  fd_mode(filedes);
+ 
+  /* This simply duplicates the file descriptor returning the next free
+     number (probably 4) */
+
+  newfdes = fcntl(filedes,F_DUPFD,0); 
+ 
+  /* Show the access intentions associated with newfdes */
+
+  fd_mode(newfdes);
+ 
+  (void)fprintf(stdout,"newfdes = %d\tfiledes = %d\n",newfdes,filedes);
+ 
+  (void)close(filedes);
+  (void)close(newfdes);
+  return(0);
+}
+ 
+void fd_mode(int fd)
+{
+  int arg1, dummy;
+ 
+  /* Use fcntl to get the flag attributes associated with the descriptor */
+
+  if ((arg1 = fcntl(fd, F_GETFL, dummy)) == -1) {
+    (void) fprintf(stderr,"fcntl failed\n");
+    exit(1);
+  }
+  (void) printf("File Descriptor %d : ", fd);
+ 
+  if (arg1 & O_WRONLY)
+    (void) printf("write only");
+  else
+     if (arg1 & O_RDWR)
+       (void) printf("read-write");
+     else
+       (void) printf("read only");
+ 
+  if(arg1 & O_APPEND)
+    (void) printf(" - append flag set");
+ 
+  (void) printf("\n");
+}
+
+void:cmk>fcntl_state fcntl_state.c
+File Descriptor 3 : read-write - append flag set
+File Descriptor 4 : read-write - append flag set
+newfdes = 4      filedes = 3
+</pre>
+
+The <em>dup</em> system call duplicates a file descriptor in the same way as a call to
+<em>fcntl</em> using the F_DUPFD flag. <em>dup</em> takes as an argument a file
+descriptor <em>fd</em>, and returns the lowest numbered descriptor not in use
+which refers to the same object as fd
+
+<pre>
+int dup(int fd);
+int dup2(int fd1, int fd2);
+</pre>
+ 
+<em>dup2</em> provides more control. In particular, you can specify the
+desired value of the descriptor from the value in fd2.
+If descriptor fd2 is already in use, it is closed and
+then reopened to refer to the same object as fd1 but using fd2's value. 
+fd1 specifies the object to be duplicated.
+ 
+<p>
+The new descriptor has the following in common with the original:
+
+<ul>
+<li> It refers to the same object that the old descriptor referred to.
+<li> It uses the same file pointer as the old descriptor (that
+     is, both file descriptors share one file pointer).
+<li> It has the same access mode (read, write or read/write) as
+     the old descriptor.
+</ul>
+
+<p>
+The following program:
+
+<ul>
+<li> Duplicates the standard input fd.
+<li> Reads a string via the duplicated fd.
+<li> Opens a file.
+<li> Redirects standard output to the file using dup2.
+<li> Writes to standard output, i.e. the data goes to the file.
+</ul>
+
+<p>
+<pre>
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define NUM_CHRS 10
+ 
+main(int argc, char **argv)
+{
+   int fd1, fd2;
+   char *cp;
+
+   cp =  malloc((NUM_CHRS+1) * sizeof(char));
+
+   fd1 = dup(0);        /* duplicated standard in */
+ 
+   (void) printf("enter a string : \n");
+   read(fd1, cp, NUM_CHRS);
+
+   printf("fd1 = %d : \tcharacters = %s\n", fd1, cp);
+
+   fd2 = open(argv[1], O_WRONLY);
+   dup2(fd2, 1);
+
+   printf("fd2 = %d : \tcharacters = %s\n", fd2, cp);
+}
+</pre>
+
+<hr>
+<a name="ftw"></a>
+<h3>Ftw (file tree walking)</h3>
+
+<em>ftw</em> is a library function that recursively descends the
+directory hierarchy.
+
+<pre>
+#include &lt;ftw.h&gt;
+     int ftw(char* path, int (*fn)(), int depth);
+</pre>
+
+<em>ftw</em> descends a directory hierarchy and for each member
+(file or directory) it calls the function <em>fn</em> passing to it:
+
+<ol>
+<li> A null terminated character string containing the name  of  
+     the object (file or directory).
+<li> A pointer to the <em>stat</em> structure associated with the file.
+<li> An integer detailing the type of file, see ftw.h.
+</ol>
+
+<p>
+The following program descends the path given in the command line argument.
+If no command line argument is given then the program descends
+starting at the current working directory, executing the function list for
+each member of the hierarchy below <em>path</em>. The object type
+is tested to determine if the object is a file.
+ 
+<pre>
+#include &lt;ftw.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+ 
+int list(const char *name, const struct stat *status, int type)
+{
+  if(type == FTW_NS)  /* test for unknown type */
+     return(0);
+ 
+   if (type == FTW_F)  /* is it a file */
+      printf("%-30s\t0%3o\n",name,status->st_mode & 0777);
+   else                /* must be something else  put a star by it */
+      printf("%-30s*\t0%3o\n",name,status->st_mode & 0777);
+ 
+   return(0);
+}
+ 
+main(int argc, char **argv)
+{
+   int list();
+ 
+   if(argc <= 1)
+     ftw(".",list, 1);
+   else
+     ftw(argv[1], list, 1);
+   exit(0);
+}
+</pre>
+
+<em>ftw</em> is recursive, it calls itself. Every member in the file tree
+gets traversed once. It uses pre-order traversal, i.e. it executes
+the user-supplied function for the current tree node before traversing to any of its
+children. An example of recursion and directory walking is given below.
+
+<hr>
+<a name="dirfunctions"></a>
+<h3>Directory functions</h3>
+
+There are a collection of functions that operate on directories. They
+provide a more general interface than <em>ftw</em>.
+
+<ul>
+<li> opendir - opens a directory.
+<li> readdir - returns a pointer to the next directory entry.
+<li> telldir - returns the location associated with the name
+     directory stream, that is, the position of the directory entry from
+     the start of the directory file.
+<li> seekdir - sets the position of the next readdir
+<li> rewinddir - resets the position of the directory stream to the
+     start of the directory. This is like an lseek to the start of the
+     directory file.
+<li> closedir - closes the named directory stream.
+</ul>
+
+<p>
+There is no "writedir" since the system calls mknod, link or open are
+used for this purpose.
+
+<pre>
+#include &lt;dirent.h&gt;
+ 
+DIR *opendir(char* dirname);
+ 
+struct dirent *readdir(DIR* dirp);
+ 
+long telldir(DIR* dirp);
+ 
+void seekdir(DIR* dirp, long loc);
+ 
+void rewinddir(DIR* dirp);
+ 
+int closedir(DIR* dirp);
+</pre>
+
+The following program walks a
+directory given as an argument printing out the type of each file in
+the hierarchy. It will descend into child directories via the function
+<em>walk_dir</em> calling itself with an argument of the child directory it
+wants to search.
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;dirent.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+ 
+/* A static global means that the variable is only visible to code 
+   in this file */
+
+static int level_limit = 2;   
+static int present_level = 1;
+void walk_dir(char *);
+ 
+void main(int argc, char **argv)
+{
+   /* argv[1] should contain the root pathname of the tree to be traversed.
+      A real program would analyse the command line args for errors.*/
+
+   walk_dir(argv[1]);
+}
+ 
+void walk_dir(char *path)
+{
+   struct dirent *dp;
+   struct stat buf;
+   char full_path[80];
+   DIR *fd;
+ 
+   if ((fd = opendir(path)) == NULL)     {
+      perror("error opening dir %s\n");
+      exit(1);
+   }
+ 
+   /* Collect directory entries. dp being set to NULL indicates that
+      the tree has been fully traversed */
+
+   for (dp = readdir(fd); dp != NULL; dp = readdir(fd))
+   {
+      /* Concatenate the directory entry onto the existing path.
+         Should really check for the special case of path being "/"
+         since the current code prints too many "/"s for this case */
+
+      sprintf(full_path,"%s/%s", path, dp->d_name);
+
+      /* Obtain status information about the file/directory. stat
+         may fail if the path refers to a symbolic link which doesn't point
+         to a valid destination. In this case we use lstat 
+         to get information */
+
+      if((stat(full_path, &buf)) == -1)
+      {
+         if((lstat(full_path, &buf)) == -1) {
+            perror("stat failed");
+            exit(2);
+         }
+      }
+      /* Now display the type of the directory entry: symbolic link, 
+         file or directory */
+
+      if(S_ISLNK(buf.st_mode))
+         printf("%s is a symbolic link\n",full_path);
+ 
+      if (S_ISREG(buf.st_mode))
+         printf("%s is a file\n",full_path);
+ 
+      /* If a directory then we recurse. However, we don't won't to go 
+         round in circles so don't traverse across the ".." 
+         or "." links. */
+
+      if (S_ISDIR(buf.st_mode))  { /* lets do some recursion */
+         if (!(strcmp(".", dp->d_name) == 0 || strcmp("..", dp->d_name) == 0))
+         {
+            printf("%s is a directory\n", full_path);
+
+            /* Only recurse if we haven't hit our maximum depth 
+               of recursion limit */
+
+            if( present_level < level_limit)
+            {
+               present_level++;
+               walk_dir(full_path);  /* recursion */
+
+               /* Here we drop out of recursion (go up a level in the file
+                  tree, so we decrement the level counter */
+
+               present_level--;
+            }
+         } /* if (!(strcmp */
+      } /* if(S_ISDIR */
+   } /* for */
+
+   /* This part of the program is contrived, but illustrates the use of
+      other directory functions */
+
+   rewinddir(fd); /* Takes us to the start of the directory file */
+   (void) printf("location in directory %s is %d\n", path, telldir(fd));
+
+   seekdir(fd, 2); /* We move entry pointer to second directory entry */
+   (void) printf("location in directory %s is %d\n", path, telldir(fd));
+
+   rewinddir(fd);
+   (void) printf("location in directory %s is %d\n", path, telldir(fd));
+   (void) closedir (fd);
+}
+</pre>
+
+</body>
+</html>

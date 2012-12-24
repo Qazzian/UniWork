@@ -1,0 +1,55 @@
+package id2n0ocd56m20phd56mzpbx;
+
+/**
+@version 2.0
+@physicalPackage
+@__modelType diagram 
+*/
+class diagram {
+/**
+@__ref <oiref:java#Class#PersonListGUI:oiref><oihard>
+@__modelType reference 
+*/
+class reference {
+}/**
+@__ref <oiref:java#Class#PersonList:oiref><oihard>
+@__modelType reference 
+*/
+class reference1 {
+}/**
+@__ref <oiref:java#Class#ListManagerGUI:oiref><oihard>
+@__modelType reference 
+*/
+class reference2 {
+}/**
+@__ref <oiref:java#Class#PersonManagement:oiref><oihard>
+@__modelType reference 
+*/
+class reference3 {
+}}/**
+@__tags
+@shapeType ClassDiagram 
+*/
+class __tags {
+}/**
+@__options 
+*/
+class __options {
+}/**
+@__positions <oigroup:MemberLink#<oiref:java#Member#PersonManagement#lnkPersonListGUI:oiref>=230,312,152,312:oigroup>
+<oigroup:<oiref:java#Class#ListManagerGUI:oiref>=217,10,137,190,1:oigroup>
+<oigroup:MemberLink#<oiref:java#Member#PersonListGUI#lnkPersonList:oiref>=61,250,61,136:oigroup>
+<oigroup:MemberLink#<oiref:java#Member#PersonManagement#lnkPersonList:oiref>=293,270,73,136:oigroup>
+<oigroup:Composite#stereotype#MemberLink#<oiref:java#Member#PersonManagement#lnkPersonListGUI:oiref>=145,292,93,16,0:oigroup>
+<oigroup:Composite#stereotype#MemberLink#<oiref:java#Member#PersonManagement#lnkListManagerGUI:oiref>=330,220,93,16,0:oigroup>
+<oigroup:<oiref:java#Class#PersonManagement:oiref>=230,270,127,85,1:oigroup>
+<oigroup:<oiref:java#Class#PersonListGUI:oiref>=50,250,102,142,1:oigroup>
+<oigroup:<oiref:java#Class#PersonList:oiref>=10,10,127,126,1:oigroup>
+<oigroup:Composite#stereotype#MemberLink#<oiref:java#Member#PersonListGUI#lnkPersonList:oiref>=20,200,87,16,0:oigroup>
+<oigroup:Composite#stereotype#MemberLink#<oiref:java#Member#PersonManagement#lnkPersonList:oiref>=120,210,93,16,0:oigroup>
+<oigroup:MemberLink#<oiref:java#Member#PersonManagement#lnkListManagerGUI:oiref>=323,270,323,200:oigroup>
+<oigroup:MemberLink#<oiref:java#Member#ListManagerGUI#listData:oiref>=217,73,137,73:oigroup>
+
+*/
+class __positions {
+}

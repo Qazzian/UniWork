@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+ <TITLE>PP Presentation</TITLE> 
+</HEAD>
+<BODY>
+ <H1>PP Presentation</H1> 
+ <P><H2>public Client() {</H2>
+<H2> String replyMessage;</H2>
+<H2></H2>
+<H2> // Create and install a security manager</H2>
+<H2> System.setSecurityManager(new</H2>
+<H2>             RMISecurityManager());</H2>
+<H2></H2>
+<H2> try {</H2>
+<H2></H2>
+<H2>  Object objEng =</H2>
+<H2>  Naming.lookup(</H2>
+<H2>  "rmi://moin.dcs.aber.ac.uk:5000/RemServer");</H2>
+<H2></H2>
+<H2>  RemInt remobjEng = (RemInt)objEng;</H2>
+<H2></H2>
+<H2>  remobjEng.setSession("It's me friend");</H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld017.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld019.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld018.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

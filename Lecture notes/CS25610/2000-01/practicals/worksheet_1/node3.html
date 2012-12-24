@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The components of the task</TITLE>
+<META NAME="description" CONTENT="The components of the task">
+<META NAME="keywords" CONTENT="worksheet_1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="worksheet_1.css">
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html45"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html37"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html46"
+ HREF="node4.html">Testing your Applet</A>
+<B> Up:</B> <A NAME="tex2html44"
+ HREF="node2.html">Your Task</A>
+<B> Previous:</B> <A NAME="tex2html38"
+ HREF="node2.html">Your Task</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H2><A NAME="SECTION00021000000000000000">
+The components of the task</A>
+</H2>
+<P>
+Overall you have three subtasks to complete
+<P><UL>
+<LI> The Web Pages
+<P>
+The Applet you produce should run within a web page
+using the Internet Explorer browsers on the Intel machines
+running MS Windows 2000 in the Sun Lounge or in G24.
+<P>
+To begin with, you can embed the Applet in a simple, single web page.
+<P>
+However, another component of the practical is intended to gain
+practice using ``Frames&quot; on web pages and via them understand
+some extra features available to Java Applets.
+<P>
+If you have never used Frames before, then at the end of this worksheet
+I give a simple example of a ``top&quot; web page which includes
+as its sole contents two frames.
+<P>
+The eventual idea for your web pages is as follows
+<P><UL>
+<LI> top level
+<P>
+At the top level you have a web page which includes
+two frames, each loaded from separate web pages.
+One of the web pages which is loaded into one of the frames
+should be a simple straightforward web page. The second
+web page, loaded into the second frame, should not
+be a simple web page, but should itself be a page
+which contains two more frames.
+<LI> lower level
+<P>
+The lower level page mentioned above which itself
+includes two frames should be constructed
+as follows. One of its two frames should
+again be a simple web page, the second of the frames
+should be the one into which your Java Applet is loaded.
+<LI> Examples
+<P>
+The screen shot of my application included at the end
+of this worksheet is precisely constructed in the
+way described above.
+<P><UL>
+<LI> my top level web page
+<P>
+My top level page merely includes commands to
+indicate that it has two frames. Into those frames
+I load the web page which starts
+<P><BLOCKQUOTE>
+``This frame is the upper one...&quot;
+</BLOCKQUOTE>
+<P>
+and the second area which contains all of the rest
+of the displayed material. The web page I immediately
+load contains just another specification for a page
+which itself loads two frames.
+<LI> my embedded frames
+<P>
+The lower part of my display therefore includes 
+the two frames which contain the words
+<P><BLOCKQUOTE>
+``Computer Science, Prifysgol ....&quot;
+</BLOCKQUOTE>
+<P>
+and the words
+<P><BLOCKQUOTE>
+``Dave Price's Applet test page.&quot;
+</BLOCKQUOTE>
+<LI> the applet page
+<P>
+The last page mentioned above includes the appropriate
+commands to embed the Applet. You will find these
+in your lecture notes. However, to be helpful
+I've included a simple example at the end
+of this document.
+</UL></UL>
+<LI> The Java Applet
+<P>
+Your Java Applet should be written using various facilities
+available to applets as well as general AWT facilities.
+<P>
+The applet visual interface has four main areas.
+<P><UL>
+<LI> File Selection
+<P>
+One area, at the top in my Applet, allows
+the user to type in the final components of
+the URL that references some information the user
+would like to load. In my tests, I have allowed the user
+to enter the name of plain text files, html
+pages, images in the form of gif files, names of
+directories and audio clips in the form of ``.au&quot;
+files. All url endings specified by the user
+are assumed to be relative to the <EM>documentbase </EM>
+from which the web page was loaded.
+<LI> Selection of Window For Display
+<P>
+This part of my interface is displayed towards the left
+on my GUI.
+<P>
+Applets are allowed to interact with the browser in
+which they are running via an AppletContext interface.
+An applet can get hold of its AppletContext by calling
+the method <EM>getAppletContext()</EM>.
+<P>
+One particular
+method available via the AppletContext is that you can request
+your hosting browser to open and display other material
+reached via a URL. When you ask the browser to
+do this for you, there is a facility to indicate
+in which ``browser window or frame&quot; you
+would like the accessed material to appear.
+<P>
+The API specification for one of the <EM>showDocument()</EM> 
+methods on an AppletContext is as follows
+<P><EM>
+<PRE>
+public void showDocument(URL url,
+                         String target)
+
+   Requests that the browser or applet viewer show the Web
+   page indicated by the url argument. The target
+   argument indicates in which HTML frame the document
+   is to be displayed. The target argument is interpreted as
+   follows: 
+
+    ``_self&quot; 
+             Show in the window and frame that
+             contain the applet.
+    ``_parent&quot;
+             Show in the applet's parent frame. If the
+             applet's frame has no parent frame, acts
+             the same as ``_self&quot;.
+    ``_top&quot; 
+             Show in the top-level frame of the
+             applet's window. If the applet's frame is
+             the top-level frame, acts the same as
+             ``_self&quot;.
+    ``_blank&quot; 
+             Show in a new, unnamed top-level
+             window.
+    name
+             Show in the frame or window named
+             name. If a target named name does not
+             already exist, a new top-level window
+             with the specified name is created, and the
+             document is shown there.
+
+
+   An applet viewer or browser is free to ignore
+   showDocument.
+   Parameters:
+      url - an absolute URL giving the location of the
+      document.
+      target - a String indicating where to display the
+      page.
+</PRE>
+</EM>
+<P>
+Thus, as you will see, you are allowed to specify the window
+required by means of you supplying a specific string as the second
+parameter. You will now hopefully appreciate
+the complicated set of web pages and frames that
+you have been asked to define.  Of the five choices available,
+you are asked to implement the first four as I have
+in my example. As an extra, you might like to add
+names to your frames and implement the fifth option
+later.
+<P>
+It's clearly ``unfriendly&quot; to ask a user to specify
+his/her selection by typing the specific strings as documented
+in the API for showDocument(). Thus, you are required
+to provide easy to click options as I have done
+in my example.  The area including the clickable items
+is in my example defined as an object which extends a AWT panel.
+I call my class that implements this, <EM>CheckPanel</EM>.
+On that panel I use <EM>Checkbox</EM>s for the items that a user
+may select and all are attached to CheckboxGroup so
+that as I select one, the others become automatically
+selected. My CheckPanel class has one available method,
+and that returns a single String object referencing
+the appropriate information as needed for the second
+parameter to showDocument() when I invoke it.
+<LI> The Load Request Button
+<P>
+Towards the right of my GUI I have a single button
+labelled ``Load&quot;. Your GUI should have such a similar
+button too. On clicking the button, the Applet
+should acquire the filename from the ``File Selection&quot;
+area of your GUI and combine that with the ``documentbase&quot;
+to form a URL. You will need to use the <EM>getDocumentBase()</EM>
+method and the URL constructor to do this.
+<P>
+Having completed the above, the code obeying the Load
+button should then acquire the indication of the required
+window from the CheckPanel and then invoke the <EM>
+showDocument()</EM> method to cause the request information to be displayed.
+<LI> The Message Area
+<P>
+There should be a section on your display where the Applet
+can output messages. On my example, the area is placed
+at the bottom of the GUI and is implemented as
+a <EM>TextArea</EM> inside a ScrollPane. You can implement
+this anyway you choose.
+<P></UL>
+<LI> The Data Files
+<P>
+You will need to place all the classes for your Applet
+and the web pages in an area of your web space. You will also
+need to place within that area (or subdirectories of it)
+some example text, html or images files that you can
+allow the user to view via your application.
+<P>
+I've provided a few example gif (image) and au (audio)
+files in the directory reached via the URL
+<P>
+http://users.aber.ac.uk/dap/cs25610
+<P>
+you may copy these to your web area.
+</UL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html45"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html37"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html46"
+ HREF="node4.html">Testing your Applet</A>
+<B> Up:</B> <A NAME="tex2html44"
+ HREF="node2.html">Your Task</A>
+<B> Previous:</B> <A NAME="tex2html38"
+ HREF="node2.html">Your Task</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>DAVID ERNEST PRICE</I>
+<BR><I>3/10/2001</I>
+</ADDRESS>
+</BODY>
+</HTML>

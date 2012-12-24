@@ -1,0 +1,115 @@
+CS21120Module IdentifierCS21120  
+      Module TitlePROGRAM DESIGN, DATA STRUCTURES AND ALGORITHMS  
+      Academic Year2000/2001  
+      Co-ordinatorDr Mark Ratcliffe  
+      Semester2 Taught over 2 semesters  
+      Pre-RequisiteCS12420 or CS10720  
+      Course deliveryLecture  44 lectures  
+       Practical  Up to 16 x 1 hr sessions (start in week 5)  
+       Workshop  Up to 4 workshop sessions  
+      AssessmentExam  2 Hours The resit assessment will be by written 
+      examination only. Written examination  40%  
+       Course work  Two pieces. There will also be regular worksheets with 
+      penalties for non-submission.  60%  
+       Supplementary examination  2 Hours By written examination only.  100%  
+
+General description
+This module builds on the foundations of the first year modules on program 
+design and provides a thorough grounding in the design of data structures and 
+algorithms and gives further insight into object-oriented design.
+
+Aims
+This module provides an introduction to data structures and their use in solving 
+programming problems. The course emphasises the use of abstract data types and 
+the contribution that abstraction and encapsulation can make to the 
+comprehensibility, reusability and robustness of programs. Java is used as the 
+language of implementation with the intent of providing a means of allowing the 
+student to naturally express these design objectives in code. 
+
+As well as providing a solid grounding in the major data structures and 
+algorithms of Computer Science, the course stresses the development of problem 
+solving skills through a number of programming worksheets.
+
+Objectives
+On successful completion of this module, students should:
+
+  demonstrate their understanding of the principles of abstraction and 
+  encapsulation as they apply to the design of abstract data types and programs; 
+
+  be able to explain the importance of the time and space behaviour of 
+  algorithms and how this is expressed and determined; 
+  have a familiarity with some of the main approaches to algorithm design such 
+  as greedy algorithms, divide and conquer and dynamic programming; 
+  be able to evaluate and choose appropriate data structures and algorithms for 
+  a range of programming problems; 
+  be able to design and implement significant programs in Java; 
+  have an appreciation of the importance of program correctness and some of the 
+  techniques used to ensure it. 
+Syllabus
+1. Course Overview - 5 Lectures
+An introduction into time/space complexity. Issues of correctness as they relate 
+to the definition of ADTs. The key ideas of abstraction and encapsulation. 
+Notations for describing ADTs. Review of Java support for their implementation: 
+packages, exceptions and interfaces.
+
+2. Introduction to Complexity - 3 Lectures
+O() notation, growth rates. Measurement of execution time of some real programs 
+and estimation of their time complexity. Some examples of time/space trade-offs.
+
+3. Classes of Algorithm - 3 Lectures
+An overview will be given on the different classes of algorithm; for example, 
+divide and conquer and greedy algorithms. Genetic algorithms will also be 
+discussed.
+
+4. Recursion - 2 Lectures
+An introduction to recursive thinking. Examples of recursion.
+
+5. Storing and Retrieving Data by Key (1) - 8 Lectures
+This problem will be used to motivate the discussion of a wide variety of 
+different implementation techniques. The features of some typical solutions will 
+be related to the dimensions of the problem such as the volume of data to be 
+handled, volatility and the operations required. Internal Storage: linear and 
+binary searching. Linked representations; an introduction to hashing, binary 
+search trees and heaps.
+
+6. Storing and Retrieving Data by Key (2): External storage - 6 Lectures
+Performance issues. Hashing and B-tree organisations. The Hashable class in 
+Java. 
+
+7. Representing Text - 5 Lectures
+String matching algorithms and their performance. Search engines case study.
+
+8. Sorting - 6 Lectures
+A comparison of divide and conquer, priority queue and address calculation based 
+sorting algorithms. Performance characteristics of these algorithms will be 
+discussed.
+
+9. Representing Complex Relationships: Graphs - 6 Lectures
+Some examples of greedy algorithms. Terminology and implementation 
+considerations. A look at some graph-related problems such as: finding a route 
+(shortest paths); planning a communications network (minimum spanning trees); 
+network routing management (flow graphs); compiling a program or planning a 
+project (topological sorting).
+
+Reading Lists 
+Books 
+** Recommended Text 
+Data Structures and Other Objects, Using Java - Michael Main 1999, Addison 
+Wesley 
+** Consult For Futher Information
+Data Structures in Java - T.A. Standish 1998, Addison Wesley 
+Data Structures and Algorithms - Alfred Aho, John Hopcroft, and Jeffrey Ullman 
+1983, Addison-Wesley, Reading, Massachusetts 
+Foundations of Computer Science - Alfred Aho and Jeffrey Ullman 1992, Computer 
+Science Press, New York 
+Introduction to Algorithms - Thomas H. Cormen, Carles E. Leiserson, and Ronald 
+L. Rivest 1990, MIT Press, Cambridge, Massachusetts 
+Data Structures and Program Design [The first edition is also available from the 
+library] - Robert L Kruse 1987 (2nd), Prentice-Hall, Englewood Cliffs, New 
+Jersey. 
+Algorithms - Robert Sedgewick 1988, Addison-Wesley, Reading, Massachusetts 
+Data Structures, Algorithms and Software Principles - Thomas A Standish 1994, 
+Addison-Wesley, Reading, Massachusetts 
+Designing Object-Oriented Software - Rebecca Wirfs-Brock, Brian Wilkerson, and 
+Lauren Wiener 1990, Prentice Hall 
+

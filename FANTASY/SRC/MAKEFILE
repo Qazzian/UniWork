@@ -1,0 +1,115 @@
+all: start look go quit take drop light quench score holding wield dragon procon
+procon: eggs finish gnome goose
+#
+# -------------- generate commands  ------------------------------
+#
+
+start: startc locationc movable_objectc
+	gcc -o ../bin/start start.o location.o movable_object.o
+
+look: lookc locationc movable_objectc
+	gcc -o ../bin/look look.o location.o movable_object.o
+
+go: goc locationc 
+	gcc -o ../bin/go go.o location.o 
+
+quit: quitc locationc movable_objectc
+	gcc -o ../bin/quit quit.o location.o movable_object.o
+
+take: takec locationc movable_objectc
+	gcc -o ../bin/take take.o location.o movable_object.o
+
+drop: dropc locationc movable_objectc
+	gcc -o ../bin/drop drop.o location.o movable_object.o
+
+light: lightc locationc movable_objectc
+	gcc -o ../bin/light light.o location.o movable_object.o
+
+quench: quenchc locationc movable_objectc
+	gcc -o ../bin/quench quench.o location.o movable_object.o
+
+score: scorec locationc movable_objectc
+	gcc -o ../bin/score score.o location.o movable_object.o
+
+holding: holdingc locationc movable_objectc
+	gcc -o ../bin/holding  holding.o location.o movable_object.o
+
+wield:  wieldc locationc movable_objectc
+	gcc -o ../bin/wield wield.o location.o movable_object.o
+
+dragon: dragonc locationc movable_objectc
+	gcc -o ../bin/dragon dragon.o location.o movable_object.o
+
+eggs: eggsc sharedc locationc movable_objectc
+	gcc -o ../bin/eggs eggs.o shared.o location.o movable_object.o
+
+finish: finishc sharedc locationc movable_objectc
+	gcc -o ../bin/finish finish.o shared.o location.o movable_object.o
+
+gnome: gnomec sharedc locationc movable_objectc
+	gcc -o ../bin/gnome gnome.o shared.o location.o movable_object.o
+ 
+ goose: goosec sharedc locationc movable_objectc
+	gcc -o ../bin/goose goose.o shared.o location.o movable_object.o
+ 
+ 
+#
+# -------------- .o files ----------------------------------------
+#
+
+locationc: location.c
+	gcc -ansi -pedantic -c location.c
+
+movable_objectc: movable_object.c
+	gcc -ansi -pedantic -c movable_object.c
+
+startc: start.c
+	gcc -ansi -pedantic -c start.c
+
+lookc: look.c
+	gcc -ansi -pedantic -c look.c
+
+goc: go.c
+	gcc -ansi -pedantic -c go.c
+
+quitc: quit.c
+	gcc -ansi -pedantic -c quit.c
+
+takec: take.c
+	gcc -ansi -pedantic -c take.c
+
+dropc: drop.c
+	gcc -ansi -pedantic -c drop.c
+
+lightc: light.c
+	gcc -ansi -pedantic -c light.c
+
+quenchc: quench.c
+	gcc -ansi -pedantic -c quench.c
+
+holdingc: holding.c
+	gcc -ansi -pedantic -c holding.c
+
+scorec: score.c
+	gcc -ansi -pedantic -c score.c
+
+dragonc: dragon.c
+	gcc -ansi -pedantic -c dragon.c
+
+wieldc: wield.c
+	gcc -ansi -pedantic -c wield.c
+
+eggsc: eggs.c
+	gcc -ansi -pedantic -c eggs.c
+
+finishc: finish.c
+	gcc -ansi -pedantic -c finish.c
+
+gnomec: gnome.c
+	gcc -ansi -pedantic -c gnome.c
+ 
+ goosec: goose.c
+	gcc -ansi -pedantic -c goose.c
+ 
+ sharedc: shared.c
+	gcc -ansi -pedantic -c shared.c

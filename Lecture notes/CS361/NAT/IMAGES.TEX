@@ -1,0 +1,2498 @@
+\batchmode
+\documentclass{article}
+\makeatletter
+\usepackage{epsfig} 
+\begin{document}
+{\Large CS36110 Part 1:}
+{\Large Natural And Artificial Intelligence}
+{\Large 1997-8}\\Nick Gotts, email {\em nmg}, room C50
+\section{Lecture 1: Introduction}
+
+\begin{slide}{}
+{\Huge CS36110}
+
+\begin{center} 
+{\Large ADVANCED}
+{\Large ARTIFICIAL INTELLIGENCE}
+{\Large CONCEPTS}
+\end{center}
+
+{\large Structure of the Module}
+\begin{enumerate}
+\item
+Natural and Artificial Intelligence --- Nick Gotts
+\item
+Model-Based Reasoning --- George Coghill
+\item
+Advanced  Topics in Machine Learning --- Ross King
+\end{enumerate}
+{\Large Assessment:}
+2-hour exam, three sections with two questions each, answer one from
+each section.
+\end{slide}
+
+\begin{slide}{}
+\begin{center}
+{\Huge CS36110: Part 1}
+
+{\Huge Natural}
+
+{\Huge And}
+
+{\Huge Artificial}
+
+{\Huge Intelligence}
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Part 1: Main Questions}
+
+\begin{itemize}
+\item How do the achievements of AI research
+compare with human intelligence?
+\item How has study of natural problem-solving systems contributed to
+AI research?
+\item How has AI research contributed to the understanding of natural
+problem-solving systems, and of intelligence in general.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large AI, Science And Engineering}
+\begin{itemize}
+\item ``Scientists explore what is. Engineers create what has never
+been'' --- von Kalman.
+\item The only uncontroversial
+``intelligent agents'' are human beings. For {\em some} kinds of
+problem, how they (or other
+``natural problem solvers'') solve them may be the AI engineer's best guide. 
+\item When considering human information processing, what {\em level}
+should we work at?
+\item Other {\em natural problem-solvers}: non-human animals,
+populations of organisms, ant colonies, immune systems,
+organisations...
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large What Computers Can Do: 1}
+\begin{enumerate}
+\item Play a very good game of chess.
+\item Write computer programs.
+\item Produce a complete timetable of exams for a university, taking
+all constraints into account.
+\item Produce a good translation of a technical text; produce a
+mediocre translation of non-technical texts; produce a useful summary
+of a newspaper story.
+\item Diagnose faults in mechanical equipment.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large What Computers Can Do: 2}
+\begin{enumerate}
+\item Distinguish male from female faces. 
+\item Pick out people in a video of a street scene.
+\item Learn to recognise particular faces, despite changes in expression.
+\item Keep a thin, jointed pole balanced on its tip.
+\item Produce drawings of significant aesthetic merit.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large Garry Kasparov And Deep Blue}
+
+In 1997, world chess champion Kasparov, was defeated in a
+6-game match by IBM's ``Deep Blue''. This event, and reactions to it,
+provide a way into this part of the module.
+\begin{itemize}
+\item How does Deep Blue choose a move?
+\item How does Garry Kasparov choose a move?
+\item Is Deep Blue intelligent? Has it passed the Turing Test? Does it
+really ``play chess''?
+\item In 1957, Herbert Simon predicted that within ten years of that
+date, a machine would be world chess champion. Why was he so wrong?
+\item How useful are chess and other ``microworlds'' in AI research?
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large How Deep Blue Chooses A Move}
+\begin{itemize}
+\item Special purpose hardware.
+\item Minimaxing (14-15 ply, with refinements).
+\end{itemize}
+
+\begin{center}
+
+\epsfig {figure=minimax2.eps}
+
+\end{center}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large How Garry Kasparov Chooses A Move}
+\begin{itemize}
+\item Practice for more than 30 years, building up a repertoire of
+recognisable patterns.
+\item Study the opponent in advance, seeking to understand their style
+of play.
+\item Plan and replan during the game, using your pattern repertoire.
+\item Aim to disturb and disconcert the opponent.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Turing Test For Artificial Intelligence}
+\begin{itemize}
+\item Proposed by mathematician and computer pioneer Alan Turing in 1950.
+\item Usually described, inaccurately, as follows: a computer can be
+regarded as intelligent if an "interrogator" is unable to tell, from
+its typed responses to questions, that it is a machine rather than a
+human. 
+\item As Turing actually posed it, slightly more complicated: can a
+computer fool the interrogator into thinking it's a {\em woman}, as often as
+a {\em man} can?
+
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Deep Blue And The Turing Test}
+\begin{itemize}
+\item Clearly, Deep Blue did not pass (or ``sit'') the Turing Test.
+\item Nevertheless, it did {\em appear} to do something normally
+{\em thought} to require intelligence. So:
+\begin{itemize}
+\item Does its ``BFI'' approach undermine its claim to intelligence?
+\item Does the fact that it did not know it {\em was} playing chess?
+\item Is playing (very good) chess sufficient evidence of intelligence?
+\end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Formal, Expert and Mundane Tasks}
+\begin{itemize}
+\item {\em Formal} tasks include playing board or card games; solving
+puzzles, and mathematical and logical problems; and programming. They
+do {\em not} require knowledge of the real world. These have turned
+out to be the {\em easiest} tasks for AI.
+\item {\em Expert} tasks include medical diagnosis, engineering,
+architectural or computer hardware design, and scheduling
+(e.g. airline flights, school or university classes, manufacturing
+processes).
+\item {\em Mundane} tasks include things we might not think of as
+tasks or problems at all: understanding everyday speech and written
+language, making sense of what we see, and walking. These have turned
+out to be the {\em hardest} tasks for AI.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large How To Pass The Turing Test}
+
+What would an AI program need to do to pass the Turing test?
+\begin{enumerate}
+\item Understand (typed) natural language.
+\item Produce (typed) natural language.
+\item Understand conversational structure.
+\item Display everyday knowledge.
+\item Display appropriate specialist knowledge.
+\item Model what its interrogator does and does not know.
+\item Model what {\em it} does and does not know.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large Everyday Knowledge}
+\begin{enumerate}
+\item Knowledge of time, space, and the physical world.
+\item Knowledge of the social and personal worlds.
+\item Knowledge of specific people, places, events...
+\item Knowledge of the {\em appearances} of things.
+\item Knowledge of your own past: ``episodic memory''.
+\item Knowledge about your own knowledge: ``metaknowledge''.
+\item Knowledge about what most people do and don't know.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large More Rash Predictions}
+\begin{itemize}
+\item ``... within twenty years machines will be
+capable of doing any work a man can do.'' --- Herbert Simon, 1965.
+\item ``I believe that in about fifty years' time it will be possible
+to programme computers... to play the imitation game so well that an
+average interrogator will not have more than 70\% chance of making the
+right identification after five minutes of questioning.'' --- Alan
+Turing, 1950.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Why Will Turing Be Wrong?}
+
+Here are several possible answers:
+\begin{itemize}
+\item Hardware limitations.
+\item More {\em knowledge} needed than he realised.
+\item Better machine learning techniques needed.
+\item Intelligence must be based on sensory-motor
+interaction with the world.
+\item Intelligence requires social interaction.
+\item Intelligence requires something which is present in human
+brains, but not in silicon chips.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Microworlds and World Knowledge}
+\begin{itemize}
+\item ``Microworlds'': self-contained, limited range of
+possible actions, and requirements for knowledge.
+\item Much early AI work on them, using general
+techniques of search and matching.
+\item Problems with ``scaling up'' to more realistic domains.
+\item General conclusion: need for {\em
+domain-specific knowledge}. Microworlds are useless.
+\item Minority opinion (Hofstadter). Knowledge is not
+enough. We have scarcely begun to understand intelligence.
+Microworlds a vital research tool.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Lecture 1: Main Points}
+\begin{itemize}
+\item AI has made substantial progress, but far less than most of the
+``pioneers'' expected.
+\item Tasks {\em thought} to be at the pinnacle of intelligence
+(e.g. chess) turn out to be (relatively!) easy, compared to
+``mundane'' tasks (holding a conversation, seeing, sweeping
+floors). {\em General, flexible} artificial intelligence still far off.
+\item The best route towards such full-scale AI (and even whether it
+is possible) remain open questions.
+\end{itemize}
+\end{slide}
+
+\section{Lecture 2: GOFAI and Herbert Simon}
+
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 2:}
+
+{\Large GOFAI and Herbert Simon}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Good Old-Fashioned AI: 1}
+\begin{itemize}
+\item Term (and acronym, GOFAI) invented by John Haugeland ({\em Artificial
+Intelligence: The Very Idea} --- 1983). Haugeland regards it as a
+branch of {\em Cognitive Science}. Otherwise called: ``Symbolic''
+(as opposed to ``Subsymbolic'') AI.
+\item Basic ideas:
+\begin{enumerate}
+\item Our ability to deal with things intelligently is due to our
+ability to think about them reasonably (including subconscious thinking).
+\item Our capacity to think about things reasonably amounts to a
+faculty for internal ``automatic'' symbol manipulation.
+\end{enumerate}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Good Old-Fashioned AI: 2}
+\begin{itemize}
+\item GOFAI accounts for {\em most} of the work done in AI over the past
+half-century.
+\item In the early days (starting with McCulloch and Pitts' ``A
+logical calculus of the ideas immanent in nervous activity'' --- 1943)
+symbolic and subsymbolic AI were not distinct.
+\item From (roughly) 1969 to 1986, it accounted for {\em almost all}
+AI research.
+\begin{itemize}
+\item 1969: Minsky and Papert's ``Perceptrons: An
+Introduction to Computational Geometry''.
+\item 1986,
+McClelland and Rumelhart's ``Parallel Distributed Processing:
+Explorations in the Microstructure of Cognition''.
+\end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Herbert Simon}
+\begin{itemize}
+\item Earliest AI-relevant publication (that I've
+found): ``Theory of Automata: Discussion'' {\em Econometrica} {\bf
+19}, p.72 (1951).
+\item Most recent: {\em The Sciences of the Artificial}, 3rd edition
+(1996).
+\item Has also published research in economics (Nobel prize-winner),
+decision theory, theory of organizations, psychology, philosophy of
+science...
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Physical Symbol Systems}
+
+Simon regards both computers and human brains as {\em physical symbol
+systems}, possessing:
+\begin{itemize}
+\item A set of {\em symbols}: physical patterns that can occur as
+components of {\em expressions}.
+\item Processes that can {\em create}, {\em copy}, {\em modify} and
+{\em destroy} symbols, thus producing a changing collection of
+expressions.
+\item Ways of acquiring information from outside and encoding
+it into internal expressions.
+\item Ways of affecting the environment guided by
+internal expressions (``programs'').
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Physical Symbol System Hypothesis}
+\begin{itemize}
+\item ``... the hypothesis is that a physical symbol system... has the
+necessary and sufficient means for general intelligent action.''
+\item ``The hypothesis is clearly an empirical one, to be judged true
+or false on the basis of evidence.
+\begin{itemize}
+\item ``by constructing computer programs that are demonstrably
+capable of intelligent action, we provide evidence on the sufficiency side...''
+\item ``by collecting experimental data on human thinking that tend to
+show that the human brain operates as a symbol system, we add
+plausibility to the claims for necessity...''
+\end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Broad Themes in Simon's Work}
+\begin{itemize}
+\item ``Bounded rationality'' of human decision-making.
+\item ``Satisficing'' as opposed to ``optimizing'' in problem-solving.
+\item ``Protocol analysis'' in psychological research.
+\item Nature of complex systems: hierarchically-structured and
+``nearly decomposable''. (Hence, we {\em don't} need to understand the
+brain to understand the mind.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon's View of the Mind: 1}
+\begin{itemize}
+\item ``Human beings, viewed as behaving systems, are quite
+simple. The apparent complexity of our behavior over time is largely a
+reflection of the complexity of the environment.'' (Sciences of the
+Artificial, p.53).
+\item Basis for this view: nature of humans as {\em adaptive}
+systems. Small number of intrinsic characteristics of the mind limit
+its adaptivity (e.g. how much can be held in short-term memory).
+\item The long-term memory is viewed ``less as a part of the organism
+than as part of the environment to which it adapts''.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon's View of the Mind: 2}
+\begin{itemize}
+\item Long-term memory can be seen as {\em artificial} aid to
+problem-solving (like books, computers, etc.)
+\item Thought is fundamentally {\em serial}.
+\item No fundamental difference between conscious and unconscious
+problem-solving.
+\item Human learning is slow and inefficient.
+\item Emotion can be viewed as a {\em prioritizing} mechanism,
+enabling one ``program'' to ``interrupt'' another.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Aspects of Simon's AI Research}
+\begin{itemize}
+\item Early concentration on ``formal'' tasks and ``microworlds''
+(formal logic, chess, cryptarithmetic puzzles).
+``If one could devise a successful chess machine, one would seem to
+have penetrated to the core of human intellectual endeavor.''
+\item Continued concentration on modelling human behavior as revealed
+by psychological experiments and protocol analysis. EPAM (rote verbal
+learning), GPS (``general'' problem solving), BACON (scientific
+discovery).
+\item Importance of {\em selective, heuristic} search processes.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Overview of GPS}
+\begin{itemize}
+\item First program (1959) to make a clear separation between {\em
+domain-specific knowledge} and\\{\em problem-solving strategy}.
+\item Can be regarded as implementing {\em heuristic search}, guided
+by {\em means-end analysis}.
+\item GPS `maximally confuses' the attempt to {\em accomplish} tasks humans
+perform, and the attempt to {\em simulate} human performance.
+\item Used to model a human novice's approach to problems of
+manipulating logical formulae.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Some Significant Features of GPS}
+\begin{itemize}
+\item Written in low-level list-processing language, IPL.
+\item Made use of three types of goals:
+\begin{itemize}
+\item Transform object A into object B.
+\item Reduce difference D between object A and object B.
+\item Apply operator Q to object A.
+\end{itemize}
+\item Goals achieved by breaking them down into a tree of
+subgoals, using methods illustrated on the next three slides.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Goal: Transform Object A}\\{\Large Into Object B}
+
+\begin{center}
+
+\epsfig {figure=sl3.1.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Goal: Reduce Difference D}\\{\Large Between Object A and Object B}
+
+\begin{center}
+
+\epsfig {figure=sl3.2.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}
+{\Large Goal: Apply Operator Q}\\{\Large To Object A}
+
+\begin{center}
+
+\epsfig {figure=sl3.3.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Some Limitations of GPS}
+\begin{itemize}
+\item ``Lack of Intermediate Information'' problem: if unsuccessful,
+no information about the cause of failure is returned.
+\item ``Lack of Descriptive Power'' problem: there are many aspects of
+the world that cannot adequately be expressed in terms of applying
+operators to objects: spatial and temporal relations, continuous
+processes of change in the world, probabilities, beliefs and
+preferences.
+\item ``Interacting Goals'' problem: people have complex, interacting,
+often ill-defined goals.
+\item ``Perfect Information'' problem: people do not know the full
+state of the world (and are aware of this). 
+\end{itemize}
+\end{slide}
+
+\section{Lecture 3: BACON and other programs}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 3:}
+
+{\Large Scientific Discovery ---}
+
+{\Large BACON and other Programs}
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon's Claims}
+\begin{itemize}
+\item Scientific discovery can be explained in terms of {\em
+general} features of human thinking or problem-solving, which Simon
+considers are quite well understood.
+\item ``Computer programs exist today that, given the
+same initial conditions that confronted certain human scientists,
+remake the discoveries the scientists made.'' 
+\item At least one program (DENDRAL) has made original scientific
+discoveries. There is no reason why others should not do the same.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon On Scientific Discovery}
+\begin{itemize}
+\item Simon believes working scientists spend more time on {\em scientific
+discovery} (looking
+for regularities in data and trying to find {\em some} theory
+explaining them), than in testing or comparing theories.
+\item He sees scientific discovery as fundamentally the same as other
+forms of problem-solving, involving no ``special mechanisms'' of
+insight or inspiration.
+\item His approach to understanding the process of scientific research involves
+breaking it down into subprocesses, making AI models of the parts,
+then integrating these models.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon's On Problem Solving}
+\begin{itemize}
+\item Most problem solving involves selective search through large
+spaces of possibilities.
+\item Both domain-specific and general heuristics are used: human
+beings fall back on general heuristics
+(``weak methods'') when domain-specific ones are
+unavailable or fail.
+\item The most important heuristic is {\em means-end
+analysis}. Effectiveness depends on ability to {\em recognise}
+features of
+current state, and recall relevant operators for
+reducing the difference between it and the goal state.
+\item The domain-specific (recognition and recall) knowledge
+distinguishing experts from novices is stored in the form of {\em
+productions} (condition-action rules).
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Search Spaces}
+\begin{itemize}
+\item A {\em search space} includes:
+\begin{itemize}
+\item A set of {\em nodes} or {\em states}, including an {\em initial
+node}, and one or more {\em goal nodes}. 
+\item A set of {\em operators}, used in order to move from the current node
+to a neighbouring one.
+\end{itemize}
+\item The {\em search} may be:
+\begin{itemize}
+\item {\em Exhaustive}: all nodes are examined, using procedures like
+{\em depth-first} or {\em breadth-first} search.
+\item {\em Heuristic}: guided by some way of estimating which node
+should be ``expanded'' next, and/or which operator should be used.
+\end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large How Productions Guide Search}
+\begin{itemize}
+\item A production {\em fires} when its {\em condition} is matched by
+contents of short-term memory and/or features of current environment.
+\item Its {\em action} is then to alter the contents of short-term
+memory.
+\item An important way of doing this is to {\em recall} information
+from long-term memory.
+\item This information can then be used in {\em guiding} a search process.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Well-Structured Problems}
+\begin{enumerate}
+\item Effective test of proposed solutions.
+\item At least one problem-space where all ``considerable'' states can
+be represented. 
+\item At least one problem-space where all ``considerable''{\em moves}
+can be represented.
+\item Any relevant knowledge that can be acquired can be represented
+in terms of one or more problem-spaces.
+\item If action on the external world is involved, effects of actions
+are accurately known.
+\item Only ``reasonable''
+amounts of computation are required.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large Alternatives To Simple Search}
+
+Applicability of search to ``ill-structured'' real-world problems
+can be challenged. Simon suggests various extensions/modifications including:
+\begin{itemize}
+\item Planning: try to find some {\em intermediate} nodes on the way
+from the initial node to a goal node.
+\item Create a less abstract version of the problem and use that
+to guide search (e.g., using a diagram to guide a search for a
+geometric proof).
+\item Put information gathered at one node onto a ``blackboard'' so it
+can be used elsewhere. Taking this as far as possible produces a {\em
+constraint-based} approach, where nodes are states of {\em
+knowledge} rather than of the world. 
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Well-Structured/Ill-Structured}
+
+Simon also argues that the distinction between well-structured and
+ill-structured problems is one of degree, not qualitative.
+\begin{itemize}
+\item Apparently well-structured problems (e.g. chess), do not meet
+the conditions given: we {\em can't}
+normally be sure a proposed move wins (too much computation), and we
+{\em can't} be sure what the consequences of a move will be (what the
+opponent will do). The space to be searched is different every move.
+\item Conversely, a problem like designing a house or ship looks
+ill-structured, but is {\em decomposed} into a series of more-or-less
+well-structured problems.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large BACON}
+\begin{itemize}
+\item BACON is given data involving one or more ``independent
+variables'' and one ``dependent variable'' (e.g. temperature, quantity
+of gas, pressure as i.v.s, volume as d.v.).
+\item ``Searches'' in 2 ``spaces'': space of data and space of laws:
+``the system's search for laws is {\em embedded} within its 
+search for data.''. 
+\item The ``search'' in the ``space of data'', however, is trivial:
+the values the i.v.s can take are given by the user, and all
+nodes are visited in a fixed order.
+\item User provides ``information about the {\em form} that plausible
+laws may take.''
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large BACON: Searching For Laws}
+\begin{enumerate}
+\item Keeping all i.v.s but one fixed, BACON searches for a ``set of
+parameters'' relating values of the the last i.v. to those of the
+d.v.. ``Best'' set is the one that ``maximally predicts'' the
+observed data. 
+\item  Search results in a ``law'', stored for future use if there
+ismore than 1 i.v.
+\item Steps (1) and (2) repeated for each possible value of another
+i.v. The first-level ``laws'' are then used to search for
+a second-level law, relating {\em two} i.v.s to the d.v.
+\item This process is continued through as many levels as there are
+i.v.s.
+\item BACON can also handle non-numerical i.v.s (e.g. different substances).
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large GLAUBER}
+
+Aimed at discovering {\em qualitative} rather than {\em
+quantitative} relations: simulating discovery of {\em classes} of chemical
+substances such as acids, alkalis and salts. Viewed as a search program:
+\begin{itemize}
+\item Initial state: ``facts'' about particular chemicals. Goal state:
+definitions of ``classes'' of these chemicals, with ``laws'' relating them.
+\item Operators: {\bf Form-law} --- defines a class and substitutes it
+into ``facts''; {\bf Determine-quantifier} --- specifies whether the
+law applies to all members of the class(es) concerned, or just to
+some.
+\item ``Best-first'' search with no backtracking. {\bf Form-law}
+selects object occurring in the most ``analogous facts''; user
+determines how ``cautious'' {\bf Determine-quantifier} is.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large STAHL}
+
+Aimed at determining the components of substances. Viewed as a search program:
+\begin{itemize}
+\item Initial state: list of reactions relating substances. Goal
+state: components of each compound substance.
+\item Example operators+heuristics:
+\begin{itemize}
+\item {\bf Infer-composition}. If A and B react to form C, or if C
+decomposes into A and B, then infer that C is composed of A and B.
+\item {\bf Identify-compounds}. If A is composed of C and D, and B is
+composed of C and D, then identify A with B.
+\end{itemize}
+\item Depth-first search without backtracking.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large DALTON}
+
+``Follows on'' from STAHL (accpets as input the type of information
+output by STAHL). Viewed as a search program:
+\begin{itemize}
+\item Initial state: list of reactions, and components of substances
+involved. Goal state: Model of each reaction, specifying 
+number of molecules of each substance, number of ``particles'' (atoms)
+in each type of molecule.
+\item Operators: {\bf Determine-molecules} hypothesizes number of
+molecules of a particular type involved. {\bf Determine-atoms}
+hypothesizes number of atoms of a particular type in a particular
+molecule. {\bf Conserve-particles} ensures number of atoms of each
+type is unchanged by the reaction.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Towards An Integrated}
+{\Large Discovery System?}
+
+``To the extent that it can be achieved, an integrated discovery
+system would be much less susceptible to the criticism that one is
+`building in discoveries' by providing the necessary inputs.''
+\end{slide}
+
+\begin{slide}{}
+{\Large Hofstadter's Critique}
+\begin{itemize}
+\item Hofstadter takes BACON as exemplifying
+serious flaws in most GOFAI research, which bypasses problems
+such as the integration of perception and cognition, and the ability to
+shift flexibly between representations of a situation.
+\item Claims BACON and Simon's other programs are fed data they
+need ``predigested'', unlike scientists being ``simulated''.
+\item Qin and Simon found university students, starting with the same
+data as BACON, often made the same ``discoveries''  within an
+hour. This shows BACON has little 
+relation to real scientific discovery! 
+\item Easy to be fooled into thinking an AI program
+understands more than it does.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Comparison: DENDRAL}
+\begin{itemize}
+\item Developed by E. Feigenbaum and others from 1965, first publication 1971.
+\item Domain: enumerating structures of organic molecules, given data
+from spectrometers, plus user-supplied constraints.
+\item Switch to (situation-action) rule-based approach 1967. Rule has
+to capture a meaningful chunk of knowledge.
+\item Better than human experts within certain narrow classes of molecules,
+but much less flexible. 
+Regularly used by Stanford University chemists.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large DENDRAL's Approach}
+\begin{itemize}
+\item Generate all topologically
+possible
+structures (using a subprogram called CONGEN)...
+\item {\em within} constraints set by the user or a built-in planning
+process which favours the most plausible structures.
+\item Then test the proposed structures
+by predicting the instrument data.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large META-DENDRAL}
+
+META-DENDRAL inferred rules of mass spectrometry, for possible use by
+DENDRAL.
+\begin{itemize}
+\item Input: spectrometer data from known molecules.
+\item Output: set of fragmentation rules discovered, plus summary of
+evidence for and against each rule.
+\item Produced rule-sets of comparable quality to those produced by
+consultation with experts.
+\end{itemize}
+\end{slide}
+\section{Lecture 4: Hofstadter's FARG}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 4:}
+
+{\Large Doug Hofstadter's}
+
+{\Large Fluid Analogies Research Group}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Simon and Hofstadter}
+\begin{itemize}
+\item Both interested in discovery of {\em patterns} (both have worked
+on extending number-sequences).
+\item Simon thinks we're ``nearly there'', Hofstadter thinks we've
+``hardly started'', in progress toward genuine AI.
+\item Simon thinks human cognition is rather simple, Hofstadter that
+it's incredibly complex.
+\item Simon thinks high-level problem-solving can be understood
+without understanding how the brain works; Hofstadter doesn't.
+\item Simon thinks human intelligence is largely serial; Hofstadter, that it
+{\em emerges} out of multitudes of ``inaccessible'' parallel
+processes.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Hofstadter's Central Concerns}
+\begin{itemize}
+\item Overblown claims made for many AI programs.
+\item Drift of AI away from fundamental issues.
+\item Nature of creativity, insight, self-awareness.
+\item Relation between perception and ``high-level'' thought.
+\item Nature of {\em concepts}.
+\item Importance of {\em analogies} and {\em counterfactuals}.
+\item Usefulness of microworlds in AI research.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large My Summary of Hofstadter's Position}
+\begin{itemize}
+\item Q. Why, after 50 years of AI research, are computers still so
+{\bf stupid}?
+\item A. Because we still have very little understanding of what makes
+people intelligent; and what we do have has largely been ignored by
+most AI researchers.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The ``ELIZA effect''}
+\begin{itemize}
+\item ELIZA: program written by Joseph Weizenbaum in 1964-6.
+\item ``Conversed'' with users (via teletype), using sets of simple
+``scripts'', the most impressive imitaing a Rogerian therapist.
+\item Weizenbaum became alarmed at people's {\em reaction} to ELIZA
+(see {\em Computer Power and Human Reason}, 1976).
+\item Hofstadter claims that the ``ELIZA effect'' has systematically
+obstructed objective assessment of AI programs by AI researchers.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Hofstadter's Own List of Themes}
+\begin{itemize}
+\item Inseparability of perception and high-level cognition.
+\item Easily reconfigurable, multi-level cognitive representations.
+\item ``Subcognitive pressures''.
+\item Commingling of many pressures.
+\item Simultaneous feeling-out of many potential pathways.
+\item Cognitive representations' {\em deeper} and {\em shallower} layers.
+\item Crucial role of inner structure of concepts and conceptual
+neighbourhoods.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Example Programs}
+\begin{itemize}
+\item {\bf Seek-Whence}: Extrapolating number sequences.
+\item {\bf Jumbo}: modelling processes involved in finding anagrams.
+\item {\bf Copycat}: constructing analogies
+(between transformations)
+in a microworld of letter-sequences.
+\item {\bf Tabletop}: constructing analogies (between actions) in a
+microworld of ``coffeehouse tabletops''.
+\item {\bf Letter Spirit}: designing typefaces. 
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Copycat: Overview}
+\begin{itemize}
+\item Written by Hofstadter and Melanie Mitchell (H/M).
+\item ``Neither symbolic nor connectionist: ``subcognitive but superneural''.
+\item Top-level behaviour {\bf emerges} from parallel, stochastic
+processing mechanism. {\bf Concepts} implemented as distributed and
+probabilistic entities in a network. (Contrast with GOFAI's ``atomic''
+symbols.)
+\item Intended to simulate ``the very crux of human cognition: fluid
+concepts''.
+\item Three main components: the ``Slipnet'' (roughly, long-term
+memory), ``Workspace'' (roughly, short-term memory), and
+``Coderack'' (no close counterpart in other architectures). 
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Copycat: Example Problems}
+\begin{itemize}
+\item {\bf abc $\rightarrow$\space abd, ijk  $\rightarrow$?}
+\item {\bf aabc $\rightarrow$\space aabd, ijkk $\rightarrow$\space ?}
+\item {\bf abc $\rightarrow$\space abd, kji $\rightarrow$\space ?}
+\item {\bf abc $\rightarrow$\space abd, mrrjjj $\rightarrow$\space ?}
+\item {\bf abc $\rightarrow$\space abd, rssttt $\rightarrow$\space ?}
+\item {\bf abc $\rightarrow$\space abd, xyz $\rightarrow$\space ?}
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Copycat's Microdomain}
+\begin{itemize}
+\item Set of {\em basic object types} (the letters {\bf a-z}).
+\item A basic relation between pairs of object types
+(successor-predecessor, e.g. {\bf \{a,b\}, \{f,g\}, \{y,z\}} --- but
+not {\bf \{z,a\}}).
+\item A one dimensional ``space'' where {\em structures} (strings of
+object {\em tokens} can exist, e.g. {\bf abc, aabd, mrrjjj}. Copycat
+can take account of the length of (short) strings.
+\item The concepts of {\em sameness} and {\em opposite}
+(e.g. successor/predecessor,\\leftmost/rightmost).
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large The Slipnet: 1}
+\begin{itemize}
+\item Contains the permanent concepts (the 26 letters, also {\em
+letter, predecessor, successor, left, right, direction, group, group
+length, 1, 2, 3, sameness, opposite}...). Total of around 60.
+\item ``Core'' of each concept represented by a {\em node}, each
+conceptual relationship
+by a {\em link}, with a length representing ``conceptual distance''.
+\item Nodes acquire, spread and lose {\em activation} (relevance to
+the current situation); links adjust their lengths.
+\item Node and its ``halo'' of related nodes correspond to a concept.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large The Slipnet: 2}
+\begin{itemize}
+\item Each node has a {\em conceptual depth} --- generality,
+abstractness, distance from direct perception. Once perceived,
+``deeper'' concepts have more influence; activation decays more
+slowly.
+\item Links have ``labels'' which are themselves nodes (e.g. {\em
+opposite}; activation of a label node shortens the links with that
+label.
+\item ``Slippability'' between concepts depends on existence of
+discrete ``cores''
+(which do not exist in distributed connectionist models).
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large The Workspace: 1}
+\begin{itemize}
+\item Initially, unconnected pieces of raw data representing the
+situation.
+\item Multiple independent {\em perceptual structures} built (and
+dismantled) in parallel by ``codelets'', until a coherent {\em
+viewpoint} emerges.
+\item Probability an object will receive attention depends on its {\em
+salience} --- a function of its {\em importance} and {\em
+unhappiness}.
+\item Pairs of {\em neighboring objects} in the same string
+scanned for relationships which can produce {\em bonds}. Sets of
+bonded objects can form ``groups'' (higher-level objects).
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large The Workspace: 2}
+\begin{itemize}
+\item Pairs of objects in {\em different} strings can be linked by
+{\em bridges} or {\em correspondences}, gradually building up a
+coherent mapping.
+\item  {\em Identity mappings} always help formation of a bridge;
+{\em conceptual slippages} have to overcome resistance.
+\item As Workspace evolves, pressure for a {\em consistent viewpoint}
+increases.
+\item Events in Workspace alter activations in Slipnet, which react on
+Workspace...
+\item General biases towards {\em deep concepts} and {\em consistency}
+give Copycat a ``goal-oriented'' quality despite decentralization.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large The Coderack}
+\begin{itemize}
+\item {\em Codelets} do all the scanning, bonding, bridging, grouping...
+\item {\em Scout codelets} estimate promise of
+actions: all they {\em do} is create further codelets. {\em
+Effector codelets} attach descriptions to objects, or create/destroy
+bonds/groups/bridges.
+\item Created codelets placed in {\em Coderack}, assigned an
+{\em urgency} determining {\em probability} of being selected to be
+run and removed.
+\item There are {\em bottom-up} codelets, continually being added; {\em
+top-down} ones, placed by highly activated {\em Slipnet} nodes; {\em
+follow-up} codelets placed by earlier codelets. 
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Emergence of Fluidity}
+\begin{itemize}
+\item H/M compare Copycat's operations to what goes on inside
+a cell: no centre of control, but interlocking feedback loops.
+\item Copycat architecture allows many ``pressures'' to coexist, overlap,
+compete and cooperate.
+\item Use of {\em scout codelets} allows exploration of possibilities
+in a {\em parallel terraced scan}.
+\item Initial ``discoveries'' are local; scale of actions
+gradually increases.
+\item ``Temperature'' variable, reflecting how orderly
+{\em Workspace} is, controls degree of randomness
+used. Final temperature reflects solution quality.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Overall Trends During Run}
+\begin{itemize}
+\item {\bf Slipnet:} Activation moves from ``shallower'' to
+``deeper'' concepts, and increasingly clusters into {\em themes} of
+closely-related, deep concepts.
+\item {\bf Workspace:} Shift from many local, unrelated objects toward
+a few global, coherent structures.
+\item {\bf Coderack:} Initially, only bottom-up codelets
+exist. Top-down codelets gradually come to dominate as a run proceeds.
+\item Processing: shifts from parallel towards serial, bottom-up
+towards top-down, nondeterministic towards deterministic.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Copycat's Answers to Problem 4}
+
+1000 runs of {\bf abc $\rightarrow$\space abd, mrrjjj $\rightarrow$\space ?}
+\begin{itemize}
+\item 705: {\bf mrrkkk} Av. Temp: 43
+\item 203: {\bf mrrjjk} Av. Temp: 50
+\item 45: {\bf mrrjkk} Av. Temp: 46
+\item 39: {\bf mrrjjjj} Av. Temp: 20
+\item 6: {\bf mrrddd} Av. Temp: 46
+\item 2: {\bf mrrjjd} Av. Temp: 61
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Robustness and Elegance}
+\begin{itemize}
+\item Copycat has the potential to produce ``bad'' or ``weird''
+answers, but avoids them most of the time --- H/M regard this
+as a demonstration of its robustness.
+\item The potential to produce ``bad'' answers appears essential if it
+is to be able to produce impressive ``elegant'' ones (like {\bf
+mrrjjjj} in problem 4). 
+\item If temperature is ``clamped'' (forced to remain constant) it
+seldom finds what Hofstadter considers the most ``elegant'' answers.
+\item Testing on families of related problems can be seen as
+``miniature Turing tests''.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\Large Can Copycat ``Scale Up''?}
+
+Remains to be proved, but H/M claim that none of the key ideas depend
+on its small domain, and that the way in which concepts initially
+disregarded can move first to the 
+periphery, then to the centre of attention, allowing ``Dynamic
+emergence of unpredictable objects and pathways'' to
+occur, will permit domains of much greater size to be dealt with.
+
+\end{slide}
+
+\section{Lecture 5: ANN Overview}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 5:}
+
+{\Large Artificial Neural Networks:}
+
+{\Large Overview}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Symbolic Or Sub-Symbolic?}
+\begin{itemize}
+\item We can distinguish the {\em Symbol Processing} appproach (``Good
+Old-Fashioned AI'' or GOFAI) from the ``sub-symbolic'' approaches.
+\item The
+best known and most developed of these is the {\em connectionist} or
+{\em artificial
+neural network} approach.
+\item In the 1960s, Alan Newell and Herbert Simon put forward {\em The
+Physical-Symbol System Hypothesis}.
+\item Connectionists and other critics charge that symbolic AI ignores
+what we know about how the brain and human intelligence, and has
+turned out to have severe limitations.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Roots of Connectionism: 1}
+\begin{itemize}
+\item First AI paper may be McCulloch and Pitts
+(1943): {\em A Logical Calculus of the Ideas Immanent in Nervous
+Activity}. 
+\item Ancestral to both symbolic and
+connectionist AI. 
+\item Networks of synchronized ``neurons'' with one-way connections
+(``synapses''), all-or-nothing output.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Roots of Connectionism: 2}
+\begin{itemize}
+\item Initially, much symbolic/connectionist overlap. In 1951,
+Minsky and Edmonds built SNARC: first "neural network"
+computer.
+\item One way for McCulloch-Pitts-type neurons to learn: Hebb
+(1949) {\em The Organization of Behavior}: strengthen synapse if it
+helps cause a neuron to fire (good for {\em unsupervised}
+learning). 
+\item Another: Rosenblatt (1962) {\em Principles of Neurodynamics}:
+strengthen or weaken synapses to alter output neuron's behaviour in
+desired direction (good for {\em supervised} learning).
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Hardware, Software, Wetware}
+\begin{itemize}
+\item Artificial neural nets (ANNs) are, mostly, not very
+brain-like. 
+\item However, they do {\em distribute} both storage and
+processing of information across a network of richly-connected
+elements, as the brain appears to do.
+\item Most work on ANNs actually {\em simulates} networks on ordinary,
+``von Neumann'' computers, rather than building hardware networks.
+\item Show pattern of strengths and weaknesses {\em closer} to that of
+human (and even more, other animal) brains than GOFAI programs.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Real/Artificial NN Contrasts}
+\begin{itemize}
+\item No ANN approaches the human brain's approximately
+$10^{10}$\space neurons, and $10^{15}$\space connections.
+\item Real brains have multi-level
+organization.
+\item {\em Rate} of firing of neurons used for coding in at least some
+parts of brain. Some real neurons are ``pacemaker'' cells --- fire without any
+need for input.
+\item More generally, real neurons and their connections are complex
+and {\em varied}.
+\item Neuronal {\em plasticity}: new synapses develop.
+\item Oxygen levels, hormones, drugs, fatigue...
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Perceptrons}
+
+Perceptrons are networks of ``neuron-like'' units. A unit
+forms a {\em weighted sum} of its inputs, and ``fires'' in an
+all-or-nothing fashion, if and only if this exceeds a threshold
+value.
+\begin{center}
+
+\epsfig {figure=perceptron1.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Trouble with Perceptrons}
+\begin{itemize}
+\item Rosenblatt devised a learning algorithm for a one-layer perceptron,
+and showed that such a network could {\em learn} whatever
+classifications it could {\em represent} (see Russell and Norvig
+pp. 573-7). 
+\item Unfortunately, Minsky and Papert ({\em Perceptrons}, 1969), showed
+that a one-layer perceptron could not represent much -- and that the
+learning procedure would not work for multi-layer perceptrons!
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=perceptron2.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Neural Net Revival}
+\begin{itemize}
+\item Only in 1980s were new kinds of ANNs, and
+ANN learning developed -- some based on {\em physics}
+rather than biology (Hopfield nets, Boltzmann machines).
+\item Learning problems in multi-layer perceptrons arose
+from all-or-none response: units in layer
+2 (or later) could not generally ``know'' anything about the initial
+inputs.
+\item Overcome by changing a unit's response so that near
+the threshold value, it gives some sort of ``maybe'' rather than a
+``yes'' or ``no''. Most often, it is made {\em sigmoidal}.
+\item A key event in reviving ANN approach:
+discovery of the {\em backpropagation} algorithm (three times between
+1974 and 1986!)
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Backpropagation}
+
+Backpropagation can be described as follows (see Russell and Norvig
+pp.578-583 for details):
+\begin{enumerate}
+\item Set all weights and thresholds to small random values.
+\item Present input, allowing the network to calculate output.
+\item Compare this actual output with the output {\em desired} from that input.
+\item If the two are different, alter the weights, starting with those
+nearest the output layer and working backwards.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large Hopfield Networks: 1}
+\begin{itemize}
+\item Hopfield's  description of a different kind of network, in 1982,
+was another important contribution to the ANN revival. 
+\item Hopfield network units are binary with ``active'' and
+``inactive'' states.
+\item No distinction between {\em input} and {\em output}
+units. Connections are {\em symmetric}, and may be
+positive (excitatory) or negative (inhibitory), and of different
+strengths.
+\item A unit is selected at random and {\em updated} (if weights on
+connections to its active neighbours have a positive sum, it becomes
+active).
+\item This process is repeated. It can be proved that a stable state
+will always be reached.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Hopfield Networks: 2}
+
+\begin{center}
+
+\epsfig {figure=hopfield.eps}
+
+\end{center}
+\begin{itemize}
+\item Hopfield proposed their use as {\em content addressable
+memories}. Given pattern close to
+a stable state, Hopfield network reliably reaches that
+state -- so can be used to retrieve a complete pattern from a part
+of that pattern.
+\item Also proposed use to solve {\em constraint satisfaction}
+problems.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Boltzmann Machines}
+\begin{itemize}
+\item A variation on Hopfield networks,
+designed to avoid a problem in
+constraint satisfaction problems: getting caught in {\em local 
+minima}. 
+\item Sigmoid function used to determine probability of change of
+state for a unit. The random
+element is gradually reduced by making the function more step-like
+(``simulated annealing'').
+\item Degree of randomness referred to as ``temperature'' (different
+from Hofstadter's ``temperature''). Slower reduction of temperature
+makes network more likely to find global minimum. 
+\item Best annealing schedule may be hard to find.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Kohonen Maps}
+\begin{itemize}
+\item {\em Kohonen self-organising maps} are designed to do {\em
+unsupervised learning}.
+\item The classification of inputs is not
+defined in advance. 
+\item The units are arranged in a two-dimensional grid,
+and local groupings learn to respond to different classes of
+inputs.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Jordan Networks}
+\begin{itemize}
+\item {\em Jordan networks}, have asymmetric connections.
+\item These
+include {\em loops} from output units back to hidden units. 
+\item They can
+be trained using backpropagation, and used to deal with certain tasks
+with {\em sequential} aspects.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Example Domain:}
+{\Large Speech Processing by ANNs}
+\begin{itemize}
+\item The most successful speech (recognition and production)
+systems are based on ANNs.
+\item Sejnowski and Rosenberg's 1987
+NETtalk system was the first useful neural net application program.
+\item Kohonen used his self-organising maps in a program to pronounce written
+Finnish.
+\item The future of natural language processing may lie with {\em
+hybrid} systems, incorporating both ANN and ``symbolic AI''
+techniques.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Network For Distinguishing Vowels: 1}
+\begin{center}
+
+\epsfig {figure=vowels.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Network For Distinguishing Vowels 2:}
+\begin{itemize}
+\item Two {\em input units}, encoding
+the two strongest frequencies in a vowel sound.
+\item Ten {\em output units}, corresponding to different
+``phonemes''.
+\item Seven {\em hidden units}, giving enough
+flexibility to learn relatively complex classification tasks.
+\item ``Weights'' on the connections determine output of the hidden
+and output units for a given set of inputs.
+\item ``Trained'' by giving example inputs,
+comparing output produced with that desired, and
+backpropagating information about the differences (``error'') to
+alter weights.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large ANNs: Advantages}
+
+ANNs strengths lie in {\em some} areas where symbolic AI techniques tend to
+be weak.
+\begin{itemize}
+\item Good at learning classification tasks, simple
+kinds of pattern transformation, retrieving patterns from
+fragments. 
+\item Learning abilities fundamental, not an add-on.
+\item Highly resistant to damage (fault tolerance).
+\item Able to cope with ``noisy'' or ambiguous data.
+\item Able to support associative, content addressable forms of memory.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{} 
+{\Large ANNs: Disadvantages}
+
+ANNs also have apparent disadvantages.``Hybrid'' or {\em layered}
+approaches may be necessary for true AI.
+\begin{itemize}
+\item Difficulty in dealing with complex structures.
+\item Difficulty in coping with sequences of inputs or outputs
+(despite Jordan networks).
+\item ANN learning is generally slow, and {\em what} has been learned, obscure.
+\item Choosing type of ANN for a task, network topology, and initial
+weights, remains largely trial and error.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Genesis of AI: Ch.1}
+\begin{itemize}
+\item In the beginning were McCulloch and Pitts.
+\item And the work of McCulloch and Pitts begat that of both Minsky
+and Rosenblatt. Minsky was an symbol processor, while Rosenblatt
+builded artificial neural networks.
+\item And they quarreled, yeah, even over funding, and Minsky obtained
+the blessing of DARPA.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Genesis of AI: Ch.2}
+\begin{itemize}
+\item Yet the followers of Rosenblatt arose again, and strove mightily
+with the followers of Minsky.
+\item There arose disputes within each camp, peacemakers between the
+twain, and some that saw visions of Genetic Algorithms or
+Behaviour-Based Robotics and cried ``A plague on both your houses!''.
+\item And so it came to pass that after fifty years they were all far
+from the promised land, and none knew in what direction it lay.
+\end{itemize}
+\end{slide}
+
+\section{Lecture 6: Arbib}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 6:}
+
+{\Large Artificial Neural Networks:}
+
+{\Large Michael Arbib}
+
+{\small All figures adapted from Arbib and Liaw (1995) ``Sensorimotor
+transformations in the worlds of frogs and robots'' {\em Artificial
+Intelligence} 72, 53-79; or Arbib (1989) {\em The Metaphorical Brain 2:
+Neural Networks and Beyond}.}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Lecture Contents}
+\begin{itemize}
+\item Michael A. Arbib
+\item Brains as Machines
+\item Schema Theory
+\item The Computational Frog
+\item From Frog to Robot
+\item From Instinctive to Reflective
+\item Biology and Technology
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Michael A. Arbib}
+\begin{itemize}
+\item Arbib has been working on brain theory, artificial intelligence
+and related areas since the 1960s.
+\item He distinguishes {\em neural computing} (or {\em neural
+engineering} on the one hand from {\em computational neuroscience} on
+the other, though regarding them as closely related.
+\item Neural computing is the branch of artificial intelligence using
+approaches inspired by human and other animal brains.
+\item Computational neuroscience is the use of computer models to
+advance understanding of how brains work.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Brain As A Machine}
+\begin{itemize}
+\item Like artificial machines, the brain has a {\em function}:
+enabling its possessor to adapt its behaviour to the environment in
+order to achieve its goals.
+\item Arbib stresses the structural and functional {\em hierarchies}
+found in animal brains and behaviours.
+\item He also stresses the close relation between {\em perception} and
+{\em action}.
+\item The brain is a {\em network of neurons}, coupled to {\em receptors}
+and {\em effectors}, thus linking {\em perception} to {\em action}. 
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Structure And Function}
+Both structure and function of the brain can be analysed at a number
+of levels.
+\begin{center}
+
+\epsfig {figure=bbo.eps}
+
+\end{center}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Organisation Of The Brain}
+\begin{itemize}
+\item Different {\em regions} of the brain deal with different
+functions. 
+\item Within a region, different {\em layers} deal with different
+levels of {\em analysis} of
+sensory input, and of {\em control} of movement.
+\item Positions of neurons within a layer {\em usually} have a
+``maplike'' relationship to their function (e.g. the part of the body
+surface or visual field they are concerned with).
+\item ``The brain is a layered, somatotopic distributed computer.''
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Schematic View Of A Neuron}
+
+There is no ``typical'' neuron! However, the figure shows features common to
+most or all.
+\begin{center}
+
+\epsfig {figure=neurontiming.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Properties of Neurons}
+\begin{itemize}
+\item At rest, there is a voltage difference ({\em polarization})
+across a neuron's surface membrane. 
+\item The neuron ``fires'' if its ``axon hillock''
+{\em depolarizes} far enough, to a {\em threshold} level. At this
+level, depolarization becomes self-sustaining. 
+\item A ``pulse'' then passes along the axon, to ``synaptic
+endbulbs'', which  contact other neurons.
+\item Depending on the type of synapse, it may either {\em excite} or
+{\em inhibit} these neurons.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Importance Of Timing}
+\begin{itemize}
+\item A neuron may have excitatory and inhibitory inputs from many others.
+\item It may also have an {\em intrinsic} firing rate even without
+inputs.
+\item The geometry of the cell, and the precise relative timing of inputs,
+rather than just their average rates, may determine whether and when
+the neuron fires.
+\item This could (for example) allow a single cell to act as a motion detector.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Schemas}
+\begin{itemize}
+\item Arbib views the behaviour of an organism, like its brain, as
+hierarchically organized, but the two do not map directly
+onto each other.
+\item He calls the functional units {\em schemas} (compare Schank's
+{\em scripts}, Minsky's {\em frames}). Schemas have {\em
+activation levels}, and may compete and/or cooperate.
+\item A {\em perceptual schema} is concerned with the recognition of
+some state of the world relevant to the organism. A {\em motor schema}
+controls a particular kind of action.
+\item Given a schema-level model, we may look for neural
+networks able to implement the individual schemas.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Example: The Computational Frog}
+\begin{itemize}
+\item Arbib builds multilevel computational models of frogs'
+brains and behaviour.
+\item A frog snaps
+at small objects (that might be insects, etc.), and jumps away if
+something large looms over it. Here's a possible schema-level model of
+this behaviour.
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=frogschemas1.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Testing Schema-Level Models}
+
+Such models can be tested experimentally:
+\begin{itemize}
+\item By varying the environment (what happens if a ``bug'' and an
+``enemy'' appear at once?).
+\item By ``lesion studies'' (giving the frog brain damage) --- if you
+think you know which brain region deals with which schema.
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=frogschemas2.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Which Way To Jump}
+\begin{itemize}
+\item If the enemy is coming straight toward it, a frog will jump in a
+direction somewhere between directly away from the enemy, and its
+current heading.
+\item But if the enemy is on course to pass in front
+of the frog, it will jump away from where the enemy is heading.
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=jump.eps}
+
+\end{center}
+\end{slide}
+
+\begin{slide}{}
+{\Large Neural Network Models}
+\begin{itemize}
+\item This can be modelled using several sets of neurons,
+three of which we mention here (the first two visual, the third motor).
+\begin{itemize}
+\item Each of the first (T3) set responds most strongly to a large
+object centered on a particular point in visual field.
+\item Each of the second (T2) set responds most strongly to such an
+object {\em moving from edge to centre of visual field}.
+\item Each of the third (MH) set makes the frog jump in a different direction.
+\end{itemize}
+\item Excitation of an MH from a T3 can be countered by inhibition from the
+corresponding T2, which will also excite a {\em different} MH. (Note:
+Fig.5 in the photocopied paper is misleading.)
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large From Frogs To Robots}
+\begin{itemize}
+\item Arbib has used his model of ``frog looming perception'' as the
+basis of an approach to robot obstacle detection and detour path choice.
+\item Main difference: there may be several obstacles at
+once. ``Looming detector'' cells are connected to cells in the ``motor
+map'' so that they {\em inhibit} those corresponding to the same
+direction, and {\em excite} those some distance away.
+\item Motor cells corresponding to directions nearer straight ahead
+have a higher {\em background activity}, so they are more likely to be chosen.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Three Principles}
+\begin{enumerate}
+\item {\em Cooperative computation of schemas}. Carried out by distributed
+methods not involving explicit symbolic control: basis not only of
+action, but of planning and language.
+\item {\em Evolution and modulation}. New schemas often arise as
+``modulators'' of existing ones, rather than as new systems. Examples:
+adding T2 ``motion detectors'' to ``looming perception''; adding
+barrier-detouring schemas to prey-capture schema; adding language to
+action-based perception.
+\item {\em Interaction of partial representations}. No one place in the
+brain where a complete representation of the world links perception
+and action.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}{}
+{\Large From Instinctive To Reflective}
+\begin{itemize}
+\item Frogs' schemas are mostly ``hardwired''. They {\em react}
+adaptively, but don't plan ahead.
+\item Evolutionary pressure for {\em flexibility} has led to {\em goal
+oriented, reflective} behaviour and {\em explicit} representation of
+goals.
+\item Human ability to {\em use} symbolic representations is most
+recent development in this direction.
+\item {\em Interaction} of these two approaches vital to human
+performance.
+\item So why not to artificial intelligences?
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Schemas and Schema Instances}
+\begin{itemize}
+\item VISIONS computer vision system is based on use of schemas.
+\item Schemas reside in LTM, schema {\em instances} in STM.
+\item A schema instance is {\em active} in directing processing,
+cooperates and competes with others, is associated with an area of the
+image being interpreted.
+\item Planning is distributed --- result of activity emerging in a
+flexible network. (Compare with Hofstadter!)
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large From Biology to Technology}
+\begin{itemize}
+\item In computational neuroscience, we know that eventually,
+behaviour must be accounted for in terms of the properties of neurons
+and neural networks.
+\item In software engineering, we can {\em choose}
+our hardware.
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=dais.eps}
+
+\end{center}
+\end{slide}
+
+\section{Lecture 7: Genetic Algorithms}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 7:}
+
+{\Large Genetic Algorithms:}
+\end{slide}
+
+\begin{slide}{}
+{\Large Genetic Algorithms and Related Topics}
+\begin{itemize}
+\item 1. Historical background; varieties of evolutionarily inspired
+computation.
+\item 2. How do genetic algorithms work?
+\item 3. What can genetic algorithms do?
+\item 4. Classifier systems and the `bucket brigade' algorithm.
+\item 5. Future prospects.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Evolutionary Computation in General}
+\begin{itemize}
+\item Inspiration: biological evolution, in particular the evolution of human
+and other animal intelligence.
+\item Common core: simulated evolution of a {\em
+population} of computational objects
+through {\em reproduction} and {\em selection} of 
+`genetic' representations of those objects, guided by
+a measure of {\em fitness}, using {\em operators} (e.g. recombination, 
+mutation) to generate novelty. 
+\item Does {\em not} generally aim to simulate evolutionary processes in
+detail. Generally
+resembles {\em artificial} more than natural
+selection. May use `evolutionary' processes not known in nature.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Different Approaches}
+\begin{itemize}
+\item {\em Evolutionary Programming} (Fogel). Representations:
+problem-specific. Operators: adaptive
+mutation. Survival: probabilistic.
+\item {\em Evolution Strategies} (Rechenberg). Representations usually
+real-valued vectors. Operators: recombination and adaptive mutation. Survival:
+deterministic.
+\item {\em Genetic Algorithms} (Holland). Representations: originally
+bit-strings, now wider range. Operators: recombination, mutation,
+inversion, others. Survival: probabilistic.
+\item {\em Genetic Programming} (Koza). Representations: hierarchical
+programs. Operators:
+recombination, occasionally others. Survival: probabilistic.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Genetic Algorithms: Example}
+
+Imagine we have a `black box', with five input switches, each of which
+can be in each of two positions, and an output signal which varies in
+magnitude with the positions of the switches. We want to find the
+position of the switches which maximises the output.
+
+With only 32
+possibilities, we could do an exhaustive search. However, we could
+also search using a genetic algorithm, and such a GA search can be `scaled
+up' to deal with a box with thousands of switches (although it will
+not guarantee to find us the best set of positions in the general
+case, and will only find a good set if certain conditions are met).
+\end{slide}
+
+\begin{slide}{}
+{\Large Initializing the Population}
+
+Randomly create a `population' of `strings', each
+representing a solution to the problem. For example,
+a set of four might be:\{01101, 11000, 01000,
+10011\} (0 and 1 represent the two switch positions). 
+Here is the box's output for each string:\\ \ \\\begin{tabular}{||l|r|r|r||}\hline
+No. & String & Fitness & \% of Total\\ \hline
+1 & 01101 & 169 & 14.4\\2 & 11000 & 576 & 49.2\\3 & 01000 & 64 & 5.5\\4 & 10011 & 361 & 30.9\\ \hline
+Total & & 1170 & 100.0\\ \hline
+\end{tabular}\\{\tiny Adapted from Goldberg, D.E. (1989), {\em Genetic Algorithms in Search,
+Optimization and Machine Learning}}\\\end{slide}
+
+\begin{slide}{}
+{\Large Selection}
+\begin{itemize}
+\item The four strings are now given chances to
+contribute to the next generation, subject to `selection'. 
+\item Four
+selections from the  population are made, with each string's selection
+probability on each occasion being proportional to its
+`fitness' (the output from the black
+box when the switches are set as it specifies). 
+\item The same
+string may be selected more than once. 
+\item The four strings resulting from selection in the present case are
+randomly paired for {\em recombination}.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Recombination}
+\begin{itemize}
+\item The most important `genetic operator' in GAs. 
+\item For a pair of strings (say $S_1$\space and $S_2$) to be recombined,
+a `crossover point' is randomly selected. For strings of length $l$, there are
+$l-1$\space possible crossover points.
+\item The part of $S_1$\space to the left of the
+crossover point is then attached to the part of $S_2$\space to the right of
+that point to produce one of the pair's two `offspring', and the left
+part of $S_2$\space to the right part of $S_1$\space to produce the other.
+\end{itemize}
+{\tiny \begin{tabular}{|l||l|l|l|l|l|}\hline
+Originals & Crossover 1 & Crossover 2 & Crossover 3 & Crossover 4\\ \hline
+11000 & 10011 & 11011 & 11011 & 11001\\10011 & 11000 & 10000 & 10000 & 10010\\ \hline
+\end{tabular}}
+\end{slide}
+
+\begin{slide}{}
+{\Large Evolution of a Population}
+\begin{itemize}
+\item Suppose the selections from the initial population were actually
+\{01101, 11000, 11000, 10011\}, `mating' paired the first of these
+with the second, and the third with the fourth, and the strings resulting after
+recombination were 01100 (fitness 144), 11001 (fitness 625), 11011
+(fitness 729), and 10000 (fitness 256). 
+\item The fittest string here
+results from a recombination of the two fittest from the first
+generation.
+\item This is no fluke: genetic algorithms will work well
+whenever combining substrings from high-fitness strings is a good strategy for
+getting even better strings; in other words, when substrings can encode
+{\em good partial solutions}.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Fundamental Theorem of Genetic Algorithms}
+\begin{itemize}
+\item Holland proved a formal version of this claim. First, he introduced
+the idea of a {\em schema} ({\em not} the same as Arbib's!): a pattern
+that matches a number of
+possible strings. An example from our length 5 strings is: `0w10w'. The
+symbol `w' is a `wild card', matching either 0 or 1, so this schema
+matches any of \{00100, 00101, 01100, 01101\}.
+\item Suppose that for any schema $H$, there are at any one time step (or
+generation) $t$,
+$m(H,t)$\space strings matching that schema in the population. Holland
+showed that the {\em expected} value of $m(H,t+1)$\space is given by:\\\hspace*{.5cm}$m(H,t+1)=m(H,t)\frac{f(H)}{\overline f}$,\\where $f(H)$\space is the average fitness of strings matching $H$\space at time
+$t$, and $\overline f$\space is the average fitness of the entire
+population at that time.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Varieties of Recombination}
+
+There are numerous possible modifications to the recombination scheme outlined.
+\begin{itemize}
+\item Recombination may involve several crossover points.
+\item The `genome' may be divided into several chromosomes.
+\item Each bit may be drawn from either parent with a fixed
+probability.
+\item Multiple parents may be used to produce each offspring.
+\item Structures more complex than strings (e.g. graphs) may be
+used; the recombination operator must be designed so
+that the `offspring' are well-formed.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Mutation and Other Operators}
+\begin{itemize} 
+\item Mutation: each parental bit 
+is randomly flipped (with low probability) before
+recombination. (Evolutionary programming and evolutionary strategies
+use `adaptive mutation': the mutation rules themselves evolve.) 
+\item In
+GAs, mutation serves primarily to prevent {\em
+premature convergence}. Without it, the GA
+may get stuck on a local maximum, or may
+eliminate substrings that are only useful in the context of otherwise
+high-fitness strings (mutation can re-create them).
+\item Other possibilities: inversion, duplication,
+deletion, diploidy, dominance... All drawn from biological
+examples. Natural evolution appears to have made extensive use of
+these; study of them in natural and GA contexts may be {\em mutually}
+illuminating.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Popular Application Domains}
+\begin{itemize}
+\item Timetabling: a number of univerisities, notably Edinburgh, use
+GAs to timetable exams and/or lectures.
+\item Job-shop scheduling and related manufacturing processes.
+\item Control of robot manipulators.
+\item Combinatorial problems in mathematics, such as bin-packing and
+graph-colouring.
+\item Design problems, including VSLI, keyboards, communication
+networks.
+\item Selection of detectors for image classification, pattern recognition.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Genetic Algorithms and Learning}
+\begin{itemize}
+\item Once we move from using GAs to solve individual problems in
+some domain, to using them to {\em learn how to solve a class of
+problems}, the `problem solution' we are seeking becomes a {\em
+general procedure} for solving that class of problems. 
+\item There is more
+than one way of applying GAs in this fashion, but by far the most
+popular involves using is GA to evolve a particular form of rule-based
+problem-solving program known as a {\em Classifier System} (CS), also
+devised by Holland.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Classifier Systems}
+\begin{itemize}
+\item A CS learns a set of rules that resembles a symbolic AI {\em Production
+System} (PS). It is this set of rules, sometimes called a {\em rule and
+message system}, that will solve the domain-level problems. 
+\item Selection
+among existing rules requires use of a {credit
+assignment system}: usually, the {\em bucket brigade algorithm} is
+used. A genetic 
+algorithm is used to produce new rules from successful existing rules
+using recombination and perhaps other operators.
+\item In a CS, the GA is thus producing candidate {\em partial} solutions to
+a class of problems, rather than
+{\em complete} solutions to a single problem. 
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Rule and Message Systems}
+\begin{itemize}
+\item CS rule-and-message-system rules (generally called
+{\em classifiers}) consist of a {\em condition} and
+an {\em action} of fixed
+length; {\em all} strings of that length must be well-formed
+classifiers. 
+\item More than one may `fire' in a single matching cycle.
+\item The classifiers interact with a {\em message list}, which also
+controls the CS's interaction with its environment.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large The Message List}
+\begin{itemize}
+\item Messages may be
+placed on the message list by classifiers (the only
+kind of `action' a classifier can perform).
+\item Also by {\em detectors},
+which respond to features of the environment. 
+\item Classifiers are also
+invoked by messages on the message list which match their `condition'
+(which may contain `wild cards'). 
+\item Messages may also cause actions
+on the environment by {\em effectors}.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Bucket Brigade Algorithm: 1}
+\begin{itemize}
+\item A learning CS must be
+informed when it has achieved something worthwhile by `rewards' from
+the environment.
+\item But there must be some way of determining which
+classifiers have helped to achieve the reward. 
+\item Initially `paid'
+to the last classifier(s) active before it arrived, but there may have
+been many other contributors. 
+\item The Bucket Brigade Algorithm is the
+best-explored approach to apportioning credit between
+classifiers.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Bucket Brigade Algorithm: 2}
+\begin{itemize}
+\item Instead of being activated whenever their
+conditions are met, classifiers make `bids' to be activated
+proportional to their current strength. 
+\item A `noisy' (i.e. probabilistic) auction is held. 
+\item Winning
+classifiers `pay' those responsible for placing the messages that
+invoked them. 
+\item Thus, classifiers concerned with internal affairs can
+get proper credit.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Role of GAs in Classfier Systems}
+\begin{itemize}
+\item The fact that each classifier has an associated `wealth' or `strength'
+also gives the GA part of the Classifier System something to work
+on. New rules are created by recombination, and perhaps mutation, from
+the strongest among the existing rules. 
+\item In the CS context, it
+is best not to replace all the rules at once. First, to 
+maintain reasonable performance during the learning process. Second,
+to develop a set of {\em coadapted} classifiers: a
+good classifier must cooperate effectively with those that are
+performing functions that dovetail with its own. 
+\item We may choose the
+weakest classifiers for replacement, and/or try to avoid choosing
+those for which alternatives are not available.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Classifier System Applications}
+\begin{itemize}
+\item Maze-running robots (real or simulated). This was the domain for
+the first classifier system, CS-1, and several others since.
+\item Focusing a video-camera `eye'.
+\item Controlling a robot arm.
+\item Learning scheduling rules in a job shop domain.
+\item Architectural classification.
+\item Gas pipeline control.
+\item Modelling the immune system.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Prospects for Evolutionary Machine Learning}
+\begin{itemize}
+\item GAs and CSs are little-explored in comparison to symbolic and
+connectionist approaches.
+\item As presented here, they are very general systems. Many recent
+studies have 
+adopted more specialised representations and/or operators. However,
+their natural counterparts are `used' to find solutions to the very
+different problems
+encountered by baboons, bacteria, and banana-trees. 
+\item Similar methods
+are at work in the immune system.
+\item Crucial performance comparisons with other approaches remain
+to be done.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Reading}
+{\small The classic text is:\\{\bf Holland}, J.H. (1975,1992)
+{\em Adaptation in Natural and Artificial Systems},
+University of Michigan (1st edition), MIT Press (2nd edition).\\More accessible (and the main source for this lecture):\\{\bf Goldberg}, D.E. (1989),
+{\em Genetic Algorithms in Search, Optimization and Machine
+Learning}, University of Alabama\\Others:\\{\bf Fogarty}, T.C. (ed) (1994),
+{\em Evolutionary Computing}, Springer-Verlag}
+\end{slide}\section{Lecture 8: Ants}
+\begin{slide}{}
+{\Large CS36110, Part 1, Lecture 8:}
+
+{\Large Ants}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Overview of Lecture}
+\begin{itemize}
+\item Intelligence is Social
+\item Real Ants
+\item Travelling SalesAnts
+\item Ants On The Line
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Intelligence is Social}
+\begin{itemize}
+\item Almost all the most intelligent non-human animals are highly
+social (most primates, dogs, dolphins, parrots...).
+\item Individual humans are no cleverer than 30,000 years ago; yet our
+{\em collective} abilities have expanded enormously.
+\item Social insects (bees, wasps, ants, termites) fight off
+predators, build complex
+structures, ``domesticate'' or ``enslave'' fungi and other insects...
+\item How do human and other animal societies {\em work}?
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Real Ants}
+\begin{itemize}
+\item Ant colonies are founded by a single queen, but may grow to
+contain millions of individuals.
+\item Some are migratory (e.g. army ants). Most build complex nests.
+\item Individual ants cooperate to repel invaders, collect or grow food, rear
+the young.
+\item A biological puzzle: why are ants, bees, wasps, termites {\em
+and no other insects} social?
+\item Communication between ants is primarily {\em chemical}.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Pheromones}
+\begin{itemize}
+\item Pheromones: chemicals used in animal communication.
+\item Ants leave a chemical {\em trail} behind them when
+they forage for food.
+\item They also have a {\em tendency} to follow the trails laid by their
+nestmates. Trails therefore tend to grow stronger by an {\em
+autocatalytic} or positive feedback effect.
+\item These simple features enable
+them to use the world as a collective memory bank: this is {\em stigmergy}.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Stigmergy}
+\begin{itemize}
+\item Concept introduced by Grasse in 1959, primarily to explain {\em
+nest-building} by social insects.
+\item Individual insects modify the environment (add a bit to the nest,
+lay a trail).
+\item These modifications provide new stimuli to all insects that
+encounter them.
+\item These stimuli affect their behavioural responses, which in turn
+modify the environment further.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Finding Food Sources}
+\begin{itemize}
+\item Ants spread out from their nest,
+looking for food. Ants finding food return with it. 
+\item Depending on species, may lay pheromone going out, coming back,
+or both.
+\item In some species, richness of food source found influences amount
+of pheromone laid.
+\item Decision to follow a trail influenced by amount of pheromone,
+but {\em probabilistic}.
+\item Also, always a few ants wandering off apparently at random.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Finding Shortest Routes}
+\begin{itemize}
+\item If a source is found by two routes, the shorter will gain an advantage.
+\item The system isn't perfect: new shortcuts difficult to find,
+circular routes can occur.
+\end{itemize}
+\begin{center}
+
+\epsfig {figure=ants.eps}
+
+\end{center}
+
+\end{slide}
+
+\begin{slide}{}
+{\Large Ant System}
+\begin{itemize}
+\item {\em {\bf Ant System}}, devised by Alberto Colorni and others
+for {\em distributed optimization}.
+\item Based on {\em simple} cooperating agents with {\em limited}
+communicative abilities: distinguishes ``ant-based''
+from other {\em multi-agent} systems.
+\item The ``ants'' in Ant System have no idea they are cooperating
+with other ants, or even that there are other ants.
+\item However, they have some features not needed for stigmergy to
+work: some memory, some ability to
+sense things other than trail pheromone. 
+\item Time in the ants ``world'' is discrete.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Travelling SalesAnts: 1}
+
+{\em {\bf Ant System}} has been applied to the Travelling
+Salesman Problem. Initially (at $t=0$):
+\begin{itemize}
+\item Ants are distributed evenly among all the ``cities''
+to be toured.
+\item Low levels of trail pheromone are assigned at random to the
+``trail'' between each pair of cities.
+\item One of three different ``ant algorithms'' is selected, and various
+numerical parameters are set by the user.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Travelling SalesAnts: 2}
+\begin{itemize}
+\item At each time-step, each ant chooses a city to move to. This will add to
+the strength of the trail between the two.
+\item Each ant keeps a list of cities visited, and will not visit
+again until it has made a complete ``tour'' of the cities, when its list is
+cleared.
+\item The problem-solving process continues for some preset
+number of complete tours.
+\item A user defineable proportion of pheromone ``evaporates'' every
+time-step. The proportion {\em remaining} is symbolised $\rho$.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Travelling SalesAnts: 3}
+\begin{itemize}
+\item An ant decides which unvisited city to go to next
+probabilistically, taking into account both their distance from its
+current location (or rather, its reciprocal, ``visibility'',
+symbolised $\eta$), and the strength
+of the trails to them.
+\item Specifically, the {\em transition probability} from town $i$\space to
+town $j$\space at time $t$\space is given by the formula:\\\hspace*{1cm}$p_{ij}(t) =
+\frac{[\tau_{ij}(t)]^{\alpha}\times[\eta_{ij}(t)]^{\beta}}{\sum_{j=1}^n[\tau_{ij}(t)]^{\alpha}\times[\eta_{ij}(t)]^{\beta}}$\\(where $\alpha, \beta$\space are parameters set by the user).
+\item Different choices in calculating how much pheromone to add to
+the trails followed define the different ``ant algorithms''.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Ant Algorithms}
+\begin{itemize}
+\item {\bf ANT-quantity} algorithm: fixed amount $Q_1$\space of
+pheromone is left on a trail that is followed --- so the {\em
+concentration} of pheromone added is greater for closer pairs of cities.
+\item {\bf ANT-density} algorithm: fixed amount $Q_2$\space of
+pheromone is left on every unit of length of a trail that is followed
+--- so closer pairs of cities are not given the same advantage as in
+{\bf ANT-quantity}.
+\item {\bf ANT-cycle} algorithm: pheromone densities
+not updated after every time-step, but after ants have
+completed a tour. Fixed amount $Q_3$\space of
+pheromone is spread evenly over complete path of each ant --- so
+shorter tours contribute greater density of pheromone.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Results}
+\begin{itemize}
+\item For all three algorithms, performance depended strongly on the
+values of the parameters ($\alpha, \beta, \rho$\space and $Q_1,Q_2$\space or $Q_3$
+depending on the algorithm).
+\item Optimal parameters could only be discovered experimentally.
+\item {\bf ANT-cycle} proved significantly more successful than the
+other two.
+\item Using more ants (up to 64) decreased total computation for {\bf
+ANT-quantity} and {\bf ANT-density}, while
+16 ants gave better results than more or fewer for {\bf ANT-cycle}.
+\item {\bf {\em Ant-system}} found better results than other approaches
+tried, but took longer.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Ants On The Line}
+\begin{itemize}
+\item Ruud Schoonderwoerd and others are investigating ant-based
+control (``ABC'') of load balancing in telecommunications networks, for
+Hewlett-Packard.
+\item Problem: nodes with excess traffic get congested, causing calls
+to be lost.
+\item Communications networks are not built to guarantee successful
+connections on every call.
+\item Number of failures is reduced by routing calls through parts of
+network with spare capacity: ``load balancing''.
+\item Central control of such systems requires links to every part of
+system, and scales badly.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Network Simulation: 1}
+\begin{itemize}
+\item Simulated network used to test ABC against use of fixed routes
+and use of more complex ``load balancing agents'', investigated by BT.
+\item Each node (switching stations) has:
+\begin{itemize}
+\item Capacity: number of simultaneous calls allowed.
+\item Routing table, with entry for each of the other nodes.
+\item Probability of being end node of a call.
+\item Current spare capacity.
+\end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Network Simulation: 2}
+\begin{itemize}
+\item {\em Ants} generated at nodes, with random destinations.
+At each node, there is a ``pheromone table'' for {\em each} destination.
+\item Ants move one node per time step, choosing next node {\em
+probabilistically} on basis of destination's pheromone table.
+\item Alter pheromone table {\em for their source node} at each node
+they reach.
+\item {\em Calls} have a source, destination, duration.
+At each time step, expired calls are removed. New calls routed
+{\em deterministically} using pheromone tables.
+\item If any node on route is full, call is lost: \% lost calls
+measures performance.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large How Ants find Routes}
+
+Aim: to get ants to find short routes, but avoid congestion.
+\begin{itemize}
+\item Ants lay less pheromone the longer they have been travelling.
+\item So those finding short routes to destination tend to have most effect.
+\item Ants are delayed at nodes congested with calls --- so at
+subsequent nodes, they are older and lay less pheromone.
+\item Hence, ants and calls dynamically interact with each other.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Ants Versus Load Agents: 1}
+\begin{itemize}
+\item Schoonderwoerd compared ants with use of fixed shortest-path
+routes, and with use of an alternative type of mobile agent.
+\item Alternative ``load agents'' rewrite routing tables for nodes identified
+as needing traffic management by ``parent agents'' using global data
+on network traffic.
+\item Both ants and load agents able to adapt to network topology,
+static pattern of call probabilities, and changes in these probabilities.
+\item Ants outperformed load agents which outperformed fixed routes.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{}
+{\Large Ants Versus Load Agents: 2}
+\begin{itemize}
+\item Ants used less bandwidth and switching capacity. 
+\item ABC system probably more
+robust: ants do not interfere with each other, and ``damage caused by
+a corrupt ant will be limited''.
+\item Ants likely to need more computation at nodes.
+\item Load agents respond faster to changing call probabilities. This
+only {\em reduces} (does not {\em eliminate}) ants' performance advantage.
+\end{itemize}
+\end{slide}
+\section{Lecture 9: Revision}
+\documentclass{slides}
+\usepackage{epsfig} 
+
+\makeatother
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newenvironment{tex2html_wrap}{}{}
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\topskip=0pt
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize\parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}\normalsize}
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup}%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup%
+ \let\ifinner=\iffalse }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\def\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA[1]{\lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA[1]{\lthtmlmathtype{#1}\lthtmlhboxmathA  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetmath{\hbox{\vrule width.5pt\vtop{\vbox{%
+  \kern.5pt\kern0.8 pt\hbox{\hglue.5pt\copy\sizebox\hglue0.8 pt}\kern.5pt%
+  \ifdim\dp\sizebox>0pt\kern0.8 pt\fi}%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{\dimen1=\ht\sizebox
+  \ifdim\dimen1<\dp\sizebox \ht\sizebox=\dp\sizebox
+  \else \dp\sizebox=\ht\sizebox \fi}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize\expandafter\vfill
+  \else\expandafter\vss\fi}%
+\makeatletter
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\makeatother
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1050}%
+\epsfig {figure=bbo.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1052}%
+\epsfig {figure=neurontiming.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1054}%
+\epsfig {figure=frogschemas1.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1056}%
+\epsfig {figure=frogschemas2.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1058}%
+\epsfig {figure=jump.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1060}%
+\epsfig {figure=dais.eps}
+%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+
+\end{document}

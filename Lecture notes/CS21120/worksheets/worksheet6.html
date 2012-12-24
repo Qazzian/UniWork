@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Worksheet 6: Creating a Collaboration Diagram</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">CS21120 Worksheet 6: Creating a Collaboration Diagram for the Obtain Confectionery Item Use Case</P>
+</FONT><I><FONT FACE="Arial"><P>Introduction</P>
+</B></I></FONT><P>This exercise will help you understand the notation used in collaboration diagrams, the process used during the Analysis workflow to construct them from a use case description and associated class diagram and the use of Rose to draw collaboration diagrams.</P>
+
+<P>This will be achieved by realising the Obtain Confectionery Item use case of the CVM as a collaboration diagram.</P>
+<B><I><FONT FACE="Arial"><P>Steps</P>
+<OL>
+
+</B></I></FONT><LI>Follow the steps laid out by the Unified Process for realising collaboration diagrams.  Start by providing a textual description (flow of events-analysis description) that is an expanded form of the Obtain Confectionery Item use case description.  To get you started here is the first part of such a description:</LI></OL>
+
+
+<UL>
+<LI>The first thing to do is identify the initial event triggered by the Customer interacting with the OCI use case.  We study the OCI use case description to do this.  This event is the Customer selecting an item by pressing an appropriate button.</LI>
+<LI>We then identify which boundary object will be involved in this initial interaction, the object that will receive this first message.  From the class diagram it is clear that it will be a Confectionery item choice boundary (CIC) object.</LI>
+<LI>The Unified Process doesn’t help too much after this and suggests we identify control, entity and other boundary objects required to fulfil the initial interaction mentioned above.  So let’s try and do that:</LI>
+<LI>Looking at the OCI description the next step is for the CVM to display its price.  Looking at the class diagram we see that Confectionery item (CI) is associated with its graphical button.  The CIC object will therefore have to send a message to this CI object requesting the current price and then send a message to the Customer keypad and display object (CK&amp;D) asking it to display this price.  The Obtain confectionery item (OCI) control object will also need to be informed so that it can request the Coin handling and dispensing unit (CHDU) object to receive coins to the value of the item.</LI>
+<LI>Continue from here!</LI></UL>
+
+<OL>
+
+<LI>Now draw a collaboration diagram by hand.  It will probably help to use the class diagram as a template, although now you’re dealing with object roles rather than classes.</LI>
+<LI>You may need to add conditional guards and/or iteration clauses to some messages.  This is done as described in the course slides for sequence diagrams (same notation): e.g. 2.1.3*:[price paid &gt; price] decrement level.  This is a message called &quot;decrement level&quot; with sequence number 2.1.3, that can be repeatedly sent (the *) while the conditional guard is true.</LI>
+<LI>Create a collaboration diagram in Rose called something like Obtain Confectionery Item Realisation-Analysis.</LI></OL>
+</BODY>
+</HTML>

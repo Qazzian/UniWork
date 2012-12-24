@@ -1,0 +1,72 @@
+
+#INCLUDE "HC11VEC.ASM"	* Include the HC11 Interrupt Vectors
+
+HIGH	EQU	2000	* High pulse length
+LOW	EQU	8000	* Low pulse length
+
+REGBAS	EQU	$1000	* Register base
+TOC2	EQU	$18	* Output compare register 2
+TCNT	EQU	$0E	* Free running counter
+TCTL1	EQU	$20	* Timer control register
+TFLG1	EQU	$23	* Timer flag register
+TMSK1	EQU	$22	* Timer interrupt mask register
+
+	ORG	$C000		
+
+	LDX	#REGBAS	;point to registers
+
+	LDAA 	#$7E	;set up OC2 interrupt jump table
+	STAA	JTOC2	
+	LDD	#RTOC2	; Store address of interrupt routine
+	STD	JTOC2+1
+
+	JSR	INITOC2	;initialise OC2 interrupt
+
+	CLI		;enable interrupts
+
+HERE
+	BRA	HERE	;end here, interrupt from OC2 drives program
+
+
+*
+* Subroutine INITOC2
+*    Initialises timer output OC2 for PPM output
+*
+INITOC2
+	LDX	#REGBAS
+	LDD	TCNT,X	   ; delay PWM generation
+	STD	TOC2,X	
+	LDAA	#%11000000 ; OM2:OL2=1:1 to set
+	STAA	TCTL1,X	   ; OC2 high first time
+	LDAA	#%01000000 ; clear OC2F if set
+	STAA	TFLG1,X
+	LDAA	#%01000000
+	STAA	TMSK1,X	   ; set OC2I to enable interrupts
+	RTS		   ; return
+
+*****************************************
+*
+* Service routine RTOC2
+*   Drives OC2 output for PWM
+*
+
+
+RTOC2
+	LDX	#REGBAS	; point to registers
+
+	BRCLR	TCTL1,X %01000000 GETOC2LO	; if low then load OC2LO
+	LDD	#HIGH				; else load OC2HI
+	BRA	NEWTOC2
+
+GETOC2LO
+	LDD 	#LOW
+
+NEWTOC2
+	ADDD	TOC2,X
+	STD	TOC2,X		; Update OC2 timer
+	LDAA	TCTL1,X		; invert OL2 to toggle
+	EORA	#%01000000	; next OC2 edge
+	STAA	TCTL1,X		; by updating control reg.
+	BCLR	TFLG1,X %10111111	; clear flag OC2F
+	RTI			; return from service routine
+******************************************

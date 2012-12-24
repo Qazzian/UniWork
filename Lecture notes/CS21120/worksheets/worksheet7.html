@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Worksheet 7: Creating a Sequence Diagram</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">CS21120 Worksheet 7: Creating a sequence diagram for the Obtain Confectionery Item use case</P>
+</FONT><I><FONT FACE="Arial"><P>Introduction</P>
+</B></I></FONT><P>This exercise will help you understand the notation used in sequence diagrams, the process used during the Design workflow to construct them from a use case description, associated design class diagram and analysis collaboration diagram and the use of Rose to draw collaboration diagrams.  We cheat a bit in this exercise since we have skipped the design of classes and will assume that the analysis classes found during earlier exercises are also our design classes!  This is done to save time.</P>
+<B><I><FONT FACE="Arial"><P>Steps</P>
+<OL>
+
+</B></I></FONT><LI>Study the Obtain Confectionery Item use case description and its collaboration diagram realisation.</LI>
+<LI>Draw the Customer actor as the leftmost role object in the sequence diagram.</LI>
+<LI>Draw a sequence diagram role object for each collaboration diagram role object.  You will probably want to use the same role names (if any).  The relative juxtaposition is not important except from a presentation point of view.  The first object that the actor needs to interact with will usually be the next leftmost object.  You may have to try several combinations before you’re happy with the layout.</LI>
+<LI>Decide which, if any, of the role objects should be active, that is have their own thread of control.  These objects will need to have the bold border.  Use Rose to set this property.  This is something you would have done when developing the design class diagram realisation for the use case, but we skipped that step!</LI>
+<LI>Draw lifelines for each role object.  The active objects should be given a solid activation box from top to bottom.  Passive objects are given activation boxes when they are passed a thread of control via a synchronous message call from a calling object until the point they return control to the calling object.  Rose might not support the drawing of activation boxes.</LI>
+<LI>Adding messages.  Normally during this step you would look at each step in the use case description and see which design objects from the design class diagram are involved in realising the use case interactions.  However, since we haven’t created a design class diagram we can, instead, map each collaboration diagram message to a sequence diagram message.  Do this in the same order as stated by the collaboration diagram message sequence numbers, e.g. message1, message 1.1, message 1.1.1, message 1.2 etc.</LI>
+<LI>You will need to decide whether a message is synchronous, asynchronous or flat. Provide some rationale for the choice made.  The use of active objects will have some bearing on this choice.</LI>
+<LI>You will also need to add relevant conditional guards or iteration to your messages.</LI>
+<LI>In Rose add this sequence diagram to the Logical view package and name it something like Obtain Confectionery Item Realisation-Design.</LI></OL>
+</BODY>
+</HTML>

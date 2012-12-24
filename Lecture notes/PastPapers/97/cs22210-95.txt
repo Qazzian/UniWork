@@ -1,0 +1,108 @@
+   PRIFYSGOL CYMRU - UNIVERSITY OF WALES
+
+   DEGREE EXAMINATIONS FEBRUARY 1995
+
+   ABERYSTWYTH
+
+   FACULTY OF SCIENCE
+
+   Module CS22210: Operating Systems and Concurrency
+
+   Time Allowed: 2 hours
+
+   Answer THREE questions
+
+   1. Explain   what  is  meant   by   the   EXCLUSION   PROBLEM   for  
+      cooperating   processes.  Give  an  example  to show how  things 
+      can go wrong.                                                [6]
+
+   Why are exclusion problems difficult to detect and correct?     [6]
+
+   Define  the operations of an integer  semaphore  which  allows   no  
+   more   than   N   processes   to  be   in  their  critical  section 
+   simultaneously.                                                 [6]
+
+   Suppose  that there are two processes. STACKER and UNSTACKER,  that 
+   are adding to and removing from (respectively) a stack. Show how to 
+   use  integer  semaphores  to control the  processes   STACKER   and  
+   UNSTACKER so  that  the  stack  never  exceeds  a  given  size  and  
+   there  is no attempt to remove an object from the stack when it  is 
+   empty.                                                         [15]
+
+   2. What  are the advantages of incorporating multi-process  control 
+      within  a programming language?                              [6]
+
+   Describe  the synchronisation facilities available within  the  Ada 
+   programming language.                                          [13]
+
+   Suppose that, within an Ada program, an array (of a given size)  is 
+   used as a cyclic buffer.  Tasks can write elements into the  buffer 
+   and  read elements  from  the  buffer  by  calling  entries  in   a 
+   buffer task.  Sketch the code of the buffer task.              [14]
+
+
+   3. Provide an outline description of the structure and function  of 
+      the inode in UNIX.                                          [16]
+
+      Discuss  the design decisions which lie behind the  inode  based 
+      mechanism.                                                  [17]
+
+   4. Explain  the concept of virtual memory management  and  describe 
+      its potential advantages.                                   [16]
+
+      Discuss  the  costs associated with a segmentation  with  paging 
+      virtual  memory management scheme.  Outline ways in which  these 
+      costs can be reduced.                                       [17]
+   5. List and explain the conditions necessary for the development of 
+      deadlock.                                                   [11]
+
+      Explain  the  potential  options  for  preventing  deadlock  and 
+      discuss their costs and drawbacks.                          [12]
+
+      Carefully  describe the potential for deadlock in the  following 
+      Ada  code.  Outline a modification to remove  this  possibility.  
+      Does the modified code have any remaining potential drawbacks?
+                                                                 [10]
+       procedure P is
+         Tl_WANTS_ENTRY  :  BOOLEAN := FALSE;
+         T2_WANTS_ENTRY  :  BOOLEAN := FALSE;
+
+        procedure T1_CRITICAL is separate;
+        procedure T2_CRITICAL is separate;
+
+        task T1;
+
+        task body T1 is
+        begin
+           loop
+              Tl_WANTS_ENTRY := TRUE;
+              while T2_WANTS_ENTRY loop
+                 null;
+              end loop;
+              T1_CRITICAL;
+              T1_WANTS_ENTRY := FALSE;
+              -- other activities
+              end loop;
+           end T1;
+
+           task T2;
+
+           task body T2 is
+           begin
+              loop
+                 T2_WANTS_ENTRY := TRUE;
+                 while T1_WANTS_ENTRY loop
+                    null;
+                 end loop;
+                 T2_CRITICAL;
+                 T2_WANTS_ENTRY := FALSE;
+                 -- other activities
+               end loop;
+            end T2;
+
+         begin
+            null;
+         end P;
+
+
+

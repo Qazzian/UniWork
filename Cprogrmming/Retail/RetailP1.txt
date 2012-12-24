@@ -1,0 +1,37 @@
+
+The following is the output after compiling and executing RetailP1.c
+
+      D:\My Documents\Cprogs>gcc RetailP1.c -ansi -pedantic
+
+      D:\My Documents\Cprogs>a
+      All Stock sold at 0p per . 0 in stock, 0 on order
+      Vegetables sold at 0p per . 0 in stock, 0 on order
+      Carrots sold at 10p per pound. 50 in stock, 20 on order
+      There are no varieties
+
+      Potatoes sold at 0p per . 0 in stock, 0 on order
+      Maris Piper sold at 3p per pound. 200 in stock, 50 on order
+      There are no varieties
+
+      Line White sold at 4p per pound. 150 in stock, 30 on order
+      There are no varieties
+
+      Cabbage sold at 5p per pound. 110 in stock, 10 on order
+      There are no varieties
+
+      Fruit sold at 0p per . 0 in stock, 0 on order
+      Apples sold at 0p per . 0 in stock, 0 on order
+      Granny Smith sold at 22p per pound. 50 in stock, 15 on order
+      There are no varieties
+
+      Disrouery sold at 23p per pound. 30 in stock, 10 on order
+      There are no varieties
+
+      Mellons sold at 57p per individual. 12 in stock, 4 on order
+      There are no varieties
+
+      Plums sold at 25p per pound. 50 in stock, 10 on order
+      There are no varieties
+
+
+      D:\My Documents\Cprogs>

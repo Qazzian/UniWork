@@ -1,0 +1,714 @@
+<html>
+<head>
+<title>Overview: Body</title>
+<base target="ovFrame">
+</head>
+<!--#config timefmt="%e %b %Y" -->
+ 
+<body bgcolor=#e0f0a0>
+
+<a name="introduction"></a>
+<h1 align=center>UNIX Overview</h1>
+
+Chris Loftus, 26 January 1998
+<br>
+Updated by Edel Sherratt, 9 March 1999 and 15 March 2000
+<br>
+Updated by Helen Fuell, 22 March 2001
+
+<h3>Introduction</h3>
+
+This part of CS23710 is intended to give a grounding in 
+the Unix operating system and Unix systems
+programming. It builds on CS22210 (Operating Systems), and supports
+the study of Telematics/Communications.
+
+<p>
+This course focuses on the POSIX standards, 
+as supported by Solaris 8, the version of Unix you will use in 
+your practical sessions.
+When using any Unix system call or library function on Solaris the
+definition for the command can always be found using the <b>man</b> command.
+
+<p>
+These notes give a brief history of Unix, and cover the Unix man pages, 
+the Unix file system, the Unix process system and single 
+machine inter-process communication.
+
+<hr>
+<a name="history"></a>
+<h3>The history of Unix</h3>
+
+In 1969, after ending their involvement with the development of
+the Multics operating system, members of the Computing Science
+Research Centre at Bell Labs, part of AT&T, the American Telephone
+company, were left without <i>a convenient interactive computing service</i>
+<a href="../references.html#BACH86">[BACH86]</a>.
+
+<p>
+The part of the Bell team that worked on Multics are credited with
+the development of the first version's of Unix. The team consisted of:
+
+<ul>
+<li> Dennis Ritchie
+<li> Ken Thompson
+<li> Brian Kernighan
+</ul>
+
+<p>
+One of the major problems the team had at this time was that they
+could not play the game of space travel on the Honeywell machine they
+had running the GECOS operating system, as it was too difficult to
+control the ship, and the system was to slow for this kind of
+interactive use.
+
+<p>
+Having acquired a DEC PDP-7 which provide good performance and
+graphics display Thompson and Ritchie implemented the first version of Unix
+written in assembler, and also wrote space travel for the PDP-7. The
+most notable feature for its time was the innovative filesystem.
+Brian Kernighan coined the name Unix as a pun on Multics (castrated
+Multics).
+
+<p>
+Unix was first used outside its initial development team for a
+text-processing system in the patent department of Bell Labs, and its
+use spread within AT&T.
+
+<p>
+In about 1971 Thompson set out to write a Fortran compiler for the
+Unix system but came up with a new language called B, (influenced by
+BCPL). This was an interpreted language and therefore had a
+significant performance drawback, Ritchie developed it further into a other
+new language called C.
+
+<p>
+Unix was then rewritten in C. Writing operating systems in a high(ish)
+level language  was an
+unheard of step at that time, but it had a great effect on how well
+Unix was going to accepted among outside users. The early development
+of Unix and C are strongly linked, a link which persists today.
+
+<p>
+AT&T, being a government body, could not market computer
+products at this time, and so it provided Unix free to universities for
+research and educational purposes. This exposure at university level brought
+Unix into the commercial world via the students that "grew up using
+Unix".
+
+<p>
+The popularity of Unix grew, with ports to machines other than the PDP
+class of machines, and the evolution of Unix was both within and outside of
+Bell Labs. Official support by AT&T was first announced in 1983. This was
+for the System V version of Unix.
+
+<p>
+The most notable variant of Unix is that produced by the University of
+California at Berkeley. This is called BSD Unix (Berkeley System
+Distribution) and was seminal in extending the At&T Unix with
+networking extensions such as sockets (not covered by this course).
+Many of the innovations made by Berkeley were incorporated
+into the AT&T release of Unix called System V, Release 2. Sun, and all other
+major Unix vendors, have moved to make their Unix operating system interfaces
+conform to System V, Release 4 (SVR4). They then add value to this basic
+common interface and to the underlying operating system (e.g. threads).
+
+<p>
+Unix continues to evolve with support of multiprocessing, improved
+communications and  distributed objects for example.
+Many believe that Unix will be around in 20 years time and will have evolved as much as
+it has in the last 20 years.
+
+<hr>
+<a name="important"></a>
+<h3>Why Unix is important</h3>
+
+<blockquote>
+...Whatever happens, the time spent learning Unix systems by
+serious students of operating systems will surely be worthwhile
+<a href="../references.html#DET90">[DET90]</a>.
+</blockquote>
+
+<p>
+Any vendor who claims to be involved with <em>open systems</em> should
+have Unix as a central feature of their tool repertoire (what is the definition
+of an open system?). Unix is the only operating system to
+cover the range of machines from PC's to mainframes, and all levels in
+between.
+
+<p>
+Unix is supplied by a large number of vendors and is therefore vendor
+independent. Consequently, buyers can base their I.T. strategy on Unix, knowing
+that they are not tied into a single vendor's products.
+
+<p>
+Some of the major variants of Unix conform to standards such as the IEEE POSIX
+standard, or facilitate the use and development of POSIX compliant
+programs. Since Unix has an open systems philosophy, interoperability
+between different vendors' machines of different architectures, 
+operating systems and communications mechanisms is a central theme and
+becoming much more important.
+
+<p>
+Other Operating Systems (e.g. OpenVMS, the POSIX subsystem of
+Windows NT) claim to use the same standard programming interface as SVR4.
+
+<hr>
+<a name="shell"></a>
+<h3>The Shell</h3>
+
+Much of what would be programmed using high level languages such as C
+or Fortran in other operating systems can be done in the Unix command
+language or shell. Examples are sh, csh, bash or ksh.
+
+<p>
+The shell is a command line interpreter and runs like any other application
+program in that it is serviced by the Unix kernel. 
+An executing shell is a process that takes the command line a user types,
+breaks it up into its constituent commands and arguments, and then
+<em>forks</em> 
+a child process. The executable
+file (command) is then loaded into the child's address space and given
+the appropriate arguments.
+
+<p>
+The parent waits until the child terminates
+with the <em>exit</em> system call. The parent will then again display the shell
+prompt. Each parent and child is a separate process. This is discussed in
+more detail in the <a href="../process/process.html#creating">process notes</a>.
+
+<pre>
+for(;;)  /* forever */
+  {
+    /* fork creates a child process */
+    /* fork return 0 to the child */
+    /* fork returns the process id of the child to the parent */
+    if (fork() == 0)
+        /* execl overlays a copy of a program on the child */
+        /* only the child executes */
+        execl(command, command, arg1, arg2, 0);
+    wait((int *) 0);  /* parent waits */
+}
+</pre>
+
+<p>
+When a command is placed in the background using <em>&</em>, the shell
+parent process does not wait for the child to exit. Some shells also have 
+built-in commands such as <em>cd</em> and <em>echo</em> which do not 
+create child processes.
+
+<pre>
+write (17, "void:cmk>", 9) = 9
+read (16, "ls\n", 1024) = 3
+pipe (0xf7fff560) = 0
+vfork () = 15684
+wait4 (0, 0xf7ffe98c, 0x3, 0xf7ffe944) = 15684
+wait4 (0, 0xf7ffe98c, 0x3, 0xf7ffe944) = 0
+write (17, "void:cmk>", 9) = 9
+read (16, "pwd\n", 1024) = 4
+write (1, "/a/athene/4.2/xy1e/cmk/teach/C23".., 41) = 41
+</pre>
+
+<p>
+The above is derived from running the command <em>truss csh</em>
+and then typing <em>ls</em>. It gives a listing of the system
+calls made by <em>csh</em> when it receives the <em>ls</em> command from
+the user. The interpretation of the above is:
+
+<ul>
+<li> Write prompt void:cmk>
+<li> Read in command <em>ls</em>
+<li> Create a pipe
+<li> Fork a child process
+<li> Wait for child
+<li> Child has returned
+<li> Write prompt
+<li> Read command pwd which is internal to csh
+<li> Write out result
+</ul>
+
+<hr>
+<a name="structure"></a>
+<h3>The structure of Unix</h3>
+
+The Unix operating system is made up of a number of software components:
+
+<ul>
+<li> The Kernel (composed of the file system, process system and device drivers).
+<li> Utility programs.
+<li> Object code libraries.
+</ul>
+
+<hr>
+<a name="kernel"></a>
+<h4>The Kernel</h4>
+
+The principal business of the kernel is to manage concurrent processes. 
+All actions, memory management, inter-process communication and scheduling 
+of processes
+and resources are directed via or initiated by the kernel.  
+The kernel runs as a system process
+during the whole time the machine is up and working. It stays in
+memory (can not be swapped out).  The kernel
+contains various data structures which represent processes
+files, file systems and communications.
+ 
+<p>
+The kernel executable is in a file called <em>genunix</em> or sometimes
+<em>unix</em> in the directory /kernel. 
+
+<pre>
+marilyn.dcs.aber.ac.uk 16 > ls -l
+-rwxr-xr-x   1 root     sys       876960 Oct 17 19:39 genunix
+</pre>
+
+<img src="../../gif/unix_structure.gif" alt="The Kernel" align=middle border=1>
+
+<hr>
+<a name="drivers"></a>
+<h4>Device drivers</h4>
+
+Device drivers are the part of the kernel through which the format of
+communication to and from hardware is translated. A device driver is
+rather like a compiler or interpreter; it has a uniform front-end
+and potentially many back-ends, one for each kind of device to be
+"driven". The device driver will then map front-end requests made by the
+kernel to device-specific commands (often complex sequences of control characters).
+This insulates the kernel from the underlying hardware and makes it easy to
+substitute one device with another. 
+
+<p>
+Devices are accessed via special files which by convention are located
+in /devices and its subdirectories (or via symbolic links from /dev).
+Devices drivers can be of two types:
+
+<ol>
+<li> Block drivers - disks, tapes.
+<li> Character drivers - terminals, printers, networks.
+</ol>
+
+<hr>
+<a name="filesystem"></a>
+<h4>File system</h4>
+
+The Unix file system organises files as a hierarchy, or tree structure.
+The file system may be composed of files and directories
+from local or remote machines. Operations on all parts of the
+file system are though the standard primitives such as <em>open, read,
+write, lseek, unlink</em> and <em>close</em> which access the file system
+through appropriate device drivers.
+
+<p>
+Remote file system access is achieved via a communication protocol such as
+NFS (Sun's Networked File System) or RFS (Remote File System). These protocols
+are usually implemented as part of the kernel, such that the kernel can,
+if appropriate, intercept system calls meant for remote files and forward the
+requests to be handle by the remote file system. The important point to note
+is that this underlying communication is (apart from some performance degradation)
+transparent and the remote file system appears to be local.
+
+<hr>
+<a name="utility"></a>
+<h4>Utility programs</h4>
+
+These are programs such as <em>ls, cc, make, vi</em> that have been
+implemented outside the kernel, but are still part of the Operating
+System. The system utilities are found in directories such as:
+
+<ul>
+<li> /usr/bin
+<li> /bin
+<li> /usr/ucb
+<li> /usr/5bin
+</ul>
+
+<p>
+This is in contrast to local software which can be put anywhere. The
+support group by convention put local non-system software such as <em>X Window 
+System, latex, poplog</em> in /usr/local/bin.
+
+<p>
+A typical search path would be:
+
+<pre>
+marilyn.dcs.aber.ac.uk 32 > echo $path
+/bin /usr/bin /usr/local/X11R5/bin /usr/5bin /usr/ucb /usr/local/bin  /usr/openwin/bin
+/usr/local/gnu/bin /usr/local/etc .
+</pre>
+
+<p>
+Why is the . at the end of the path?
+
+<hr>
+<a name="libraries"></a>
+<h4>Object code libraries</h4>
+
+An object code library consists of a collection of functions in one file
+that can be linked
+either statically at link time or dynamically when an executable 
+runs. The system libraries can be accessed in /usr/lib and /lib.
+Local libaries (such as X libraries) on computer science machines are
+located in /usr/local/lib. 
+
+<hr>
+<a name="process"></a>
+<h4>The process system</h4>
+
+A process is a potentially 
+executing program that the kernel manages along with
+many other processes that are either created by users or by the operating
+system. The process may either be resident in physical memory or be temporarily 
+swapped out onto disk. Unix is a multi-tasking (or timesharing) 
+operating system, in that many 
+processes will be present (though not
+necessarily executing) at any one time; this contrasts with single-tasking
+operating systems such as DOS, although Windows/NT is multi-tasking.
+
+<h5>The process environment</h5>
+
+A process' environment consists of the following regions:
+
+<ul>
+<li> Text (the program code) - reentrant code or unmodifiable data.
+<li> Data region - modifiable, region of memory often called the heap and acquired using
+     functions such as <em>malloc</em>.
+<li> Stack region - Process stack, i.e. where your program functions and local variables
+     get created during a function call.
+<li> Register contents, Process priority, list of open files.
+</ul>
+
+<p>
+Each process has its own address space (memory) which is protected from use
+by other processes. If a number of processes are executing the same
+program then only one copy of that program is stored in primary memory, but
+is accessed by all the processes using it which have separate process states (stack,
+data regions, register contents, process priority information and file handles). Such
+reusable code is known as reentrant code (several processes potentially reading the code
+at the same time). 
+
+<h5>The system call</h5>
+
+A process communicates with the rest of the operating system via system calls.
+A system call is a request to the kernel to furnish that process with
+a service. When a process uses a system call it switches from
+executing in user mode, to executing in kernel mode (called a <em>mode switch</em>).
+The kernel saves enough information about the process
+it was executing in user mode so that it can return to execute the
+process again in user mode once it has finished executing the system
+call in kernel mode.
+
+<p>
+The kernel mode and user mode of a process have separate stacks.
+The context switch enables a process to use the functions and data
+of the kernel. The kernel can access sensitive data structures and execute
+operations that user mode processes can not. For example, the
+kernel can access devices directly (using its device drivers).
+
+<p>
+A context switch, since it involves saving and restoring a process's
+context, is a relatively slow operation and forms a major Unix operating system
+performance overhead. 
+
+<p>
+The use of <em>truss(1)</em> shows the systems calls within a program that
+involve context switches in a program while it is executing. This can
+be used for debugging a program. An example of using <em>truss</em>
+on the <em>echo</em> command is given below. It illustrates how "expensive"
+even a simple command is in terms of context switches.
+
+<pre>
+marilyn.dcs.aber.ac.uk 36 > truss /bin/echo "hello world"
+execve("/bin/echo", 0xEFFFECF0, 0xEFFFECFC)  argc = 2
+open("/dev/zero", O_RDONLY)                     = 3
+mmap(0x00000000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE, 3, 0) = 0xEF7C0000
+open("./libc.so.1", O_RDONLY)                   Err#2 ENOENT
+open("/usr/lib/libc.so.1", O_RDONLY)            = 4
+fstat(4, 0xEFFFE9AC)                            = 0
+mmap(0x00000000, 4096, PROT_READ|PROT_EXEC, MAP_SHARED, 4, 0) = 0xEF7B0000
+mmap(0x00000000, 618496, PROT_READ|PROT_EXEC, MAP_PRIVATE, 4, 0) = 0xEF700000
+munmap(0xEF77F000, 61440)                       = 0
+mmap(0xEF78E000, 25464, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 4, 516096) = 0xEF78E000
+mmap(0xEF795000, 5584, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0) = 0xEF795000
+close(4)                                        = 0
+open("./libdl.so.1", O_RDONLY)                  Err#2 ENOENT
+open("/usr/lib/libdl.so.1", O_RDONLY)           = 4
+fstat(4, 0xEFFFE9AC)                            = 0
+mmap(0xEF7B0000, 4096, PROT_READ|PROT_EXEC, MAP_SHARED|MAP_FIXED, 4, 0) = 0xEF7B0000
+close(4)                                        = 0
+open("/usr/platform/SUNW,SPARCstation-5/lib/libc_psr.so.1", O_RDONLY) Err#2 ENOENT
+close(3)                                        = 0
+ioctl(1, TCGETA, 0xEFFFEA6C)                    = 0
+ioctl(1, TCGETA, 0xEFFFEA6C)                    = 0
+hello world
+write(1, " h e l l o   w o r l d\n", 12)        = 12
+lseek(0, 0, SEEK_CUR)                           = 203498
+_exit(0)
+</pre>
+
+<p>
+Each process has an entry in the kernel process state table, and each
+process is allocated a U-AREA that contains private data, that can only be accessed
+by the kernel and the process when executing in kernel mode.
+
+<h5>Process states</h5>
+ 
+The kernel schedules which process runs and when. The possible states
+for a process are:
+
+<ol>
+<li> Running:
+<ul>
+<li> Executing in user mode.
+<li> Executing in kernel mode.
+</ul>
+<li> Ready: Not executing but ready to run as soon as scheduled to do so.
+<li> Blocked: It can no longer execute, e.g. waiting for I/O.
+</ol>
+
+<p>
+There are several utility programs that provide information on process
+states. Two of the most important are <em>ps</em> and <em>vmstat</em>.
+
+ps provides a snap shot of the processes and their states. <em>ps -el</em>
+shows all processes and their states on a machines at that instant:
+
+<pre>
+marilyn.dcs.aber.ac.uk 315 > ps -el
+ F S   UID   PID  PPID  C PRI NI     ADDR     SZ    WCHAN TTY      TIME CMD
+19 T     0     0     0  0   0 SY f0271950      0          ?        0:01 sched
+ 8 S     0     1     0  0  41 20 f5a9a338    385 f5a9a508 ?        1:04 init
+19 S     0     2     0  0   0 SY f5a99cd8      0 f0286594 ?        0:38 pageout
+19 S     0     3     0  0   0 SY f5a99678      0 f028a7f4 ?       47:14 fsflush
+ 8 S  5544 22888 22877  0  74 20 f6005320    363 f6005390 ?        0:00 Xsession
+ 8 S     0   136     1  0  41 20 f5aa09a0    471 f5d06d0e ?        0:06 inetd
+ 8 S     0   255     1  0  41 20 f5aa0340    330 f5921c94 ?        0:01 sac
+ 8 S     0   117     1  0  41 20 f5a9fce0    475 f5d06f66 ?        0:47 rpcbind
+ 8 S     0   109     1  0  41 20 f5a9f680    323 f5d06fde ?        6:30 in.route
+ 8 S     0   228     1  0  41 20 f5a9f020    629 f5d063ae ?        0:21 dtlogin
+ 8 S     0   119     1  0  41 20 f5d10980    385 f5d06eee ?        0:32 keyserv
+ 8 S     0   127     1  0  99 20 f5d10320    422 f5d06e76 ?        0:00 kerbd
+ 8 S     0   125     1  0  81 20 f5d0fcc0    477 f5d06ec6 ?        0:15 nis_cach
+ 8 S     0   139     1  0  49 20 f5d0f660    406 f5d06dae ?        0:00 statd
+ 8 S     0   141     1  0  49 20 f5d0f000    389 f5d06ce6 ?        0:00 lockd
+ 8 S     0   160     1  0  41 20 f5d39988    814 f5d39f8c ?       19:49 automoun
+ 8 S     0   217     1  0  67 20 f5d39328    500 f5d0671e ?        0:00 vold
+ 8 S     0   164     1  0  41 20 f5d38cc8    473 f5d06b56 ?        0:09 syslogd
+...
+</pre>
+
+<p>
+The first useful column (column S) indicates the state of the process:
+
+<table>
+<tr>
+<td>0 </td> <td>Process is running on a processor.</td>
+</tr>
+<tr>
+<td>S </td> <td>Sleeping: process is waiting for an event to complete.</td>
+</tr>
+<tr>
+<td>R </td> <td>Runnable: process is on run queue.</td>
+</tr>
+<tr>
+<td>Z </td> <td>Zombie  state:  process  terminated and parent not waiting.</td>
+</tr>
+<tr>
+<td>T </td> <td>Process is stopped, either by a job control  signal  or  because  it is
+                being traced.</td>
+</tr>
+</table>
+
+<p>
+The PPID is the parent process UID. PRI is the priority of the process where
+higher numbers equal lower priority. NI is the <em>nice</em> value which is
+used to determine priority (see notes 
+on <a href="../process/process.html#scheduling">process system</a>). SZ is the
+size (in pages) of swappable process's image in main memory. TTY is the controlling
+terminal (if one exists). Finally, TIME is the cumulative elapsed time since the
+process was started.
+
+<p>
+The <em>vmstat</em> command delves into the system and normally reports certain
+statistics kept about processes, virtual memory, disk, kernel trap and
+CPU activity.
+
+<p>
+Without options, <em>vmstat</em> displays a one-line summary of the virtual
+memory activity since the system was booted. With a numeric
+argument <em>vmstat</em> displays the statistics about the system every <em>n</em>
+seconds:
+
+<pre>
+
+thor:cmk>vmstat 2
+procs    memory        page            disk       faults      cpu
+r b w avm fre re at  pi  po  fr de  sr 0 s1 s2 s3  in  sy  cs  us sy id
+5 0 0  0  272  0  5   6   9   2  0  13  3  1  1  1 222 317  86  5 11 84
+3 2 0  0  248  1 13 200  84 196  0  83 38 12 19  4 5613081 245 54 46  0
+3 2 0  0  248  1 10 148  72 160  0  70 33  2  6  1 4803410 213 59 41  0
+3 1 0  0  256  2  9 172  76 176  0 107 39  9  9 10 5102975 210 25 75  0
+3 1 0  0  256  2  6 212  60 124  0  68 46 11 12  3 4963143 204 44 56  0
+3 1 0  0  256  2  4 168  36  76  0  43 32 14  9  0 5052975 233 29 71  0
+3 3 0  0  944  1  4 156  20  48  0  27 29 12 16  2 4933213 241 30 70  0
+3 3 0  0  944  1  4 212  12  28  0  16 12  3  9  4 5243593 236 26 74  0
+</pre>
+
+<p>
+Both <em>vmstat</em> and <em>ps</em> read various kernel data
+structures such as the U-AREA to gain the information they need.
+
+<h5>Differences between  system calls and library calls</h5>
+
+A library call does not involve a kernel mode switch; all the data and
+operations required can be done in user-space. A library call may however use system
+calls which do involve context switches. The library calls are intended to
+provide a more convenient programming interface to system calls. Examples of
+library calls are found in section 3 of <em>man</em> pages and system calls
+in section 2. 
+
+(Notice the terminology used here; to be absolutely strict, POSIX defines
+a library interface to a set of system calls.  In Unix these library
+functions are described in section 2 of the man pages, and are often
+called `system calls' or `chapter 2 functions').
+
+<p>
+Alternative library and system calls
+
+<table>
+<tr>
+<td><b>System calls</b> </td> <td><b>Library functions</b></td>
+</tr>
+<tr>
+<td>read </td> <td>fread</td>
+</tr>
+<tr>
+<td>write </td> <td>fprintf</td>
+</tr>
+<tr>
+<td>lseek </td> <td>fseek</td>
+</tr>
+<tr>
+<td>open </td> <td>fopen</td>
+</tr>
+<tr>
+<td>stat </td> <td></td>
+</tr>
+<tr>
+<td></td> <td>atoi</td>
+</tr>
+<tr>
+<td>sbrk </td> <td>malloc</td>
+</tr>
+<tr>
+<td>sigvec </td> <td>signal</td>
+</tr>
+</table>
+
+<p>
+Overall, library routines (chapter 3 routines) tend to be more readable 
+and easier to use than system calls (chapter 2 routines).  
+However, system calls give more control and often better performance and 
+can perform tasks for which library calls do not exist. 
+
+<h5>The Process in summary (the bits worth saying twice)</h5>
+
+The process can be summed up as an executing program initiated by
+either the user or the system. The kernel scheduler determines how
+it should be executed in relation to other, competing processes.
+
+<p>
+A process obtains services from the kernel via system calls, which
+change the context within which the process runs from user to kernel
+mode. This enables the process to access kernel functions and data
+structure.
+
+<hr>
+<a name="terminal"></a>
+<h4>The Terminal</h4>
+
+The terminal is a class of device which can be accessed via the same
+generic device driver interface which is, in turn made visible to
+user programs via the <em>ioctl</em> system call. Examples of terminals are:
+
+<ul>
+<li> communication ports
+<li> pseudo-terminals
+</ul>
+
+Terminals like any other Unix device are accessed via special files in
+/dev. Terminals will be discussed in more detail during lectures.
+
+<hr>
+<a name="otherUnix"></a>
+<h3>Some other Unix-style operating systems</h3>
+
+<h4>Plan9</h4>
+
+The film <em>Plan9 from outer space</em> starring amongst others, Boris Carloff,
+received the Golden Turkey award for the worst film of all time. 
+
+<p>
+Having had the development of Unix taken out of the original Unix
+developers hands, the original development team noticed that
+the original beauty and conciseness of Unix had been lost. 
+In an attempt to recapture this, they wrote a new operating system which,
+though like Unix, is much smaller and faster and takes the concept of
+<em>everything is a file</em> further.
+
+<p>
+The Plan9 project had both a software and hardware component, the
+software involved the construction of an operating system that would
+make use of a file server and a CPU server that are separate machines,
+connected by a fast communication bus.
+
+<p>
+The hardware component was  a terminal called the GNOT that is MC68020
+based, and appears to be a halfway house between an X-terminal and a
+traditional low end workstation, in that it handles clients such as a
+window manager, but is not intended to be used for tasks such compilation.
+ 
+<p>
+A senior management directive at Bell Labs stated that all projects
+must have names. This statement came the day after the team had watched
+the film, and so called the project <em>Plan9 from Bell Labs</em>. Plan9
+remains a research vehicle.
+
+<h4>MACH</h4>
+
+MACH is a development of Carnegie Mellon University (CMU) which has
+taken the BSD derivative of Unix and rewritten substantial parts in an
+attempt to create a unixoid operating system that has support for both
+running on, and programming multi-processor machines. A central part
+of MACH is the concept of multi-threading which involves the creation
+and communication of multiple processes that share address space
+without the overhead of the traditional Unix process and interprocess
+communication. The MACH has what is known as a micro-kernel, or minimal kernel.
+Most of the functionality provided by conventional Unix kernels is instead 
+executed in user address space. This cuts down on context switch overheads.
+OSF/1 (one of the operating systems used by DEC) had a
+MACH micro-kernel architecture.
+
+<h4>Linux</h4>
+
+Linux is an open-source Unix-type operating system available under the
+GNU Public License.  Linux conforms to
+the POSIX 1003.1 standard, and includes much of the functionality of
+Unix System V and BSD 4.3.  
+<p>
+Originally developed by Linus Torvalds, a Finnish student of Computer
+Science, Linux is now used by Universities, software houses, Internet providers and
+private individuals.
+<p>
+Linux runs on Amigas, PCs and DEC Alpha workstations.  It supports any
+readily available Unix software.   It also runs on multi-processor
+architectures (like our Beowulf clusters).
+<p>
+The Linux kernel supports preemptive multi-tasking.
+It is highly effective in memory use, supporting paging with copy-on-write
+and dynamic cache for hard disk.  
+<p>
+Linux supports a variety of file systems, including Ext2, MS-DOS, VFAT
+and many others.   Linux can also be integrated into local Unix networks.
+
+</body>
+</html>

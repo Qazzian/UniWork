@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>More on classes</TITLE>
+<META NAME="Microsoft Theme" CONTENT="blends 011">
+</HEAD>
+<BODY TEXT="#000000" LINK="#800000" VLINK="#0000ff">
+
+<B><FONT SIZE=5 COLOR="#000080"><P><A NAME="_Toc459695976">Linked Lists</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial">
+<P></FONT><A HREF="#_Toc459695976"><FONT FACE="Trebuchet MS,Arial">Linked Lists</FONT></A><DIR>
+
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695977"><FONT FACE="Trebuchet MS,Arial">Dynamic Data Structures</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695978"><FONT FACE="Trebuchet MS,Arial">The class Node</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695979"><FONT FACE="Trebuchet MS,Arial">Using Node: the LinkedList class</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695980"><FONT FACE="Trebuchet MS,Arial">The empty list.</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695981"><FONT FACE="Trebuchet MS,Arial">A new node is added to an empty list.</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459695982"><FONT FACE="Trebuchet MS,Arial">A new node is added onto a list that already contains a node.</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"></DIR>
+</P>
+</FONT><B><FONT SIZE=4 COLOR="#000080"><P><A NAME="_Toc459695977">Dynamic Data Structures</A></P>
+</FONT><FONT FACE="Times">
+</B><P>So far we have only really looked at <I>static</I> <I>data structures,</I> that is, a structure which is specified at the time that the program is written and which cannot then be changed. The contents can be changed of course but the structure remains stable. Arrays are an example of this. Even vectors are of fixed size – when they grow what actually happens is that a new larger vector is created and the contents of the original are copied into it. </P>
+
+<I><P>Dynamic data structures </I>may have their structure changed by the program. They may contract and expand in size as the program is executed. Unlike in many languages, to support dynamic data structures in Java we do not need to introduce any new constructs. We simply use object references.</P>
+
+<P>A <I>pointer  </I>is simply something that is used to point to something else. Typically when referring to pointers we use diagrammatic representations showing boxes and arrows. The arrows in the diagrams represent the pointer. These arrows usually point to an individual object that we refer to as a <I>node</I>. </P>
+
+<P>In the drawing, a node is represented as a box in which several things are stored. In this, as in all applications of pointers, the nodes are actually objects.</P>
+
+<P><IMG SRC="Image44.gif" WIDTH=112 HEIGHT=213></P>
+
+<P>&nbsp;</P>
+<P>The list is entirely dynamic, we can add new objects into the structure whenever and wherever we wish. Like ‘pop beads’.</P>
+
+<P>&nbsp;</P>
+<P>Of course, in reality we are already familiar with dynamic types. Think about the names in the previous list. They are actually references to Strings (Objects). We would have been more accurate to represent each node as follows:</P>
+<P><IMG SRC="Image45.gif" WIDTH=164 HEIGHT=147></P>
+
+<P>In this example, it shows that us each "node" in our list we actually have a reference (a pointer) to an Object.</P>
+
+<P>In other words, Objects themselves are dynamically allocated (using new). We can therefore make use of this feature to build dynamic structures.</P>
+
+<P>&nbsp;</P>
+</FONT><B><FONT SIZE=4 COLOR="#000080"><P><A NAME="_Toc459695978">The class Node</A></P>
+</B></FONT><FONT FACE="Times">
+<P>Let us look at the code necessary to reflect the above structure:</P>
+
+<P>&nbsp;</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>/**</P>
+<P> * A class that provides a simple node for a linked list</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @version Last revision date: 3/3/98</P>
+<P> */</P>
+
+<P>public class Node implements Serializable</P>
+<P>{</P>
+<P>    private Object data; // The object to store (e.g. the student Object)</P>
+<P>    private Node next;           // Points to next node in list</P>
+</B></FONT><FONT FACE="Times">
+<P>&nbsp;</P>
+<P>The important point to realise is that within Node we actually have a reference to another Node (we have called it next). </P>
+
+<I><P>Next</I> will start off being null but we will able to hold a link to a new node, and therefore build up a list, whenever we require.</P>
+
+<P>We shall now provide various constructors depending on how much information is known by the user.</P>
+
+<P>&nbsp;</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>   /**</P>
+<P>     * Default constructor sets everything to default values</P>
+<P>     */</P>
+<P>    public Node ()</P>
+<P>    {</P>
+<P>        data = null;</P>
+<P>        next = null;</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Constructor sets data, next is set to null</P>
+<P>     * @param theData the object to be inserted in node</P>
+<P>     */</P>
+<P>    public Node (Object theData)</P>
+<P>    {</P>
+<P>        data = theData;</P>
+<P>        next = null;</P>
+<P>    }</P>
+</B></FONT><FONT FACE="Times">
+<P>The more useful methods are actually very straightforward - they are simply <I>set</I> and <I>get</I> methods.</P>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>    public void setNext (Node theNext)</P>
+<P>    {</P>
+<P>        next = theNext;</P>
+<P>    }</P>
+
+<P>    public Node getNext ()</P>
+<P>    {</P>
+<P>        return next;</P>
+<P>    }</P>
+
+<P>    public void setData (Object theData)</P>
+<P>    {</P>
+<P>        data = theData;</P>
+<P>    }</P>
+
+<P>    public Object getData ()</P>
+<P>    {</P>
+<P>        return data;</P>
+<P>    }</P>
+</B></FONT><FONT FACE="Times">
+<P>And toString is quite simply</P>
+<B>
+</FONT><FONT FACE="Courier New" SIZE=2><P>    public String toString()</P>
+<P>    {</P>
+<P>        return " " +  data " " ;</P>
+<P>    }</P>
+</B></FONT><FONT FACE="Times">
+<P>Having produced the Node class, a user can now build a list as follows</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><DIR>
+<DIR>
+
+<P>Node node1 = new Node("Fred");</P>
+<P>Node node2 = new Node("Bill");</P>
+<P>node1.setNext(node2);</P>
+</B></FONT><FONT FACE="Times">
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>This gives us:</P>
+<P><IMG SRC="Image46.gif" WIDTH=405 HEIGHT=280></P>
+
+<P>Now setting node2 to null, only affects node2, not the link in the list.</P>
+<P><IMG SRC="Image47.gif" WIDTH=405 HEIGHT=280></P>
+<P>We can now add yet another item to the list as follows:</P>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>node2 = new Node("Karl");</P>
+<P>node1.getNext().setNext(node2);</P>
+</B></FONT><FONT FACE="Times">
+<P><IMG SRC="Image48.gif" WIDTH=549 HEIGHT=308></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Note that node1 gives us the complete Object (containing "Fred" and <I>next</I>).</P>
+<P>node1.getNext() gives us the reference that is in the <I>next</I> attribute of that Object in the same way that node1.getData() would give us "Fred".</P>
+
+</FONT><B><FONT SIZE=4 COLOR="#000080"><P><A NAME="_Toc459695979">Using Node: the LinkedList class</A></P>
+</B></FONT><FONT FACE="Times">
+<P>Such a linked list can be manipulated by the user through the Node class but really we want to provide a higher level of working. Using the List class as an example, we build a LinkedList class.</P>
+</FONT>
+<P>&nbsp;</P>
+<B><FONT FACE="Courier New" SIZE=2><P>public class LinkedList implements Serializable</P>
+<P>{</P>
+
+<P>    protected Node head;</P>
+<P>    protected Node tail;</P>
+
+<P>    /**</P>
+<P>     * Default constructor sets head &amp; tail of list to null</P>
+<P>     */</P>
+<P>    public LinkedList()</P>
+<P>    {</P>
+<P>        head = null;</P>
+<P>        tail = null;</P>
+<P>    }</P>
+
+<P>&nbsp;</P>
+</B></FONT><P>It is important to understand what we mean by <I>head</I> and <I>tail</I>. Different applications use different meanings for these terms.</P>
+
+<P>Let us look at the various states that these attributes support:</P>
+<B>
+<P>&nbsp;</P>
+<FONT COLOR="#000080"><P><A NAME="_Toc459695980">The empty list.</A></P>
+</FONT>
+</B><P><IMG SRC="Image49.gif" WIDTH=58 HEIGHT=118></P>
+<P>This is the situation we require when we set up the list in the first instance, hence:</P>
+
+<P>  </P>
+
+<B><FONT FACE="Courier New" SIZE=2><P>  &#9;public LinkedList()</P>
+<P> &#9;{</P>
+<P>        &#9;head = null;</P>
+<P>        &#9;tail = null;</P>
+<P>    &#9;}</P>
+</B></FONT>
+<P>   </P>
+<B><FONT COLOR="#000080"><P><A NAME="_Toc459695981">A new node is added to an empty list.</A></P>
+</B></FONT><P> In this case both head and tail will be set to point to the new node.<IMG SRC="Image50.gif" WIDTH=222 HEIGHT=117><A NAME="_Toc459695982"></P>
+
+<B><FONT COLOR="#000080"><P>A new node is added onto a list that already contains a node.</A> </P>
+</FONT>
+</B><P>In this case the node is added on to the tail of the list. Two pointers need to be changed -–the pointer in the last node (pointed to be by tail) and tail itself.</P>
+<P><IMG SRC="Image51.gif" WIDTH=367 HEIGHT=261></P>
+
+<P>&nbsp;</P>
+<B><FONT FACE="Courier New" SIZE=2><P>public void addToTail(Listable theItem)</P>
+<P>{</P>
+<P>        //First create a new node in which to store the object</P>
+<P>        Node newNode = new Node(theItem);</P>
+
+<P>        // now implement the situation where the list is empty</P>
+<P>        if (head == null)</P>
+<P>        {</P>
+<P>            head = newNode;</P>
+<P>            tail = newNode;</P>
+<P>        }</P>
+<P>        else</P>
+<P>        {</P>
+<P>            // set the node pointed to tail, to point to new node</P>
+<P>            tail.setNext(newNode);</P>
+<P>            tail = newNode;   // reset tail to point to new node</P>
+<P>        }</P>
+<P>}</P>
+</B></FONT>
+<P>Now our display requires a traverse of the complete list. We move from node to node by the statement:</P>
+<B><FONT FACE="Courier New" SIZE=2>
+<P>&#9;&#9;temp = temp.getNext();</P>
+</FONT>
+</B><P>This is a very important statement – be sure you understand it!</P>
+
+<B><FONT FACE="Courier New" SIZE=2><P>public String toString()</P>
+<P>{</P>
+<P>        Node temp = head;</P>
+<P>        String tempString = "";</P>
+<P>        while (temp != null)</P>
+<P>        {</P>
+<P>            tempString = tempString +</P>
+<P>                         "\n" +</P>
+<P>                         temp;    // which will call toString</P>
+
+<P>            // Now lets move to the next item in the list</P>
+<P>            temp = temp.getNext();</P>
+<P>        }</P>
+<P>        return tempString;</P>
+<P>}</P>
+</B></FONT>
+<P>&nbsp;</P>
+<B><FONT COLOR="#000080"><P>What about adding at front, adding in middle, removing from front middle and back, finding, etc etc??</P>
+<P>And now to the test harness:</P>
+</B></FONT>
+<P>And now, the code for calculating the length of a list. Essentially we set a count to zero and increment it each time we pass from one node to the next.</P>
+
+<P>&nbsp;</P>
+<B><FONT FACE="Courier New" SIZE=2><P>    /**</P>
+<P>     * Gets the current length of the list.</P>
+<P>     */</P>
+<P>    public int getListLength()</P>
+<P>    {</P>
+<P>        int currentLength = 0;</P>
+<P>        Node temp = head;</P>
+<P>        </P>
+<P>        while (temp != null)</P>
+<P>        {</P>
+<P>            currentLength++;</P>
+<P>            temp = temp.getNext();</P>
+<P>        }</P>
+<P>        return currentLength;</P>
+<P>    }</P>
+</B></FONT><P>    </P></BODY>
+</HTML>

@@ -1,0 +1,20 @@
+CS21120	Six Stack - Assignment 1		2000-2001
+
+These are now marked and in more-or-less alphabetical order in boxes (on the floor - there are so many of them) outside the loo on the ground floor. 
+
+On the whole, they were very good - I'm extremely impressed! There are comments on individual ones (by John Burrow) that are tailored to each of you. A few general things:
+
+- we were looking for an initial discussion, class diagrams, algorithm descriptions, well laid out efficient code with good comments, a reasonable set of tests that were well described and a thoughtful conclusion. I also asked you to tell me how to run it. I expected a statement of originality and some of you did a GUI.
+
+- a B was basically what I called a 'Good Competent Job'. That means it did what it was supposed to - may have had a couple of small problems. nice - not flashy. To get an A you needed to do more - some of you had great GUIs. But a great GUI was not going to give you an A if the underlying structure was not OK.
+
+- even if you wrote your own stack it should be a general purpose stack - that means a stack of objects (then just cast the result to 'Card' when you pop.
+
+- This was 'six stack' - that means that you had six stacks. The only reasonable way to do that was with an array. Otherwise your code became immense and unintelligible. All stacks should be objects of the same class - certainly not have 6 or more identical stack classes. Whenever you find yourself duplicating code think about your class memebership.
+
+- Many games didn't recognise when the game was lost, some didn't check for illegal moves. Many shuffles were not really random (unless you seed them differently they'll always be the same).
+
+
+Good Luck on Exams
+Lynda
+

@@ -1,0 +1,132 @@
+
+
+
+link(1)								      link(1)
+
+
+
+NAME
+
+  link, unlink - Creates an additional directory entry for an existing file
+
+SYNOPSIS
+
+  link file1 file2
+
+  unlink file
+
+STANDARDS
+
+  Interfaces documented on this reference page conform to industry standards
+  as follows:
+
+  link:	 XCU5.0
+
+  unlink:  XCU5.0
+
+  Refer to the standards(5) reference page for more information about indus-
+  try standards and associated tags.
+
+DESCRIPTION
+
+  The link command performs the link() system call to create an additional
+  directory entry for an existing file, file1.	In effect, the underlying
+  file then has two names, file1 and file2 (either of these arguments can be
+  a pathname).	The old and new entries share equal access rights to the
+  underlying file.
+
+  The unlink command performs the unlink() system call to remove a link to
+  file created by link. The unlink command removes the directory entry speci-
+  fied by the file parameter and, if the entry is a hard link, decrements the
+  link count of the file referenced by the link.
+
+  You should be familiar with the link() and unlink() system calls before you
+  use these commands.
+
+  The link and unlink commands do not issue error messages when the associ-
+  ated system call is unsuccessful.
+
+NOTES
+
+  The link and unlink commands cannot be used to link and unlink directories.
+
+EXIT STATUS
+
+  The link and unlink commands both exit with the following:
+
+  0   The link() or unlink() system call succeeded.
+
+  1   Too few or too many arguments specified.
+
+  2   The link() or unlink() system call failed.
+
+
+
+
+
+
+SEE ALSO
+
+  Commands:  fsck(8), ln(1)
+
+  Functions:  link(2), unlink(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

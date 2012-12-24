@@ -1,0 +1,572 @@
+\setcounter{slide}{57}
+
+%
+% slide 58
+%
+\begin{slide}{}
+{\bf The Scanner and the Parser}
+\begin{itemize}
+
+\item What does the scanner (lexical analyser) do?
+
+\item What other kinds of analysis needs to be done?
+      
+\item What parts of a compiler do these other kinds of analysis?
+
+\end{itemize}
+\end{slide}
+
+%
+% slide 59
+%
+\begin{slide}{}
+{\bf The Parser}
+
+\vspace{3ex}
+\epsfbox{Parser.eps}
+\end{slide}
+%
+% slide 60
+%
+\begin{slide}{}
+{\bf Tasks Performed by the Parser}
+\begin{itemize}
+\item Recognising syntactic structure.
+\item Verifying correct syntax.
+\item Handling errors.
+\item Building the syntax tree.
+\end{itemize}
+\end{slide}
+%
+% slide 61
+%
+\begin{slide}{}
+{\small
+{\bf Defining the syntax of a programming language}
+
+The parser is driven by a formal description of the
+syntax of the language it parses.
+
+Regular expressions are not sufficient to describe
+the structures found in programming languages.
+
+For example, consider
+\begin{verbatim}
+
+    for ... loop
+        ...
+        for ... loop
+            for ... loop
+               ...
+            endloop
+        endloop
+        ...
+    endloop
+
+\end{verbatim}
+
+Regular expressions cannot define nested constructs. 
+}
+\end{slide}
+%
+% slide 62
+%
+\begin{slide}{}
+{\bf Context Free Grammars}
+
+Context free grammars provide a way of specifying the syntactic
+structure of modern programming languages.
+
+A context free grammar contains rules.
+
+{\small
+\begin{verbatim}
+    <expr> ::= <expr> + <term> | <term>
+    <term> ::= <term> + <factor> | <factor>
+    <factor> ::= id | number | (<expr>)
+\end{verbatim}
+}
+
+This notation is called Backus-Naur Form (BNF)
+\end{slide}
+%
+% slide 63
+%
+\begin{slide}{}
+{\bf Context Free Grammars}
+
+The grammar rules contain terminal and nonterminal symbols.
+The terminal symbols are the symbols of the language being parsed, while
+the nonterminal symbols are used in the grammar to represent whole phrases
+of the language.
+
+Each rule has a left side consisting of a single nonterminal symbol.
+(This is what is meant by ``context free'').
+
+Each rule has one or more alternative right sides; each right side
+consists of a string of terminal and nonterminal symbols.
+
+One of the nonterminal symbols is defined to be the start symbol; in the
+example, the start symbol is {\tt $<expr>$}.
+
+\end{slide}
+%
+% slide 64
+%
+\begin{slide}{}
+{\bf Alternative forms of BNF}
+
+BNF can be simplified in various ways.
+\begin{verbatim}
+
+PROGRAM -> SEQU
+SEQU    -> COMMAND | COMMAND ; SEQU
+COMMAND -> id := EXPR |
+   if EXPR then SEQU else SEQU endif |
+   while EXPR do SEQU endwhile
+EXPR    -> number | id
+
+\end{verbatim}
+\begin{verbatim}
+
+PROGRAM -> SEQU
+SEQU    -> COMMAND [; COMMAND]*
+COMMAND -> id := EXPR | ... etc.
+
+\end{verbatim}
+
+\end{slide}
+
+%
+% slide 65
+%
+\begin{slide}{}
+{\bf Context Free Grammars}
+
+A context free grammar (CFG) consists of:
+\begin{itemize}
+\item a finite terminal vocabulary, $T$,
+\item a finite nonterminal vocabulary, $N$ where
+      $N \cap T = \{\}$.
+\item a start symbol, $S \epsilon N$, and
+\item a finite set of productions, $P$, of the form
+      $A \rightarrow X_1 \ldots X_m$, where $A \epsilon N$ and
+      $X_i \epsilon N \cup T for 1 \leq i \leq m$
+\end{itemize}
+
+We often write $G = (T,N,S,P)$ to describe a grammar.
+
+The set $V = N \cup T$ is called the vocabulary of a grammar.
+\end{slide}
+%
+% slide 66
+%
+\begin{slide}{}
+{\bf Parse Trees}
+
+The derivation of a string from a grammar can be
+represented by a parse tree.
+
+\vspace{3ex}
+\epsfbox{parse-tree1.eps}
+
+\end{slide}
+%
+% slide 67
+%
+\begin{slide}{}
+{\bf Approaches to parsing} 
+\begin{itemize}
+\item Top down parsing -- start with start symbol and build
+tree from the root down
+\item Bottom up parsing -- start with input tokens and build tree
+from the leaves up
+\end{itemize}
+\end{slide}
+%
+% slide 68
+%
+\begin{slide}{}
+{\bf Parse Trees and Abstract Syntax Trees}
+
+Consider the grammar
+\begin{verbatim}
+    expr ::= term restofexpr
+    restofexpr ::= + term restofexpr | e
+    term ::= factor restofterm
+    restofterm ::= * factor restofterm | e
+    factor ::= number | id | (expr)
+\end{verbatim}
+\end{slide}
+%
+% slide 69
+%
+\begin{slide}{}
+{\bf A Parse Tree for id * (id + id)}
+
+\vspace{3ex}
+\epsfbox{ptvsast.eps}
+
+This parse tree is cumbersome, and not necessarily well
+suited to the later stages of compilation.
+\end{slide}
+%
+% slide 70
+%
+\begin{slide}{}
+{\bf Abstract Syntax Trees for id * (id + id)}
+
+An abstract syntax tree for id * (id + id) could look like this
+
+\vspace{3ex}
+\epsfbox{ast1.eps}
+
+or like this
+
+\vspace{3ex}
+\epsfbox{ast2.eps}
+
+Abstract syntax trees are compact, and adapted to the needs of the later
+stages of compilation.
+\end{slide}
+%
+% slide 71
+%
+\begin{slide}{}
+{\bf Different Parsing Methods}
+\begin{itemize}
+\item top-down parsing with backtracking
+\item top-down deterministic parsing \\ -- e.g. LL(K), LL(1)
+\item bottom-up deterministic parsing \\ -- e.g. LR(K), LALR(K), LALR(1)
+\item operator precedence parsing,\\
+      a bottom up parsing method that is especially useful for
+     expressions like $ a+b*c $
+\end{itemize}
+Usually, the grammar has to be restricted in some way to make each of
+these parsing methods work.
+\end{slide}
+%
+% slide 72
+%
+\begin{slide}{}
+For example, top down parsing methods cannot deal with left-recursive
+grammars:
+\begin{verbatim}
+    E ::= E + T
+    T ::= T * F | F
+    F ::= (E) | id
+
+\end{verbatim}
+Instead, the grammar should look like this for top-down parsing:
+\begin{verbatim}
+    E  ::= T E'         E' ::= + T E' | e
+    T  ::= F T'         T' ::= * F T' | e
+    F  ::= (E) | id
+
+where e stands for the empty string.
+\end{verbatim}
+\end{slide}
+
+%
+% slide 73
+%
+\begin{slide}{}
+{\bf Recursive Descent Parsing}
+
+Recursive descent parsing is very easy to implement.
+
+For each nonterminal, a routine is written to parse all the
+strings that can be derived from the nonterminal.  This means
+that the program corresponds closely to the grammar.
+
+For example, given the rule
+\begin{verbatim}
+    expr -> term restofexpr
+\end{verbatim}
+our pseudocode might be
+\begin{verbatim}
+    parse_expr = parse_term;
+                 parse_restofexpr;
+                 return tree
+\end{verbatim}
+\end{slide}
+%
+% slide 74
+%
+\begin{slide}{}
+{\bf LR(1) Parsing}
+
+\vspace{3ex}
+\epsfbox{lr.eps}
+
+{\em a1, \ldots, an} are terminal symbols\\
+{\em \$}  is an end of file marker\\
+{\em x1, \ldots, xm} are grammar symbols (terminals or nonterminals or both)\\
+{\em s0, \ldots, sm} are state symbols
+\end{slide}
+%
+% slide 75
+%
+\begin{slide}{}
+{\bf How the LR(1) Parser Works}
+\begin{enumerate}
+\item It determines {\em sm}, the state symbol on top of the stack,
+      and {\em ai}, the current input symbol.
+\item It then consults the action table entry for {\em sm} and {\em ai},
+        \begin{quote}
+            action[sm,ai]
+        \end{quote}
+      which has one of the values
+        \begin{quote}
+           shift s,
+           reduce A ::= b,
+           accept, or
+           error.
+        \end{quote}
+\item Then it carries out the prescribed action, after which it
+      will repeat the whole process, or terminate.
+\end{enumerate}
+\end{slide}
+%
+% slide 76
+%
+\begin{slide}{}
+{\small
+{\bf The LR Parsing Algorithm}
+\begin{verbatim}
+a:= scan (input) /* first token */
+REPEAT FOREVER
+  s := state on top of stack
+  IF action[s,a] = shift s'
+     THEN push a onto the stack
+          push s' onto the stack
+          a := scan(input) /* next token */
+  ELSEIF action[s,a] = reduce A ::= b
+     THEN pop (2 * |b|) symbols off stack
+          s' := new state on top of stack
+          push A onto the stack
+          push goto[s',A] onto the stack
+          output rule A ::= b
+  ELSEIF action[s,a] = accept
+     THEN exit successfully
+  ELSE /* action[s,a] = error */
+     execute error routine
+END REPEAT
+\end{verbatim}
+}
+\end{slide}
+%
+% slide 77
+%
+\begin{slide}{}
+{\bf Example}
+
+Consider the expression grammar
+\begin{verbatim}
+    Rule 1:     E ::= E + T
+    Rule 2:     E ::= T
+    Rule 3:     T ::= T * F
+    Rule 4:     T ::= F
+    Rule 5:     F ::= (E)
+    Rule 6:     F ::= id
+\end{verbatim}
+
+Suppose we want to parse the expression
+\begin{verbatim}
+    id * id + id
+\end{verbatim}
+\end{slide}
+%
+% slide 78
+%
+\begin{slide}{}
+{\bf Parsing Action Table}\\[0.5cm]               
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+      & \multicolumn{6}{|c|}{Input Token}\\
+State & id & +  & *  & (  & )  & \$ \\
+\hline
+0     & s5 &    &    & s4 &    &    \\
+1     &    & s6 &    &    &    & accept \\
+2     &    & r2 & s7 &    & r2 & r2 \\
+3     &    & r4 & r4 &    & r4 & r4 \\
+4     & s5 &    &    & s4 &    &    \\
+5     &    & r6 & r6 &    & r6 & r6 \\
+6     & s5 &    &    & s4 &    &    \\
+7     & s5 &    &    & s4 &    &    \\
+8     &    & s6 &    &    & s11 &   \\
+9     &    & r1 & s7 &    & r1 & r1 \\
+10    &    & r3 & r3 &    & r3 & r3 \\
+11    &    & r5 & r5 &    & r5 & r5 \\
+\hline
+\end{tabular}
+
+si -- shift and stack state i \\
+rn -- reduce using rule number n \\
+accept -- accept \\
+blank -- error
+\end{slide}
+%
+% slide 79
+%
+\begin{slide}{}
+{\bf Goto Table}\\[0.5cm]               
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+       & \multicolumn{3}{|c|}{Nonterminal} \\
+State  & E & T & F \\
+\hline
+0     & 1 & 2 & 3 \\
+1     &   &   &   \\
+2     &   &   &   \\
+3     &   &   &   \\
+4     & 8 & 2 & 3 \\
+5     &   &   &   \\
+6     &   & 9 & 3 \\
+7     &   &   & 10 \\
+8     &   &   &   \\
+9     &   &   &   \\
+10    &   &   &   \\
+11    &   &   &   \\
+\hline
+\end{tabular}
+\end{slide}
+%
+% slide 80
+%
+\begin{slide}{}
+{\bf Parsing $ id * id + id $}\\[0.5cm]               
+
+\begin{tabular}{|l|r|l|}
+\hline
+Stack         & Input      & Action \\
+\hline
+0             & id*id+id\$ & shift 5 \\
+0id5          &   *id+id\$ & reduce F ::= id \\
+0F3           &   *id+id\$ & reduce T ::= F \\
+0T2           &   *id+id\$ & shift 7 \\
+0T2*7         &    id+id\$ & shift 5 \\
+0T2*7id5      &      +id\$ & reduce F ::= id \\
+0T2*7F10      &      +id\$ & reduce T ::= T*F \\
+0T2           &      +id\$ & reduce E ::= T \\
+0E1           &      +id\$ & shift 6 \\
+0E1+6         &       id\$ & shift 5 \\
+0E1+6id5      &         \$ & reduce F ::= id \\
+0E1+6F3       &         \$ & reduce T ::= F \\
+0E16+T9       &         \$ & reduce E ::= E+T \\
+0E1           &         \$ & accept \\
+\hline
+\end{tabular}
+\end{slide}
+%
+% slide 81
+%
+\begin{slide}{}
+{\bf Shift-Reduce and Reduce-Reduce Conflicts}\\
+Suppose a grammar included a rule like 
+\begin{verbatim}
+ T ::= X Y | X.
+\end{verbatim}
+
+Having read an X, the parser could reduce it to a T, or could shift
+more symbols that might be a Y.  This is called a {\em shift-reduce conflict}.
+
+Another kind of conflict is know as a {\em reduce-reduce conflict}.  This
+occurs when the parser cannot decide which of several possible productions to
+apply in reducing.
+
+If it is impossible to generate LR(1) action and goto tables for a grammar,
+then the grammar is said to be not LR(1).  Fortunately, most programming
+languages can be defined using LR(1) grammars.
+\end{slide}
+%
+% slide 82
+%
+\begin{slide}{}
+{\bf LALR Parsing}
+
+A grammar for a typical programming language might have 50 to 100
+terminals and about 100 productions (grammar rules).  The LR(1)
+tables for such a language would have thousands of states!
+
+In practice, a technique called LALR is used, giving rise to several
+hundred states for a language like Pascal.
+
+LALR(1) is slightly more restrictive than LR(1), but experience has
+shown it to be adequate for the kind of languages we want to parse.
+
+yacc is an LALR parser generator which was written by S.C. Johnson
+in the early 1970s.
+\end{slide}
+%
+% slide 83
+%
+\begin{slide}{}
+{\bf Building the Syntax tree}
+
+The parser builds the abstract syntax tree by invoking
+a tree building routine each time a grammar rule is
+applied.
+
+The tree building procedures are defined using an
+extended grammar, called an {\em attribute grammar}.
+
+\end{slide}
+%
+% slide 84
+%
+\begin{slide}{}
+{\small
+{\bf Building the Syntax tree}
+
+For example, if we were using an LR parser to parse
+expressions, we might use an attribute grammar like
+this to build the syntax tree:
+\begin{verbatim}
+
+E ::= E1 + T {E.treeptr :=
+              mknode(E1.treeptr,'+',T.treeptr)}
+E ::= T      {E.treeptr := T.treeptr}
+T ::= T1 * F {T.treeptr :=
+              mknode(T1.treeptr,'*',F.treeptr)}
+T ::= F      {T.treeptr := F.treeptr}
+F ::= (E)    {F.treeptr := E.treeprt}
+F ::= id     {F.treeptr := mkleaf('id')}
+
+\end{verbatim}
+
+where mknode returns an internal node of the syntax tree, and
+mkleaf returns a leaf node.   
+}
+\end{slide}
+%
+% slide 85
+%
+\begin{slide}{}
+{\bf Building the Syntax tree}
+
+This attribute grammar deals with a single attribute,
+treeptr, a pointer to a fragment of the syntax tree.
+
+treeptr is an attribute of E, T and F.
+
+treeptr is called a {\em structural attribute}, because
+it contains information about the structure of the
+abstract syntax tree.
+
+During a bottom up parse of $id * id + id$, using the
+parsing action and goto tables shown previously, the
+stack, input, and syntax tree would appear as illustrated.
+\end{slide}
+%
+% slide 86
+%
+\begin{slide}{}
+{\bf Building the Syntax tree}
+
+\vspace{3ex}
+\epsfbox{lr-tree.eps}
+
+\end{slide}

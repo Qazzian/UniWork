@@ -1,0 +1,8 @@
+FANTASY=/aber/ifw9/Cprogs/fantasy
+export FANTASY
+
+save_path=$PATH
+PATH=$FANTASY/bin:$PATH
+
+echo $PATH
+alias reset="tar xvf FANTASY/etc/initial_world.tar"

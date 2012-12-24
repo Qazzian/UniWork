@@ -1,0 +1,253 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="Microsoft Word 73.1">
+<TITLE>4</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">CLIPS INTRODUCTION WORKSHEET</P>
+</FONT><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Introducing Clips</P>
+</B>
+<P>CLIPS is an expert system tool, originally developed at NASA in the USA. It is designed to assist with the development of software that models human expertise.  CLIPS is a large and complex piece of software and we will use only a small part of its total functionality.</P>
+
+<P>&nbsp;</P>
+<B><P>1. Online documentation</P>
+
+</B><P>A brief introduction is available at:</P>
+<P><A HREF="http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/CS16010/clipsbrief.pdf">http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/&lt;module&gt;/clipsbrief.pdf</A></P>
+
+<P>CLIPS has extensive documentation.  More than you will need can be found on our support web pages at:</P>
+
+<P><A HREF="http://www.dcs.aber.ac.uk/support/software/misc.html">http://www.dcs.aber.ac.uk/support/software/misc.html</A></P>
+
+<P>The CLIPS 6.10<U> User's Guide</U> is an introduction to the system but is large (150 pages) so don't print it out.  The CLIPS 6.10 Basic Programming Guide is not that basic, so more use for reference.   See the CLIPS<U> Application Abstracts</U> for examples of how and where CLIPS expert systems have been used.  </P>
+
+<P>The CLIPS website has FAQs and other information: </P>
+
+<P><A HREF="http://www.ghgcorp.com/clips/CLIPS.html">http://www.ghgcorp.com/clips/CLIPS.html</A></P>
+
+<P>&nbsp;</P>
+<B><P>2. Running CLIPS on PCs or Unix</P>
+</B>
+<P>On Unix type clips or xclips to start a command line or GUI version respectively.</P>
+<P>On the PCs start CLIPS by selecting it from the courseware/comp.Sci. menu.</P>
+
+<P>&nbsp;</P>
+<B><P>3. Running the CLIPS examples</P>
+</B>
+<P>Unix</P>
+
+<P>All the examples are available in the directory: /usr/local/apps/clips/current/examples</P>
+
+<P>PC</P>
+
+<P>You will need to map a network drive.  With the network icon use the right mouse button to select "Map Network Drive". Then enter  </P>
+<P>\\cssmb.dcs.aber.ac.uk\cs-local </P>
+<P>and then go into </P>
+<P>\clips\examples.  &#9;&#9;&#9;You may be asked to login.  </P>
+<P>When in CLIPS you can load selected example files (which end in .clp - not to be confused with clipboard!) by using the "load construct" command under the "file" menu.</P>
+
+<P>&nbsp;</P>
+<B><P ALIGN="JUSTIFY">4. What is CLIPS?</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The CLIPS shell provides the basic elements of an expert system:</P>
+<OL>
+
+<B><P ALIGN="JUSTIFY"><LI>fact-list</B>: Global memory for data.</LI></P>
+<B><P ALIGN="JUSTIFY"><LI>knowledge-base</B>: Contains all the rules, the <B>rule-base</B>.</LI></P>
+<B><P ALIGN="JUSTIFY"><LI>inference engine</B>: Controls overall execution of rules.</LI></P></OL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A program written in CLIPS may consist of <B>rules, facts</B>, and (if desired) <B>objects</B>, which we do not discuss here.  The inference engine decides which rules should be executed and when.  A rule-based expert system written in CLIPS is a data-driven program where the facts, (and objects if desired), are the data that stimulate execution via the inference engine.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">5. Facts and the Fact-List</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Data can be entered into the fact-list with the <B>assert</B> command:</P>
+<P ALIGN="JUSTIFY">&#9;As an example of <I>assert</I>, enter the following right after the CLIPS prompt as shown:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P>CLIPS&gt; (assert(duck))</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here the assert command takes (duck) as its argument.  Be sure to always press the carriage return key to send the line to CLIPS.</P>
+<P ALIGN="JUSTIFY">&#9;You will see the response</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">&lt;Fact-0&gt;</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">which indicates CLIPS has stored the duck in the fact-list and given it the identifier 0.  The <B>angle-brackets</B> are used as a delimiter in CLIPS to surround the name of an item.  CLIPS will automatically name facts using a sequentially increasing number and list the highest facts-index when one or more facts is asserted.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Having asserted a fact, we can ask CLIPS what facts are in the fact list:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (facts)</P>
+<P ALIGN="JUSTIFY">f-0            (duck)</P>
+<P ALIGN="JUSTIFY">For a total of 1 fact.</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We can assert several facts at once, then ask again:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (assert(goose)(turkey)(chicken))</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (facts)</P>
+<P ALIGN="JUSTIFY">f-o      (duck)</P>
+<P ALIGN="JUSTIFY">f-1      (goose)</P>
+<P ALIGN="JUSTIFY">f-2      (turkey)</P>
+<P ALIGN="JUSTIFY">f-3      (chicken)</P>
+<P ALIGN="JUSTIFY">For a total of 4 facts.</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Asserting the fact (duck) again would no difference, whether we assert it on its own, or along with other facts.  Assert it again, then ask CLIPS again what facts there are.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We can also get rid of facts we no longer want.  This can be done using the <B>retract</B> command:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (retract 2)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (facts)</P>
+<P ALIGN="JUSTIFY">f-0            (duck)</P>
+<P ALIGN="JUSTIFY">f-1            (goose)</P>
+<P ALIGN="JUSTIFY">f-3            (chicken)</P>
+<P ALIGN="JUSTIFY">For a total of 3 facts.</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Notice that the <B>retract</B> command removes the fact f-2 from the fact-list, while leaving the numbering of the remaining facts unchanged.  What happens to the numbering if further facts are now asserted?  Try it.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Suppose we want to get rid of all the current facts and start again.  This can be done using the command (<B>clear</B>).  (In fact, this will get rid of any rules we have added as well, restoring CLIPS to its start-up state).</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (clear)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (facts)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt;</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If we now assert new facts (or, indeed, the same ones we asserted before), numbering will once again begin with f-0.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Another way of getting rid of a whole series of facts we have asserted but no longer want is to use the command (<B>reset</B>).  This removes existing facts from the fact-list, and asserts a "dummy" fact, which some CLIPS programmers find it useful to refer to in rule-conditions.</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (reset)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (facts)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; f-0    (initial-fact)</P>
+<P ALIGN="JUSTIFY">For a total of 1 fact.</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">As we will see later. (reset) has other effects beside these, and in particular can cause the assertion of additional facts.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The facts used so far have consisted of a single "field": a (named or unnamed) placeholder that may have a value associated with it.  Named placeholders are used only with the function <B>deftemplates</B>, which is not dealt with here.  The order of unnamed fields is significant, so (<B>duck quack</B>) and (<B>quack duck</B>) are different facts so far as CLIPS is concerned.  If we want to indicate that a field is empty, we use the special symbol <B>nil</B>, so (<B>duck nil</B>) is a two-field fact in which the second field has no value.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">All the fields seen so far are of the same <B>type</B>: the type <B>symbol</B>.  A symbol field, naturally, must be filled by a symbol.  A symbol starts with a printable ASCII character, followed optionally by more printable characters.  It is generally delimited by one or more spaces or parentheses.  You will avoid any difficulties by always beginning a symbol with a letter (lower-case or upper-case &#151; CLIPS is case-sensitive), and including only letters, numerals, hyphen and underline characters in them.  Other field types are <B>float, integer, string, external-address</B>, and <B>fact-address</B>, which we will deal with as and when they are needed.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The first field of a fact is often used to describe the relationship between the following fields, so (<B>mother Jane Sam</B>) might be used to express the fact that Jane is the mother of Sam.  Another common approach is for the first field to describe the remaining fields or fields, so (<B>animal-is duck</B>) might be used for "The animal is a duck", or (<B>man Sam John</B>) for "Sam and John are men".</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">6. Defining and Using Rules</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To accomplish useful work, an expert system must have rules as well as facts.  Since you've seen how facts are asserted and retracted, it's time to see how rules work.  A rule is similar to an IF THEN statement in a procedural language like Ada, C, or Pascal.  An IF THEN rule can be expressed in pseudocode as follows:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">IF certain conditions are true</P>
+<P ALIGN="JUSTIFY">THEN execute the following actions</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A translation of rules from natural language to CLIPS is not very difficult if you keep this IF THEN analogy in mind.  As your experience with CLIPS grows, you'll find that writing rules in CLIPS becomes easy.  You can wither type rules directly into CLIPS or load rules in from a file of rules created by a text editor.</P>
+<P ALIGN="JUSTIFY">The pseudocode for a rule about duck sounds might be:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P>IF the animal is a duck</P>
+<P>THEN the sound made is quack</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The following is a fact, and a rule named <I>duck</I> which is the pseudocode above expressed in CLIPS syntax.  The name of the rule follows immediately after the keyword <I>defrule</I>.  Although you can enter a rule on a single line, it's customary to put different parts on separate line to aid readability and editing.</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (clear)</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (assert (animal-is duck))</P>
+<P ALIGN="JUSTIFY">&lt;Fact-0&gt;</P>
+<P ALIGN="JUSTIFY">CLIPS&gt; (defrule duck "Here comes the quack"</P>
+<P ALIGN="JUSTIFY">  (animal-is duck)</P>
+<P ALIGN="JUSTIFY">=&gt;</P>
+<P ALIGN="JUSTIFY"> (assert(sound-is quack)))</P>
+<P ALIGN="JUSTIFY">CLIPS&gt;</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If you type in the rule correctly as shown, you should see the CLIPS prompt reappear.  Otherwise, you'll see an error message.  If you get an error message, it is likely they you misspelled a keyword or left out a parenthesis.  Remember, the number of left and right parentheses always must match in a statement.  "Here comes the quack" is a comment, which can optionally be added after the rule name, which in this case is duck.  Here is the general syntax of a rule:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">(defrule rule_name"optional_comment"</P>
+<P ALIGN="JUSTIFY">  (pattern_1)&#9;&#9;&#9;&#9;;Left-Hand Side (LHS)</P>
+<P ALIGN="JUSTIFY">  (pattern_2)&#9;&#9;&#9;&#9;;of the rule consisting of elements</P>
+<P ALIGN="JUSTIFY">&#9;&#9;.&#9;&#9;&#9;&#9;&#9;;before the "=&gt;"</P>
+<P ALIGN="JUSTIFY">&#9;&#9;.</P>
+<P ALIGN="JUSTIFY">&#9;&#9;.</P>
+<P ALIGN="JUSTIFY">  (pattern_N)</P>
+<P ALIGN="JUSTIFY">=&gt;</P>
+<P ALIGN="JUSTIFY">  (action_1)&#9;&#9;&#9;&#9;;Right-Hand Side (RHS)</P>
+<P ALIGN="JUSTIFY">  (action_2)&#9;&#9;&#9;&#9;;of the rule consisting of elements</P>
+<P ALIGN="JUSTIFY">&#9;.&#9;&#9;&#9;&#9;&#9;;after the "=&gt;"</P>
+<P ALIGN="JUSTIFY">&#9;&#9;.</P>
+<P ALIGN="JUSTIFY">  (action_M))&#9;&#9;&#9;&#9;;the last ")" balances the opening</P>
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;;"(" to the left of "defrule". Be</P>
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;;sure all your parentheses balance</P>
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;&#9;&#9;;or you will get error messages</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The entire rule must be surrounded by parentheses.  Each of the rule patterns and <B>actions</B> must be surrounded by parentheses.  An action is actually a function which typically has no <B>return value</B>, but performs some useful action, such as an (assert) or (retract).  For example, an action might be (assert (duck)).  Here the function name is "assert" and its argument is "duck".  Notice that we don't want any return value such as a number.  Instead, we want the fact (duck) to be asserted.  A <B>function</B> in CLIPS is a piece of executable code identified by a specific name, which returns a useful value or performs a useful side-effect, such as (printout).  A rule often has multiple patterns and actions.  The number of patterns and actions do not have to be equal.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">CLIPS attempts to match the patterns of rules against facts in the fact-list.  If all the patterns of a rule match facts, the rule is <B>activated</B> and put on the agenda.  The agenda is a collection of <B>activations</B> which are those rules which match pattern entities.  Zero or more activations may be on the agenda.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The symbol "=&gt;" that follows the patterns in a rule is called an <B>arrow</B>.  The arrow represents the beginning of the THEN part of an IF-THEN rule (and may be read as "implies").</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The last part of a rule is the list of zero or more actions that will be executed when the rule <B>fires</B>.  In our example, the one action is to assert the fact (sound-is quack).  The term <I>fires</I> means that CLIPS has selected a certain rule for execution from the agenda.  <I>A program will cease execution when no activations are on the agenda.</I>  When multiple activations are on the agenda, CLIPS automatically determines which activation is appropriate to fire.  CLIPS orders the activations on the agenda in terms of increasing priority or <B>salience</B>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The part of the rule before the arrow is called the left-hand side (<B>LHS</B>) and the part of the rule after the arrow is called the right-hand side (<B>RHS</B>).  If you enter a (<B>reset</B>) command, CLIPS memory is clear and the special fact (initial-fact) is always put into the fact-list with fact-identifier "f-0".  If not patterns are specified, the pattern (initial-fact) is used for the LHS.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">CLIPS always executes the actions on the RHS of the highest priority rule on the agenda.  This rule is then removed from the agenda and the actions of the new highest salience rule is executed.  This process continues until there are no more activations or a command to stop is encountered.  You can check what's on the agenda with the <B>agenda</B> command.  For example:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (agenda)</P>
+<P ALIGN="JUSTIFY">0    duck: f-0</P>
+<P ALIGN="JUSTIFY">For a total of 1 activation.</P>
+<P ALIGN="JUSTIFY">CLIPS&gt;</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The first number "0" is the salience of the "duck" activation, and "f-0" is the fact-identifier of the fact, (animal-is duck), which matches the activation.  If the salience of a rule is not declared explicitly, CLIPS assigns it the default value of zero, where the possible salience values range from &#151;10,000 to 10,000.  If there is only one rule on the agenda, that rule will fire.  Since the LHS pattern of the duck-sound rule is</P>
+
+<FONT FACE="Courier New" SIZE=3><P>(animal-is duck)</P>
+</FONT>
+<P ALIGN="JUSTIFY">this pattern will be satisfied by the fact (animal-is duck) and so the duck-sound rule should fire.</P>
+
+<P ALIGN="JUSTIFY">Each field of the pattern is said to be a <B>literal constraint</B>.  The term <B>literal</B> means having a constant value, as opposed to a <I>variable</I> whose value is expected to change.  In this case, the literals are "animal-is" and "duck".</P>
+
+<P ALIGN="JUSTIFY">To get a better idea what is happening, it will help to give the command (<B>watch rules</B>).  Then, to make a program run, just enter the <B>run</B> command,  Type (<B>run</B>) and press the carriage return key.  Then do a (facts) to check that the fact was asserted by the rule.</P>
+
+<FONT FACE="Courier New" SIZE=3><P>CLIPS&gt; (run)</P>
+<P>CLIPS&gt; (facts)</P>
+<P>f-0    (animal-is duck)</P>
+<P>f-1    (sound-is quack)</P>
+<P>For a total of 2 facts.</P>
+<P>CLIPS&gt;</P>
+</FONT>
+<P ALIGN="JUSTIFY">Before going on, save the duck rule with the <B>save</B> command so that you don't have to type it in again (if you haven't already saved it in an editor).  Just enter a command such as:</P>
+
+<FONT FACE="Courier New" SIZE=3><P>(save "duck.clp")</P>
+</FONT>
+<P ALIGN="JUSTIFY">to save the rule from CLIPS memory to disk and name the file "duck.clp" where the ".clp" is simply a convenient extension to remind us this is a CLIPS source code file.</P>
+
+<P ALIGN="JUSTIFY">If you look at the agenda again, you will see that no rules are on it, and if you give the (<B>run</B>) command again, the duck rule will not fire.  A rule is activated if its patterns are matched by either a brand new pattern entity that did not exist before or a pattern entity that did exist before but was retracted and reasserted.</P>
+
+<P>&nbsp;</P>
+<B><P>7. Some Useful Commands</P>
+</B>
+<P>The command <B>ppdefrule</B> prints a rule.  For example:</P>
+
+<FONT FACE="Courier New" SIZE=3><P>CLIPS&gt; (ppdefrule duck)</P>
+<P>(defrule MAIN::duck</P>
+<P>  (animal-is duck)</P>
+<P>  =&gt;</P>
+<P>  (assert(sound-is quack)))</P>
+<P>CLIPS&gt;</P>
+</FONT>
+<P ALIGN="JUSTIFY">The term <I>MAIN</I> refers to the MAIN  module that this rule is in by default.  You can define modules to put rules in analogous to the statements that may be put in different packages, modules, procedures, or function of other programming languages.  The use of modules make it easier to write expert systems having many rules since these may be grouped together with their own agenda for each module.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The <B>rules</B> command in response to a CLIPS prompt will print out the names of all the rules.  For example, enter:</P>
+<P ALIGN="JUSTIFY"></P>
+<FONT FACE="Courier New" SIZE=3><P ALIGN="JUSTIFY">CLIPS&gt; (rules)</P>
+<P ALIGN="JUSTIFY">Duck</P>
+<P ALIGN="JUSTIFY">For a total of 1 defrule.</P>
+<P ALIGN="JUSTIFY">CLIPS&gt;</P>
+</FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The <B>load</B> command loads in the rule that you had previously saved to disk in the file "duck.clp" or whatever name and directory that you had saved it under.  You can load a file of rules  made on a text editor into CLIPS using the load command.  A faster way to load files is to first save them in a machine readable binary format with the save binary command called <B>bsave</B>.  The load binary command, <B>bload</B>, can then be used to read these binary rules into CLIPS memory much faster since the files do not have to be re-interpreted by CLIPS.  Two other useful commands allow you to save and load facts using a file.  These are <B>save-facts</B> and <B>load-facts</B>.  The (save-facts) will save all the facts in the <I>facts-list to a file</I> while (load-facts) will load in the facts from a <I>file into the fact-list</I>.  The <B>batch</B> command allows you to execute commands from a file as if they were typed in at the top-level.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The PC and xclips versions of CLIPS provide alternatives to most of these commands using the file menu.  For example, if you click on that menu and then on the "Load batch" item in the menu, you will be invited to name a file.  The contents of the file named will then be loaded as if they had been entered in response to the CLIPS prompt.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">8. Further Exploration</P>
+</B><P ALIGN="JUSTIFY"></P>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Find out what happens if you type in a new rule called duck.</LI></P>
+<P ALIGN="JUSTIFY"><LI>Then try loading the file duck.clp that you saved earlier.</LI></P>
+<P ALIGN="JUSTIFY"><LI>Experiment with some of the commands on the File menu (but for the time being at least, do not attempt to use the "Dribble" command).</LI></P>
+<P ALIGN="JUSTIFY"><LI>Find out what <B>refresh</B> does (it is a command that needs to be followed by the name of a rule, for example (<B>refresh duck</B>).</LI></P></UL>
+</BODY>
+</HTML>

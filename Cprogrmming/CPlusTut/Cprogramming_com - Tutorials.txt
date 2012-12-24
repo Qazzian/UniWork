@@ -1,0 +1,199 @@
+Cprogramming.com - Tutorials 
+
+            Home 
+
+
+            Tutorials 
+            Source 
+            Books 
+            Links 
+            Quiz 
+
+
+            Borland 
+            DJGPP 
+            Other 
+
+
+            C board 
+            Email 
+
+
+
+       
+            Lesson 1: The basics of C++
+            I am writing this for those people who want to learn how to program 
+            in
+            C++, especially those who had trouble. It is for those of you who 
+            want a sense of accomplishment every time your program works 
+            perfectly. If you want the sense of accomplishment, read on.
+
+            C++ is a programming language. It is a programming language of many
+            different dialects, just like each language that is spoken has many 
+            dialects. In C though, they are not because the "speakers" live in 
+            the North, South, or grew up in some other place, it is because 
+            there are so many compilers. There are about four major ones: 
+            Borland C++, Microsoft Visual C++, Watcom C/386, and DJGPP. You can 
+            download DJGPP http://www.delorie.com/djgpp/ or you may already have 
+            another compiler. 
+
+            Each of these compilers is a little different. The library functions 
+            of one will have all of the standard C++ functions, but they will 
+            also have other functions or, continuing the analogy, words. At 
+            times, this can lead to confusion, as certain programs will only run 
+            under certain compilers, though I do not believe this to be the case 
+            with the programs in these tutorials.
+
+            If you don't have a compiler, I strongly suggest you get one. A 
+            simple one is good enough for my tutorials, but get one. 
+
+            C++ is a different breed of programming language. It has only a few 
+            keywords for DOS, and it has no keywords to use for output. This 
+            means that almost everything is stored in a header file. This gives 
+            the use of many functions. But lets see a real program...
+
+
+#include <iostream.h>
+int main()
+{
+  cout<<"HEY, you, I'm alive!  Oh, and Hello World!";
+  return 0;    
+}
+            That does not look too hard, right? Lets break down the program and 
+            then look at it. The #include is a preprocessor directive which 
+            tells the compiler to put code in the header file iostream.h into 
+            our program! By including header files, you an gain access to many 
+            different functions. For example, the cout function requires 
+            iostream.h.
+
+
+            The next thing is int main() what this is saying is that there is a 
+            function called main, and that it returns an integer, hence int. 
+            Then those little braces ( { and } ) are used to signal the 
+            beginning and ending of functions, as well as other code blocks. If 
+            you have programmed in Pascal, you will know them as BEGIN and END. 
+
+            The next line of the program may seem strange. If you have 
+            programmed in other languages you might think that print would be 
+            used to display text. However, in C++ the cout function is used to 
+            display text. It uses the <;<; symbols, known as insertion 
+            operators. The quotes tell the compiler that you want to output the 
+            literal string as-is. The ; is added to the end of all function 
+            calls in C++.
+
+            The penultimate line of code is ordering main to return 0. When one 
+            returns a value to main, it is passed on to the operating system. As 
+            a note, declaring int main() or void main() both will generally 
+            work. It is accepted practice to some to declare main as a void, but 
+            to others it is 
+            extremely upsetting. Previously, these tutorials had used void main, 
+            however, this is NO LONGER recommended, as it does not conform to 
+            the ANSI standard.
+
+            After, the brace closes off the function. You can try out this 
+            program if you want, just cut and paste it into the IDE of a 
+            compiler such as DJGPP, or save it to a file ending with a .cpp 
+            extension, and use a command-line compiler to compile and link it.
+
+            Comments are extremely important to understand. When you declare 
+            that an area is a comment, the compiler will IGNORE it. To comment 
+            it is possible to use either // , which declares that the entire 
+            line past that point is a comment, or it is possible to use /* and 
+            then */ to block off everything between the two as a comment. 
+            Certain compilers will change the color of a commented area, but 
+            some will not. Be certain not to accidentally declare part of your 
+            code a comment. Note that this is what is known as "commenting-out" 
+            a section of code, and it is useful when you are debugging. 
+
+            So far you should be able to write a simple program to display 
+            information typed in by you, the programmer. However, it is also 
+            possible for your program to accept input. the function you use is 
+            known as cin>>. 
+
+            Wait! Before you can receive input you must have a place to store 
+            input! In programming, these locations where input and other forms 
+            of data are stored, are called variables. There are a few different 
+            types of variables, which must be stated. The basic types are char, 
+            int, and float.
+
+            Char is used to create variables that store characters, int is used 
+            to create variables that store integers (numbers such as 1, 2, 0, 
+            -3, 44, -44), and float is used to declare numbers with decimal 
+            places. In fact, they are all keywords that are used in front of 
+            variable names to tell the compiler that you have created a 
+            variable. That is known as "declaring a variable". When you declare 
+            a variable, or variables, you must end the line with a semi-colon, 
+            the same as if you were to call a function. If you do not declare 
+            the variable you are attempting to use, you will receive numerous 
+            error messages and the program will not run.
+
+            Here are some examples of declaring variables:
+
+            int x;
+            int a, b, c, d;
+            char letter;
+            float the_float;
+
+            It is not possible, however, to declare two variables of different 
+            types with the same name.
+
+
+#include <iostream.h>
+int main()
+{
+  int thisisanumber;
+  cout<<"Please enter a number:";
+  cin>>thisisanumber;
+  cout<<"You entered: "<<thisisanumber;
+  return 0;
+}
+            Let's break apart this program and examine it line by line. Int is 
+            the keyword that is used when declaring a variable which is an 
+            integer. The cin>> sets the value of thisisanumber to be whatever 
+            the user types into the program when prompted. Keep in mind that the 
+            variable was declared an integer, which means the output will be in 
+            the form of an integer. Try typing in a sequence of characters, or a 
+            decimal when you run the example program to see what you get as a 
+            response. Notice that when printing out a variable, there are not 
+            any quotation marks. If there were quotation marks, the output would 
+            be "You Entered: thisisanumber." Do not be confused by the inclusion 
+            of two separate insertion operators on a line. It is allowable, as 
+            long as you make certain to have each separate output of variable or 
+            string with its own insertion operator. Do not try to put two 
+            variables together with only one <;<; because it will give you an 
+            error message. Do not forget to end functions and declarations with 
+            the semi-colon(;). Otherwise you will get an error message when you 
+            try to compile the program. 
+
+            Now that you know a little bit about variables, here are some ways 
+            to manipulate them. *, -, +, /, =, ==, >, <; are all operators used 
+            on numbers, these are the simple ones. The * multiplies, the - 
+            subtracts, and the + adds. Of course, the most important for 
+            changing variables
+            is the equal sign. In some languages, = checks if one side is equal 
+            to the other side, but in C++ == is used for that task. However, the 
+            equal sign is still extremely useful. It sets the left side of the 
+            equal sign, which must be one AND ONLY one variable, equal to the 
+            right side. The right side of the equal sign is where the other 
+            operators can be used. 
+
+            Here are a few examples:
+
+a=4*6;  //(Note use of comments and of semi-colon) a is 24
+a=a+5;  // a equals the original value of a with five additional units
+a==5    //Does NOT assign five to a.  Rather, it checks to see if a equals 5.
+
+            The other form of equal, ==, is not a way to assign a value to a 
+            variable. Rather, it checks to see if the variables are equal. It is 
+            useful in other areas of C++ such as if statements and loops. 
+
+            You can probably guess what the <; and > are for. They are greater 
+            than and less than checks. 
+            For example: 
+a<5       //Checks to see if a is less than five
+a>5	  //Checks to see if a is greater than five
+a==5      //Checks to see if a equals five, for good measure
+
+
+
+ 

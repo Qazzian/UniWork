@@ -1,0 +1,26 @@
+<article id="overview">
+  <artheader><title>Overview</title>
+    <releaseinfo>Version: $Revision: 1.2 $</releaseinfo>
+    <date>$Date: 2000/02/28 12:06:08 $</date>
+  </artheader>
+  <simpara><ulink url="../Lectures/overview.ppt">Lecture slides</ulink> are
+  available.</simpara>
+  <simpara>The &quot;Whole Picture&quot; exercise is available on-line
+  as an <ulink url="../Word/WholePicture.rtf">rtf</ulink> and <ulink
+  url="../Word/WholePicture.pdf">pdf</ulink> document.</simpara>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:("course.sgml" "book" "article")
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

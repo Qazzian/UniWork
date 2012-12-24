@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>SettingUp</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Web Pages\Web Page Wizard.wiz">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffff99">
+
+<B><FONT FACE="Garamond" SIZE=7><P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">Setting up your machine</P>
+</FONT><FONT FACE="Garamond"><P>&nbsp;</P>
+</B></FONT><P>(In all cases aber/util directory structure should be copied from /dcs/mbr/JavaNotes)</P>
+<P>&nbsp;</P>
+<B><I><P>In UNIX, you need to add the <FONT FACE="Arial">following to your .bashrc file:</P><DIR>
+<DIR>
+
+</B></I></FONT><CODE><P>CLASSPATH=".:/usr/local/lib/java_library:/usr/local/lang/java/lib"&#9;</P>
+<P>export CLASSPATH</P>
+</CODE><B><P>&nbsp;</P>
+</B><I><P>The above assumes that <B>/usr/local/lib/java_library</B> contains <B>aber/util </P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>In Windows’95<FONT FACE="Arial">, you need to do the following:</P>
+
+<UL>
+</B></I></FONT><LI>Create a file, <B>C:\jdk1.1.6\rc.bat</B> containing the following:</LI></UL>
+<DIR>
+<DIR>
+
+<CODE><P>@echo off</P>
+<P>set PATH=C:\jdk1.1.6\bin;%PATH%</P>
+<P>set JAVA_COMPILER=symcjit</P>
+<P>set CLASSPATH=.;C:\jdk1.1.6;C:\jdk1.1.6\lib\classes.zip;</P>
+<P>doskey</P>
+</CODE><I><P>The above assumes that you have copied the directory <B>aber/util</B> into <B>C:\jdk1.1.6</P>
+</B></I><P>&nbsp;</P></DIR>
+</DIR>
+
+
+<UL>
+<LI>Now create a shortcut to the <B>DOS prompt</B> icon on the desktop</LI></UL>
+<DIR>
+<DIR>
+
+<P>Click the right button over the icon, open <B>Properties</B> and select <B>Program</P>
+</B><P>Give it a name, for example, "<B>Java Development"</P>
+</B><P>Set <B>Working</B> to <B>C:\CSM1020</B> (or something similar for you to keep your java files)</P>
+<P>Set <B>Batch file</B> to <B>C:\jdk1.1.6\rc.bat</P>
+</B><P>Set <B>Run </B>to <B>Normal Window</P>
+</B><P>Select an appropriate icon</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<B><I><FONT FACE="Arial"><P>In Windows NT</P>
+
+<UL>
+</B></I></FONT><LI>Start the Control Panel, select System, then edit the environment variables <I>exactly</I> as shown:</LI></UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<CODE><P>Variable:&#9;Path</P>
+<P>Value: &#9;&#9;C:\jdk1.1.6\bin;%Path%</P>
+<P>Variable:&#9;CLASSPATH</P>
+<P>Value:&#9;&#9;.;C:\jdk1.1.6;C:\jdk1.1.6\lib\classes.zip;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+</CODE><LI>Create a shortcut to the <B>DOS prompt</B> icon on the desktop</LI></UL>
+<DIR>
+<DIR>
+
+<P>Edit <B>Properties </B>by clicking right mouse button while cursor is located over icon</P>
+<P>Under <B>Shortcut</B>, edit <B>Start in</B> to specify the location of your working directory (<I>i.e.</I> where you store your java files). Select <B>Apply.</P>
+</B><P>Under <B>Layout</B>, change height to, say, 80 in order to give you a scroll bar. Select <B>Apply.</P>
+</B><P>The above assumes that you have the directory <B>aber/util</B> in C:\jdk1.1.6</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<B><I><FONT FACE="Arial"><P>And now back to writing and compiling the Java programs</P>
+
+<UL>
+</B></I></FONT><LI>Edit a file using <I>gvim</I> making the name of the file the same as the class but with the <I>.java</I> extension.</LI></UL>
+<DIR>
+
+<FONT FACE="Garamond"><P>Example</P><DIR>
+
+</FONT><P>If you are entering the class <I>Radio</I> then call this file <I>Radio.java</P></DIR>
+</DIR>
+
+
+<UL>
+</I><LI>Compile this code using the java compiler <I>e.g</I>.: <I>javac Radio.java</LI></UL>
+<DIR>
+<DIR>
+<DIR>
+
+<P>(Note the use of the upper case R - even if windows ignores it, still use it!)</P></DIR>
+</DIR>
+
+</I><P>This generates <B>bytecodes</B> that are machine instructions for the java virtual machine. This can run on a variety of different platforms.</P></DIR>
+
+
+<UL>
+<LI>Now enter the RadioDemo class into another file <I>RadioDemo.java </LI>
+</I><LI>Compile this code using the java compiler: <I>javac RadioDemo.java </LI>
+</I><LI>Run the program using the java interpreter: <I>java RadioDemo</LI></UL>
+<DIR>
+
+</I><P>The interpreter inspects and deciphers the bytecodes to ensure that it hasn’t been tampered with. It then loads any required classes and executes the actions that they specify.</P>
+<FONT FACE="Garamond"><P ALIGN="CENTER">&nbsp;</P></DIR>
+
+</FONT><P ALIGN="CENTER"><IMG SRC="Image4.gif" WIDTH=536 HEIGHT=5><FONT FACE="Garamond">&nbsp;</P></FONT></BODY>
+</HTML>

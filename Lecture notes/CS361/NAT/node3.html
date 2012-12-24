@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 3: BACON and other programs</TITLE>
+<META NAME="description" CONTENT="Lecture 3: BACON and other programs">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html41"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html39"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html33"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html42"
+ HREF="node4.html">Lecture 4: Hofstadter's FARG</A>
+<B> Up:</B> <A NAME="tex2html40"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html34"
+ HREF="node2.html">Lecture 2: GOFAI and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00030000000000000000">
+Lecture 3: BACON and other programs</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 3:</BIG>
+<P><BIG>Scientific Discovery --</BIG>
+<P><BIG>BACON and other Programs</BIG>
+
+<P>
+<BIG>Simon's Claims</BIG>
+<UL>
+<LI> Scientific discovery can be explained in terms of <EM>
+general</EM> features of human thinking or problem-solving, which Simon
+considers are quite well understood.
+<LI> ``Computer programs exist today that, given the
+same initial conditions that confronted certain human scientists,
+remake the discoveries the scientists made.''
+<LI> At least one program (DENDRAL) has made original scientific
+discoveries. There is no reason why others should not do the same.
+</UL>
+
+<P>
+<BIG>Simon On Scientific Discovery</BIG>
+<UL>
+<LI> Simon believes working scientists spend more time on <EM>scientific
+discovery</EM> (looking
+for regularities in data and trying to find <EM>some</EM> theory
+explaining them), than in testing or comparing theories.
+<LI> He sees scientific discovery as fundamentally the same as other
+forms of problem-solving, involving no ``special mechanisms'' of
+insight or inspiration.
+<LI> His approach to understanding the process of scientific research involves
+breaking it down into subprocesses, making AI models of the parts,
+then integrating these models.
+</UL>
+
+<P>
+<BIG>Simon's On Problem Solving</BIG>
+<UL>
+<LI> Most problem solving involves selective search through large
+spaces of possibilities.
+<LI> Both domain-specific and general heuristics are used: human
+beings fall back on general heuristics
+(``weak methods'') when domain-specific ones are
+unavailable or fail.
+<LI> The most important heuristic is <EM>means-end
+analysis</EM>. Effectiveness depends on ability to <EM>recognise</EM>
+features of
+current state, and recall relevant operators for
+reducing the difference between it and the goal state.
+<LI> The domain-specific (recognition and recall) knowledge
+distinguishing experts from novices is stored in the form of <EM>
+productions</EM> (condition-action rules).
+</UL>
+
+<P>
+<BIG>Search Spaces</BIG>
+<UL>
+<LI> A <EM>search space</EM> includes:
+<UL>
+<LI> A set of <EM>nodes</EM> or <EM>states</EM>, including an <EM>initial
+node</EM>, and one or more <EM>goal nodes</EM>.
+<LI> A set of <EM>operators</EM>, used in order to move from the current node
+to a neighbouring one.
+</UL>
+<LI> The <EM>search</EM> may be:
+<UL>
+<LI> <EM>Exhaustive</EM>: all nodes are examined, using procedures like
+<EM>depth-first</EM> or <EM>breadth-first</EM> search.
+<LI> <EM>Heuristic</EM>: guided by some way of estimating which node
+should be ``expanded'' next, and/or which operator should be used.
+</UL></UL>
+
+<P>
+<BIG>How Productions Guide Search</BIG>
+<UL>
+<LI> A production <EM>fires</EM> when its <EM>condition</EM> is matched by
+contents of short-term memory and/or features of current environment.
+<LI> Its <EM>action</EM> is then to alter the contents of short-term
+memory.
+<LI> An important way of doing this is to <EM>recall</EM> information
+from long-term memory.
+<LI> This information can then be used in <EM>guiding</EM> a search process.
+</UL>
+
+<P>
+<BIG>Well-Structured Problems</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Effective test of proposed solutions.
+<DT>2.
+<DD>At least one problem-space where all ``considerable'' states can
+be represented. 
+<DT>3.
+<DD>At least one problem-space where all ``considerable''<EM>moves</EM>
+can be represented.
+<DT>4.
+<DD>Any relevant knowledge that can be acquired can be represented
+in terms of one or more problem-spaces.
+<DT>5.
+<DD>If action on the external world is involved, effects of actions
+are accurately known.
+<DT>6.
+<DD>Only ``reasonable''
+amounts of computation are required.
+</DL>
+
+<P>
+<BIG>Alternatives To Simple Search</BIG>
+<P>
+Applicability of search to ``ill-structured'' real-world problems
+can be challenged. Simon suggests various extensions/modifications including:
+<UL>
+<LI> Planning: try to find some <EM>intermediate</EM> nodes on the way
+from the initial node to a goal node.
+<LI> Create a less abstract version of the problem and use that
+to guide search (e.g., using a diagram to guide a search for a
+geometric proof).
+<LI> Put information gathered at one node onto a ``blackboard'' so it
+can be used elsewhere. Taking this as far as possible produces a <EM>
+constraint-based</EM> approach, where nodes are states of <EM>
+knowledge</EM> rather than of the world. 
+</UL>
+
+<P>
+<BIG>Well-Structured/Ill-Structured</BIG>
+<P>
+Simon also argues that the distinction between well-structured and
+ill-structured problems is one of degree, not qualitative.
+<UL>
+<LI> Apparently well-structured problems (e.g. chess), do not meet
+the conditions given: we <EM>can't</EM>
+normally be sure a proposed move wins (too much computation), and we
+<EM>can't</EM> be sure what the consequences of a move will be (what the
+opponent will do). The space to be searched is different every move.
+<LI> Conversely, a problem like designing a house or ship looks
+ill-structured, but is <EM>decomposed</EM> into a series of more-or-less
+well-structured problems.
+</UL>
+
+<P>
+<BIG>BACON</BIG>
+<UL>
+<LI> BACON is given data involving one or more ``independent
+variables'' and one ``dependent variable'' (e.g. temperature, quantity
+of gas, pressure as i.v.s, volume as d.v.).
+<LI> ``Searches'' in 2 ``spaces'': space of data and space of laws:
+``the system's search for laws is <EM>embedded</EM> within its 
+search for data.''.
+<LI> The ``search'' in the ``space of data'', however, is trivial:
+the values the i.v.s can take are given by the user, and all
+nodes are visited in a fixed order.
+<LI> User provides ``information about the <EM>form</EM> that plausible
+laws may take.''
+</UL>
+
+<P>
+<BIG>BACON: Searching For Laws</BIG>
+<DL COMPACT>
+<DT>1.
+<DD>Keeping all i.v.s but one fixed, BACON searches for a ``set of
+parameters'' relating values of the the last i.v. to those of the
+d.v.. ``Best'' set is the one that ``maximally predicts'' the
+observed data. 
+<DT>2.
+<DD>Search results in a ``law'', stored for future use if there
+ismore than 1 i.v.
+<DT>3.
+<DD>Steps (1) and (2) repeated for each possible value of another
+i.v. The first-level ``laws'' are then used to search for
+a second-level law, relating <EM>two</EM> i.v.s to the d.v.
+<DT>4.
+<DD>This process is continued through as many levels as there are
+i.v.s.
+<DT>5.
+<DD>BACON can also handle non-numerical i.v.s (e.g. different substances).
+</DL>
+
+<P>
+<BIG>GLAUBER</BIG>
+<P>
+Aimed at discovering <EM>qualitative</EM> rather than <EM>
+quantitative</EM> relations: simulating discovery of <EM>classes</EM> of chemical
+substances such as acids, alkalis and salts. Viewed as a search program:
+<UL>
+<LI> Initial state: ``facts'' about particular chemicals. Goal state:
+definitions of ``classes'' of these chemicals, with ``laws'' relating them.
+<LI> Operators: <B>Form-law</B> -- defines a class and substitutes it
+into ``facts''; <B>Determine-quantifier</B> -- specifies whether the
+law applies to all members of the class(es) concerned, or just to
+some.
+<LI> ``Best-first'' search with no backtracking. <B>Form-law</B>
+selects object occurring in the most ``analogous facts''; user
+determines how ``cautious'' <B>Determine-quantifier</B> is.
+</UL>
+
+<P>
+<BIG>STAHL</BIG>
+<P>
+Aimed at determining the components of substances. Viewed as a search program:
+<UL>
+<LI> Initial state: list of reactions relating substances. Goal
+state: components of each compound substance.
+<LI> Example operators+heuristics:
+<UL>
+<LI> <B>Infer-composition</B>. If A and B react to form C, or if C
+decomposes into A and B, then infer that C is composed of A and B.
+<LI> <B>Identify-compounds</B>. If A is composed of C and D, and B is
+composed of C and D, then identify A with B.
+</UL>
+<LI> Depth-first search without backtracking.
+</UL>
+
+<P>
+<BIG>DALTON</BIG>
+<P>``Follows on'' from STAHL (accpets as input the type of information
+output by STAHL). Viewed as a search program:
+<UL>
+<LI> Initial state: list of reactions, and components of substances
+involved. Goal state: Model of each reaction, specifying 
+number of molecules of each substance, number of ``particles'' (atoms)
+in each type of molecule.
+<LI> Operators: <B>Determine-molecules</B> hypothesizes number of
+molecules of a particular type involved. <B>Determine-atoms</B>
+hypothesizes number of atoms of a particular type in a particular
+molecule. <B>Conserve-particles</B> ensures number of atoms of each
+type is unchanged by the reaction.
+</UL>
+
+<P>
+<BIG>Towards An Integrated</BIG>
+<BIG>Discovery System?</BIG>
+<P>``To the extent that it can be achieved, an integrated discovery
+system would be much less susceptible to the criticism that one is
+`building in discoveries' by providing the necessary inputs.''
+
+<P>
+<BIG>Hofstadter's Critique</BIG>
+<UL>
+<LI> Hofstadter takes BACON as exemplifying
+serious flaws in most GOFAI research, which bypasses problems
+such as the integration of perception and cognition, and the ability to
+shift flexibly between representations of a situation.
+<LI> Claims BACON and Simon's other programs are fed data they
+need ``predigested'', unlike scientists being ``simulated''.
+<LI> Qin and Simon found university students, starting with the same
+data as BACON, often made the same ``discoveries''  within an
+hour. This shows BACON has little 
+relation to real scientific discovery!
+<LI> Easy to be fooled into thinking an AI program
+understands more than it does.
+</UL>
+
+<P><BIG>Comparison: DENDRAL</BIG>
+<UL>
+<LI> Developed by E. Feigenbaum and others from 1965, first publication 1971.
+<LI> Domain: enumerating structures of organic molecules, given data
+from spectrometers, plus user-supplied constraints.
+<LI> Switch to (situation-action) rule-based approach 1967. Rule has
+to capture a meaningful chunk of knowledge.
+<LI> Better than human experts within certain narrow classes of molecules,
+but much less flexible. 
+Regularly used by Stanford University chemists.
+</UL>
+
+<P><BIG>DENDRAL's Approach</BIG>
+<UL>
+<LI> Generate all topologically
+possible
+structures (using a subprogram called CONGEN)...
+<LI> <EM>within</EM> constraints set by the user or a built-in planning
+process which favours the most plausible structures.
+<LI> Then test the proposed structures
+by predicting the instrument data.
+</UL>
+
+<P><BIG>META-DENDRAL</BIG>
+<P>
+META-DENDRAL inferred rules of mass spectrometry, for possible use by
+DENDRAL.
+<UL>
+<LI> Input: spectrometer data from known molecules.
+<LI> Output: set of fragmentation rules discovered, plus summary of
+evidence for and against each rule.
+<LI> Produced rule-sets of comparable quality to those produced by
+consultation with experts.
+</UL>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html41"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html39"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html33"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html42"
+ HREF="node4.html">Lecture 4: Hofstadter's FARG</A>
+<B> Up:</B> <A NAME="tex2html40"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html34"
+ HREF="node2.html">Lecture 2: GOFAI and</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

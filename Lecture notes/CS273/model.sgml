@@ -1,0 +1,34 @@
+<article>
+  <artheader><title>The Relational Model</title>
+    <releaseinfo>Version: $Revision: 1.2 $</releaseinfo>
+    <date>$Date: 2000/02/14 13:51:37 $</date>
+  </artheader>
+  <simpara><ulink url="../Lectures/model.ppt">Lecture slides</ulink> are
+  available.</simpara>
+  <simpara>The referential integrity exercise is available as <ulink
+url="../Exercises/Referential-Integrity/referential-integrity.rtf">rtf</ulink>
+and <ulink
+url="../Exercises/Referential-Integrity/referential-integrity.pdf">pdf</ulink>.
+Please run through this in your own time, before Friday
+18<superscript>th</superscript> February</simpara>
+  <simpara>All the tables and queries to illustrate the various
+product and join operations covered in the lecture are available in a
+MS <ulink url="../Exercises/Joins/joins.mdb">Access 2000</ulink>
+database. Use this to experiment and explore the operators if you want
+to strengthen your understanding of them.</simpara>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:("course.sgml" "book" "article")
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

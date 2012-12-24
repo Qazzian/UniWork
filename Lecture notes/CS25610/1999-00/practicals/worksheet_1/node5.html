@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Message Formats</TITLE>
+<META NAME="description" CONTENT="Message Formats">
+<META NAME="keywords" CONTENT="worksheet_1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="worksheet_1.css">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html61"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html59"
+ HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html55"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html62"
+ HREF="node6.html">The Client Program</A>
+<B> Up:</B> <A NAME="tex2html60"
+ HREF="node3.html">The PoemService Protocol</A>
+<B> Previous:</B> <A NAME="tex2html56"
+ HREF="node4.html">Client connection and disconnection</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H2><A NAME="SECTION00032000000000000000">
+Message Formats</A>
+</H2>
+<P>
+All the messages which a client can legally
+send to the server consist of three components
+which must be separated by white space.
+<P>
+Currently, the server supports just three commands as follows
+<UL>
+<LI> GET POEM NUMBER
+<LI>
+GET POEM TITLES
+<LI>
+GET POEM n
+</UL>
+<P>
+The first message will return some text of
+the form
+<PRE>
+There are 9 poems available
+</PRE>
+<P>
+The second message will return the titles of the available
+poems.
+<P>
+The third message will return the title and the text
+of the poem whose number is supplied in place of ``n&quot;.
+<P>
+Poems are numbered from 0 up to some number one less
+than the value returned in the first message.
+<P>
+<BR><HR>
+<ADDRESS>
+<I>DAVID  PRICE</I>
+<BR><I>3/3/2000</I>
+</ADDRESS>
+</BODY>
+</HTML>

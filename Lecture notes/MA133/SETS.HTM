@@ -1,0 +1,813 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.aber.ac.uk/~matacc2/ma13310/sets/sets.html -->
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>sets</TITLE>
+<META content=sets name=description>
+<META content=sets name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR>
+<META content=text/css http-equiv=Content-Style-Type><LINK 
+href="sets_files/sets.css" rel=STYLESHEET></HEAD>
+<BODY>
+<P><FONT size=+2></FONT>
+<P><FONT size=+2></FONT>
+<DIV align=center><FONT size=+2><B>Mathematical Techniques for Computer Science 
+<BR><BR><BR><BR><BR><BR>MA13310 <BR><BR><BR><BR><BR><BR>Semester 2 
+<BR><BR><BR><BR><BR><BR>Dr T.N. Phillips <BR><BR><BR>Room 413 
+<BR><BR><BR>Department of Mathematics </B></FONT></DIV>
+<P><FONT size=+2></FONT>
+<DIV align=center><FONT size=+2><B>Aim</B> </FONT></DIV>
+<P><FONT size=+2>To provide the mathematical prerequisites for modules in the 
+first two years of the honours degree courses in Computer Science and Software 
+Engineering. </FONT>
+<P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><B>Lecture</B> 
+<BR><BR></FONT></FONT></DIV>
+<P>
+<DIV align=center><FONT size=+2><FONT size=+1>Friday 13.10 Physics Main Lecture 
+Theatre <BR><BR><BR></FONT></FONT></DIV>
+<P>
+<DIV align=center><FONT size=+2><FONT size=+1><B>Workshops</B> 
+<BR><BR></FONT></FONT></DIV>
+<P>
+<DIV align=center><FONT size=+2><FONT size=+1>Monday 13.10 Room 320 <BR>Tuesday 
+12.10 Room 320 <BR><BR></FONT></FONT></DIV>
+<P>
+<DIV align=center><FONT size=+2><FONT size=+1><B>Books</B> 
+</FONT></FONT></DIV><FONT size=+2></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><B>Strongly Recommended</B> 
+<BR><BR>Discrete and Combinatorial Mathematics, R. P. Grimaldi. <BR><BR><B>Other 
+Reading</B> <BR><BR>Discrete Mathematics for Computer Scientists. J. K. Truss. 
+<BR><BR></FONT></FONT></DIV><FONT size=+2></FONT>
+<P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT size=+1><B>Sets and 
+Relations</B> </FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Basic Notation and 
+Definitions</B> </FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 1</B> &nbsp; A <B>set</B> is any well-defined class of 
+objects. An <B>element</B> or <B>member</B> of a set is anything that belongs to 
+the set.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Notation</B> 
+</FONT></FONT></FONT></DIV><FONT size=+2><FONT size=+1><FONT size=+1>We usually 
+denote sets by upper-case letters. It is sometimes convenient to represent a set 
+by enclosing its members in braces (curly brackets). If <IMG align=bottom 
+alt=$S$ border=0 height=19 src="sets_files/img1.gif" width=17> is a set and <IMG 
+align=bottom alt=$a$ border=0 height=18 src="sets_files/img2.gif" width=15> is 
+an element in <IMG align=bottom alt=$S$ border=0 height=19 
+src="sets_files/img1.gif" width=17> then we write </FONT></FONT></FONT><BR>
+<P></P>
+<DIV 
+align=center><!-- MATH
+ \begin{displaymath}
+a \in S.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}a \in S.\end{displaymath}" border=0 height=27 
+src="sets_files/img3.gif" width=38> </DIV><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 1</B> &nbsp; List the elements in the following sets: 
+<OL>
+  <LI>coins in current use in the UK. 
+  <LI>even numbers lying between 1 and 13. 
+  <LI>Premier League football teams in London. </LI></OL></DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>There is no disputing the elements 
+in these three sets and so they are well-defined. However, if we were asked to 
+define the set of the `best five towns in the UK' or the `best three football 
+teams' we would not be able to agree on the elements of these sets. Therefore 
+these are not well-defined classes of objects and cannot be called sets. 
+</FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 2</B> &nbsp; List the elements in the following sets: 
+<OL>
+  <LI>the prime numbers less than 20, 
+  <LI>even numbers less than 15, 
+  <LI>multiples of 4 less than 15. </LI></OL></DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>If a set is not too large then it 
+can be explicitly listed. For example, the set <IMG align=bottom alt=$S$ 
+border=0 height=19 src="sets_files/img1.gif" width=17> containing the numbers 3, 
+6, and 9 is denoted by </FONT></FONT></FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+S=\{3,6,9\}.
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}S=\{3,6,9\}.\end{displaymath} border=0 height=30 
+src="sets_files/img4.gif" width=83> </DIV><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1><FONT size=+1>However, when there are too 
+many members of a set to list them all we may use a defining property. For 
+example, the set <IMG align=bottom alt=$P$ border=0 height=19 
+src="sets_files/img5.gif" width=19> of all prime numbers may be expressed using 
+set notation as </FONT></FONT></FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+P=\{n: n \mbox{ is a prime}\}.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}P=\{n: n \mbox{ is a prime}\}.\end{displaymath}" 
+border=0 height=30 src="sets_files/img6.gif" width=149> </DIV><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 2</B> &nbsp; If <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19> are two sets then the <B>union</B> 
+of <IMG align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" 
+width=18> and <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19> is the set consisting of all the elements 
+which belong to <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18>, or to <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19>, or to both <IMG align=bottom 
+alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> and <IMG 
+align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19>. 
+This set is denoted by <IMG align=bottom alt="$A \cup B$" border=0 height=19 
+src="sets_files/img9.gif" width=47>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 3</B> &nbsp; If <IMG align=middle alt=$A=\{1,3,5,7\}$ border=0 
+height=34 src="sets_files/img10.gif" width=103> and <IMG align=middle 
+alt=$B=\{2,4,5\}$ border=0 height=34 src="sets_files/img11.gif" width=90> then <!-- MATH
+ $A \cup B =\{1,2,3,4,5,7\}$
+ --><IMG align=middle 
+alt="$A \cup B =\{1,2,3,4,5,7\}$" border=0 height=34 src="sets_files/img12.gif" 
+width=160>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Note 1</B> &nbsp; It is important to note that an element can `count' in 
+a set only once. Also the order in which the elements are listed is immaterial. 
+Thus, for instance, <IMG align=middle alt=$\{2,4\}$ border=0 height=34 
+src="sets_files/img13.gif" width=44>, <IMG align=middle alt=$\{2,4,2\}$ border=0 
+height=34 src="sets_files/img14.gif" width=58> and <IMG align=middle 
+alt=$\{4,2\}$ border=0 height=34 src="sets_files/img15.gif" width=44> are all 
+the same set.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 3</B> &nbsp; Two sets <IMG align=bottom alt=$A$ border=0 
+height=19 src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ 
+border=0 height=19 src="sets_files/img8.gif" width=19> are said to be equal if 
+they contain precisely the same elements, i.e., if each element of <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is 
+an element of <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19> and conversely each element of <IMG 
+align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19> is 
+an element of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18>. In this case we write <IMG align=bottom 
+alt=$A=B$ border=0 height=19 src="sets_files/img16.gif" width=50>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 4</B> &nbsp; If <IMG align=middle alt=$A=\{1,3,5\}$ border=0 
+height=34 src="sets_files/img17.gif" width=89> and <IMG align=middle 
+alt=$B=\{5,1,3\}$ border=0 height=34 src="sets_files/img18.gif" width=90> then 
+<IMG align=bottom alt=$A=B$ border=0 height=19 src="sets_files/img16.gif" 
+width=50>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 4</B> &nbsp; If <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19> are two sets then the 
+<B>intersection</B> of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19> is the set consisting of all the 
+elements which belong to both <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19>. This set is denoted by <IMG 
+align=bottom alt="$A \cap B$" border=0 height=19 src="sets_files/img19.gif" 
+width=47>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 5</B> &nbsp; If <IMG align=middle alt=$A=\{1,3,5,7\}$ border=0 
+height=34 src="sets_files/img10.gif" width=103> and <IMG align=middle 
+alt=$B=\{2,4,5\}$ border=0 height=34 src="sets_files/img11.gif" width=90> then <!-- MATH
+ $A \cap B =\{5\}$
+ --><IMG align=middle alt="$A \cap B =\{5\}$" 
+border=0 height=34 src="sets_files/img20.gif" width=89>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 6</B> &nbsp; If <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> is the set of all positive numbers less than 
+8 and <IMG align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" 
+width=19> is the set of all primes less than 10, write down the elements of <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18>, 
+<IMG align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" 
+width=19>, <IMG align=bottom alt="$A \cup B$" border=0 height=19 
+src="sets_files/img9.gif" width=47> and <IMG align=bottom alt="$A \cap B$" 
+border=0 height=19 src="sets_files/img19.gif" width=47>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+A  &  =  &    \\
+B  &  =  &    \\
+A \cup B  &  =  &     \\
+A \cap B  &  =  &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;A &amp; = &amp; \\&#10;B &amp; = &amp; \\&#10;A \cup B &amp; = &amp; \\&#10;A \cap B &amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=94 src="sets_files/img21.gif" width=65> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 5</B> &nbsp; The set with no elements is known as the 
+<B>empty set</B> and is denoted by <IMG align=middle alt=$\O$ border=0 height=33 
+src="sets_files/img22.gif" width=19>. The empty set does not contain any element 
+at all, not even zero. A set with one element is called a <B>singleton</B>. 
+</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 7</B> &nbsp; If <IMG align=middle alt=$A=\{1,3,5\}$ border=0 
+height=34 src="sets_files/img17.gif" width=89> and <IMG align=middle 
+alt=$B=\{2,6\}$ border=0 height=34 src="sets_files/img23.gif" width=75> then 
+<IMG align=middle alt="$A \cap B = \O$" border=0 height=33 
+src="sets_files/img24.gif" width=79>. The sets <IMG align=middle alt=$\{2\}$ 
+border=0 height=34 src="sets_files/img25.gif" width=29> and <IMG align=middle 
+alt=$\{7\}$ border=0 height=34 src="sets_files/img26.gif" width=29> are examples 
+of singletons.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 6</B> &nbsp; Given any two sets <IMG align=bottom alt=$A$ 
+border=0 height=19 src="sets_files/img7.gif" width=18> and <IMG align=bottom 
+alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19> we say that <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is a 
+<B>subset</B> of <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19> if every element of <IMG align=bottom 
+alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is also an 
+element of <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19>. We write this as <IMG align=middle 
+alt="$A \subseteq B$" border=0 height=32 src="sets_files/img27.gif" width=50>. 
+We say that <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> is a <B>proper subset</B> of <IMG 
+align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19> if 
+<OL>
+  <LI><IMG align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" 
+  width=18> is a subset of <IMG align=bottom alt=$B$ border=0 height=19 
+  src="sets_files/img8.gif" width=19>, 
+  <LI><IMG align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" 
+  width=18> does not contain every element of <IMG align=bottom alt=$B$ border=0 
+  height=19 src="sets_files/img8.gif" width=19>, 
+  <LI><IMG align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" 
+  width=18> is not the empty set. </LI></OL>We write this as <IMG align=middle 
+alt="$A \subset B$" border=0 height=32 src="sets_files/img28.gif" 
+width=50>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Note 2</B> &nbsp; Every set is a subset of itself but not a proper 
+subset. The empty set is a subset of every set.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 8</B> &nbsp; If <IMG align=middle alt=$C=\{4,8,12\}$ border=0 
+height=34 src="sets_files/img29.gif" width=97> write down 
+<OL>
+  <LI>the subsets of <IMG align=bottom alt=$C$ border=0 height=19 
+  src="sets_files/img30.gif" width=19>, 
+  <LI>the proper subsets of <IMG align=bottom alt=$C$ border=0 height=19 
+  src="sets_files/img30.gif" width=19>. </LI></OL></DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 7</B> &nbsp; The set of all subsets of a set <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is 
+called its <B>power set</B>, denoted by <!-- MATH
+ ${\mathcal P}(A)$
+ --><IMG 
+align=middle alt="${\mathcal P}(A)$" border=0 height=34 
+src="sets_files/img31.gif" width=41>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>This term is used since if <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> 
+contains <IMG align=bottom alt=$n$ border=0 height=18 src="sets_files/img32.gif" 
+width=16> elements then <!-- MATH
+ ${\mathcal P}(A)$
+ --><IMG align=middle 
+alt="${\mathcal P}(A)$" border=0 height=34 src="sets_files/img31.gif" width=41> 
+has <IMG align=bottom alt=$2^n$ border=0 height=18 src="sets_files/img33.gif" 
+width=23> elements. </FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 9</B> &nbsp; Write down the elements of <!-- MATH
+ ${\mathcal P}(A)$
+ --><IMG align=middle alt="${\mathcal P}(A)$" 
+border=0 height=34 src="sets_files/img31.gif" width=41> when <IMG align=middle 
+alt=$A=\{3,5,7\}$ border=0 height=34 src="sets_files/img34.gif" width=89>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><!-- MATH
+ ${\mathcal P}(A)=$
+ --><IMG align=middle 
+alt="${\mathcal P}(A)=$" border=0 height=34 src="sets_files/img35.gif" width=57> 
+</FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Venn Diagrams</B> 
+</FONT></FONT></FONT></DIV><FONT size=+2><FONT size=+1><FONT size=+1>The 
+relationship between sets can often be shown clearly by a diagram in which sets 
+are represented by ovals, and the ovals overlap if the sets have elements in 
+common. </FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR></FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 10</B> &nbsp; If <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> is the set of all multiples of 3 lying 
+between 1 and 20, and <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19> is the set of all multiples of 6 lying 
+between 1 and 20, list the elements of <IMG align=bottom alt=$A$ border=0 
+height=19 src="sets_files/img7.gif" width=18>, <IMG align=bottom alt=$B$ 
+border=0 height=19 src="sets_files/img8.gif" width=19>, <IMG align=bottom 
+alt="$A \cup B$" border=0 height=19 src="sets_files/img9.gif" width=47> and <IMG 
+align=bottom alt="$A \cap B$" border=0 height=19 src="sets_files/img19.gif" 
+width=47>. Draw a Venn diagram showing the relation between the sets.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+A  &  =  &   \\
+B  &  =  &   \\
+A \cup B & = &  \\
+A \cap B & = &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;A &amp; = &amp; \\&#10;B &amp; = &amp; \\&#10;A \cup B &amp; = &amp; \\&#10;A \cap B &amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=94 src="sets_files/img21.gif" width=65> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR></FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 11</B> &nbsp; If <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> is the set containing the colours of the 
+rainbow and <IMG align=bottom alt=$B$ border=0 height=19 
+src="sets_files/img8.gif" width=19> is the set of colours in the British flag, 
+list the elements of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18>, <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19>, <IMG align=bottom 
+alt="$A \cup B$" border=0 height=19 src="sets_files/img9.gif" width=47> and <IMG 
+align=bottom alt="$A \cap B$" border=0 height=19 src="sets_files/img19.gif" 
+width=47>. Draw a Venn diagram showing the relation between the sets.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+A  &  =  &   \\
+B  &  =  &   \\
+A \cup B & = &  \\
+A \cap B & = &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;A &amp; = &amp; \\&#10;B &amp; = &amp; \\&#10;A \cup B &amp; = &amp; \\&#10;A \cap B &amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=94 src="sets_files/img21.gif" width=65> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR></FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 8</B> &nbsp; For convenience we denote the set of all 
+elements under consideration by <IMG align=bottom alt="$\mathcal E$" border=0 
+height=19 src="sets_files/img37.gif" width=16>. This set is known as the 
+<B>universe</B> or the <B>universal set</B>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>In a Venn diagram the universe is 
+represented by a rectangle. When we listed the even numbers less than 15 we knew 
+we were only considering numbers. We did not spend time considering whether or 
+not a London Premier League football club is an even number or not. In almost 
+all of the examples we have considered so far the universal set could have been 
+the set of all positive integers or indeed the set of all positive integers less 
+than 100. </FONT></FONT></FONT>
+<P>
+<DIV><B>Example 12</B> &nbsp; If <!-- MATH
+ $\mathcal E= \{n: n \mbox{ is a positive integer} \}$
+ --><IMG 
+align=middle alt="$\mathcal E= \{n: n \mbox{ is a positive integer} \}$" 
+border=0 height=34 src="sets_files/img38.gif" width=214> and <IMG align=bottom 
+alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is the set of all 
+perfect squares less then 50 then <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+A=\{1,4,9,16,25,36,49\},
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}A=\{1,4,9,16,25,36,49\},\end{displaymath} border=0 
+height=30 src="sets_files/img39.gif" width=170> </DIV><BR clear=all>
+<P></P>but if 
+<!-- MATH
+ $\mathcal E=\{n: n \mbox{ is an even integer} \}$
+ --><IMG 
+align=middle alt="$\mathcal E=\{n: n \mbox{ is an even integer} \}$" border=0 
+height=34 src="sets_files/img40.gif" width=201> then <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+A=\{4,16,36\},
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}A=\{4,16,36\},\end{displaymath} border=0 height=30 
+src="sets_files/img41.gif" width=99> </DIV><BR clear=all>
+<P></P>since 1,9,25,49 are not members of the universal set and so cannot be 
+chosen for <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 9</B> &nbsp; Let <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> be any subset of a universal set <IMG 
+align=bottom alt="$\mathcal E$" border=0 height=19 src="sets_files/img37.gif" 
+width=16> then the set which consists of all the elements of <IMG align=bottom 
+alt="$\mathcal E$" border=0 height=19 src="sets_files/img37.gif" width=16> which 
+are not elements of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> is known as the <B>complement</B> of <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18>. 
+This set is denoted by <IMG align=bottom alt="$A^{\prime }$" border=0 height=20 
+src="sets_files/img42.gif" width=22>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Example 13</B> &nbsp; If 
+<!-- MATH
+ $\mathcal E=\{1,2,3,4,5,6\}$
+ --><IMG align=middle 
+alt="$\mathcal E=\{1,2,3,4,5,6\}$" border=0 height=34 src="sets_files/img43.gif" 
+width=129> and <IMG align=middle alt=$A=\{1,2,4,5\}$ border=0 height=34 
+src="sets_files/img44.gif" width=103> then 
+<!-- MATH
+ $A^{\prime }=\{3,6\}$
+ --><IMG align=middle 
+alt="$A^{\prime }=\{3,6\}$" border=0 height=34 src="sets_files/img45.gif" 
+width=79>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Example 14</B> &nbsp; If <!-- MATH
+ $\mathcal E=\{1,2,3,4,5,6,7,8\}$
+ --><IMG align=middle 
+alt="$\mathcal E=\{1,2,3,4,5,6,7,8\}$" border=0 height=34 
+src="sets_files/img46.gif" width=157>, <IMG align=middle alt=$A=\{2,4,6,8\}$ 
+border=0 height=34 src="sets_files/img47.gif" width=103>, and <IMG align=middle 
+alt=$B=\{2,3,5\}$ border=0 height=34 src="sets_files/img48.gif" width=90>, list 
+the elements of <IMG align=bottom alt="$A^{\prime }$" border=0 height=20 
+src="sets_files/img42.gif" width=22> and <IMG align=bottom alt="$B^{\prime }$" 
+border=0 height=20 src="sets_files/img49.gif" width=23>. Show that <!-- MATH
+ $(A \cup B)^{\prime } = A^{\prime } \cap B^{\prime }$
+ --><IMG 
+align=middle alt="$(A \cup B)^{\prime } = A^{\prime } \cap B^{\prime }$" 
+border=0 height=34 src="sets_files/img50.gif" width=131> and illustrate this by 
+means of a Venn diagram.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+A^{\prime}  &  =  &    \\
+B^{\prime}  &  =  &    \\
+A^{\prime}\cap B^{\prime} & = &  \\
+A \cup B  &  =  &  \\
+(A \cup B)^{\prime}  &  =  &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;A^{\prime} &amp; = &amp; \\&#10;B^{\prime} &amp; = &amp; \\&#10;A^{\prime}\cap B^{\prime} &amp; = &amp; \\&#10;A \cup B &amp; = &amp; \\&#10;(A \cup B)^{\prime} &amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=120 src="sets_files/img51.gif" width=80> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR></FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Counting Finite 
+Sets</B> </FONT></FONT></FONT></DIV><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Definition 10</B> &nbsp; The number of elements in a finite set <IMG 
+align=bottom alt=$A$ border=0 height=19 src="sets_files/img7.gif" width=18> is 
+called the <B>cardinality</B> or <B>cardinal number</B> of the set and is 
+written <IMG align=middle alt="$\vert A\vert$" border=0 height=34 
+src="sets_files/img52.gif" width=27>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Example 15</B> &nbsp; If <IMG align=middle alt=$A=\{1,5,3\}$ border=0 
+height=34 src="sets_files/img53.gif" width=89>, then <IMG align=middle 
+alt="$\vert A\vert=3$" border=0 height=34 src="sets_files/img54.gif" 
+width=54>.</DIV>
+<P></P><FONT size=+2><FONT size=+1><FONT size=+1>Suppose we want to find the 
+number of elements in the union of two sets. This can be done using the 
+following rule: </FONT></FONT></FONT><BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+|A \cup B| = |A| + |B| - |A \cap B|.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}\vert A \cup B\vert = \vert A\vert + \vert B\vert - \vert A \cap B\vert.\end{displaymath}" 
+border=0 height=30 src="sets_files/img55.gif" width=194> </DIV><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1><FONT size=+1>This can be seen by drawing a 
+Venn diagram. The following calculation extends this result to three finite 
+sets: </FONT></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+|A \cup B \cup C| & = & |A \cup (B \cup C)| \\
+                  & = &                     \\
+                  & = &                     \\
+                  & = &                     \\
+                  & = &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;\vert A \cup B \cup C\vert &amp; = &amp; \vert A \cup (B \cup C)\vert \\&#10;&amp; = &amp; \\&#10;&amp; = &amp; \\&#10;&amp; = &amp; \\&#10;&amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=116 src="sets_files/img56.gif" width=203> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1><FONT size=+1>The popular name for this union 
+rule is the <B>principle of inclusion and exclusion</B>. </FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 16</B> &nbsp; A survey in a class shows that 15 of the pupils 
+play cricket, 11 play tennis and 6 play both tennis and cricket. How many pupils 
+are there in the class, if everyone plays at least one of those games.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=center><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR></FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 17</B> &nbsp; A produce stand sells only broccoli, carrots and 
+parsnips. One day the stand served 208 people. If 114 people purchased broccoli, 
+152 purchased carrots, 17 purchased parsnips, 64 purchased broccoli and carrots, 
+12 purchased carrots and parsnips, and 9 purchased all three, how many people 
+purchased broccoli and parsnips?</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 11</B> &nbsp; If the distinct elements of a set are written 
+in a prescribed order then the set is called an <B>ordered set</B>. It is usual 
+to denote an ordered set by placing the elements in prescribed order in curved 
+brackets.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Note 3</B> &nbsp; Note the distinction between an ordinary set and an 
+ordered set. For an ordinary set we have <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+\{a,b,c\}=\{c,b,a\},
+\end{displaymath}
+ --><IMG 
+alt=\begin{displaymath}\{a,b,c\}=\{c,b,a\},\end{displaymath} border=0 height=30 
+src="sets_files/img57.gif" width=120> </DIV><BR clear=all>
+<P></P>but for an ordered set we have <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+(a,b,c)=(c,b,a),\;\mbox{ only if } a=c.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}(a,b,c)=(c,b,a),\;\mbox{ only if } a=c.\end{displaymath}" 
+border=0 height=30 src="sets_files/img58.gif" width=210> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 12</B> &nbsp; Let <IMG align=bottom alt=$A$ border=0 
+height=19 src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ 
+border=0 height=19 src="sets_files/img8.gif" width=19> be any two sets, then if 
+<IMG align=bottom alt=$a$ border=0 height=18 src="sets_files/img2.gif" width=15> 
+is any element of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$b$ border=0 
+height=19 src="sets_files/img59.gif" width=14> is any element of <IMG 
+align=bottom alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19>, 
+then the set whose elements are all the ordered pairs <IMG align=middle 
+alt=$(a,b)$ border=0 height=34 src="sets_files/img60.gif" width=40> is called 
+the <B>cartesian product</B> of <IMG align=bottom alt=$A$ border=0 height=19 
+src="sets_files/img7.gif" width=18> and <IMG align=bottom alt=$B$ border=0 
+height=19 src="sets_files/img8.gif" width=19> and is denoted by <IMG 
+align=middle alt="$A \times B$" border=0 height=32 src="sets_files/img61.gif" 
+width=49>. In the set theoretic notation we write <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+A \times B = \{(a,b): a \in A, b \in B\}.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}A \times B = \{(a,b): a \in A, b \in B\}.\end{displaymath}" 
+border=0 height=30 src="sets_files/img62.gif" width=205> </DIV><BR clear=all>
+<P></P></DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 18</B> &nbsp; Write down the elements of <IMG align=middle 
+alt="$A \times B$" border=0 height=32 src="sets_files/img61.gif" width=49> when 
+<IMG align=middle alt=$A=\{1,2,3\}$ border=0 height=34 
+src="sets_files/img63.gif" width=89> and <IMG align=middle alt=$B=\{I,II\}$ 
+border=0 height=34 src="sets_files/img64.gif" width=84>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>Another example is the Cartesian 
+plane in 2-D geometry. This may be regarded as the set of all ordered pairs <IMG 
+align=middle alt=$(x,y)$ border=0 height=34 src="sets_files/img65.gif" width=42> 
+of real numbers, i.e., every point in the plane corresponds to a given ordered 
+pair of real numbers. Again note that <!-- MATH
+ $(x,y) \neq (y,x)$
+ --><IMG 
+align=middle alt="$(x,y) \neq (y,x)$" border=0 height=34 
+src="sets_files/img66.gif" width=96> unless <IMG align=middle alt=$x=y$ border=0 
+height=31 src="sets_files/img67.gif" width=43>. </FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Relations</B> 
+</FONT></FONT></FONT></DIV><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>The term <B>relation</B> is used to 
+indicate a connection or bond between two objects. Examples of relations are 
+<B>is a husband of</B>, <B>is equal to</B>, <B>is less than</B>. 
+</FONT></FONT></FONT>
+<P>
+<DIV><B>Definition 13</B> &nbsp; Given two sets <IMG align=bottom alt=$A$ 
+border=0 height=19 src="sets_files/img7.gif" width=18> and <IMG align=bottom 
+alt=$B$ border=0 height=19 src="sets_files/img8.gif" width=19> and some relation 
+<IMG align=bottom alt=$R$ border=0 height=19 src="sets_files/img68.gif" 
+width=19> consider the cartesian product <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+A \times B = \{(a,b): a \in A, b \in B\}.
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}A \times B = \{(a,b): a \in A, b \in B\}.\end{displaymath}" 
+border=0 height=30 src="sets_files/img62.gif" width=205> </DIV><BR clear=all>
+<P></P>From <IMG align=middle alt="$A \times B$" border=0 height=32 
+src="sets_files/img61.gif" width=49> we pick out those pairs for which we have 
+<IMG align=bottom alt=$aRb$ border=0 height=19 src="sets_files/img69.gif" 
+width=33>. The subset of <IMG align=middle alt="$A \times B$" border=0 height=32 
+src="sets_files/img61.gif" width=49> so formed is called the relation <IMG 
+align=bottom alt=$R$ border=0 height=19 src="sets_files/img68.gif" width=19> in 
+<IMG align=middle alt="$A \times B$" border=0 height=32 
+src="sets_files/img61.gif" width=49>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P>
+<DIV><B>Example 19</B> &nbsp; If <IMG align=middle alt=$A=\{2,3,4\}$ border=0 
+height=34 src="sets_files/img70.gif" width=89>, <IMG align=middle 
+alt=$B=\{3,4,5\}$ border=0 height=34 src="sets_files/img71.gif" width=90> write 
+down the elements of <IMG align=bottom alt=$R$ border=0 height=19 
+src="sets_files/img68.gif" width=19> when <IMG align=bottom alt=$R$ border=0 
+height=19 src="sets_files/img68.gif" width=19> is the relation <B>is less 
+than</B>.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{eqnarray*}
+A \times B  &  =  &                        \\
+R    &   = &  \{(a,b) \in A \times B: \; a<b \}  \\
+     &   =  &
+\end{eqnarray*}
+ --><IMG 
+alt="\begin{eqnarray*}&#10;A \times B &amp; = &amp; \\&#10;R &amp; = &amp; \{(a,b) \in A \times B: \; a<b \} \\&#10;&amp; = &amp;&#10;\end{eqnarray*}" 
+border=0 height=71 src="sets_files/img72.gif" width=240> <BR clear=all></DIV>
+<P></P><BR clear=all>
+<P></P><BR clear=all>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<DIV align=left><FONT size=+2><FONT size=+1><FONT size=+1><B>Equivalence 
+Relations</B> </FONT></FONT></FONT></DIV><FONT size=+2><FONT 
+size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>Let <IMG align=bottom alt=$A$ 
+border=0 height=19 src="sets_files/img7.gif" width=18> be a given set and <IMG 
+align=bottom alt=$R$ border=0 height=19 src="sets_files/img68.gif" width=19> a 
+relation in <IMG align=middle alt="$A \times A$" border=0 height=32 
+src="sets_files/img73.gif" width=48>, then <IMG align=bottom alt=$R$ border=0 
+height=19 src="sets_files/img68.gif" width=19> is an <B>equivalence relation</B> 
+if and only if the following conditions are satisfied: </FONT></FONT></FONT>
+<OL>
+  <LI><IMG align=middle alt="$(a,a) \in R$" border=0 height=34 
+  src="sets_files/img74.gif" width=71> for all <IMG align=middle alt="$a \in A$" 
+  border=0 height=32 src="sets_files/img75.gif" width=45>, i.e., <IMG 
+  align=bottom alt=$R$ border=0 height=19 src="sets_files/img68.gif" width=19> 
+  is said to be <B>reflexive</B>. 
+  <LI>if <IMG align=middle alt="$(a,b) \in R$" border=0 height=34 
+  src="sets_files/img76.gif" width=69> then <IMG align=middle 
+  alt="$(b,a) \in R$" border=0 height=34 src="sets_files/img77.gif" width=69> 
+  for all <IMG align=middle alt="$a,b \in A$" border=0 height=32 
+  src="sets_files/img78.gif" width=57>, i.e., <IMG align=bottom alt=$R$ border=0 
+  height=19 src="sets_files/img68.gif" width=19> is said to be symmetric. 
+  <LI>if <IMG align=middle alt="$(a,b) \in R$" border=0 height=34 
+  src="sets_files/img76.gif" width=69> and <IMG align=middle alt="$(b,c) \in R$" 
+  border=0 height=34 src="sets_files/img79.gif" width=68> then <IMG align=middle 
+  alt="$(a,c) \in R$" border=0 height=34 src="sets_files/img80.gif" width=69> 
+  for all <IMG align=middle alt="$a,b,c \in A$" border=0 height=32 
+  src="sets_files/img81.gif" width=71>, i.e., <IMG align=bottom alt=$R$ border=0 
+  height=19 src="sets_files/img68.gif" width=19> is said to be transitive. 
+</LI></OL><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1>In the previous example the 
+relation <IMG align=bottom alt=$R$ border=0 height=19 src="sets_files/img68.gif" 
+width=19> is transitive but not reflexive or symmetric in <IMG align=middle 
+alt="$A \times A$" border=0 height=32 src="sets_files/img73.gif" width=48>. 
+</FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 20</B> &nbsp; The relation on <IMG align=bottom 
+alt="${\mathcal N}$" border=0 height=19 src="sets_files/img82.gif" width=21>, 
+the set of natural numbers given by <BR>
+<P></P>
+<DIV align=center><!-- MATH
+ \begin{displaymath}
+R\;=\;\{(m,n) \in {\mathcal N} \times {\mathcal N}: m+n
+\mbox{ is even} \},
+\end{displaymath}
+ --><IMG 
+alt="\begin{displaymath}R\;=\;\{(m,n) \in {\mathcal N} \times {\mathcal N}: m+n&#10;\mbox{ is even} \},\end{displaymath}" 
+border=0 height=30 src="sets_files/img83.gif" width=265> </DIV><BR clear=all>
+<P></P>is an equivalence relation.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT 
+size=+1><BR><BR><BR><BR><BR><BR></FONT></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Note 4</B> &nbsp; This last relation <B>partitions</B> <IMG align=bottom 
+alt="${\mathcal N}$" border=0 height=19 src="sets_files/img82.gif" width=21> 
+into two <B>equivalence classes</B> corresponding to the even and odd natural 
+numbers. If <IMG align=bottom alt=$m$ border=0 height=18 
+src="sets_files/img84.gif" width=20> is any even number, then for any even 
+number <IMG align=bottom alt=$n$ border=0 height=18 src="sets_files/img32.gif" 
+width=16>, <IMG align=middle alt=$m+n$ border=0 height=31 
+src="sets_files/img85.gif" width=47> is even. Similarly, if <IMG align=bottom 
+alt=$m$ border=0 height=18 src="sets_files/img84.gif" width=20> is any odd 
+number, then for any odd number <IMG align=bottom alt=$n$ border=0 height=18 
+src="sets_files/img32.gif" width=16>, <IMG align=middle alt=$m+n$ border=0 
+height=31 src="sets_files/img85.gif" width=47> is even.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT>
+<P><FONT size=+2><FONT size=+1><FONT size=+1></FONT></FONT></FONT>
+<P>
+<DIV><B>Example 21</B> &nbsp; Show that the relation on <!-- MATH
+ ${\cal Z} \times {\cal N}$
+ --><IMG align=middle 
+alt="${\cal Z} \times {\cal N}$" border=0 height=32 src="sets_files/img86.gif" 
+width=52> given by <!-- MATH
+ $(a,b) \sim (c,d)$
+ --><IMG align=middle 
+alt="$(a,b) \sim (c,d)$" border=0 height=34 src="sets_files/img87.gif" width=92> 
+if <IMG align=bottom alt=$ad=bc$ border=0 height=19 src="sets_files/img88.gif" 
+width=56> is an equivalence relation. Identify the equivalence classes and 
+describe how <IMG align=middle alt=$+$ border=0 height=31 
+src="sets_files/img89.gif" width=19> and <IMG align=bottom alt=$\cdot$ border=0 
+height=18 src="sets_files/img90.gif" width=11> may be defined.</DIV>
+<P></P><FONT size=+2><FONT size=+1></FONT></FONT><BR>
+<HR>
+
+<ADDRESS><I>matacc2@aber.ac.uk <BR>2000-02-10</I> </ADDRESS></BODY></HTML>

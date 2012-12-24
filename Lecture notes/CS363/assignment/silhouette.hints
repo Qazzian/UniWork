@@ -1,0 +1,22 @@
+For the assignment you should run more than just standard Weka on the data.
+
+our main choice is to either implement a very simple learning
+algorithm or use another package.  There are a large number of
+possible other packages.  You could either choose to use one of the
+standard statistical packages that are already on the system (eg
+minitab, SPSS), download a public domain system, or both if time
+permits.  Links to public domain systems can be found at: 
+http://www.kdnuggets.com/ 
+http://www.aic.nrl.navy.mil/~aha/research/machine-learning.html 
+http://www.cse.unsw.edu.au/~quinlan/
+http://www.lirmm.fr/~reitz/copie/ml-tools.html 
+http://wwwipd.ira.uka.de/~prechelt/FAQ/nn5.html#A18 
+
+When deciding on a public domain system it is probably best to choose
+a simple one that is likely to be easy to install.  If you cannot get
+it to work quickly then try another one, there are many others to
+choose from.
+
+
+I expect you to avoid overfitting the data.
+

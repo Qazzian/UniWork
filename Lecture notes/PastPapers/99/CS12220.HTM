@@ -1,0 +1,252 @@
+<HTML>
+<HEAD>
+<TITLE>CS12220: Introduction to Programming</TITLE>
+<META NAME="TITLE" CONTENT="CS12220: Introduction to Programming">
+<META NAME="CREATOR" CONTENT="Computer Science">
+<META NAME ="SUBJECT" CONTENT="1999, Degree, Examinations, Semester 1">
+<META NAME="PUBLISHER" CONTENT="DATAPREP - Information Services">
+<META NAME="date" VALUE="13-04-99">
+</HEAD>
+<BODY bgcolor="#ffffff" link="#008000">
+<b>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</b>
+<P>
+DEGREE EXAMINATIONS 1998-99 SEMESTER 1
+<P>
+<b>ABERYSTWYTH</b>
+<P>
+FACULTY OF SCIENCE
+<P>
+<b>Computer Science CS12220: Introduction to Programming
+<P>
+Time allowed: 2 hours</b>
+<P>
+Answer all SEVEN questions. 
+<P>
+<b>NOTE:  Questions  do  not  carry equal credit  -  the  credit  for  each 
+question,  or  part thereof, is shown in brackets to the  right  of  the 
+question.</b>
+<p align=right>Total = 100 Pts.
+<P>
+<table>
+<tr>
+<td valign=top width=5%>1.</td>
+<td valign=top width=5%><B>(a)</B>. </td>
+<td>
+Describe the idea of abstraction and how it can help programmers produce 
+code that is both more maintainable and more reuseable.</td>
+<td align=right valign=bottom> (6)</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top><B> (b).</B></td>
+<td>
+What  are  the main differences between a primitive type and  an  Object 
+type in Java?</td>
+<td align=right valign=bottom> (4)</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> <B>(c).</B> </td>
+<td>
+Explain the idea of inheritance as used in Java.</td>
+<td align=right> (6)</td>
+</tr>
+</table>
+<p>
+<table>
+<tr>
+<td valign=top width=5%>2.</td>
+<td valign=top width=5%><B>(a). </B></td>
+<td colspan=2>
+What is meant by the term <B>exception</B>?</td>
+<td align=right> (5)</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top><B>(b). </B></td>
+<td colspan=3>
+The specification of the method TextInputReader() is defined as:</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td>
+public int promptForInt(String s) throws TextIOException</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=2>
+How do you use this method in a way that ensures that whatever the  user 
+types, the program will not crash.</td>
+<td align=right valign=bottom> (6)</td>
+</tr>
+</table>
+<P>
+<OL start="3">
+<LI>
+Look  at the following code extract, which has had most of its  comments 
+removed, and answer the questions below.
+<pre>
+   /**
+    * This class forms part of the program to support a local NewsAgency
+    * Newspapers provides information on newspapers sold in the shop
+    * @author Mark Ratcliffe
+    * @version First written 07/11/98
+    */
+   public class NewsPaper
+   {
+        private String title;
+        private double price;
+        boolean daily;          	// true if delivered Mon-Sat
+        boolean sunday;      	// true if delivered Sunday
+
+        public NewsPaper(String theTitle,
+                         double thePrice,
+                         boolean theDaily,
+                         boolean theSunday)
+        {
+            title = theTitle;
+            price = thePrice;
+            daily = theDaily;
+            sunday = theSunday;
+        }
+
+        public void setTitle(String theTitle)
+        {
+            title = theTitle;
+        }
+
+        public String getTitle()
+        {
+            return title;
+        }
+   }
+</pre>
+<table>
+<tr>
+<td valign=top width=5%><B>(a).</B></td>
+<td>
+Explain the purpose of the <B>Newspaper</B> constructor.</td>
+<td align=right>(3)</td>
+</tr>
+<tr>
+<td valign=top><B>(b).</B></td>
+<td>
+Show  what  declarations would be necessary, and give the  changes  that 
+would need to be made to the constructor, in order to introduce a  class 
+variable  <I>paperCount</I>  for  counting the number  of  newpapers  that  are 
+created.</td>
+<td valign=bottom align=right> (4)</td>
+</tr>
+<tr>
+<td valign=top><B>(c).</B></td>
+<td>
+Write the Java code for the following methods:<br>
+&nbsp; &nbsp; &nbsp;<I>getPaperCount() and toString().</I></td>
+<td valign=bottom align=right> (6)</td>
+</tr>
+</table>
+<P>
+<LI>
+Using the <b>NewsPaper</b> class presented in question 3, produce a Java 
+class  <b>NewsPaperList</b> which will support a collection of up to  30 
+different newspapers. <br>
+In addition to any declarations, you should also provide the code to:
+<table>
+<tr>
+<td width=5%><B>i.</B></td>
+<td> create a NewsPaperList</td>
+<td align=right>(3)</td>
+</tr>
+<tr>
+<td><B>ii.</B></td>
+<td> add a newspaper to the list</td>
+<td align=right> (5)</td>
+</tr>
+<tr>
+<td><B>iii.</B></td>
+<td> remove a newspaper, identified by name</td>
+<td align=right>(8)</td>
+</tr>
+<tr>
+<td><B>iv.</B></td>
+<td> return the total number of newspapers in the list</td>
+<td align=right> (2)</td>
+</tr>
+</table>
+<P>
+<LI>
+Assuming  that  the  NewsAgency  described  in  question  3  also  sells 
+magazines,  it would have probably been much better to describe a  class 
+<b>Publication</b>  that is then extended to form  <b>NewsPaper</b>  and 
+<b>Magazine</b>.
+
+<P>
+<table>
+<tr>
+<td>
+Sketch out the java code that would support this definition.</td>
+<td align=right> (8)</td>
+</tr>
+</table>
+</ol>
+<P>
+<table>
+<tr>
+<td valign=top width=5%>6</td>
+<td valign=top width=5%><B>(a).</B> </td>
+<td>
+What  are the main problems to consider when developing a large  program 
+within a small group of people? </td>
+<td align=right valign=bottom>(6)</td>
+</tr>
+<tr>
+<td>&nbsp; </td>
+<td> <B>(b).</B></td>
+<td>How does Java help with this?</td>
+<td align=right>(6)</td>
+</tr>
+</table>
+<P>
+<ol start="7">
+<LI>
+Nelly  owns  a NewAgency and has asked you to take  on  the  financially 
+rewarding task of computerising her delivery system.<br>
+Nelly  stocks  about  25  different types  of  newspaper.  She  has  240 
+customers  but  only 80 of these have home deliveries. The rest  of  her 
+customers pick up their papers on the way to work.
+<P> 
+You  have  researched  the  problem  and  have  gathered  the  following 
+information:<br>
+<b>Newspaper</b>: (title, price, daily, Sunday)
+<b>Customer</b>: (name, address, currentBill, homeDelivery)
+<P>
+<table>
+<tr>
+<td valign=top width=5%><B>(a).</B></td>
+<td>
+Draw class diagrams to show how you might represent this system.</td>
+<td align=right>(7) </td>
+</tr>
+<tr>
+<td valign=top><B>(b).</B></td>
+<td>
+Describe  how you might store the relationship between a  Newspaper  and 
+Customer so that Nelly can keep track of her accounts.</td>
+<td align=right valign=bottom> (5)</td>
+</tr>
+<tr>
+<td valign=top> <B>(c).</B></td>
+<td>
+Nelly  has five paper boys all delivering in different areas. How  would 
+you  extend  your  design  to be able  to  support  the  five  different 
+areas.</td>
+<td align=right valign=bottom>(10)</td>
+</tr>
+</table>
+</OL>
+<P>
+</BODY>
+</HTML>

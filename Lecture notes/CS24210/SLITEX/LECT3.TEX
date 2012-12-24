@@ -1,0 +1,335 @@
+\setcounter{slide}{42}
+%
+% slide 43
+%
+\begin{slide}{}
+{\bf Unix Pattern Matching}
+\begin{itemize}
+
+\item There are inconsistencies between the ways different characters are
+used in different Unix applications and situations.
+
+\item In particular, characters are treated differently by the shell 
+in filename expansion and by applications for pattern matching.
+
+\item For example, * means match 0 or more of the preceding expression 
+in vi, gvim, sed, awk, grep and egrep, but * means match any string of
+characters in filename expansion
+
+\end{itemize}
+\end{slide}
+
+%
+% slide 44
+%
+\begin{slide}{}
+{\bf Unix Pattern Matching}
+\begin{itemize}
+
+\item You can use single quotes (or, in some cases, double quotes) to
+bypass the shell and pass special characters to an application.
+
+\item Look up `Unix in a Nutshell', section 6, Pattern Matching, for
+more detail
+
+\item Alternatively, look up the man pages for the applications you are
+using (man vi will tell you all you need for gvim).
+
+\end{itemize}
+
+\end{slide}
+
+%
+% slide 44
+%
+\begin{slide}{}
+{\bf perl - Practical Extraction and Report Language}
+
+\begin{itemize}
+\item scanning text files
+\item extracting information
+\item printing reports
+\item features of C, sed, awk and sh
+\item When sed, awk and shell scripts are not quite enough \ldots
+\item \ldots and C is a bit too much
+\item \ldots perl is likely to be just right.
+\end{itemize}
+
+\end{slide}
+
+%
+% slide 45
+%
+\begin{slide}{}
+{\small
+{\bf perl example -- derived from examples by Lynda Thomas}
+
+\begin{verbatim}
+
+manuel% more read_a_file.pl
+#!/usr/local/bin/perl
+
+print "Filename? ";
+$file = <STDIN>;        # filename is on standard input
+open(FILE,$file);       # open the file - FILE is a filehandle
+@file_content = <FILE>; # read into an array
+close(FILE);
+print @file_content;    # print the array
+
+\end{verbatim}
+}
+\end{slide}
+
+%
+% slide 46
+%
+\begin{slide}{}
+{\bf perl example}
+
+\begin{verbatim}
+manuel% cat names
+lynda dave tom rory lynda rory lynda
+
+manuel% read_a_file.pl
+Filename? names
+lynda dave tom rory lynda rory lynda
+
+manuel% ls -l read_a_file.pl
+-rwxr-----   1 eds      staff        
+    264 Oct 13 14:33 read_a_file.pl
+
+\end{verbatim}
+\end{slide}
+
+%
+% slide 47
+%
+\begin{slide}{}
+{\small
+{\bf perl identifiers and types}
+
+\begin{verbatim}
+manuel% cat trythis.pl
+#!/usr/local/bin/perl
+
+$scalar_string_id = "this is a string";  
+print $scalar_string_id . "\n";
+
+$scalar_number_id = 7;
+print "scalar_number_id = " . $scalar_number_id . "\n";
+
+@array_id = ("peach","fig","apricot");
+print @array_id[0] .  @array_id[2] . @array_id[1] . "\n\n";
+
+%hash_id = ("peach", 2, "fig", 8, "apricot", 3);
+print "We have " . @hash_id{"peach"} . " peaches\n";
+print "We have " . @hash_id{"fig"} . " figs\n";
+print "We have " . @hash_id{"apricot"} . " apricots\n";
+
+\end{verbatim}
+}
+\end{slide}
+
+%
+% slide 48
+%
+\begin{slide}{}
+{\bf perl identifiers and types}
+
+\begin{verbatim}
+
+manuel% trythis.pl
+this is a string
+scalar_number_id = 7
+peachapricotfig
+
+We have 2 peaches
+We have 8 figs
+We have 3 apricots
+
+\end{verbatim}
+\end{slide}
+
+%
+% slide 49
+%
+\begin{slide}{}
+{\bf perl loops -- from an example by Mike Slattery and Lynda Thomas}
+
+\begin{verbatim}
+manuel% cat loopy.pl
+#!/usr/local/bin/perl
+
+while (<>) {
+  @words = split;
+  foreach $w (@words) {
+    $count{$w}++;
+  }
+}
+
+@sortedkeys = sort keys(%count);
+
+foreach $w (@sortedkeys) {
+  print "$w\t$count{$w}\n";
+}
+
+\end{verbatim}
+
+\end{slide}
+
+%
+% slide 50
+%
+\begin{slide}{}
+{\bf perl loops}
+
+\begin{verbatim}
+
+manuel% cat names
+lynda dave tom rory lynda rory lynda
+
+manuel% loopy.pl names
+dave    1
+lynda   3
+rory    2
+tom     1
+
+\end{verbatim}
+\end{slide}
+
+%
+% slide 50
+%
+\begin{slide}{}
+{\bf Patterns}
+\begin{verbatim}
+manuel% cat pattern.pl
+#!/usr/local/bin/perl
+
+while (<>) {
+  @words = split;
+  foreach $w (@words) {
+    $count{$w}++;
+  }
+}
+
+@sortedkeys = sort keys(%count);
+
+foreach $w (@sortedkeys) {
+  print "$w\t$count{$w}\n" if ($w =~ m/^l/);
+}
+\end{verbatim}
+\end{slide}
+
+%
+% slide 51
+%
+\begin{slide}{}
+{\bf Patterns}
+\begin{verbatim}
+manuel% cat names 
+lynda dave tom rory lynda rory lynda marilyn
+
+manuel% pattern.pl < names
+lynda   3
+
+\end{verbatim}
+\end{slide}
+
+%
+% slide 54
+%
+\begin{slide}{}
+{\small
+{\bf perl - a subroutine}
+
+\begin{verbatim}
+manuel% cat subroutine.pl
+#!/usr/local/bin/perl
+
+# from a program by Mike Slattery, June 1996
+
+# swap takes a string, and replaces any words in %table by 
+# corresponding replacements
+
+%table = ('i','you', 'you','i', 'my','your', 'your','my');
+
+sub swap {
+  local ($in) = @_;
+  local ($w, $head, $tail, $new);
+
+  if ($in =~/[a-z]+/) {
+    $w = $&;    # the match
+    $head = $`; # before the match
+    $tail = $'; # after the match
+
+    # look up $new in the table; if not found, $new = $w
+    $new = $table{$w} || $w;
+
+    # put the sentence back together
+    $head.$new.&swap($tail); 
+  }
+
+  else { $in }
+}
+\end{verbatim}
+}
+\end{slide}
+%
+% slide 55
+%
+\begin{slide}{}
+{\bf \ldots and the main program}
+
+\begin{verbatim}
+
+while ($input = <>) {
+   chop $input;
+   $input =~ tr/A-Z/a-z/;
+   print &swap($input)."\n";
+}
+
+\end{verbatim}
+\end{slide}
+
+%
+% slide 57
+%
+\begin{slide}{}
+
+{\bf Running the program}
+
+\begin{verbatim}
+manuel% subroutine.pl
+i hate computers
+you hate computers
+i like running
+you like running
+you are daft
+i are daft
+i'm daft too
+you'm daft too
+i love computers really
+you love computers really
+^D
+\end{verbatim}
+\end{slide}
+
+
+%
+% slide 58
+%
+\begin{slide}{}
+{\bf perl - some url's}
+
+\begin{itemize}
+\item http://language.perl.com/
+\item http://www.perl.com/pace/pub
+\item http://www.perl.org/
+\end{itemize}
+
+\end{slide}
+
+
+
+

@@ -1,0 +1,137 @@
+/* TriTiming.c
+   A simple program for storing a set of competitors in a Triathlon. Each competitor has 
+	a name and the times for each of the three parts in the race, Cycling, swimming 
+   and running. It then outputs the total for each competitor.
+   
+   Author: Ian Wallis (ifw9)
+*/
+
+#include <stdio.h> /* Need to take input and print results */
+
+	/* Declare constants */
+int MIN_TO_SEC = 60;
+int HR_TO_SEC = 1200;
+
+/* Declare Structures */
+
+/* Defines a type struct competitor which holds the name of a competitor 
+	and their times in a Triathlon */
+struct Competitor{
+	char name[50];
+	int competitor_number;
+	int cycle_time;	/* The times for the cycle race */
+	int swim_time;		/* The times for the swimming */
+	int run_time;		/* The times for the running */
+	int total_time;	/* The total time for the competitor */
+}
+
+/* Defines a Triathlon structure which holds all the competitors in the triathlon as well 
+	as values for the fastes and slowest competitors. */
+struct Triathlon{
+	struct competitor the_racers[100];
+	struct competitor fastest;
+	struct competitor slowest;
+}
+
+/* Define Constants */
+int MIN_TO_SEC = 60;
+int HR_TO_SEC = 1200;
+
+/* Instance Variables */
+struct Triathlon the_race; /* The single compitition */
+
+/* Declare Functions */
+struct Competitor[] 	setRace();
+struct Competitor 	setCompetitor();
+int 						comparetimes(struct time a, struct time b);
+
+/* Function Definitions */
+
+/*
+	Stores the results of all Competitors in a TriAthlon.
+*/
+int setRace(){
+	printf("Enter the number of competitors:");
+	scanf("%d", &the_race.comp_num);
+	for(int 1=0; i<the_race.comp_num; i++){
+		the_race.the_racers[i] = setcompetitor(); // create new Competitors
+		/* need to fill in the fastest and slowest comptitors to test against them. */
+		if(i==0){ 
+			the_race.fastest = the_race.slowest = the_race.the_racers[i];
+		}else{ // Now test to see if the rest are better or worse
+			if(comparetimes(the_race.the_racers[i].total, the_race.fastest.total)){
+				the_race.fastest = the_race.the_racers[i];
+			}else if(comparetimes(the_race.slowest.total, the_race.the_racers[i].total)){
+				the_race.slowest = the_race.the_racers[i];
+			}
+		} // End fastest/slowest testing
+	} // end the creation of the competitors.
+	printf("There were %d competitors.\n", the_race.comp_num);
+	printf("The fastest was %s with a total time of %dhr %dmin %dsec.\n",
+				the_race.fastest.name[0],
+				the_race.fastest.total.hr,
+				the_race.fastest.total.min,
+				the_race.fastest.total.sec);
+	printf("The slowest was %s with a total time of %dhr %dmin %dsec.\n",
+				the_race.slowest.name[0], 
+				the_race.slowest.total.hr, 
+				the_race.slowest.total.min, 
+				the_race.slowest.total.sec);
+	return 1;
+}
+
+struct Competitor setCompetitor(){
+	/* Declare variables */
+	struct Competitor comp; /* A temporary Competitor to store the data and parse back */
+	int total_in_secs;	/* The total time stored only in seconds */
+
+   	/* Need to get the input */
+	printf("competitor's name (First_Second): ");
+	scanf("%s", &comp.name[0]);
+	printf("Time for cycle race (hours minutes seconds):");
+	scanf(" %d %d %d", &comp.cycle.hr, &comp.cycle.min, &comp.cycle.sec);
+	printf("Time for the swim (hours minutes seconds):");
+	scanf(" %d %d %d", &comp.swim.hr, &comp.swim.min, &comp.swim.sec);
+	printf("Time for the running race (hours minutes seconds):");
+	scanf(" %d %d %d", &comp.run.hr, &comp.run.min, &comp.run.sec);
+	
+		/* Add all the times together */
+	comp.total.hr = comp.cycle.hr + comp.swim.hr + comp.run.hr;
+	comp.total.min = comp.cycle.min + comp.swim.min + comp.run.min;
+	comp.total.sec = comp.cycle.sec + comp.swim.sec + comp.run.sec;
+	printf("Total so far:%d %d %d\n", comp.total.hr, comp.total.min, comp.total.sec);
+		/* Convert all the times to seconds to perform the additions*/
+	total_in_secs=(comp.total.hr*HR_TO_SEC)+(comp.total.min*MIN_TO_SEC)+comp.total.sec;
+	
+		/* Now split them back into hours, minuits and seconds */
+	comp.total.hr = total_in_secs / HR_TO_SEC;	/* This finds the num of hours taken */
+	total_in_secs = total_in_secs % HR_TO_SEC; 
+	comp.total.min = total_in_secs / MIN_TO_SEC;
+	comp.total.sec = total_in_secs % MIN_TO_SEC;
+	printf("Competitor %s has a total time of %2.0dHrs %2.0dMins %2.0dSecs.\n", 
+							comp.name[0], comp.total.hr, comp.total.min, comp.total.sec);
+	return comp;
+}
+
+/*	Compares two times of and returns an int indicating the difference between them.
+	negative numbers mean that the second time is bigger than the first, positve numbers 
+	mean that the first is bigger than the second, Zero indicates that they are both equal.
+*/
+int comparetimes(struct time a, struct time b){
+	/* This does a test based on the diffrence between the two times as well as setting 
+		int i to that difference. */
+	if(int i = (a.hr - b.hr)){	/* -ve or 0 fails test, +ve passes test and enters code */
+		return i; 					/* if +ve return the value to indicat a bigger than b */
+	} 						/* if you can't tell with the houres then test the minuites. */
+	else if(int i = a.min - b.min){
+		return i;
+	} 						/* Still can't tell? the try the seconds. */
+	else if(int i = a.sec - b.sec){
+		return i;
+	} 						/* If there is still no difference then both times are the same. */
+	else return 0;
+}
+
+int main(){
+	return setRace();
+}

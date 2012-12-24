@@ -1,0 +1,4032 @@
+%!PS-Adobe-3.0
+%%Title: prac1.doc
+%%Creator: PSCRIPT.DRV Version 4.0
+%%CreationDate: 10/19/00 11:42:06
+%%BoundingBox: 18 23 578 820 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%EndComments
+
+[{
+%%BeginFeature: *JobPatchFile 1
+
+save 
+/version23-manualfeedpatch where { pop false } { true }ifelse
+ % we don't do an explicit 'get' since product and version MAY
+ % be in systemdict or statusdict - this technique gets the lookup
+ % without failure
+statusdict begin
+  product (LaserWriter) eq        % true if LaserWriter
+  version cvr 23.0 eq             % true if version 23
+end
+
+and  % only install this patch if both are true
+and  % true only if patch is not installed and is for this printer
+     % save object and boolean on stack
+dup { exch restore }if
+% either true OR saveobject false
+dup
+{
+  /version23-manualfeedpatch true def
+  /oldversion23-showpage /showpage load def
+  /showpage       % this showpage will wait extra time if manualfeed is true
+  {%
+     statusdict /manualfeed known
+     {% manualfeed known in statusdict
+        statusdict /manualfeed get
+        {% if true then we loop for 5 seconds
+           usertime 5000 add       % target usertime
+           { % loop
+             dup usertime sub 0 lt
+             { exit }if
+           }loop
+           pop             % pop the usertime off the stac
+        }if
+     }if
+     oldversion23-showpage
+  }bind def
+}if
+not{ restore }if
+
+%%EndFeature
+} stopped cleartomark
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(This job requires more memory than is available in this printer.) 100 500
+(Try one or more of the following, and then print again:) 100 485
+(In the PostScript dialog box, click Optimize For Portability.) 115 470
+(In the Device Options dialog box, make sure the Available Printer Memory is accurate.) 115 455
+(Reduce the number of fonts in the document.) 115 440
+(Print the document in parts.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 1.000 0 0 1.000 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+statusdict /manualfeed false put
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize A4
+a4
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0.240 0 0 -0.240 18.000 820.000 ] | 
+%%EndSetup
+
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2479 3508 rf ; 
+%%EndPageSetup
+
+30000  VM?
+pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text_Bold 2.0 0
+/mBF{@ 4 copyfont `/FontName ~ |/OrigFontType ~ |/OrigFontName ~ | 0
+FontMatrix idtransform ! &/PaintType known{PaintType 0 eq{/PaintType 2 |
+/StrokeWidth ~ |}{PaintType 1 eq PaintType 2 eq or PaintType 3 eq or &
+/StrokeWidth known and{StrokeWidth add/StrokeWidth ~ |}{!}?}?}{!}? @ & E
+definefont Pscript_Windows_Font 3 1 $ put}b/xBF{Pscript_Windows_Font ` 1 ^
+/FontName get 1 ^ scalefont 3 1 $ scalefont 2 copy ~ | ~ ! | E}b/xMBF{mFM
+astore Pscript_Windows_Font ` 1 ^/FontName get 1 ^ makefont 3 1 $ makefont 2
+copy ~ | ~ ! | E}b/xBF2{/sB0 ~ mBF/sB1 sB0 3 -1 $ xBF sB1}b/xMBF2{/sB0 ~ mBF
+mFM astore/sB1 sB0 3 -1 $ xMBF sB1}b/sB{: Pscript_Windows_Font currentfont get
+Ji @ S ; S}b/asB{: Pscript_Windows_Font currentfont get Ji 3 copy A ; A}b/wsB{
+: Pscript_Windows_Font currentfont get Ji 4 copy W ; W}b/awsB{:
+Pscript_Windows_Font currentfont get Ji 6 copy D ; D}b/sBT3{: @ S ; 1 1 -M S}b
+/asBT3{: 3 copy A ; 1 1 -M A}b/wsBT3{: 4 copy W ; 1 1 -M W}b/awsBT3{: 6 copy D
+; 1 1 -M D}b/mIF{iMat 4 3 -1 $ put 2 copyfont `/OrigFontType ~ |/OrigFontName
+~ | @ & E definefont iMat makefont Pscript_Windows_Font 3 1 $ put}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics 2.0 0
+/SavedCTM null |/CTMsave{/SavedCTM SavedCTM currentmatrix |}b/CTMrestore{
+SavedCTM setmatrix}b/mp null |/ADO_mxRot null |/GDIHMatrix null |
+/GDIHPatternDict 22 dict | GDIHPatternDict `/PatternType 1 |/PaintType 2 |
+/Reps L2?{1}{5}? |/XStep 8 Reps mul |/YStep XStep |/BBox[0 0 XStep YStep]|
+/TilingType 1 |/PaintProc{` 1 Lw[]0 setdash PaintData , exec E}b/FGnd null |
+/BGnd null |/HS_Horizontal{horiz}b/HS_Vertical{vert}b/HS_FDiagonal{fdiag}b
+/HS_BDiagonal{biag}b/HS_Cross{horiz vert}b/HS_DiagCross{fdiag biag}b/MaxXYStep
+XStep YStep gt{XStep}{YStep}? |/horiz{Reps{0 4 M XStep 0 - 0 8 +}repeat 0 -8
+Reps mul + K}b/vert{Reps{4 0 M 0 YStep - 8 0 +}repeat 0 -8 Reps mul + K}b/biag
+{Reps{0 0 M MaxXYStep @ - 0 YStep neg M MaxXYStep @ - 0 8 +}repeat 0 -8 Reps
+mul + 0 YStep M 8 8 - K}b/fdiag{Reps{0 0 M MaxXYStep @ neg - 0 YStep M
+MaxXYStep @ neg - 0 8 +}repeat 0 -8 Reps mul + MaxXYStep @ M 8 -8 - K}b E
+/makehatch{GDIHPatternDict/PaintData 3 -1 $ put CTMsave GDIHMatrix setmatrix
+GDIHPatternDict matrix mp CTMrestore ~ U ~ 2 ^ put}b/h0{/h0/HS_Horizontal
+makehatch}b/h1{/h1/HS_Vertical makehatch}b/h2{/h2/HS_FDiagonal makehatch}b/h3{
+/h3/HS_BDiagonal makehatch}b/h4{/h4/HS_Cross makehatch}b/h5{/h5/HS_DiagCross
+makehatch}b/GDIBWPatternDict 17 dict @ `/PatternType 1 |/PaintType L2?{1}{2}?
+|/RepsV L2?{1}{6}? |/RepsH L2?{1}{5}? |/BBox[0 0 RepsH 1]|/TilingType 1 |
+/XStep 1 |/YStep 1 |/Height 8 RepsV mul |/Width 8 |/mx[Width 0 0 Height neg 0
+Height]|/FGnd null |/BGnd null |/SetBGndFGnd L2?{{BGnd null ne{BGnd aload !
+sgco BBox aload ! 2 ^ sub ~ 3 ^ sub ~ rf}if FGnd null ne{FGnd aload ! sgco}if}
+}{{}}? b/PaintProc{` SetBGndFGnd RepsH{Width Height F mx PaintData imagemask
+Width 0 +}repeat E}b E |/GDIBWPatternMx null |/pfprep{save 4 1 $
+/PatternOfTheDay 4 1 $ GDIBWPatternDict `/PaintData ~ |/BGnd ~ |/FGnd ~ | E
+CTMsave GDIBWPatternMx setmatrix GDIBWPatternDict matrix mp CTMrestore ~ !}b
+/hrf null |/prf{pfprep ~ 6 1 $ 5 hrf restore}b/GraphInit{GDIHMatrix null eq{
+/SavedCTM matrix | : ADO_mxRot concat 0 0 snap + : 0.48 @ GDIHPatternDict `
+YStep mul ~ XStep mul ~ dsnap YStep V ~ XStep V ~ E +S/GDIHMatrix matrix
+currentmatrix readonly | ; : 0.24 -0.24 +S GDIBWPatternDict ` Width Height E
+dsnap +S/GDIBWPatternMx matrix currentmatrix readonly | ; ;}if}b/cirp{360 0 An
+C}b/ellp{CTMsave + +S 0.5 0 M 0 0 0.5 360 0 An C CTMrestore}b/rrp{/rad ~ |/y2
+~ |/x2 ~ |/y1 ~ |/x1 ~ | x2 x1 add 2 V y1 M x1 y1 x1 y2 rad arct x1 y2 x2 y2
+rad arct x2 y2 x2 y1 rad arct x2 y1 x1 y1 rad arct C}b/RRp{CTMsave + +S/dyS ~
+|/dxS ~ | dxS 2 V 0 M 0 0 0 dyS 0.5 arct 0 dyS dxS dyS 0.5 arct dxS dyS dxS 0
+0.5 arct dxS 0 0 0 0.5 arct C CTMrestore}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L1 2.0 0
+L2? not g{/arct{arcto ! ! ! !}b/GDIpattfill{@ ` BGnd null ne PaintType 2 eq
+and{: BGnd aload ! sgco fEOFill{O}{L}? ; FGnd aload ! U/fGray 2 ^ put{2}{4}?
+-1 $}if E @ patterncalc : 4 ^/PaintType get 2 eq{fGray{6 -1 $ sg}{8 -3 $ sco}?
+}if fEOFill{eoclip}{clip}? N patternfill ; N}b/hrf{/fGray 1 ^ 6 eq | -4 $ N rp
+C/fEOFill F | GDIpattfill}b/hfMain{/fEOFill ~ |/fGray ~ | GDIpattfill}b/hf{T
+hfMain}b/hfW{F hfMain}b/hs{currentpoint strokepath M hfW}b/pfMain{/fEOFill ~ |
+pfprep GDIpattfill restore N}b/pf{T pfMain}b/pfW{F pfMain}b/ps{currentpoint
+strokepath M pfW}b/mpstr 1 string |/mp{~ @ length 12 add dict copy `
+/PatternCTM matrix currentmatrix |/PatternMatrix ~ |/PatWidth XStep mpstr
+length mul |/PatHeight YStep |/FontType 3 |/Encoding 256 array | 3 string 0 1
+255{Encoding ~ @ 3 ^ cvs cvn put}for !/FontMatrix matrix |/FontBBox BBox |
+/BuildChar{! @ ` XStep 0 FontBBox aload ! setcachedevice/PaintProc , E : exec
+;}b & E ~ @ 3 -1 $ definefont}b/patterncalc{` : PatternCTM setmatrix
+PatternMatrix concat BBox aload ! ! ! + pathbbox ; PatHeight V ceiling 4 1 $
+PatWidth V ceiling 4 1 $ PatHeight V floor 4 1 $ PatWidth V floor 4 1 $ 2 ^
+sub cvi abs ~ 3 ^ sub cvi abs ~ 4 2 $ PatHeight mul ~ PatWidth mul ~ E}b
+/patternfill{5 -1 $ @ ` Ji PatternCTM setmatrix PatternMatrix concat 0 2 ^ 2 ^
+M 0 1 mpstr length 1 sub{1 ^ mpstr 3 1 $ put}for ! 2 ^{currentpoint 5 ^{mpstr
+S}repeat YStep add M}repeat ! ! ! ! E}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L2 2.0 0
+L2? g{/mp/makepattern , |/hrf{6 eq setAorABC setpattern rectfill}b/hf{
+setAorABC setpattern O}b/hfW{setAorABC setpattern L}b/hs{setAorABC setpattern
+K}b/pf{pfprep setpattern O restore N}b/pfW{pfprep setpattern L restore N}b/ps{
+pfprep setpattern K restore N}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images 2.0 0
+/iw 0 |/ih 0 |/im_save 0 |/s 0 |/polarity 0 |/smoothflag 0 |/mystring 0 |/bpc
+0 |/setup1asciiproc{[currentfile mystring/readhexstring cvx/! cvx]cvx bind}b
+/setup1binaryproc{[currentfile mystring/readstring cvx/! cvx]cvx bind}b
+/setup2asciiproc{currentfile/ASCII85Decode filter/RunLengthDecode filter}b
+/setup2binaryproc{currentfile/RunLengthDecode filter}b/mycolorspace{colspABC}|
+/myimagedict{/myimagedict 10 dict | myimagedict @ `/ImageType 1 |
+/MultipleDataSource F | E}b/imageprocarray[/setup1binaryproc/setup1asciiproc
+/setup2binaryproc/setup2asciiproc/setup1binarydecodeproc/setup1asciidecodeproc
+]|/L2Polarity{{[1 0]}{[0 1]}?}b/Q{/im_save save | imageprocarray ~ get/s ~ , |
+L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring ~
+string |/bpc ~ |/ih ~ |/iw ~ |}b/X{/im_save save | imageprocarray ~ get/s ~ ,
+| L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring
+~ string |/bpc ~ |/ih ~ |/iw ~ |}b/Z{im_save restore}b/Y{sgco myimagedict @ `
+/Width iw |/Height ih |/Decode polarity |/ImageMatrix[iw 0 0 ih 0 0]|
+/DataSource s |/BitsPerComponent 1 |/Interpolate smoothflag | E imagemask}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images_L1 2.0 0
+L2? not g{/setup2asciiproc{[/Level2ImagesError , aload ! T FatalErrorIf}b
+/setup2binaryproc/setup2asciiproc , |/L2Polarity{}|/Y{sgco iw ih polarity[iw 0
+0 ih 0 0]s imagemask}b}e
+%%EndResource
+
+userdict /Level2ImagesError [
+(This job contains a bitmapped image that can be printed only on) 100 500
+(PostScript(R) Level 2 printers.  Please send this file to a PostScript) 100 485
+(Level 2 printer, or print your document again with the correct printer) 100 470
+(selected.) 100 455
+12 /Times-Roman
+] put
+
+%%BeginResource: file Pscript_Win_Co_Images_L1 2.0 0
+L2? not g{/testsystemdict{where{systemdict eq{T}{F}?}{F}?}b/c 1 |/colorimage
+where{! T}{F}?{/c 0 statusdict `/processcolors where{! ! processcolors}{
+/deviceinfo where{! deviceinfo/Colors known{!{deviceinfo/Colors get}}if}if}? E
+| c 0 ne{/colorimage testsystemdict/setcolortransfer testsystemdict
+/currentcolortransfer testsystemdict/currentcmykcolor testsystemdict and and
+and not{/c 0 |}if}if}if c @ 1 ne ~ @ 3 ne ~ 4 ne and and{/c 0 |}if c 1 eq g{
+/expandbw{expandfactor mul round cvi bwclut ~ get 255 V}b/doclutimage{!/bwclut
+~ | bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/expandfactor ~ |[/expandbw ,/exec , @
+currenttransfer ~]cvx bind settransfer iw ih bpc[iw 0 0 ih 0 0]s image}b}e c @
+3 eq ~ 4 eq or g{/nullproc{{}}|/concatutil{/exec , 7 -1 $/exec ,}b/defsubclut{
+1 add getinterval |}b/spconcattransfer{/Dclut ~ |/Cclut ~ |/Bclut ~ |/Aclut ~
+|/ncompute ~ , | currentcolortransfer[{Aclut ncompute}concatutil]cvx[{Bclut
+ncompute}concatutil]cvx[{Cclut ncompute}concatutil]cvx[{Dclut ncompute}
+concatutil]cvx setcolortransfer}b/setuprgbcluts{/bit3x rgbclut length 3 sub |
+/bit1x bit3x 3 idiv |/rclut rgbclut |/gclut rclut 1 bit3x defsubclut/bclut
+rclut 2 bit3x defsubclut}b}e c 3 eq g{/3compute{~ bit3x mul round cvi get 255
+V}b/doclutimage{/rgbclut ~ | ! setuprgbcluts/3compute rclut gclut bclut @
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @]cvx nullproc nullproc
+T 3 colorimage}b}e c 4 eq g{/ftoint{1 ~ sub 255 mul round cvi}b/stuffclut{
+cmykindex 3 -1 $ put}b/4compute{~ bit4x mul round cvi get 255 V}b
+/invalidcolortable? T |/computecmykclut{setuprgbcluts/bit4x rgbclut length 3
+idiv 4 mul 4 sub |/cmykclut bit4x 4 add string |/cclut cmykclut |/mclut cclut
+1 bit4x defsubclut/yclut cclut 2 bit4x defsubclut/kclut cclut 3 bit4x
+defsubclut/cmykindex 0 | 0 1 bit1x{@/cmykindex ~ bit1x ~ sub 4 mul | 3 mul @
+rclut ~ get 255 V ~ @ gclut ~ get 255 V ~ bclut ~ get 255 V setrgbcolor
+currentcmykcolor ftoint kclut stuffclut ftoint yclut stuffclut ftoint mclut
+stuffclut ftoint cclut stuffclut}for}b/doclutimage{/rgbclut ~ | !
+invalidcolortable?{computecmykclut}if/4compute cclut mclut yclut kclut
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @ @]cvx nullproc
+nullproc nullproc T 4 colorimage}b}e c 0 eq g{/a{3 mul 3 getinterval
+putinterval ~ 3 add ~ 3 copy}b/8lookup/a , |/4lookup{/byte 1 ^ | -4 bitshift a
+byte 15 and a}b/2lookup{/byte 1 ^ | -6 bitshift a byte -4 bitshift 3 and a
+byte -2 bitshift 3 and a byte 3 and a}b/colorexpand{mystringexp 0 rgbclut 3
+copy 7 -1 $/mylookup , forall ! ! ! ! !}b/createexpandstr{/mystringexp ~
+mystring length mul string |}b/doclutimage{/rgbclut ~ | !/mylookup bpc 8 eq{3
+createexpandstr/8lookup}{bpc 4 eq{6 createexpandstr/4lookup}{12
+createexpandstr/2lookup}?}? , | iw ih bpc[iw 0 0 ih 0 0][s/exec ,/colorexpand
+,/exec ,]cvx F 3 colorimage}b}e/colorimage where{! T}{F}? g{/do24image{iw ih 8
+[iw 0 0 ih 0 0]s F 3 colorimage}b}DefIf_El{/rgbtogray{/str ~ |/len str length
+|/smlen len 3 idiv |/rstr str |/gstr str 1 len 1 sub getinterval |/bstr str 2
+len 2 sub getinterval | str @ 0 1 smlen 1 sub{@ 3 mul rstr 1 ^ get 0.3 mul
+gstr 2 ^ get 0.59 mul add bstr 3 -1 $ get 0.11 mul add round cvi put @}for ! 0
+smlen getinterval}b/do24image{iw ih 8[iw 0 0 ih 0 0][s/exec ,/rgbtogray ,/exec
+,]cvx bind image}b}e/doNimage{bpc 24 eq{do24image}{iw ih bpc[iw 0 0 ih 0 0]s
+image}?}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Co_Images_L2 2.0 0
+L2? g{/doclutimage{/rgbclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[
+/Indexed colspABC hival rgbclut]setcolorspace myimagedict @ `/Width iw |
+/Height ih |/Decode[0 hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |
+/BitsPerComponent bpc |/Interpolate smoothflag | E image}b/doCMYKclutimage{
+/CMYKclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[/Indexed/DeviceCMYK
+hival CMYKclut]setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0
+hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent bpc |
+/Interpolate smoothflag | E image}b/doNimage{bpc 24 eq{colspABC}{colspA}?
+setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode bpc 24 eq{[0 1 0 1
+0 1]}{[0 1]}? |/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent
+bpc 24 eq{8}{bpc}? |/Interpolate smoothflag | E image}b/doCMYKimage{
+/DeviceCMYK setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0 1 0
+1 0 1 0 1]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent 8 |
+/Interpolate smoothflag | E image}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Type1_Hdr 2.0 0
+/FEbuf 2 string |/FEglyph 3 string |/FE{(G00)FEglyph copy ! 1 ~{@ 16 lt{
+/offset 2 store}{/offset 1 store}? @ 16 FEbuf cvrs FEglyph ~ offset ~
+putinterval 1 ^ ~ FEglyph cvn put}for}bind |/Type1Hdr{11 dict `/FontName ~ |
+/PaintType ~ |/FontType 1 |/FontMatrix[1 3 ^ V 0 0 1 6 ^ V 0 0]| !/Encoding
+256 array 0 1 255{1 ^ ~/.notdef put}for 3 ^ 3 ^ FE | ! !/FontBBox{0 0 0 0}| &
+E currentfile eexec}bind |
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Type3_Hdr 2.0 0
+/GreNewFont{10 dict @ 3 1 $ | @ ` 4 1 $/FontType 3 |/FontMatrix ~ |/FontBBox ~
+|/Encoding 256 array | 0 1 255{Encoding ~/.notdef put}for/CharProcs 257 dict |
+CharProcs/.notdef{}put/Metrics 257 dict | Metrics/.notdef 3 -1 $ put/BuildChar
+{/char ~ |/fontdict ~ |/charname fontdict/Encoding get char get | fontdict
+/Metrics get charname get aload ! setcachedevice fontdict ` Encoding char get
+CharProcs ~ get E exec}| E definefont !}|/AddChar{` Encoding 3 1 $ put
+CharProcs 3 1 $ put Metrics 3 1 $ put E}|
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Compat 2.0 0
+userdict/Pscript_Win_Compat 13 dict dup begin/bd{bind def}bind def/ld{load def
+}bd/CB{pop pop pop pop}bind def/B{pop pop pop pop}bind def/$x matrix def/SS{
+/pagesave save def}bind def/RS{/pagesave where{pop pagesave restore}{$x matrix
+invertmatrix concat}ifelse}bind def/ANSIVec[0/grave 1/acute 2/circumflex 3
+/tilde 4/macron 5/breve 6/dotaccent 7/dieresis 8/ring 9/cedilla 10
+/hungarumlaut 11/ogonek 12/caron 13/dotlessi 39/quotesingle 96/grave 124/bar
+130/quotesinglbase 131/florin 132/quotedblbase 133/ellipsis 134/dagger 135
+/daggerdbl 136/circumflex 137/perthousand 138/Scaron 139/guilsinglleft 140/OE
+145/quoteleft 146/quoteright 147/quotedblleft 148/quotedblright 149/bullet 150
+/endash 151/emdash 152/tilde 153/trademark 154/scaron 155/guilsinglright 156
+/oe 159/Ydieresis 160/space 161/exclamdown 164/currency 165/yen 166/brokenbar
+167/section 168/dieresis 169/copyright 170/ordfeminine 171/guillemotleft 172
+/logicalnot 173/hyphen 174/registered 175/macron 176/degree 177/plusminus 178
+/twosuperior 179/threesuperior 180/acute 181/mu 182/paragraph 183
+/periodcentered 184/cedilla 185/onesuperior 186/ordmasculine 187
+/guillemotright 188/onequarter 189/onehalf 190/threequarters 191/questiondown
+192/Agrave 193/Aacute 194/Acircumflex 195/Atilde 196/Adieresis 197/Aring 198
+/AE 199/Ccedilla 200/Egrave 201/Eacute 202/Ecircumflex 203/Edieresis 204
+/Igrave 205/Iacute 206/Icircumflex 207/Idieresis 208/Eth 209/Ntilde 210/Ograve
+211/Oacute 212/Ocircumflex 213/Otilde 214/Odieresis 215/multiply 216/Oslash
+217/Ugrave 218/Uacute 219/Ucircumflex 220/Udieresis 221/Yacute 222/Thorn 223
+/germandbls 224/agrave 225/aacute 226/acircumflex 227/atilde 228/adieresis 229
+/aring 230/ae 231/ccedilla 232/egrave 233/eacute 234/ecircumflex 235/edieresis
+236/igrave 237/iacute 238/icircumflex 239/idieresis 240/eth 241/ntilde 242
+/ograve 243/oacute 244/ocircumflex 245/otilde 246/odieresis 247/divide 248
+/oslash 249/ugrave 250/uacute 251/ucircumflex 252/udieresis 253/yacute 254
+/thorn 255/ydieresis]def currentdict{dup type/operatortype eq{[exch]cvx def}{
+pop pop}ifelse}forall/initialize{currentdict exch begin begin}bind def
+/terminate{/@FL where not{pop end end}{pop}ifelse}bind def/suspend/terminate
+load def/resume/initialize load def/M/moveto load def end put/Courier findfont
+10 scalefont setfont
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+Pscript_Win_Compat begin /$x mysetup def end
+Pscript_Win_Driver_Incr dup /suspend get exec
+Pscript_Win_Compat dup /initialize get exec
+%%BeginDocument: Pscript_Win_PassThrough
+% Copyright (c) 1986-1995 Frame Technology Corporation.
+/FMcmyk 100 dict def
+/FmBD{bind def}bind def
+/FmLD{load def}FmBD
+/FMc {
+ FMcmyk length FMcmyk maxlength ge { /FMcmyk FMcmyk dup length dup add dict copy def } if
+ 4 array astore 4 1 roll 8 bitshift add 8 bitshift add exch FMcmyk 3 1 roll put
+}FmBD
+/setcmykcolor where { pop
+ /sc where { pop /sc load 0 get /scignore eq {
+  /FMsc /sc FmLD
+  /sc { 3 copy 8 bitshift add 8 bitshift add FMcmyk 1 index known
+   { FMcmyk exch get aload pop setcmykcolor pop pop pop } { pop FMsc } ifelse
+  }FmBD
+ } if } if
+} if
+mark { /S load
+ dup 0 get /PenW eq { dup 1 get /sl load eq {
+  dup 0 { PenW .75 sub sl } bind put 1 /exec load put
+ } if } if
+} stopped cleartomark       
+/FmX matrix defaultmatrix def
+/FmDC {transform FmX itransform cvi exch cvi exch} def
+/FmBx { dup 3 index lt {3 1 roll exch} if 
+ 1 index 4 index lt {4 -1 roll 3 1 roll exch 4 1 roll} if
+}FmBD
+/FmPD/cleartomark FmLD
+/FmPD2/cleartomark FmLD
+/FmPT/pop FmLD
+/FmPA{pop pop pop}FmBD
+systemdict /pdfmark known {
+ /FmPD/pdfmark FmLD
+ currentdistillerparams /CoreDistVersion get 2000 ge {
+  /FmPD2/pdfmark FmLD
+  /FmPA { mark exch /Dest exch 5 3 roll 
+	/View [ /XYZ null 6 -2 roll FmDC exch pop null] /DEST FmPD 
+  }FmBD
+ } if
+} if
+0 0 0 0.0 0.0 0.0 1.0 FMc
+
+%%EndDocument
+Pscript_Win_Compat dup /suspend get exec
+Pscript_Win_Driver_Incr dup /resume get exec
+colspRefresh
+
+: : : : 0 0 2333 3321 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.902 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_41) cvn
+F0
+41 
+xF 
+F0_41
+Ji 
+1108 3232 M 
+0.204 0 (P)A 
+0.796 0 (a)A 
+0.500 0 (g)A 
+0.954 0 32 -0.204 0 (e )D 
+-0.500 0 (1)A 
+; ; : 536 189 1797 67 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F2) cvn
+0.931 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F2_58) cvn
+F2
+58 
+xF 
+F2_58
+Ji 
+596 189 M 
+0.124 0 (UN)A 
+0.438 0 (I)A 
+0.124 0 (V)A 
+0.314 0 (E)A 
+0.124 0 (R)A 
+-0.248 0 (S)A 
+0.438 0 (I)A 
+0.314 0 (T)A 
+-0.624 0 32 0.124 0 (Y )D 
+0.876 0 (O)A 
+0.938 0 32 -0.438 0 (F )D 
+(W)S 
+0.124 0 (A)A 
+0.314 0 (LE)A 
+-0.248 0 (S)A 
+0.500 0 (, )A 
+0.124 0 (A)A 
+0.314 0 (BE)A 
+0.124 0 (RY)A 
+-0.248 0 (S)A 
+(W)S 
+1.124 0 (Y)A 
+-0.686 0 (T)A 
+0.876 0 (H)A 
+; : 687 260 1646 67 rc 0 0 0 sco F2_58
+Ji 
+747 260 M 
+0.124 0 (D)A 
+0.248 0 (e)A 
+0.752 0 (p)A 
+(a)S 
+0.248 0 (r)A 
+-0.314 0 (t)A 
+0.686 0 (m)A 
+0.248 0 (e)A 
+-0.248 0 (n)A 
+0.814 0 32 -0.314 0 (t )D 
+(o)S 
+-1.186 0 32 0.686 0 (f )D 
+0.124 0 (C)A 
+(o)S 
+0.686 0 (m)A 
+-0.248 0 (p)A 
+0.752 0 (u)A 
+-0.314 0 (t)A 
+0.252 0 32 0.248 0 (er )D 
+-0.248 0 (S)A 
+0.248 0 (c)A 
+-0.124 0 (i)A 
+0.248 0 (e)A 
+-0.248 0 (n)A 
+0.248 0 (ce)A 
+; : 616 401 1717 67 rc 0 0 0 sco F2_58
+Ji 
+676 401 M 
+0.124 0 (C)A 
+-0.248 0 (S)A 
+1.000 0 (2)A 
+0.500 0 32 (5510 )W 
+0.814 0 32 -0.314 0 (- )D 
+0.124 0 (C)A 
+-0.124 0 (O)A 
+0.248 0 (M)A 
+0.562 0 (P)A 
+0.124 0 (U)A 
+0.314 0 (TE)A 
+-0.624 0 32 0.124 0 (R )D 
+0.876 0 (H)A 
+0.124 0 (ARD)A 
+(W)S 
+1.124 0 (A)A 
+0.124 0 (R)A 
+0.314 0 (E)A 
+; : 792 472 1541 67 rc 0 0 0 sco F2_58
+Ji 
+852 472 M 
+0.314 0 (L)A 
+0.124 0 (A)A 
+0.314 0 (B)A 
+0.876 0 (O)A 
+0.124 0 (RA)A 
+0.314 0 (T)A 
+-0.124 0 (O)A 
+0.376 0 32 0.124 0 (RY )D 
+(W)S 
+0.876 0 (O)A 
+0.124 0 (R)A 
+-0.124 0 (K)A 
+; : 159 756 2174 67 rc 0 0 0 sco F2_58
+Ji 
+219 756 M 
+0.314 0 (T)A 
+0.876 0 (H)A 
+-0.624 0 32 0.124 0 (R )D 
+(6)S 
+1.000 0 (8)A 
+-0.124 0 (H)A 
+0.124 0 (C)A 
+0.500 0 32 (11 )W 
+-0.248 0 (S)A 
+0.876 0 (i)A 
+-0.314 0 (m)A 
+-0.248 0 (u)A 
+0.876 0 (l)A 
+(a)S 
+-0.314 0 (t)A 
+(o)S 
+0.252 0 32 0.248 0 (r )D 
+0.814 0 32 -0.314 0 (- )D 
+0.438 0 (I)A 
+0.124 0 (N)A 
+0.314 0 (T)A 
+0.124 0 (R)A 
+-0.124 0 (O)A 
+0.124 0 (DUC)A 
+0.314 0 (T)A 
+0.438 0 (I)A 
+-0.124 0 (O)A 
+0.124 0 (N)A 
+; : 170 960 2163 52 rc 0 0 0 sco (F0_45) cvn
+F0
+45 
+xF 
+F0_45
+Ji 
+219 960 M 
+0.500 0 (1)A 
+0.750 0 (.)A 
+; : 229 960 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 960 M 
+0.505 0 (L)A 
+0.500 0 (og)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+-1.270 0 32 1.020 0 (a )D 
+-0.020 0 (P)A 
+-1.235 0 32 0.985 0 (C )D 
+0.990 0 (m)A 
+0.020 0 (a)A 
+1.020 0 (c)A 
+0.500 0 (h)A 
+-0.510 0 (i)A 
+0.500 0 (n)A 
+-1.270 0 32 1.020 0 (e )D 
+0.020 0 (c)A 
+0.500 0 (onn)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+1.020 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+1.015 0 (I)A 
+-0.250 0 (.)A 
+0.980 0 (S)A 
+1.000 0 32 -0.250 0 (. )D 
+-0.500 0 (n)A 
+1.020 0 (e)A 
+-0.510 0 (t)A 
+0.510 0 (w)A 
+0.500 0 (o)A 
+1.015 0 (r)A 
+-0.750 0 32 0.500 0 (k )D 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (nd )D 
+0.020 0 (c)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+-1.270 0 32 1.020 0 (e a )D 
+0.500 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+0.250 0 32 0.500 0 (y )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+0.735 0 32 0.015 0 (r )D 
+-0.500 0 (y)A 
+0.500 0 (ou)A 
+0.735 0 32 0.015 0 (r )D 
+0.510 0 (A)A 
+0.495 0 (ss)A 
+0.020 0 (e)A 
+-0.010 0 (m)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+-0.750 0 32 0.500 0 (y )D 
+; : 229 1014 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1014 M 
+0.505 0 (L)A 
+1.020 0 (a)A 
+0.500 0 (n)A 
+-0.500 0 (g)A 
+0.500 0 (u)A 
+1.020 0 (a)A 
+0.500 0 (g)A 
+-0.270 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+-0.010 0 (m)A 
+0.255 0 32 0.495 0 (s )D 
+0.510 0 (w)A 
+-0.510 0 (i)A 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n you)D 
+-0.265 0 32 0.015 0 (r )D 
+0.500 0 (ho)A 
+0.990 0 (m)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (d)A 
+-0.510 0 (i)A 
+1.015 0 (r)A 
+0.020 0 (ec)A 
+0.490 0 (t)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+0.500 0 (y)A 
+-0.250 0 (.)A 
+; : 170 1069 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1069 M 
+0.500 0 (2)A 
+0.750 0 (.)A 
+; : 229 1069 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1069 M 
+0.980 0 (F)A 
+0.015 0 (r)A 
+0.500 0 (o)A 
+-1.240 0 32 0.990 0 (m )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+0.985 0 (C)A 
+0.500 0 (o)A 
+-0.010 0 (m)A 
+0.500 0 (pu)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+-1.265 0 32 1.015 0 (r )D 
+-0.020 0 (S)A 
+1.020 0 (c)A 
+-0.510 0 (i)A 
+1.020 0 (e)A 
+0.500 0 (n)A 
+0.730 0 32 0.020 0 (ce c)D 
+0.500 0 (ou)A 
+0.015 0 (r)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.510 0 (w)A 
+1.020 0 (a)A 
+0.015 0 (r)A 
+0.730 0 32 0.020 0 (e )D 
+-0.010 0 (m)A 
+1.020 0 (e)A 
+-0.500 0 (n)A 
+0.500 0 (u)A 
+-1.000 0 32 0.750 0 (, )D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.740 0 32 0.490 0 (t )D 
+; : 1218 1068 1115 52 rc 0 0 0 sco (F2_45) cvn
+F2
+45 
+xF 
+F2_45
+Ji 
+1265 1068 M 
+-0.015 0 (T)A 
+0.990 0 (H)A 
+0.240 0 32 0.510 0 (R )D 
+-0.500 0 (6)A 
+0.500 0 (8)A 
+0.990 0 (H)A 
+0.510 0 (C)A 
+-0.750 0 32 0.500 0 (11 )D 
+0.980 0 (S)A 
+-0.510 0 (i)A 
+1.515 0 (m)A 
+-0.020 0 (u)A 
+0.490 0 (l)A 
+0.500 0 (a)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+; : 1694 1069 147 52 rc 0 0 0 sco F0_45
+Ji 
+1743 1069 M 
+-0.250 0 (.)A 
+; : 170 1123 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1123 M 
+0.500 0 (3)A 
+0.750 0 (.)A 
+; : 229 1123 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1123 M 
+0.510 0 (O)A 
+0.500 0 (n)A 
+1.020 0 (c)A 
+-0.270 0 32 0.020 0 (e )D 
+0.490 0 (l)A 
+0.500 0 (o)A 
+0.020 0 (a)A 
+0.500 0 (d)A 
+1.020 0 (e)A 
+-0.500 0 (d)A 
+-1.000 0 32 0.750 0 (, )D 
+-0.750 0 32 0.500 0 (you )D 
+1.020 0 (a)A 
+0.015 0 (r)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.500 0 (n)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (d )D 
+0.510 0 (w)A 
+-0.510 0 (i)A 
+0.490 0 (t)A 
+0.250 0 32 0.500 0 (h )D 
+-0.270 0 32 0.020 0 (a )D 
+; : 943 1122 1390 52 rc 0 0 0 sco F2_45
+Ji 
+990 1122 M 
+0.510 0 (C)A 
+0.500 0 (o)A 
+0.515 0 (mm)A 
+0.500 0 (a)A 
+0.980 0 (n)A 
+-0.020 0 (d)A 
+0.495 0 (s)A 
+; : 1165 1123 1168 52 rc 0 0 0 sco F0_45
+Ji 
+1214 1123 M 
+0.750 0 32 ( )W 
+0.510 0 (w)A 
+-0.510 0 (i)A 
+0.500 0 (ndo)A 
+-0.760 0 32 0.510 0 (w )D 
+1.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.730 0 32 0.020 0 (a )D 
+; : 1447 1122 886 52 rc 0 0 0 sco F2_45
+Ji 
+1494 1122 M 
+0.510 0 (C)A 
+0.505 0 (P)A 
+-0.760 0 32 0.510 0 (U )D 
+1.020 0 (r)A 
+0.020 0 (e)A 
+0.500 0 (g)A 
+0.490 0 (i)A 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+0.020 0 (er)A 
+0.495 0 (s)A 
+; : 1718 1123 615 52 rc 0 0 0 sco F0_45
+Ji 
+1767 1123 M 
+0.750 0 32 ( )W 
+0.510 0 (w)A 
+-0.510 0 (i)A 
+0.500 0 (ndo)A 
+0.510 0 (w)A 
+1.000 0 32 -0.250 0 (. )D 
+0.510 0 (A)A 
+0.490 0 (l)A 
+1.260 0 32 -0.510 0 (l )D 
+; : 229 1177 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1177 M 
+0.510 0 (w)A 
+0.490 0 (i)A 
+0.500 0 (ndo)A 
+0.510 0 (w)A 
+-0.745 0 32 0.495 0 (s )D 
+0.020 0 (a)A 
+1.015 0 (r)A 
+-0.270 0 32 0.020 0 (e )D 
+0.495 0 (s)A 
+1.020 0 (c)A 
+0.020 0 (a)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+-0.270 0 32 0.020 0 (e )D 
+1.020 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.990 0 (m)A 
+-0.500 0 (o)A 
+0.500 0 (v)A 
+1.020 0 (e)A 
+0.020 0 (a)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+0.020 0 (e)A 
+-0.250 0 (.)A 
+; : 170 1231 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1231 M 
+0.500 0 (4)A 
+0.750 0 (.)A 
+; : 229 1231 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1231 M 
+0.985 0 (C)A 
+0.490 0 (l)A 
+-0.510 0 (i)A 
+1.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 467 1230 141 52 rc 0 0 0 sco F2_45
+Ji 
+514 1230 M 
+0.500 0 (?)A 
+; : 488 1231 1845 52 rc 0 0 0 sco F0_45
+Ji 
+537 1231 M 
+-0.250 0 32 ( )W 
+0.500 0 (bu)A 
+-0.510 0 (t)A 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (on )D 
+1.015 0 (f)A 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (r )D 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.250 0 32 0.500 0 (p )D 
+-0.510 0 (i)A 
+0.500 0 (n)A 
+0.015 0 (f)A 
+0.500 0 (o)A 
+1.015 0 (r)A 
+-0.010 0 (m)A 
+0.020 0 (a)A 
+0.490 0 (ti)A 
+-0.750 0 32 0.500 0 (on on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.495 0 (s)A 
+-0.510 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+-0.500 0 (o)A 
+1.015 0 (r)A 
+-0.250 0 (.)A 
+; : 170 1285 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1285 M 
+0.500 0 (5)A 
+0.750 0 (.)A 
+; : 231 1284 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 1284 M 
+0.985 0 (B)A 
+0.020 0 (e)A 
+0.015 0 (f)A 
+0.500 0 (o)A 
+1.020 0 (r)A 
+0.020 0 (e)A 
+; : 359 1285 1974 52 rc 0 0 0 sco F0_45
+Ji 
+408 1285 M 
+-0.250 0 32 ( )W 
+1.510 0 (w)A 
+0.015 0 (r)A 
+-0.510 0 (i)A 
+0.490 0 (ti)A 
+-0.750 0 32 0.500 0 (ng you)D 
+0.735 0 32 0.015 0 (r f)D 
+0.490 0 (i)A 
+0.015 0 (r)A 
+0.495 0 (s)A 
+1.260 0 32 -0.510 0 (t )D 
+0.500 0 (68)A 
+0.510 0 (H)A 
+-0.015 0 (C)A 
+-0.750 0 32 0.500 0 (11 p)D 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+-0.010 0 (m)A 
+-1.000 0 32 0.750 0 (, )D 
+0.250 0 32 0.500 0 (go )D 
+-0.510 0 (t)A 
+0.250 0 32 0.500 0 (o )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+-0.750 0 32 0.500 0 (p )D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.490 0 (i)A 
+0.500 0 (on)A 
+-0.740 0 32 0.490 0 (: )D 
+; : 1457 1284 876 52 rc 0 0 0 sco F2_45
+Ji 
+1504 1284 M 
+0.990 0 (O)A 
+0.500 0 (v)A 
+0.020 0 (er)A 
+0.500 0 (v)A 
+0.490 0 (i)A 
+0.020 0 (e)A 
+0.240 0 32 0.510 0 (w )D 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (f )D 
+1.015 0 (t)A 
+-0.020 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.020 0 (b)A 
+0.980 0 (u)A 
+0.015 0 (tt)A 
+0.500 0 (o)A 
+-0.020 0 (n)A 
+0.255 0 32 0.495 0 (s )D 
+0.500 0 (a)A 
+-0.020 0 (n)A 
+-1.230 0 32 0.980 0 (d )D 
+; : 231 1338 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 1338 M 
+1.515 0 (m)A 
+0.020 0 (e)A 
+-0.020 0 (n)A 
+-1.230 0 32 0.980 0 (u )D 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.020 0 (e)A 
+1.515 0 (m)A 
+-0.505 0 (s)A 
+; : 454 1339 1879 52 rc 0 0 0 sco F0_45
+Ji 
+503 1339 M 
+-1.000 0 32 0.750 0 (, )D 
+1.020 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.490 0 (l)A 
+0.020 0 (ea)A 
+0.015 0 (r)A 
+0.250 0 32 0.500 0 (n )D 
+0.510 0 (w)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (t t)D 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.510 0 (i)A 
+0.500 0 (nd)A 
+0.490 0 (i)A 
+0.500 0 (v)A 
+-0.510 0 (i)A 
+0.500 0 (du)A 
+1.020 0 (a)A 
+1.260 0 32 -0.510 0 (l )D 
+0.500 0 (bu)A 
+-0.510 0 (t)A 
+0.490 0 (t)A 
+0.500 0 (on)A 
+-0.745 0 32 0.495 0 (s )D 
+0.500 0 (do)A 
+-0.250 0 (.)A 
+; : 170 1394 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1394 M 
+0.500 0 (6)A 
+0.750 0 (.)A 
+; : 229 1394 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1394 M 
+0.510 0 (A)A 
+1.015 0 (f)A 
+-0.510 0 (t)A 
+1.020 0 (e)A 
+-0.265 0 32 0.015 0 (r )D 
+0.490 0 (l)A 
+0.020 0 (e)A 
+1.020 0 (a)A 
+0.015 0 (r)A 
+0.500 0 (n)A 
+0.490 0 (i)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (g )D 
+0.490 0 (t)A 
+-0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+1.015 0 (f)A 
+-0.500 0 (u)A 
+0.500 0 (n)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.490 0 (i)A 
+0.500 0 (on)A 
+-0.745 0 32 0.495 0 (s )D 
+0.020 0 (a)A 
+0.495 0 (ss)A 
+0.490 0 (i)A 
+0.500 0 (gn)A 
+0.020 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+1.020 0 (e)A 
+0.020 0 (ac)A 
+0.250 0 32 0.500 0 (h )D 
+-0.500 0 (o)A 
+-1.265 0 32 1.015 0 (f )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.500 0 (b)A 
+0.500 0 (u)A 
+0.490 0 (tt)A 
+0.500 0 (on)A 
+-0.505 0 (s)A 
+-1.000 0 32 0.750 0 (, )D 
+-0.750 0 32 0.500 0 (go )D 
+0.490 0 (t)A 
+0.250 0 32 0.500 0 (o )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+-0.750 0 32 0.500 0 (p )D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.490 0 (i)A 
+0.500 0 (on)A 
+-0.740 0 32 0.490 0 (: )D 
+; : 1752 1393 581 52 rc 0 0 0 sco F2_45
+Ji 
+1799 1393 M 
+0.985 0 (E)A 
+-0.020 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+0.730 0 32 0.020 0 (r )D 
+0.500 0 (a)A 
+0.770 0 32 -0.020 0 (nd )D 
+; : 231 1447 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 1447 M 
+0.510 0 (A)A 
+0.495 0 (ss)A 
+0.020 0 (e)A 
+1.515 0 (m)A 
+-0.020 0 (b)A 
+0.490 0 (l)A 
+0.020 0 (er)A 
+; : 435 1448 1898 52 rc 0 0 0 sco F0_45
+Ji 
+484 1448 M 
+-1.000 0 32 0.750 0 (. )D 
+0.985 0 (R)A 
+0.020 0 (ea)A 
+0.250 0 32 0.500 0 (d ho)D 
+-0.760 0 32 0.510 0 (w )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 723 1447 1610 52 rc 0 0 0 sco F2_45
+Ji 
+770 1447 M 
+1.020 0 (e)A 
+-0.020 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+; : 838 1448 1495 52 rc 0 0 0 sco F0_45
+Ji 
+887 1448 M 
+0.750 0 32 ( )W 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 997 1447 1336 52 rc 0 0 0 sco F2_45
+Ji 
+1044 1447 M 
+0.500 0 (a)A 
+-0.505 0 (s)A 
+0.495 0 (s)A 
+1.020 0 (e)A 
+0.515 0 (m)A 
+-0.020 0 (b)A 
+0.490 0 (l)A 
+0.020 0 (e)A 
+1.020 0 (r)A 
+; : 1191 1448 1142 52 rc 0 0 0 sco F0_45
+Ji 
+1240 1448 M 
+-0.250 0 32 ( )W 
+0.500 0 (op)A 
+0.020 0 (e)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+1.020 0 (e)A 
+-0.250 0 (.)A 
+; : 170 1502 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 1502 M 
+0.500 0 (7)A 
+0.750 0 (.)A 
+; : 229 1502 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 1502 M 
+0.510 0 (Y)A 
+-1.750 0 32 0.500 0 (ou )D 
+0.495 0 (s)A 
+0.500 0 (ho)A 
+-0.500 0 (u)A 
+0.490 0 (l)A 
+-1.750 0 32 0.500 0 (d b)D 
+-1.270 0 32 0.020 0 (e )D 
+0.490 0 (i)A 
+-0.750 0 32 -0.500 0 (n )D 
+-3.270 0 32 1.020 0 (a )D 
+0.500 0 (po)A 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.510 0 (t)A 
+0.490 0 (i)A 
+-1.750 0 32 0.500 0 (on no)D 
+-2.760 0 32 0.510 0 (w )D 
+0.490 0 (t)A 
+-1.750 0 32 0.500 0 (o )D 
+0.510 0 (w)A 
+0.015 0 (r)A 
+0.490 0 (i)A 
+-0.510 0 (t)A 
+-2.270 0 32 1.020 0 (e )D 
+-0.500 0 (y)A 
+0.500 0 (ou)A 
+-3.265 0 32 1.015 0 (r f)D 
+-0.510 0 (i)A 
+1.015 0 (r)A 
+-0.505 0 (s)A 
+-1.740 0 32 0.490 0 (t )D 
+0.500 0 (68)A 
+0.510 0 (H)A 
+-0.015 0 (C)A 
+-1.750 0 32 0.500 0 (11 )D 
+0.510 0 (A)A 
+0.495 0 (s)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+-0.010 0 (m)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+-1.750 0 32 0.500 0 (y )D 
+0.505 0 (L)A 
+0.020 0 (a)A 
+0.500 0 (ngu)A 
+0.020 0 (a)A 
+0.500 0 (g)A 
+-1.270 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-3.000 0 32 0.750 0 (. )D 
+0.510 0 (U)A 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-2.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 0.020 0 (e )D 
+; : 231 1555 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 1555 M 
+1.020 0 (e)A 
+-0.020 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+; : 346 1556 1987 52 rc 0 0 0 sco F0_45
+Ji 
+395 1556 M 
+-1.000 0 32 0.750 0 (, )D 
+0.490 0 (t)A 
+0.500 0 (yp)A 
+0.730 0 32 0.020 0 (e )D 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (n )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+0.490 0 (ll)A 
+-0.500 0 (o)A 
+0.510 0 (w)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng p)D 
+1.015 0 (r)A 
+-0.500 0 (o)A 
+0.500 0 (g)A 
+1.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.510 0 (:)A 
+; : 170 2531 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 2531 M 
+0.500 0 (8)A 
+0.750 0 (.)A 
+; : 229 2531 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2531 M 
+0.510 0 (A)A 
+0.495 0 (ss)A 
+0.020 0 (e)A 
+0.990 0 (m)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+-0.270 0 32 0.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.490 0 (i)A 
+-0.745 0 32 0.495 0 (s )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+-0.240 0 32 0.990 0 (m )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.020 0 (c)A 
+0.500 0 (o)A 
+1.015 0 (r)A 
+0.015 0 (r)A 
+0.020 0 (ec)A 
+0.260 0 32 0.490 0 (t )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (r )D 
+1.020 0 (a)A 
+-0.750 0 32 0.500 0 (ny )D 
+0.490 0 (t)A 
+0.500 0 (y)A 
+-0.500 0 (p)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+0.500 0 (ph)A 
+-0.510 0 (i)A 
+1.020 0 (c)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (l )D 
+0.020 0 (e)A 
+1.015 0 (r)A 
+0.015 0 (r)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+-0.745 0 32 0.495 0 (s )D 
+-0.750 0 32 0.500 0 (you )D 
+0.990 0 (m)A 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (y h)D 
+0.020 0 (a)A 
+0.500 0 (v)A 
+0.730 0 32 0.020 0 (e )D 
+-0.510 0 (i)A 
+0.500 0 (n)A 
+0.490 0 (t)A 
+0.015 0 (r)A 
+0.500 0 (odu)A 
+0.020 0 (c)A 
+1.020 0 (e)A 
+-0.500 0 (d)A 
+0.750 0 (.)A 
+; : 170 2585 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 2585 M 
+0.500 0 (9)A 
+0.750 0 (.)A 
+; : 229 2585 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2585 M 
+0.510 0 (O)A 
+0.500 0 (p)A 
+1.020 0 (e)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 409 2584 1924 52 rc 0 0 0 sco F2_45
+Ji 
+456 2584 M 
+0.505 0 (P)A 
+0.500 0 (o)A 
+1.020 0 (r)A 
+-0.265 0 32 0.015 0 (t )D 
+1.020 0 (r)A 
+0.020 0 (e)A 
+0.500 0 (g)A 
+0.490 0 (i)A 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+0.020 0 (er)A 
+0.495 0 (s)A 
+; : 673 2585 1660 52 rc 0 0 0 sco F0_45
+Ji 
+722 2585 M 
+-0.250 0 32 ( )W 
+1.510 0 (w)A 
+-0.510 0 (i)A 
+0.500 0 (ndo)A 
+-0.760 0 32 0.510 0 (w )D 
+1.015 0 (\()A 
+0.500 0 (o)A 
+-0.500 0 (b)A 
+0.490 0 (t)A 
+0.020 0 (a)A 
+0.490 0 (i)A 
+0.500 0 (n)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (d v)D 
+-0.510 0 (i)A 
+-1.270 0 32 1.020 0 (a )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 1165 2584 1168 52 rc 0 0 0 sco F2_45
+Ji 
+1212 2584 M 
+0.510 0 (V)A 
+-0.510 0 (i)A 
+1.020 0 (e)A 
+0.510 0 (w)A 
+; : 1262 2585 1071 52 rc 0 0 0 sco F0_45
+Ji 
+1311 2585 M 
+-0.250 0 32 ( )W 
+0.990 0 (m)A 
+0.020 0 (e)A 
+0.500 0 (nu)A 
+0.015 0 (\))A 
+-1.000 0 32 0.750 0 (, )D 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (nd )D 
+0.020 0 (c)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+0.500 0 (ng)A 
+0.730 0 32 0.020 0 (e )D 
+-0.020 0 (P)A 
+0.510 0 (O)A 
+0.985 0 (R)A 
+0.505 0 (T)A 
+0.765 0 32 -0.015 0 (B )D 
+0.015 0 (fr)A 
+0.500 0 (o)A 
+-1.240 0 32 0.990 0 (m )D 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.500 0 (x)A 
+0.020 0 (a)A 
+0.500 0 (d)A 
+1.020 0 (e)A 
+0.020 0 (c)A 
+0.015 0 (-)A 
+; : 229 2640 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2640 M 
+0.490 0 (i)A 
+0.990 0 (m)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (l t)D 
+-0.750 0 32 0.500 0 (o b)D 
+0.490 0 (i)A 
+0.500 0 (n)A 
+0.020 0 (a)A 
+0.015 0 (r)A 
+0.250 0 32 0.500 0 (y )D 
+0.015 0 (\(r)A 
+0.490 0 (i)A 
+0.500 0 (gh)A 
+1.260 0 32 -0.510 0 (t )D 
+-0.010 0 (m)A 
+0.500 0 (ou)A 
+0.495 0 (s)A 
+0.730 0 32 0.020 0 (e c)D 
+0.490 0 (li)A 
+0.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+0.980 0 (P)A 
+0.510 0 (O)A 
+0.985 0 (R)A 
+-0.495 0 (T)A 
+0.985 0 (B)A 
+0.015 0 (\))A 
+0.750 0 (.)A 
+; : 170 2694 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 2694 M 
+0.500 0 (10)A 
+0.750 0 (.)A 
+; : 229 2694 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2694 M 
+0.510 0 (U)A 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 420 2693 1913 52 rc 0 0 0 sco F2_45
+Ji 
+467 2693 M 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+0.020 0 (e)A 
+-0.020 0 (p)A 
+; : 496 2694 1837 52 rc 0 0 0 sco F0_45
+Ji 
+545 2694 M 
+0.750 0 32 ( )W 
+0.500 0 (bu)A 
+-0.510 0 (t)A 
+0.490 0 (t)A 
+0.500 0 (on)A 
+1.000 0 32 -0.250 0 (, )D 
+0.015 0 (r)A 
+-0.750 0 32 0.500 0 (un you)D 
+0.735 0 32 0.015 0 (r )D 
+-0.500 0 (p)A 
+1.015 0 (r)A 
+0.500 0 (o)A 
+-0.500 0 (g)A 
+1.015 0 (r)A 
+0.020 0 (a)A 
+-1.240 0 32 0.990 0 (m )D 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.495 0 (s)A 
+0.490 0 (i)A 
+0.500 0 (n)A 
+-0.500 0 (g)A 
+0.490 0 (l)A 
+-1.270 0 32 1.020 0 (e )D 
+0.495 0 (s)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+-0.750 0 32 0.500 0 (p )D 
+0.990 0 (m)A 
+0.500 0 (od)A 
+-0.270 0 32 0.020 0 (e )D 
+1.020 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.500 0 (ob)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+0.015 0 (r)A 
+0.500 0 (v)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (h)A 
+-0.500 0 (o)A 
+-1.760 0 32 1.510 0 (w )D 
+-0.020 0 (P)A 
+0.510 0 (O)A 
+0.985 0 (R)A 
+0.505 0 (T)A 
+-1.235 0 32 0.985 0 (B )D 
+0.020 0 (c)A 
+0.500 0 (h)A 
+1.020 0 (a)A 
+-0.500 0 (n)A 
+0.500 0 (g)A 
+1.020 0 (e)A 
+-0.505 0 (s)A 
+-1.000 0 32 0.750 0 (. )D 
+; : 229 2748 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2748 M 
+0.510 0 (A)A 
+0.490 0 (l)A 
+0.495 0 (s)A 
+-0.750 0 32 0.500 0 (o no)D 
+0.490 0 (ti)A 
+0.730 0 32 0.020 0 (ce a)D 
+-0.750 0 32 0.500 0 (ny )D 
+1.020 0 (c)A 
+-0.500 0 (h)A 
+1.020 0 (a)A 
+0.500 0 (ng)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (s )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (t )D 
+0.500 0 (o)A 
+0.020 0 (c)A 
+1.020 0 (c)A 
+0.500 0 (u)A 
+-0.265 0 32 0.015 0 (r )D 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 997 2747 1336 52 rc 0 0 0 sco F2_45
+Ji 
+1044 2747 M 
+0.510 0 (C)A 
+0.505 0 (P)A 
+-0.760 0 32 0.510 0 (U )D 
+1.020 0 (r)A 
+0.020 0 (e)A 
+0.500 0 (g)A 
+0.490 0 (i)A 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+0.020 0 (er)A 
+0.495 0 (s)A 
+; : 1268 2748 1065 52 rc 0 0 0 sco F0_45
+Ji 
+1317 2748 M 
+-0.250 0 32 ( )W 
+1.510 0 (w)A 
+-0.510 0 (i)A 
+0.500 0 (ndo)A 
+0.510 0 (w)A 
+-0.250 0 (.)A 
+; : 170 2802 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 2802 M 
+0.500 0 (11)A 
+0.750 0 (.)A 
+; : 229 2802 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2802 M 
+0.985 0 (C)A 
+0.490 0 (l)A 
+-0.510 0 (i)A 
+1.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 467 2801 1866 52 rc 0 0 0 sco F2_45
+Ji 
+514 2801 M 
+0.020 0 (r)A 
+-0.020 0 (u)A 
+0.980 0 (n)A 
+; : 536 2802 1797 52 rc 0 0 0 sco F0_45
+Ji 
+585 2802 M 
+-0.250 0 32 ( )W 
+0.500 0 (bu)A 
+0.490 0 (tt)A 
+-0.500 0 (o)A 
+0.250 0 32 0.500 0 (n )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd ob)D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.015 0 (r)A 
+0.500 0 (v)A 
+-1.270 0 32 1.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.505 0 (s)A 
+0.490 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+-0.510 0 (l)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+0.500 0 (o)A 
+0.735 0 32 0.015 0 (r )D 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (t )D 
+0.990 0 (m)A 
+0.020 0 (a)A 
+0.500 0 (x)A 
+0.490 0 (i)A 
+0.990 0 (m)A 
+-0.500 0 (u)A 
+-0.240 0 32 0.990 0 (m )D 
+-0.505 0 (s)A 
+0.500 0 (p)A 
+1.020 0 (e)A 
+0.020 0 (e)A 
+0.500 0 (d)A 
+1.000 0 32 -0.250 0 (. )D 
+0.505 0 (T)A 
+-0.750 0 32 0.500 0 (o )D 
+0.495 0 (s)A 
+-0.510 0 (t)A 
+0.250 0 32 0.500 0 (op )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+0.760 0 32 -0.010 0 (m )D 
+0.020 0 (e)A 
+0.500 0 (x)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.500 0 (u)A 
+1.015 0 (-)A 
+; : 229 2856 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 2856 M 
+0.490 0 (ti)A 
+0.500 0 (on)A 
+1.000 0 32 -0.250 0 (, )D 
+0.020 0 (c)A 
+0.490 0 (l)A 
+-0.510 0 (i)A 
+1.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 551 2855 1782 52 rc 0 0 0 sco F2_45
+Ji 
+598 2855 M 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+-0.500 0 (o)A 
+0.980 0 (p)A 
+; : 630 2856 1703 52 rc 0 0 0 sco F0_45
+Ji 
+679 2856 M 
+-0.250 0 32 ( )W 
+0.500 0 (bu)A 
+0.490 0 (tt)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.750 0 (.)A 
+; : 170 2910 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 2910 M 
+0.500 0 (12)A 
+0.750 0 (.)A 
+; : 231 2909 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 2909 M 
+0.510 0 (R)A 
+1.020 0 (e)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.015 0 (t)A 
+; : 336 2910 1997 52 rc 0 0 0 sco F0_45
+Ji 
+385 2910 M 
+0.750 0 32 ( )W 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (68)A 
+0.510 0 (H)A 
+-0.015 0 (C)A 
+0.250 0 32 0.500 0 (11 )D 
+-0.505 0 (s)A 
+0.490 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+-0.510 0 (l)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+0.500 0 (o)A 
+1.015 0 (r)A 
+-0.250 0 (, )A 
+1.015 0 (f)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.510 0 (i)A 
+0.490 0 (li)A 
+0.020 0 (a)A 
+0.015 0 (r)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (y)A 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+1.015 0 (r)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+-0.510 0 (l)A 
+-1.265 0 32 1.015 0 (f )D 
+0.510 0 (w)A 
+0.490 0 (it)A 
+1.250 0 32 -0.500 0 (h )D 
+0.015 0 (r)A 
+0.500 0 (unn)A 
+0.490 0 (i)A 
+-0.500 0 (n)A 
+0.250 0 32 0.500 0 (g )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.495 0 (s)A 
+0.490 0 (t)A 
+0.500 0 (opp)A 
+-0.510 0 (i)A 
+-0.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+1.000 0 32 -0.250 0 (, )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (n )D 
+; : 231 2964 2102 52 rc 0 0 0 sco F2_45
+Ji 
+278 2964 M 
+0.495 0 (s)A 
+0.500 0 (av)A 
+0.020 0 (e)A 
+; : 313 2965 2020 52 rc 0 0 0 sco F0_45
+Ji 
+362 2965 M 
+0.750 0 32 ( )W 
+0.500 0 (yo)A 
+-0.500 0 (u)A 
+-1.265 0 32 1.015 0 (r )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+0.760 0 32 -0.010 0 (m )D 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (n )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+0.250 0 32 0.500 0 (y )D 
+0.490 0 (t)A 
+-0.500 0 (h)A 
+1.020 0 (a)A 
+1.260 0 32 -0.510 0 (t )D 
+-0.750 0 32 0.500 0 (you )D 
+0.020 0 (c)A 
+1.015 0 (r)A 
+0.020 0 (ea)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (d )D 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (t t)D 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.500 0 (b)A 
+1.020 0 (e)A 
+0.500 0 (g)A 
+-0.510 0 (i)A 
+0.500 0 (nn)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng o)D 
+0.735 0 32 0.015 0 (f )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.495 0 (ss)A 
+-0.510 0 (i)A 
+0.500 0 (on)A 
+0.750 0 (.)A 
+; : 170 3019 2163 52 rc 0 0 0 sco F0_45
+Ji 
+219 3019 M 
+0.500 0 (13)A 
+0.750 0 (.)A 
+; : 229 3019 2104 52 rc 0 0 0 sco F0_45
+Ji 
+278 3019 M 
+0.510 0 (U)A 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 420 3018 1913 52 rc 0 0 0 sco F2_45
+Ji 
+467 3018 M 
+0.020 0 (e)A 
+-0.020 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+1.020 0 (r)A 
+; : 535 3019 1798 52 rc 0 0 0 sco F0_45
+Ji 
+584 3019 M 
+-0.250 0 (, )A 
+0.990 0 (m)A 
+0.500 0 (od)A 
+0.490 0 (i)A 
+0.015 0 (f)A 
+-0.750 0 32 0.500 0 (y you)D 
+-0.265 0 32 0.015 0 (r )D 
+0.500 0 (p)A 
+1.015 0 (r)A 
+0.500 0 (o)A 
+-0.500 0 (g)A 
+1.015 0 (r)A 
+0.020 0 (a)A 
+-1.240 0 32 0.990 0 (m )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+1.015 0 (f)A 
+0.500 0 (o)A 
+-0.510 0 (l)A 
+0.490 0 (l)A 
+0.500 0 (o)A 
+0.510 0 (w)A 
+0.490 0 (i)A 
+0.500 0 (ng)A 
+-0.510 0 (:)A 
+; : 458 1675 1875 44 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F6) cvn
+0.805 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F6_41) cvn
+F6
+41 
+xF 
+F6_41
+Ji 
+485 1675 M 
+0.400 0 (* This is a simple program that outputs an)A 
+; : 458 1725 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 1725 M 
+0.400 0 (* 8-b)A 
+; : 583 1725 1750 44 rc 0 0 0 sco F6_41
+Ji 
+610 1725 M 
+0.400 0 (it binary count on the Port B of the 68HC)A 
+-0.600 0 (1)A 
+0.400 0 (1)A 
+; : 458 1825 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 1825 M 
+0.400 0 (PORTB)A 
+; : 665 1825 1668 44 rc 0 0 0 sco F6_41
+Ji 
+692 1825 M 
+0.400 0 (EQU)A 
+; : 842 1825 1491 44 rc 0 0 0 sco F6_41
+Ji 
+869 1825 M 
+0.400 0 ($1004)A 
+; : 1019 1825 1314 44 rc 0 0 0 sco F6_41
+Ji 
+1046 1825 M 
+0.400 0 (; Port B data register)A 
+; : 665 1925 1668 44 rc 0 0 0 sco F6_41
+Ji 
+692 1925 M 
+0.400 0 (ORG)A 
+; : 842 1925 1491 44 rc 0 0 0 sco F6_41
+Ji 
+869 1925 M 
+0.400 0 ($E000)A 
+; : 1019 1925 1314 44 rc 0 0 0 sco F6_41
+Ji 
+1046 1925 M 
+0.400 0 (; start of ROM \(program\))A 
+; : 665 1975 1668 44 rc 0 0 0 sco F6_41
+Ji 
+692 1975 M 
+0.400 0 (CLR)A 
+; : 842 1975 1491 44 rc 0 0 0 sco F6_41
+Ji 
+869 1975 M 
+0.400 0 (PORTB)A 
+; : 1019 1975 1314 44 rc 0 0 0 sco F6_41
+Ji 
+1046 1975 M 
+0.400 0 (; clears Port B to $00)A 
+; : 458 2025 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2025 M 
+0.400 0 (MAIN)A 
+; : 665 2025 1668 44 rc 0 0 0 sco F6_41
+Ji 
+692 2025 M 
+0.400 0 (INC)A 
+; : 842 2025 1491 44 rc 0 0 0 sco F6_41
+Ji 
+869 2025 M 
+0.400 0 (PORTB)A 
+; : 1019 2025 1314 44 rc 0 0 0 sco F6_41
+Ji 
+1046 2025 M 
+0.400 0 (; Adds 1 to Port B)A 
+; : 665 2075 1668 44 rc 0 0 0 sco F6_41
+Ji 
+692 2075 M 
+0.400 0 (BRA )A 
+; : 842 2075 1491 44 rc 0 0 0 sco F6_41
+Ji 
+869 2075 M 
+0.400 0 (MAIN)A 
+; : 1019 2075 1314 44 rc 0 0 0 sco F6_41
+Ji 
+1046 2075 M 
+0.400 0 (; creates an infinite loop)A 
+; : 458 2175 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2175 M 
+0.400 0 (* Note:)A 
+; : 458 2225 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2225 M 
+0.400 0 (* Even though Port B is an output, the \221inc PO)A 
+-0.600 0 (R)A 
+0.400 0 (TB\222 reads)A 
+; : 458 2275 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2275 M 
+0.400 0 (* Port B)A 
+-0.600 0 32 ( )W 
+0.400 0 (value, increments it,)A 
+-0.600 0 32 ( )W 
+0.400 0 (then writes the)A 
+-0.600 0 32 ( )W 
+0.400 0 (value back.)A 
+; : 458 2325 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2325 M 
+0.400 0 (* This is a common behaviour for output regist)A 
+-0.600 0 (e)A 
+0.400 0 (rs for)A 
+; : 458 2375 1875 44 rc 0 0 0 sco F6_41
+Ji 
+485 2375 M 
+0.400 0 (* the 68HC11 and is a very useful feature.)A 
+; ; ; 
+LH 
+pagesave restore
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Page: 2 2
+%%BeginPageSetup
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2479 3508 rf ; 
+%%EndPageSetup
+
+30000  VM?
+Pscript_Win_Compat begin /$x mysetup def end
+Pscript_Win_Driver_Incr dup /suspend get exec
+Pscript_Win_Compat dup /initialize get exec
+%%BeginDocument: Pscript_Win_PassThrough
+% Copyright (c) 1986-1995 Frame Technology Corporation.
+/FMcmyk 100 dict def
+/FmBD{bind def}bind def
+/FmLD{load def}FmBD
+/FMc {
+ FMcmyk length FMcmyk maxlength ge { /FMcmyk FMcmyk dup length dup add dict copy def } if
+ 4 array astore 4 1 roll 8 bitshift add 8 bitshift add exch FMcmyk 3 1 roll put
+}FmBD
+/setcmykcolor where { pop
+ /sc where { pop /sc load 0 get /scignore eq {
+  /FMsc /sc FmLD
+  /sc { 3 copy 8 bitshift add 8 bitshift add FMcmyk 1 index known
+   { FMcmyk exch get aload pop setcmykcolor pop pop pop } { pop FMsc } ifelse
+  }FmBD
+ } if } if
+} if
+mark { /S load
+ dup 0 get /PenW eq { dup 1 get /sl load eq {
+  dup 0 { PenW .75 sub sl } bind put 1 /exec load put
+ } if } if
+} stopped cleartomark       
+/FmX matrix defaultmatrix def
+/FmDC {transform FmX itransform cvi exch cvi exch} def
+/FmBx { dup 3 index lt {3 1 roll exch} if 
+ 1 index 4 index lt {4 -1 roll 3 1 roll exch 4 1 roll} if
+}FmBD
+/FmPD/cleartomark FmLD
+/FmPD2/cleartomark FmLD
+/FmPT/pop FmLD
+/FmPA{pop pop pop}FmBD
+systemdict /pdfmark known {
+ /FmPD/pdfmark FmLD
+ currentdistillerparams /CoreDistVersion get 2000 ge {
+  /FmPD2/pdfmark FmLD
+  /FmPA { mark exch /Dest exch 5 3 roll 
+	/View [ /XYZ null 6 -2 roll FmDC exch pop null] /DEST FmPD 
+  }FmBD
+ } if
+} if
+0 0 0 0.0 0.0 0.0 1.0 FMc
+
+%%EndDocument
+Pscript_Win_Compat dup /suspend get exec
+Pscript_Win_Driver_Incr dup /resume get exec
+colspRefresh
+
+: : : : 0 0 2333 3321 rc : 1.000 1.000 1.000 sco 1108 3232 112 46 rf ; 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.902 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_41) cvn
+F0
+41 
+xF 
+F0_41
+Ji 
+1108 3232 M 
+0.204 0 (P)A 
+0.796 0 (a)A 
+0.500 0 (g)A 
+0.954 0 32 -0.204 0 (e )D 
+-0.500 0 (2)A 
+; ; : 170 683 2163 52 rc : 1.000 1.000 1.000 sco 219 683 58 52 rf ; 0 0 0 sco (F0_45) cvn
+F0
+45 
+xF 
+F0_45
+Ji 
+219 683 M 
+0.500 0 (14)A 
+0.750 0 (.)A 
+; : 229 683 2104 52 rc : 1.000 1.000 1.000 sco 278 683 642 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 683 M 
+0.510 0 (A)A 
+0.495 0 (ss)A 
+0.020 0 (e)A 
+0.990 0 (m)A 
+0.500 0 (b)A 
+0.490 0 (l)A 
+-0.270 0 32 0.020 0 (e )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o p)D 
+1.015 0 (r)A 
+-0.500 0 (o)A 
+0.500 0 (g)A 
+1.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.250 0 (, )A 
+1.020 0 (c)A 
+-0.510 0 (l)A 
+0.490 0 (i)A 
+1.020 0 (c)A 
+1.250 0 32 -0.500 0 (k )D 
+-0.750 0 32 0.500 0 (on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 873 682 1460 52 rc : 1.000 1.000 1.000 sco 920 682 72 52 rf ; 0 0 0 sco %%IncludeFont: Times-Bold
+(F3) cvn
+0.933 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F3_45) cvn
+F3
+45 
+xF 
+F3_45
+Ji 
+920 682 M 
+1.020 0 (r)A 
+-0.020 0 (u)A 
+0.980 0 (n)A 
+; : 943 683 1390 52 rc : 1.000 1.000 1.000 sco 992 683 1100 52 rf ; 0 0 0 sco F0_45
+Ji 
+992 683 M 
+-0.250 0 32 ( )W 
+0.500 0 (bu)A 
+0.490 0 (t)A 
+-0.510 0 (t)A 
+0.250 0 32 0.500 0 (on )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd ob)D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.015 0 (r)A 
+0.500 0 (v)A 
+-1.270 0 32 1.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+0.495 0 (s)A 
+0.500 0 (p)A 
+0.020 0 (e)A 
+1.020 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+0.510 0 (w)A 
+0.490 0 (it)A 
+1.250 0 32 -0.500 0 (h )D 
+0.510 0 (w)A 
+0.500 0 (h)A 
+0.490 0 (i)A 
+0.020 0 (c)A 
+-0.750 0 32 0.500 0 (h )D 
+0.980 0 (P)A 
+0.510 0 (O)A 
+-0.015 0 (R)A 
+0.505 0 (T)A 
+-1.235 0 32 0.985 0 (B )D 
+1.020 0 (c)A 
+-0.500 0 (h)A 
+1.020 0 (a)A 
+0.500 0 (ng)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+1.000 0 32 -0.250 0 (. )D 
+; : 229 737 2104 52 rc : 1.000 1.000 1.000 sco 278 737 810 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 737 M 
+0.505 0 (T)A 
+0.250 0 32 0.500 0 (o )D 
+-0.505 0 (s)A 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (op )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+-1.240 0 32 0.990 0 (m )D 
+1.020 0 (e)A 
+0.500 0 (x)A 
+0.020 0 (ec)A 
+0.500 0 (u)A 
+0.490 0 (ti)A 
+-0.500 0 (o)A 
+0.500 0 (n)A 
+-1.000 0 32 0.750 0 (, )D 
+1.020 0 (c)A 
+-0.510 0 (l)A 
+0.490 0 (i)A 
+0.020 0 (c)A 
+0.250 0 32 0.500 0 (k o)D 
+1.250 0 32 -0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 1041 736 1292 52 rc : 1.000 1.000 1.000 sco 1088 736 82 52 rf ; 0 0 0 sco F3_45
+Ji 
+1088 736 M 
+0.495 0 (s)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+0.980 0 (p)A 
+; : 1121 737 1212 52 rc : 1.000 1.000 1.000 sco 1170 737 140 52 rf ; 0 0 0 sco F0_45
+Ji 
+1170 737 M 
+-0.250 0 32 ( )W 
+0.500 0 (bu)A 
+0.490 0 (t)A 
+-0.510 0 (t)A 
+0.500 0 (on)A 
+0.750 0 (.)A 
+; : 170 791 2163 52 rc : 1.000 1.000 1.000 sco 219 791 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 791 M 
+0.500 0 (15)A 
+0.750 0 (.)A 
+; : 231 790 2102 52 rc : 1.000 1.000 1.000 sco 278 790 107 52 rf ; 0 0 0 sco F3_45
+Ji 
+278 790 M 
+0.510 0 (R)A 
+1.020 0 (e)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.015 0 (t)A 
+; : 336 791 1997 52 rc : 1.000 1.000 1.000 sco 385 791 1537 52 rf ; 0 0 0 sco F0_45
+Ji 
+385 791 M 
+0.750 0 32 ( )W 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (68)A 
+0.510 0 (H)A 
+-0.015 0 (C)A 
+0.250 0 32 0.500 0 (11 )D 
+-0.505 0 (s)A 
+0.490 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+-0.510 0 (l)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+0.500 0 (o)A 
+1.015 0 (r)A 
+-0.250 0 (, )A 
+1.015 0 (f)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.510 0 (i)A 
+0.490 0 (li)A 
+0.020 0 (a)A 
+0.015 0 (r)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (y)A 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+1.015 0 (r)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+-0.510 0 (l)A 
+-1.265 0 32 1.015 0 (f )D 
+0.510 0 (w)A 
+0.490 0 (it)A 
+1.250 0 32 -0.500 0 (h )D 
+0.015 0 (r)A 
+0.500 0 (unn)A 
+0.490 0 (i)A 
+-0.500 0 (n)A 
+0.250 0 32 0.500 0 (g )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.495 0 (s)A 
+0.490 0 (t)A 
+0.500 0 (opp)A 
+-0.510 0 (i)A 
+-0.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.250 0 (.)A 
+; : 170 845 2163 52 rc : 1.000 1.000 1.000 sco 219 845 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 845 M 
+0.500 0 (16)A 
+0.750 0 (.)A 
+; : 229 845 2104 52 rc : 1.000 1.000 1.000 sco 278 845 1773 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 845 M 
+0.505 0 (E)A 
+0.500 0 (xp)A 
+0.020 0 (e)A 
+1.015 0 (r)A 
+-0.510 0 (i)A 
+0.990 0 (m)A 
+0.020 0 (e)A 
+0.500 0 (n)A 
+-0.740 0 32 0.490 0 (t )D 
+0.510 0 (w)A 
+0.490 0 (it)A 
+-0.750 0 32 0.500 0 (h d)D 
+0.490 0 (i)A 
+0.015 0 (ff)A 
+1.020 0 (e)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+0.500 0 (n)A 
+-0.740 0 32 0.490 0 (t )D 
+0.500 0 (d)A 
+1.020 0 (e)A 
+-0.510 0 (l)A 
+1.020 0 (a)A 
+1.250 0 32 -0.500 0 (y )D 
+0.500 0 (v)A 
+0.020 0 (a)A 
+0.490 0 (l)A 
+0.500 0 (u)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+1.000 0 32 -0.250 0 (. )D 
+0.520 0 (W)A 
+-0.750 0 32 0.500 0 (hy )D 
+0.490 0 (i)A 
+-0.745 0 32 0.495 0 (s )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+1.250 0 32 -0.500 0 (# )D 
+0.495 0 (s)A 
+0.500 0 (y)A 
+-0.010 0 (m)A 
+0.500 0 (bo)A 
+-0.740 0 32 0.490 0 (l )D 
+0.500 0 (u)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (d )D 
+-0.500 0 (b)A 
+1.020 0 (e)A 
+0.015 0 (f)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+0.730 0 32 0.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.500 0 (x)A 
+1.020 0 (a)A 
+0.500 0 (d)A 
+0.020 0 (ec)A 
+0.490 0 (i)A 
+0.990 0 (m)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (l )D 
+0.500 0 (d)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (y )D 
+; : 229 899 2104 52 rc : 1.000 1.000 1.000 sco 278 899 120 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 899 M 
+0.500 0 (v)A 
+1.020 0 (a)A 
+-0.510 0 (l)A 
+0.500 0 (u)A 
+1.020 0 (e)A 
+0.020 0 (?)A 
+; : 170 954 2163 52 rc : 1.000 1.000 1.000 sco 219 954 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 954 M 
+0.500 0 (17)A 
+0.750 0 (.)A 
+; : 229 954 2104 52 rc : 1.000 1.000 1.000 sco 278 954 178 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 954 M 
+0.980 0 (F)A 
+0.015 0 (r)A 
+0.500 0 (o)A 
+-1.240 0 32 0.990 0 (m )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 409 953 1924 52 rc : 1.000 1.000 1.000 sco 456 953 100 52 rf ; 0 0 0 sco F3_45
+Ji 
+456 953 M 
+0.510 0 (V)A 
+0.490 0 (i)A 
+1.020 0 (e)A 
+0.510 0 (w)A 
+; : 507 954 1826 52 rc : 1.000 1.000 1.000 sco 556 954 361 52 rf ; 0 0 0 sco F0_45
+Ji 
+556 954 M 
+-0.250 0 32 ( )W 
+0.990 0 (m)A 
+0.020 0 (e)A 
+0.500 0 (nu)A 
+1.000 0 32 -0.250 0 (, )D 
+0.020 0 (c)A 
+0.490 0 (l)A 
+-0.510 0 (i)A 
+1.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 870 953 1463 52 rc : 1.000 1.000 1.000 sco 917 953 395 52 rf ; 0 0 0 sco F3_45
+Ji 
+917 953 M 
+-0.015 0 (T)A 
+-1.240 0 32 0.990 0 (H )D 
+0.510 0 (R)A 
+0.490 0 (i)A 
+0.015 0 (j)A 
+0.495 0 (s)A 
+0.510 0 (w)A 
+0.490 0 (i)A 
+0.015 0 (j)A 
+-1.230 0 32 0.980 0 (k )D 
+0.495 0 (I)A 
+0.760 0 32 -0.010 0 (O )D 
+-0.015 0 (B)A 
+0.500 0 (ox)A 
+; : 1263 954 1070 52 rc : 1.000 1.000 1.000 sco 1312 954 636 52 rf ; 0 0 0 sco F0_45
+Ji 
+1312 954 M 
+-1.000 0 32 0.750 0 (. )D 
+0.510 0 (U)A 
+0.495 0 (s)A 
+0.730 0 32 0.020 0 (e )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.010 0 (m)A 
+0.500 0 (u)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (r )D 
+0.500 0 (h)A 
+1.020 0 (e)A 
+-0.510 0 (l)A 
+0.250 0 32 0.500 0 (p )D 
+0.015 0 (f)A 
+0.020 0 (a)A 
+1.020 0 (c)A 
+-0.510 0 (i)A 
+0.490 0 (lit)A 
+1.250 0 32 -0.500 0 (y )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+; : 229 1008 2104 52 rc : 1.000 1.000 1.000 sco 278 1008 1732 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 1008 M 
+1.015 0 (f)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+-0.510 0 (i)A 
+0.490 0 (li)A 
+0.020 0 (a)A 
+0.015 0 (r)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (y)A 
+-0.500 0 (o)A 
+0.500 0 (u)A 
+1.015 0 (r)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+-0.510 0 (l)A 
+-1.265 0 32 1.015 0 (f )D 
+0.510 0 (w)A 
+0.490 0 (it)A 
+1.250 0 32 -0.500 0 (h )D 
+0.500 0 (ho)A 
+-0.760 0 32 0.510 0 (w )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.490 0 (i)A 
+1.255 0 32 -0.505 0 (s )D 
+0.500 0 (bo)A 
+1.250 0 32 -0.500 0 (x )D 
+0.020 0 (c)A 
+1.020 0 (a)A 
+1.250 0 32 -0.500 0 (n )D 
+0.500 0 (b)A 
+0.730 0 32 0.020 0 (e )D 
+-0.500 0 (u)A 
+0.495 0 (s)A 
+1.020 0 (e)A 
+1.250 0 32 -0.500 0 (d )D 
+0.490 0 (t)A 
+-0.750 0 32 0.500 0 (o )D 
+0.495 0 (s)A 
+-0.510 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+0.730 0 32 0.020 0 (e a)D 
+-0.750 0 32 0.500 0 (n )D 
+1.020 0 (e)A 
+-0.500 0 (x)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+1.015 0 (r)A 
+0.500 0 (n)A 
+0.020 0 (a)A 
+-0.740 0 32 0.490 0 (l )D 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+0.490 0 (t)A 
+0.015 0 (r)A 
+0.500 0 (on)A 
+-0.510 0 (i)A 
+-1.270 0 32 1.020 0 (c )D 
+0.020 0 (c)A 
+0.490 0 (i)A 
+0.015 0 (r)A 
+1.020 0 (c)A 
+0.500 0 (u)A 
+-0.510 0 (i)A 
+-0.740 0 32 0.490 0 (t )D 
+0.500 0 (o)A 
+-1.265 0 32 1.015 0 (r )D 
+; : 229 1062 2104 52 rc : 1.000 1.000 1.000 sco 278 1062 149 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 1062 M 
+0.500 0 (p)A 
+1.015 0 (r)A 
+-0.500 0 (o)A 
+1.020 0 (c)A 
+0.020 0 (e)A 
+0.495 0 (ss)A 
+-0.250 0 (.)A 
+; : 170 1116 2163 52 rc : 1.000 1.000 1.000 sco 219 1116 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 1116 M 
+0.500 0 (18)A 
+0.750 0 (.)A 
+; : 229 1116 2104 52 rc : 1.000 1.000 1.000 sco 278 1116 579 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 1116 M 
+0.985 0 (R)A 
+0.020 0 (e)A 
+0.015 0 (-)A 
+1.015 0 (r)A 
+-0.750 0 32 0.500 0 (un you)D 
+-0.265 0 32 0.015 0 (r )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+1.020 0 (a)A 
+0.760 0 32 -0.010 0 (m )D 
+0.500 0 (u)A 
+0.495 0 (s)A 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (ng )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 810 1115 1523 52 rc : 1.000 1.000 1.000 sco 857 1115 395 52 rf ; 0 0 0 sco F3_45
+Ji 
+857 1115 M 
+-0.015 0 (T)A 
+-1.240 0 32 0.990 0 (H )D 
+1.510 0 (R)A 
+-0.510 0 (i)A 
+1.015 0 (j)A 
+-0.505 0 (s)A 
+0.510 0 (w)A 
+0.490 0 (i)A 
+0.015 0 (j)A 
+-1.230 0 32 0.980 0 (k )D 
+0.495 0 (I)A 
+-1.240 0 32 0.990 0 (O )D 
+0.985 0 (B)A 
+0.500 0 (o)A 
+-0.500 0 (x)A 
+; : 1203 1116 1130 52 rc : 1.000 1.000 1.000 sco 1252 1116 804 52 rf ; 0 0 0 sco F0_45
+Ji 
+1252 1116 M 
+0.750 0 32 ( )W 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd ob)D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+1.015 0 (r)A 
+-0.500 0 (v)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (ho)A 
+-0.760 0 32 0.510 0 (w )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.020 0 (P)A 
+0.510 0 (O)A 
+0.985 0 (R)A 
+0.505 0 (T)A 
+0.765 0 32 -0.015 0 (B )D 
+0.505 0 (LE)A 
+0.510 0 (D)A 
+0.015 0 (\222)A 
+-0.745 0 32 0.495 0 (s )D 
+1.015 0 (\()A 
+-0.510 0 (l)A 
+0.490 0 (i)A 
+0.500 0 (gh)A 
+-0.740 0 32 0.490 0 (t )D 
+; : 229 1170 2104 52 rc : 1.000 1.000 1.000 sco 278 1170 452 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 1170 M 
+1.020 0 (e)A 
+-0.010 0 (m)A 
+0.490 0 (itt)A 
+-0.510 0 (i)A 
+-0.750 0 32 0.500 0 (ng d)D 
+0.490 0 (i)A 
+0.500 0 (od)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+0.735 0 32 0.015 0 (\) )D 
+0.020 0 (c)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+0.500 0 (ng)A 
+0.020 0 (e)A 
+0.750 0 (.)A 
+; : 170 1224 2163 52 rc : 1.000 1.000 1.000 sco 219 1224 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 1224 M 
+0.500 0 (19)A 
+0.750 0 (.)A 
+; : 231 1223 2102 52 rc : 1.000 1.000 1.000 sco 278 1223 92 52 rf ; 0 0 0 sco F3_45
+Ji 
+278 1223 M 
+0.980 0 (S)A 
+0.500 0 (av)A 
+0.020 0 (e)A 
+; : 321 1224 2012 52 rc : 1.000 1.000 1.000 sco 370 1224 1435 52 rf ; 0 0 0 sco F0_45
+Ji 
+370 1224 M 
+-0.250 0 32 ( )W 
+0.500 0 (you)A 
+0.735 0 32 0.015 0 (r )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+-1.240 0 32 0.990 0 (m )D 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (d)A 
+-0.510 0 (i)A 
+1.015 0 (r)A 
+0.020 0 (ec)A 
+0.490 0 (t)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+-0.750 0 32 0.500 0 (y )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+0.260 0 32 0.490 0 (t )D 
+-0.500 0 (y)A 
+0.250 0 32 0.500 0 (ou )D 
+0.020 0 (c)A 
+0.015 0 (r)A 
+1.020 0 (e)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+1.020 0 (a)A 
+1.260 0 32 -0.510 0 (t t)D 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.500 0 (b)A 
+0.020 0 (e)A 
+0.500 0 (g)A 
+0.490 0 (i)A 
+0.500 0 (nn)A 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (ng o)D 
+-0.265 0 32 0.015 0 (f )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+0.495 0 (s)A 
+-0.505 0 (s)A 
+0.490 0 (i)A 
+0.500 0 (on)A 
+-0.250 0 (.)A 
+; : 170 1279 2163 52 rc : 1.000 1.000 1.000 sco 219 1279 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 1279 M 
+0.500 0 (20)A 
+0.750 0 (.)A 
+; : 229 1279 2104 52 rc : 1.000 1.000 1.000 sco 278 1279 189 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 1279 M 
+0.510 0 (U)A 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 420 1278 1913 52 rc : 1.000 1.000 1.000 sco 467 1278 117 52 rf ; 0 0 0 sco F3_45
+Ji 
+467 1278 M 
+0.020 0 (e)A 
+-0.020 0 (d)A 
+0.490 0 (i)A 
+0.015 0 (t)A 
+0.500 0 (o)A 
+1.020 0 (r)A 
+; : 535 1279 1798 52 rc : 1.000 1.000 1.000 sco 584 1279 568 52 rf ; 0 0 0 sco F0_45
+Ji 
+584 1279 M 
+-0.250 0 (, )A 
+1.020 0 (c)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.020 0 (a)A 
+-0.510 0 (t)A 
+-1.270 0 32 1.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+-0.510 0 (l)A 
+0.490 0 (l)A 
+0.500 0 (o)A 
+0.510 0 (w)A 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (ng p)D 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+0.490 0 (:)A 
+; : 170 2720 2163 52 rc : 1.000 1.000 1.000 sco 219 2720 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 2720 M 
+0.500 0 (21)A 
+0.750 0 (.)A 
+; : 231 2719 2102 52 rc : 1.000 1.000 1.000 sco 278 2719 186 52 rf ; 0 0 0 sco F3_45
+Ji 
+278 2719 M 
+0.510 0 (A)A 
+0.495 0 (ss)A 
+0.020 0 (e)A 
+1.515 0 (m)A 
+-0.020 0 (b)A 
+0.490 0 (l)A 
+0.020 0 (e)A 
+; : 415 2720 1918 52 rc : 1.000 1.000 1.000 sco 464 2720 892 52 rf ; 0 0 0 sco F0_45
+Ji 
+464 2720 M 
+-0.250 0 32 ( )W 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.500 0 (p)A 
+0.015 0 (r)A 
+0.500 0 (og)A 
+0.015 0 (r)A 
+0.020 0 (a)A 
+0.990 0 (m)A 
+1.000 0 32 -0.250 0 (. )D 
+0.735 0 32 0.015 0 (If )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+1.020 0 (e)A 
+0.015 0 (r)A 
+0.730 0 32 0.020 0 (e a)D 
+0.015 0 (r)A 
+-1.270 0 32 1.020 0 (e )D 
+-0.750 0 32 0.500 0 (no )D 
+1.020 0 (e)A 
+0.015 0 (rr)A 
+0.500 0 (o)A 
+0.015 0 (r)A 
+-0.745 0 32 0.495 0 (s )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (n )D 
+0.020 0 (c)A 
+0.490 0 (li)A 
+0.020 0 (c)A 
+-0.750 0 32 0.500 0 (k on )D 
+; : 1309 2719 1024 52 rc : 1.000 1.000 1.000 sco 1356 2719 290 52 rf ; 0 0 0 sco F3_45
+Ji 
+1356 2719 M 
+1.520 0 (M)A 
+0.020 0 (e)A 
+0.515 0 (m)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+0.250 0 32 0.500 0 (y )D 
+-0.015 0 (L)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.015 0 (t)A 
+-0.250 0 (.)A 
+0.750 0 (.)A 
+-0.250 0 (.)A 
+; : 1597 2720 736 52 rc : 1.000 1.000 1.000 sco 1646 2720 126 52 rf ; 0 0 0 sco F0_45
+Ji 
+1646 2720 M 
+0.750 0 32 ( )W 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+-0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+; : 1725 2719 608 52 rc : 1.000 1.000 1.000 sco 1772 2719 111 52 rf ; 0 0 0 sco F3_45
+Ji 
+1772 2719 M 
+0.510 0 (V)A 
+0.490 0 (i)A 
+0.020 0 (e)A 
+0.240 0 32 0.510 0 (w )D 
+; : 1834 2720 499 52 rc : 1.000 1.000 1.000 sco 1883 2720 215 52 rf ; 0 0 0 sco F0_45
+Ji 
+1883 2720 M 
+-0.010 0 (m)A 
+1.020 0 (e)A 
+0.500 0 (n)A 
+-0.500 0 (u)A 
+-1.000 0 32 0.750 0 (. )D 
+0.510 0 (Y)A 
+0.250 0 32 0.500 0 (ou )D 
+; : 229 2774 2104 52 rc : 1.000 1.000 1.000 sco 278 2774 350 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 2774 M 
+0.510 0 (w)A 
+-0.740 0 32 0.490 0 (ill )D 
+0.500 0 (b)A 
+0.730 0 32 0.020 0 (e a)D 
+0.495 0 (s)A 
+0.500 0 (k)A 
+0.020 0 (e)A 
+-0.750 0 32 0.500 0 (d )D 
+1.015 0 (f)A 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (r )D 
+-1.270 0 32 1.020 0 (a )D 
+; : 581 2773 1752 52 rc : 1.000 1.000 1.000 sco 628 2773 636 52 rf ; 0 0 0 sco F3_45
+Ji 
+628 2773 M 
+-0.020 0 (S)A 
+1.015 0 (t)A 
+0.500 0 (a)A 
+0.020 0 (r)A 
+0.015 0 (t)A 
+0.490 0 (i)A 
+-0.020 0 (n)A 
+0.250 0 32 0.500 0 (g a)D 
+-0.020 0 (dd)A 
+1.020 0 (r)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (ss )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+-1.270 0 32 1.020 0 (r )D 
+0.515 0 (m)A 
+1.020 0 (e)A 
+0.515 0 (m)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+-0.750 0 32 0.500 0 (y )D 
+0.490 0 (li)A 
+-0.505 0 (s)A 
+1.015 0 (t)A 
+; : 1215 2774 1118 52 rc : 1.000 1.000 1.000 sco 1264 2774 201 52 rf ; 0 0 0 sco F0_45
+Ji 
+1264 2774 M 
+1.000 0 32 -0.250 0 (, )D 
+-0.510 0 (j)A 
+0.500 0 (u)A 
+0.495 0 (s)A 
+-0.740 0 32 0.490 0 (t )D 
+1.020 0 (c)A 
+-0.510 0 (l)A 
+0.490 0 (i)A 
+0.020 0 (c)A 
+0.250 0 32 0.500 0 (k )D 
+; : 1418 2773 915 52 rc : 1.000 1.000 1.000 sco 1465 2773 71 52 rf ; 0 0 0 sco F3_45
+Ji 
+1465 2773 M 
+-0.010 0 (O)A 
+0.990 0 (K)A 
+; : 1487 2774 147 52 rc : 1.000 1.000 1.000 sco 1536 2774 11 52 rf ; 0 0 0 sco F0_45
+Ji 
+1536 2774 M 
+-0.250 0 (.)A 
+; : 170 2829 2163 52 rc : 1.000 1.000 1.000 sco 219 2829 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 2829 M 
+0.500 0 (22)A 
+0.750 0 (.)A 
+; : 229 2829 2104 52 rc : 1.000 1.000 1.000 sco 278 2829 117 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 2829 M 
+1.015 0 (I)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+-0.270 0 32 0.020 0 (e )D 
+; : 348 2828 1985 52 rc : 1.000 1.000 1.000 sco 395 2828 256 52 rf ; 0 0 0 sco F3_45
+Ji 
+395 2828 M 
+1.520 0 (M)A 
+0.020 0 (e)A 
+0.515 0 (m)A 
+0.500 0 (o)A 
+0.020 0 (r)A 
+0.250 0 32 0.500 0 (y )D 
+-0.015 0 (L)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.015 0 (t)A 
+; : 602 2829 1731 52 rc : 1.000 1.000 1.000 sco 651 2829 1427 52 rf ; 0 0 0 sco F0_45
+Ji 
+651 2829 M 
+-0.250 0 32 ( )W 
+0.510 0 (w)A 
+0.490 0 (i)A 
+0.500 0 (ndo)A 
+-0.760 0 32 0.510 0 (w )D 
+-0.750 0 32 0.500 0 (you )D 
+0.510 0 (w)A 
+-0.740 0 32 0.490 0 (ill )D 
+0.495 0 (s)A 
+0.020 0 (e)A 
+-1.270 0 32 1.020 0 (e )D 
+0.510 0 (O)A 
+-0.020 0 (P)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+0.500 0 (1)A 
+1.000 0 32 -0.250 0 (, )D 
+0.510 0 (O)A 
+-0.020 0 (P)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+0.500 0 (2)A 
+1.000 0 32 -0.250 0 (, )D 
+-0.020 0 (S)A 
+0.510 0 (U)A 
+0.995 0 (M)A 
+1.000 0 32 -0.250 0 (, )D 
+0.510 0 (OV)A 
+0.505 0 (E)A 
+-0.015 0 (R)A 
+0.980 0 (F)A 
+-0.755 0 32 0.505 0 (L )D 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (nd )D 
+-0.020 0 (F)A 
+0.510 0 (A)A 
+0.505 0 (L)A 
+0.980 0 (S)A 
+0.505 0 (E)A 
+-0.250 0 (. )A 
+0.510 0 (D)A 
+0.500 0 (oub)A 
+0.490 0 (l)A 
+0.730 0 32 0.020 0 (e )D 
+; : 229 2883 2104 52 rc : 1.000 1.000 1.000 sco 278 2883 719 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 2883 M 
+1.020 0 (c)A 
+-0.510 0 (l)A 
+0.490 0 (i)A 
+0.020 0 (c)A 
+0.250 0 32 0.500 0 (k on)D 
+-0.250 0 32 ( )W 
+0.510 0 (O)A 
+0.980 0 (P)A 
+0.505 0 (E)A 
+-0.015 0 (R)A 
+-0.750 0 32 0.500 0 (1 )D 
+1.020 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.510 0 (O)A 
+-0.020 0 (P)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+-0.750 0 32 0.500 0 (2 )D 
+1.020 0 (a)A 
+-0.500 0 (n)A 
+0.250 0 32 0.500 0 (d )D 
+0.020 0 (e)A 
+0.500 0 (n)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.735 0 32 0.015 0 (r )D 
+; : 950 2882 1383 52 rc : 1.000 1.000 1.000 sco 997 2882 48 52 rf ; 0 0 0 sco F3_45
+Ji 
+997 2882 M 
+0.500 0 (7)A 
+-0.020 0 (d)A 
+; : 996 2883 1337 52 rc : 1.000 1.000 1.000 sco 1045 2883 89 52 rf ; 0 0 0 sco F0_45
+Ji 
+1045 2883 M 
+0.750 0 32 ( )W 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+; : 1087 2882 1246 52 rc : 1.000 1.000 1.000 sco 1134 2882 46 52 rf ; 0 0 0 sco F3_45
+Ji 
+1134 2882 M 
+0.500 0 (02)A 
+; : 1131 2883 1202 52 rc : 1.000 1.000 1.000 sco 1180 2883 244 52 rf ; 0 0 0 sco F0_45
+Ji 
+1180 2883 M 
+-0.250 0 32 ( )W 
+1.015 0 (r)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+0.500 0 (p)A 
+0.020 0 (ec)A 
+0.490 0 (ti)A 
+0.500 0 (v)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.500 0 (y)A 
+-0.250 0 (.)A 
+; : 170 2937 2163 52 rc : 1.000 1.000 1.000 sco 219 2937 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 2937 M 
+0.500 0 (23)A 
+0.750 0 (.)A 
+; : 229 2937 2104 52 rc : 1.000 1.000 1.000 sco 278 2937 1349 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 2937 M 
+0.985 0 (R)A 
+-0.750 0 32 0.500 0 (un )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+-0.500 0 (p)A 
+1.015 0 (r)A 
+0.500 0 (o)A 
+-0.500 0 (g)A 
+1.015 0 (r)A 
+0.020 0 (a)A 
+-1.240 0 32 0.990 0 (m )D 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (nd o)D 
+-0.500 0 (b)A 
+0.495 0 (s)A 
+1.020 0 (e)A 
+0.015 0 (r)A 
+0.500 0 (v)A 
+-0.270 0 32 0.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e c)D 
+0.500 0 (on)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.500 0 (n)A 
+0.490 0 (t)A 
+1.255 0 32 -0.505 0 (s )D 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (f )D 
+1.020 0 (a)A 
+0.500 0 (dd)A 
+0.015 0 (r)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (ss )D 
+0.980 0 (S)A 
+0.510 0 (U)A 
+0.755 0 32 -0.005 0 (M )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.510 0 (OV)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+-0.020 0 (F)A 
+0.505 0 (L)A 
+; : 170 2991 2163 52 rc : 1.000 1.000 1.000 sco 219 2991 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 2991 M 
+0.500 0 (24)A 
+0.750 0 (.)A 
+; : 229 2991 2104 52 rc : 1.000 1.000 1.000 sco 278 2991 805 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 2991 M 
+0.985 0 (R)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+0.260 0 32 0.490 0 (t )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.495 0 (s)A 
+-0.510 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (r )D 
+1.020 0 (a)A 
+0.500 0 (n)A 
+1.250 0 32 -0.500 0 (d )D 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.015 0 (-)A 
+0.015 0 (r)A 
+-0.750 0 32 0.500 0 (un u)D 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.500 0 (n)A 
+0.250 0 32 0.500 0 (g v)D 
+0.020 0 (a)A 
+0.490 0 (l)A 
+0.500 0 (u)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (s )D 
+; : 1036 2990 1297 52 rc : 1.000 1.000 1.000 sco 1083 2990 49 52 rf ; 0 0 0 sco F3_45
+Ji 
+1083 2990 M 
+0.500 0 (7)A 
+0.980 0 (d)A 
+; : 1083 2991 1250 52 rc : 1.000 1.000 1.000 sco 1132 2991 89 52 rf ; 0 0 0 sco F0_45
+Ji 
+1132 2991 M 
+-0.250 0 32 ( )W 
+0.020 0 (a)A 
+0.250 0 32 0.500 0 (nd )D 
+; : 1174 2990 1159 52 rc : 1.000 1.000 1.000 sco 1221 2990 45 52 rf ; 0 0 0 sco F3_45
+Ji 
+1221 2990 M 
+-0.500 0 (0)A 
+0.500 0 (3)A 
+; : 1217 2991 1116 52 rc : 1.000 1.000 1.000 sco 1266 2991 689 52 rf ; 0 0 0 sco F0_45
+Ji 
+1266 2991 M 
+0.750 0 32 ( )W 
+0.015 0 (f)A 
+0.500 0 (o)A 
+0.735 0 32 0.015 0 (r )D 
+0.510 0 (O)A 
+-0.020 0 (P)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+1.250 0 32 -0.500 0 (1 )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+1.510 0 (O)A 
+-0.020 0 (P)A 
+0.505 0 (E)A 
+-0.015 0 (R)A 
+0.250 0 32 0.500 0 (2 )D 
+0.015 0 (r)A 
+0.020 0 (e)A 
+0.495 0 (s)A 
+0.500 0 (p)A 
+0.020 0 (e)A 
+1.020 0 (c)A 
+-0.510 0 (t)A 
+0.490 0 (i)A 
+0.500 0 (v)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.500 0 (y)A 
+-0.250 0 (.)A 
+; : 170 3045 2163 52 rc : 1.000 1.000 1.000 sco 219 3045 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 3045 M 
+0.500 0 (25)A 
+0.750 0 (.)A 
+; : 229 3045 2104 52 rc : 1.000 1.000 1.000 sco 278 3045 983 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 3045 M 
+0.510 0 (O)A 
+0.500 0 (b)A 
+0.495 0 (s)A 
+0.020 0 (e)A 
+1.015 0 (r)A 
+0.500 0 (v)A 
+-0.270 0 32 0.020 0 (e )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e c)D 
+0.500 0 (on)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.500 0 (n)A 
+0.490 0 (t)A 
+1.255 0 32 -0.505 0 (s )D 
+0.500 0 (o)A 
+-0.265 0 32 0.015 0 (f )D 
+1.020 0 (a)A 
+0.500 0 (d)A 
+-0.500 0 (d)A 
+1.015 0 (r)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (ss )D 
+0.980 0 (S)A 
+0.510 0 (U)A 
+0.755 0 32 -0.005 0 (M )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+0.510 0 (OV)A 
+0.505 0 (E)A 
+0.985 0 (R)A 
+-0.020 0 (F)A 
+0.505 0 (L)A 
+-1.000 0 32 0.750 0 (. )D 
+; : 1214 3044 1119 52 rc : 1.000 1.000 1.000 sco 1261 3044 107 52 rf ; 0 0 0 sco F3_45
+Ji 
+1261 3044 M 
+0.510 0 (R)A 
+1.020 0 (e)A 
+-0.505 0 (s)A 
+1.020 0 (e)A 
+0.015 0 (t)A 
+; : 1319 3045 1014 52 rc : 1.000 1.000 1.000 sco 1368 3045 632 52 rf ; 0 0 0 sco F0_45
+Ji 
+1368 3045 M 
+-0.250 0 32 ( )W 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+0.495 0 (s)A 
+-0.510 0 (i)A 
+0.990 0 (m)A 
+0.500 0 (u)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+-0.500 0 (o)A 
+-1.265 0 32 1.015 0 (r )D 
+1.020 0 (a)A 
+-0.500 0 (n)A 
+0.250 0 32 0.500 0 (d )D 
+0.015 0 (r)A 
+0.020 0 (e)A 
+1.015 0 (-)A 
+0.015 0 (r)A 
+-0.750 0 32 0.500 0 (un )D 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.495 0 (s)A 
+0.490 0 (i)A 
+-0.500 0 (n)A 
+0.500 0 (g)A 
+0.490 0 (l)A 
+0.730 0 32 0.020 0 (e )D 
+; : 1953 3044 380 52 rc : 1.000 1.000 1.000 sco 2000 3044 79 52 rf ; 0 0 0 sco F3_45
+Ji 
+2000 3044 M 
+0.495 0 (s)A 
+0.015 0 (t)A 
+0.020 0 (e)A 
+0.980 0 (p)A 
+; : 2030 3045 147 52 rc : 1.000 1.000 1.000 sco 2079 3045 11 52 rf ; 0 0 0 sco F0_45
+Ji 
+2079 3045 M 
+-0.250 0 ( )A 
+; : 229 3100 2104 52 rc : 1.000 1.000 1.000 sco 278 3100 719 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 3100 M 
+0.990 0 (m)A 
+0.500 0 (od)A 
+0.020 0 (e)A 
+-1.000 0 32 0.750 0 (. )D 
+0.505 0 (L)A 
+-0.750 0 32 0.500 0 (ook ou)D 
+-0.740 0 32 0.490 0 (t )D 
+0.015 0 (f)A 
+0.500 0 (o)A 
+0.735 0 32 0.015 0 (r )D 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (ny )D 
+1.020 0 (c)A 
+0.500 0 (h)A 
+0.020 0 (a)A 
+0.500 0 (ng)A 
+0.020 0 (e)A 
+-0.745 0 32 0.495 0 (s )D 
+0.490 0 (i)A 
+-0.750 0 32 0.500 0 (n )D 
+0.490 0 (t)A 
+0.500 0 (h)A 
+0.730 0 32 0.020 0 (e )D 
+; : 950 3099 1383 52 rc : 1.000 1.000 1.000 sco 997 3099 470 52 rf ; 0 0 0 sco F3_45
+Ji 
+997 3099 M 
+0.510 0 (C)A 
+0.500 0 (o)A 
+-0.020 0 (n)A 
+0.980 0 (d)A 
+-0.510 0 (i)A 
+1.015 0 (t)A 
+-0.510 0 (i)A 
+0.500 0 (o)A 
+-1.230 0 32 0.980 0 (n )D 
+0.510 0 (C)A 
+0.500 0 (o)A 
+-0.020 0 (d)A 
+-1.270 0 32 1.020 0 (e r)D 
+0.020 0 (e)A 
+0.500 0 (g)A 
+-0.510 0 (i)A 
+0.495 0 (s)A 
+1.015 0 (t)A 
+0.020 0 (er)A 
+; : 1418 3100 915 52 rc : 1.000 1.000 1.000 sco 1467 3100 23 52 rf ; 0 0 0 sco F0_45
+Ji 
+1467 3100 M 
+-1.000 0 32 0.750 0 (. )D 
+; : 170 3154 2163 52 rc : 1.000 1.000 1.000 sco 219 3154 58 52 rf ; 0 0 0 sco F0_45
+Ji 
+219 3154 M 
+0.500 0 (26)A 
+0.750 0 (.)A 
+; : 229 3154 2104 52 rc : 1.000 1.000 1.000 sco 278 3154 168 52 rf ; 0 0 0 sco F0_45
+Ji 
+278 3154 M 
+0.510 0 (H)A 
+0.500 0 (o)A 
+0.240 0 32 0.510 0 (w )D 
+0.020 0 (a)A 
+0.015 0 (r)A 
+-1.270 0 32 1.020 0 (e )D 
+; : 399 3153 141 52 rc : 1.000 1.000 1.000 sco 446 3153 33 52 rf ; 0 0 0 sco F3_45
+Ji 
+446 3153 M 
+0.510 0 (V)A 
+; : 430 3154 1903 52 rc : 1.000 1.000 1.000 sco 479 3154 89 52 rf ; 0 0 0 sco F0_45
+Ji 
+479 3154 M 
+0.750 0 32 ( )W 
+0.020 0 (a)A 
+-0.750 0 32 0.500 0 (nd )D 
+; : 521 3153 141 52 rc : 1.000 1.000 1.000 sco 568 3153 32 52 rf ; 0 0 0 sco F3_45
+Ji 
+568 3153 M 
+-0.490 0 (C)A 
+; : 552 3154 1781 52 rc : 1.000 1.000 1.000 sco 601 3154 722 52 rf ; 0 0 0 sco F0_45
+Ji 
+601 3154 M 
+0.750 0 32 ( )W 
+0.015 0 (r)A 
+0.020 0 (e)A 
+0.490 0 (l)A 
+0.020 0 (a)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.250 0 32 0.500 0 (d )D 
+-0.510 0 (i)A 
+0.250 0 32 0.500 0 (n )D 
+-0.510 0 (t)A 
+0.500 0 (h)A 
+-1.270 0 32 1.020 0 (e )D 
+0.985 0 (C)A 
+0.500 0 (o)A 
+-0.500 0 (n)A 
+0.500 0 (d)A 
+0.490 0 (iti)A 
+-0.500 0 (o)A 
+0.250 0 32 0.500 0 (n )D 
+-0.015 0 (C)A 
+0.500 0 (od)A 
+0.730 0 32 0.020 0 (e )D 
+0.015 0 (r)A 
+0.020 0 (e)A 
+0.500 0 (g)A 
+0.490 0 (i)A 
+0.495 0 (s)A 
+0.490 0 (t)A 
+0.020 0 (e)A 
+0.015 0 (r)A 
+0.020 0 (?)A 
+; : 458 22 1875 44 rc : 1.000 1.000 1.000 sco 485 22 1199 44 rf ; 0 0 0 sco %%IncludeFont: Courier-Bold
+(F5) cvn
+0.805 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F5_41) cvn
+F5
+41 
+xF 
+F5_41
+Ji 
+485 22 M 
+0.400 0 (* 8-bit binary count on the Port B of the 68HC)A 
+-0.600 0 (1)A 
+0.400 0 (1)A 
+; : 458 72 1875 44 rc : 1.000 1.000 1.000 sco 485 72 500 44 rf ; 0 0 0 sco F5_41
+Ji 
+485 72 M 
+0.400 0 (* with a delay loop.)A 
+; : 458 172 1875 44 rc : 1.000 1.000 1.000 sco 485 172 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+485 172 M 
+0.400 0 (PORTB)A 
+; : 635 172 1698 44 rc : 1.000 1.000 1.000 sco 662 172 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 172 M 
+0.400 0 (EQU)A 
+; : 812 172 1521 44 rc : 1.000 1.000 1.000 sco 839 172 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 172 M 
+0.400 0 ($1004)A 
+; : 990 172 1343 44 rc : 1.000 1.000 1.000 sco 1017 172 549 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 172 M 
+0.400 0 (; Port B)A 
+-0.600 0 32 ( )W 
+0.400 0 (data register)A 
+; : 635 272 1698 44 rc : 1.000 1.000 1.000 sco 662 272 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 272 M 
+0.400 0 (ORG)A 
+; : 812 272 1521 44 rc : 1.000 1.000 1.000 sco 839 272 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 272 M 
+0.400 0 ($E000)A 
+; : 990 272 1343 44 rc : 1.000 1.000 1.000 sco 1017 272 599 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 272 M 
+0.400 0 (; start )A 
+-0.600 0 (o)A 
+0.400 0 (f ROM \(program\))A 
+; : 635 322 1698 44 rc : 1.000 1.000 1.000 sco 662 322 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 322 M 
+0.400 0 (CLR)A 
+; : 812 322 1521 44 rc : 1.000 1.000 1.000 sco 839 322 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 322 M 
+0.400 0 (PORTB)A 
+; : 990 322 1343 44 rc : 1.000 1.000 1.000 sco 1017 322 549 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 322 M 
+0.400 0 (; clears)A 
+-0.600 0 32 ( )W 
+0.400 0 (Port B to $00)A 
+; : 458 372 1875 44 rc : 1.000 1.000 1.000 sco 485 372 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+485 372 M 
+0.400 0 (MAIN)A 
+; : 635 372 1698 44 rc : 1.000 1.000 1.000 sco 662 372 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 372 M 
+0.400 0 (INC)A 
+; : 812 372 1521 44 rc : 1.000 1.000 1.000 sco 839 372 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 372 M 
+0.400 0 (PORTB)A 
+; : 990 372 1343 44 rc : 1.000 1.000 1.000 sco 1017 372 449 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 372 M 
+0.400 0 (; Adds 1)A 
+-0.600 0 32 ( )W 
+0.400 0 (to Port B)A 
+; : 635 422 1698 44 rc : 1.000 1.000 1.000 sco 662 422 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 422 M 
+0.400 0 (LDX)A 
+; : 812 422 1521 44 rc : 1.000 1.000 1.000 sco 839 422 150 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 422 M 
+0.400 0 (#$00ff)A 
+; : 990 422 1343 44 rc : 1.000 1.000 1.000 sco 1017 422 524 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 422 M 
+0.400 0 (; set up)A 
+-0.600 0 32 ( )W 
+0.400 0 (delay timing)A 
+; : 458 472 1875 44 rc : 1.000 1.000 1.000 sco 485 472 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+485 472 M 
+0.400 0 (DELAY)A 
+; : 635 472 1698 44 rc : 1.000 1.000 1.000 sco 662 472 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 472 M 
+0.400 0 (DEX)A 
+; : 990 472 1343 44 rc : 1.000 1.000 1.000 sco 1017 472 274 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 472 M 
+0.400 0 (; X = X )A 
+1.000 0 32 -0.600 0 (- )D 
+0.400 0 (1)A 
+; : 635 522 1698 44 rc : 1.000 1.000 1.000 sco 662 522 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 522 M 
+0.400 0 (BNE)A 
+; : 812 522 1521 44 rc : 1.000 1.000 1.000 sco 839 522 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 522 M 
+0.400 0 (DELAY)A 
+; : 990 522 1343 44 rc : 1.000 1.000 1.000 sco 1017 522 549 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 522 M 
+0.400 0 (; if X !)A 
+1.000 0 32 -0.600 0 (= )D 
+0.400 0 (0, then loop)A 
+; : 635 572 1698 44 rc : 1.000 1.000 1.000 sco 662 572 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+662 572 M 
+0.400 0 (BRA )A 
+; : 812 572 1521 44 rc : 1.000 1.000 1.000 sco 839 572 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+839 572 M 
+0.400 0 (MAIN)A 
+; : 990 572 1343 44 rc : 1.000 1.000 1.000 sco 1017 572 649 44 rf ; 0 0 0 sco F5_41
+Ji 
+1017 572 M 
+0.400 0 (; create)A 
+1.000 0 32 -0.600 0 (s )D 
+0.400 0 (an infinite loop)A 
+; : 310 1380 2023 44 rc : 1.000 1.000 1.000 sco 337 1380 1325 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1380 M 
+0.400 0 (* This is a program that adds the contents of address)A 
+; : 310 1430 2023 44 rc : 1.000 1.000 1.000 sco 337 1430 1625 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1430 M 
+0.400 0 (* $0000 to the contents of address $0001 and stores the resulting)A 
+; : 310 1480 2023 44 rc : 1.000 1.000 1.000 sco 337 1480 1550 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1480 M 
+0.400 0 (* sum in the memory location at address $0002. If there is an )A 
+; : 310 1530 2023 44 rc : 1.000 1.000 1.000 sco 337 1530 1500 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1530 M 
+0.400 0 (* overflow the contents of address $0003 is set to $FF else )A 
+; : 310 1580 2023 44 rc : 1.000 1.000 1.000 sco 337 1580 675 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1580 M 
+0.400 0 (* address $0003 is cleared.)A 
+; : 547 1680 1786 44 rc : 1.000 1.000 1.000 sco 574 1680 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1680 M 
+0.400 0 (ORG)A 
+; : 724 1680 1609 44 rc : 1.000 1.000 1.000 sco 751 1680 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1680 M 
+0.400 0 ($0000)A 
+; : 901 1680 1432 44 rc : 1.000 1.000 1.000 sco 928 1680 525 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1680 M 
+0.400 0 (; start of RAM \(data\))A 
+; : 310 1730 2023 44 rc : 1.000 1.000 1.000 sco 337 1730 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1730 M 
+0.400 0 (OPER1)A 
+; : 547 1730 1786 44 rc : 1.000 1.000 1.000 sco 574 1730 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1730 M 
+0.400 0 (RMB)A 
+; : 724 1730 81 44 rc : 1.000 1.000 1.000 sco 751 1730 25 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1730 M 
+0.400 0 (1)A 
+; : 901 1730 1432 44 rc : 1.000 1.000 1.000 sco 928 1730 925 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1730 M 
+0.400 0 (; reserve 1 memory byte for operand 1)A 
+; : 310 1780 2023 44 rc : 1.000 1.000 1.000 sco 337 1780 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1780 M 
+0.400 0 (OPER2)A 
+; : 547 1780 1786 44 rc : 1.000 1.000 1.000 sco 574 1780 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1780 M 
+0.400 0 (RMB)A 
+; : 724 1780 81 44 rc : 1.000 1.000 1.000 sco 751 1780 25 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1780 M 
+0.400 0 (1)A 
+; : 901 1780 1432 44 rc : 1.000 1.000 1.000 sco 928 1780 925 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1780 M 
+0.400 0 (; reserve 1 memory byte for operand 2)A 
+; : 310 1830 2023 44 rc : 1.000 1.000 1.000 sco 337 1830 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1830 M 
+0.400 0 (SUM)A 
+; : 547 1830 1786 44 rc : 1.000 1.000 1.000 sco 574 1830 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1830 M 
+0.400 0 (RMB)A 
+; : 724 1830 81 44 rc : 1.000 1.000 1.000 sco 751 1830 25 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1830 M 
+0.400 0 (1)A 
+; : 901 1830 1432 44 rc : 1.000 1.000 1.000 sco 928 1830 775 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1830 M 
+0.400 0 (; reserve 1 memory byte for sum)A 
+; : 310 1880 2023 44 rc : 1.000 1.000 1.000 sco 337 1880 150 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1880 M 
+0.400 0 (OVERFL)A 
+; : 547 1880 1786 44 rc : 1.000 1.000 1.000 sco 574 1880 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1880 M 
+0.400 0 (RMB)A 
+; : 724 1880 81 44 rc : 1.000 1.000 1.000 sco 751 1880 25 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1880 M 
+0.400 0 (1)A 
+; : 901 1880 1432 44 rc : 1.000 1.000 1.000 sco 928 1880 1074 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1880 M 
+0.400 0 (; reserve 1 memory byte for overflow sig)A 
+-0.600 0 (n)A 
+0.400 0 (al)A 
+; : 310 1980 2023 44 rc : 1.000 1.000 1.000 sco 337 1980 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 1980 M 
+0.400 0 (FALSE)A 
+; : 547 1980 1786 44 rc : 1.000 1.000 1.000 sco 574 1980 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 1980 M 
+0.400 0 (EQU)A 
+; : 724 1980 1609 44 rc : 1.000 1.000 1.000 sco 751 1980 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 1980 M 
+0.400 0 ($00)A 
+; : 901 1980 1432 44 rc : 1.000 1.000 1.000 sco 928 1980 750 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 1980 M 
+0.400 0 (; equate constant FALSE to $00)A 
+; : 547 2080 1786 44 rc : 1.000 1.000 1.000 sco 574 2080 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2080 M 
+0.400 0 (ORG)A 
+; : 724 2080 1609 44 rc : 1.000 1.000 1.000 sco 751 2080 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2080 M 
+0.400 0 ($E000)A 
+; : 901 2080 1432 44 rc : 1.000 1.000 1.000 sco 928 2080 600 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2080 M 
+0.400 0 (; start of ROM \(program\))A 
+; : 310 2130 2023 44 rc : 1.000 1.000 1.000 sco 337 2130 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 2130 M 
+0.400 0 (START)A 
+; : 547 2130 1786 44 rc : 1.000 1.000 1.000 sco 574 2130 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2130 M 
+0.400 0 (LDAB)A 
+; : 724 2130 1609 44 rc : 1.000 1.000 1.000 sco 751 2130 150 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2130 M 
+0.400 0 (#FALSE)A 
+; : 901 2130 1432 44 rc : 1.000 1.000 1.000 sco 928 2130 1074 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2130 M 
+0.400 0 (; be optimistic \(assume no overflow occu)A 
+-0.600 0 (r)A 
+0.400 0 (s\))A 
+; : 547 2180 1786 44 rc : 1.000 1.000 1.000 sco 574 2180 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2180 M 
+0.400 0 (LDAA)A 
+; : 724 2180 1609 44 rc : 1.000 1.000 1.000 sco 751 2180 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2180 M 
+0.400 0 (OPER1)A 
+; : 901 2180 1432 44 rc : 1.000 1.000 1.000 sco 928 2180 825 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2180 M 
+0.400 0 (; load operand 1 in accumulator A)A 
+; : 547 2230 1786 44 rc : 1.000 1.000 1.000 sco 574 2230 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2230 M 
+0.400 0 (ADDA)A 
+; : 724 2230 1609 44 rc : 1.000 1.000 1.000 sco 751 2230 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2230 M 
+0.400 0 (OPER2)A 
+; : 901 2230 1432 44 rc : 1.000 1.000 1.000 sco 928 2230 800 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2230 M 
+0.400 0 (; add operand 2 to accumulator A)A 
+; : 547 2280 1786 44 rc : 1.000 1.000 1.000 sco 574 2280 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2280 M 
+0.400 0 (BVC)A 
+; : 724 2280 1609 44 rc : 1.000 1.000 1.000 sco 751 2280 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2280 M 
+0.400 0 (NOV)A 
+; : 901 2280 1432 44 rc : 1.000 1.000 1.000 sco 928 2280 750 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2280 M 
+0.400 0 (; branch if no overflow occurs)A 
+; : 547 2330 1786 44 rc : 1.000 1.000 1.000 sco 574 2330 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2330 M 
+0.400 0 (COMB)A 
+; : 901 2330 1432 44 rc : 1.000 1.000 1.000 sco 928 2330 50 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2330 M 
+0.400 0 (; )A 
+; : 951 2330 1382 44 rc : 1.000 1.000 1.000 sco 978 2330 875 44 rf ; 0 0 0 sco F5_41
+Ji 
+978 2330 M 
+0.400 0 (oops overflow: invert accumulator B)A 
+; : 310 2380 2023 44 rc : 1.000 1.000 1.000 sco 337 2380 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+337 2380 M 
+0.400 0 (NOV)A 
+; : 547 2380 1786 44 rc : 1.000 1.000 1.000 sco 574 2380 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2380 M 
+0.400 0 (STAA)A 
+; : 724 2380 1609 44 rc : 1.000 1.000 1.000 sco 751 2380 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2380 M 
+0.400 0 (SUM)A 
+; : 901 2380 1432 44 rc : 1.000 1.000 1.000 sco 928 2380 650 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2380 M 
+0.400 0 (; store result of addition)A 
+; : 547 2430 1786 44 rc : 1.000 1.000 1.000 sco 574 2430 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2430 M 
+0.400 0 (STAB)A 
+; : 724 2430 1609 44 rc : 1.000 1.000 1.000 sco 751 2430 150 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2430 M 
+0.400 0 (OVERFL)A 
+; : 901 2430 1432 44 rc : 1.000 1.000 1.000 sco 928 2430 575 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2430 M 
+0.400 0 (; store overflow signal)A 
+; : 547 2480 1786 44 rc : 1.000 1.000 1.000 sco 574 2480 100 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2480 M 
+0.400 0 (STOP)A 
+; : 901 2480 1432 44 rc : 1.000 1.000 1.000 sco 928 2480 975 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2480 M 
+0.400 0 (; nice way to stop without running wild)A 
+; : 547 2580 1786 44 rc : 1.000 1.000 1.000 sco 574 2580 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2580 M 
+0.400 0 (ORG)A 
+; : 724 2580 1609 44 rc : 1.000 1.000 1.000 sco 751 2580 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2580 M 
+0.400 0 ($FFFE)A 
+; : 901 2580 1432 44 rc : 1.000 1.000 1.000 sco 928 2580 350 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2580 M 
+0.400 0 (; reset vector)A 
+; : 547 2630 1786 44 rc : 1.000 1.000 1.000 sco 574 2630 75 44 rf ; 0 0 0 sco F5_41
+Ji 
+574 2630 M 
+0.400 0 (FDB)A 
+; : 724 2630 1609 44 rc : 1.000 1.000 1.000 sco 751 2630 125 44 rf ; 0 0 0 sco F5_41
+Ji 
+751 2630 M 
+0.400 0 (START)A 
+; : 901 2630 1432 44 rc : 1.000 1.000 1.000 sco 928 2630 625 44 rf ; 0 0 0 sco F5_41
+Ji 
+928 2630 M 
+0.400 0 (; set to start of program)A 
+; ; ; 
+LH 
+pagesave restore
+
+(%%[ Page: 2 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+%%DocumentNeededFonts: Times-Roman
+%%+ Times-Bold
+%%+ Courier-Bold
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 2
+(%%[ LastPage ]%%)  =
+%%EOF
+

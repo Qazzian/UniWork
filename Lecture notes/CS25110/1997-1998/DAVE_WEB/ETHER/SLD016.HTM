@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+ <TITLE>MAC frame format</TITLE> 
+</HEAD>
+<BODY>
+<CENTER>
+
+<P>
+ <TABLE BORDER=5> <TD><IMG SRC="sld016.jpg"></TD></TABLE>
+</P>
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld015.htm"><IMG SRC="p2hprev.gif" ALIGN=BOTTOM ALT="Previous slide" BORDER="0">
+</A>  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld017.htm"><IMG SRC="p2hnext.gif" ALIGN=BOTTOM ALT="Next slide" BORDER="0"></A>
+  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "index.htm">
+<IMG SRC="p2hup.gif" ALIGN=BOTTOM ALT="Back to the first slide" BORDER="0"></A> 
+ </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "tsld016.htm">
+<IMG SRC="p2htext.gif" ALIGN=BOTTOM ALT="View text version" BORDER="0"></A>
+ </TD>
+</TABLE>
+</CENTER>
+<BR>
+</p>
+
+<Font size=4> <STRONG> Notes:</FONT></STRONG>
+<HR  SIZE=3>
+<P> </P>
+<P>preamble 10101010... </P>
+<P></P>
+<P>produces 1/2 characteristic frequency on line to synchronise - Manchester code</P>
+<P></P>
+<P>start of frame delimiter 10101011</P>
+<P></P>
+<P></P>
+<P></P>
+<P>Every station in the whole world gets a different number.  Assigned to each Ethernet licencee</P>
+<P></P>
+<P></P>
+<P></P>
+<P>length is 802.3 standard - how many bytes up to (not including the CRC; Ethernet had a type field - these values are illegal lengths so both types can exist on the same network !</P>
+<P></P>
+<P></P>
+<P></P>
+<P>LLC data is different for IEEE 802 and Ethernet(1500 ethernet)</P>
+<P></P>
+<P>More onCRCused in FCS does error checking in inf. theory lectures later... calculated on all fields except preamble/delimeter</P>
+<P></P>
+<P></P>
+<P></P>
+<P>from the DIX blue book;</P>
+<P></P>
+<P>allows a higher level protocol to decide if message is intended for station i.e.. it gets received anyway</P>
+<P></P>
+<P></P>
+<P></P>
+<P>The datalink controller can have an active group of multicast addresses - frames with these addresses will be accepted .
+</P>
+<P></P>
+<P></P>
+<P> </P> 
+ <!-- <H2>MAC frame format</H2>
+</P>
+<P><H2>Number of Octets</H2>
+<H2>7</H2>
+<H2>1</H2>
+<H2>2 or 6</H2>
+<H2>2 or 6</H2>
+<H2>2</H2>
+<H2>up to 64K</H2>
+<H2>?</H2>
+<H2>4 </H2>
+</P>
+<P><H2>Field Usage</H2>
+<H2>Preamble</H2>
+<H2>Start of Frame Delimiter</H2>
+<H2>Destination Address ;6 (10Mhz)</H2>
+<H2>Source Address; 6 (10Mhz)</H2>
+<H2>Length</H2>
+<H2>LLC data</H2>
+<H2>Padding</H2>
+<H2>Frame Check Sequence</H2>
+</P>
+<P><H2>Ethernet Addresses</H2>
+</P>
+<P><H2>48 bits</H2>
+</P>
+<P><H2>	0 = globally unique </H2>
+<H2>	1 = locally allocated address</H2>
+<H2>0 = physical address (totally unique)</H2>
+<H2>1 = group address multicast or broadcast</H2>
+<UL><LI>Broadcast if other 47 are all 1’s<LI>Other patterns “associated by a higher level convention with a group of logically related stations”.</UL></P>
+<P><H2>bit 0</H2>
+</P>
+<P><H2>bit 47</H2>
+</P>
+<P>  --> 
+</Body>
+</HTML>

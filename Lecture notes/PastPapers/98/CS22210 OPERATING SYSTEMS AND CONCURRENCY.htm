@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://users.aber.ac.uk/infoman/compsci/exam98/semester1/cs22210.html -->
+<HTML><HEAD><TITLE>CS22210: OPERATING SYSTEMS AND CONCURRENCY</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="CS22210:  OPERATING SYSTEMS AND CONCURRENCY" name=TITLE>
+<META content="Computer Science " name=CREATOR>
+<META content="1998, Degree, Examinations, Semester 1 " name=SUBJECT>
+<META content="DATAPREP - Information Services" name=PUBLISHER>
+<META name=date VALUE="24-03-98">
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff link=#008000><B>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</B> 
+<P>DEGREE EXAMINATIONS 1997-98 SEMESTER 1 
+<P><B>ABERYSTWYTH</B> 
+<P>FACULTY OF SCIENCE 
+<P><B>Computer Science CS22210: OPERATING SYSTEMS AND CONCURRENCY 
+<P>Time allowed: 2 hours</B> 
+<P><I>Answer</I><B> THREE</B> <I>from</I> <B>FIVE</B> <I>questions</I> 
+<P><I>All questions carry equal mark</I>s. 
+<P>
+<OL>
+  <LI><B>a)</B> In the context of operating systems, explain what is meant by a 
+  process? [5 marks] 
+  <P><B>b)</B> What are the objectives of a CPU scheduler? [4 marks] 
+  <P><B>c)</B> Briefly explain each of the following scheduling strategies: [12 
+  marks] 
+  <OL type=i>
+    <LI>Round Robin 
+    <LI>Priority scheduling 
+    <LI>First come first served 
+    <LI>Shortest job first. </LI></OL>
+  <P><B>d)</B> Five jobs A, B, C, D and E are to be processed. Their estimated 
+  run times are 10, 6, 2, 4 and 8 minutes respectively. Their priorities are 3, 
+  5, 1, 2 and 4 respectively, where 5 is highest priority. For each of the 
+  scheduling strategies in part c) above, calculate the mean turnaround time for 
+  the jobs. Make the following assumptions: [12 marks] 
+  <P>
+  <UL>
+    <LI>the process switching overhead is zero 
+    <LI>the jobs are all CPU-bound 
+    <LI>in the case of Round Robin each job gets its fair share of the CPU 
+    <LI>for Priority scheduling, First come first served and Shortest job first, 
+    each job runs to completion before the next starts 
+    <LI>for First come first served, the jobs are run in order A, B, C, D, E 
+    </LI></UL>
+  <P></P>
+  <LI>Suppose two processes communicate via a fixed size buffer. One, the 
+  producer, puts data in the buffer. The other, the consumer, takes data out. 
+  <P>
+  <OL type=a>
+    <LI>Explain the need for synchronisation and mutual exclusion between these 
+    processes.<BR>[5 marks] 
+    <P></P>
+    <LI>Consider the following approach to implementing the producer and 
+    consumer. 
+    <P>The producer checks to see if the buffer is full, and suspends itself 
+    (goes to sleep) if it is. Otherwise, it places an item in the buffer and 
+    increments the counter 'items-in-buffer'. If that item is the only item in 
+    the buffer, then the buffer was previously empty and therefore the consumer 
+    needs to be wakened. This is repeated indefinitely. 
+    <P>The consumer checks to see if the buffer is empty, and suspends itself if 
+    it is. Otherwise, it removes an item from the buffer and decrements 
+    'items-in-buffer'. If the buffer was previously full, it awakens the 
+    producer. This is then repeated. 
+    <P>Pseudo-code for the producer and consumer is illustrated below. Briefly 
+    explain how these algorithms fail to ensure correct synchronisation.<BR>[10 
+    marks] 
+    <P><PRE>PRODUCER
+repeat
+	if items-in-buffer = buffer-size then go to sleep
+	place an item in the buffer
+	items-in-buffer: = items-in-buffer + 1
+	if items-in-buffer = 1 then wake CONSUMER
+forever
+
+CONSUMER
+repeat
+	if items-in-buffer = 0 then go to sleep
+	remove an item from the-buffer
+	items-in-buffer: = items-in-buffer - 1
+	if items-in-buffer = buffer-size - 1 then wake PRODUCER
+forever
+
+</PRE>
+    <P></P>
+    <LI>Use semaphores to implement the producer and consumer. Your algorithm 
+    should not give rise to busy waiting (that is, it should not require a 
+    process to execute a loop while waiting to enter a critical section). Write 
+    a brief explanation describing how your semaphores ensure correct mutual 
+    exclusion and synchronisation. [18 marks] </LI></OL>
+  <P></P>
+  <LI><B>a)</B> In the context of operating systems, explain what is meant by 
+  virtual memory? [4 marks] 
+  <P><B>b)</B> Briefly explain how paging is used to implement virtual memory. 
+  [8 marks] 
+  <P><B>c)</B> Briefly describe each of the page replacement algorithms: [9 
+  marks] 
+  <DL>
+    <DD>(i) &nbsp; Least recently used 
+    <DD>(ii)&nbsp; First in first out 
+    <DD>(iii) Second chance (clock) </DD></DL>
+  <P><B>d) </B>Suppose a computer has four page frames. The time of loading, 
+  time since last access, and R bit (accessed) are as follows: 
+  <P>
+  <CENTER>
+  <TABLE border=1 width="50%">
+    <TBODY>
+    <TR align=middle>
+      <TH>Page</TH>
+      <TH>When loaded</TH>
+      <TH>Time since<BR>last access</TH>
+      <TH>R</TH></TR>
+    <TR align=middle>
+      <TD>0</TD>
+      <TD>126</TD>
+      <TD>279</TD>
+      <TD>0</TD></TR>
+    <TR align=middle>
+      <TD>1</TD>
+      <TD>230</TD>
+      <TD>290</TD>
+      <TD>1</TD></TR>
+    <TR align=middle>
+      <TD>2</TD>
+      <TD>120</TD>
+      <TD>272</TD>
+      <TD>1</TD></TR>
+    <TR align=middle>
+      <TD>3</TD>
+      <TD>160</TD>
+      <TD>250</TD>
+      <TD>1</TD></TR></TBODY></TABLE></CENTER>
+  <P>When a page fault occurs, which page will 'Least recently used' replace? 
+  Which will 'First in first out' replace? Which will 'Second chance' replace? 
+  [12 marks] 
+  <P></P>
+  <LI><B>a)</B> Briefly outline the major threats to shared and networked 
+  operating systems. [9 marks] 
+  <P><B>b)</B> Against which of these is user authentication a reasonably 
+  effective counter measure? Give reasons for your answer. [6 marks] 
+  <P><B>c)</B> Against which is it ineffective? Give reasons for your answer.[6 
+  marks] 
+  <P><B>d) </B>What are the threats to password protection? What counter 
+  measures would you recommend against these threats? Give reasons for your 
+  recommendations. [12 marks] 
+  <P></P>
+  <LI><B>a)</B> Describe the advantages and disadvantages of distributed 
+  systems. [10 marks] 
+  <P><B>b)</B> Describe <I>two</I> applications that benefit from the use of 
+  tightly-coupled distributed systems. In each case, explain the benefits. [12 
+  marks] 
+  <P><B>c)</B> What are the main problems in distributing a single, 
+  multi-processing program over a loosely-coupled system? [11 marks] 
+  <P></P></LI></OL></BODY></HTML>

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://users.aber.ac.uk/infoman/compsci/exam2000/semester1/cs24210.html -->
+<HTML><HEAD><TITLE>CS24210: Syntax Analysis and Topics in Programming</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="CS24210: Syntax Analysis and Topics in Programming" name=TITLE>
+<META content="Computer Science" name=CREATOR>
+<META content="2000, Degree, Examinations, Semester 1" name=SUBJECT>
+<META content="DATAPREP - Information Services" name=PUBLISHER>
+<META name=date VALUE="24-02-2000">
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff link=#008000><B>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</B> 
+<P>DEGREE EXAMINATIONS 1999-00 SEMESTER 1 
+<P><B>ABERYSTWYTH</B> 
+<P>FACULTY OF SCIENCE 
+<P><B>Computer Science CS24210: Syntax Analysis and Topics in Programming 
+<P>Time allowed: 2 hours</B> 
+<P><I>Answer</I> <B>THREE</B> <I>from</I> <B>FIVE</B> <I>questions<BR>All 
+questions carry equal marks</I> 
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>1.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD>The lexis of a programming language can be described using regular 
+      expressions. Using concatenation, '|' and '*', write regular expressions 
+      for 
+      <UL>
+        <LI>keywords <B>if, while, begin, end</B> 
+        <LI>parentheses ( ) 
+        <LI>arithmetic operators + - 
+        <LI>assignment operator = 
+        <LI>signed and unsigned integers and decimals; for example, 10, +22.5, 
+        -7, -1.234 
+        <LI>comments consisting of arbitrarily long strings enclosed between /* 
+        and */ 
+        <LI>identifiers consisting of a letter or underscore followed by 
+        arbitrarily many letters, digits or underscores. </LI></UL></TD>
+    <TD align=right vAlign=bottom width="15%">[15 marks]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Using a suitable pseudocode to indicate the actions, write a lex 
+      specification for a scanner to recognise the above lexemes. The scanner 
+      should: 
+      <UL>
+        <LI>ignore comments, blanks, tabs and newlines; 
+        <LI>return appropriate tokens for keywords and parentheses; 
+        <LI>return appropriate tokens for operators, and set yylval to a value 
+        that represents each operator encountered; 
+        <LI>return appropriate tokens for numbers, and set yylval to the numeric 
+        value of the lexeme representing each number; 
+        <LI>return appropriate tokens for identifiers, and set yylval to point 
+        to a symbol table entry for the lexeme representing each identifier. 
+        </LI></UL><BR>You may assume that the tokens to be returned have been 
+      declared elsewhere and need not be declared in your lex specification.</TD>
+    <TD align=right vAlign=bottom>[18]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>2.</TD>
+    <TD colSpan=2>Consider the grammar <BR>&lt;list&gt; ::= ( ) | 
+      (&lt;head&gt;) | ( &lt;head&gt; , &lt;tail&gt; ) <BR>&lt;head&gt; ::= 
+      number | boolean | &lt;list&gt; <BR>&lt;tail&gt; ::= &lt;head&gt; | 
+      &lt;head&gt; , &lt;tail&gt; <BR>where "number" is any sequence of digits; 
+      e.g. 0, 123, 54, and "boolean" is <B>true</B> or<B> false</B>. </TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>a)</TD>
+    <TD>Assuming an LR parsing algorithm is to be used, extend this grammar to 
+      include structural attributes and rules for constructing abstract syntax 
+      trees while parsing list expressions. The abstract syntax trees should 
+      allow reconstruction of a list, but should eliminate commas and 
+      parentheses. Illustrate the application of your grammar by building 
+      abstract syntax trees for the lists (number,number,number) and 
+      (number,(number), boolean).</TD>
+    <TD vAlign=bottom>[15]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Further extend your grammar to enable type checking of lists, where a 
+      list may contain numbers or booleans but not a mixture of numbers and 
+      booleans. Illustrate the application of your extended grammar by adding 
+      attribute values to the abstract syntax trees constructed for part a) 
+      above.</TD>
+    <TD vAlign=bottom>[18]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>3.</TD>
+    <TD colSpan=2>An eliza-like conversation program written in Perl comprises 
+      a <B>main</B> program and two subroutines, <B>converse</B> and 
+      <B>greet</B>. The main program starts by calling <B>greet</B> to read the 
+      user's name, and to greet the user. It then repeatedly reads the user's 
+      input and executes <B>converse</B> to simulate a conversation. The 
+      subroutine <B>converse</B> identifies certain key words or phrases in the 
+      user's input and prints out a response which depends on the words or 
+      phrases identified.</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>a)</TD>
+    <TD>Write a version of the Perl subroutine <B>converse</B> that behaves as 
+      follows: 
+      <UL>
+        <LI>on recognising any of the words<I> father, mother, brother, 
+        sister</I>, it prints '<I>Tell me more about your family.</I>'; 
+        <LI>on recognising the words <I>happy, sad, love, hate</I>, it prints 
+        <I>'Why do you feel like that?</I>'; 
+        <LI>on recognising '<I>I want to</I> xxxx', where xxxx is any string, it 
+        prints '<I>Do you know anyone else who wants t</I>o xxxx'; 
+        <LI>on recognising '<I>I</I> yyyy <I>you</I>', where yyyy is any string, 
+        it prints '<I>Perhaps in your fantasy, we</I> yyyy <I>each other</I>'.; 
+        <LI>on recognising <I>no, can't, won't</I>, it prints '<I>Do you often 
+        have negative feelings?</I>' </LI></UL>If none of these apply, it prints 
+      the default message '<I>How interesting, do go on</I>.'</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD>&nbsp; </TD>
+    <TD>&nbsp; </TD>
+    <TD>[15]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD colSpan=2>Modify your version of <B>converse</B> so that, instead of 
+      printing the default message '<I>How interesting, do go on</I>', it echoes 
+      what the user types, but with the following replacements: '<I>I</I>' 
+      becomes '<I>you</I>', '<I>you</I>' becomes '<I>I</I>', '<I>your</I>' 
+      becomes '<I>my</I>', '<I>my</I>' becomes '<I>your</I>'. Thus '<I>I see a 
+      mouse</I>' is echoed as '<I>you see a mouse</I>', and so on. Otherwise, it 
+      behaves as before, so '<I>I see you</I>' leads to the response '<I>Perhaps 
+      in your fantasy, we see each other</I>'.</TD>
+    <TD vAlign=bottom>[18]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>4.</TD>
+    <TD colSpan=2>Consider the following grammar for arithmetic 
+      expressions:<BR>&lt;expr&gt; ::= &lt;expr&gt; ADDOP &lt;term&gt; | 
+      &lt;term&gt; <BR>&lt;term&gt; ::= &lt;term&gt; MULOP &lt;factor&gt; | 
+      &lt;factor&gt; <BR>&lt;factor&gt; ::= NUMBER | (&lt;expr&gt; ) <BR>where 
+      ADDOP is '+' or '-', MULOP is '*' or '/' and NUMBER is any string of 
+      digits.</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>a)</TD>
+    <TD>With the help of suitable examples from the language defined by this 
+      grammar, briefly explain the difference between a parse tree and an 
+      abstract syntax tree, and explain why parsers normally construct abstract 
+      syntax trees rather than parse trees.</TD>
+    <TD vAlign=bottom>[15]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Outline the yacc specification for a parser that recognises arithmetic 
+      expressions in this language and generates postfix code for these 
+      expressions. Your parser should allow blank lines and multiple lines of 
+      input - one expression per line. It should also handle errors gracefully. 
+      (This means you will have to extend the above grammar). You are not 
+      expected to write C code for the actions and supporting functions in your 
+      yacc specification, but should instead use a suitable pseudocode to 
+      describe these. You should also indicate the tokens to be returned by the 
+      scanner yylex and the values expected in yylval, but need not write a lex 
+      specification.</TD>
+    <TD vAlign=bottom>[18]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>5.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD>Briefly state the aims of the code generation phase of a compiler and 
+      indicate how the code generator's main tasks help achieve these aims.</TD>
+    <TD vAlign=bottom>[15]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Briefly outline the main data structures and algorithms used by a 
+      simple code generator. Illustrate the operation of the code generator by 
+      showing how it generates code for <BR>x := (a-b) + (a-c) + (a-c).</TD>
+    <TD vAlign=bottom>[18]</TD></TR></TBODY></TABLE>
+<P></P></BODY></HTML>

@@ -1,0 +1,799 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>More on classes</TITLE>
+<META NAME="Microsoft Theme" CONTENT="blends 011">
+</HEAD>
+<BODY TEXT="#000000" LINK="#800000" VLINK="#0000ff">
+
+<FONT SIZE=5 COLOR="#000080"><P><A NAME="_Toc459614655">Stacks as an Abstract Data Type</A></P>
+</FONT><B><FONT FACE="Trebuchet MS,Arial"><P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+</B><P></FONT><A HREF="#_Toc459614655"><FONT FACE="Trebuchet MS,Arial" SIZE=5>Stacks as an Abstract Data Type</FONT></A><DIR>
+
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459614656"><FONT FACE="Trebuchet MS,Arial">Reverse Polish Notation</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"></DIR>
+</P>
+<P>Stacks are one of the most common structures used in computing. </P>
+
+<P>It is a LIFO (Last In, First Out) structure which means that the first item added (pushed) on to the stack is the last to be removed (popped). This is shown in the following:</P>
+
+<P>&nbsp;</P>
+<P><IMG SRC="Image28.gif" WIDTH=308 HEIGHT=214></P>
+
+<P>In the example above, we have added the following names to the stack</P>
+<P>Assume that we have a definition:</P>
+<P>Stack myStack;</P>
+<P>then</P>
+<P>myStack.push(&quot;Sam&quot;)</P>
+<P>myStack.push(&quot;Rob&quot;)</P>
+<P>myStack.push(&quot;Phil&quot;)</P>
+
+<P>will give the state shown above.</P>
+
+<P>Assuming that we now do the following: &#9;&#9;We will get:</P>
+<P>&#9;System.out.println(myStack.pop());&#9;&#9;&#9;&#9;Phil</P>
+<P>&#9;System.out.println(myStack.pop());&#9;&#9;&#9;&#9;Rob</P>
+<P>&#9;System.out.println(myStack.pop());&#9;&#9;&#9;&#9;Sam</P>
+<B><P>Note: the order is very important.! Stacks reverse things!</P>
+</B>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>What operations should we provide?</P>
+</B><P>&#9;push(…) &#9;- to add an item onto the stack</P>
+<P>&#9;pop() &#9;&#9;- to remove an item from the stack (and pass it back to user)</P>
+<P>&#9;topOf()&#9;- to show the user what is on the top of the stack</P>
+<P>&#9;depth()&#9;- pass back the depth of the stack</P>
+
+<P>But what about</P>
+<P>&#9;equals() and clone() which are provided as default for Object</P>
+<P>&#9;We will provide equals() but not clone()</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>package aber.util;
+
+<P>import java.io.*;</P>
+<P>import aber.util.TextInputReader;</P>
+<P>import aber.util.TextIOException;</P>
+
+<P>/**</P>
+<P> * Stack provides a full abstraction of the Stack data structure</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @version First written 22 January 1998</P>
+<P> */</P>
+
+<P>public class Stack implements Serializable</P>
+<P>{</P>
+<P>    /**</P>
+<P>     * maxSizeOfStack is prespecified size of Stack</P>
+<P>     */</P>
+<P>    public int maxSizeOfStack = 10;</P>
+
+<P>    // current number of Objects in array</P>
+<P>    private int currentDepth = 0;</P>
+<P>    </P>
+<P>    private Object[] theItems;        // Declare but don't define</P>
+
+<P>    /**</P>
+<P>     * default constructor sets Stack to pre-specified size</P>
+<P>     */</P>
+<P>    public Stack ()</P>
+<P>    {</P>
+<P>        // define size of array</P>
+<P>        theItems = new Object[maxSizeOfStack]; </P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * User is required to specify maximum depth of stack</P>
+<P>     * @param numOfItems maximum size of stack</P>
+<P>     */</P>
+<P>    public Stack (int numOfItems)</P>
+<P>    {</P>
+<P>        // set maxSizeOfStack to numOfItems</P>
+<P>        maxSizeOfStack = numOfItems;</P>
+
+<P>        // define size of array</P>
+<P>        theItems = new Object[maxSizeOfStack]; </P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Informs user how many items are on the stack</P>
+<P>     * @return int the depth of the stack</P>
+<P>     */</P>
+<P>    public int getDepth()</P>
+<P>    {</P>
+<P>        // currentDepth always contains the correct number of items</P>
+<P>        // don't forget that the array starts at 0</P>
+<P>        return currentDepth;</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     * push enables a user to add a new item on to the stack</P>
+<P>     * @param newItem the object to be added to top of stack</P>
+<P>     * @exception java.lang.Exception thrown if stack is</P>
+<P>     * already full then an Exception is raised</P>
+<P>     */</P>
+<P>    public void push(Object newItem) throws Exception</P>
+<P>    {</P>
+<P>        // Check that we have space in array</P>
+<P>        if (currentDepth == maxSizeOfStack)</P>
+<P>        {</P>
+<P>            throw new Exception("Stack too full!");</P>
+<P>        }</P>
+<P>        </P>
+<P>        // NOTE: we keep reference to the object - not a clone</P>
+<P>        theItems[currentDepth] = newItem;</P>
+
+<P>        // increment the index ready for next time</P>
+<P>        currentDepth++;</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     * pop passes back object at the top of the stack</P>
+<P>     * @param Object item removed from the top of the stack</P>
+<P>     * @exception java.lang.Exception</P>
+<P>     * - if the stack is empty an Exception will be raised</P>
+<P>     */</P>
+<P>    public Object pop() throws Exception</P>
+<P>    {</P>
+<P>        Object tmp;</P>
+
+<P>        if (currentDepth == 0)</P>
+<P>        {</P>
+<P>            throw new Exception("Tried to pop an empty stack");</P>
+<P>        }</P>
+
+<P>        // first decrement counter (cos our first index is at 0)</P>
+<P>        currentDepth--;</P>
+
+<P>        // save object reference in temporary location</P>
+<P>        tmp = theItems[currentDepth];</P>
+<P>        </P>
+<P>        // set the array reference to null</P>
+<P>        theItems[currentDepth] = null;</P>
+
+<P>        // now pass the value back to the user</P>
+<P>        return tmp;</P>
+<P>    }</P>
+
+<P>    /** </P>
+<P>     * Returns a reference to object at top of stack</P>
+<P>     * - it does not remove the item from the stack</P>
+<P>     * @return Object the item currently at top of stack</P>
+<P>     * @exception java.lang.Exception thrown if stack empty</P>
+<P>     * an Exception will be raised</P>
+<P>     */</P>
+<P>    public Object topOf() throws Exception</P>
+<P>    {</P>
+<P>        if (currentDepth == 0)</P>
+<P>        {</P>
+<P>            throw new Exception("Tried to get top of empty stack");</P>
+<P>        }</P>
+
+<P>        // now pass the value back to the user</P>
+<P>        return theItems[currentDepth-1];</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     * Calls toString on every object is the stack</P>
+<P>     */</P>
+<P>    public void display()</P>
+<P>    {</P>
+<P>        // we start at the top and work down the stack</P>
+<P>        for (int count = currentDepth-1; count&gt;=0 ; count--)</P>
+<P>        {</P>
+<P>            // calls toString on current item</P>
+<P>            System.out.println(theItems[count]);</P>
+<P>        }</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     * Returns true if contents of stack (&amp; size) are equal.</P>
+<P>     * Object references are compared, not their contents</P>
+<P>     * @param other the stack to be compared with</P>
+<P>     * @return boolean true if stacks contain same objects, in order</P>
+<P>     * </P>
+<P>     */</P>
+<P>    public boolean equals(Stack other) </P>
+<P>    {</P>
+<P>         if (this.currentDepth != other.currentDepth)</P>
+<P>         {</P>
+<P>             return false;</P>
+<P>         }</P>
+<P>         for (int i=0; i&lt;this.currentDepth; i++)</P>
+<P>         {</P>
+<P>             if (this.theItems[i] != other.theItems[i])</P>
+<P>             { </P>
+<P>                 return false;</P>
+<P>             }</P>
+<P>         }</P>
+<P>         // Got this far so stacks are equal</P>
+<P>         return true;</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     *  main - a simple test harness to ensure stack works OK </P>
+<P>     * @exception java.lang.Exception</P>
+<P>     * - raised if an error occurs on input</P>
+<P>     */</P>
+<P>    public static void main (String [] args)</P>
+<P>        throws TextIOException, Exception</P>
+<P>    {</P>
+<P>        final int maxItems=10;</P>
+<P>        Stack myStack = new Stack(maxItems);</P>
+<P>        Stack otherStack = new Stack(maxItems);</P>
+<P>        </P>
+<P>        String theName;</P>
+<P>        </P>
+<P>        TextInputReader t = new TextInputReader();</P>
+<P>        </P>
+<P>        for (int count = 0; count &lt; maxItems; count++)</P>
+<P>        {</P>
+<P>            theName = t.promptForString("Enter name");</P>
+<P>            </P>
+<P>            myStack.push(theName);</P>
+<P>            otherStack.push(theName);</P>
+
+<P>        }</P>
+<P>        </P>
+<P>        myStack.display();</P>
+
+<P>        // Two stacks should be equal so let's test</P>
+<P>        if (!myStack.equals(otherStack))</P>
+<P>        {</P>
+<P>            System.out.println("Error in equals - stacks are equal");</P>
+<P>        }</P>
+<P>        else</P>
+<P>        {</P>
+<P>            System.out.println("Equals ok on equal stacks");</P>
+<P>        }</P>
+<P>        </P>
+<P>        while (myStack.getDepth() != 0)</P>
+<P>        {</P>
+<P>            System.out.println(myStack.topOf() + "\t is at top");</P>
+<P>            System.out.println(myStack.pop() + "\t has been removed");</P>
+<P>        }</P>
+<P>        </P>
+<P>        // Two stacks should not be equal so let's test</P>
+<P>        if (myStack.equals(otherStack))</P>
+<P>        {</P>
+<P>            System.out.println("Error in equals - stacks are unequal");</P>
+<P>        }</P>
+<P>        else</P>
+<P>        {</P>
+<P>            System.out.println("Equals ok on unequal stacks");</P>
+<P>        }</P>
+<P>       </P>
+<P>    }</P>
+
+<P>}</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT>Our stack has been written in terms of Object. As Object is the class at the root of any class hierarchy, this means that any ‘object’ can be stored on our stack. </P>
+</B><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P>
+<P>In the example above, we stored Strings on to the stack, but what if we wanted to store Modules on the stack?</P>
+
+<P>The only modification we would need is to cast our Object, returned from Pop, into a Module:</P>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>import aber.util.TextInputReader;
+<P>import aber.util.TextIOException;</P>
+<P>import aber.util.Stack;</P>
+
+<P>/**</P>
+<P> * A class to test the Stack class</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @version Last revision by Mark Ratcliffe 18/06/98</P>
+<P> */</P>
+
+<P>public class TestStack</P>
+<P>{</P>
+<P>    public static void main (String [] args) throws TextIOException,</P>
+<P>                                                    Exception</P>
+<P>    {</P>
+<P>        Stack theStack = new Stack(10);</P>
+<P>        Module theModule;</P>
+<P>        String moduleName;</P>
+<P>        </P>
+<P>        TextInputReader t = new TextInputReader();</P>
+<P>        </P>
+<P>        for (int i=0; i&lt;10; i++)</P>
+<P>        {</P>
+<P>            System.out.println("Please type in module name");</P>
+<P>            moduleName = t.readString();</P>
+<P>                </P>
+<P>            // now add to the stack</P>
+<P>            theModule= new Module(moduleName);</P>
+<P>            theStack.push(theModule);</P>
+<P>        }</P>
+<P>        </P>
+<P>        // loop until stack is empty</P>
+<P>        while (theStack.getDepth() != 0)</P>
+<P>        {</P>
+<P>            // we must cast Object into Module</P>
+<P>            theModule = (Module) theStack.pop();</P>
+<P>            System.out.println(theModule.getTitle());</P>
+<P>        }</P>
+<P>    }</P>
+<P>}</P>
+
+<P>&nbsp;</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial" SIZE=5 COLOR="#000080"><P>&nbsp;</P><A NAME="_Toc459614656">The runtime stack</P>
+</FONT><FONT FACE="Trebuchet MS,Arial"><P>&nbsp;</P>
+<P>Talk about what happens when you call functions here!</P>
+<P></A></P>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Trebuchet MS,Arial" SIZE=5 COLOR="#000080"><P>&nbsp;</P>
+<P>Using Stacks with Reverse Polish notation&#9;</FONT><FONT FACE="Trebuchet MS,Arial" SIZE=6 COLOR="#000080">&#9;&#9;&#9;</P>
+</FONT><P>Reverse Polish or postfix is a way of writing expressions where the operator is written after the operands:</P>
+<P>&#9;3 4 +&#9;&#9;instead of 3 + 4</P>
+<P>It is completely unambiguous and so useful for computer scientists </P>
+<P>It also provides lots of examples of stacks.</P>
+<P>&nbsp;</P>
+<FONT FACE="Trebuchet MS,Arial" SIZE=5 COLOR="#000080"><P>Using a stack to TRANSLATE infix to postfix</P>
+</FONT><FONT FACE="Courier" SIZE=1><P>for every token</P>
+<P>&#9;if token is an operand, pass it through</P>
+
+<P>&#9;if token is an operator</P>
+<P>&#9;&#9;if precedence of operator &gt; precedence of top of stack</P>
+<P>&#9;&#9;&#9;push operator</P>
+<P>&#9;&#9;else &#9;while precedence of operator &lt;= precedence of top of stack</P>
+<P>&#9;&#9;&#9;&#9;pop stack and pass result through</P>
+<P>&#9;&#9;&#9;push operator</P>
+</FONT>
+<P>&nbsp;</P>
+<B><P>for example:&#9;A + B - C&#9;&#9;&#9;output&#9;&#9;&#9;&#9;in stack</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P>A&#9;&#9;&#9;&#9;A</P>
+<P>+&#9;&#9;&#9;&#9;&#9;&#9;‘+’</P>
+<P>B&#9;&#9;&#9;&#9;AB</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+
+
+<UL>
+<LI>pop ‘+’ and push ‘-‘</LI></UL>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>AB+&#9;&#9;‘-‘</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;C&#9;&#9;&#9;&#9;AB+C&#9;&#9;‘-‘</P>
+<P>&#9;&#9;=&#9;&#9;&#9;&#9;&#9;&#9;pop ‘-‘</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;AB+C-</P>
+<B><P>for example:&#9;A + B * C</P>
+</B><P>&#9;&#9;A&#9;&#9;&#9;&#9;A</P>
+<P>&#9;&#9;+&#9;&#9;&#9;&#9;&#9;&#9;‘+’</P>
+<P>&#9;&#9;B&#9;&#9;&#9;&#9;AB</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>‘*’&#9;&#9;&#9;&#9;&#9;&#9;push ‘*’</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;‘+’ ‘*’</P>
+<P>C&#9;&#9;&#9;&#9;ABC</P>
+<P>=&#9;&#9;&#9;&#9;&#9;&#9;pop ‘*’ pop ‘+’</P>
+<P>&#9;&#9;&#9;&#9;ABC*+</P>
+
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>Notice that if you were coding this, making the = an operator with strong precedence would mean we didn’t need to do anything special at the end.</P>
+<P>&nbsp;</P>
+<FONT FACE="Trebuchet MS,Arial" SIZE=5 COLOR="#000080"><P>&nbsp;</P>
+<P>Using a stack to EVALUATE a reverse polish string</P>
+</FONT>
+<P>Suppose I had a reverse polish string like A B+ C –</P>
+<P>How could I evaluate it??? Use stacks again.</P>
+
+<FONT FACE="Courier" SIZE=1><P>for every token</P>
+<P>&#9;if token is an operand, push it</P>
+<P>&#9;if token is an operator</P>
+<P>&#9;&#9;pop the stack twice, perform the operation and push the result</P>
+<P>The answer will be sitting on the stack</P>
+</FONT>
+<B><P>for example:  3  4  +  5  -</P>
+<OL START=3>
+<DIR>
+<DIR>
+
+<OL>
+
+</B><LI>3</LI>
+<LI>3  4</LI>
+<P>+&#9;pop 3 and 4 and add them and push result</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;7</P>
+<LI>7  5</LI></OL>
+</DIR>
+</DIR>
+</OL>
+
+
+<UL><DIR>
+<DIR>
+
+
+<UL>
+<LI>pop 5 and 7 subtract them</LI></UL>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>and push result</P><DIR>
+<DIR>
+
+<P>2</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>for example:  3  4  5  *  +</P>
+<P>&#9;&#9;3&#9;&#9;&#9;&#9;&#9;&#9;3</P>
+<OL START=4>
+<DIR>
+<DIR>
+
+<OL>
+
+<LI>3  4</LI>
+<LI>3  4  5</LI></OL>
+</DIR>
+</DIR>
+</OL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>*&#9;pop 4 and 5 and mult them and push result</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>  &#9;&#9;&#9;&#9;&#9;&#9;3   20</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;+&#9;&#9;&#9;&#9;&#9;&#9;pop 3 and 30 and add</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;them and push result</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;23</P>
+
+<FONT FACE="Trebuchet MS,Arial" SIZE=5><P>&nbsp;</P>
+<P>Using two stacks to do BOTH at the same time</P>
+</FONT><FONT FACE="Trebuchet MS,Arial">
+<P>Consider the following:</P>
+<P>&#9;13 – 2 * (5 * 2 – 4)</P>
+
+<P>When you work it out, think about your eye movements. For the computer to carry out multiple parses is inefficient. We need to solve the problem in a single pass. </P>
+
+<P>Let’s look at a simpler example</P>
+
+</FONT><B><P>for example:&#9;3  +   4   -   5</P>
+</B><P>3 &#9;&#9;push onto operand stack</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>3</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>‘+’&#9;&#9;&#9;&#9;&#9;&#9;&#9;push onto operator stack</P>
+<P>&#9;&#9;3&#9;&#9;&#9;&#9;&#9;+</P>
+<P>4&#9;&#9;push onto operand stack</P>
+<OL START=3>
+<DIR>
+<DIR>
+
+<OL>
+
+<LI>4&#9;&#9;&#9;&#9;&#9;+</LI></OL>
+</DIR>
+</DIR>
+</OL>
+
+<P>‘-‘&#9;&#9;&#9;&#9;&#9;&#9;&#9;weaker precedence than top</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>so pop operand twice and operator once, perform and push</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;7&#9;&#9;&#9;&#9;&#9;-</P>
+<P>5&#9;&#9;push onto operand stack</P>
+<P>&#9;&#9;7  5&#9;&#9;&#9;&#9;&#9;-</P>
+<P>=&#9;&#9;&#9;&#9;&#9;&#9;&#9;weaker precedence than top</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>so pop operand twice and operator once, perform and push</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;2</P>
+
+<B><P>for example:&#9;3  +  4  *  5</P>
+</B><P>3 &#9;&#9;push onto operand stack</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>3</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>‘+’&#9;&#9;&#9;&#9;&#9;&#9;&#9;push onto operator stack</P>
+<P>&#9;&#9;3&#9;&#9;&#9;&#9;&#9;+</P>
+<P>4&#9;&#9;push onto operand stack</P>
+<OL START=3>
+<DIR>
+<DIR>
+
+<OL>
+
+<LI> 4&#9;&#9;&#9;&#9;&#9;+</LI></OL>
+</DIR>
+</DIR>
+</OL>
+
+<P>‘*‘&#9;&#9;&#9;&#9;&#9;&#9;&#9;push onto operator stack</P>
+<P>&#9;&#9;3     4&#9;&#9;&#9;&#9;&#9;+   *</P>
+<P>5&#9;&#9;push onto operand stack</P>
+<P>&#9;&#9;3    4     5&#9;&#9;&#9;&#9;&#9;-</P>
+<P>=&#9;&#9;&#9;&#9;&#9;&#9;&#9;weaker precedence than top</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>so pop operand twice and operator once, perform and push</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;3    20&#9;&#9;&#9;&#9;&#9;+</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;&#9;still, weaker precedence than top</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>so pop operand twice and operator once, perform and push</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;23</P>
+<FONT FACE="Trebuchet MS,Arial">
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>For example: &#9;13 – 2 * (5 * 2 – 4)</P>
+</B>
+<P>Input&#9;&#9;&#9;&#9;Operator&#9;&#9;&#9;&#9;Operand</P>
+<P>&#9;&#9;&#9;&#9;   Stack&#9;&#9;&#9;&#9;&#9;  Stack</P>
+
+<P>13&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;13</P>
+<P>-&#9;&#9;&#9;&#9;-&#9;&#9;&#9;&#9;&#9;13</P>
+<P>2&#9;&#9;&#9;&#9;-&#9;&#9;&#9;&#9;&#9;13 2</P>
+<P>*&#9;&#9;&#9;&#9;-*&#9;&#9;&#9;&#9;&#9;13 2&#9;</P>
+<P>(&#9;&#9;&#9;&#9;-*(&#9;&#9;&#9;&#9;&#9;13 2&#9;&#9;&#9;</P>
+<P>5&#9;&#9;&#9;&#9;-*(&#9;&#9;&#9;&#9;&#9;13 2 5&#9;&#9;</P>
+<P>*&#9;&#9;&#9;&#9;-*(*&#9;&#9;&#9;&#9;&#9;13 2 5&#9;&#9;&#9;</P>
+<P>2&#9;&#9;&#9;&#9;-*(*&#9;&#9;&#9;&#9;&#9;13 2 5 2&#9;&#9;</P>
+<P>-&#9;&#9;&#9;&#9;-*(&#9;&#9;&#9;&#9;&#9;13 2 5 2 *</P>
+<P>&#9;&#9;&#9;&#9;-*(-&#9;&#9;&#9;&#9;&#9;13 2 10</P>
+<P>4&#9;&#9;&#9;&#9;-*(-&#9;&#9;&#9;&#9;&#9;13 2 10 4 </P>
+<P>)&#9;&#9;&#9;&#9;-*&#9;&#9;&#9;&#9;&#9;13 2 10 4 -</P>
+<P> &#9;&#9;&#9;&#9;-*&#9;&#9;&#9;&#9;&#9;13 2 6</P>
+</FONT><FONT SIZE=2><DIR>
+
+<P><IMG SRC="Image29.gif" WIDTH=15 HEIGHT=15>&#9;</FONT><FONT FACE="Trebuchet MS,Arial">13 2 6 *</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>-&#9;&#9;&#9;&#9;&#9;13 12</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>13 12 –</P>
+<P>1</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</FONT></BODY>
+</HTML>

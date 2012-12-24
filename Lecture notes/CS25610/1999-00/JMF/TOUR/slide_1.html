@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Media Processing Model</title>
+</head>
+<center>
+<h2>Media Processing Model</h2>
+</center>
+<IMG SRC="http://www.java.sun.com/products/java-media/jmf/2.0/jmf20-fcs-guide/images/JMFTBMa.gif">
+<hr>
+The JMF is capable of processing a large number of type of
+streaming media.
+
+<UL>
+<li>Content Type
+<p>The term content type is used to describe the
+overall format in which the media data is stored.
+In many cases this translates to file type.
+
+For instance "AVI" and "QuickTime" are both
+content types.
+<p>
+<li>media stream
+<p> A media stream may be obtained from a file
+or received over the network.
+<p>
+<li>track
+<p>A media stream may contain more than one track of media.
+It's quite common for audio to be carried in one track
+and video in a second track.
+<p>A track's type describes the sort of data in contain
+and a track's format defines how the data is structured.
+<p>
+<li>media stream delivery
+<p>
+<ul>
+<li>pull
+<p> A pull data source is completely controlled by the client.
+<p>
+<li>push
+<p> A push data source is controlled by the server.
+</ul>
+<p>
+<li> media presentation
+<p>
+Time based media can be presented via devices such as speakers and screens
+to the user or can be sent to files for storage or transmitted across
+the network for reception elsewhere.
+<p>The term <strong>renderer</strong> is used as a generic
+term to describe the abstraction of a presentation device.
+<p>
+<li>presentation controls
+<p>Most players have some ability for the user to control
+the presentation. This might be via controls similar
+to those on a domestic VCR.
+<p><li>latency
+<p> Latency is a particularly important factor when processing
+time based media. Latency may be due to delay in media crossing
+a network, being recovered by a file or may occur simply because
+of processing delays within software.
+<p><li>presentation quality
+<p>Presentation quality is dependent on many factors.
+The quality of devices presenting material will clearly have an effect as well
+as the inherent quality of the media arriving. Bandwidth available
+on links will also have an effect as will factors such as loss.
+<p><li>media processing
+<p>The JMF provides several mechanisms to enable the user
+to process the media streams.
+<ul>
+<li> Data can be multiplexed into complex
+streams,<li> codecs perform (de)coding and (de)compression,<li> filters
+can add special effects.
+<li>Compositors combine multiple tracks onto one presentation device. An
+example might be the overlaying of Welsh translation sub-titles onto the video
+of an English language movie.
+</ul>
+<p>
+<li>media capture
+<p>JMF supports media capture via a variety of devices.
+<ul>
+<p>
+<li>type
+<br>
+Media capture devices can be of the <strong>pull</strong>
+or <strong>push</strong> variety.
+<p>
+<li>controls
+<br>It is normal for controls to provide provided
+to manage the capture devices.
+</ul>
+
+</ul>
+
+<a href="slide_2.html">Next Slide</a>
+</html>
+

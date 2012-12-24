@@ -1,0 +1,7 @@
+FANTASY=/dcs/eds/fantasy
+export FANTASY
+
+save_path=$PATH
+PATH=$FANTASY/bin:$PATH
+
+echo $PATH

@@ -1,0 +1,68 @@
+<article>
+  <artheader><title>Postgres</title>
+    <releaseinfo>Version: $Revision: 1.2 $</releaseinfo>
+    <date>$Date: 2000/02/28 12:06:08 $</date>
+  </artheader>
+  <sect1><title>Postgres</title>
+    <simpara>Postgres is an object-relational database management
+system. We will, initially, use only the subset of its facilities
+which make it appear to be a relational DBMS. It is public domain and
+open source.</simpara>
+    <simpara>The Department of Computer Science manages an
+installation of Postgres on one of its Sun machines. The hostname of
+this machine is <command>database.dcs.aber.ac.uk</command> and it can
+be accessed via a variety of mechanisms including ODBC, JDBC, a command
+line interpreter (monitor) called <command>psql</command> and a simple
+GUI called <command>pgaccess</command>.</simpara>
+    <simpara>Full documentation for Postgres and its local
+installation can be found on the Department's <ulink
+url="http://www.dcs.aber.ac.uk/support/software/postgres/index.html">web.
+    </ulink>
+These pages are maintained by the <ulink
+url="http://www.dcs.aber.ac.uk/support/">support group. </ulink> You
+should seek help and examples here for using <command>psql</command>
+or <command>pgaccess</command> for testing; the JDBC interface and
+individual SQL statements. Note that many SQL statements have minor
+extensions to or variations from any SQL standard.</simpara>
+    <simpara>For an understanding of later sections of this document,
+it is necessary to know that <command>psql</command> can receive
+both SQL statement and <emphasis>psql commands</emphasis>. These
+latter are preceded by a backslash. They provide database listing
+operations and interaction with the operating system. See the <ulink
+url="http://www.dcs.aber.ac.uk/support/manuals/postgres/misc/psql.html">on-line
+manual </ulink> for details.</simpara>
+  </sect1>
+  <sect1 id="use-of-postgres"><title>Use of Postgres</title>
+    <blockquote>
+      <simpara><emphasis>The following description is a simplification of
+  full Postgres facilities, reflecting the local installation
+  decisions.</emphasis></simpara>
+    </blockquote>
+    <simpara>Users must be registered under Postgres. Each user has as
+  many databases as they require. Each database has a password. (Note
+  that users do not therefore have passwords directly.) New users and
+  new databases must be created by the system administrator. Users
+  cannot create their own databases. Tables in one database cannot be
+  accessed from another database.</simpara>
+    <simpara>Each student registered for CS27310 has been registered.
+Each has had one database created. Its name is the same as the
+student's UID. Student's passwords are the same as their UNIX
+passwords.</simpara>
+    <simpara>The databases have no content.</simpara>
+  </sect1>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:("course.sgml" "book" "article")
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

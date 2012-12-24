@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Designing with HOOD</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#FF0000" VLINK="#800080" ALINK="#0000FF">
+
+<P>
+<HR></P>
+
+<P><B>A very brief look at other design methods:</B></P>
+
+<P><BR>
+<FONT SIZE=+2><B>HOOD: </B>`Hierarchical Object Oriented Design'. </FONT></P>
+
+<P>HOOD is in some ways an alternative to MASCOT but is 'object-based'.</P>
+
+<P>It has its origins in France, for the European Space Agency. It is/was
+used in the EFA (Eurofighter) project.</P>
+
+<P>Had a mixed reception in the software engineering community.</P>
+
+<P>The system is decomposed into objects.
+
+<P>Objects are normally related to system functions - i.e. functional decomposition
+is used. </P>
+
+<P>Parent objects decompose into child objects. </P>
+
+<P>There are active objects and passive objects. The active objects contain
+a concurrent thread of execution. Passive objects do not - they provide
+a service via ADTs and their associated operations.</P>
+
+<P>Objects call other objects. Active objects can call active or passive
+objects; passive objects can only call other passive objects.</P>
+
+<P>HOOD is hierarchical and two hierarchies are represented in the diagrams:</P>
+
+<UL>
+<LI>the 'uses' hierarchy</LI>
+
+<LI>the functional decomposition.</LI>
+</UL>
+
+<P>HOOD is diagrammatic, but does not explicitly represent concurrency
+in the way that MASCOT&nbsp;does; indications of concurrency are via
+the existence of the active objects.</P>
+
+<P>There is also a textual representation. </P>
+
+<P>Concurrent objects can communicate directly, not via (explicit) shared
+data areas, but HOOD is used with Ada and IPC uses the Ada rendezvous.
+</P>
+
+<P>Unlike MASCOT, HOOD diagrams represent execution control information
+such as interrupts, timeouts, (Ada) exceptions. </P>
+
+<P>The diagrammatic representation in HOOD is useful for representing <I>the
+outcome of a design process; </I>it is not that good for progressively
+developing a design.</P>
+
+<P>MASCOT provides a better visualisation of what goes on inside a concurrent
+system.</P>
+
+<P>A more recent development of HOOD is HRT HOOD.</P>
+
+<P>This improves its use as a progressive design tool.</P>
+
+<P>Useful overviews of HOOD&nbsp;are provided in the books by Budgen and Cooling
+ (see
+the <A HREF="books.htm">book list</A>). 
+A worked example in HRT HOOD is given in the book by Burns and Wellings (Editions 2 and 3).</P> 
+
+<HR WIDTH="100%">
+
+<P><BR>
+<B>UML and Real Time Systems.</B></P>
+
+<P>UML is rapidly becoming the dominant notation for OO analysis and design.</P>
+
+<P> ..... but there is still much work to be 
+done before there is a standard for its use  
+in relation to Real Time Systems.</P>
+
+
+<P>
+<HR>
+<HR></P>
+
+<ADDRESS><I>jjr@aber.ac.uk <BR>
+20 Mar 2001</I> </ADDRESS>
+
+<ADDRESS>
+<HR WIDTH="100%"></ADDRESS>
+
+</BODY>
+</HTML>

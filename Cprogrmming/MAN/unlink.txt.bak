@@ -1,0 +1,132 @@
+
+
+
+link(1)								      link(1)
+
+
+
+NAME
+
+  lliinnkk, uunnlliinnkk - Creates an additional directory entry for an existing file
+
+SYNOPSIS
+
+  lliinnkk _f_i_l_e_1 _f_i_l_e_2
+
+  uunnlliinnkk _f_i_l_e
+
+STANDARDS
+
+  Interfaces documented on this reference page conform to industry standards
+  as follows:
+
+  lliinnkk:	 XCU5.0
+
+  uunnlliinnkk:  XCU5.0
+
+  Refer to the ssttaannddaarrddss(5) reference page for more information about indus-
+  try standards and associated tags.
+
+DESCRIPTION
+
+  The lliinnkk command performs the lliinnkk(()) system call to create an additional
+  directory entry for an existing file, _f_i_l_e_1.	In effect, the underlying
+  file then has two names, _f_i_l_e_1 and _f_i_l_e_2 (either of these arguments can be
+  a pathname).	The old and new entries share equal access rights to the
+  underlying file.
+
+  The uunnlliinnkk command performs the uunnlliinnkk(()) system call to remove a link to
+  _f_i_l_e created by lliinnkk. The uunnlliinnkk command removes the directory entry speci-
+  fied by the _f_i_l_e parameter and, if the entry is a hard link, decrements the
+  link count of the file referenced by the link.
+
+  You should be familiar with the lliinnkk(()) and uunnlliinnkk(()) system calls before you
+  use these commands.
+
+  The lliinnkk and uunnlliinnkk commands do not issue error messages when the associ-
+  ated system call is unsuccessful.
+
+NOTES
+
+  The lliinnkk and uunnlliinnkk commands cannot be used to link and unlink directories.
+
+EXIT STATUS
+
+  The link and uunnlliinnkk commands both exit with the following:
+
+  00   The lliinnkk(()) or uunnlliinnkk(()) system call succeeded.
+
+  11   Too few or too many arguments specified.
+
+  22   The lliinnkk(()) or uunnlliinnkk(()) system call failed.
+
+
+
+
+
+
+SEE ALSO
+
+  Commands:  ffsscckk(8), llnn(1)
+
+  Functions:  lliinnkk(2), uunnlliinnkk(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

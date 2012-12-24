@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CSM03</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial"><P>CS211&#9;&#9;&#9;Practical 4&#9;&#9;Spring 2001</P>
+</B><P>The idea of this practical is to play around and learn </FONT>something about big O and the relative complexity of algorithms O(n!), O(log n), O(n<FONT SIZE=1>2</FONT>), O(n.logn) - all this stuff is in Times font<FONT FACE="Arial">. Also, there’s some C and unix practice here!</P>
+
+<P>The idea came over the holidays when I was trying to do the 9 letter word game in the Western Mail. The idea is to make a 9 letter word out of some jumbled letters.  I couldn’t do one of them and said ‘well, you could certainly do that with a computer. ’  So, that’s where our input will come from (except I changed it to a 7 letter word because some of the unix utilities we will use are not guaranteed for the number of 9 letter words we could generate.)</P>
+
+<B><P>So, the general steps will be:</P>
+<OL>
+
+</B><LI>generate all possible combinations of the jumbled letters and place them in a file called <I>allwords</LI>
+</I><LI>find all the badly spelt words in <I>allwords</I> and put them in <I>badspell</LI>
+</I><LI>sort <I>allwords </I>into <I>sortwords</I> (because spell automatically generates a sorted list of errors) </LI>
+<LI>compare <I>sortwords</I> and <I>badspell</I> and the changes indicated will show you the ‘good’ words</LI></OL>
+
+<P>Before you go on, think about these steps – do they make sense to you? Can you think of other ways to do the job? What utilities would you need in order to do things differently?</P>
+
+<B><P>OK, now the detailed steps:</P>
+<OL>
+
+<LI>Generating the words</LI></OL>
+
+</B><P>I used C for this. I could make excuses: I was at home with no books, I had no Java on my system, ….. But the honest truth is I found it easier. Here’s the program:</P>
+</FONT><FONT FACE="Courier New" SIZE=1><P>void main() {</P>
+<P> char string[10];</P>
+<P> char keep[8]="rutisom";</P>
+<P> int i1,i2,i3,i4,i5,i6,i7; int num=0;</P>
+<P> for (i1=0;i1&lt;7;i1++){</P>
+<P>      string[0]=keep[i1];</P>
+<P>      for (i2=0;i2&lt;7;i2++) </P>
+<P>          if (i2!=i1) {</P>
+<P>             string[1]=keep[i2];</P>
+<P>             for (i3=0;i3&lt;7;i3++)</P>
+<P>                 if (i3!=i1 &amp;&amp; i3!=i2) {</P>
+<P>                    string[2]=keep[i3];</P>
+<P>                    for (i4=0;i4&lt;7;i4++)</P>
+<P>                        if (i4!=i3 &amp;&amp; i4!=i2 &amp;&amp; i4!=i1) {</P>
+<P>                           string[3]=keep[i4];</P>
+<P>                           for (i5=0;i5&lt;7;i5++)</P>
+<P>                                if (i5!=i4 &amp;&amp; i5!=i3 &amp;&amp; </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>i5!=i2 &amp;&amp; i5!=i1) {</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>                                    string[4]=keep[i5];</P>
+<P>                                    for (i6=0;i6&lt;7;i6++)</P>
+<P>                                         if (i6!=i5 &amp;&amp; i6!=i4 &amp;&amp; i6!=i3   </P>
+<P>                                             &amp;&amp; i6!=i2 &amp;&amp; i6!=i1) {</P>
+<P>                                             string[5]=keep[i6];</P>
+<P>                                             for (i7=0;i7&lt;7;i7++)</P><DIR>
+<DIR>
+
+<P>                                                  if (i7 !=i6 &amp;&amp; i7!=i5 &amp;&amp; </P>
+<P>                                                      i7!=i4 &amp;&amp; i7 !=i3 &amp;&amp;</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P> i7!=i2 &amp;&amp; i7!=i1) {</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>                                                            string[6]=keep[i7];</P>
+<P>                                                            string[7]='\0';</P>
+<P>                                                            num++;</P>
+<P>                                                            printf("%s\n", string);</P>
+<P>                                                         }}}}}}}}                             </P>
+
+</FONT><FONT FACE="Arial" SIZE=1><P>&nbsp;</P>
+</FONT><FONT FACE="Arial"><P>A couple of things that might need explaining: </P>
+
+<UL>
+<LI>C is not OO, so the main function is a stand alone function that just runs, we don’t need constructors or classes etc; </LI>
+<LI>Strings are represented by arrays of char and end with a ‘\0’; </LI>
+<LI>Printing needs a format, in this case &quot;%s \n&quot; which prints a string with a line break after it.</LI></UL>
+
+
+<P>To run this program, first save it in a file called <I>try.c</I>, then compile it</P>
+<P>&#9;gcc try.c</P>
+<P>The runnable file will by default be <I>a.out</I>. </P>
+<P>To run it and put the result in <I>allwords</I>, type:</P>
+<P>&#9;a.out &gt; allwords&#9;(notice we’re redirecting output into allwords)</P>
+
+</FONT><P>Look at <I>allwords</I> in gvim and how many lines (words) are in it. This is 7! because there are 7 ways of picking the first letter, and then having done that 6 ways of picking the second, and so on. This gives 7*5*5*4*3*2*1 words.</P><DIR>
+<DIR>
+
+<P>(If you don’t believe this, look at the letters A,B,C. There are 3 ways of picking the first:</P>
+<P>&#9;A&#9;&#9;&#9;or&#9;B&#9;&#9;&#9;or &#9;C</P>
+<P>now 2 letters left</P>
+<P>B&#9;or&#9;C&#9;&#9;A&#9;or&#9;C&#9;&#9;A&#9;or&#9;B</P>
+<P>now only one letter left</P>
+<P>C&#9;&#9;B&#9;&#9;C&#9;&#9;A&#9;&#9;B&#9;&#9;A</P>
+<P>reading down from above you get</P>
+<P>A&#9;&#9;A&#9;&#9;B&#9;&#9;B&#9;&#9;C&#9;&#9;C</P>
+<P>B&#9;&#9;C&#9;&#9;A&#9;&#9;C&#9;&#9;A&#9;&#9;B</P>
+<P>C&#9;&#9;B&#9;&#9;C&#9;&#9;A&#9;&#9;B&#9;&#9;A</P>
+<P>This is 6 or 3! combinations)</P></DIR>
+</DIR>
+
+<P>If you wish, modify the c code to produce an 8 letter word and marvel at how quickly the ! function grows! </P>
+<B><P>O(n!)</B> algorithms are too slow to be useful for general n.</P>
+<FONT FACE="Arial">
+<OL>
+
+<B><LI>Find badly spelt words</LI>
+</B><P>This is easy, because unix has a command <I>spell</I>. Look at the man page for it and then use it to generate the file <I>badspell</I>. Remember to direct output to a file instead of the screen, use the redirection symbol like I did above with a.out</P>
+
+<B><LI>Sort the complete list of words</LI>
+</B><P>Again, there’s a unix utility <I>sort </I>which does just this. Read its man page. Redirect its output to <I>sortwords</I>.</P>
+
+<B><LI>Now, compare to find the good words</LI></OL>
+
+</B><P>Use the <I>diff</I> command (see the man page) to find the differences between <I>sortwords</I> and <I>badspell</I>. These are the possibilities for the answer to the game. There are a few because spell generates a few strange ‘possibly OK’ words.</P>
+<P>&#9;&#9;&#9;&#9;<B>- You must do this much -</P>
+</B><P>Ok, so what else can we do about O here? – we can test a few different things out.</P>
+<B><P>O(log n)</P>
+</B><P>Remember how binary search is a O(log n function)? We have a bunch of sorted words here. Let’s test that idea by running some binary searches. Here is a C program that will read in 20 words and then run a binary search for a particular word.</P>
+</FONT><FONT FACE="Courier New" SIZE=1><P>int binsearch(char words[][8],int num, char string[]); </P>
+<P>//this is the signature of the following function</P>
+<P>void main() {</P>
+<P>    char words[20][8];</P>
+<P>    int i,where;</P>
+<P>    for (i=0;i&lt;20;i++) {</P>
+<P>        scanf("%s",words[i]);</P>
+<P>    }</P>
+<P> //printing out   </P>
+<P>    for (i=0;i&lt;20;i++) {</P>
+<P>        printf("%d - %s\n",i, words[i]);</P>
+<P>    }</P>
+<P>    where=binsearch(words,20,"xmosrut");</P>
+<P>    if (where&gt;=0) printf("found at %d\n",where);</P>
+<P>    else printf(&quot;can not find – tough luck!&quot;);</P>
+<P>}</P>
+<P>// the actual binary search</P>
+<P>int binsearch(char words[][8],int num, char string[]) {</P>
+<P>    int lo=0, hi=num-1,mid,result;</P>
+<P>    while (lo&lt;=hi) {</P>
+<P>        mid=(lo+hi)/2;</P>
+<P>        result=strcmp(words[mid],string);</P>
+<P>        if (result==0) return mid;</P>
+<P>        else if (result&lt;0) lo=mid+1;</P>
+<P>        else hi = mid-1;</P>
+<P>    }</P>
+<P>   </P>
+<P>    return -1</P>
+</FONT><FONT FACE="Arial"><P>Compile it and run it to see that it works when it reads some sorted words from badspell:</P>
+<P>&#9;cc search.c</P>
+<P>&#9;a.out &lt;badspell </P>
+
+</FONT><P>Now, modify the code so that you count how many comparisons are made during the search and print that. Since binary search is a O(log n) algorithm what do you expect to happen if you double the number of elements to search? Modify the code to read 40 elements, does it work the way you expected?</P>
+
+<B><FONT FACE="Arial"><P>O(n.logn) and O(n</FONT><FONT FACE="Arial" SIZE=1>2</FONT><FONT FACE="Arial">)</P>
+</B><P>OK, so sorts are one of the above. Remember bubble sort? </P>
+</FONT><FONT FACE="Courier New" SIZE=1><P>void bubble(char words[][8], int num) {</P>
+<P>    char temp[8];</P>
+<P>    int c1,c2;</P>
+<P>    for (c1=0;c1&lt;num-1;c1++) </P>
+<P>        for (c2=0;c2&lt;num-1;c2++)</P>
+<P>            if (strcmp(words[c2],words[c2+1])&gt;0) {</P>
+<P>                    strcpy(temp,words[c2]);</P>
+<P>                    strcpy(words[c2],words[c2+1]);</P>
+<P>                    strcpy(words[c2+1],temp);</P>
+<P>                     }</P>
+<P>}</P>
+</FONT><P>Put a counter in and check how many comparisons it does. You’ll have to test it on an unsorted file – <I>allwords</I> would probably do. Now try doubling the number of words you read, so instead of n we would have 2n.  That would mean the algorithm would be O((2n)<FONT SIZE=1>2</FONT>) which would be 4*O(n<FONT SIZE=1>2</FONT>). Is it the case that when you double the number of words you multiply the number of comparisons by 4?</P>
+<B><P>If we have done a faster sort by this point in the course</B>, code it and check what happens to the number of comparisons when you double the number of inputs.</P></BODY>
+</HTML>

@@ -1,0 +1,2 @@
+PATH=$save_path
+echo $PATH

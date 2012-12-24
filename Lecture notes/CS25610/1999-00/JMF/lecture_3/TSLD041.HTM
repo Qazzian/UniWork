@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+ <TITLE>PP Presentation</TITLE> 
+</HEAD>
+<BODY>
+ <H1>PP Presentation</H1> 
+ <P><H2>public void actionPerformed(ActionEvent e) {</H2>
+<H2>/* So a button was pressed, check which one */</H2>
+<H2> if ( e.getSource() == quitButton ) {</H2>
+<H2>  System.out.println("He pressed the button");</H2>
+<H2>  if (player != null) player.close();</H2>
+<H2>       System.exit(0);</H2>
+<H2>  } else if(e.getSource()== rewindAndPlayButton ) {</H2>
+<H2>  /* make sure we are not started */</H2>
+<H2>  if (player.getState() != player.Started) {</H2>
+<H2>    player.setMediaTime(new Time(0L));//zero media t</H2>
+<H2>    player.prefetch();  // prefetch the media</H2>
+<H2>   if ( waitForState(player.Prefetched) ) {</H2>
+<H2>    System.err.println("Player now Prefetched");</H2>
+<H2>    player.start(); // and start</H2>
+<H2>   } else System.err.println(</H2>
+<H2>        "Player failed to Prefetch");</H2>
+<H2>  }</H2>
+<H2> }</H2>
+<H2> } </H2>
+<H2>}</H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld040.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+ </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld041.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

@@ -1,0 +1,58 @@
+{\rtf1\ansi \deff4\deflang1033{\fonttbl{\f1\fdecor\fcharset2\fprq2 Symbol;}{\f4\froman\fcharset0\fprq2 Times New Roman;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\stylesheet{\nowidctlpar \f4\lang2057 \snext0 Normal;}{\s1\keepn\nowidctlpar \b\f4\lang2057 \sbasedon0\snext0 heading 1;}{\*\cs10 \additive Default Paragraph Font;}{\s15\nowidctlpar\tqc\tx4153\tqr\tx8306 \f4 \sbasedon0\snext15 
+header;}}{\info{\title List of formulae for recurrence relations }{\author Dr Pearson}{\operator Dr Pearson}{\creatim\yr1999\mo2\dy22\hr12\min33}{\revtim\yr1999\mo2\dy22\hr12\min33}{\printim\yr1999\mo2\dy22\hr12\min25}{\version1}{\edmins3}{\nofpages0}
+{\nofwords0}{\nofchars0}{\vern49213}}\paperw11906\paperh16838 \widowctrl\ftnbj\aenddoc\makebackup\hyphcaps0\formshade \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}\pard\plain \nowidctlpar \f4\lang2057 {\b\fs28 List of formulae for recurrence relations \line }{\fs28 
+\par }\pard\plain \s1\keepn\nowidctlpar \b\f4\lang2057 Linear first order
+\par \pard\plain \nowidctlpar \f4\lang2057 
+\par 1. Homogeneous  T(n+1) = kT(n) ,   T(n) = ck{\super n}\line \line 
+\par 2.  Non-homogeneous with polynomial forcing term   T(n+1) = kT(n) + g(n)\line \line      (i)   k {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} 1,  g(n) = a{\sub 0} + a{\sub 1}n + a{\sub 2}n{\super 2} + ... + a{\sub p}n{\super p
+\line }
+\par            T(n) = ck{\super n} + u{\sub 0} + u{\sub 1}n + u{\sub 2}n{\super 2} + ... + u{\sub p}n{\super p}\line \line      (ii)  k = 1,  g(n) = a{\sub 0} + a{\sub 1}n + a{\sub 2}n{\super 2} + ... + a{\sub p}n{\super p}\line \line             T(n) = c + u
+{\sub 1}n + u{\sub 2}n{\super 2} + ... + u{\sub p+1}n{\super p+1\line \line \line }3.  Non-homogeneous with exponential forcing term   T(n+1) = kT(n) + bs{\super n}\line \line      (i)   k {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt
+\f1\fs24}}} s,  T(n) = ck{\super n} + us{\super n}\line \line      (ii)  k = s,  T(n) = (c + un)k{\super n}\line 
+\par \line 4.  Non-homogeneous with polynomial times exponential forcing term\line \line      T(n+1) = kT(n) + g(n) s{\super n} ,  where g(n) = a{\sub 0} + a{\sub 1}n + a{\sub 2}n{\super 2} + ... + a{\sub p}n{\super p\line \line      }(i)   k {
+{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} s,  T(n) = ck{\super n} + q(n) s{\super n} , where q(n) = u{\sub 0} + u{\sub 1}n + u{\sub 2}n{\super 2} + ... + u{\sub p}n{\super p}\line \line    (ii)  k = s,  T(n) = ck{\super n}
+ + q(n) s{\super n} , where q(n) = u{\sub 1}n + u{\sub 2}n{\super 2} + ... + u{\sub p+1}n{\super p+1\line \line }
+\par {\b\cf1 Linear second order\line }{\cf6 \line }{\cf1 5.  Homogeneous  T(n+2) = aT(n+1) + bT(n)      
+\par }{\i\cf1  
+\par }{\cf1  }{\i\cf1    }{\cf1 Auxiliary equation}{\i\cf1   x}{\cf1\super 2  }{\cf1 \endash   a}{\i\cf1 x}{\cf1  \endash  b = 0   has }roots {\i x}{\sub 1} and {\i x}{\sub 2} .
+\par {\i 
+\par     }(i){\i   }If{\i  x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2} then  T(n) = {{\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i x}{\sub 1}{\super n }+{{\field{\*\fldinst SYMBOL
+ 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i x}{\sub 2}{\super n}        \line 
+\par \pard\plain \s15\nowidctlpar \f4     (ii)  If {\i x}{\sub 1} = {\i x}{\sub 2} then  {\cf1 T(n) = (}{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt
+\f1\fs24}}}{\cf1 n)}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf6       
+\par }\pard\plain \sl480\slmult1\nowidctlpar \f4\lang2057 
+\par \page 6.  Non-homogeneous   T(n+2) \endash aT(n+1) \endash bT(n) = g(n)
+\par \pard \nowidctlpar {\cf1      Auxiliary equation}{\i\cf1   x}{\cf1\super 2  }{\cf1 \endash   a}{\i\cf1 x}{\cf1  \endash  b = 0   has }roots {\i x}{\sub 1} and {\i x}{\sub 2} .
+\par     
+\par      (a)  g(n) = a{\sub 0} {\cf1 + a}{\cf1\sub 1}{\cf1 n + a}{\cf1\sub 2}{\cf1 n}{\cf1\super 2}{\cf1  + }...{\cf1  + a}{\cf1\sub p}{\cf1 n}{\cf1\super p} \line \line            (i)   If {\i x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol"
+ \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2}, {\i x}{\sub 1}{{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} 1, {\i x}{\sub 2} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} 1 then  {\cf1 T(n) = }{\cf1 
+{\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1\sub 2}{\cf1\super n}{\cf1  + u}{\cf1\sub 0}{\cf1 
+ + u}{\cf1\sub 1}{\cf1 n + u}{\cf1\sub 2}{\cf1 n}{\cf1\super 2}{\cf1  }...{\cf1 + u}{\cf1\sub p}{\cf1 n}{\cf1\super p}{\cf6       
+\par }{\cf1         \line            (ii)  If}{\cf6  }{\i x}{\sub 1} = {\i x}{\sub 2} then  {\cf1 T(n) = (}{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt
+\f1\fs24}}}{\cf1 n)}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf1  + u}{\cf1\sub 0}{\cf1  + u}{\cf1\sub 1}{\cf1 n + u}{\cf1\sub 2}{\cf1 n}{\cf1\super 2}{\cf1  + }...{\cf1  + u}{\cf1\sub p}{\cf1 n}{\cf1\super p\line }{\cf6       
+\par }\pard\plain \s15\nowidctlpar \f4            (iii) If {\i x}{\sub 1 }{{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2} = 1 then  T(n) = {{\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i x}{\sub 
+1}{\super n} + {{\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} + u{\sub 1}n + u{\sub 2}n{\super 2} + ... + u{\sub p+1}n{\super p+1     }
+\par \pard\plain \nowidctlpar \f4\lang2057 {\cf1 
+\par            (iv) If}{\cf6  }{\i x}{\sub 1} = {\i x}{\sub 2 }= 1 then  {\cf1 T(n) = }{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1 n + u}
+{\cf1\sub 2}{\cf1 n}{\cf1\super 2}{\cf1  + }...{\cf1  + u}{\cf1\sub p+2}{\cf1 n}{\cf1\super p+2}{\cf6                      
+\par 
+\par {\pntext\pard\plain\cf1 (b)\tab}}\pard \fi-405\li645\nowidctlpar\tx645{\*\pn \pnlvlbody\pnlcltr\pnstart2\pnindent645\pnhang{\pntxtb (}{\pntxta )}}{\cf1 g(n) =bs}{\cf1\super n}{\cf1 \line \line (i)   If }{\i x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f 
+"Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2} , {\i x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} s , {\i x}{\sub 2} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} s then  {\cf1 T(n) = }{
+\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1 \-}{\cf1\sub 2}{\cf1\super n}{\cf1  + us}{
+\cf1\super n}{\cf1  \line \line (ii)  If }{\i x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2} = s then  {\cf1 T(n) = }{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{
+\cf1\sub 1}{\cf1\super n}{\cf1  + (}{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1  + un)s}{\cf1\super n}{\cf1   
+\par }\pard \nowidctlpar \line            (iii) If {\i x}{\sub 1} = {\i x}{\sub 2} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} s then  {\cf1 T(n) = (}{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1 
+ + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1 n)}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf1  + us}{\cf1\super n}{\cf6                \line 
+\par }\pard \sl480\slmult1\nowidctlpar            (iv) If {\i x}{\sub 1} = {\i x}{\sub 2} = s then  {\cf1 T(n) = (}{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol"
+ \\s 12}{\fldrslt\f1\fs24}}}{\cf1 n + un}{\cf1\super 2}{\cf1 )s}{\cf1\super n}{\cf6                \line \line }{\b\cf1 Linear third order}{\cf1 \line 7.  Homogeneous  }T(n+3) = aT(n+2) + bT(n+1) + cT(n)
+\par      Auxiliary equation  {\i x}{\super 3} \endash  a{\i x}{\super 2} \endash  b{\i x} \endash  c = 0 has roots {\i x}{\sub 1}, {\i x}{\sub 2}, {\i x}{\sub 3}
+\par {\cf1      (i)  If }{\i x}{\sub 1} {{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 2 }{{\field{\*\fldinst SYMBOL 185 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 3 }{{\field{\*\fldinst SYMBOL 185 \\f "Symbol"
+ \\s 12}{\fldrslt\f1\fs24}}} {\i x}{\sub 1} then  {\cf1 T(n) = }{\cf1 {\field{\*\fldinst SYMBOL 97 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1\sub 1}{\cf1\super n}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 98 \\f "Symbol" \\s 12}{\fldrslt
+\f1\fs24}}}{\i\cf1 x}{\cf1\sub 2}{\cf1\super n}{\cf1  + }{\cf1 {\field{\*\fldinst SYMBOL 103 \\f "Symbol" \\s 12}{\fldrslt\f1\fs24}}}{\i\cf1 x}{\cf1\sub 3}{\cf1\super n}{\cf1              
+\par }\pard \nowidctlpar 
+\par }

@@ -1,0 +1,33 @@
+<article>
+  <artheader><title>Languages for Applications</title>
+    <releaseinfo>Version: $Revision: 1.1 $</releaseinfo>
+    <date>$Date: 2000/02/28 12:06:05 $</date>
+  </artheader>
+  <simpara><ulink url="../Lectures/applications.ppt">Lecture slides</ulink> are
+  available.</simpara>
+  <sect1>
+    <title>JDBC</title>
+    <simpara>You will need to become familiar wth the JDBC package. As
+    ever with Java, the JavaDoc pages are good so don't try to learn all
+    the methods and parameters. You need an overview of the interfaces
+    (see <ulink url="../Lectures/applications.ppt#Overview%20of%20the%20major%20interfaces">the slide</ulink>
+    on Overview of the major interfaces. You will see more example
+    code later, for now you need to prepare yourself to read it
+    (rather than write the code).</simpara>
+  </sect1>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:("course.sgml" "book" "article")
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

@@ -1,0 +1,230 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>An introduction to iterators</TITLE>
+<META NAME="Microsoft Theme" CONTENT="blends 011">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080">
+
+<B><FONT SIZE=5 COLOR="#000080"><P><A NAME="_Toc459782441">Iterators</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial">
+<P></FONT><A HREF="#_Toc459782441"><FONT FACE="Trebuchet MS,Arial">Iterators</FONT></A><DIR>
+
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459782442"><FONT FACE="Trebuchet MS,Arial">hasNext()</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459782443"><FONT FACE="Trebuchet MS,Arial">next</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459782444"><FONT FACE="Trebuchet MS,Arial">remove</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"><P></FONT><A HREF="#_Toc459782445"><FONT FACE="Trebuchet MS,Arial">iterator</FONT></A></P>
+<FONT FACE="Trebuchet MS,Arial"></DIR>
+One of the most common operations that we wish to carry out on a data structure is some form of iteration. That is, visiting each item in the structure, in order. We might, for example, want to visit each item in a queue, printing out details of each item. This can of course be achieved by calling toString() on the structure but this gives us little direct control on the data. For example, cosider how we might print out the name of a customer in a queue rather than all his/her other personal details?</P>
+<P>&nbsp;</P>
+<P>The answer is to use the <B>Iterator</B> interface provided by Java.</P>
+
+<P>In order to implement this interface, you must provide the following:</P>
+<P>&nbsp;</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459782442">hasNext()</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>public boolean hasNext()</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"></DIR>
+</DIR>
+
+<P>This tests if this iterator contains any more elements. In other words, it is used to determine whether we have reached the end of the iteration.</P>
+
+<P>hasNext() returns true, if and only if, this iterator object contains at least one more element to provide; it returns false otherwise.</P>
+<P>&nbsp;</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459782443">next</A></P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><DIR>
+<DIR>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>public Object next () throws NoSuchElementException</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial"></DIR>
+</DIR>
+
+<P>This gets the next element in the iteration, starting with the first, providing there are any remaining. The method returns an Object so you will need to cast it.</P>
+
+<P>If there are no more elements, then next() throws NoSuchElementException.</P>
+<P>&nbsp;</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459782444">remove</A></P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>&#9;public void remove() throws  UnsupportedOperationException</P>
+
+</B></FONT><FONT FACE="Trebuchet MS,Arial"><P>This removes the last object, referenced by next() from the collection. It is a potentially dangerous operation that in many cases you might decide not to implement (to maintain integrity). If you don't want to support the method then throw UnsupportedOperation.</P>
+</FONT><B><FONT COLOR="#000080"><P><A NAME="_Toc459782445">iterator</A></P>
+</FONT><FONT FACE="Trebuchet MS,Arial">
+</B><P>The iterator interface does not define a constructor to build the iterator but we will define our own ‘constructor’ to be consistent</P>
+
+<P>The specification for our iterator() method is as follows:</P>
+<DIR>
+<DIR>
+
+<P>public Iterator iterator()</P>
+</DIR>
+</DIR>
+
+<P>At first this may seem strange. What do we return? It is easy, we simply set up our iterator and return <B>this</B>. As our class is implementing the Iterator interface:</P>
+<DIR>
+<DIR>
+
+<P>public class Queue implements Iterator</P>
+</DIR>
+</DIR>
+
+<P>if we simply return <B>this</B>. i.e. the queue itself, we are returning an Iterator.</P>
+
+<P>&nbsp;</P>
+<P>Before we look at how we might implement the iterator in the Queue, let us look at how we might use it:</P>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>import java.util.Iterator;</P>
+<P>import aber.util.TextInputReader;</P>
+<P>import aber.util.TextIOException;</P>
+
+<P>/**</P>
+<P> * A class to test the functioning of the Queue class</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @version Last revision by Mark Ratcliffe 27/02/99</P>
+<P> */</P>
+<P>public class QueueIteratorTest</P>
+<P>{</P>
+
+<P>    /**</P>
+<P>     *  A simple test harness to make sure the queue works OK</P>
+<P>     * @exception aber.util.TextIOException</P>
+<P>     * - raised if an error occurs on input</P>
+<P>     */</P>
+<P>    public static void main (String [] args) throws TextIOException,                                           Exception</P>
+<P>    {</P>
+<P>        final int maxItems=20;</P>
+<P>        Queue myQueue;</P>
+<P>        try</P>
+<P>        {</P>
+<P>            myQueue = Queue.readFromFile("C:\\QueueDump");</P>
+<P>//refer back to your CSM01 notes for how to read and write</P>
+<P>//objects from files</P>
+<P>        }</P>
+<P>        catch (Exception e)</P>
+<P>        {</P>
+<P>            myQueue = new Queue();</P>
+<P>        }</P>
+
+<P>        TextInputReader t = new TextInputReader();</P>
+
+<P>        String theName;</P>
+
+<P>        for (int count = 0; count &lt; 5; count++)</P>
+<P>        {</P>
+<P>            theName = t.promptForString("Enter name ");</P>
+<P>            </P>
+<P>            try</P>
+<P>            {</P>
+<P>                myQueue.addItem(theName);</P>
+<P>//already done in Queue notes</P>
+<P>            }</P>
+<P>            catch (Exception e)</P>
+<P>            {</P>
+<P>                System.out.println("Error in adding " + e);</P>
+<P>            }</P>
+<P>        }</P>
+
+<P>        // Now let's test the iterator over the Queue</P>
+<P>        String temp;</P>
+
+<P>        Iterator myIterator = myQueue.iterator();</P>
+<P>//above is new</P>
+<P>        while (myIterator.hasNext())</P>
+<P>//above is new</P>
+<P>        {</P>
+<P>            temp = (String) myIterator.next();</P>
+<P>//above is new</P>
+<P>            System.out.println("Iterating -&gt;" + temp + "\n");</P>
+<P>        }</P>
+<P>       </P>
+<P>        // Let's save to file</P>
+<P>        myQueue.writeToFile("C:\\QueueDump");</P>
+<P>//again, this is in your CSM01 notes</P>
+<P>    }</P>
+<P>}</P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial">
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>And now to the implementation:</P>
+<P>Most of this was already done in the Queue notes, Here are the new things. </P>
+<P>First we have to make a few changes to the start of the Queue class:</P>
+
+</FONT><B><FONT FACE="Courier" SIZE=2><P>import java.io.*;</P>
+<P>import java.util.Iterator;</P>
+
+<P>public class Queue implements Serializable, Iterator</P>
+
+<P>{</P>
+<P>    /*</P>
+<P>     * currentLength maintains current number of items in array</P>
+<P>     */</P>
+<P>    protected int currentLength = 0;</P>
+
+<P>    /**</P>
+<P>     *  defaultSize defines length of queue if default constructor is used</P>
+<P>     * - set to 10</P>
+<P>     */</P>
+<P>    public final int DEFAULT_SIZE = 10;</P>
+
+<P>    protected Object[] theItems;   // Declare don't define</P>
+
+<P>    /*</P>
+<P>     * front and back are used as pointers within the array</P>
+<P>     */</P>
+<P>    protected int front = 0;</P>
+<P>    protected int back = 0;</P>
+
+<P>    /*</P>
+<P>     * The following declaration is required by iterator</P>
+<P>     */</P>
+
+<P>    protected int currentIteratorPosition;</P>
+<P>    protected int currentIteratorCount = 0;</P>
+</FONT><FONT SIZE=2>
+</B></FONT><P>The methods are implemented as follows<B>:</P>
+<FONT FACE="Courier" SIZE=2>
+<P>       /**</P>
+<P>     * iterator() is used to initialise the iterator over the Queue</P>
+<P>     * @return Iterator used to iterate over Queue</P>
+<P>     */</P>
+
+<P>    public Iterator iterator()</P>
+<P>{</P>
+<P>        currentIteratorCount = 0;</P>
+<P>&#9;currentIteratorPosition = this.front;</P>
+<P>        return this;</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * next() obtains next element (starting from front).</P>
+<P>     * The iterator is then advanced to next element in list</P>
+<P>     * @return Object the object at current location in iteration</P>
+<P>     */</P>
+<P>    public Object next()</P>
+<P>    {</P>
+<P>        Object tmp = theItems[currentIteratorPosition];</P>
+<P>        currentIteratorCount++;</P>
+<P>        currentIteratorPosition =</P>
+<P>            (currentIteratorPosition + 1) % theItems.length;</P>
+<P>        return tmp;</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * hasNext returns true unless iterator is complete</P>
+<P>     * @return boolean true if more elements, false otherwise</P>
+<P>     */</P>
+<P>    public boolean hasNext()</P>
+<P>    {</P>
+<P>        return (currentIteratorCount != currentLength);</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * remove is NOT provided in this class for integrity reasons</P>
+<P>     */</P>
+<P>    public void remove() throws UnsupportedOperationException</P>
+<P>    {</P>
+<P>        throw new UnsupportedOperationException();</P>
+<P>    }</P></B></FONT></BODY>
+</HTML>

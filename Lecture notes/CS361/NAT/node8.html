@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 8: Ants</TITLE>
+<META NAME="description" CONTENT="Lecture 8: Ants">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html89"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html83"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+ HREF="node9.html">Lecture 9: Revision</A>
+<B> Up:</B> <A NAME="tex2html90"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html84"
+ HREF="node7.html">Lecture 7: Genetic Algorithms</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00080000000000000000">
+Lecture 8: Ants</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 8:</BIG>
+<P><BIG>Ants</BIG>
+<P>
+<P>
+<BIG>Overview of Lecture</BIG>
+<UL>
+<LI> Intelligence is Social
+<LI> Real Ants
+<LI> Travelling SalesAnts
+<LI> Ants On The Line
+</UL>
+
+<P>
+<BIG>Intelligence is Social</BIG>
+<UL>
+<LI> Almost all the most intelligent non-human animals are highly
+social (most primates, dogs, dolphins, parrots...).
+<LI> Individual humans are no cleverer than 30,000 years ago; yet our
+<EM>collective</EM> abilities have expanded enormously.
+<LI> Social insects (bees, wasps, ants, termites) fight off
+predators, build complex
+structures, ``domesticate'' or ``enslave'' fungi and other insects...
+<LI> How do human and other animal societies <EM>work</EM>?
+</UL>
+
+<P>
+<BIG>Real Ants</BIG>
+<UL>
+<LI> Ant colonies are founded by a single queen, but may grow to
+contain millions of individuals.
+<LI> Some are migratory (e.g. army ants). Most build complex nests.
+<LI> Individual ants cooperate to repel invaders, collect or grow food, rear
+the young.
+<LI> A biological puzzle: why are ants, bees, wasps, termites <EM>
+and no other insects</EM> social?
+<LI> Communication between ants is primarily <EM>chemical</EM>.
+</UL>
+
+<P>
+<BIG>Pheromones</BIG>
+<UL>
+<LI> Pheromones: chemicals used in animal communication.
+<LI> Ants leave a chemical <EM>trail</EM> behind them when
+they forage for food.
+<LI> They also have a <EM>tendency</EM> to follow the trails laid by their
+nestmates. Trails therefore tend to grow stronger by an <EM>
+autocatalytic</EM> or positive feedback effect.
+<LI> These simple features enable
+them to use the world as a collective memory bank: this is <EM>stigmergy</EM>.
+</UL>
+
+<P>
+<BIG>Stigmergy</BIG>
+<UL>
+<LI> Concept introduced by Grasse in 1959, primarily to explain <EM>
+nest-building</EM> by social insects.
+<LI> Individual insects modify the environment (add a bit to the nest,
+lay a trail).
+<LI> These modifications provide new stimuli to all insects that
+encounter them.
+<LI> These stimuli affect their behavioural responses, which in turn
+modify the environment further.
+</UL>
+
+<P>
+<BIG>Finding Food Sources</BIG>
+<UL>
+<LI> Ants spread out from their nest,
+looking for food. Ants finding food return with it.
+<LI> Depending on species, may lay pheromone going out, coming back,
+or both.
+<LI> In some species, richness of food source found influences amount
+of pheromone laid.
+<LI> Decision to follow a trail influenced by amount of pheromone,
+but <EM>probabilistic</EM>.
+<LI> Also, always a few ants wandering off apparently at random.
+</UL>
+
+<P>
+<BIG>Finding Shortest Routes</BIG>
+<UL>
+<LI> If a source is found by two routes, the shorter will gain an advantage.
+<LI> The system isn't perfect: new shortcuts difficult to find,
+circular routes can occur.
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="634" HEIGHT="195" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.gif"
+ ALT="\epsfig {figure=ants.eps}
+"></DIV>
+<P>
+<P>
+<BIG>Ant System</BIG>
+<UL>
+<LI> <EM><B>Ant System</B></EM>, devised by Alberto Colorni and others
+for <EM>distributed optimization</EM>.
+<LI> Based on <EM>simple</EM> cooperating agents with <EM>limited</EM>
+communicative abilities: distinguishes ``ant-based''
+from other <EM>multi-agent</EM> systems.
+<LI> The ``ants'' in Ant System have no idea they are cooperating
+with other ants, or even that there are other ants.
+<LI> However, they have some features not needed for stigmergy to
+work: some memory, some ability to
+sense things other than trail pheromone.
+<LI> Time in the ants ``world'' is discrete.
+</UL>
+
+<P>
+<BIG>Travelling SalesAnts: 1</BIG>
+<P><EM><B>Ant System</B></EM> has been applied to the Travelling
+Salesman Problem. Initially (at <I>t</I>=0):
+<UL>
+<LI> Ants are distributed evenly among all the ``cities''
+to be toured.
+<LI> Low levels of trail pheromone are assigned at random to the
+``trail'' between each pair of cities.
+<LI> One of three different ``ant algorithms'' is selected, and various
+numerical parameters are set by the user.
+</UL>
+
+<P>
+<BIG>Travelling SalesAnts: 2</BIG>
+<UL>
+<LI> At each time-step, each ant chooses a city to move to. This will add to
+the strength of the trail between the two.
+<LI> Each ant keeps a list of cities visited, and will not visit
+again until it has made a complete ``tour'' of the cities, when its list is
+cleared.
+<LI> The problem-solving process continues for some preset
+number of complete tours.
+<LI> A user defineable proportion of pheromone ``evaporates'' every
+time-step. The proportion <EM>remaining</EM> is symbolised <IMG WIDTH="34" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.gif"
+ ALT="$\rho$">.</UL>
+
+<P>
+<BIG>Travelling SalesAnts: 3</BIG>
+<UL>
+<LI> An ant decides which unvisited city to go to next
+probabilistically, taking into account both their distance from its
+current location (or rather, its reciprocal, ``visibility'',
+symbolised <IMG WIDTH="34" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.gif"
+ ALT="$\eta$">), and the strength
+of the trails to them.
+<LI> Specifically, the <EM>transition probability</EM> from town <I>i</I> to
+town <I>j</I> at time <I>t</I> is given by the formula:
+<BR>
+ <IMG WIDTH="228" HEIGHT="77" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.gif"
+ ALT="$p_{ij}(t) =
+\frac{[\tau_{ij}(t)]^{\alpha}\times[\eta_{ij}(t)]^{\beta}}{\sum_{j=1}^n[\tau_{ij}(t)]^{\alpha}\times[\eta_{ij}(t)]^{\beta}}$">
+<BR>
+(where <IMG WIDTH="54" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="$\alpha, \beta$"> are parameters set by the user).
+<LI> Different choices in calculating how much pheromone to add to
+the trails followed define the different ``ant algorithms''.
+</UL>
+
+<P>
+<BIG>Ant Algorithms</BIG>
+<UL>
+<LI> <B>ANT-quantity</B> algorithm: fixed amount <I>Q<SUB>1</SUB></I> of
+pheromone is left on a trail that is followed -- so the <EM>
+concentration</EM> of pheromone added is greater for closer pairs of cities.
+<LI> <B>ANT-density</B> algorithm: fixed amount <I>Q<SUB>2</SUB></I> of
+pheromone is left on every unit of length of a trail that is followed
+-- so closer pairs of cities are not given the same advantage as in
+<B>ANT-quantity</B>.
+<LI> <B>ANT-cycle</B> algorithm: pheromone densities
+not updated after every time-step, but after ants have
+completed a tour. Fixed amount <I>Q<SUB>3</SUB></I> of
+pheromone is spread evenly over complete path of each ant -- so
+shorter tours contribute greater density of pheromone.
+</UL>
+
+<P>
+<BIG>Results</BIG>
+<UL>
+<LI> For all three algorithms, performance depended strongly on the
+values of the parameters (<IMG WIDTH="70" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.gif"
+ ALT="$\alpha, \beta, \rho$"> and <I>Q<SUB>1</SUB></I>,<I>Q<SUB>2</SUB></I> or <I>Q<SUB>3</SUB></I>
+depending on the algorithm).
+<LI> Optimal parameters could only be discovered experimentally.
+<LI> <B>ANT-cycle</B> proved significantly more successful than the
+other two.
+<LI> Using more ants (up to 64) decreased total computation for <B>
+ANT-quantity</B> and <B>ANT-density</B>, while
+16 ants gave better results than more or fewer for <B>ANT-cycle</B>.
+<LI> <B><EM>Ant-system</EM></B> found better results than other approaches
+tried, but took longer.
+</UL>
+
+<P>
+<BIG>Ants On The Line</BIG>
+<UL>
+<LI> Ruud Schoonderwoerd and others are investigating ant-based
+control (``ABC'') of load balancing in telecommunications networks, for
+Hewlett-Packard.
+<LI> Problem: nodes with excess traffic get congested, causing calls
+to be lost.
+<LI> Communications networks are not built to guarantee successful
+connections on every call.
+<LI> Number of failures is reduced by routing calls through parts of
+network with spare capacity: ``load balancing''.
+<LI> Central control of such systems requires links to every part of
+system, and scales badly.
+</UL>
+
+<P>
+<BIG>Network Simulation: 1</BIG>
+<UL>
+<LI> Simulated network used to test ABC against use of fixed routes
+and use of more complex ``load balancing agents'', investigated by BT.
+<LI> Each node (switching stations) has:
+<UL>
+<LI> Capacity: number of simultaneous calls allowed.
+<LI> Routing table, with entry for each of the other nodes.
+<LI> Probability of being end node of a call.
+<LI> Current spare capacity.
+</UL></UL>
+
+<P>
+<BIG>Network Simulation: 2</BIG>
+<UL>
+<LI> <EM>Ants</EM> generated at nodes, with random destinations.
+At each node, there is a ``pheromone table'' for <EM>each</EM> destination.
+<LI> Ants move one node per time step, choosing next node <EM>
+probabilistically</EM> on basis of destination's pheromone table.
+<LI> Alter pheromone table <EM>for their source node</EM> at each node
+they reach.
+<LI> <EM>Calls</EM> have a source, destination, duration.
+At each time step, expired calls are removed. New calls routed
+<EM>deterministically</EM> using pheromone tables.
+<LI> If any node on route is full, call is lost: % lost calls
+measures performance.
+</UL>
+
+<P>
+<BIG>How Ants find Routes</BIG>
+<P>
+Aim: to get ants to find short routes, but avoid congestion.
+<UL>
+<LI> Ants lay less pheromone the longer they have been travelling.
+<LI> So those finding short routes to destination tend to have most effect.
+<LI> Ants are delayed at nodes congested with calls -- so at
+subsequent nodes, they are older and lay less pheromone.
+<LI> Hence, ants and calls dynamically interact with each other.
+</UL>
+
+<P>
+<BIG>Ants Versus Load Agents: 1</BIG>
+<UL>
+<LI> Schoonderwoerd compared ants with use of fixed shortest-path
+routes, and with use of an alternative type of mobile agent.
+<LI> Alternative ``load agents'' rewrite routing tables for nodes identified
+as needing traffic management by ``parent agents'' using global data
+on network traffic.
+<LI> Both ants and load agents able to adapt to network topology,
+static pattern of call probabilities, and changes in these probabilities.
+<LI> Ants outperformed load agents which outperformed fixed routes.
+</UL>
+
+<P>
+<BIG>Ants Versus Load Agents: 2</BIG>
+<UL>
+<LI> Ants used less bandwidth and switching capacity.
+<LI> ABC system probably more
+robust: ants do not interfere with each other, and ``damage caused by
+a corrupt ant will be limited''.
+<LI> Ants likely to need more computation at nodes.
+<LI> Load agents respond faster to changing call probabilities. This
+only <EM>reduces</EM> (does not <EM>eliminate</EM>) ants' performance advantage.
+</UL>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html89"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html83"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+ HREF="node9.html">Lecture 9: Revision</A>
+<B> Up:</B> <A NAME="tex2html90"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html84"
+ HREF="node7.html">Lecture 7: Genetic Algorithms</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

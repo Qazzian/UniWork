@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>CS26210: Artificial Intelligence Concepts</TITLE>
+<META NAME="TITLE" CONTENT= "CS26210: Artificial Intelligence Concepts">
+<META NAME="CREATOR" CONTENT="Computer Science ">
+<META NAME ="SUBJECT" CONTENT= "1998, Degree, Examinations, Semester 1 ">
+<META NAME="PUBLISHER" CONTENT="DATAPREP - Information Services">
+<META NAME="date" VALUE="02-04-98">
+</HEAD>
+<BODY bgcolor="#ffffff" link="#008000">
+<B>PRIFYSGOL CYMRU - THE UNIVERSITY OF WALES</b>
+<p>
+EXAMINATIONS 1997-98 SEMESTER 1
+<p>
+<B>ABERYSTWYTH</B>
+<P>
+FACULTY OF SCIENCES
+<P>
+<b>Computer Science CS26210: Artificial Intelligence Concepts
+<P>
+Time allowed: 2  hours</B>
+<P>
+<I>Answer</I> <b>THREE</b><I> from</I> <b>FIVE</b><I> questions</I>
+<p>
+Calculators are permitted, provided they are silent, self powered and do 
+not contain any stored programs or data.  Calculators are allowed at the 
+discretion of the invigilators and must be available  for inspection  if 
+required.
+<P>
+<OL>
+<LI>
+The diagram below  shows a robot navigation  problem.  The mobile  robot 
+occupies  one of the unshaded  squares and can move to any of  the  four 
+adjacent  squares  but  must avoid the shaded squares  (walls)  and  the 
+boundaries.   The aim of the robot is to find a path to the goal,  which 
+may be anywhere in the grid.
+<img src="cst1.jpg">
+<OL type="a">
+<li>
+Assume that the robot always starts at the top left corner but the  goal 
+and  walls   may take different configurations.   What  blind  searching 
+method  would you recommend for finding (i) any path to the   goal,  and 
+(ii)  the  shortest  path  to the goal?  You  should  explain  how  such 
+searching would work for the  problem above. [10]
+<P>
+<li>
+Now assume a radio beacon is attached to the  goal and the robot can 
+sense  the  strength  of  the  signal.   The  signal  varies  in  direct  
+proportion  to distance from the beacon and is completely unaffected  by 
+the walls.  How would you design a heuristic search for the path  finding 
+task?   Explain how your method  would  operate for the  above  problem. 
+[14]
+<p>
+<li>
+Genetic  algorithms  can  be  seen as a kind  of  search.   Compare  and 
+contrast blind search methods with genetic algorithms for this  problem. 
+[9]
+</ol>
+<P>
+<LI>
+<B>(a) </B> Describe  the  main  components of an  expert  system  based  on  a 
+production rule architecture. [8]
+<p>
+<B>(b)</B> Outline an algorithm for rule matching and use it to produce a trace 
+of the operation of the example system below.  The  operators <B>+</B>, <B>-</B> and <B>*</B> 
+are  the  usual  arithmetic  operators and  the  predicates  "zero"  and 
+"negative" are provided by the system. [16]
+<p>
+<pre>
+<B>Production rules:</B>
+
+1.   (value ?x ?p)
+     & (count ?y)
+     & (zero ?y)         -->       print ?x, print ?p,
+                                   erase (value ?x ?p).
+2.   (count ?x)
+     & (zero ?x)         -->       stop.
+3.   (value ?x ?p)
+     & (negative ?p)
+     & (count ?y)        -->       erase (value ?x ?p),
+                                   erase (count ?y),
+                                   assert (value ?x (* ?p ?p)),
+                                   assert (count ?y (- ?y 1)).
+4.   (value ?x ?p)
+     & (value ?y ?q)     -->       erase (value ?x ?p),
+                                   erase (value ?y ?q),
+                                   assert (value ?x (- ?p ?q)),
+                                   assert (value ?y (+ ?q 2)).
+
+<B>Working memory, initial data:</B>
+(value A 5)    (value B 2)    (count 2)
+</pre>
+<P>
+<B>(c)</B> What are the strengths and weaknesses of the rule based approach  to 
+intelligent systems?&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [9]
+<P>
+<LI>
+<B>(a)</B>  Describe the following concepts used in fuzzy logic systems:  fuzzy 
+membership  sets,  fuzzt  logic operators, fuzzy  rule  combination  and 
+defuzzification. [10]
+<p>
+<B>(b)</B> Using a detailed example application, explain  how fuzzy logic methods
+are used in  intelligent  systems. [15]
+<p>
+<B>(c) </B> What applications would be unsuitable for the fuzzy logic  approach 
+and why? [8]
+<p>
+<LI>
+<B>(a)</B> Explain, with examples, the difference between logical deduction and 
+abduction. [12]
+<p>
+<B>(b)</B> The following statements form part of a knowledge base:
+<P>
+<dl>
+<dd> (is-a switch component)
+<dd> (is-a battery component)
+<dd> (instance 12volt battery)
+<dd> (instance lights switch)
+<dd> (instance starter switch)
+<dd> (wired-to headlamps lights)
+<dd> (wired-to sidelamps lights)
+<dd> (wired-to motor starter)
+<dd> (wired-to starter 12volt)
+<dd> (wired-to alternator 12volt)
+<dd> (reliability fusebox high)
+<dd> <img src="cmh39.jpg">xy (wired-to x y) & (reliability y high)<img src="arro.jpg">(reliability x high)
+<dd> <img src="cmh39.jpg">x (instance x switch)<img src="arro.jpg">(wired-to x fusebox)
+</dl>
+<P>
+Sketch an associative network that gives an equivalent representation of 
+the above   information.  Explain the meanings behind the different  kinds 
+of relations in your network. [12]
+<p>
+<B>(c)</B> Describe how inheritance mechanisms operate in frame systems and how 
+their interaction with default values may be handled. [9]
+<p>
+<LI>
+<B>(a)</B>  Describe  the  neutral network model known as  the  perceptron  and 
+explain  the design and operation of the perceptron learning  algorithm. 
+[13]
+<p>
+<B>(b)</B>  What  is  the  fundamental  limitation  inherent  in  single  layer 
+perceptrons?  Why are networks with hidden layers able to overcome  this 
+problem? [10]
+<P>
+<B>(c)</B>  Explain  the strengths and weaknesses of the multilayer  perceptron 
+approach when used in pattern recognition applications. [10]
+<P>
+</OL>
+</BODY>
+</HTML>
+

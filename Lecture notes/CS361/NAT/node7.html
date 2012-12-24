@@ -1,0 +1,483 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 7: Genetic Algorithms</TITLE>
+<META NAME="description" CONTENT="Lecture 7: Genetic Algorithms">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html81"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html79"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html73"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html82"
+ HREF="node8.html">Lecture 8: Ants</A>
+<B> Up:</B> <A NAME="tex2html80"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html74"
+ HREF="node6.html">Lecture 6: Arbib</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00070000000000000000">
+Lecture 7: Genetic Algorithms</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 7:</BIG>
+<P><BIG>Genetic Algorithms:</BIG>
+
+<P>
+<BIG>Genetic Algorithms and Related Topics</BIG>
+<UL>
+<LI> 1. Historical background; varieties of evolutionarily inspired
+computation.
+<LI> 2. How do genetic algorithms work?
+<LI> 3. What can genetic algorithms do?
+<LI> 4. Classifier systems and the `bucket brigade' algorithm.
+<LI> 5. Future prospects.
+</UL>
+
+<P>
+<BIG>Evolutionary Computation in General</BIG>
+<UL>
+<LI> Inspiration: biological evolution, in particular the evolution of human
+and other animal intelligence.
+<LI> Common core: simulated evolution of a <EM>
+population</EM> of computational objects
+through <EM>reproduction</EM> and <EM>selection</EM> of 
+`genetic' representations of those objects, guided by
+a measure of <EM>fitness</EM>, using <EM>operators</EM> (e.g. recombination, 
+mutation) to generate novelty.
+<LI> Does <EM>not</EM> generally aim to simulate evolutionary processes in
+detail. Generally
+resembles <EM>artificial</EM> more than natural
+selection. May use `evolutionary' processes not known in nature.
+</UL>
+
+<P>
+<BIG>Different Approaches</BIG>
+<UL>
+<LI> <EM>Evolutionary Programming</EM> (Fogel). Representations:
+problem-specific. Operators: adaptive
+mutation. Survival: probabilistic.
+<LI> <EM>Evolution Strategies</EM> (Rechenberg). Representations usually
+real-valued vectors. Operators: recombination and adaptive mutation. Survival:
+deterministic.
+<LI> <EM>Genetic Algorithms</EM> (Holland). Representations: originally
+bit-strings, now wider range. Operators: recombination, mutation,
+inversion, others. Survival: probabilistic.
+<LI> <EM>Genetic Programming</EM> (Koza). Representations: hierarchical
+programs. Operators:
+recombination, occasionally others. Survival: probabilistic.
+</UL>
+
+<P>
+<BIG>Genetic Algorithms: Example</BIG>
+<P>
+Imagine we have a `black box', with five input switches, each of which
+can be in each of two positions, and an output signal which varies in
+magnitude with the positions of the switches. We want to find the
+position of the switches which maximises the output.
+<P>
+With only 32
+possibilities, we could do an exhaustive search. However, we could
+also search using a genetic algorithm, and such a GA search can be `scaled
+up' to deal with a box with thousands of switches (although it will
+not guarantee to find us the best set of positions in the general
+case, and will only find a good set if certain conditions are met).
+
+<P>
+<BIG>Initializing the Population</BIG>
+<P>
+Randomly create a `population' of `strings', each
+representing a solution to the problem. For example,
+a set of four might be:{01101, 11000, 01000,
+10011} (0 and 1 represent the two switch positions). 
+Here is the box's output for each string:
+<BR>  <BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>No.</TD>
+<TD ALIGN="RIGHT" NOWRAP>String</TD>
+<TD ALIGN="RIGHT" NOWRAP>Fitness</TD>
+<TD ALIGN="RIGHT" NOWRAP>% of Total</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>1</TD>
+<TD ALIGN="RIGHT" NOWRAP>01101</TD>
+<TD ALIGN="RIGHT" NOWRAP>169</TD>
+<TD ALIGN="RIGHT" NOWRAP>14.4</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>2</TD>
+<TD ALIGN="RIGHT" NOWRAP>11000</TD>
+<TD ALIGN="RIGHT" NOWRAP>576</TD>
+<TD ALIGN="RIGHT" NOWRAP>49.2</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>3</TD>
+<TD ALIGN="RIGHT" NOWRAP>01000</TD>
+<TD ALIGN="RIGHT" NOWRAP>64</TD>
+<TD ALIGN="RIGHT" NOWRAP>5.5</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>4</TD>
+<TD ALIGN="RIGHT" NOWRAP>10011</TD>
+<TD ALIGN="RIGHT" NOWRAP>361</TD>
+<TD ALIGN="RIGHT" NOWRAP>30.9</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>Total</TD>
+<TD ALIGN="RIGHT" NOWRAP>&nbsp;</TD>
+<TD ALIGN="RIGHT" NOWRAP>1170</TD>
+<TD ALIGN="RIGHT" NOWRAP>100.0</TD>
+</TR>
+</TABLE>
+<BR>
+<FONT SIZE="-2">Adapted from Goldberg, D.E. (1989), <EM>Genetic Algorithms in Search,
+Optimization and Machine Learning</EM></FONT>
+<BR>
+
+<P>
+<BIG>Selection</BIG>
+<UL>
+<LI> The four strings are now given chances to
+contribute to the next generation, subject to `selection'.
+<LI> Four
+selections from the  population are made, with each string's selection
+probability on each occasion being proportional to its
+`fitness' (the output from the black
+box when the switches are set as it specifies).
+<LI> The same
+string may be selected more than once.
+<LI> The four strings resulting from selection in the present case are
+randomly paired for <EM>recombination</EM>.
+</UL>
+
+<P>
+<BIG>Recombination</BIG>
+<UL>
+<LI> The most important `genetic operator' in GAs.
+<LI> For a pair of strings (say <I>S<SUB>1</SUB></I> and <I>S<SUB>2</SUB></I>) to be recombined,
+a `crossover point' is randomly selected. For strings of length <I>l</I>, there are
+<I>l</I>-1 possible crossover points.
+<LI> The part of <I>S<SUB>1</SUB></I> to the left of the
+crossover point is then attached to the part of <I>S<SUB>2</SUB></I> to the right of
+that point to produce one of the pair's two `offspring', and the left
+part of <I>S<SUB>2</SUB></I> to the right part of <I>S<SUB>1</SUB></I> to produce the other.
+</UL>
+<FONT SIZE="-2"><TABLE CELLPADDING=3 BORDER="1">
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>Originals</TD>
+<TD ALIGN="LEFT" NOWRAP>Crossover 1</TD>
+<TD ALIGN="LEFT" NOWRAP>Crossover 2</TD>
+<TD ALIGN="LEFT" NOWRAP>Crossover 3</TD>
+<TD ALIGN="LEFT" NOWRAP>Crossover 4</TD>
+<TD ALIGN="LEFT" NOWRAP>&nbsp;</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>11000</TD>
+<TD ALIGN="LEFT" NOWRAP>10011</TD>
+<TD ALIGN="LEFT" NOWRAP>11011</TD>
+<TD ALIGN="LEFT" NOWRAP>11011</TD>
+<TD ALIGN="LEFT" NOWRAP>11001</TD>
+<TD ALIGN="LEFT" NOWRAP>&nbsp;</TD>
+</TR>
+<TR VALIGN="TOP"><TD ALIGN="LEFT" NOWRAP>10011</TD>
+<TD ALIGN="LEFT" NOWRAP>11000</TD>
+<TD ALIGN="LEFT" NOWRAP>10000</TD>
+<TD ALIGN="LEFT" NOWRAP>10000</TD>
+<TD ALIGN="LEFT" NOWRAP>10010</TD>
+<TD ALIGN="LEFT" NOWRAP>&nbsp;</TD>
+</TR>
+</TABLE></FONT>
+
+<P>
+<BIG>Evolution of a Population</BIG>
+<UL>
+<LI> Suppose the selections from the initial population were actually
+{01101, 11000, 11000, 10011}, `mating' paired the first of these
+with the second, and the third with the fourth, and the strings resulting after
+recombination were 01100 (fitness 144), 11001 (fitness 625), 11011
+(fitness 729), and 10000 (fitness 256).
+<LI> The fittest string here
+results from a recombination of the two fittest from the first
+generation.
+<LI> This is no fluke: genetic algorithms will work well
+whenever combining substrings from high-fitness strings is a good strategy for
+getting even better strings; in other words, when substrings can encode
+<EM>good partial solutions</EM>.
+</UL>
+
+<P>
+<BIG>Fundamental Theorem of Genetic Algorithms</BIG>
+<UL>
+<LI> Holland proved a formal version of this claim. First, he introduced
+the idea of a <EM>schema</EM> (<EM>not</EM> the same as Arbib's!): a pattern
+that matches a number of
+possible strings. An example from our length 5 strings is: `0w10w'. The
+symbol `w' is a `wild card', matching either 0 or 1, so this schema
+matches any of {00100, 00101, 01100, 01101}.
+<LI> Suppose that for any schema <I>H</I>, there are at any one time step (or
+generation) <I>t</I>,
+<I>m</I>(<I>H</I>,<I>t</I>) strings matching that schema in the population. Holland
+showed that the <EM>expected</EM> value of <I>m</I>(<I>H</I>,<I>t</I>+1) is given by:
+<BR>
+ <IMG WIDTH="213" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="$m(H,t+1)=m(H,t)\frac{f(H)}{\overline f}$">,
+<BR>
+where <I>f</I>(<I>H</I>) is the average fitness of strings matching <I>H</I> at time
+<I>t</I>, and <IMG WIDTH="36" HEIGHT="69" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.gif"
+ ALT="$\overline f$"> is the average fitness of the entire
+population at that time.
+</UL>
+
+<P>
+<BIG>Varieties of Recombination</BIG>
+<P>
+There are numerous possible modifications to the recombination scheme outlined.
+<UL>
+<LI> Recombination may involve several crossover points.
+<LI> The `genome' may be divided into several chromosomes.
+<LI> Each bit may be drawn from either parent with a fixed
+probability.
+<LI> Multiple parents may be used to produce each offspring.
+<LI> Structures more complex than strings (e.g. graphs) may be
+used; the recombination operator must be designed so
+that the `offspring' are well-formed.
+</UL>
+
+<P>
+<BIG>Mutation and Other Operators</BIG>
+<UL>
+<LI> Mutation: each parental bit 
+is randomly flipped (with low probability) before
+recombination. (Evolutionary programming and evolutionary strategies
+use `adaptive mutation': the mutation rules themselves evolve.)
+<LI> In
+GAs, mutation serves primarily to prevent <EM>
+premature convergence</EM>. Without it, the GA
+may get stuck on a local maximum, or may
+eliminate substrings that are only useful in the context of otherwise
+high-fitness strings (mutation can re-create them).
+<LI> Other possibilities: inversion, duplication,
+deletion, diploidy, dominance... All drawn from biological
+examples. Natural evolution appears to have made extensive use of
+these; study of them in natural and GA contexts may be <EM>mutually</EM>
+illuminating.
+</UL>
+
+<P>
+<BIG>Popular Application Domains</BIG>
+<UL>
+<LI> Timetabling: a number of univerisities, notably Edinburgh, use
+GAs to timetable exams and/or lectures.
+<LI> Job-shop scheduling and related manufacturing processes.
+<LI> Control of robot manipulators.
+<LI> Combinatorial problems in mathematics, such as bin-packing and
+graph-colouring.
+<LI> Design problems, including VSLI, keyboards, communication
+networks.
+<LI> Selection of detectors for image classification, pattern recognition.
+</UL>
+
+<P>
+<BIG>Genetic Algorithms and Learning</BIG>
+<UL>
+<LI> Once we move from using GAs to solve individual problems in
+some domain, to using them to <EM>learn how to solve a class of
+problems</EM>, the `problem solution' we are seeking becomes a <EM>
+general procedure</EM> for solving that class of problems.
+<LI> There is more
+than one way of applying GAs in this fashion, but by far the most
+popular involves using is GA to evolve a particular form of rule-based
+problem-solving program known as a <EM>Classifier System</EM> (CS), also
+devised by Holland.
+</UL>
+
+<P>
+<BIG>Classifier Systems</BIG>
+<UL>
+<LI> A CS learns a set of rules that resembles a symbolic AI <EM>Production
+System</EM> (PS). It is this set of rules, sometimes called a <EM>rule and
+message system</EM>, that will solve the domain-level problems.
+<LI> Selection
+among existing rules requires use of a credit
+assignment system: usually, the <EM>bucket brigade algorithm</EM> is
+used. A genetic 
+algorithm is used to produce new rules from successful existing rules
+using recombination and perhaps other operators.
+<LI> In a CS, the GA is thus producing candidate <EM>partial</EM> solutions to
+a class of problems, rather than
+<EM>complete</EM> solutions to a single problem. 
+</UL>
+
+<P>
+<BIG>Rule and Message Systems</BIG>
+<UL>
+<LI> CS rule-and-message-system rules (generally called
+<EM>classifiers</EM>) consist of a <EM>condition</EM> and
+an <EM>action</EM> of fixed
+length; <EM>all</EM> strings of that length must be well-formed
+classifiers.
+<LI> More than one may `fire' in a single matching cycle.
+<LI> The classifiers interact with a <EM>message list</EM>, which also
+controls the CS's interaction with its environment.
+</UL>
+
+<P>
+<BIG>The Message List</BIG>
+<UL>
+<LI> Messages may be
+placed on the message list by classifiers (the only
+kind of `action' a classifier can perform).
+<LI> Also by <EM>detectors</EM>,
+which respond to features of the environment.
+<LI> Classifiers are also
+invoked by messages on the message list which match their `condition'
+(which may contain `wild cards').
+<LI> Messages may also cause actions
+on the environment by <EM>effectors</EM>.
+</UL>
+
+<P>
+<BIG>Bucket Brigade Algorithm: 1</BIG>
+<UL>
+<LI> A learning CS must be
+informed when it has achieved something worthwhile by `rewards' from
+the environment.
+<LI> But there must be some way of determining which
+classifiers have helped to achieve the reward.
+<LI> Initially `paid'
+to the last classifier(s) active before it arrived, but there may have
+been many other contributors.
+<LI> The Bucket Brigade Algorithm is the
+best-explored approach to apportioning credit between
+classifiers.
+</UL>
+
+<P>
+<BIG>Bucket Brigade Algorithm: 2</BIG>
+<UL>
+<LI> Instead of being activated whenever their
+conditions are met, classifiers make `bids' to be activated
+proportional to their current strength.
+<LI> A `noisy' (i.e. probabilistic) auction is held.
+<LI> Winning
+classifiers `pay' those responsible for placing the messages that
+invoked them.
+<LI> Thus, classifiers concerned with internal affairs can
+get proper credit.
+</UL>
+
+<P>
+<BIG>Role of GAs in Classfier Systems</BIG>
+<UL>
+<LI> The fact that each classifier has an associated `wealth' or `strength'
+also gives the GA part of the Classifier System something to work
+on. New rules are created by recombination, and perhaps mutation, from
+the strongest among the existing rules.
+<LI> In the CS context, it
+is best not to replace all the rules at once. First, to 
+maintain reasonable performance during the learning process. Second,
+to develop a set of <EM>coadapted</EM> classifiers: a
+good classifier must cooperate effectively with those that are
+performing functions that dovetail with its own.
+<LI> We may choose the
+weakest classifiers for replacement, and/or try to avoid choosing
+those for which alternatives are not available.
+</UL>
+
+<P>
+<BIG>Classifier System Applications</BIG>
+<UL>
+<LI> Maze-running robots (real or simulated). This was the domain for
+the first classifier system, CS-1, and several others since.
+<LI> Focusing a video-camera `eye'.
+<LI> Controlling a robot arm.
+<LI> Learning scheduling rules in a job shop domain.
+<LI> Architectural classification.
+<LI> Gas pipeline control.
+<LI> Modelling the immune system.
+</UL>
+
+<P>
+<BIG>Prospects for Evolutionary Machine Learning</BIG>
+<UL>
+<LI> GAs and CSs are little-explored in comparison to symbolic and
+connectionist approaches.
+<LI> As presented here, they are very general systems. Many recent
+studies have 
+adopted more specialised representations and/or operators. However,
+their natural counterparts are `used' to find solutions to the very
+different problems
+encountered by baboons, bacteria, and banana-trees.
+<LI> Similar methods
+are at work in the immune system.
+<LI> Crucial performance comparisons with other approaches remain
+to be done.
+</UL>
+
+<P>
+<BIG>Reading</BIG>
+<SMALL>The classic text is:
+<BR>
+<B>Holland</B>, J.H. (1975,1992)
+<EM>Adaptation in Natural and Artificial Systems</EM>,
+University of Michigan (1st edition), MIT Press (2nd edition).
+<BR>
+More accessible (and the main source for this lecture):
+<BR>
+<B>Goldberg</B>, D.E. (1989),
+<EM>Genetic Algorithms in Search, Optimization and Machine
+Learning</EM>, University of Alabama
+<BR>
+Others:
+<BR>
+<B>Fogarty</B>, T.C. (ed) (1994),
+<EM>Evolutionary Computing</EM>, Springer-Verlag</SMALL>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html81"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html79"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html73"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html82"
+ HREF="node8.html">Lecture 8: Ants</A>
+<B> Up:</B> <A NAME="tex2html80"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html74"
+ HREF="node6.html">Lecture 6: Arbib</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,100 @@
+chmod g+rx *.doc
+ls -l
+logout
+ZIP ON
+zip on
+cd Cprogs/fantasy/src
+make go
+make
+make
+make go
+make go
+make go
+fan_start
+start
+go
+go north
+quit
+make go
+start
+go
+start
+go
+cd cavern
+cd ...
+cd world
+cd north
+ls
+start
+look
+look sword
+look north
+take sword
+cd ../../src
+make take
+start
+take sword
+take fire_extinguisher
+wield sword
+go north
+go
+make go
+go
+man -s2 write
+cd Cprogs/man
+ls
+man strcmo > strings.txt
+man strcmp > strings.txt
+CD Cprogs
+cd Cprogs
+fan_start
+start
+quit
+fan_finish
+quit
+logout
+cd cprogs\man
+cd cprogs/man
+fan_start
+start
+go
+go up there
+go north
+cd Cprogs
+chdir man
+man chdir
+man chdir > chdir.txt
+LS
+ls
+cd public_htmll
+cd public_html
+ls
+cd ..
+logout
+LS
+ls
+logout
+LS
+ls
+cd Cprogs
+ls
+cd fantasy
+gvim
+vim
+logout
+net
+who
+ls
+cd eumail
+ls
+ls -l
+cd misc
+cd misc.fol
+ls
+ls -l
+vim NewsLett.mbx
+ls -l
+vim misc.mbx
+vim misc.mbx
+ls -l 
+logout

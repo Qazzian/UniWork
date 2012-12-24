@@ -1,0 +1,858 @@
+
+
+
+man(1)								       man(1)
+
+
+
+NAME
+
+  man - Displays reference pages
+
+SYNOPSIS
+
+  man [-] [-M  | -P search_path] [-l] {[section[suffix]] title...}...
+
+  man [-M  | -P search_path] -f title...
+
+  man [-M  | -P search_path] -k keyword...
+
+STANDARDS
+
+  Interfaces documented on this reference page conform to industry standards
+  as follows:
+
+  man: POSIX.2, XCU5.0
+
+  Refer to the standards(5) reference page for more information about indus-
+  try standards and associated tags.
+
+OPTIONS
+
+  -   [Tru64 UNIX]  Does not pipe output through more for display
+
+  -f title ...
+      [Tru64 UNIX]  Describes the specified command, call, function, or file
+      name if the whatis keyword database exists.  Performs the same function
+      as the whatis command.  You can specify more than one title.
+
+  -k keyword ...
+      Locates reference pages whose NAME section contains the specified key-
+      word if the whatis database exists.  Performs the same function as the
+      apropos command. You can specify more than one keyword.
+
+  -l  [Tru64 UNIX]  Specifies that the reference page resides in a section
+      directory subordinate to the /usr/local/man area rather than one subor-
+      dinate to the /usr/share/man or /usr/dt/share/man area.
+
+  -M search_path
+      [Tru64 UNIX]  Specifies an alternative search path. The search_path
+      argument contains one or more pathnames for directories that contain
+      section directories (directories named man1, man2, man3, and so forth)
+      where reference pages reside.  Use a colon (:) to separate multiple
+      pathnames. By default, the man command searches for section directories
+      in /usr/share/locale_name/man (if it exists), /usr/share/man,
+      /usr/dt/share/man, and /usr/local/man (if it exists) in that order.
+      The /usr/share/locale_name/man directory is created when reference page
+      translations for a particular locale are installed. The man command
+      determines locale_name from the setting of the LC_MESSAGES environment
+      variable.
+
+  -P search_path
+      [Tru64 UNIX]  Specifies an alternative search path.  (Performs the same
+      function as -M search_path and is provided for compatibility with other
+      systems.)
+
+
+
+OPERANDS
+
+  [section[suffix]]
+      [Tru64 UNIX]  Specifies the optional section and suffix identifiers for
+      the reference page.
+
+      [Tru64 UNIX]  The section parameter is either a number (0-9), the
+      number/letter combination 1m, or one of the letters C, L, F, n, l, p,
+      or o. The numbers 1 to 8 and the number/letter combination 1m are most
+      appropriate to use with reference pages installed for the Tru64 UNIX
+      product. (The number 9 is also appropriate if reference pages are
+      available for the device-driver programming kit, which is separately
+      installed.) You usually specify section to identify a reference page
+      that has the same title as another reference page in a different sec-
+      tion.
+
+      [Tru64 UNIX]  The suffix parameter is a string of one or more charac-
+      ters, starting with a letter. You usually specify suffix in addition to
+      section to identify a reference page that has the same title as another
+      reference page in the same section.
+
+  title
+      Specifies the name of the reference page.
+
+DESCRIPTION
+
+  The man command provides online access to the system's reference pages. For
+  example, if reference pages are available on your system, the following
+  command displays the first screenful of reference information for the ls
+  command:
+
+       % man ls
+
+  You can press the space bar to see the next screen or press other keys to
+  control or search the display. For more information, see the subsection
+  entitled Controlling the Pager Used by the man Command.
+
+  The industry standards listed in the STANDARDS section specify the man
+  command's exit values and require the command to support the -k option, one
+  or more title parameters, and certain environment variables. Much of the
+  command's behavior is implementation defined, as indicated by the [Compaq]
+  tag that precedes most of the information on this reference page.
+
+  [Tru64 UNIX]	Most reference pages reside in section directories subordi-
+  nate to /usr/share/man. Your system manager can optionally create the
+  /usr/local/man area as a location for site-specific reference pages.	In
+  addition, the area for reference pages provided for the Common Desktop
+  Environment (CDE) is /usr/dt/share/man. When all three areas exist on a
+  system, the default behavior of the man command is to search for reference
+  pages first in /usr/share/man, then in /usr/dt/share/man, and finally in
+  /usr/local/man.
+
+  [Tru64 UNIX]	Within a given reference page area, multiple reference pages
+  can have the same title. Duplicate titles can be encountered across section
+  directories, within section directories, or both. When two reference pages
+  have the same title within a section directory, one or both reference pages
+  include a suffix in the section identifier.
+
+
+  [Tru64 UNIX]	If you specify only title in the man command, it displays the
+  first title encountered in the section order 1, 8, 6, 2, 3, 4, 5, 7, C, L,
+  F, n, l, p, o, 1m, 9.	 If there is more than one title in the same section,
+  the reference page without a section suffix has precedence over reference
+  pages that have section suffixes. When duplicate titles are encountered
+  with the same section and different suffixes, suffixes are ordered
+  alphabetically.  In this case, the reference page whose suffix occurs ear-
+  liest in alphabetical order has precedence. The section and suffix operands
+  are available to specify which reference page you want to see when more
+  than one instance of titles is available.
+
+  [Tru64 UNIX]	If you specify section, the man command looks for the speci-
+  fied titles only in the directories for the specified sections. For all
+  number sections and all but one of the letter section identifiers, the com-
+  mand must find the title in a directory that corresponds to the specified
+  section. For example, when you enter the command man 3 printf, the command
+  looks for the printf title only in a man3 directory. The exception to this
+  rule is that if you specify the section as the number 1 or letter C, the
+  man command searches sections C, n, l, p, o, and 1 in that order.
+
+  [Tru64 UNIX]	A section identifier corresponds to a particular category of
+  information and, with the exception of C, to only one corresponding direc-
+  tory.	 In the following list, an asterisk (*) follows the section descrip-
+  tion when it applies to reference pages installed for the Tru64 UNIX pro-
+  duct:
+
+  0   Not used.
+
+  1   Reference pages for commands that all users can enter (*).
+
+  1m  Reference pages for commands related to system maintenance and opera-
+      tion (*, for Common Desktop Environment only).
+
+  2   Reference pages for system calls, or program interfaces to the operat-
+      ing system kernel (*).
+
+  3   Reference pages for program interfaces found in various libraries (*).
+
+  4   Reference pages for include files, program output files, and some sys-
+      tem files (*).
+
+  5   Reference pages on miscellaneous topics, such as text-processing macro
+      packages (*).
+
+  6   Reference pages for games.
+
+  7   Reference pages for device special files, related driver functions, and
+      networking support (*).
+
+  8   Reference pages for commands related to system maintenance and opera-
+      tion (*).
+
+  9   Reference pages used for writing device drivers.
+
+  C   Reference pages for commands.
+
+  F   Reference pages for files.
+
+  L   Reference pages for libraries.
+
+  l   Reference pages with local (site-specific) information.
+
+  n   New reference pages.
+
+  o   Old reference pages.
+
+  p   Public reference pages.
+
+
+
+
+
+
+				       Note
+
+	 Almost all implementations of a UNIX operating system use reference
+	 page sections 4, 5, and 7 to describe different types of files.
+	 However, the type of file described in each section varies from one
+	 implementation to another. For example, on ULTRIX and some other
+	 UNIX implementations, Section 4 describes device special files
+	 rather than include files, Section 5 describes include files rather
+	 than macro packages, and Section 7 describes macro packages rather
+	 than device special files.
+
+
+
+  [Tru64 UNIX]	You need to specify section only if either of the following
+  conditions is true:
+
+    o  The reference page is in section 0.
+
+    o  There are two reference pages with the same name (title) in different
+       sections, and the reference page you want to see is not the one that
+       the man command displays by default.
+
+  [Tru64 UNIX]	If you specify suffix along with section, the man command
+  looks only for the reference page that has both the specified section and
+  the specified suffix.	 You need to specify suffix in addition to section
+  only when both of the following conditions are true:
+
+    o  There is more than one reference page with the same title in the same
+       section
+
+    o  The reference page you want to see is not the one that the man command
+       displays by default.
+
+       For example, if both abort(3) and abort(3f) exist in a man3 directory,
+       the command man 3 abort displays abort(3). In this case, you would
+       need to enter the command man 3f abort to display abort(3f).
+
+  [Tru64 UNIX]	In the man command's default search path are two locations
+  intended for site-specific reference pages:
+
+    o  A section directory named manl (l for local) in the /usr/share/man
+       area
+
+    o  Section directories subordinate to the /usr/local/man area
+
+  [Tru64 UNIX]	One, both, or neither of these locations may exist on your
+  system.  They are created by the system administrator.
+
+  [Tru64 UNIX]	If you include the -l option in the man command, you specify
+  reference pages in the /usr/local/man area. If you include the l section
+  identifier, you specify reference pages in a manl section directory. For
+  example, the command man -l 5 print specifies print(5), whose file resides
+  in /usr/local/man/man5. The command man l print specifies print(1), whose
+  file resides in /usr/share/man/manl.
+
+  [Tru64 UNIX]	The man command's section and title arguments can be paired
+  so that a series of titles can be searched for in a section, or multiple
+  sections can be searched for one or more titles.
+
+
+  Changing the man Command's Search Path
+
+
+  [Tru64 UNIX]	By default, the man command checks for reference pages first
+  in the /usr/share/man area, then in the /usr/dt/share/man area, and finally
+  in the /usr/local/man area. You can change this behavior by supplying a
+  search path with the -M or -P option or by defining the MANPATH variable.
+  You can define the MANPATH variable on the command line or in a file, such
+  as your .profile file or .login file (if you want the path change to always
+  apply to your process). The search path is a colon-separated list of direc-
+  tories in which man expects to find the section subdirectories. The string
+  /usr/share/%L/man:/usr/dt/share/man:/usr/local/man represents the default
+  search path.	The default path includes %L, which is one of the following
+  locale directives that can be included in pathnames:
+
+  %L  The current locale name (for example, zh_CN.dechanzi@radical) that is
+      the value of the LC_MESSAGES environment variable
+
+  %P  The same as %L except that the @ suffix is removed if the locale name
+      has such a suffix (for example, zh_CN.dechanzi)
+
+      A few locales have one or more variants to support different collating
+      orders and these variants include an @ suffix. Users may assign a
+      locale variant name to the LANG or LC_ALL variable rather than specifi-
+      cally to the LC_COLLATE variable. In this case, the LC_MESSAGES vari-
+      able would inherit its value from the LANG or LC_ALL variable.  The %P
+      ensures that the man command does not expect to find a reference page
+      directory whose name includes the @ suffix.
+
+  %l  The language element of the locale name currently assigned to the
+      LC_MESSAGES variable (for example, zh)
+
+  %t  The territory element of the locale name currently assigned to the
+      LC_MESSAGES variable (for example, CN)
+
+  %c  The codeset element of the locale name currently assigned to the
+      LC_MESSAGES variable (for example, dechanzi)
+
+  %%  A single percent sign (%) character
+
+  [Tru64 UNIX]	The following search path example changes the order in which
+  reference page areas are searched. It also adds support for installations
+  of reference page translations within the CDE and site-specific areas:
+
+       % setenv MANPATH /usr/local/%L/man:/usr/dt/share/%L/man:/usr/share/%L/man
+
+  [Tru64 UNIX]	The following search path example adds the directory
+  /usr/share/doclib/annex/man:
+
+       % setenv MANPATH \
+       /usr/share/%L/man:/usr/dt/share/%L/man:/usr/share/doclib/annex/man
+
+  [Tru64 UNIX]	The /usr/share/doclib/annex/man area is the location of sup-
+  plementary reference pages for certain components, such as perl, which have
+  been obtained from the public domain or the Free Software Foundation.
+  Files installed under /usr/share/doclib/annex/man are not checked for
+  technical accuracy and coding by Compaq, nor are they maintained by Compaq.
+  These files are included for the convenience of customers without Internet
+  access. (In all cases, the same files can be downloaded over the Internet
+  from the contributing third-party site without charge.)
+
+  [Tru64 UNIX]	The /usr/share/doclib/annex/man directory is not part of the
+  default search path for the man and catman commands because of the higher
+  probability of processing problems, particularly for catman when producing
+  the whatis database. However, it is easy to adjust MANPATH on a user-
+  specific basis so that the installed reference pages are automatically
+  found by the man command.
+
+
+
+
+				     Note
+
+       [Tru64 UNIX]  Some users indirectly use the webman script, also con-
+       trolled by the MANPATH setting, to dynamically convert reference page
+       source files to HTML format for viewing in a web browser. These users
+       should be aware that the webman script may not convert to HTML all of
+       the man coding constructs that can be found in third-party reference
+       pages.
+
+  Enabling Codeset Conversion of Translated Reference Pages
+
+
+  [Tru64 UNIX]	The man command can automatically invoke the iconv utility to
+  perform codeset conversion of reference page files. This capability allows
+  you to install one set of reference pages to support locales that have the
+  same language and territory but different codesets, thereby reducing file
+  redundancy on the system. To enable codeset conversion, the following con-
+  ditions must be met:
+
+    o  The LC_MESSAGES locale category of the process running the man command
+       must be set to the locale name to which the reference pages will be
+       converted.
+
+    o  The underlying iconv utility must have a converter available for the
+       source and destination codesets. Refer to the iconv(1) reference page
+       for more information about codeset converters.
+
+    o  An appropriate locale mapping file must exist in the /usr/share direc-
+       tory.
+
+       A locale mapping file is a hidden file whose name has the format
+       .man_conv-locale_name, where locale_name is a complete locale name
+       that includes the name of the destination codeset.  The content of the
+       locale mapping file is the locale with the source codeset for which
+       translated manpages are available.
+
+  [Tru64 UNIX]	For example, after installing Tru64 UNIX subsets of software
+  and translated reference pages for Japanese, the eucJP_SJIS codeset con-
+  verter is installed in the /usr/lib/nls/loc/iconv directory, manpages for
+  the ja_JP.eucJP locale are installed in the /usr/share/ja_JP.eucJP/man
+  directory, and the .man_conv-ja_JP.SJIS file, which contains the
+  ja_JP.eucJP locale name, is moved to the /usr/share directory.  When users
+  set locale to ja_JP.SJIS and run the man command, it accesses the reference
+  pages in the /usr/share/ja_JP.eucJP/man directory and converts them to the
+  SJIS codeset for display.
+
+  Controlling the Pager Used by the man Command
+
+
+  [Tru64 UNIX]	By default, you can use the following keys to control and
+  navigate the reference page display:
+
+  Return or Enter
+      Advances the display by one line.
+
+  Space Bar
+      Advances the display by one screen.
+
+  u   Backs up the display by one half screen.
+
+  /string
+      Searches for the first instance of the specified string.
+
+  n   Searches for the next instance of the string specified by a preceding
+      /string directive.
+
+  q   Stops the display.
+
+  [Tru64 UNIX]	Refer to the more(1) reference page for a complete discussion
+  of pager subcommands.
+
+  [Tru64 UNIX]	By default, if the standard output is a teletype and the -
+  (single minus sign) option is not provided, man uses the more -svf command
+  to display formatted output. The -vf options are present in case the lp
+  nroff device driver generates special device control codes.
+
+  The following conditions also affect how the man command displays output:
+
+    o  If the MORE environment variable is defined, the man command uses the
+       defined command line in place of more -svf. If the -v and -f options
+       are missing, reference pages may not display properly.
+
+    o  If another pager is defined for the PAGER environment variable, the
+       man command uses that pager in place of the more command.
+
+  Formatted Reference Pages
+
+
+  [Tru64 UNIX]	A reference page area may or may not contain cat? directories
+  with formatted reference pages. Your system administrator can create these
+  directories and preformat reference page source files by using the catman
+  command (see catman(8)).  The man command checks to see if a preformatted
+  version of a reference page exists and, if it does and has a more recent
+  date than the corresponding source file, the command simply displays the
+  preformatted file using the more command or the defined pager.
+
+  [Tru64 UNIX]	If the specified reference page exists only as a source file,
+  the man command processes the file through a pipeline of commands.  This
+  pipeline includes:
+
+    o  [Tru64 UNIX]  If the file is compressed, the gunzip command to
+       uncompress the file
+
+    o  [Tru64 UNIX]  The tbl and neqn commands to preprocess source markup
+       for tables and equations
+
+    o  [Tru64 UNIX]  The nroff command to create formatted output
+
+    o  The more command or an alternative pager command (if defined) to
+       display the file
+
+       [Tru64 UNIX]  This last step does not occur if you specify the -
+       option on the man command line or if standard output is not a teletype
+       device (for example, if you pipe man command output to another command
+       or redirect it to a file).
+
+  [Tru64 UNIX]	When processing the reference page through nroff, the man
+  command specifies the -m option with the name of the macro package
+  described in man(5). Most Tru64 UNIX reference pages require not only this
+  macro package but also those described in rsml(5). The additional macro
+  packages are applied using .so entries in the reference page source files
+  and not through the nroff command line invoked by the man command.
+
+  [Tru64 UNIX]	The nroff command invoked by man also includes the -Tdevice
+  option. The value for device differs, depending on whether cat? directories
+  are present when the source file is formatted. When the appropriate cat?
+  directory is present and does not contain a formatted version of the refer-
+  ence page, the man command formats source by creating output for the nroff
+  lp device.  It also saves the formatted output in the cat? directory. If
+  the cat? directory is absent, the man command formats a reference page by
+  creating output for the nroff lpr device and does not save the formatted
+  output.
+
+  [Tru64 UNIX]	If a preformatted version of the reference page exists, but
+  the source version is more recent than the preformatted one, the man com-
+  mand does not use the preformatted file. The command formats the source
+  file and replaces the preformatted file with a new version.
+
+  [Tru64 UNIX]	When a specified reference page is not formatted or is being
+  formatted again, the man command displays an appropriate status message,
+  unless the standard output is not a teletype device. For example, the
+  status message is not displayed when output from the man command is
+  redirected to a file or piped to another command.
+
+  Reference Pages in Compressed Format
+
+
+  [Tru64 UNIX]	The man command supports reference page files in either
+  compressed or uncompressed format.  Compressed files can save a significant
+  amount of disk space in the file system where reference page subsets are
+  installed.  The reference page files for the operating system product are
+  installed as .gz files, which are compressed files created by the gzip com-
+  mand.
+
+  [Tru64 UNIX]	To display a compressed reference page, the man command tem-
+  porarily uncompresses the file by invoking the gunzip utility with the -c
+  option before invoking other commands to format (if necessary) and display
+  the reference page.
+
+  [Tru64 UNIX]	There are a number of requirements and restrictions that
+  apply to reference pages in compressed format. For more information, refer
+  to both the Reference Page Pointers section in this DESCRIPTION and the
+  RESTRICTIONS section.
+
+  Reference Page Pointers
+
+
+  [Tru64 UNIX]	Reference page directories can contain cross-reference
+  (pointer) reference pages.  Pointers, which invoke another reference page,
+  support those reference page files that contain multiple names in the NAME
+  section. The pointers allow users to invoke a reference page by specifying
+  any of the names in the NAME section, not only the name of the reference
+  page itself.
+
+  [Tru64 UNIX]	The man command supports different kinds of pointers, depend-
+  ing on whether reference page files are compressed or uncompressed, source
+  files, or preformatted files.
+
+  [Tru64 UNIX]	When reference page files are compressed (either source files
+  in man? directories or preformatted files in cat? directories), their asso-
+  ciated pointers must be implemented as hard links. Furthermore, each
+  pointer file name must end with the same compression extension as the file
+  that the pointer invokes. For example, if a reference page was compressed
+  by the gzip command, both the reference page file name and those of its
+  pointers, must end in .gz.
+
+  [Tru64 UNIX]	When uncompressed reference pages reside in cat? directories,
+  pointers are symbolic links to the files that the command displays.  When
+  uncompressed reference pages reside in man? directories, pointers are one-
+  line files.  The one line is an nroff include directive that has one of the
+  following formats:
+
+  .so man?/title2.section
+
+  .soman?/title2.section
+
+  [Tru64 UNIX]	In this case, the man command will reformat the title2 refer-
+  ence page, if necessary, and save the output in the file title2.section in
+  the appropriate cat? directory, assuming the cat? directory exists.
+
+RESTRICTIONS
+
+  This section contains restrictions that apply to the man command and the
+  files that it processes.
+
+  Pathnames in Uncompressed Pointer Files Must Start With man?
+
+
+  [Tru64 UNIX]	The man command changes directory to /usr/share/man,
+  /usr/dt/share/man, /usr/local/man, or to those directories specified with
+  the MANPATH variable, the -M option, or -P option.  Some reference pages
+  assume this change of directory.  Therefore, an attempt to format
+  uncompressed reference pages can fail if any .so directives specifying par-
+  tial pathnames do not start with man?/. For example, a cross-reference file
+  that includes the cat(1) reference page must specify man1 in the pathname:
+
+       .so man1/cat.1
+
+  Pointers Must Reside in Same Area as Related Files
+
+
+  [Tru64 UNIX]	The man command does not support cross-references to files
+  outside the current reference page area.  For example, a pointer that
+  resides in the /usr/local/man area cannot include or invoke a file that
+  resides in the /usr/share/man area.
+
+  Compressed Pointers Cannot Be Copied Across File Systems
+
+
+  [Tru64 UNIX]	A pointer associated with a compressed reference page is a
+  hard link, which is not a file but an alternative entry in a file system
+  table for a particular file. Hard links cannot be transferred from one file
+  system to another by using commands, such as cp, rcp, or mv. These commands
+  cannot determine which entries in a file system table point to the same
+  file, and so copy the file that is pointed to into the destination area
+  each time a hard link is encountered.	 Reference pages can have many asso-
+  ciated pointers. Therefore, an operation that moves directories of
+  compressed reference pages from one file system to another consumes far
+  more disk space in the destination area than was required in the source
+  area.
+
+  The cat? Directories May Not Exist
+
+
+  [Tru64 UNIX]	The .../man/cat? directories are not required. It is the
+  option of the system administrator to create these directories and prefor-
+  mat reference page source files using the catman command. If you are creat-
+  ing reference pages to be installed on multiple systems, be sure to supply
+  the files in source file format so they can reside in the man? directories.
+
+  Most Commands Cannot Work Directly on Compressed Files
+
+
+  [Tru64 UNIX]	Most reference page files are installed in compressed format,
+  which means that they cannot be processed directly by most commands. How-
+  ever, you can use the gunzip -c (or gzip -u -c) command to uncompress the
+  files and direct the result to standard output for additional processing.
+
+  [Tru64 UNIX]	The following examples search the man8 directory to find
+  reference pages that contain the string "install".
+
+  For POSIX (including Korn) and Bourne shells:
+
+
+       $ cd /usr/share/man/man8
+       $ for i in *.gz; do
+       > gunzip -c $i | grep 'install' >&- && echo "*** $i"
+       > gunzip -c $i | grep 'install'
+       > done
+
+  For C shell:
+
+       % cd /usr/share/man/man8
+       % foreach i (*.gz)
+       > gunzip -c $i | grep 'install' >/dev/null && echo "*** $i"
+       > gunzip -c $i | grep 'install'
+       > end
+
+  The whatis Database Is Required for Some Commands
+
+
+  [Tru64 UNIX]	The man -f (whatis) and man -k (apropos) commands fail unless
+  a whatis keyword database exists in one or more of the reference page areas
+  in the man command search path. A default whatis database is included in
+  the Tru64 UNIX product and can be optionally installed by your system
+  administrator.  This database is copied to the /usr/share/man directory and
+  includes entries for all the Tru64 UNIX reference page subsets that are
+  installed on the system.
+
+  [Tru64 UNIX]	The whatis database is not updated automatically when refer-
+  ence pages for layered products and other kinds of optional software are
+  installed.  Therefore, your system administrator should rebuild the whatis
+  database after installation of reference pages for optional products by
+  invoking catman with the -w option.
+
+  Changing Setting for lp Device Affects Preformatted Reference Pages
+
+
+  [Tru64 UNIX]	When cat? directories are present, source reference pages are
+  formatted for the nroff lp device rather than the nroff lpr device. The
+  nroff lp device driver supplied with Tru64 UNIX is set to generate output
+  for Compaq Equipment Corporation devices as specified in term(4).  If your
+  system administrator changes the supplied setting for the nroff lp device,
+  all preformatted reference page files created by man or catman should be
+  deleted and reformatted for the new setting.
+
+  Preformatted Reference Pages May Not Be Suitable for Printing
+
+
+  [Tru64 UNIX]	Preformatted reference pages may not be in a format suitable
+  for printing on your hardcopy printers because of embedded control charac-
+  ters that the printers do not recognize. To format a reference page for a
+  specific printer, move to the reference page directory and issue commands
+  such as the following:
+
+       % cd /usr/share/man
+       % gunzip -c man1/ls.1.gz |tbl |neqn |nroff -Tdevice -man | \
+       lpr -Pmyprinter
+
+  [Tru64 UNIX]	Replace the device argument with
+  /usr/share/lib/term/tabdevice, where device is the name of a device listed
+  in term(4). Specify lpr for device when producing output suitable for a
+  lineprinter. For example:
+
+       % cd /usr/share/man
+       % gunzip -c man1/ls.1.gz |tbl |neqn |nroff -Tlpr -man | \
+       lpr -Pmyprinter
+
+  [Tru64 UNIX]	When cat? directories are absent, the man command invokes
+  nroff by specifying the lpr device. In this case, you can usually pipe man
+  command output directly to a printer or redirect the output to a file that
+  you can print. For example:
+
+       % man 1 ls | lpr -Pmyprinter
+       % man 1 ls > ~harry/ls.1.txt
+
+  [Tru64 UNIX]	If the reference page has tables and the hardcopy device is
+  not capable of reverse line movements, the reference page may not print
+  properly.  There is no workaround for this problem.
+
+  Non-Compaq Terminals May Not Display Preformatted Files Correctly
+
+
+  [Tru64 UNIX]	Preformatted reference pages may not be in a format suitable
+  for display on non-Compaq terminals.	To format a reference page for a
+  specific terminal, move to the reference page directory and issue commands
+  such as the following:
+
+       % cd /usr/share/man
+       % gunzip -c man1/ls.1.gz |tbl |neqn |nroff -Tdevice -man -h | more -svf
+
+  [Tru64 UNIX]	Replace the device argument with
+  /usr/share/lib/term/tabdevice, where device is the name of a device listed
+  in term(4) and is one appropriate for your terminal.
+
+  Nondefault Tab Settings Can Corrupt man Command Displays
+
+
+  [Tru64 UNIX]	You can view reference pages only on devices for which
+  default tab boundaries are in effect.
+
+  [Tru64 UNIX]	To format reference page source files, the man and catman
+  commands invoke nroff with the -h option. This option causes nroff to sub-
+  stitute a a tab character for each string of one or more spaces that ends
+  on a default tab boundary. This operation reduces the number of characters
+  sent to devices for printing or display and also reduces the size of files
+  saved in the cat? directories.
+
+  [Tru64 UNIX]	Default tab boundaries are set after every eight character
+  positions. If nondefault tab boundaries have been set on the device or sys-
+  tem on which reference pages are displayed, the tab characters embedded by
+  nroff corrupt reference page displays with inappropriate sequences of
+  spaces. If you encounter this problem after using the man command, enter
+  the command tabs (to restore default tab boundaries on your display device)
+  and then enter the man command again.
+
+EXIT STATUS
+
+  The man command returns the following exit values:
+
+  0 (zero)
+      Success.
+
+  >0 (greater than zero)
+      Failure.
+
+
+
+
+
+
+EXAMPLES
+
+   1.  Display the printf(1) reference page:
+	    % man printf
+
+   2.  [Tru64 UNIX]  Display the printf(3) reference page:
+	    % man 3 printf
+
+   3.  [Tru64 UNIX]  Display the mgr_helper(8) reference page that you
+       created in a man8 section directory under $HOME/mgr:
+	    % man -M $HOME/mgr mgr_helper
+
+   4.  [Tru64 UNIX]  Display reference pages with the title locale in sec-
+       tions 1 and 4:
+	    % man 1 locale 4 locale
+
+   5.  Query the whatis database for reference pages whose NAME sections
+       include the string "core":
+	    % man -k core
+
+
+
+ENVIRONMENT VARIABLES
+
+  The following environment variables affect the behavior of the man command:
+
+  LANG
+      Provides a default value for other locale variables when these are
+      unset or null.
+
+  LC_ALL
+      If set to a non-empty string, overrides the values of all other locale
+      variables, including LANG.
+
+  LC_CTYPE
+      Determines the locale for the interpretation of byte sequences as char-
+      acters in text data.
+
+  LC_MESSAGES
+      Determines the locale used for text written to standard error or stan-
+      dard output.
+
+  NLSPATH
+      Determines the root directory for message catalogs containing informa-
+      tional, diagnostic, and other messages returned by the command. The
+      NLSPATH value, in combination with the setting of LC_MESSAGES, speci-
+      fies the directory in which a locale-specific message catalog is found.
+
+  PAGER
+      Determines the command (pager) that man invokes to filter output when
+      writing output to a terminal.
+
+      A default pager must exist and is implementation defined. On Tru64 UNIX
+      systems, the default pager used by man is the more command.
+
+FILES
+
+  /usr/share/man
+      [Tru64 UNIX]  Standard location for reference page section directories
+
+  /usr/share/man/man?
+      [Tru64 UNIX]  Section directories containing nroff source files for
+      reference pages
+
+  /usr/share/man/cat?
+      [Tru64 UNIX]  Section directories containing formatted files for refer-
+      ence pages
+
+  /usr/dt/share/man
+      [Tru64 UNIX]  Standard location for CDE reference page section direc-
+      tories
+
+  /usr/dt/share/man/man?
+      [Tru64 UNIX]  Section directories containing nroff source files for CDE
+      reference pages
+
+  /usr/dt/share/man/cat?
+      [Tru64 UNIX]  Section directories containing formatted files for CDE
+      reference pages
+
+  /usr/local/man
+      [Tru64 UNIX]  Location of section directories for site-specific, or
+      local, reference pages
+
+  /usr/local/man/man?
+      [Tru64 UNIX]  Section directories containing nroff source files for
+      local reference pages
+
+  /usr/local/man/cat?
+      [Tru64 UNIX]  Section directories containing formatted files for local
+      reference pages
+
+  /usr/share/man/whatis
+      [Tru64 UNIX]  The default whatis keyword database maintained by using
+      catman
+
+SEE ALSO
+
+  Commands: apropos(1), gzip(1), iconv(1), locale(1), more(1), neqn(1),
+  nroff(1), pcat(1), tbl(1), whatis(1), catman(8)
+
+  Files: man(5), rsml(5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

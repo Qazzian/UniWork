@@ -1,0 +1,36 @@
+/*
+   Carols Cabbage Rides Again, the C Version.
+   
+   
+*/
+
+
+struct item{
+	char name[80];
+	char units [12];
+	int in_stock, new_stock, unit_price;
+	struct item * variety, * other;
+};
+
+struct till{
+	int fiftie_pounds, twenty_pounds, ten_pounds, five_pounds;
+	int two_pounds, one_pounds, fifty_pence, twenty_pence;
+   int ten_pence, five_pence, two_pence,, one_pence;
+};
+
+/*
+	Makes a new node for the tree.
+*/
+struct item* makeNode(char the_name[], char the_units, int cur_stock, int price,
+					 		 struct item * the_variety, struct item * the_other){
+		  
+	struct item * tmp_ptr;
+	
+	tmp_ptr = malloc( sizeof (struct item) );
+	strcpy( tmp_ptr->name  , the_name  );
+	strcpy( tmp_ptr->units , the_units );
+	tmp_ptr->in_stock 	= cur_stock;
+	tmp_ptr->unit_price 	= price;
+	tmp_ptr->variety 		= the_variety;
+	tmp_ptr->other 		= the_other;
+}

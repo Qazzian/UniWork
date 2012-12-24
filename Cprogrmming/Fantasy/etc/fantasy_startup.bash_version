@@ -1,0 +1,7 @@
+FANTASY=/aber/ifw9/Cprogs/fantasy
+export FANTASY
+
+save_path=$PATH
+PATH=$FANTASY/bin:$PATH
+
+echo $PATH

@@ -1,0 +1,378 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE> </TITLE>
+</HEAD>
+<BODY>
+
+<FONT SIZE=2><P> </P>
+</FONT><B><P ALIGN="CENTER">Trees</P>
+</B><FONT SIZE=2><P ALIGN="CENTER"></P>
+<P>Inserting in a linked list is fast but searching is slow.</P>
+<P>Searching a sorted array is fast but inserting is slow.</P>
+
+<P>Can we combine these ideas so as to get the advantages of both? The answer is to use a <I>tree</I>.</P>
+<P> </P>
+<P>Consider the following words:</P>
+<P>&#9;Jean, Richard, Kay, Dennis, Fred, Edward, Xenia, Steve, Joyce, …..</P>
+
+<P>We can store them in a data structure like this:</P>
+
+<P><IMG SRC="Image30.gif" WIDTH=577 HEIGHT=269></P>
+
+<P>This is a tree.</P>
+<P>The circles on the tree are called <B>nodes</B>.</P>
+
+<P>The nodes immediately below (to the left and right of) a given node are called its <B>children</B>. The node immediately above a given node is called its <B>parent</B>.</P>
+
+<P>The (unique) node without a parent is called the root. A node with no children is called a <B>leaf</B>.</P>
+
+<P>Two children of the same parent are said to be <B>siblings</B>. Ancestor and descendant have the obvious meanings.</P>
+
+<P>The tree we have drawn is a binary search tree:- binary because no node can have more than two children and search because the nodes are ordered for convenience in searching.</P>
+
+<P>Notice that a node and its descendants themselves constitute a binary search tree, a sub-tree of the original tree.</P>
+
+<P>A binary tree is either empty or it consists of a node called the root together with two binary trees called the left sub-tree and the right sub-tree of the root.</P>
+
+<P>A binary search tree is a binary tree that is either empty or one in which each node contains a key that satisfies the following conditions:</P>
+
+<UL>
+<LI>All keys (if any) in the left sub-tree of the root precede the key in the root;</LI>
+<LI>The key in the root precedes all keys (if any) in its right sub-tree;</LI>
+<LI>The left and right sub-trees of the root are again binary search trees.</LI></UL>
+
+
+<P>We represent a binary search tree in Java as follows:</P>
+<B>
+<P>public class BinaryTree </P>
+<P>{</P>
+<P>    private Sortable data;    &#9;&#9;// Object stored in tree must be Sortable</P>
+<P>    private BinaryTree left;  &#9;&#9;// Points to left sub tree</P>
+<P>    private BinaryTree right; &#9;&#9;// Points to right sub tree</P>
+</B>
+<P>An empty tree has the value of data set to null. In my implementation <B>left</B> and <B>right</B> are also null until they are required. This complicates the code slightly but is more efficient on space.</P>
+
+<P>The operations we need on a tree are the usual ones for a list: locate, insert, delete and exist but we will also look at providing an enumeration interface to parse over the tree.</P>
+<P>On average, the first four can all be accomplished in O (<I>log <SUB>2</SUB> n</I>) operations, where <I>n </I>is the number of items. The iterate operation of course requires O(<I>n</I>) operations.</P>
+<P> </P>
+<P>import java.io.*; // required for Serializable</P>
+<P>import aber.util.Sortable;</P>
+<P>/**</P>
+<P> * A class that provides a simple representation of a binary tree.</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @version Last revision date: 08/11/98</P>
+<P> */</P>
+<P>public class BinaryTree implements Serializable</P>
+<P>{</P>
+<P>    private Sortable data;    // Object stored in tree must be Sortable</P>
+<P>    private BinaryTree left;  // Points to left sub tree</P>
+<P>    private BinaryTree right; // Points to right sub tree</P>
+<P>    /**</P>
+<P>     * Default Constructor creates an empty tree with no data</P>
+<P>     */</P>
+<P>    public BinaryTree ()</P>
+<P>    {</P>
+<P>        data = null;</P>
+<P>        left = null;</P>
+<P>        right = null;</P>
+<P>    }</P>
+<P>    /**</P>
+<P>     * Constructor sets data, left &amp; right are set to null</P>
+<P>     * @param theData the Sortable object to be inserted in node</P>
+<P>     */</P>
+<P>    public BinaryTree (Sortable theData)</P>
+<P>    {</P>
+<P>        data = theData;</P>
+<P>        left = null;</P>
+<P>        right = null;</P>
+<P>    }</P>
+<P>    /**</P>
+<P>     * Recursive method to insert theObject into tree.</P>
+<P>     * If tree is non-null then insert left, if less, right if greater.</P>
+<P>     * @param TheObject - Sortable object to be inserted into tree</P>
+<P>     * @exception TreeDuplicateKeyException thrown if key is not unique</P>
+<P>     */</P>
+<P>    public void insert(Sortable theObject) throws TreeDuplicateKeyException</P>
+<P>    {</P>
+<P>        if (data == null)</P>
+<P>        {</P>
+<P>            data = theObject;</P>
+<P>        }</P>
+<P>        else</P>
+<P>        {</P>
+<P>            // No duplicates keys are allowed in the tree</P>
+<P>            if (theObject.isEqual(data))</P>
+<P>            {</P>
+<P>                throw new TreeDuplicateKeyException();</P>
+<P>            }</P>
+
+<P>            // Do we insert to the left or the right?</P>
+<P>            if (theObject.lessThan(data))</P>
+<P>            {</P>
+<P>                if (left == null)</P>
+<P>                {</P>
+<P>                    // left subtree is null so create a new subtree</P>
+<P>                    left = new BinaryTree(theObject);</P>
+<P>                }</P>
+<P>                else</P>
+<P>                {</P>
+<P>                    // left subtree is not null so let's insert into it</P>
+<P>                    left.insert(theObject);</P>
+<P>                }</P>
+<P>            }</P>
+<P>            else</P>
+<P>            {</P>
+<P>                if (right == null)</P>
+<P>                {</P>
+<P>                    right = new BinaryTree(theObject);</P>
+<P>                }</P>
+<P>                else</P>
+<P>                {</P>
+<P>                    right.insert(theObject);</P>
+<P>                }</P>
+<P>            }</P>
+<P>        }</P>
+<P>    }</P>
+<P>    /**</P>
+<P>     * locate finds and returns the location of an object in the tree</P>
+<P>     * @param theObject Sortable object to be located</P>
+<P>     * @return Sortable the object found in the tree</P>
+<P>     * @exception TreeKeyNotFoundException thrown if key is not unique</P>
+<P>     */</P>
+<P>    public Sortable locate(Sortable theObject) throws TreeKeyNotFoundException</P>
+<P>    {</P>
+<P>        Sortable temp; // we'll set this to the object when we find it</P>
+<P>        if (data == null)</P>
+<P>        {</P>
+<P>            throw new TreeKeyNotFoundException("Coundn't find " + theObject);</P>
+<P>        }</P>
+<P>        if (theObject.isEqual(data))</P>
+<P>        {</P>
+<P>            temp = data; // we've found what we were looking for</P>
+<P>        }</P>
+<P>        else</P>
+<P>        {</P>
+<P>            // Do we insert to the left or the right?</P>
+<P>            if (theObject.lessThan(data))</P>
+<P>            {</P>
+<P>                if (left == null)</P>
+<P>                {</P>
+<P>                    throw new TreeKeyNotFoundException("Couldn't find " + theObject);</P>
+<P>                }</P>
+<P>                else</P>
+<P>                {</P>
+<P>                    temp = left.locate(theObject);</P>
+<P>                }</P>
+<P>            }</P>
+<P>            else  // we must go right</P>
+<P>            {</P>
+<P>                if (right == null)</P>
+<P>                {</P>
+<P>                    throw new TreeKeyNotFoundException("Couldn't find " + theObject);</P>
+<P>                }</P>
+<P>                else</P>
+<P>                {</P>
+<P>                    temp = right.locate(theObject);</P>
+<P>                }</P>
+<P>            }</P>
+<P>        }</P>
+<P>        return temp;</P>
+<P>    }</P>
+<P>    /*     * this one does work but it looks a mess with all the nulls */</P>
+<P>    public String toString()</P>
+<P>    {</P>
+<P>        //return ("\t " + left + "\t" + data + "\t" + right);</P>
+<P>    }</P>
+<P>    */</P>
+<P>    /**</P>
+<P>     * toString generates a formatted string representing the tree.</P>
+<P>     * @return String formatted string representing tree</P>
+<P>     */</P>
+<P>    public String toString()</P>
+<P>    {</P>
+<P>        String tempString = "";</P>
+<P>        // first we deal with the left subtree</P>
+<P>        if (left != null)</P>
+<P>        {</P>
+<P>            tempString += left;</P>
+<P>        }</P>
+<P>        // now add the data at this level</P>
+<P>        tempString += " " + data + " ";</P>
+<P>        // now we deal with the right subtree</P>
+<P>        if (right != null)</P>
+<P>        {</P>
+<P>            tempString += right;</P>
+<P>        }</P>
+<P>        return tempString;</P>
+<P>    }</P>
+<P>}</P>
+<B><P>Traversing a Tree</P>
+</B>
+<P>Suppose that we want to visit every node in a binary tree (not necessarily a search tree) in order to do something to each node, such as print it.  This is called <B>traversing</B> the tree.</P>
+
+<P>There are many possible orders in which we can do this - most of them are not useful.</P>
+
+<P>For a search tree, the most natural order is by order of increasing key:</P>
+<P></P>
+
+<P>&#9;&#9;</P>
+<P></P>
+<P>&#9;  &#9;&#9;</P>
+<P>&#9;&#9;</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&#9;&#9;</P>
+<P>This is called <B>in order</B> traversal.</P>
+
+<P></P>
+<P>&#9;&#9;</P>
+<P></P>
+<P>&#9;  &#9;&#9;</P>
+<P>&#9;&#9;</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>This is <B>pre-order</B> traversal.</P>
+
+<P>&#9;&#9;</P>
+<P></P>
+<P>&#9;  &#9;&#9;</P>
+<P>&#9;&#9;</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>This is <B>post order</B> traversal.</P>
+
+<P>All that changes in the code is the order of the three statements within iteration method</P>
+
+<B><P>In-Order&#9;&#9;Pre-order:&#9;&#9;Post-Order:</P>
+</B><P>left.inOrder()&#9;&#9;visit()&#9;&#9;&#9;left.postOrder();</P>
+<P>visit() &#9;&#9;&#9;left.preOrder();&#9;   &#9;right.postOrder();</P>
+<P>right.inOrder();&#9;&#9;right.preOrder();&#9;&#9;visit();</P>
+
+<P>Create a tree which models arithmetic expressions and then think about pre and post order traversal.</P>
+
+<P>Consider storing the data from a tree for later retrieval. Which traversal might you use?</P>
+
+<B><P>&nbsp;</P>
+<P>Deleting from a binary search tree (nasty!)</P>
+</B>
+<P>There are three cases to consider:</P>
+<B><P>1. the node to be deleted is a leaf - </B>trivial</P>
+<B><P>2. node to be deleted has only one sub-tree</B>  - again easy; make the parent of the node to be deleted  into the parent of the non-empty sub-tree itemize </P>
+<B><P><IMG SRC="Image31.gif" WIDTH=337 HEIGHT=229></P>
+</B>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P> </P>
+
+<P>&nbsp;</P>
+<B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>3. both left and right sub-trees of the node to be deleted are non-empty</B> – harder: call the right hand child of the node to be deleted <I>R</I>, its left hand child <I>L </I>and its parent <I>P</I>.</P>
+<P><IMG SRC="Image57.gif" WIDTH=297 HEIGHT=145></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Make <I>R</I> the child of <I>P</I> replacing node to be deleted and make <I>L</I> the leftmost descendant of <I>R</I>.</P>
+<P><IMG SRC="Image33.gif" WIDTH=399 HEIGHT=227></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>Complexity questions in dealing with binary search tree - O(?)</P>
+</B><P>the <B>level</B> of a node is the number of branches traversed in reaching it from the root; the root has level 0. </P>
+<P>the <B>height</B> of a tree is the maximum level number that occurs.</P>
+<P><IMG SRC="Image35.gif" WIDTH=373 HEIGHT=308></P>
+
+<P>The number of nodes in a complete binary tree of height h:</P>
+
+<P><IMG SRC="Image38.gif" WIDTH=522 HEIGHT=191></P>
+
+<P><IMG SRC="Image39.gif" WIDTH=40 HEIGHT=45></P>
+<P>Number of nodes = 1 + 2 + 4 + . . . . + 2<SUP>h</P>
+</SUP>
+<P>&nbsp;</P>
+<P>Which is the Geometric Progression, so applying the general formula</P>
+<P><IMG SRC="Image41.gif" WIDTH=53 HEIGHT=44><IMG SRC="Image42.gif" WIDTH=50 HEIGHT=20> (ie our progression is 2<SUP>0  </SUP>2<SUP>1  ……… </SUP>2<SUP>h</P>
+</SUP><P><IMG SRC="Image58.gif" WIDTH=193 HEIGHT=33></P>
+<P>Hence a tree of height h with n nodes is balanced if:</P>
+<P>A binary tree is <B>balanced</B> if there is no binary tree of lesser height that can have the same number of nodes. </P>
+
+<P>&nbsp;</P>
+<B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>If you have trouble with this (I did)– try some actual examples. Try trees with 7, 15 and 31 elements! </P>
+
+<P>Another way of looking at this equation is that in a balanced binary tree of n elements, the number of levels is about equal to log<SUB>2</SUB> n.</P>
+</B>
+<P>Balanced trees give the best search/insert times for a given number of nodes.</P>
+<P>The maximum number of nodes in a tree of height 1 is 3, so this tree is balanced.</P>
+<P><IMG SRC="Image36.gif" WIDTH=364 HEIGHT=182></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>But real life is not this tidy. </P>
+
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>To create a tree we normally create an empty tree, get the items one by one and insert them as they come using out insert method.</P>
+<P><IMG SRC="Image34.gif" WIDTH=179 HEIGHT=189></P>
+<P>initialise theTree&#9;&#9;&#9;&#9;</P>
+<P>while (still more data to come)</P>
+<P>{</P>
+<P>      insert object into tree</P>
+<P>      get next object</P>
+<P>}</P>
+
+<P>However this may build a badly shaped tree:</P>
+<B><P> It has about n levels – not log n</P>
+</B>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>For trees like this, the operation times are more like <I>n </I>than <I>log <SUB>2</SUB> n</I> because the trees are almost linear lists. </P>
+<P>There are algorithms for balancing binary search trees. They tend not to be very useful because we usually need to keep the tree balanced when we do insertions and deletions, rather than balance it once and for all.</P></FONT></BODY>
+</HTML>

@@ -1,0 +1,330 @@
+
+
+
+Standard C Library Functions                           string(3C)
+
+
+
+NAME
+     string, strcasecmp, strncasecmp, strcat,  strncat,  strlcat,
+     strchr,  strrchr, strcmp, strncmp, strcpy, strncpy, strlcpy,
+     strcspn, strspn, strdup, strlen,  strpbrk,  strstr,  strtok,
+     strtok_r,  - string operations
+
+SYNOPSIS
+     #include <strings.h>
+
+     int strcasecmp(const char *s1, const char *s2);
+
+     int strncasecmp(const char *s1, const char *s2, size_t n);
+
+     #include <string.h>
+
+     char *strcat(char *s1, const char *s2);
+
+     char *strncat(char *s1, const char *s2, size_t n);
+
+     size_t strlcat(char *dst, const char *src, size_t dstsize);
+
+     char *strchr(const char *s, int c);
+
+     char *strrchr(const char *s, int c);
+
+     int strcmp(const char *s1, const char *s2);
+
+     int strncmp(const char *s1, const char *s2, size_t n);
+
+     char *strcpy(char *s1, const char *s2);
+
+     char *strncpy(char *s1, const char *s2, size_t n);
+
+     size_t strlcpy(char *dst, const char *src, size_t dstsize);
+
+     size_t strcspn(const char *s1, const char *s2);
+
+     size_t strspn(const char *s1, const char *s2);
+
+     char *strdup(const char *s1);
+
+     size_t strlen(const char *s);
+
+     char *strpbrk(const char *s1, const char *s2);
+
+     char *strstr(const char *s1, const char *s2);
+
+     char *strtok(char *s1, const char *s2);
+
+     char *strtok_r(char *s1, const char *s2, char **lasts);
+
+
+
+
+
+SunOS 5.8           Last change: 26 Apr 1999                    1
+
+
+
+
+
+
+Standard C Library Functions                           string(3C)
+
+
+
+  ISO C++
+     #include <string.h>
+
+     const char *strchr(const char *s, int c);
+
+     const char *strpbrk(const char *s1, const char *s2);
+
+     const char *strrchr(const char *s, int c);
+
+     const char *strstr(const char *s1, const char *s2);
+
+     #include <cstring>
+
+     char *std::strchr(char *s, int c);
+
+     char *std::strpbrk(char *s1, const char *s2);
+
+     char *std::strrchr(char *s, int c);
+
+     char *std::strstr(char *s1, const char *s2);
+
+DESCRIPTION
+     The arguments s, s1, and s2  point  to  strings  (arrays  of
+     characters  terminated  by  a null character). The strcat(),
+     strncat(),  strlcat(),   strcpy(),   strncpy(),   strlcpy(),
+     strtok(),  and  strtok_r()  functions  all alter their first
+     argument.  These functions do not check for overflow of  the
+     array pointed to by the first argument.
+
+  strcasecmp(), strncasecmp()
+     The  strcasecmp()  and  strncasecmp()  functions  are  case-
+     insensitive  versions  of   strcmp()  and  strncmp() respec-
+     tively, described below.  They assume  the  ASCII  character
+     set  and ignore differences in case when comparing lower and
+     upper case characters.
+
+  strcat(), strncat(), strlcat()
+     The strcat() function appends a copy of string s2, including
+     the terminating null character, to the end of string s1. The
+     strncat()  function  appends  at  most  n  characters.  Each
+     returns a pointer to the null-terminated result. The initial
+     character of  s2 overrides the null character at the end  of
+     s1.
+
+     The  strlcat()  function   appends    at   most    (dstsize-
+     strlen(dst)-1)  characters  of src to dst (dstsize being the
+     size of the  string buffer dst). The  initial  character  of
+     src  overrides  the  null  character at  the end of dst. The
+     function returns the sum the of lengths of the  two  strings
+     strlen(dst)+strlen(src).
+      Buffer overflow can be checked as  follows:
+
+
+
+
+SunOS 5.8           Last change: 26 Apr 1999                    2
+
+
+
+
+
+
+Standard C Library Functions                           string(3C)
+
+
+
+     if (strlcat(dst, src, dstsize) >= dstsize)
+             return -1;
+
+  strchr(), strrchr()
+     The  strchr()  function  returns  a  pointer  to  the  first
+     occurrence  of  c  (converted  to a  char) in string s, or a
+     null pointer  if  c  does  not  occur  in  the  string.  The
+     strrchr()  function returns a pointer to the last occurrence
+     of c.  The null character terminating a string is considered
+     to be part of the string.
+
+  strcmp(), strncmp()
+     The strcmp() function  compares  two  strings  byte-by-byte,
+     according  to  the ordering of your machine's character set.
+     The function returns an integer greater than, equal  to,  or
+     less  than  0,  if   the  string pointed to by s1 is greater
+     than, equal to, or less than the string  pointed  to  by  s2
+     respectively.  The sign of a non-zero return value is deter-
+     mined  by the sign of the difference between the  values  of
+     the  first  pair  of  bytes that differ in the strings being
+     compared. The strncmp() function makes the  same  comparison
+     but  looks  at  a maximum of n bytes. Bytes following a null
+     byte are not compared.
+
+  strcpy(), strncpy(), strlcpy()
+     The strcpy() function copies string s2 to s1, including  the
+     terminating  null character, stopping after the null charac-
+     ter has been copied. The strncpy() function copies exactly n
+     bytes,  truncating  s2  or  adding  null characters to s1 if
+     necessary. The result will not  be  null-terminated  if  the
+     length of s2 is n or more.  Each function returns s1.
+
+     The strlcpy() function copies  at most dstsize-1  characters
+     (dstsize being the  size of the  string buffer dst) from src
+     to dst,  truncating src if necessary.  The  result is always
+     null-terminated.  The  function  returns strlen(src). Buffer
+     overflow can be checked as  follows:
+
+     if (strlcpy(dst, src, dstsize) >= dstsize)
+             return -1;
+
+  strcspn(), strspn()
+     The strcspn() function returns the  length  of  the  initial
+     segment  of  string  s1 that consists entirely of characters
+     not from string s2. The strspn() function returns the length
+     of  the  initial segment of string s1 that consists entirely
+     of characters from string s2.
+
+  strdup()
+     The strdup() function returns a pointer to a new string that
+     is  a  duplicate of the string pointed to by  s1.  The space
+     for the new string is obtained using malloc(3C).  If the new
+
+
+
+SunOS 5.8           Last change: 26 Apr 1999                    3
+
+
+
+
+
+
+Standard C Library Functions                           string(3C)
+
+
+
+     string cannot be created, a null pointer is returned.
+
+  strlen()
+     The strlen() function returns the number of bytes in s,  not
+     including the terminating null character.
+
+  strpbrk()
+     The strpbrk()  function  returns  a  pointer  to  the  first
+     occurrence  in string s1 of any character from string s2, or
+     a null pointer if no character from s2 exists in s1.
+
+  strstr()
+     The strstr() function locates the first  occurrence  of  the
+     string  s2  (excluding  the  terminating  null character) in
+     string s1 and returns a pointer to the located string, or  a
+     null  pointer if the string is not found. If  s2 points to a
+     string with zero length (that is, the string ""), the  func-
+     tion returns  s1.
+
+  strtok()
+     The strtok() function  can  be  used  to  break  the  string
+     pointed to by s1 into a sequence of tokens, each of which is
+     delimited by one or more characters from the string  pointed
+     to  by  s2. The strtok() function considers the string s1 to
+     consist of a sequence of zero or more text tokens  separated
+     by spans of one or more characters from the separator string
+     s2. The first call (with pointer  s1  specified)  returns  a
+     pointer  to the first character of the first token, and will
+     have written a null character into s1 immediately  following
+     the returned token. The function keeps track of its position
+     in the string between separate  calls,  so  that  subsequent
+     calls  (which  must  be made with the first argument being a
+     null pointer) will work through the  string  s1  immediately
+     following that token. In this way subsequent calls will work
+     through the string s1 until no tokens remain. The  separator
+     string  s2 may be different from call to call. When no token
+     remains in s1, a null pointer is returned.
+
+  strtok_r()
+     The  strtok_r()  function  has  the  same  functionality  as
+     strtok() except that a pointer to a string placeholder lasts
+     must be supplied by the caller.  The  lasts  pointer  is  to
+     keep  track of the next substring in which to search for the
+     next token.
+
+ATTRIBUTES
+     See attributes(5) for descriptions of the  following  attri-
+     butes:
+
+
+
+
+
+
+
+SunOS 5.8           Last change: 26 Apr 1999                    4
+
+
+
+
+
+
+Standard C Library Functions                           string(3C)
+
+
+
+     ____________________________________________________________
+    |       ATTRIBUTE TYPE        |       ATTRIBUTE VALUE       |
+    |_____________________________|_____________________________|
+    | MT-Level                    | See NOTES below.            |
+    |_____________________________|_____________________________|
+
+
+SEE ALSO
+     malloc(3C), setlocale(3C), strxfrm(3C), attributes(5)
+
+NOTES
+     The strtok_r() function is as proposed in the POSIX.4a Draft
+     #6 document, and is subject to change to be compliant to the
+     standard when it is accepted.
+
+     When compiling multithreaded applications,  the   _REENTRANT
+     flag  must be defined on the compile line.  This flag should
+     only be used in multithreaded applications.
+
+     All of these functions assume the default locale ``C.''  For
+     some  locales,  strxfrm()  should  be applied to the strings
+     before they are passed to the functions.
+
+     The strcasecmp(), strcat(),  strchr(),  strcmp(),  strcpy(),
+     strcspn(),  strdup(),  strlen(),  strncasecmp(),  strncat(),
+     strncmp(), strncpy(), strpbrk(),  strrchr(),  strspn(),  and
+     strstr()  functions  are  MT-Safe  in multithreaded applica-
+     tions.
+
+     The strtok() function is Unsafe  in  multithreaded  applica-
+     tions.  The strtok_r() function should be used instead.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SunOS 5.8           Last change: 26 Apr 1999                    5
+
+
+

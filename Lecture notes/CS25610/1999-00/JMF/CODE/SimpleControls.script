@@ -1,0 +1,31 @@
+Script started on Mon 20 Mar 2000 20:01:45 GMT
+moin% java SimpleControls
+Open log file: /dcs/dap/JAVA/JMF/jmf.log
+This player has 2 controls
+This control's toString gives: class com.sun.media.MediaEngine$2
+BitRateControl
+This control's toString gives: class com.sun.media.BasicJMD
+***UnknownControl***
+Listener called
+Another Event javax.media.TransitionEvent[source=com.sun.media.content.unknown.Handler@8725d2,previous=Unrealized,current=Realizing,target=Realized]
+Listener called
+Another Event javax.media.DurationUpdateEvent[source=com.sun.media.content.unknown.Handler@8725d2,duration=javax.media.Time@1db741c
+Listener called
+RealizeCompleteEvent
+Gain level set to 1.0
+Gain Control but no Visual Component
+Found Sun's JMD Control
+Listener called
+Another Event javax.media.TransitionEvent[source=com.sun.media.content.unknown.Handler@8725d2,previous=Realized,current=Prefetching,target=Started]
+Listener called
+Another Event javax.media.PrefetchCompleteEvent[source=com.sun.media.content.unknown.Handler@8725d2,previous=Prefetching,current=Prefetched,target=Started]
+Listener called
+Another Event javax.media.StartEvent[source=com.sun.media.content.unknown.Handler@8725d2,previous=Prefetched,current=Started,target=Started,mediaTime=javax.media.Time@645831,timeBaseTime=javax.media.Time@1da18f7]
+Listener called
+Another Event javax.media.EndOfMediaEvent[source=com.sun.media.content.unknown.Handler@8725d2,previous=Started,current=Prefetched,target=Prefetched,mediaTime=javax.media.Time@19d17a5]
+He pressed the button
+Listener called
+Another Event javax.media.ControllerClosedEvent[source=com.sun.media.content.unknown.Handler@8725d2]
+moin% ^Dexit
+
+script done on Mon 20 Mar 2000 20:03:38 GMT

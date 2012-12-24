@@ -1,0 +1,1017 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE> </TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT SIZE=4><P>AVL Trees</P>
+</B></FONT><FONT SIZE=2>
+<P>A tree which is nearly as good as a balanced tree for time complexity of the operations, and which we can keep balanced as insertions and deletions proceed, is the AVL tree.</P>
+
+<P>AVL trees are named after the Russian mathematicians G.M. Adel'son-Vel'skii and E.M. Landis, who discovered them in 1962. </P>
+
+<B><P>Definition</P>
+</B><P>An AVL tree is a binary search tree in which the heights of the left and right subtrees of the root differ by at most 1, and in which the left and right subtrees of the root are again AVL trees.</P>
+
+<B><P>Examples</P>
+</B><P>AVL&#9;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>[AVL but not balanced]</P>
+
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>non-AVL</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>In order to work out algorithms for inserting and deleting from an AVL tree, we need to associate a <B>balance factor</B> with each node.  This is <B>left high, right high</B> or <B>equal</B> depending on if the left subtree of the node has height greater than, less than or equal to that of the right subtree.</P>
+<P>Thus the node may be represented by:</P>
+
+<P>public class AvlNode</P>
+<P>{ &#9;</P>
+<P>public static final int LEFT_HIGH = -1;</P>
+<P>&#9;public static final int RIGHT_HIGH = 1;</P>
+<P>&#9;public static final int EQUAL_HIGH = 0;</P><DIR>
+<DIR>
+
+<P> </P>
+<P>Sortable data;</P>
+<P>int balanceFactor = EQUAL_HIGH;</P>
+<P>AvlNode left;</P>
+<P>AvlNode right;</P></DIR>
+</DIR>
+
+<P>}</P>
+
+<B><P>Examples</P>
+</B><P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>[Note that this demonstrates that AVL trees can be quite skewed]</P>
+
+<P>&nbsp;</P>
+<P>AVL Trees</P>
+<P></P>
+<B><P></P>
+
+</B><P></P>
+<B><P></P>
+</B><P></P>
+<P></P>
+<B>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Non-AVL Tree</P>
+<P></P>
+<B><P></P>
+
+</B><P></P>
+<B>
+</B><P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P><BR>
+</P>
+
+<P>Insertion into an AVL tree</P>
+</B><P>Consider constructing a binary search tree in the usual way from the sequence of keys 4, 7, 2, 8, 6, 1, 5, making each node with its balance factor as we go:</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>This shows that, in may cases, the binary search tree we build in the natural way will remain an AVL tree with no special action.</P>
+
+<P>The only case in which we need to do anything special is if the new node is added to a subtree of the root that is <B>taller</B> than the other subtree and the new node increases the height of the subtree.</P>
+<P><BR>
+<BR>
+</P>
+<P>In this case we have to carry out some balancing operations in the neighbourhood of the root.</P>
+
+<B><P>Insertion - Its effect on the balance factor</P>
+<DIR>
+<DIR>
+
+<P>Adding to left</P>
+</B></DIR>
+</DIR>
+</FONT>
+<P ALIGN="LEFT"><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=301>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>Previous</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>New</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>Taller</FONT></TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>LH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>leftbalance</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>EH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>LH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P><FONT FACE="Wingdings">&#252;</FONT>
+</FONT></TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>RH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>EH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+</TABLE>
+</P>
+
+<B><FONT SIZE=2><DIR>
+<DIR>
+
+<P>Adding to right</P>
+</B></DIR>
+</DIR>
+</FONT>
+<P ALIGN="LEFT"><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=301>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>Previous</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>New</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>Taller</FONT></TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>LH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>EH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>EH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>RH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P><FONT FACE="Wingdings">&#252;</FONT>
+</FONT></TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP">
+<FONT SIZE=2><P>RH</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">
+<FONT SIZE=2><P>rightbalance</FONT></TD>
+<TD WIDTH="32%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+</TABLE>
+</P>
+
+<FONT SIZE=2>
+<P>We consider the case of inserting into the right subtree (left is similar).</P>
+
+<P>There are two cases to consider;</P>
+
+<B><P>right hand subtree of root is right high after insertion</B>, e.g.</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>e.g.rform a left rotation:</P>
+
+<P>&nbsp;</P>
+<P>Perform a left rotation:</P>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>right hand subtree of root is left high after insertion</B>:</P>
+
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+
+<P>Double rotation</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+
+<UL>
+<LI>left hand child of right hand child of root becomes root.</LI>
+<LI>left hand child of new root becomes right hand child of old root.</LI></UL>
+
+
+<P>&nbsp;</P>
+<P>When you have found the node that is out of balance, if that node and the two nodes immediately below it are in a straight line then a single rotation is needed. If the nodes lie in a dog-leg pattern, then you need a double rotation to restore the balance.</P>
+
+<P>&nbsp;</P>
+<B><P>&nbsp;</P>
+</B><P></P>
+<P></P>
+<B><P></P>
+</B><P></P>
+<B>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</B><P></P>
+<P></P>
+<P></P>
+<B>
+<P></P>
+</B><P></P>
+<P></P>
+<B>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</B><P>Another example based on Glenn W. Rowe "An introduction to data structures &amp; algorithms with Java.</P>
+
+<P>Build an AVL tree using the following data: 10,&#9;20,&#9;30,&#9;25,&#9;27,&#9;7,&#9;4</P>
+<P>&#9;</P>
+
+<P></P>
+
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P></P>
+
+<P></P>
+
+<P></P>
+<P></P>
+
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><B><FONT SIZE=4><P>Applications of Binary Trees</P>
+</B></FONT><FONT SIZE=2>
+<B><P>Sorting</P>
+</B><P>We can sort data by reading it in, item by item, and constructing a binary search tree as we go.  When we have read all the data, we output it by doing in-order traversal of the tree.</P>
+<P>If there is any possibility that the data items are nearly sorted already, it is important to use an AVL tree.</P>
+
+<P>The time complexity of this method of sorting is, in general, O(<I>nlogn</I> + <I>n</I>) i.e. O(<I>nlogn</I>).</P>
+<P>(But O(<I>n</I><SUP>2</SUP>) if the input data is sorted).</P>
+
+<P>It can be used to advantage when used for sorting more data than will fit into RAM.</P>
+
+<B><P>Compiling arithmetic expressions</P>
+</B><P>We can represent an arithmetic expression such as:</P>
+
+<P>&#9;2 * (A + B) * (C + D) - X / Y</P>
+
+<P>as a binary tree, in which the leaves are constants or variables and the nodes are operations:</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>A post order traversal then gives us the order in which the operations have to be carried out.</P>
+
+<B><P>Searching operations maintaining an order</P>
+</B><P>Consider the problems of counting how many times each word appears in a piece of text.  Read the text and build a binary search tree in which the key is a word (order is alphabetical) and the data is the number of times it occurs.</P>
+
+<P>As we meet each word, we check to see whether it's already in the tree.  If it is, we add one to the data field; otherwise we insert a new node with the word as key and with the data field set to one.</P>
+
+<P>(No need to use an AVL tree because the words will not occur in alphabetical order).</P>
+
+<P>When we've finished, an in-order traversal allows us to print the words and their frequencies in alphabetical order.</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><B><FONT SIZE=4><P>B-trees</P>
+</B></FONT><FONT SIZE=2><P>A B-tree of order <I>m</I> is an m-way tree (i.e. a tree where each node may have up to <I>m</I> children) in which:</P>
+
+<UL>
+<LI>the number of keys in each non-leaf node is one less than the number of its children and these keys partition the keys in the children in the fashion of a search tree;</LI>
+<LI>all leaves are on the same level;</LI>
+<LI>all non-leaf nodes except the root have at least [<I>m </I>/ 2] children;</LI>
+<LI>the root may have as few as two children or more if the tree consists of the root alone;</LI>
+<LI>a leaf node does not contain more than <I>m</I> - 1 keys.</LI></UL>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>A B-tree of order 5 containing 26 items</P>
+<B>
+<P>Constructing a B-tree:</P>
+</B>
+<P>Suppose we start with an empty B-tree and keys arrive in the following order:</P>
+
+<P>1  12  8  2  25  5  14  28  17  7  52</P>
+<P>16  48  68  3  26  29  53  55  45</P>
+
+<P>We want to construct a B-tree of order 5.</P>
+<P>The first four items go into the root.</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>To put the fifth item in the root would violate (iv).  When 25 arrives, therefore, pick the middle key to make a new root.</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>6, 14, 28 get added to the leaf nodes.</P>
+
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>adding 17 to a leaf node would over-fill it so we take the middle key, promote it to the root and split the leaf.</P>
+
+<P>&nbsp;</P>
+<P></P>
+<P><HR WIDTH="0%" SIZE=1></P>
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>7, 52, 16, 48 get added to the leaf nodes.</P>
+
+<P></P>
+
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Adding 68 causes us to split the right most leaf and 3 to split the left most; 26, 29, 53, 55 then go into the leaves.</P>
+
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Adding 45 causes a split of </P>
+
+<P>&nbsp;</P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>and promoting 28 to the root then causes the root to split.</P>
+
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Maximum number of items in a B-tree of order m and height h:</P>
+</FONT>
+<P ALIGN="LEFT"><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=217>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<FONT SIZE=2><P>root</FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<I><FONT SIZE=2><P>m</I> - 1</FONT></TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<FONT SIZE=2><P>level 1</FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<I><FONT SIZE=2><P>m</I>(<I>m</I> - 1)</FONT></TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<FONT SIZE=2><P>level 2</FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<I><FONT SIZE=2><P>m</I><SUP>2</SUP>(<I>m</I> - 1)</FONT></TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<FONT SIZE=2><P>.  .  .</FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<FONT SIZE=2><P>level h</FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<I><FONT SIZE=2><P>m</I><SUP>h</SUP>(<I>m</I> - 1)</FONT></TD>
+</TR>
+</TABLE>
+</P>
+
+<FONT SIZE=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Total number of items is</P>
+
+<P>&nbsp;</P>
+<P>&#9;(1 + <I>m</I> + <I>m</I><SUP>2</SUP> + <I>m</I><SUP>3</SUP> + …<I>mh</I>)(<I>m</I> - 1)</P>
+
+<P>&nbsp;</P>
+<P>=  <IMG SRC="Image52.gif" WIDTH=57 HEIGHT=44>(m - 1) = m<SUP>h+1</SUP> - 1</P>
+
+<P>When <I>m</I> = 5 and <I>h</I> = 2 this gives 5<SUP>3</SUP> - 1 = 124.</P>
+
+<B><P>Why use B-trees</P>
+</B>
+<P>When searching tables held on disc, the cost of each disc transfer is high but doesn't depend much on the amount of data transferred.</P>
+
+<P>If we use a B-tree of order 101, say, we can transfer each node in one disc read operation.</P>
+
+<P>A B-tree of order 101 and height 3 can hold 101<SUP>4</SUP> - 1 items (approximately 100 million) and any item can be accessed with 3 disc reads (assuming we hold the root in memory).</P>
+
+<P>&nbsp;</P>
+</FONT><B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<FONT SIZE=4><P>General Trees to Binary Trees</P>
+</FONT><FONT SIZE=2>
+</B><P>&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Conversion</P>
+</B>
+<OL>
+
+<LI>Link all on the same level via right links (brothers);</LI>
+
+<LI>Link generations (father to eldest son) via left links</LI></OL>
+
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><B><FONT SIZE=4><P>Graphs</P>
+</B></FONT><FONT SIZE=2>
+<P>Graphs are collections of points (<I>vertices</I>) some pairs of which may be connected by <I>edges</I>. Some graphs are <I>directed</I> (that is we have a direction on the edges) some not.</P>
+
+<P>We say that 2 vertices are <I>adjacent</I> if they have an edge between them. A <I>path</I> is a sequence of edges in which each vertex is adjacent to the next one. Two points are <I>connected</I> if there is a path between them. Sometimes a graph consists of separate <I>connected components </I>(a set of connected points). A <I>cycle</I> is a path that begins and ends at the same vertex and a simple cycle has no vertex (except the end visited more than once.</P>
+
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+<P></P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>The graph above is an undirected graph with 2 componenets. Formally we could say about the graph, G </P>
+<DIR>
+<DIR>
+
+<P>G= (V,E)</P>
+<P>V= {A,B,C,D,E,F}&#9;&#9;</P>
+<P>E={ (A,B), (B,C), (B,D), (C,D), (E,F) }&#9;&#9;//unordered pairs for undirected graphs</P>
+
+<P>(A,B,C,D) is a path&#9;(B,C,D,B) is a cycle</P>
+</DIR>
+</DIR>
+
+<P>We can talk about the <I>adjacency set</I> for a vertex and this leads us to an implementation of graphs. The graph above could be stored as a 2 dimensional array (this is often called an <I>adjacency matrix</I>):</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>A&#9;B&#9;C&#9;D&#9;E&#9;F</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=308>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>A</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>B</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>C</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>D</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>E</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>F</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="12%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<FONT SIZE=2>
+<P>&nbsp;</P>
+<P>Notice that the array is symmetric because this is an undirected graph (en edge from A to B means that there’s one from B to A too). This is not the case for a directed graph. By summing a row we can find the <I>degree</I> of a vertex (number of things it’s adjacent to). The most obvious way to implement this in java is as an array, but you could use the class BitSet to represent each row. A BitSet is an ‘array’ of bits that are either set or cleared.</P>
+<P>&#9;</P>
+<P>&#9;BitSet B = new BitSet(8); &#9;&#9;//creates a Bit Set of size 8 initially cleared (0)</P>
+<P>&#9;B.set(4);&#9;&#9;&#9;&#9;//sets bit 4 to 1</P>
+<P>&#9;boolean isSet=B.get(4);&#9;&#9;//checks to see if bit 4 is set</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>In a graph of any size you will find that most of the elements in the adjacency matrix are 0, so often a linked representation is used:</P>
+
+<P></P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P></P></FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=194>
+<TR><TD WIDTH="26%" VALIGN="TOP">
+<FONT SIZE=2><P><HR ALIGN="RIGHT" WIDTH="7%" SIZE=1>vertex</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>degree</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>adjacency list</FONT></TD>
+</TR>
+<TR><TD WIDTH="26%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>2</FONT></TD>
+</TR>
+<TR><TD WIDTH="26%" VALIGN="TOP">
+<FONT SIZE=2><P><HR ALIGN="RIGHT" WIDTH="7%" SIZE=1>2</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>1</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>3</FONT></TD>
+</TR>
+<TR><TD WIDTH="26%" VALIGN="TOP">
+<FONT SIZE=2><P>3</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>0</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>-</FONT></TD>
+</TR>
+<TR><TD WIDTH="26%" VALIGN="TOP">
+<FONT SIZE=2><P>4</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>2</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>1   3</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<FONT SIZE=2><P><HR ALIGN="RIGHT" WIDTH="7%" SIZE=1></P>
+
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>Searching/Traversing a Graph</P>
+</B>
+<P>There are a few things we must bear in mind before we even consider this. The most important is that if we start at some vertex, other vertices may not be commected to it. The second is that we have to be careful about going through the same node more than once - we don’t want to get caught in a cycle.</P>
+
+<P>Here’s a first (trivial) attempt from Standish:</P>
+
+<P>&#9;void graphSearch(G,v)&#9;&#9;&#9;&#9;&#9;//go through G starting at v</P>
+<P>&#9;&#9;for each w in V that is accessable from v</P>
+<P>&#9;&#9;&#9;visit (w)</P>
+
+<P>OK, so that’s pretty obvious. Let’s make it better. </P>
+
+<P>First, add to each vertex an attribute that marks if we’ve visited that vertex to begin with all of these will be false. </P>
+
+<P>Then for a vertex v mark it as visited and then go through its adjacency list and place each of those vertices in some kind of container C. Now, one by one take an element out of C, mark it as visited and enter all the unvisited vertices on its adjacency list into C. Keep going until C is empty.</P>
+
+<P>&#9;void graphSearch(G,v)</P>
+<P>&#9;&#9;for each x in V</P>
+<P>&#9;&#9;&#9;x.visited=false</P>
+
+<P>&#9;&#9;put v into C</P>
+<P>&#9;&#9;while C is non-empty</P>
+<P>&#9;&#9;&#9;get next thing from C – call it x</P>
+<P>&#9;&#9;&#9;if !x.visited</P>
+<P>&#9;&#9;&#9;&#9;visit (x)</P>
+<P>&#9;&#9;&#9;&#9;x.visited=true</P>
+<P>&#9;&#9;&#9;&#9;for each w in x’s adjacency matrix</P>
+<P>&#9;&#9;&#9;&#9;&#9;if !w.visited</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;put w into C</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Now, what is C?. It can be a stack or a queue. Here’s an example assuming the graph is actually a tree:</P>
+<P></P>
+<P>&#9;</P>
+<P></P>
+
+<P></P>
+<P></P>
+
+<P></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>Suppose C is a stack </B>and we start at 1. First mark all as unvisited and then put 1 in the stack</P>
+
+<P>C:&#9;1</P>
+<P>pop 1 and visit it and then put the ones adjacent to 1 in the stack C (actually put in in other order)</P>
+<P>C:&#9;2 3 4</P>
+<P>pop 2 and visit it and then put ones adjacent to it in stack C</P>
+<P>C:&#9;5 6 3 4</P>
+<P>pop 5 and visit it and nothing to put in stack C</P>
+<P>C:&#9;6 3 4 </P>
+<P>pop 6 and visit it and nothing to push</P>
+<P>C:&#9;3 4</P>
+<P>etc etc</P>
+
+<P>This turns out to be a <I>depth first search 1,2,5,6,3,4,7,8</P>
+</I>
+<B><P>Suppose C is a queue.</P>
+</B>
+<P>C:&#9;1</P>
+<P>remove 1 and then put 2 3 4 in C</P>
+<P>C:&#9;2 3 4</P>
+<P>remove 2 visit and add 5 and 6</P>
+<P>C:&#9;3 4 5 6</P>
+<P>remove 3 visit</P>
+<P>remove 4 visit and add 7 8</P>
+<P>C:&#9;5 6 7 8</P>
+
+<P>This turns out to be <I>breadth first search 1,2,3,4,5,6,7,8</P>
+</I>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

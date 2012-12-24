@@ -1,0 +1,423 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; I) [Netscape]">
+   <title>Languages for Real-Time</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<hr WIDTH="100%">
+<p><b>LANGUAGES FOR PROGRAMMING REAL-TIME SYSTEMS</b>
+<p>Facilities needed (but not always available!):
+<ul>
+<li>
+Support for Concurrency (and IPC)</li>
+
+<li>
+Support for Interrupt Handling</li>
+
+<li>
+Re-entrancy -- many copies of the same task can run concurrently (e.g.\
+operating on different data, at different addresses).</li>
+
+<ul>
+<li>
+It must preserve registers <i>and local variables</i> on the stack.</li>
+
+<li>
+A simple example is a procedure that is interrupted, and the same procedure
+runs in the interrupt service routine.</li>
+</ul>
+
+<li>
+Code/data separation -- so that code can be placed in ROM, data in RAM.</li>
+
+<li>
+Access to registers in interface devices etc.</li>
+
+<li>
+Error handling <i>and recovery</i>.</li>
+</ul>
+THE LANGUAGES:
+<ul>
+<li>
+Ada -- designed for programming real-time embedded systems.</li>
+
+<li>
+`C'and C++ -- not designed for it, but widely used for it.</li>
+
+<li>
+JAVA: aimed at embedded systems but not (yet?) well suited to real-time
+(but see later...).</li>
+
+<li>
+`occam' -- designed for writing concurrent <i>and multi-processor</i> programs.</li>
+
+<li>
+Modula-2 -- a respectable, modern, concurrent language. Very good, but
+hasn't caught on widely.</li>
+
+<li>
+Coral 66 -- was the mandatory M.O.D. language (before Ada). Little to commend
+it.</li>
+
+<li>
+Assembler -- you can do <i>anything</i> in assembler but it takes a long
+time to write, even longer to debug, and is dreadful to maintain.</li>
+
+<li>
+RTL/2 -- one of the first `real-time' languages. Designed by John Barnes
+(of Alsys fame). Was a standard in the UK process control industry.</li>
+
+<li>
+Pascal (extended) e.g. Hewlett Packard 64000 Pascal.</li>
+</ul>
+CONCURRENCY AND
+<br>INTER-PROCESS-COMMUNICATION
+<p>Language features (ideally) needed:
+<ul>
+<li>
+Allow writing of programs that contain tasks, or processes, that will run
+concurrently.</li>
+
+<li>
+Allow the tasks to inter-communicate safely and allow selection between
+potential inputs (and outputs?).</li>
+
+<li>
+Allow the tasks to be distributed across multiple processors.</li>
+
+<li>
+Allow them to be scheduled as required.</li>
+</ul>
+Are they provided?
+<dl>
+<dt>
+Ada:</dt>
+
+<dd>
+tasks, IPC (synchronous), multi-processor (?), can use kernel.</dd>
+
+<dt>
+occam:</dt>
+
+<dd>
+processes, IPC (synchronous), multi-processor, almost no scheduling control.</dd>
+
+<dt>
+`C':</dt>
+
+<dd>
+concurrency via (external) kernel only: write `functions' that can be scheduled
+concurrently. IPC via `system calls' to the kernel. Multiprocessor -- yes,
+but entirely `do-it-yourself'.</dd>
+</dl>
+Note that elements for ASYNCHRONOUS IPC can be written in languages that
+provide facilities for SYNCHRONOUS IPC.
+<p>CONCURRENCY AND IPC IN ADA.
+<ul>
+<li>
+Ada `tasks' -- like packages, but run concurrently.</li>
+
+<li>
+IPC -- uses `rendezvous' (synchronous) `entry', `accept', `select' etc.</li>
+</ul>
+CONCURRENCY AND IPC IN C
+<ul>
+<li>
+(void) ...but see above.</li>
+</ul>
+CONCURRENCY AND IPC IN occam.
+<ul>
+<li>
+occam procedures are processes -- can run sequentially, concurrently (on
+one processor) or in parallel (on more than 1 processor).</li>
+
+<li>
+even single lines of code in occam are processes.</li>
+
+<li>
+IPC is via synchronous message passing on `CHANNELS' that can connect `parallel'
+(concurrent) processes.</li>
+</ul>
+----------------------------------------------------------
+<p><tt>... PROC this.proc ()</tt>
+<p><tt>... PROC that.proc ()</tt>
+<p><tt>... PROC the.other.proc ()</tt>
+<p><tt>SEQ</tt>
+<ul><tt>the.other.proc () -- runs first. Then...</tt>
+<p><tt>PAR</tt>
+<ul><tt>this.proc () -- these two processes ...</tt>
+<p><tt>that.proc () -- ..run concurrently</tt>
+<ul>
+<ul><tt>-- .. and could be PLACEd</tt>
+<p><tt>-- ..on different processors.</tt></ul>
+</ul>
+</ul>
+</ul>
+--------------------------------------------------------------
+<p>-- and can do things like:
+<ul><tt>SEQ</tt>
+<ul><tt>PAR</tt>
+<ul><tt>x := 10</tt>
+<p><tt>y := 20 -- x, y, z, initialised in `parallel'</tt></ul>
+<tt>z := 30 p := (x + y + z) -- and then added.</tt></ul>
+</ul>
+----------------------------------------------------------------
+<p>occam channel input and output:--
+<p><tt>SEQ</tt>
+<ul><tt>this.channel ? variable.name -- channel input</tt>
+<p><tt>that.channel ! variable.name -- channel output</tt></ul>
+Can also take input on whichever of a group of channels is ready first
+(like `select' in Ada):
+<p><tt>ALT -- There is a PRI ALT also (ascribes priority)</tt>
+<ul><tt>this.channel ? variable</tt>
+<p><tt>... consequent actions</tt>
+<p><tt>that.channel ? variable</tt>
+<p><tt>... consequent actions</tt></ul>
+...but there is no equivalent of ALT for outputs.
+<p>INTERRUPT HANDLING Facilities (ideally) provided by HLL:
+<ul>
+<li>
+specify sections of code (procedures, packages, functions etc.\ as interrupt
+service routines).</li>
+
+<li>
+set up the interrupt vector table in the processor.</li>
+
+<li>
+access processor status registers.</li>
+
+<li>
+access interface device status registers.</li>
+
+<li>
+associate specific tasks with specific interrupt sources.</li>
+</ul>
+CODE/DATA SEPARATION
+<ul>
+<li>
+Need the ability to specify the addresses at which ROM and RAM are situated
+in the target system. (Addresses can be specified during linking, but the
+compiler must separate the code and data.)</li>
+</ul>
+
+<ul>
+<li>
+Available in Ada, occam, C.</li>
+</ul>
+HARDWARE ACCESS Must be able to: --
+<ul>
+<li>
+specify absolute addresses for variables.</li>
+
+<li>
+manipulate single bits or specified groups of bits.</li>
+
+<li>
+Available in Ada, occam, C.</li>
+</ul>
+INTERRUPT HANDLING IN ADA.
+<ul>
+<li>
+Can associate an interrupt source with an `entry' (rendezvous).</li>
+
+<li>
+Interrupt routine written as an Ada `task' and can be given high priority.</li>
+
+<li>
+Improved in Ada 95.</li>
+</ul>
+INTERRUPT HANDLING IN occam.
+<ul>
+<li>
+...well, errr ...</li>
+
+<li>
+No conventional interrupt facilities, but can associate an external event
+with an input to (PRI) ALT and consequently cause a handler process to
+run.</li>
+
+<li>
+What's the problem? These `interrupts' can never interrupt anything --
+simply allow waiting processes to run. Also, with a transputer, can only
+have one identifiable interrupt source per processor.</li>
+
+<li>
+In consolation, the waiting process can be run at high priority (but can
+lead to implementation and scheduling problems on the transputer).</li>
+</ul>
+INTERRUPT HANDLING IN C
+<ul>
+<li>
+Perfectly possible but not much explicit help from the language.</li>
+</ul>
+ERROR HANDLING AND RECOVERY. Embedded systems (usually) cannot simply stop
+when a run-time error occurs.
+<ul>
+<li>
+The error must be detected and code run to allow the system to recover
+from the error ...</li>
+
+<li>
+...or, in certain cases, to shut down gracefully.</li>
+</ul>
+What is needed? The ability to: --
+<ul>
+<li>
+detect all foreseen (and unforeseen!) errors.</li>
+
+<li>
+associate error handling code with a specific occurrence of an error.</li>
+
+<li>
+use `general-purpose' error handling code irrespective of where the error
+occurred (maybe deep inside a nested construct).</li>
+</ul>
+Compilers can provide the above facilities but the programmer must always
+be aware of situations where illegal values can arise, and take steps to
+handle the errors safely.
+<p>ERROR HANDLING IN ADA.
+<ul>
+<li>
+Ada can find many potential errors at compile time.</li>
+
+<li>
+An exception handler can handle errors (of the relevant type) wherever
+they occur.</li>
+
+<li>
+How to detect where in the code the error has occurred?</li>
+
+<li>
+CASE has WHEN OTHERS -- for unforeseen values.</li>
+</ul>
+ERROR HANDLING IN occam.
+<ul>
+<li>
+No escape from nested constructs -- other than by explicitly exiting each
+layer.</li>
+
+<li>
+No `otherwise' in CASE statements -- invalid input causes run-time error.</li>
+
+<li>
+Run-time errors cause the offending process to stop (probably deadlocking
+the entire system).</li>
+</ul>
+ERROR HANDLING IN C.
+<ul>
+<li>
+`switch' (similar to `CASE') has a default case.</li>
+
+<li>
+Other error handling has to be written explicity and completely (`break',`goto'.)</li>
+</ul>
+ASSEMBLY LANGUAGE
+<p>Up to the late 70's most real-time systems were programmed in assembler
+(because there wasn't much option). Now HLL compilers have appropriate
+facilities and produce efficient and reasonably small object code (even
+Ada!).
+<ul>
+<li>
+`Correct' HLL code is quicker to develop than `correct' assembler (estimated
+between 3 &amp;10 times faster).</li>
+
+<li>
+HLL code is more portable.</li>
+</ul>
+Use of assembler possibly justified where: --
+<ul>
+<li>
+a fragment of code <i>is proved to require</i> the utmost optimisation
+(either space or speed).</li>
+
+<li>
+intricate bit-manipulation is required and is cumbersome in HLL,</li>
+
+<li>
+access to interface device registers is cumbersome in HLL,</li>
+
+<li>
+access to processor (status) registers is required,</li>
+
+<li>
+where there are compiler bugs to avoid,</li>
+
+<li>
+there is no compiler available for the processor being used (e.g. A single-chip
+micro-controller, but C compilers are available for most popular micro-controllers.)</li>
+</ul>
+It is also used occasionally in VERY critical code because small sections
+of sequential assembly language are relatively easy to verify and are immune
+from compiler and (most) other software tool faults.
+<p><b>JAVA and REAL TIME</b>
+<p>Java was developed with embedded systems in mind:
+<ul>
+<li>
+portability</li>
+
+<li>
+concurrency via threads</li>
+</ul>
+but...
+<ul>
+<li>
+garbage collection causes major problems</li>
+
+<li>
+thread scheduling is not easily controllable</li>
+
+<li>
+predictable response to asynchronous events is not readily achievable</li>
+
+<li>
+etc...</li>
+</ul>
+So.. there is an industry led exercise to produce the "Real-Time Specification
+for Java" (RTSJ).&nbsp; This is proposing a specification that covers the
+following enhancements to Java:
+<br>&nbsp;
+<ul>
+<li>
+Thread scheduling that is under the control of the application designer,
+via a separate kernel or other mechanism.</li>
+
+<li>
+Memory management implemented in such a way that Garbage Collection can
+be performed in a way specified by the application designer, with particular
+reference to ensuring that the thread execution is not disturbed in unexpected
+ways.</li>
+
+<li>
+Minimisation of priority inversion (where a low priority thread can keep
+a high priority one waiting.</li>
+
+<li>
+Classes that support asynchronous event handling.</li>
+
+<li>
+Asynchronous transfer of control from one thread to another.</li>
+
+<li>
+Asynchronous thread termination. (Related to exception propagation from&nbsp;
+nested code.)</li>
+
+<li>
+Physical address access: byte access at specific memory addresses.</li>
+</ul>
+
+<p><b>FURTHER READING</b>
+<p>The book by Burns and Wellings (see <a href="http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/CS23110/books.htm">book
+list</a>) is <i>highly recommended</i>.&nbsp; It includes Java.
+<p>See also "The Real-Time Java Specification" by Bollela et. al.&nbsp;
+Pub: Addison Wesley.
+<p>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p><i>Jem Rowland 20/3/01</i>
+<p>
+<hr WIDTH="100%">
+</body>
+</html>

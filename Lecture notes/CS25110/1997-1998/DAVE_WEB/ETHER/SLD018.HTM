@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+ <TITLE>Collision Backoff and Retransmission</TITLE> 
+</HEAD>
+<BODY>
+<CENTER>
+
+<P>
+ <TABLE BORDER=5> <TD><IMG SRC="sld018.jpg"></TD></TABLE>
+</P>
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld017.htm"><IMG SRC="p2hprev.gif" ALIGN=BOTTOM ALT="Previous slide" BORDER="0">
+</A>  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld019.htm"><IMG SRC="p2hnext.gif" ALIGN=BOTTOM ALT="Next slide" BORDER="0"></A>
+  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "index.htm">
+<IMG SRC="p2hup.gif" ALIGN=BOTTOM ALT="Back to the first slide" BORDER="0"></A> 
+ </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "tsld018.htm">
+<IMG SRC="p2htext.gif" ALIGN=BOTTOM ALT="View text version" BORDER="0"></A>
+ </TD>
+</TABLE>
+</CENTER>
+<BR>
+</p>
+
+<Font size=4> <STRONG> Notes:</FONT></STRONG>
+<HR  SIZE=3>
+<P> </P>
+<P>Truncated because after 10 collisions the delay is fixed at a random number of slots between 0 and 1024.</P>
+<P></P>
+<P></P>
+<P></P>
+<P>Exponential because </P>
+<P></P>
+<P>after 1 collision  0-2 slots</P>
+<P></P>
+<P>after 2 collisions 0-4 slots</P>
+<P></P>
+<P>after 3 collisions 0-8 slots etc.</P>
+<P></P>
+<P></P>
+<P></P>
+<P>note this is the most aggressive behaviour - stations may wait longer if they want </P>
+<P> </P> 
+ <!-- <H2>Collision Backoff and Retransmission</H2>
+</P>
+<P><UL><LI>Transmitter retries for a maximum of 16 attempts to send a frame.<LI>The transmitter waits an integer multiple slot times determined by the following algorithm prior to each retry.<LI>Rescheduling of each transmission uses  “truncated binary exponential backoff”.<LI>This ensures a random but increasing delay if many collisions occur.</UL></P>
+<P><H2>Delay strategy</H2>
+</P>
+<P>  --> 
+</Body>
+</HTML>

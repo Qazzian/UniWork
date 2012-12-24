@@ -1,0 +1,229 @@
+<HTML
+><HEAD
+><TITLE
+>Creating a simple DB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.41"><LINK
+REL="HOME"
+TITLE="CS27310 - Database Management Systems"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="A First Postgres Exercise"
+HREF="t118.html"><LINK
+REL="PREVIOUS"
+TITLE="A First Postgres Exercise"
+HREF="t118.html"><LINK
+REL="NEXT"
+TITLE="Normalisation and Bottom Up Analysis"
+HREF="t160.html"></HEAD
+><BODY
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>CS27310 - Database Management Systems: Session 2000-2001</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="t118.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>A First Postgres Exercise</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="t160.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN128"
+>2. Creating a simple DB</A
+></H1
+><P
+>The &quot;Whole Picture Exercise&quot; (see <A
+HREF="t41.html"
+>"<I
+>Overview</I
+>"</A
+>) provides suitable examples for this.
+You might like to follow the general drift of that exercise but don't
+feel bound to do it all or to follow it in all details.</P
+><P
+>A suggested list of things to do is:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Create the <B
+CLASS="COMMAND"
+>operator</B
+> and
+<B
+CLASS="COMMAND"
+>tour</B
+> tables with the fields specified. If you feel
+that you can apply the domain constraints, have a go, but don't get
+too tied up in it. You will not be able to do the Lookup Wizard
+bits.</P
+></LI
+><LI
+><P
+>Create the primary and foreign keys.</P
+></LI
+><LI
+><P
+>Import the data. You might do this manually.
+Alternatively, you could retrieve the tab separated data from the rtf
+of the worksheet, store it in a tex file (e.g. tour-data.txt) and then
+import it at the <B
+CLASS="COMMAND"
+>psql</B
+> prompt by</P
+><BLOCKQUOTE
+><P
+><B
+CLASS="COMMAND"
+>\copy tour from
+tour-data.txt</B
+></P
+></BLOCKQUOTE
+><P
+>See <A
+HREF="http://www.dcs.aber.ac.uk/support/manuals/postgres/misc/psql.html"
+TARGET="_top"
+>on-line
+manual</A
+> for more details.</P
+></LI
+><LI
+><P
+>Skip to the <I
+CLASS="EMPHASIS"
+>Creating Queries</I
+>
+section and try to implement the following queries using select
+statements:</P
+><P
+></P
+><OL
+TYPE="a"
+><LI
+><P
+>Restrict <B
+CLASS="COMMAND"
+>operator</B
+> to
+CompanyName and Telephone;</P
+></LI
+><LI
+><P
+>Sort <B
+CLASS="COMMAND"
+>operator</B
+>in reverse
+alphabetical order by CompanyName;</P
+></LI
+><LI
+><P
+>Create a query, adding both tables. Show the
+CompanyName, Start, Visiting and StandardFare fields. Show the fares
+in Ascending order and subsort by CompanyName</P
+></LI
+></OL
+></LI
+></OL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="t118.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="t160.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>A First Postgres Exercise</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t118.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Normalisation and Bottom Up Analysis</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

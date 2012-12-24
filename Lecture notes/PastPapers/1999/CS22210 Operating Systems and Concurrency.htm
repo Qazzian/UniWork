@@ -1,0 +1,505 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://users.aber.ac.uk/infoman/compsci/exam99/semester1/cs22210.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List
+href="./CS22210%20Operating%20Systems%20and%20Concurrency_files/filelist.xml">
+<title>CS22210: Operating Systems and Concurrency</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Wallis</o:Author>
+  <o:LastAuthor>Ian Wallis</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>14</o:TotalTime>
+  <o:Created>2001-01-20T23:29:00Z</o:Created>
+  <o:LastSaved>2001-01-20T23:43:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>418</o:Words>
+  <o:Characters>2386</o:Characters>
+  <o:Company>U.W.Aberystwyth</o:Company>
+  <o:Lines>19</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2930</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>TextFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:green;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:216404060;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1666685604 -129992168 -2098462178 2008476536 324029204 -1091921862 1296183376 -34022756 1291243806 51668146;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1246263112;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1515287390 -1792650886 1342598116 -1400968822 426937604 1223717786 1738448722 -1994243498 1301811590 -1828664842;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta content="CS22210: Operating Systems and Concurrency" name=TITLE>
+<meta content="Computer Science" name=CREATOR>
+<meta content="1999, Degree, Examinations, Semester 1" name=SUBJECT>
+<meta content="DATAPREP - Information Services" name=PUBLISHER>
+<meta name=date VALUE="13-04-99">
+</head>
+
+<body bgcolor=white lang=EN-GB link=green vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><b>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</b> </p>
+
+<p>DEGREE EXAMINATIONS 1998-99 SEMESTER 1 </p>
+
+<p><b>ABERYSTWYTH</b> </p>
+
+<p>FACULTY OF SCIENCE </p>
+
+<p><b>Computer Science CS22210: Operating Systems and Concurrency <o:p></o:p></b></p>
+
+<p><b>Time allowed: 2 hours</b> </p>
+
+<p><i>Answer</i> <b>THREE</b> <i>from</i> <b>FIVE</b> <i>questions</i> </p>
+
+<p>All questions carry equal marks </p>
+
+<table border=0 cellspacing=3 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Explain what is meant, in the context of operating
+  systems, by a process.</p>
+  </td>
+  <td width="15%" valign=bottom style='width:15.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[5 marks]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>CPU scheduling aims to achieve </p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>good use of
+       resources </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>completion of all
+       processing in a reasonable time </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>good response to
+       on-line users </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>immediate response
+       to critical processes </li>
+  </ul>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Briefly explain each of the following CPU scheduling strategies,
+  and discuss the extent to which they meet these aims:</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(i) Round Robin</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(ii) First come first served</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(iii) Priority scheduling</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Outline the major data structures needed to implement a
+  round robin scheduling strategy with priority being given to short jobs.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellspacing=3 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe what is meant by paging and explain briefly how
+  paging is implemented.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[15]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>What is meant by virtual memory and how does paging
+  support it?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[8]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Briefly explain the LRU (least recently used) and FIFO
+  (first in first out) page replacement strategies and discuss their relative
+  merits.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[10]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellspacing=3 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width=27 valign=top style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>3.</p>
+  </td>
+  <td width=27 valign=top style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td width=467 style='width:350.1pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Briefly explain the need for mutual exclusion and
+  synchronisation where concurrent processes share resources or data.</p>
+  </td>
+  <td width=31 valign=bottom style='width:23.0pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[6]</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=27 style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=27 valign=top style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td width=467 style='width:350.1pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Explain what is meant, in the context of interprocess
+  communication, by (i) deadlock, (ii) starvation and (iii) busy waiting.</p>
+  </td>
+  <td width=31 valign=bottom style='width:23.0pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[12]</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=27 style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=27 valign=top style='width:20.35pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td width=467 style='width:350.1pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Five machines for mixing a popular soft drink are arranged
+  in a circle. Between every pair of machines is an outlet that releases a
+  flavouring. Each mixing machine connects itself to its two closest outlets,
+  extracts flavour from both outlets at the same time, and then disconnects
+  itself and allows the mixture to settle before discharging the mixture for
+  further processing. It repeats this process indefinitely. </p>
+  <p>Outline the data structures and algorithms required to control concurrent
+  operation of the five machines, avoiding deadlock, starvation and busy
+  waiting.</p>
+  </td>
+  <td width=31 valign=bottom style='width:23.0pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[15]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellspacing=3 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>4.</p>
+  </td>
+  <td colspan=3 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>An on-line booking system allows multiple simultaneous
+  enquires and updates on a bookings database.</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Briefly explain the race conditions that might arise in
+  this system if concurrency is not managed correctly, and indicate the
+  problems that may ensue.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[11]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Outline an implementation of the bookings system using
+  semaphores to manage concurrency.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[11]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Outline an alternative implementation, this time using a
+  monitor to control concurrency.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[11]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellspacing=3 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>5.</p>
+  </td>
+  <td width="5%" valign=top style='width:5.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Explain what is meant by a command language, and a command
+  line interpreter.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[11]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Compare and contrast the UNIX shells with the graphical
+  command interpreter provided by Windows NT. Your discussion should address,
+  but need not be limited to </p>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>expressive power </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>extensibility </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>ease of learning </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list 36.0pt'>ease of recall </li>
+  </ul>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[22]</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

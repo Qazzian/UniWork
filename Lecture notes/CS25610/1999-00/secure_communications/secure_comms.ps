@@ -1,0 +1,5248 @@
+%!PS-Adobe-3.0
+%%Title: (AcroAAA0mpHBD)
+%%Version: 1 2
+%%CreationDate: (D:191000519164536)
+%%DocumentData: Clean7Bit
+%%BoundingBox: 0 0 842 595
+%%Pages: 38
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentSuppliedResources:
+%%+ font Symbol
+%%+ font Courier-Bold
+%%+ font Times-Roman
+%%+ font Times-Italic
+%%+ procset (Adobe Acrobat - PDF operators) 1.2 0
+%%+ procset (Adobe Acrobat - type operators) 1.2 0
+%%EndComments
+%%BeginDefaults
+%%EndDefaults
+%%BeginProlog
+%%EndProlog
+%%BeginSetup
+/currentpacking where{pop currentpacking true setpacking}if
+userdict /PDF 85 dict put
+%%BeginFile: pdfvars.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+userdict /PDFVars 75 dict dup begin put
+/_save 0 def
+/_cshow 0 def
+/InitAll 0 def
+/TermAll 0 def
+/_lp /none def
+/_doClip 0 def
+/sfc 0 def
+/_sfcs 0 def
+/_sfc 0 def
+/ssc 0 def
+/_sscs 0 def
+/_ssc 0 def
+/_fcs 0 def
+/_scs 0 def
+/_fp 0 def
+/_sp 0 def
+/_f0 0 array def
+/_f1 1 array def
+/_f3 3 array def
+/_f4 4 array def
+/_fc null def
+/_s0 0 array def
+/_s1 1 array def
+/_s3 3 array def
+/_s4 4 array def
+/_sc null def
+/_cpcf null def
+/_cpcs null def
+/_inT false def
+/_tr -1 def
+/_rise 0 def
+/_ax 0 def
+/_cx 0 def
+/_ld 0 def
+/_tm matrix def
+/_ctm matrix def
+/_mtx matrix def
+/_hy (-) def
+/_fScl 0 def
+/_hs 1 def
+/_pdfEncodings 2 array def
+/_Tj 0 def
+/_italMtx[1 0 .212557 1 0 0]def
+/_basefont 0 def
+/_basefonto 0 def
+/_categories 10 dict def
+/_sa? true def
+/_op? false def
+/_ColorSep5044? false def
+/_tmpcolr? [] def
+/_tmpop? {} def
+end
+%%EndFile
+PDFVars begin PDF begin
+%%BeginFile: pdfutil.prc
+%%Copyright: Copyright 1993 Adobe Systems Incorporated. All Rights Reserved.
+/bd {bind def} bind def
+/ld {load def} bd
+/dd { PDFVars 3 1 roll put } bd
+/xdd { exch dd } bd
+/Level2?
+/languagelevel where { pop languagelevel 2 ge } { false } ifelse
+def
+/here {
+dup currentdict exch known
+{ currentdict exch get true }
+{ pop false }
+ifelse
+} bd
+/isdefined? { where { pop true } { false } ifelse } bd
+/StartLoad { dup dup not { /_save save dd } if } bd
+/EndLoad { if not { _save restore } if } bd
+/npop { { pop } repeat } bd
+%%EndFile
+%%BeginFile: l2compat
+%%Copyright: Copyright 1987-1993 Adobe Systems Incorporated. All Rights Reserved.
+/cshow isdefined? not StartLoad {
+/cshow {
+exch /_cshow xdd
+{ 0 0 _cshow exec } forall
+} bd
+} EndLoad
+/setcmykcolor isdefined? not StartLoad {
+/setcmykcolor {
+1 sub 4 1 roll
+3 {
+3 index add neg dup 0 lt { pop 0 } if
+3 1 roll
+} repeat
+setrgbcolor
+pop
+} bd
+} EndLoad
+/rectclip isdefined? not StartLoad {
+/re 0 def
+/rectclip { newpath re clip newpath } bd
+} EndLoad
+/execform isdefined? not StartLoad {
+/execform {
+gsave dup begin
+Matrix concat
+BBox aload pop
+exch 3 index sub
+exch 2 index sub
+rectclip
+PaintProc end grestore
+} def
+} EndLoad
+/sethalftone isdefined? not StartLoad {
+/sethalftone {
+begin
+HalftoneType 1 eq
+{ Frequency Angle /SpotFunction load setscreen }
+if
+end
+} bd
+} EndLoad
+%%EndFile
+%%BeginFile: pdf.prc
+%%Copyright: Copyright 1987-1996 Adobe Systems Incorporated. All Rights Reserved.
+/initialize {
+_ColorSep5044? {sep_ops begin 50 dict begin} if
+newpath
+} bd
+/terminate {
+_ColorSep5044? {end end} if
+} bd
+Level2? StartLoad
+{ /m/moveto ld
+/l/lineto ld
+/c/curveto ld
+/setSA/setstrokeadjust ld
+} EndLoad
+Level2? not StartLoad
+{
+/pl {
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} bd
+/m { _sa? { pl } if moveto } bd
+/l { _sa? { pl } if lineto } bd
+/c { _sa? { pl } if curveto } bd
+/setSA { /_sa? xdd } bd
+} EndLoad
+/v { currentpoint 6 2 roll c } bd
+/y { 2 copy c } bd
+/h/closepath ld
+/d/setdash ld
+/j/setlinejoin ld
+/J/setlinecap ld
+/M/setmiterlimit ld
+/w/setlinewidth ld
+/cf currentflat def
+/i {
+dup 0 eq { pop cf } if
+setflat
+} bd
+/ilp { /_lp /none dd } bd
+/sfc {
+_lp /fill ne {
+_sfcs
+_sfc
+/_lp /fill dd
+} if
+} dd
+/ssc {
+_lp /stroke ne {
+_sscs
+_ssc
+/_lp /stroke dd
+} if
+} dd
+/n {
+_doClip 1 ge {
+_doClip 1 eq { clip } { eoclip } ifelse
+/_doClip 0 dd
+} if
+newpath
+} bd
+/f {
+_doClip 1 ge
+{
+gsave sfc fill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc fill }
+ifelse
+} bd
+/f* {
+_doClip 1 ge
+{
+gsave sfc eofill grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ sfc eofill }
+ifelse
+} bd
+/S {
+_doClip 1 ge
+{
+gsave ssc stroke grestore
+_doClip 1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ ssc stroke }
+ifelse
+} bd
+/s { h S } bd
+/B {
+_doClip dup 1 ge
+gsave f grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b { h B } bd
+/B* {
+_doClip dup 1 ge
+gsave f* grestore
+{
+gsave S grestore
+1 eq { clip } { eoclip } ifelse
+newpath
+ilp
+/_doClip 0 dd
+}
+{ pop S }
+ifelse
+} bd
+/b* { h B* } bd
+/W { /_doClip 1 dd } bd
+/W* { /_doClip 2 dd } bd
+/q/save ld
+/Q { restore ilp } bd
+Level2? StartLoad
+{ /defineRes/defineresource ld
+/findRes/findresource ld
+currentglobal
+true systemdict /setglobal get exec
+[/Function /ExtGState /Form]
+{ /Generic /Category findresource dup length dict copy /Category defineresource pop }
+forall
+systemdict /setglobal get exec
+} EndLoad
+Level2? not StartLoad
+{ /AlmostFull?
+{ dup maxlength exch length sub 2 le
+} bind def
+/Expand
+{ 1 index maxlength mul cvi dict
+dup begin exch { def } forall end
+} bind def
+/xput
+{ 3 2 roll
+dup 3 index known not
+{ dup AlmostFull? { 1.5 Expand } if
+} if
+dup 4 2 roll put
+} bind def
+/defineRes
+{ _categories 1 index known not
+{ /_categories _categories 2 index 10 dict xput store
+} if
+_categories exch 2 copy get 5 -1 roll 4 index xput put
+} bind def
+/findRes
+{ _categories exch get exch get
+} bind def
+} EndLoad
+/cs
+{
+dup where { pop load } if
+dup /_fcs xdd
+ucs
+_cpcf exch get
+/_fc xdd
+/_fp null dd
+} bd
+/CS
+{
+dup where { pop load } if
+dup /_scs xdd ucs _cpcs exch get /_sc xdd /_sp null dd
+} bd
+/ucs {
+dup type /arraytype eq
+{ dup 0 get
+dup /Indexed eq
+{ pop 0 get }
+{ /Pattern eq
+{ dup length 2 eq
+{ 1 get ucs }
+{ 0 get }
+ifelse }
+{ 0 get }
+ifelse }
+ifelse }
+if }
+bd
+/_cpcf
+15 dict dup begin
+/DefaultGray _f1 def
+/DeviceGray _f1 def
+/DefaultRGB _f3 def
+/DeviceRGB _f3 def
+/DeviceCMYK _f4 def
+/CalGray _f1 def
+/CalRGB _f3 def
+/CalCMYK _f4 def
+/Lab _f3 def
+/Pattern _f0 def
+/Indexed _f1 def
+/Separation _f1 def
+/CIEBasedA _f1 def
+/CIEBasedABC _f3 def
+end
+dd
+/_cpcs
+15 dict dup begin
+/DefaultGray _s1 def
+/DeviceGray _s1 def
+/DefaultRGB _s3 def
+/DeviceRGB _s3 def
+/DeviceCMYK _s4 def
+/CalGray _s1 def
+/CalRGB _s3 def
+/CalCMYK _s4 def
+/Lab _s3 def
+/Pattern _s0 def
+/Indexed _s1 def
+/Separation _s1 def
+/CIEBasedA _s1 def
+/CIEBasedABC _s3 def
+end
+dd
+Level2? not StartLoad {
+/ri/pop ld
+/makePat/pop ld
+} EndLoad
+Level2? StartLoad {
+/ri
+{
+/findcolorrendering isdefined?
+{
+mark exch
+findcolorrendering
+counttomark 2 eq
+{ type /booleantype eq
+{ dup type /nametype eq
+{ dup /ColorRendering resourcestatus
+{ pop pop
+dup /DefaultColorRendering ne
+{
+/ColorRendering findresource
+setcolorrendering
+} if
+} if
+} if
+} if
+} if
+cleartomark
+}
+{ pop
+} ifelse
+} bd
+/makePat /makepattern ld
+} EndLoad
+Level2? not _ColorSep5044? or StartLoad
+{
+/L1setcolor {
+aload length
+dup 0 eq
+{ pop .5 setgray }
+{ dup 1 eq
+{ pop setgray }
+{ 3 eq
+{ setrgbcolor }
+{ setcmykcolor }
+ifelse }
+ifelse }
+ifelse
+} bind dd
+/_sfcs { } dd
+/_sscs { } dd
+} EndLoad
+Level2? not _ColorSep5044? not and StartLoad
+{
+/_sfc { _fc L1setcolor } dd
+/_ssc { _sc L1setcolor } dd
+} EndLoad
+Level2? _ColorSep5044? not and StartLoad
+{
+/_sfcs
+{
+_fcs setcolorspace
+} bind dd
+/_sscs
+{
+_scs setcolorspace
+} bind dd
+/_sfc
+{
+_fc aload pop
+_fp null eq
+{ setcolor }
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sc aload pop
+_sp null eq { setcolor } { _sp setpattern } ifelse
+} bind dd
+} EndLoad
+/sc
+{
+_fc astore pop
+ilp
+} bd
+/SC
+{
+_sc astore pop
+ilp
+} bd
+/scn {
+dup type /dicttype eq
+{ dup /_fp xdd
+/PaintType get 1 eq
+{ /_fc _f0 dd ilp }
+{ /_fc _cpcf _fcs ucs get dd
+sc }
+ifelse }
+{ sc }
+ifelse
+} bd
+/SCN {
+dup type /dicttype eq
+{ dup /_sp xdd
+/PaintType get 1 eq
+{ /_sc _s0 dd ilp }
+{ /_sc _cpcs _scs ucs get dd
+SC }
+ifelse }
+{ SC }
+ifelse
+} bd
+/g { /DefaultGray cs sc } bd
+/rg { /DefaultRGB cs sc } bd
+/k { /DeviceCMYK cs sc } bd
+/G { /DefaultGray CS SC } bd
+/RG { /DefaultRGB CS SC } bd
+/K { /DeviceCMYK CS SC } bd
+/cm { _mtx astore concat } bd
+/re {
+4 2 roll m
+1 index 0 rlineto
+0 exch rlineto
+neg 0 rlineto
+h
+} bd
+/RC/rectclip ld
+/EF/execform ld
+/PS { cvx exec } bd
+/initgs {
+/DefaultGray where
+{ pop }
+{ /DefaultGray /DeviceGray dd }
+ifelse
+/DefaultRGB where
+{ pop }
+{ /DefaultRGB /DeviceRGB dd }
+ifelse
+0 g 0 G
+[] 0 d 0 j 0 J 10 M 1 w
+true setSA
+} bd
+21 dict dup begin
+/CosineDot
+{ 180 mul cos exch 180 mul cos add 2 div } bd
+/Cross
+{ abs exch abs 2 copy gt { exch } if pop neg } bd
+/Diamond
+{ abs exch abs 2 copy add .75 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 2 copy add 1.23 le
+{ .85 mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse }
+ifelse } bd
+/Double
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add } bd
+/DoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add } bd
+/Ellipse
+{ abs exch abs 2 copy 3 mul exch 4 mul add 3 sub dup 0 lt
+{ pop dup mul exch .75 div dup mul add 4 div
+1 exch sub }
+{ dup 1 gt
+{pop 1 exch sub dup mul exch 1 exch sub
+.75 div dup mul add 4 div 1 sub }
+{ .5 exch sub exch pop exch pop }
+ifelse }
+ifelse } bd
+/EllipseA
+{ dup mul .9 mul exch dup mul add 1 exch sub } bd
+/EllipseB
+{ dup 5 mul 8 div mul exch dup mul exch add sqrt 1 exch sub } bd
+/EllipseC
+{ dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+exch
+dup .5 gt { 1 exch sub } if
+dup .25 ge
+{ .5 exch sub 4 mul dup mul 1 sub }
+{ 4 mul dup mul 1 exch sub }
+ifelse
+add -2 div } bd
+/InvertedDouble
+{ exch 2 div exch 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedDoubleDot
+{ 2 { 360 mul sin 2 div exch } repeat add neg } bd
+/InvertedEllipseA
+{ dup mul .9 mul exch dup mul add 1 sub } bd
+/InvertedSimpleDot
+{ dup mul exch dup mul add 1 sub } bd
+/Line
+{ exch pop abs neg } bd
+/LineX
+{ pop } bd
+/LineY
+{ exch pop } bd
+/Rhomboid
+{ abs exch abs 0.9 mul add 2 div } bd
+/Round
+{ abs exch abs 2 copy add 1 le
+{ dup mul exch dup mul add 1 exch sub }
+{ 1 sub dup mul exch 1 sub dup mul add 1 sub }
+ifelse } bd
+/SimpleDot
+{ dup mul exch dup mul add 1 exch sub } bd
+/Square
+{ abs exch abs 2 copy lt { exch } if pop neg } bd
+end
+{ /Function defineRes pop } forall
+/Identity {} /Function defineRes pop
+Level2? StartLoad {
+/gs
+{
+begin
+/SA here { setstrokeadjust } if
+/OP here { setoverprint } if
+/BG here { setblackgeneration } if
+/UCR here { setundercolorremoval } if
+/HT here { sethalftone } if
+/sethalftonephase isdefined? { /HTP here { sethalftonephase } if } if
+/TR here
+{
+dup xcheck { settransfer } { aload pop setcolortransfer } ifelse
+} if
+end
+} bd
+{ /Default /Halftone findresource pop } stopped
+{
+currenthalftone exch defineresource pop }
+if
+} EndLoad
+Level2? not StartLoad {
+/gs
+{
+begin
+/SA here { /_sa? xdd } if
+/OP here { dup /_op? xdd
+/setoverprint where {pop setoverprint}
+{pop} ifelse
+} if
+/HT here { sethalftone } if
+/TR here { dup xcheck
+{ settransfer }
+{ pop }
+ifelse } if
+end
+} bd
+5 dict dup
+begin
+currentscreen 1 [/HalftoneType /SpotFunction /Angle /Frequency]
+{ exch def } forall
+end
+/Default exch /Halftone defineRes pop
+} EndLoad
+/int {
+dup 2 index sub 3 index 5 index sub div 6 -2 roll sub mul
+exch pop add exch pop
+} bd
+/limit {
+dup 2 index le { exch } if pop
+dup 2 index ge { exch } if pop
+} bd
+_ColorSep5044? StartLoad {
+/_sfc
+{
+_fp null eq
+{ _fcs type /arraytype eq
+{_fcs 0 get /Separation eq
+{
+_fcs 1 get /All eq
+{
+_fc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _fcs 3 get exec _fcs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_fc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fc L1setcolor }
+ifelse
+}
+{ _fp setpattern }
+ifelse
+} bind dd
+/_ssc
+{
+_sp null eq
+{ _scs type /arraytype eq
+{_scs 0 get /Separation eq
+{
+_scs 1 get /All eq
+{
+_sc aload pop 1 exch sub
+/setseparationgray where pop begin setseparationgray end
+}
+{
+1 _scs 3 get exec _scs 1 get
+/findcmykcustomcolor where pop begin findcmykcustomcolor end
+_sc aload pop
+/setcustomcolor where pop begin setcustomcolor end
+}
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sc L1setcolor }
+ifelse
+}
+{ _sp setpattern }
+ifelse
+} bind dd
+} EndLoad
+%%EndFile
+%%BeginFile: pdftext.prc
+%%Copyright: Copyright 1987-1994 Adobe Systems Incorporated. All Rights Reserved.
+PDF /PDFText 51 dict dup begin put
+/initialize { PDFText begin } bd
+/terminate { end } bd
+/CopyFont {
+{
+1 index /FID ne 2 index /UniqueID ne and
+{ def } { pop pop } ifelse
+} forall
+} bd
+/modEnc {
+/_enc xdd
+/_icode 0 dd
+counttomark 1 sub -1 0
+{
+index
+dup type /nametype eq
+{
+_enc _icode 3 -1 roll put
+_icode 1 add
+}
+if
+/_icode xdd
+} for
+cleartomark
+_enc
+} bd
+/trEnc {
+/_enc xdd
+255 -1 0 {
+exch dup -1 eq
+{ pop /.notdef }
+{ Encoding exch get }
+ifelse
+_enc 3 1 roll put
+} for
+pop
+_enc
+} bd
+/TE {
+/_i xdd
+StandardEncoding 256 array copy modEnc
+_pdfEncodings exch _i exch put
+} bd
+/TZ
+{
+/_usePDFEncoding xdd
+findfont
+dup length 2 add dict
+begin
+{
+1 index /FID ne { def } { pop pop } ifelse
+} forall
+/FontName exch def
+_usePDFEncoding 0 ge
+{
+/Encoding _pdfEncodings _usePDFEncoding get def
+pop
+}
+{
+_usePDFEncoding -1 eq
+{
+counttomark 0 eq
+{ pop }
+{
+Encoding 256 array copy
+modEnc /Encoding exch def
+}
+ifelse
+}
+{
+256 array
+trEnc /Encoding exch def
+}
+ifelse
+}
+ifelse
+FontName currentdict
+end
+definefont pop
+}
+bd
+/_pdfIsLevel2
+systemdict /languagelevel known
+{languagelevel 2 ge}
+{false}
+ifelse
+def
+_pdfIsLevel2
+{
+/_pdfFontStatus
+{
+dup /Font resourcestatus
+{pop pop pop true}
+{
+/CIDFont /Category resourcestatus
+{
+pop pop
+/CIDFont resourcestatus
+{pop pop true}
+{false}
+ifelse
+}
+{ pop false }
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfFontStatusString 50 string def
+_pdfFontStatusString 0 (fonts/) putinterval
+/_pdfFontStatus
+{
+_pdfFontStatusString 6 42 getinterval
+cvs length 6 add
+_pdfFontStatusString exch 0 exch getinterval
+status
+{ pop pop pop pop true}
+{ false }
+ifelse
+} bd
+}
+ifelse
+/_pdfString100 100 string def
+/_pdfComposeFontName
+{
+dup length 1 eq
+{
+0 get
+1 index
+type /nametype eq
+{
+_pdfString100 cvs
+length dup dup _pdfString100 exch (-) putinterval
+_pdfString100 exch 1 add dup _pdfString100 length exch sub getinterval
+2 index exch cvs length
+add 1 add _pdfString100 exch 0 exch getinterval
+exch pop
+true
+}
+{
+pop pop
+false
+}
+ifelse
+}
+{
+false
+}
+ifelse
+} bd
+systemdict /composefont known
+{
+/_pdfComposeFont
+{
+1 index /CMap resourcestatus
+{pop pop true}
+{false}
+ifelse
+1 index true exch
+{
+_pdfFontStatus not
+{pop false exit}
+if
+}
+forall
+and
+{composefont true}
+{
+_pdfComposeFontName
+{
+dup _pdfFontStatus
+{ findfont definefont true }
+{ pop pop false }
+ifelse
+}
+{
+dup _pdfFontStatus
+{ findfont true }
+{ pop false }
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+{
+/_pdfComposeFont
+{
+_pdfComposeFontName not
+{
+dup
+}
+if
+2 copy _pdfFontStatus
+{ pop findfont definefont true }
+{
+eq
+{pop false}
+{
+dup _pdfFontStatus
+{findfont true}
+{pop false}
+ifelse
+}
+ifelse
+}
+ifelse
+} bd
+}
+ifelse
+/_pdfFaceByStyleDict 4 dict dup begin
+_pdfIsLevel2
+{
+/Serif
+/Ryumin-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /Ryumin-Light}
+{/HeiseiMin-W3}
+ifelse
+def
+/SansSerif
+/GothicBBB-Medium-83pv-RKSJ-H /Font resourcestatus
+{pop pop /GothicBBB-Medium}
+{/HeiseiKakuGo-W5}
+ifelse
+def
+/Jun101-Light-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /Jun101-Light def }
+{
+/HeiseiMaruGo-W4-83pv-RKSJ-H /Font resourcestatus
+{pop pop /RoundSansSerif /HeiseiMaruGo-W4 def}
+if
+}
+ifelse
+/Default Serif def
+}
+{
+/Serif /Ryumin-Light def
+/SansSerif /GothicBBB-Medium def
+{
+(fonts/Jun101-Light-83pv-RKSJ-H) status
+}stopped
+{pop}{
+{pop pop pop pop /RoundSansSerif /Jun101-Light def }
+if
+}ifelse
+/Default Serif def
+}
+ifelse
+end
+def
+/TZzero
+{
+/_styleArr xdd
+3 copy
+_pdfComposeFont
+{exch pop exch pop exch pop}
+{
+[
+0 1 _styleArr length 1 sub
+{
+_styleArr exch get
+_pdfFaceByStyleDict exch 2 copy known not
+{ pop /Default }
+if
+get
+}
+for
+]
+exch pop
+2 index 3 1 roll
+_pdfComposeFont
+{exch pop}
+{
+findfont
+dup length dict
+begin
+{1 index /FID ne {def}{pop pop} ifelse }
+forall
+currentdict
+end
+}
+ifelse
+}
+ifelse
+definefont pop
+}
+bd
+/swj {
+dup 4 1 roll
+dup length exch stringwidth
+exch 5 -1 roll 3 index mul add
+4 1 roll 3 1 roll mul add
+6 2 roll /_cnt 0 dd
+{1 index eq {/_cnt _cnt 1 add dd} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} bd
+/jss {
+4 1 roll
+{
+2 npop
+(0) exch 2 copy 0 exch put
+gsave
+32 eq
+{
+exch 6 index 6 index 6 index 5 -1 roll widthshow
+currentpoint
+}
+{
+false charpath currentpoint
+4 index setmatrix stroke
+}
+ifelse
+grestore
+moveto
+2 copy rmoveto
+} exch cshow
+6 npop
+} def
+/jsp
+{
+{
+2 npop
+(0) exch 2 copy 0 exch put
+32 eq
+{ exch 5 index 5 index 5 index 5 -1 roll widthshow }
+{ false charpath }
+ifelse
+2 copy rmoveto
+} exch cshow
+5 npop
+} bd
+/trj { _cx 0 32 _ax 0 6 5 roll } bd
+/pjsf { trj sfc awidthshow } bd
+/pjss { trj _ctm ssc jss } bd
+/pjsc { trj jsp } bd
+/_Tjdef [
+/pjsf load
+/pjss load
+{
+dup
+currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+} bind
+{
+trj swj rmoveto
+} bind
+{
+dup currentpoint 4 2 roll gsave
+pjsf
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll
+currentpoint gsave newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+{
+dup currentpoint 4 2 roll gsave
+dup currentpoint 3 2 roll
+pjsf
+newpath moveto
+pjss
+grestore 3 1 roll moveto
+pjsc
+} bind
+/pjsc load
+] def
+/BT
+{
+/_inT true dd
+_ctm currentmatrix pop matrix _tm copy pop
+0 _rise translate _hs 1 scale
+0 0 moveto
+} bd
+/ET
+{
+/_inT false dd
+_tr 3 gt {clip} if
+_ctm setmatrix newpath
+} bd
+/Tr {
+_inT { _tr 3 le {currentpoint newpath moveto} if } if
+dup /_tr xdd
+_Tjdef exch get /_Tj xdd
+} bd
+/Tj {
+userdict /$$copystring 2 index put
+_Tj
+} bd
+/iTm { _ctm setmatrix _tm concat 0 _rise translate _hs 1 scale } bd
+/Tm { _tm astore pop iTm 0 0 moveto } bd
+/Td { _mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto } bd
+/TD { dup /_ld xdd Td } bd
+/Tf {
+dup 1000 div /_fScl xdd
+exch findfont exch scalefont setfont
+} bd
+/TL { neg /_ld xdd } bd
+/Tw { /_cx xdd } bd
+/Tc { /_ax xdd } bd
+/Ts { /_rise xdd currentpoint iTm moveto } bd
+/Tz { 100 div /_hs xdd iTm } bd
+/Tk { exch pop _fScl mul neg 0 rmoveto } bd
+/T* { 0 _ld Td } bd
+/' { T* Tj } bd
+/" { exch Tc exch Tw ' } bd
+/TJ {
+{
+dup type /stringtype eq
+{ Tj }
+{ 0 exch Tk }
+ifelse
+} forall
+} bd
+/T- { _hy Tj } bd
+/d0/setcharwidth ld
+/d1 { setcachedevice /sfc{}dd /ssc{}dd } bd
+/nND {{/.notdef} repeat} bd
+/T3Defs {
+/BuildChar
+{
+1 index /Encoding get exch get
+1 index /BuildGlyph get exec
+}
+def
+/BuildGlyph {
+exch begin
+GlyphProcs exch get exec
+end
+} def
+} bd
+/MakeBold {
+findfont dup dup length 2 add dict
+begin
+CopyFont
+/PaintType 2 def
+/StrokeWidth .03 0 FontMatrix idtransform pop def
+/dummybold currentdict
+end
+definefont
+8 dict begin
+/_basefont exch def
+/_basefonto exch def
+/FontType 3 def
+/FontMatrix[1 0 0 1 0 0]def
+/FontBBox[0 0 1 1]def
+/Encoding StandardEncoding def
+/BuildChar
+{
+exch begin
+_basefont setfont
+( )dup 0 4 -1 roll put
+dup stringwidth
+1 index 0 ne { exch .03 add exch }if
+setcharwidth
+0 0 moveto
+gsave
+dup show
+grestore
+_basefonto setfont
+show
+end
+}bd
+currentdict
+end
+definefont pop
+}bd
+/MakeItalic {
+findfont _italMtx makefont
+dup length dict
+begin
+CopyFont
+currentdict
+end
+definefont pop
+}bd
+/MakeBoldItalic {
+/dummybold exch
+MakeBold
+/dummybold
+MakeItalic
+}bd
+currentdict readonly pop end
+%%EndFile
+PDFText begin
+[39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis
+/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute
+/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde
+/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex
+/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls
+/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash
+/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef
+/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash
+/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef
+/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe
+/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide
+/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright
+/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand
+/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex
+/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex
+/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla
+/hungarumlaut/ogonek/caron
+0 TE
+[1/dotlessi/caron 39/quotesingle 96/grave 
+127/bullet/bullet/bullet/quotesinglbase/florin/quotedblbase/ellipsis
+/dagger/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright/quotedblleft
+/quotedblright/bullet/endash/emdash/tilde/trademark/scaron
+/guilsinglright/oe/bullet/bullet/Ydieresis/space/exclamdown/cent/sterling
+/currency/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree/plusminus
+/twosuperior/threesuperior/acute/mu/paragraph/periodcentered/cedilla
+/onesuperior/ordmasculine/guillemotright/onequarter/onehalf/threequarters
+/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash
+/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde
+/ograve/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+1 TE
+end
+currentdict readonly pop
+end end
+/currentpacking where {pop setpacking}if
+PDFVars/InitAll{[PDF PDFText]{/initialize get exec}forall initgs 0 Tr}put
+PDFVars/TermAll{[PDFText PDF]{/terminate get exec}forall}put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+/N5 8 dict dup begin
+/SA false def
+/OP false def
+/HT /Default /Halftone findRes def
+end /ExtGState defineRes pop
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N4/Times-Roman -1 TZ
+% End encoding-delta
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N19/Times-Italic -1 TZ
+% End encoding-delta
+% Begin encoding-delta
+[/N39/Symbol -1 TZ
+% End encoding-delta
+% Begin encoding-delta
+[ 0 /grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek
+/caron/dotlessi/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet/bullet/bullet/bullet/bullet
+/bullet/bullet 39 /quotesingle 96 /grave 127 /bullet/bullet
+/bullet/quotesinglbase/florin/quotedblbase/ellipsis/dagger
+/daggerdbl/circumflex/perthousand/Scaron/guilsinglleft/OE
+/bullet/bullet/bullet/bullet/quoteleft/quoteright
+/quotedblleft/quotedblright/bullet/endash/emdash/tilde
+/trademark/scaron/guilsinglright/oe/bullet/bullet
+/Ydieresis/space/exclamdown/cent/sterling/currency
+/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guillemotleft/logicalnot/hyphen/registered/macron/degree
+/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex
+/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ae
+/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash
+/ugrave/uacute/ucircumflex/udieresis/yacute/thorn
+/ydieresis
+/N26/Courier-Bold -1 TZ
+% End encoding-delta
+PDFVars/TermAll get exec end end
+
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 45.6 -45.6 0 268.058 197.96 Tm
+0 0 0 rg
+0 Tc
+-0.003 Tw
+(Secure Communications)Tj
+0 33.12 -33.12 0 370.964 352.04 Tm
+0.004 Tw
+[(Fred Long)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 2 2
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (2)]TJ
+0 33.12 -33.12 0 103.968 139.88 Tm
+0 Tc
+0.004 Tw
+[(\223Applied )8 (C)-7 (rypto)-7 (graphy)-7 (\224 by Bruce Schneier,)]TJ
+0 -1.196 TD
+[(John Wiley & Sons )8 (Inc., 2e, 1996.)]TJ
+0 -1.203 TD
+-0.004 Tw
+[(ISBN 0)-7 (-471-12845)-7 (-7)]TJ
+0 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\223The Code Book\224 by )8 (Simon Singh,)]TJ
+0 -1.203 TD
+0 Tc
+0.004 Tw
+[(Fourth Estate Limited, )8 (1)-7 (999.)]TJ
+T*
+-0.004 Tw
+[(ISBN 1)-7 (-85702-879)-7 (-1)]TJ
+0 -1.435 TD
+0.001 Tc
+0.003 Tw
+[(\223Web )8 (Security & Commerce\224 by Simso)-6 (n)]TJ
+0 -1.203 TD
+[(Gar)8 (f)1 (inkel )8 (with Gene Spafford,)]TJ
+T*
+[(O\222Reilly & Associates, )8 (Inc., 1997.)]TJ
+T*
+0 Tc
+-0.004 Tw
+[(ISBN 1)-7 (-56592-269)-7 (-7)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 3 3
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (3)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.001 Tc
+(Problems:)Tj
+0 -1.435 TD
+-0.002 Tc
+[(\225)-500 (C)-2 (o)-9 (nfide)-7 (ntia)-7 (li)-7 (ty)]TJ
+0 -1.442 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (Identification and )-8 (Authentication)]TJ
+T*
+0.003 Tw
+[(\225)-497 (D)-2 (ata Integrity)]TJ
+T*
+[(\225)-497 (N)-2 (on-repudiation)]TJ
+0 -1.435 TD
+-0.001 Tc
+[(\225)-499 (A)-4 (uth)-8 (orisation)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 4 4
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (4)]TJ
+0 45.6 -45.6 0 131.76 320.36 Tm
+-0.001 Tc
+(Encr)Tj
+ET
+q
+90.72 270.92 50.88 523.92 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 406.521 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 429.321 Tm
+0.001 Tc
+(ption)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+-0.005 Tw
+[(\225)-497 (E)3 (ncryption )-8 (invo)-6 (lves scrambling a )-8 (message)]TJ
+0 24.96 -24.96 0 291.744 124.28 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)]TJ
+ET
+0 0 0 RG
+0 J
+1 j
+1.2 w
+10 M
+[]0 d
+288 583.4 m
+288 658.04 l
+282.96 583.4 m
+282.96 658.04 l
+S 
+1.92 w
+285.6 583.4 m
+285.6 658.04 l
+S 
+1.2 w
+288 658.76 m
+443.52 173.48 l
+283.2 657.32 m
+438.72 172.04 l
+S 
+1.92 w
+285.6 658.04 m
+441.12 172.76 l
+S 
+1.2 w
+443.52 172.76 m
+443.52 319.64 l
+438.48 172.76 m
+438.48 319.64 l
+S 
+452.16 319.16 m
+441.12 340.76 l
+430.32 319.16 l
+452.16 319.16 l
+f* 
+1.92 w
+441.12 172.76 m
+441.12 319.64 l
+S 
+BT
+0 24.96 -24.96 0 291.744 460.28 Tm
+-0.001 Tc
+[(cip)9 (h)-1 (er)-5 (t)8 (e)1 (xt)]TJ
+ET
+2.4 w
+285.6 228.68 m
+285.6 248.36 l
+S 
+291.84 247.88 m
+285.6 259.88 l
+279.6 247.88 l
+291.84 247.88 l
+f* 
+285.6 409.16 m
+285.6 428.6 l
+S 
+291.84 428.12 m
+285.6 440.12 l
+279.6 428.12 l
+291.84 428.12 l
+f* 
+BT
+0 24.96 -24.96 0 291.744 279.8 Tm
+[(encrypti)8 (o)-1 (n)]TJ
+ET
+0 j
+0.72 w
+260.64 396.92 50.16 -124.8 re
+S 
+BT
+0 24.96 -24.96 0 447.264 366.92 Tm
+[(decr)5 (ypti)8 (o)-1 (n)]TJ
+ET
+416.16 484.04 50.16 -124.8 re
+S 
+1 j
+2.4 w
+441.12 508.76 m
+441.12 528.2 l
+S 
+447.36 527.72 m
+441.12 539.72 l
+435.12 527.72 l
+447.36 527.72 l
+f* 
+BT
+0 24.96 -24.96 0 450.384 565.88 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 5 5
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (5)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (T)3 (here )-8 (are )-8 (just a few encr)8 (y)-6 (p)1 (tio)-6 (n/decryp)-6 (tion)]TJ
+0.848 -1.196 TD
+0 Tc
+(algorithms)Tj
+-0.848 -1.442 TD
+[(\225)-498 (T)2 (herefo)-7 (r)7 (e)-5 (, the )-8 (security o)-7 (f)0 ( th)-7 (e )-8 (encryption)]TJ
+0.848 -1.203 TD
+0.004 Tw
+[(mu)-7 (st depend on a )]TJ
+/N19 1 Tf
+7.297 0.009 TD
+0.002 Tc
+(parameter)Tj
+/N4 1 Tf
+4.181 -0.009 TD
+-0.001 Tc
+-0.003 Tw
+[( of )-8 (the)]TJ
+-11.478 -1.203 TD
+0 Tc
+0.004 Tw
+[(encryption, not just )8 (on)-7 ( )8 (th)-7 (e algorithm)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (his )8 (parameter)8 ( is called)-6 ( )8 (the )]TJ
+/N19 1 Tf
+12.181 0.009 TD
+-0.002 Tc
+[(ke)-7 (y)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 6 6
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (6)]TJ
+0 24.96 -24.96 0 160.944 124.28 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)]TJ
+ET
+0 0 0 RG
+0 J
+1 j
+1.2 w
+10 M
+[]0 d
+157.2 583.4 m
+157.2 658.04 l
+152.16 583.4 m
+152.16 658.04 l
+S 
+1.92 w
+154.8 583.4 m
+154.8 658.04 l
+S 
+1.2 w
+156.96 659.24 m
+443.28 173.96 l
+152.64 656.6 m
+438.96 171.32 l
+S 
+1.92 w
+154.8 658.04 m
+441.12 172.76 l
+S 
+1.2 w
+443.52 172.76 m
+443.52 319.64 l
+438.48 172.76 m
+438.48 319.64 l
+S 
+452.16 319.16 m
+441.12 340.76 l
+430.32 319.16 l
+452.16 319.16 l
+f* 
+1.92 w
+441.12 172.76 m
+441.12 319.64 l
+S 
+BT
+0 24.96 -24.96 0 160.944 460.28 Tm
+-0.001 Tc
+[(cip)9 (h)-1 (er)-5 (t)8 (e)1 (xt)]TJ
+ET
+2.4 w
+154.8 228.68 m
+154.8 248.36 l
+S 
+161.04 247.88 m
+154.8 259.88 l
+148.8 247.88 l
+161.04 247.88 l
+f* 
+154.8 409.16 m
+154.8 428.6 l
+S 
+161.04 428.12 m
+154.8 440.12 l
+148.8 428.12 l
+161.04 428.12 l
+f* 
+BT
+0 24.96 -24.96 0 160.944 279.8 Tm
+[(encrypti)8 (o)-1 (n)]TJ
+ET
+0 j
+0.72 w
+130.08 396.92 49.92 -124.8 re
+S 
+BT
+0 24.96 -24.96 0 447.264 366.92 Tm
+[(decr)5 (ypti)8 (o)-1 (n)]TJ
+ET
+416.16 484.04 50.16 -124.8 re
+S 
+1 j
+2.4 w
+441.12 508.76 m
+441.12 528.2 l
+S 
+447.36 527.72 m
+441.12 539.72 l
+435.12 527.72 l
+447.36 527.72 l
+f* 
+BT
+0 24.96 -24.96 0 450.384 565.88 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)]TJ
+-9.971 8.231 TD
+-0.001 Tc
+(key)Tj
+3.49 -5.24 TD
+(key)Tj
+ET
+217.2 334.52 m
+191.28 334.52 l
+S 
+191.76 340.76 m
+179.76 334.52 l
+191.76 328.52 l
+191.76 340.76 l
+f* 
+385.2 421.64 m
+404.64 421.64 l
+S 
+404.16 415.4 m
+416.16 421.64 l
+404.16 427.64 l
+404.16 415.4 l
+f* 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 7 7
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (7)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(For example, a C)-6 (a)3 (esar Cipher:)]TJ
+/N26 1 Tf
+0.848 -1.339 TD
+[(abcde)-8 (fghi.)-8 (..rstu)-8 (vwxyz)]TJ
+0 -1.442 TD
+[(defgh)-8 (ijkl.)-8 (..uvwx)-8 (yzabc)]TJ
+/N4 1 Tf
+-0.848 -1.465 TD
+[(So,)5 ( )]TJ
+/N26 1 Tf
+1.558 0.009 TD
+0 Tw
+[(fre)-8 (d -> i)-8 (uhg)]TJ
+/N4 1 Tf
+-1.558 -1.523 TD
+-0.001 Tc
+0.005 Tw
+[(In this c)-6 (a)1 (se)-6 (, the)-6 ( key is 3)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 8 8
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (8)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (If )8 (the encryp)-7 (tion)-7 ( )8 (and decryption keys are)]TJ
+0.848 -1.196 TD
+0.003 Tc
+0.001 Tw
+[(t)6 (h)3 (e sa)5 (me)5 (, )8 (we t)6 (a)5 (lk of )]TJ
+/N19 1 Tf
+8.297 0.009 TD
+0.004 Tc
+-0.008 Tw
+[(symme)6 (tri)7 (c)-1 ( ke)6 (y)]TJ
+-8.297 -1.203 TD
+0.001 Tc
+(cryptography)Tj
+/N4 1 Tf
+-0.848 -1.451 TD
+-0.001 Tc
+0.005 Tw
+[(\225)-499 (O)-4 (the)-6 (r)-1 (w)-4 (i)2 (se)-6 (, w)-4 (e)1 ( ta)-6 (lk of )]TJ
+/N19 1 Tf
+9.732 0.009 TD
+0.002 Tc
+0.002 Tw
+[(asymmet)5 (r)0 (ic key)]TJ
+-8.884 -1.203 TD
+0.001 Tc
+(cryptography)Tj
+/N4 1 Tf
+5.406 -0.009 TD
+0.002 Tc
+-0.006 Tw
+(, or )Tj
+/N19 1 Tf
+1.587 0.009 TD
+0.001 Tc
+0.003 Tw
+[(public key )8 (cryptograp)-6 (hy)]TJ
+/N4 1 Tf
+-7.841 -1.451 TD
+[(\225)-497 (P)-1 (ractical asymmetric key)-6 ( )8 (cryptographic)]TJ
+0.848 -1.196 TD
+-0.005 Tw
+[(meth)-6 (ods were )-8 (first discov)-6 (ered in the )-8 (UK in)]TJ
+0 -1.203 TD
+0.003 Tw
+[(the early 1970s but )8 (kept secret; the f)8 (i)-4 (rst)]TJ
+T*
+[(published methods appeared )8 (in )8 (the US )8 (in)]TJ
+T*
+-0.002 Tc
+-0.002 Tw
+[(the)-7 ( )-8 (la)-7 (te)-7 ( 197)-9 (0s)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 9 9
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16915 (9)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (T)3 (he )-8 (wo)-6 (rk in the )-8 (UK was )-8 (carr)8 (ied)-6 ( out at )-8 (the)]TJ
+0.848 -1.196 TD
+0 Tc
+0.004 Tw
+[(Government Co)-7 (mmu)-7 (nications Headquarters)]TJ
+0 -1.203 TD
+0.001 Tc
+0.003 Tw
+(\(GCHQ\) by:)Tj
+0 29.04 -29.04 0 226.296 149.24 Tm
+0.302 Tc
+-0.304 Tw
+[(\226J)303 (a)308 (m)303 (e)300 (s)303 ( E)301 (l)299 (l)307 (i)299 (s)]TJ
+0 -1.438 TD
+0.001 Tc
+-0.003 Tw
+[(\226)-301 (M)6 (al)6 (co)5 (lm Wil)6 (l)-2 (i)6 (a)-1 (mso)5 (n)]TJ
+0 -1.446 TD
+0.003 Tc
+-0.005 Tw
+[(\226)-299 (C)9 (li)8 (fford)7 ( Co)7 (ck)7 (s)]TJ
+0 33.12 -33.12 0 356.688 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he papers are )8 (now available )8 (on th)-6 (e web at:)]TJ
+0.848 -1.203 TD
+[(http://www.)5 (cesg.)5 (go)-6 (v.)5 (uk)-6 (/about/nsecret.)5 (h)-6 (tm)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 10 10
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (0)]TJ
+0 45.6 -45.6 0 131.76 145.4 Tm
+(S)Tj
+ET
+q
+90.72 95.96 50.88 698.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 170.84 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 193.641 Tm
+0 Tc
+(mmetric Ke)Tj
+ET
+q
+90.72 95.96 50.88 698.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 410.363 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 433.164 Tm
+( Cr)Tj
+ET
+q
+90.72 95.96 50.88 698.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 490.044 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 512.845 Tm
+0.001 Tc
+(pto)Tj
+ET
+q
+90.72 95.96 50.88 698.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 571.166 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 594.206 Tm
+-0.001 Tc
+(raph)Tj
+ET
+q
+90.72 95.96 50.88 698.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 675.087 Tm
+(y)Tj
+ET
+Q
+BT
+0 33.12 -33.12 0 215.808 111.8 Tm
+0 Tc
+0.004 Tw
+[(\225)-498 (D)-3 (ata Encryption Stan)-7 (dard \(DES\); 1977,)]TJ
+0.848 -1.203 TD
+[(National Bu)-7 (r)7 (eau )8 (of Standards \(US\); )8 (5)-7 (6-bit)]TJ
+T*
+[(fixed length key; very)-7 ( )8 (efficien)-7 (t, particularly)]TJ
+T*
+0.003 Tc
+0.001 Tw
+[(i)6 (f)3 ( spec)5 (ia)5 (l)6 ( hardwa)5 (r)3 (e )8 (is )8 (used)]TJ
+-0.848 -1.442 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (T)2 (riple-DES \(or DES-EDE\) )8 (uses three)]TJ
+0.848 -1.196 TD
+-0.004 Tw
+[(applicatio)-7 (ns of )-8 (DES with )-8 (two, independ)-7 (ent)]TJ
+0 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(DES )8 (k)-6 (e)3 (ys; )8 (an effective )8 (key len)-6 (g)1 (th of )8 (1)-6 (12-)]TJ
+T*
+0.002 Tc
+(bits)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 11 11
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (1)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.004 Tc
+-0.008 Tw
+[(\225)-494 (D)1 (E)6 (S)2 ( is a )]TJ
+/N19 1 Tf
+4.609 0.009 TD
+0 Tc
+0.004 Tw
+(block cipher)Tj
+/N4 1 Tf
+4.986 -0.009 TD
+[(; it encrypts )8 (d)-7 (a)2 (ta in)]TJ
+-8.746 -1.196 TD
+(64-bit blocks)Tj
+-0.848 -1.442 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (T)3 (he )-8 (64-bit block)-6 ( is )-8 (split )-8 (into left and )-8 (right)]TJ
+0.848 -1.203 TD
+0.003 Tc
+-0.007 Tw
+[(hal)6 (v)3 (es,)7 ( )-8 (t)6 (h)3 (en )-8 (t)6 (h)3 (ere)5 ( )-8 (a)5 (r)3 (e )-8 (16 rounds of i)6 (d)-4 (e)5 (n)3 (ti)6 (ca)5 (l)]TJ
+T*
+0.001 Tc
+(operations:)Tj
+/N19 1 Tf
+1.406 -1.194 TD
+(L)Tj
+0 21.84 -21.84 0 318.979 204.92 Tm
+(i)Tj
+/N4 1 Tf
+0 33.12 -33.12 0 310.848 211.16 Tm
+-0.001 Tc
+-0.003 Tw
+( = )Tj
+/N19 1 Tf
+1.058 0.009 TD
+(R)Tj
+0 21.84 -21.84 0 318.979 266.6 Tm
+-0.003 Tc
+(i-1)Tj
+0 33.12 -33.12 0 350.87 186.44 Tm
+(R)Tj
+0 21.84 -21.84 0 359.299 206.84 Tm
+(i)Tj
+0 33.12 -33.12 0 350.87 212.84 Tm
+0.006 Tw
+( = L )Tj
+0 21.84 -21.84 0 359.299 278.6 Tm
+[(i-)-11 (1)]TJ
+0 33.12 -33.12 0 350.87 302.84 Tm
+( )Tj
+/N39 1 Tf
+0.254 0 TD
+(\305)Tj
+/N19 1 Tf
+0.768 0 TD
+[( f\(R)]TJ
+0 21.84 -21.84 0 359.299 385.4 Tm
+[(i-)-11 (1)]TJ
+0 33.12 -33.12 0 350.87 409.64 Tm
+-0.004 Tc
+0.008 Tw
+[( , K)]TJ
+0 21.84 -21.84 0 359.299 456.68 Tm
+(i)Tj
+0 33.12 -33.12 0 350.87 462.92 Tm
+(\))Tj
+/N4 1 Tf
+-9.754 -1.19 TD
+0.001 Tc
+(where )Tj
+/N19 1 Tf
+2.703 0.009 TD
+(K)Tj
+0 21.84 -21.84 0 398.419 251.48 Tm
+(i)Tj
+/N4 1 Tf
+0 33.12 -33.12 0 390.288 257.48 Tm
+-0.005 Tw
+[( )-8 (is )-8 (derived from the in)-6 (itial key )-8 (by)]TJ
+-3.551 -1.203 TD
+0.003 Tc
+0.001 Tw
+[(shif)10 (ti)6 (ng t)6 (h)3 (e bi)6 (t)6 (s)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he f)8 (u)-6 (nction )]TJ
+/N19 1 Tf
+6.246 0.009 TD
+(f)Tj
+/N4 1 Tf
+0.275 -0.009 TD
+-0.001 Tc
+0.005 Tw
+[( invo)-8 (lve)-6 (s)-3 ( )8 (shi)-6 (f)-1 (tin)-8 (g, substi)-6 (tut)-6 (i)2 (ng)]TJ
+-5.674 -1.203 TD
+0.001 Tc
+-0.005 Tw
+[(and XOR)-6 (ing )-8 (bits)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 12 12
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (2)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0 Tc
+-0.004 Tw
+[(\225)-498 (Internation)-7 (a)2 (l Data En)-7 (cryption )-8 (Algorithm)]TJ
+0.848 -1.196 TD
+0.001 Tc
+0.003 Tw
+[(\(IDEA\); James Massey )8 (and X)6 (u)-6 (ejia Lai,)]TJ
+0 -1.203 TD
+[(ETH Zurich, 1991; patented by )8 (the Swiss)]TJ
+T*
+0 Tc
+0.004 Tw
+[(Ascom Tech AG; block cipher; )8 (fix)-7 (e)2 (d length)]TJ
+T*
+[(128-bit key)-7 (;)3 ( f)7 (a)-5 (ster )8 (than )8 (triple-DES)]TJ
+-0.848 -1.442 TD
+[(\225)-498 (R)0 (C)-7 (2)0 ( )8 (and RC)-7 (4; Ron Rivest, RSA )8 (Data)]TJ
+0.848 -1.196 TD
+0.001 Tc
+0.003 Tw
+[(Security )8 (Inc., early 1990s; )8 (variable len)-6 (g)1 (th)]TJ
+0 -1.203 TD
+[(keys; claimed )8 (to be faster than I)8 (D)-2 (EA)]TJ
+-0.848 -1.442 TD
+-0.005 Tw
+[(\225)-497 (B)1 (lowfish; B)-6 (r)8 (u)-6 (c)3 (e Schneier, 1)-6 (994; )-8 (public)]TJ
+0.848 -1.203 TD
+0.003 Tw
+[(domain )8 (algo)-6 (rithm; var)8 (i)-4 (ab)-6 (le length )8 (key;)]TJ
+T*
+0.002 Tc
+[(com)5 (p)2 (act)5 (,)6 ( si)5 (mpl)5 (e)-3 ( a)4 (nd fa)4 (st)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 13 13
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (3)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+-0.001 Tc
+[(Ke)-6 (y si)-6 (ze)-6 ( do)-8 (es )-8 (ma)-6 (tt)-6 (er:)]TJ
+1.906 -1.935 TD
+0.031 Tc
+-0.02 Tw
+[(Si)19 (z)11 (e)-1337 (N)-8 (o)2 (.)20 ( ke)11 (ys)-884 (Ti)19 (m)-10 (e)4 ( t)19 (o)]TJ
+8.304 -1.152 TD
+0.027 Tc
+[(cr)12 (a)7 (c)0 (k)]TJ
+3.826 1.152 TD
+0.049 Tc
+[(Wh)20 (e)29 (n)]TJ
+ET
+136.32 149.96 0.48 -0.48 re
+f* 
+0 0 0 RG
+1 J
+1 j
+0.24 w
+10 M
+[]0 d
+136.32 149.48 m
+136.32 149.96 l
+136.32 149.48 m
+136.8 149.48 l
+S 
+136.32 149.96 0.48 -0.48 re
+f* 
+136.32 149.48 m
+136.32 149.96 l
+136.32 149.48 m
+136.8 149.48 l
+S 
+136.32 260.12 0.48 -110.16 re
+f* 
+136.32 149.96 m
+136.32 260.12 l
+S 
+136.32 260.84 0.48 -0.72 re
+f* 
+136.32 260.12 m
+136.32 260.84 l
+136.32 260.12 m
+136.8 260.12 l
+S 
+136.32 422.12 0.48 -161.28 re
+f* 
+136.32 260.84 m
+136.32 422.12 l
+S 
+136.32 422.6 0.48 -0.48 re
+f* 
+136.32 422.12 m
+136.32 422.6 l
+136.32 422.12 m
+136.8 422.12 l
+S 
+136.32 552.68 0.48 -130.08 re
+f* 
+136.32 422.6 m
+136.32 552.68 l
+S 
+136.32 553.4 0.48 -0.72 re
+f* 
+136.32 552.68 m
+136.32 553.4 l
+136.32 552.68 m
+136.8 552.68 l
+S 
+136.32 683.48 0.48 -130.08 re
+f* 
+136.32 553.4 m
+136.32 683.48 l
+S 
+136.32 683.96 0.48 -0.48 re
+f* 
+136.32 683.48 m
+136.32 683.96 l
+136.32 683.48 m
+136.8 683.48 l
+S 
+136.32 683.96 0.48 -0.48 re
+f* 
+136.32 683.48 m
+136.32 683.96 l
+136.32 683.48 m
+136.8 683.48 l
+S 
+136.8 149.96 76.32 -0.48 re
+f* 
+136.8 149.48 m
+213.12 149.48 l
+S 
+136.8 260.84 76.32 -0.72 re
+f* 
+136.8 260.12 m
+213.12 260.12 l
+S 
+136.8 422.6 76.32 -0.48 re
+f* 
+136.8 422.12 m
+213.12 422.12 l
+S 
+136.8 553.4 76.32 -0.72 re
+f* 
+136.8 552.68 m
+213.12 552.68 l
+S 
+136.8 683.96 76.32 -0.48 re
+f* 
+136.8 683.48 m
+213.12 683.48 l
+S 
+BT
+0 33.12 -33.12 0 244.848 155.48 Tm
+0.021 Tc
+[(4)-8 (0-bit)9 (s)]TJ
+/N39 1 Tf
+3.348 -0.064 TD
+(\273)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.029 Tc
+[(1.)18 (1)]TJ
+/N39 1 Tf
+1.312 0.009 TD
+(\264)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.022 Tc
+(10)Tj
+0 21.84 -21.84 0 232.296 383 Tm
+0.027 Tc
+(12)Tj
+0 33.12 -33.12 0 244.848 452.36 Tm
+0.029 Tc
+-0.018 Tw
+[(3.)18 (5 hr)14 (s)-343 (J)12 (an.)18 ( \221)14 (9)0 (7)]TJ
+ET
+213.12 149.96 0.48 -0.48 re
+f* 
+213.12 149.48 m
+213.12 149.96 l
+213.12 149.48 m
+213.6 149.48 l
+S 
+213.12 260.12 0.48 -110.16 re
+f* 
+213.12 149.96 m
+213.12 260.12 l
+S 
+213.12 260.84 0.48 -0.72 re
+f* 
+213.12 260.12 m
+213.12 260.84 l
+213.12 260.12 m
+213.6 260.12 l
+S 
+213.12 422.12 0.48 -161.28 re
+f* 
+213.12 260.84 m
+213.12 422.12 l
+S 
+213.12 422.6 0.48 -0.48 re
+f* 
+213.12 422.12 m
+213.12 422.6 l
+213.12 422.12 m
+213.6 422.12 l
+S 
+213.12 552.68 0.48 -130.08 re
+f* 
+213.12 422.6 m
+213.12 552.68 l
+S 
+213.12 553.4 0.48 -0.72 re
+f* 
+213.12 552.68 m
+213.12 553.4 l
+213.12 552.68 m
+213.6 552.68 l
+S 
+213.12 683.48 0.48 -130.08 re
+f* 
+213.12 553.4 m
+213.12 683.48 l
+S 
+213.12 683.96 0.48 -0.48 re
+f* 
+213.12 683.48 m
+213.12 683.96 l
+213.12 683.48 m
+213.6 683.48 l
+S 
+213.6 149.96 76.08 -0.48 re
+f* 
+213.6 149.48 m
+289.68 149.48 l
+S 
+213.6 260.84 76.08 -0.72 re
+f* 
+213.6 260.12 m
+289.68 260.12 l
+S 
+213.6 422.6 76.08 -0.48 re
+f* 
+213.6 422.12 m
+289.68 422.12 l
+S 
+213.6 553.4 76.08 -0.72 re
+f* 
+213.6 552.68 m
+289.68 552.68 l
+S 
+213.6 683.96 76.08 -0.48 re
+f* 
+213.6 683.48 m
+289.68 683.48 l
+S 
+BT
+0 33.12 -33.12 0 321.408 155.48 Tm
+0.021 Tc
+[(4)-8 (8-bit)9 (s)]TJ
+/N39 1 Tf
+3.348 -0.064 TD
+(\273)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.029 Tc
+[(2.)18 (8)]TJ
+/N39 1 Tf
+1.312 0.009 TD
+(\264)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.022 Tc
+(10)Tj
+0 21.84 -21.84 0 308.856 383 Tm
+0.027 Tc
+(14)Tj
+0 33.12 -33.12 0 321.408 443.48 Tm
+0.029 Tc
+[(31)7 (3 hr)14 (s)-350 (F)-2 (e)9 (b)0 (.)18 ( \221)7 (9)7 (7)]TJ
+ET
+289.68 149.96 0.48 -0.48 re
+f* 
+289.68 149.48 m
+289.68 149.96 l
+289.68 149.48 m
+290.16 149.48 l
+S 
+289.68 260.12 0.48 -110.16 re
+f* 
+289.68 149.96 m
+289.68 260.12 l
+S 
+289.68 260.84 0.48 -0.72 re
+f* 
+289.68 260.12 m
+289.68 260.84 l
+289.68 260.12 m
+290.16 260.12 l
+S 
+289.68 422.12 0.48 -161.28 re
+f* 
+289.68 260.84 m
+289.68 422.12 l
+S 
+289.68 422.6 0.48 -0.48 re
+f* 
+289.68 422.12 m
+289.68 422.6 l
+289.68 422.12 m
+290.16 422.12 l
+S 
+289.68 552.68 0.48 -130.08 re
+f* 
+289.68 422.6 m
+289.68 552.68 l
+S 
+289.68 553.4 0.48 -0.72 re
+f* 
+289.68 552.68 m
+289.68 553.4 l
+289.68 552.68 m
+290.16 552.68 l
+S 
+289.68 683.48 0.48 -130.08 re
+f* 
+289.68 553.4 m
+289.68 683.48 l
+S 
+289.68 683.96 0.48 -0.48 re
+f* 
+289.68 683.48 m
+289.68 683.96 l
+289.68 683.48 m
+290.16 683.48 l
+S 
+290.16 149.96 75.84 -0.48 re
+f* 
+290.16 149.48 m
+366 149.48 l
+S 
+290.16 260.84 75.84 -0.72 re
+f* 
+290.16 260.12 m
+366 260.12 l
+S 
+290.16 422.6 75.84 -0.48 re
+f* 
+290.16 422.12 m
+366 422.12 l
+S 
+290.16 553.4 75.84 -0.72 re
+f* 
+290.16 552.68 m
+366 552.68 l
+S 
+290.16 683.96 75.84 -0.48 re
+f* 
+290.16 683.48 m
+366 683.48 l
+S 
+BT
+0 33.12 -33.12 0 397.968 155.48 Tm
+0.021 Tc
+[(5)-8 (6-bit)9 (s)]TJ
+/N39 1 Tf
+3.348 -0.064 TD
+(\273)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.029 Tc
+[(7.)18 (2)]TJ
+/N39 1 Tf
+1.312 0.009 TD
+(\264)Tj
+/N4 1 Tf
+0.58 -0.009 TD
+0.022 Tc
+(10)Tj
+0 21.84 -21.84 0 385.176 383 Tm
+0.027 Tc
+(16)Tj
+0 33.12 -33.12 0 397.968 461 Tm
+0.029 Tc
+-0.011 Tw
+[(22)7 ( h)7 (r)7 (s)-343 (J)12 (a)2 (n.)18 ( )7 (\221)14 (9)0 (9)]TJ
+ET
+366.24 149.96 0.48 -0.48 re
+f* 
+366.24 149.48 m
+366.24 149.96 l
+366.24 149.48 m
+366.72 149.48 l
+S 
+366.24 260.12 0.48 -110.16 re
+f* 
+366.24 149.96 m
+366.24 260.12 l
+S 
+366.24 260.84 0.48 -0.72 re
+f* 
+366.24 260.12 m
+366.24 260.84 l
+366.24 260.12 m
+366.72 260.12 l
+S 
+366.24 422.12 0.48 -161.28 re
+f* 
+366.24 260.84 m
+366.24 422.12 l
+S 
+366.24 422.6 0.48 -0.48 re
+f* 
+366.24 422.12 m
+366.24 422.6 l
+366.24 422.12 m
+366.72 422.12 l
+S 
+366.24 552.68 0.48 -130.08 re
+f* 
+366.24 422.6 m
+366.24 552.68 l
+S 
+366.24 553.4 0.48 -0.72 re
+f* 
+366.24 552.68 m
+366.24 553.4 l
+366.24 552.68 m
+366.72 552.68 l
+S 
+366.24 683.48 0.48 -130.08 re
+f* 
+366.24 553.4 m
+366.24 683.48 l
+S 
+366.24 683.96 0.48 -0.48 re
+f* 
+366.24 683.48 m
+366.24 683.96 l
+366.24 683.48 m
+366.72 683.48 l
+S 
+366.72 149.96 76.08 -0.48 re
+f* 
+366.72 149.48 m
+442.8 149.48 l
+S 
+442.8 149.96 0.48 -0.48 re
+f* 
+442.8 149.48 m
+442.8 149.96 l
+442.8 149.48 m
+443.28 149.48 l
+S 
+442.8 149.96 0.48 -0.48 re
+f* 
+442.8 149.48 m
+442.8 149.96 l
+442.8 149.48 m
+443.28 149.48 l
+S 
+442.8 260.12 0.48 -110.16 re
+f* 
+442.8 149.96 m
+442.8 260.12 l
+S 
+366.72 260.84 76.08 -0.72 re
+f* 
+366.72 260.12 m
+442.8 260.12 l
+S 
+442.8 260.84 0.48 -0.72 re
+f* 
+442.8 260.12 m
+442.8 260.84 l
+442.8 260.12 m
+443.28 260.12 l
+S 
+442.8 422.12 0.48 -161.28 re
+f* 
+442.8 260.84 m
+442.8 422.12 l
+S 
+366.72 422.6 76.08 -0.48 re
+f* 
+366.72 422.12 m
+442.8 422.12 l
+S 
+442.8 422.6 0.48 -0.48 re
+f* 
+442.8 422.12 m
+442.8 422.6 l
+442.8 422.12 m
+443.28 422.12 l
+S 
+442.8 552.68 0.48 -130.08 re
+f* 
+442.8 422.6 m
+442.8 552.68 l
+S 
+366.72 553.4 76.08 -0.72 re
+f* 
+366.72 552.68 m
+442.8 552.68 l
+S 
+442.8 553.4 0.48 -0.72 re
+f* 
+442.8 552.68 m
+442.8 553.4 l
+442.8 552.68 m
+443.28 552.68 l
+S 
+442.8 683.48 0.48 -130.08 re
+f* 
+442.8 553.4 m
+442.8 683.48 l
+S 
+366.72 683.96 76.08 -0.48 re
+f* 
+366.72 683.48 m
+442.8 683.48 l
+S 
+442.8 683.96 0.48 -0.48 re
+f* 
+442.8 683.48 m
+442.8 683.96 l
+442.8 683.48 m
+443.28 683.48 l
+S 
+442.8 683.96 0.48 -0.48 re
+f* 
+442.8 683.48 m
+442.8 683.96 l
+442.8 683.48 m
+443.28 683.48 l
+S 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 14 14
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (4)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he big difficulty with symmetric )8 (k)-6 (e)3 (y)]TJ
+0.848 -1.08 TD
+[(cr)8 (y)-6 (p)1 (tography is the )]TJ
+/N19 1 Tf
+7.986 0.009 TD
+0.002 Tc
+[(key managemen)-5 (t)]TJ
+-7.986 -1.08 TD
+0 Tc
+(problem)Tj
+/N4 1 Tf
+3.341 -0.009 TD
+(:)Tj
+0 29.04 -29.04 0 211.416 149.24 Tm
+0.003 Tc
+[(\226)-299 (S)-3 (i)8 (n)-1 (c)9 (e)9 ( t)8 (h)-1 (e)9 ( )8 (en)7 (cr)5 (yp)7 (ti)8 (on)7 ( a)9 (n)-1 (d)7 ( )8 (de)9 (cr)5 (yp)7 (ti)8 (on)7 ( k)7 (e)1 (y)7 (s)4 ( )8 (ar)5 (e)]TJ
+0.802 -1.083 TD
+-0.001 Tc
+-0.001 Tw
+[(the )-8 (same, they must )-8 (be communicated secur)-7 (e)5 (ly)]TJ
+-0.802 -1.314 TD
+-0.004 Tc
+0.002 Tw
+[(\226)-306 (K)-9 (ey )-8 (ch)-8 (an)-8 (ge)-6 (s must)-7 ( b)-8 (e)2 ( sy)-8 (nc)-6 (hr)-10 (on)-8 (ise)-6 (d)0 ( )-8 (be)-6 (tw)-9 (een)]TJ
+0.802 -1.083 TD
+0.003 Tc
+[(se)9 (nd)7 (er a)9 (n)-1 (d)7 ( )8 (re)9 (ci)8 (pi)8 (en)7 (t)]TJ
+0 33.12 -33.12 0 355.248 111.8 Tm
+0.001 Tc
+[(\225)-497 (S)-1 (o, symmetric )8 (k)-6 (e)3 (y cry)-6 (p)1 (tography amounts )8 (to)]TJ
+0.848 -1.087 TD
+[(securely co)-6 (mmunicating a )8 (small )8 (p)-6 (i)4 (ece )8 (of)]TJ
+0 -1.08 TD
+0 Tc
+-0.004 Tw
+[(data \(th)-7 (e)2 ( )-8 (key\) in)-7 ( order to )-8 (be )-8 (ab)-7 (le )-8 (to)-7 ( th)-7 (en)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(securely co)-6 (mmunicate large pieces of )8 (d)-6 (a)3 (ta)]TJ
+T*
+(\(the messages\))Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 15 15
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (5)]TJ
+0 45.6 -45.6 0 131.76 141.8 Tm
+0 Tc
+(Diffie-Hellman Ke)Tj
+ET
+q
+90.72 384.92 50.88 409.92 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 487.641 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 510.441 Tm
+( Exchan)Tj
+ET
+q
+90.72 384.92 50.88 409.92 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 658.523 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 681.323 Tm
+(e)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.004 Tw
+[(\225)-498 (In 1976, )8 (Whitfield Diffie )8 (and Martin)]TJ
+0.848 -1.08 TD
+0.001 Tc
+0.003 Tw
+[(Hellman published a key)-6 ( )8 (exch)-6 (ange protocol)]TJ
+T*
+[(that overcame the )8 (key manag)-6 (e)3 (ment )8 (pro)-6 (blem)]TJ
+-0.848 -1.319 TD
+0 Tc
+-0.004 Tw
+[(\225)-498 (S)-2 (uppose Alice )-8 (an)-7 (d B)-7 (ob want )-8 (to)-7 ( set )-8 (up a)]TJ
+0.848 -1.08 TD
+0.001 Tc
+[(secure k)-6 (e)3 (y)]TJ
+-0.848 -1.319 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (T)2 (hey find one-way function)-7 (s)-2 ( )]TJ
+/N19 1 Tf
+12.703 0.009 TD
+(A)Tj
+/N4 1 Tf
+0.609 -0.009 TD
+0.004 Tc
+(, )Tj
+/N19 1 Tf
+0.507 0.009 TD
+(B)Tj
+/N4 1 Tf
+0.609 -0.009 TD
+0.002 Tc
+-0.006 Tw
+[( such )-8 (that)]TJ
+/N19 1 Tf
+-13.58 -1.092 TD
+-0.001 Tc
+[(A\(B\(y)-6 (\)\)=B\(A)-6 (\()-1 (y\)\) )]TJ
+/N39 1 Tf
+6.928 0 TD
+(")Tj
+/N19 1 Tf
+0.71 0 TD
+(y)Tj
+/N4 1 Tf
+0.449 -0.009 TD
+0.005 Tw
+[(; the)-6 (n)-1 ( the)-6 (y)-1 ( )8 (a)-6 (gre)-6 (e on )]TJ
+/N19 1 Tf
+8.159 0.009 TD
+(x)Tj
+/N4 1 Tf
+0.442 -0.009 TD
+(;)Tj
+-16.688 -1.058 TD
+0.002 Tc
+-0.006 Tw
+[(Alice sends )-8 (Bob )]TJ
+/N19 1 Tf
+6.826 0.009 TD
+-0.001 Tc
+[(A\(x)-6 (\))]TJ
+/N4 1 Tf
+1.725 -0.009 TD
+0 Tc
+0.004 Tw
+[(; Bob sen)-7 (d)0 (s )8 (Alice )]TJ
+/N19 1 Tf
+7.355 0.009 TD
+-0.002 Tc
+(B\(x\))Tj
+/N4 1 Tf
+-15.906 -1.089 TD
+0.002 Tc
+-0.006 Tw
+[(and they use )-8 (t)5 (h)2 (e key )]TJ
+/N19 1 Tf
+8.442 0.009 TD
+-0.001 Tc
+[(k=)-7 (A\(B\(x)-6 (\))6 (\)=)-7 (B\(A\(x)-6 (\))-1 (\))]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 16 16
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (6)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (In Diffie-Hellman, )]TJ
+/N19 1 Tf
+8.609 0.009 TD
+-0.002 Tc
+-0.002 Tw
+[(A\(x)-7 (\))-2 ( =)-8 ( x)]TJ
+0 21.84 -21.84 0 90.019 507.8 Tm
+(a)Tj
+0 33.12 -33.12 0 100.31 518.6 Tm
+0.001 Tc
+0.003 Tw
+( mod p)Tj
+/N4 1 Tf
+2.732 -0.009 TD
+(,)Tj
+/N19 1 Tf
+-14.167 -1.071 TD
+-0.002 Tc
+-0.002 Tw
+[(B\(x)-7 (\))-2 ( =)-8 ( x)]TJ
+0 21.84 -21.84 0 125.779 250.76 Tm
+(b)Tj
+0 33.12 -33.12 0 136.07 261.56 Tm
+0.001 Tc
+0.003 Tw
+( mod p)Tj
+/N4 1 Tf
+2.732 -0.009 TD
+0.004 Tc
+0 Tw
+[(,)8 ( wher)11 (e )]TJ
+/N19 1 Tf
+3.203 0.009 TD
+(p)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+0.003 Tc
+-0.007 Tw
+[( is a la)5 (rge )-8 (pri)6 (m)6 (e)]TJ
+-10.109 -1.08 TD
+0.001 Tc
+(number)Tj
+-0.848 -1.319 TD
+-0.002 Tc
+[(\225)-500 (S)-4 (o, )]TJ
+/N19 1 Tf
+2.406 0.009 TD
+0.003 Tc
+[(k = A)5 (\()3 (B\(x)5 (\)\) )-8 (=)4 ( )-8 (\()10 (x)]TJ
+0 21.84 -21.84 0 205.219 409.4 Tm
+(b)Tj
+0 33.12 -33.12 0 215.51 420.2 Tm
+(\))Tj
+0 21.84 -21.84 0 205.219 431.24 Tm
+(a)Tj
+0 33.12 -33.12 0 215.51 442.28 Tm
+0 Tc
+0.004 Tw
+[( )8 (mod p = x)]TJ
+0 21.84 -21.84 0 205.219 586.28 Tm
+0.006 Tc
+(ba)Tj
+0 33.12 -33.12 0 215.51 608.12 Tm
+0.001 Tc
+0.003 Tw
+[( mod )8 (p)]TJ
+-14.138 -1.08 TD
+-0.001 Tc
+0.005 Tw
+(= x)Tj
+0 21.84 -21.84 0 240.979 185.48 Tm
+-0.005 Tc
+(ab)Tj
+0 33.12 -33.12 0 251.27 207.08 Tm
+0.001 Tc
+0.003 Tw
+[( mod p )8 (=)-5 ( )8 (B\(A\(x\)\))]TJ
+/N4 1 Tf
+-2.877 -1.328 TD
+[(\225)-497 (T)3 (he number)]TJ
+/N19 1 Tf
+5.717 0.009 TD
+0.004 Tc
+0 Tw
+( a)Tj
+/N4 1 Tf
+0.754 -0.009 TD
+-0.002 Tc
+-0.002 Tw
+[( i)-7 (s)-4 ( kno)-9 (w)-5 (n)-2 ( on)-9 (ly )-8 (to )-8 (A)-5 (lic)-7 (e,)]TJ
+-5.623 -1.08 TD
+0 Tc
+0.004 Tw
+[(the numb)-7 (e)2 (r )]TJ
+/N19 1 Tf
+4.79 0.009 TD
+(b)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+-0.004 Tw
+[( is kn)-7 (own on)-7 (ly )-8 (to )-8 (Bob,)]TJ
+-5.29 -1.087 TD
+0.001 Tc
+0.003 Tw
+[(the numb)-6 (e)3 (rs )]TJ
+/N19 1 Tf
+5.181 0.009 TD
+(p)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+-0.004 Tc
+(, )Tj
+/N19 1 Tf
+0.5 0.009 TD
+(x)Tj
+/N4 1 Tf
+0.449 -0.009 TD
+(, )Tj
+/N19 1 Tf
+0.5 0.009 TD
+-0.002 Tc
+(A\(x\))Tj
+/N4 1 Tf
+1.717 -0.009 TD
+(,)Tj
+/N19 1 Tf
+0.254 0.009 TD
+0.003 Tc
+-0.007 Tw
+[( B\(x)5 (\))]TJ
+/N4 1 Tf
+1.971 -0.009 TD
+0.001 Tc
+0.003 Tw
+( can be made)Tj
+-11.072 -1.08 TD
+0 Tc
+(public)Tj
+-0.848 -1.319 TD
+0.002 Tc
+[(\225)-496 (C)2 (al)5 (cul)5 (a)-3 (t)5 (i)-3 (ng )]TJ
+/N19 1 Tf
+5.725 0.009 TD
+(k)Tj
+/N4 1 Tf
+0.442 -0.009 TD
+0.001 Tc
+( given )Tj
+/N19 1 Tf
+2.732 0.009 TD
+-0.002 Tc
+(x )Tj
+/N4 1 Tf
+0.696 -0.009 TD
+-0.001 Tc
+-0.003 Tw
+[(invo)-8 (lves fin)-8 (d)-1 (ing )-8 (the)]TJ
+-8.746 -1.08 TD
+0.002 Tc
+(values )Tj
+/N19 1 Tf
+2.812 0.009 TD
+(a)Tj
+/N4 1 Tf
+0.507 -0.009 TD
+0 Tc
+-0.004 Tw
+( and )Tj
+/N19 1 Tf
+1.949 0.009 TD
+(b)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+0.003 Tc
+-0.007 Tw
+[( whic)5 (h )-8 (m)6 (eans sol)6 (v)3 (i)6 (n)3 (g the)]TJ
+-5.768 -1.08 TD
+0 Tc
+-0.004 Tw
+[(dis)-10 (c)2 (rete lo)-7 (garithm problem)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 17 17
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (7)]TJ
+0 45.6 -45.6 0 131.76 187.16 Tm
+0 Tc
+0.003 Tw
+(Public Ke)Tj
+ET
+q
+90.72 137.72 50.88 657.12 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 368.362 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 391.163 Tm
+0.002 Tc
+0.001 Tw
+( Cr)Tj
+ET
+q
+90.72 137.72 50.88 657.12 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 448.283 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 471.084 Tm
+0.001 Tc
+(pto)Tj
+ET
+q
+90.72 137.72 50.88 657.12 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 529.404 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 552.205 Tm
+(raph)Tj
+ET
+q
+90.72 137.72 50.88 657.12 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 633.326 Tm
+(y)Tj
+ET
+Q
+0 0 0 RG
+0 J
+1 j
+1.2 w
+10 M
+[]0 d
+200.88 583.4 m
+200.88 658.04 l
+195.84 583.4 m
+195.84 658.04 l
+S 
+1.92 w
+198.48 583.4 m
+198.48 658.04 l
+S 
+1.2 w
+200.64 659 m
+443.28 173.72 l
+196.08 656.84 m
+438.72 171.56 l
+S 
+1.92 w
+198.48 658.04 m
+441.12 172.76 l
+S 
+1.2 w
+443.52 172.76 m
+443.52 319.64 l
+438.48 172.76 m
+438.48 319.64 l
+S 
+452.16 319.16 m
+441.12 340.76 l
+430.32 319.16 l
+452.16 319.16 l
+f* 
+1.92 w
+441.12 172.76 m
+441.12 319.64 l
+S 
+BT
+0 24.96 -24.96 0 447.264 366.92 Tm
+-0.001 Tc
+[(decr)5 (ypti)8 (o)-1 (n)]TJ
+ET
+0 j
+0.72 w
+416.16 484.04 50.16 -124.8 re
+S 
+1 j
+2.4 w
+441.12 508.76 m
+441.12 528.2 l
+S 
+447.36 527.72 m
+441.12 539.72 l
+435.12 527.72 l
+447.36 527.72 l
+f* 
+BT
+0 24.96 -24.96 0 450.384 565.88 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)]TJ
+-6.481 3.99 TD
+-0.001 Tc
+[(decr)5 (ypti)8 (o)-1 (n)]TJ
+0 -1.192 TD
+(key)Tj
+ET
+385.2 421.64 m
+404.64 421.64 l
+S 
+404.16 415.4 m
+416.16 421.64 l
+404.16 427.64 l
+404.16 415.4 l
+f* 
+BT
+0 24.96 -24.96 0 204.624 124.28 Tm
+0 Tc
+[(pl)9 (ainte)11 (x)0 (t)-9982 (c)2 (ip)10 (hert)9 (ext)]TJ
+ET
+198.48 228.68 m
+198.48 248.36 l
+S 
+204.72 247.88 m
+198.48 259.88 l
+192.48 247.88 l
+204.72 247.88 l
+f* 
+198.48 409.16 m
+198.48 428.6 l
+S 
+204.72 428.12 m
+198.48 440.12 l
+192.48 428.12 l
+204.72 428.12 l
+f* 
+BT
+0 24.96 -24.96 0 204.624 279.8 Tm
+-0.001 Tc
+[(encrypti)8 (o)-1 (n)]TJ
+ET
+0 j
+0.72 w
+173.52 396.92 50.16 -124.8 re
+S 
+BT
+0 24.96 -24.96 0 288.624 279.8 Tm
+[(encrypti)8 (o)-1 (n)]TJ
+T*
+(key)Tj
+ET
+1 j
+2.4 w
+260.64 334.52 m
+234.96 334.52 l
+S 
+235.44 340.76 m
+223.44 334.52 l
+235.44 328.52 l
+235.44 340.76 l
+f* 
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 18 18
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (8)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he encryption and decryp)-6 (tion)-6 ( )8 (keys are,)]TJ
+0.848 -0.964 TD
+(clearly, related)Tj
+-0.848 -1.203 TD
+[(\225)-497 (H)-2 (owever, )8 (g)-6 (i)4 (ven )8 (the encryption key, it )8 (is)]TJ
+0.848 -0.964 TD
+[(difficult to calculate )8 (the decryp)-6 (tion)-6 ( )8 (key)]TJ
+-0.848 -1.196 TD
+-0.005 Tw
+[(\225)-497 (F)-1 (or example, the )-8 (encryption )-8 (key can)]TJ
+0.848 -0.964 TD
+[(inv)-6 (o)1 (lve k)-6 (nowledge of )-8 (the p)-6 (r)8 (o)-6 (duct o)-6 (f)8 ( )-8 (two)]TJ
+T*
+0 Tc
+[(very large p)-7 (r)0 (ime )-8 (numbers )-8 (wh)-7 (ile the)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(decryption key )8 (requires knowledge )8 (o)-6 (f)8 ( th)-6 (e)]TJ
+T*
+-0.005 Tw
+[(two )-8 (separate prime n)-6 (u)1 (mbers \(factorisin)-6 (g)]TJ
+T*
+0 Tc
+[(large numbers is)-10 ( notoriously d)-7 (i)3 (fficult\))]TJ
+-0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (S)-1 (o, the encryption key)-6 ( )8 (can be )8 (mad)-6 (e)3 ( public)]TJ
+0.848 -0.964 TD
+0 Tc
+0.004 Tw
+(while the decryption key remains private)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 19 19
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (1)2 (9)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (In RSA, we find two very )8 (large )8 (p)-6 (r)1 (imes )]TJ
+/N19 1 Tf
+16.688 0.009 TD
+(p)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+-0.004 Tc
+(, )Tj
+/N19 1 Tf
+0.5 0.009 TD
+(q)Tj
+/N4 1 Tf
+-16.841 -1.089 TD
+0.001 Tc
+-0.005 Tw
+[(and a )-8 (positive integer )]TJ
+/N19 1 Tf
+8.855 0.009 TD
+(e)Tj
+/N4 1 Tf
+0.442 -0.009 TD
+0 Tc
+0.004 Tw
+[( in)-7 (vertible )8 (modulo)]TJ
+/N19 1 Tf
+-9.297 -1.071 TD
+(\(p-1\)\(q-1\))Tj
+/N4 1 Tf
+4 -0.009 TD
+( so, we can find )Tj
+/N19 1 Tf
+6.572 0.009 TD
+(d)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+-0.001 Tc
+[( such)-8 ( )8 (t)-6 (h)-1 (at)]TJ
+/N19 1 Tf
+-9.667 -1.092 TD
+0.007 Tc
+(de)Tj
+/N4 1 Tf
+0.949 -0.009 TD
+( )Tj
+/N39 1 Tf
+0.254 0.009 TD
+(\272)Tj
+/N4 1 Tf
+0.551 -0.009 TD
+( )Tj
+/N19 1 Tf
+0.246 0.009 TD
+(1)Tj
+/N4 1 Tf
+0.507 -0.009 TD
+( )Tj
+/N19 1 Tf
+0.246 0.009 TD
+(\()Tj
+/N4 1 Tf
+0.333 -0.009 TD
+0.001 Tc
+(mod )Tj
+/N19 1 Tf
+2.029 0.009 TD
+-0.007 Tc
+[(\()-7 (p)-14 (-1)-14 (\)\()-7 (q)-14 (-)0 (1)-14 (\))]TJ
+/N4 1 Tf
+4.007 -0.009 TD
+( )Tj
+/N19 1 Tf
+0.246 0.009 TD
+(\))Tj
+/N4 1 Tf
+-11.623 -1.306 TD
+(\225)Tj
+/N19 1 Tf
+0.848 0.009 TD
+(d)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+0.001 Tc
+0.003 Tw
+[( can be found easily if )8 (we )8 (k)-6 (now )]TJ
+/N19 1 Tf
+13.029 0.009 TD
+(p)Tj
+/N4 1 Tf
+0.507 -0.009 TD
+0 Tc
+-0.004 Tw
+( and )Tj
+/N19 1 Tf
+1.949 0.009 TD
+(q)Tj
+/N4 1 Tf
+-15.986 -1.089 TD
+[(but not if we kn)-7 (ow on)-7 (ly )]TJ
+/N19 1 Tf
+9.855 0.009 TD
+(n )Tj
+/N4 1 Tf
+0.746 -0.009 TD
+0.001 Tc
+(= )Tj
+/N19 1 Tf
+0.819 0.009 TD
+0 Tc
+(pq)Tj
+/N4 1 Tf
+-12.268 -1.328 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he encryption key is the pair )]TJ
+/N19 1 Tf
+13.094 0.009 TD
+0.002 Tc
+-0.006 Tw
+(\(n, e\))Tj
+/N4 1 Tf
+2.116 -0.009 TD
+(:)Tj
+-12.957 -1.087 TD
+(E)Tj
+/N19 1 Tf
+0.616 0.009 TD
+0 Tc
+(\(b\))Tj
+/N4 1 Tf
+1.167 -0.009 TD
+-0.001 Tc
+-0.003 Tw
+[( = )-8 (resid)-8 (u)-1 (e )-8 (of )]TJ
+/N19 1 Tf
+5.297 0.009 TD
+(b)Tj
+0 21.84 -21.84 0 356.419 437.48 Tm
+(e)Tj
+/N4 1 Tf
+0 33.12 -33.12 0 367.008 447.08 Tm
+-0.002 Tc
+0.006 Tw
+[( mod)-9 (u)-2 (lo )]TJ
+/N19 1 Tf
+3.565 0.009 TD
+(n)Tj
+/N4 1 Tf
+-13.688 -1.328 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he decryption key is the pair )]TJ
+/N19 1 Tf
+13.094 0.009 TD
+0 Tc
+-0.004 Tw
+[(\(n, d)-7 (\))]TJ
+/N4 1 Tf
+2.167 -0.009 TD
+(:)Tj
+-13.007 -1.08 TD
+0.003 Tc
+(D )Tj
+/N19 1 Tf
+0.978 0.009 TD
+0 Tc
+(\(a\))Tj
+/N4 1 Tf
+1.167 -0.009 TD
+0.001 Tc
+0.003 Tw
+[( =)7 ( residue )8 (of )]TJ
+/N19 1 Tf
+5.297 0.009 TD
+(a)Tj
+0 21.84 -21.84 0 435.859 449.48 Tm
+(d)Tj
+/N4 1 Tf
+0 33.12 -33.12 0 446.448 460.28 Tm
+[( mo)-6 (dule )]TJ
+/N19 1 Tf
+3.507 0.009 TD
+(n)Tj
+/N4 1 Tf
+-14.029 -1.342 TD
+0.498 Tc
+(\225D)Tj
+/N19 1 Tf
+1.572 0.009 TD
+(\()Tj
+/N4 1 Tf
+0.333 -0.009 TD
+(E)Tj
+/N19 1 Tf
+0.609 0.009 TD
+0 Tc
+(\(b\)\))Tj
+/N4 1 Tf
+1.5 -0.009 TD
+-0.006 Tc
+0.01 Tw
+[( = )]TJ
+/N19 1 Tf
+1.065 0.009 TD
+(b)Tj
+/N4 1 Tf
+0.5 -0.009 TD
+0.001 Tc
+0.003 Tw
+( since )Tj
+/N19 1 Tf
+2.565 0.009 TD
+(b)Tj
+0 21.84 -21.84 0 480.019 398.12 Tm
+-0.004 Tc
+[(\(p)-10 (-1\))-12 (\()-1 (q-1)-10 (\))]TJ
+/N4 1 Tf
+0 33.12 -33.12 0 490.608 485.24 Tm
+( )Tj
+/N39 1 Tf
+0.254 0.009 TD
+(\272)Tj
+/N4 1 Tf
+0.551 -0.009 TD
+( )Tj
+/N19 1 Tf
+0.246 0.009 TD
+0 Tc
+0.004 Tw
+(1 \()Tj
+/N4 1 Tf
+1.087 -0.009 TD
+-0.002 Tc
+[(mo)-9 (d )]TJ
+/N19 1 Tf
+2.029 0.009 TD
+0 Tc
+(n\))Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 20 20
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (0)]TJ
+0 33.12 -33.12 0 103.968 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (N)-2 (ote that public key )8 (encryptio)-6 (n )8 (methods)]TJ
+0.848 -1.196 TD
+0 Tc
+0.004 Tw
+[(can work the )8 (other way)-7 ( )8 (round)-7 (, i.e., a)]TJ
+0 -1.203 TD
+0.001 Tc
+-0.005 Tw
+[(message )-8 (encrypted)-6 ( with the private )-8 (key)-6 ( can)]TJ
+T*
+[(be decrypted with )-8 (the p)-6 (ublic )-8 (key)]TJ
+-0.848 -1.442 TD
+0.003 Tw
+[(\225)-497 (H)-2 (owever, )8 (a message )8 (encrypted with the)]TJ
+0.848 -1.203 TD
+[(priv)-6 (a)3 (te key is not )8 (confidential, because)]TJ
+0 -1.196 TD
+0 Tc
+-0.004 Tw
+[(anyone can)-7 ( acces)-10 (s)-2 ( th)-7 (e )-8 (public )-8 (key)]TJ
+-0.848 -1.442 TD
+-0.001 Tc
+-0.003 Tw
+[(\225)-499 (N)-4 (e)-6 (v)-1 (erth)-8 (el)-6 (ess,)-5 ( we)-6 ( wi)-6 (ll )-8 (se)-6 (e )-8 (app)-8 (lic)-6 (at)-6 (ions )-8 (of)]TJ
+0.848 -1.203 TD
+0 Tc
+-0.004 Tw
+[(this b)-7 (a)2 (ck-to-front use )-8 (of pub)-7 (lic k)-7 (e)2 (y)]TJ
+T*
+0.001 Tc
+0.003 Tw
+(encryption later)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 21 21
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (1)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (R)1 (SA, )8 (named after its inventors: Ronald)]TJ
+0.848 -0.964 TD
+[(Rivest, Adi Shamir, )8 (and Leonard Adleman,)]TJ
+T*
+0 Tc
+-0.004 Tw
+[(1978)-7 (; much more compu)-7 (t)3 (ation)-7 (a)2 (lly )-8 (intensiv)-7 (e)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(than symmetric )8 (key algorithms \(e.g., RSA )8 (is)]TJ
+T*
+[(100 times )8 (slower than DES )8 (in)-6 ( )8 (software, up)]TJ
+0 -0.957 TD
+0 Tc
+-0.004 Tw
+[(to )-8 (1000)-7 ( times )-8 (slower in)-7 ( hardware\))]TJ
+-0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (E)3 (lGamal; )8 (El Gamal, 1985; )8 (depends on )8 (an)]TJ
+0.848 -0.964 TD
+[(ar)8 (ithmetic )8 (algorithm )8 (different from that of)]TJ
+T*
+-0.005 Tw
+[(RSA )-8 (\()8 (t)-4 (he so-called d)-6 (i)4 (screte logarithm)]TJ
+T*
+(problem\))Tj
+-0.848 -1.203 TD
+0 Tc
+[(\225)-498 (E)2 (lliptic curve crypto)-7 (s)-2 (ystems; )-8 (propo)-7 (sed )-8 (by)]TJ
+0.848 -0.964 TD
+[(Koblitz and )-8 (Miller \(in)-7 (d)0 (ependently\) in 1)-7 (985;)]TJ
+T*
+0.004 Tw
+[(mo)-7 (re efficient th)-7 (an RSA)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 22 22
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (2)]TJ
+0 45.6 -45.6 0 131.76 251.24 Tm
+-0.001 Tc
+(One-Wa)Tj
+ET
+q
+90.72 201.8 50.88 593.04 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 405.562 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 428.362 Tm
+0 Tc
+0.003 Tw
+( Hashin)Tj
+ET
+q
+90.72 201.8 50.88 593.04 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 569.004 Tm
+(g)Tj
+ET
+Q
+BT
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.498 Tc
+[(\225A)495 ( )]TJ
+/N19 1 Tf
+1.826 0.009 TD
+0 Tc
+0.004 Tw
+[(hash functio)-7 (n)]TJ
+/N4 1 Tf
+5.428 -0.009 TD
+-0.004 Tc
+(, )Tj
+/N19 1 Tf
+0.5 0.009 TD
+0.001 Tc
+(H\(M\))Tj
+/N4 1 Tf
+2.225 -0.009 TD
+0 Tc
+-0.004 Tw
+[(, )-8 (takes )-8 (an arbitrary)]TJ
+-9.13 -1.203 TD
+0.002 Tc
+-0.006 Tw
+(length message )Tj
+/N19 1 Tf
+6.406 0.009 TD
+(M)Tj
+/N4 1 Tf
+0.833 -0.009 TD
+0 Tc
+0.004 Tw
+[( an)-7 (d )8 (pro)-7 (duces a fixed)]TJ
+-7.239 -1.203 TD
+0.002 Tc
+0.002 Tw
+[(length )8 (hash value )]TJ
+/N19 1 Tf
+7.268 0.009 TD
+0 Tc
+0.004 Tw
+(h = H\(M\))Tj
+/N4 1 Tf
+3.906 -0.009 TD
+(.)Tj
+-12.022 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (A)-2 ( one-way \()8 (o)-6 (r)8 ( secure\) )8 (hash function)-6 ( )8 (has )8 (the)]TJ
+0.848 -1.203 TD
+(properties that:)Tj
+0 29.04 -29.04 0 425.736 149.24 Tm
+0.302 Tc
+[(\226g)306 (i)299 (v)306 (e)300 (n)306 ( )]TJ
+/N19 1 Tf
+3.273 0.009 TD
+(h)Tj
+/N4 1 Tf
+0.496 -0.009 TD
+-0.004 Tc
+[(, )-8 (it)-7 ( is )-8 (di)-7 (ff)-10 (ic)-6 (ul)-7 (t t)-7 (o)0 ( )-8 (ca)-6 (lc)-6 (ul)-7 (at)-7 (e )]TJ
+/N19 1 Tf
+10.504 0.009 TD
+(M)Tj
+/N4 1 Tf
+-14.273 -1.455 TD
+0.302 Tc
+[(\226g)306 (i)299 (v)306 (e)300 (n)306 ( )]TJ
+/N19 1 Tf
+3.273 0.009 TD
+(M)Tj
+/N4 1 Tf
+0.835 -0.009 TD
+0.004 Tc
+-0.006 Tw
+[(,)6 ( it)9 ( is di)9 (ff)6 (ic)10 (ul)9 (t t)9 (o)0 ( fi)9 (nd)8 ( an)8 (ot)9 (he)10 (r )]TJ
+/N19 1 Tf
+11.818 0.009 TD
+0.002 Tc
+(M\222)Tj
+/N4 1 Tf
+1.174 -0.009 TD
+-0.001 Tc
+-0.001 Tw
+( such)Tj
+-16.298 -1.198 TD
+-0.006 Tc
+[(th)-10 (at)-9 ( )]TJ
+/N19 1 Tf
+1.744 0.009 TD
+0.002 Tc
+-0.004 Tw
+(H\(M\) = H\(M\222\))Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 23 23
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (3)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (O)-2 (ne-way hash )8 (functions are )8 (used to secure)]TJ
+0.848 -0.964 TD
+[(passwords; the )8 (h)-6 (a)3 (sh of the )8 (password is)]TJ
+T*
+-0.005 Tw
+[(sto)-6 (r)8 (ed, no)-6 (t the password )-8 (itself)]TJ
+-0.848 -1.203 TD
+[(\225)-497 (T)3 (hey )-8 (also p)-6 (l)4 (ay)-6 ( a role )-8 (in )-8 (secure)]TJ
+0.848 -0.964 TD
+(communications)Tj
+-0.848 -1.196 TD
+0.004 Tc
+0 Tw
+[(\225)-494 (M)2 (D2, )8 (MD)9 (4,)8 ( MD5;)7 ( t)7 (h)4 (ese )8 (are)6 ( )]TJ
+/N19 1 Tf
+12.522 0.009 TD
+0.001 Tc
+0.003 Tw
+(message digest)Tj
+/N4 1 Tf
+-11.674 -0.973 TD
+0 Tc
+0.004 Tw
+[(meth)-7 (ods )8 (d)-7 (e)2 (vised by Ron Rives)-10 (t; they)]TJ
+0 -0.964 TD
+-0.004 Tw
+[(produce 128)-7 (-bit )-8 (hashes)]TJ
+-0.848 -1.203 TD
+0.004 Tw
+[(\225)-498 (S)-2 (ecure Hash )8 (Algorith)-7 (m \(SHA\); developed)]TJ
+0.848 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(by the )8 (National I)8 (n)-6 (stitute )8 (of Standards and)]TJ
+T*
+0 Tc
+-0.004 Tw
+[(Tech)-7 (nology)-7 ( and )-8 (the Natio)-7 (nal Security)]TJ
+T*
+[(Agency)-7 ( in)-7 ( the )-8 (US; pro)-7 (duces )-8 (a )-8 (160-bit h)-7 (a)2 (sh)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 24 24
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (4)]TJ
+0 45.6 -45.6 0 131.76 283.4 Tm
+0.001 Tc
+(Confidentialit)Tj
+ET
+q
+90.72 233.96 50.88 560.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 537.083 Tm
+(y)Tj
+ET
+Q
+BT
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.003 Tw
+[(\225)-497 (C)1 (learly, )8 (any en)-6 (cryption metho)-6 (d)1 ( )8 (can)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(guarantee confiden)-7 (tiality)]TJ
+-0.848 -1.442 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he key management problem can be)]TJ
+0.848 -1.203 TD
+[(overcome )8 (by using )8 (either Diffie-Hellman)]TJ
+T*
+[(key )8 (exchan)-6 (ge or a public key )8 (encryption)]TJ
+0 -1.196 TD
+-0.002 Tc
+[(me)-7 (th)-9 (od)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 25 25
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (5)]TJ
+0 45.6 -45.6 0 131.76 118.76 Tm
+0 Tc
+0.003 Tw
+(Identification and Authentication)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+[(\225)-497 (If )8 (so)-6 (meone encryp)-6 (ts a message \(almost any)]TJ
+0.848 -1.203 TD
+-0.005 Tw
+[(message\) )-8 (with their private )-8 (key then )-8 (anyone)]TJ
+T*
+0 Tc
+[(else can )-8 (be sure o)-7 (f)0 ( th)-7 (e )-8 (originator o)-7 (f)7 ( )-8 (the)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(message, becau)-6 (s)-1 (e only)-6 ( )8 (th)-6 (ey have access to)]TJ
+T*
+0 Tc
+0.004 Tw
+(their private key)Tj
+-0.848 -1.435 TD
+-0.004 Tw
+[(\225)-498 (H)-3 (ence, )-8 (this b)-7 (a)2 (ck-to-front use o)-7 (f)0 ( pub)-7 (lic k)-7 (e)2 (y)]TJ
+0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(encryption can be )8 (used to establish)]TJ
+T*
+0.003 Tc
+[(i)6 (d)3 (enti)6 (fi)6 (ca)5 (ti)6 (on)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 26 26
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (6)]TJ
+0 33.12 -33.12 0 100.608 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (A)-2 ( )-8 (service wishing )-8 (to )-8 (be certain that it )-8 (is)]TJ
+0.848 -1.08 TD
+0.003 Tc
+-0.007 Tw
+[(com)6 (m)-2 (uni)6 (cat)6 (i)6 (ng )-8 (wi)6 (th who it)6 ( thi)6 (n)3 (ks it)6 ( is can)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(send the communicating)-6 ( party )-8 (a )-8 (random)]TJ
+T*
+0 Tc
+0.004 Tw
+[(message and )8 (ask the )8 (p)-7 (a)2 (rty to)-7 ( )8 (return it)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(encrypted)-6 ( with the party\222s )-8 (private k)-6 (e)3 (y)]TJ
+-0.848 -1.319 TD
+[(\225)-497 (If the )-8 (returned message su)-6 (ccessfully)]TJ
+0.848 -1.08 TD
+[(decrypts with )-8 (the communicating p)-6 (a)3 (rty)-6 (\222)1 (s)]TJ
+0 -1.087 TD
+0.003 Tw
+[(public )8 (key then the )8 (service can be sure )8 (that)]TJ
+0 -1.08 TD
+-0.005 Tw
+[(the )-8 (party is genuine)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (H)-2 (ence, back-to-front public key )8 (encryption)]TJ
+0.848 -1.08 TD
+-0.001 Tc
+0.005 Tw
+[(a)-6 (l)2 (so le)-6 (ads to a)-6 (u)-1 (the)-6 (n)-1 (ti)-6 (ca)-6 (tio)-8 (n)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 27 27
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (7)]TJ
+0 45.6 -45.6 0 131.76 294.44 Tm
+0 Tc
+(Data Inte)Tj
+ET
+q
+90.72 245 50.88 549.84 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 462.922 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 485.722 Tm
+(rit)Tj
+ET
+q
+90.72 245 50.88 549.84 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 526.283 Tm
+(y)Tj
+ET
+Q
+BT
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (I)1 (t is often )8 (n)-6 (e)3 (cessary to ensu)-6 (r)8 (e)-4 ( that data has)]TJ
+0.848 -1.08 TD
+-0.005 Tw
+[(not been corrupted )-8 (or modified )-8 (during)]TJ
+T*
+[(transmission)-6 ( over a )-8 (network)]TJ
+-0.848 -1.319 TD
+[(\225)-497 (T)3 (his can be )-8 (done by )-8 (generating a )-8 (hash )-8 (of)]TJ
+0.848 -1.08 TD
+0.003 Tw
+[(the original )8 (data )8 (and co)-6 (mparing a hash of)]TJ
+T*
+-0.005 Tw
+[(the )-8 (received)-6 ( data with )-8 (the original )-8 (hash)]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (F)-1 (or )8 (security, a secure )8 (hash can )8 (b)-6 (e)3 ( used)-6 ( )8 (and)]TJ
+0.848 -1.08 TD
+-0.005 Tw
+[(the )-8 (original hash )-8 (sent encrypted b)-6 (y)1 ( the)]TJ
+T*
+0.003 Tw
+(sender\222s private key)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 28 28
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (8)]TJ
+0 45.6 -45.6 0 131.76 270.92 Tm
+0 Tc
+(Non-repudiation)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (If )8 (a message is )8 (\223sig)-6 (ned\224 with a )8 (secure )8 (h)-6 (a)3 (sh)]TJ
+0.848 -1.203 TD
+[(encrypted)-6 ( )8 (using the )8 (sender\222)8 (s priv)-6 (a)3 (te key)]TJ
+T*
+-0.005 Tw
+[(then )-8 (the sender cannot )-8 (later claim that they)]TJ
+T*
+[(did)-6 ( not send )-8 (that )-8 (message)]TJ
+-0.848 -1.442 TD
+0 Tc
+[(\225)-498 (S)-2 (imilarly, if the )-8 (receiver returns )-8 (a )-8 (secure)]TJ
+0.848 -1.196 TD
+0.001 Tc
+0.003 Tw
+[(hash )8 (encrypted with their private )8 (k)-6 (e)3 (y then)]TJ
+0 -1.203 TD
+[(they cannot )8 (later den)-6 (y)1 ( )8 (receiving the)]TJ
+T*
+0.002 Tc
+(message)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 29 29
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (2)2 (9)]TJ
+0 45.6 -45.6 0 131.76 296.12 Tm
+0 Tc
+(Authorisation)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+-0.004 Tw
+[(\225)-498 (A)-3 (uth)-7 (orisation)-7 ( is)-10 ( concerned with )-8 (gran)-7 (ting)]TJ
+0.848 -1.203 TD
+0.001 Tc
+[(priv)-6 (ileges depending)-6 ( on )-8 (the )-8 (identity )-8 (of users)]TJ
+T*
+0.002 Tc
+-0.006 Tw
+[(and agent)5 (s)]TJ
+-0.848 -1.442 TD
+-0.007 Tw
+[(\225)-495 (S)1 (o,)7 ( )-8 (t)6 (h)3 (is is cl)6 (ea)5 (rly rel)6 (a)-2 (t)6 (e)-2 (d )-8 (t)6 (o)3 ( )-8 (i)6 (d)3 (ent)6 (i)6 (f)3 (ic)5 (at)6 (ion)]TJ
+0.848 -1.203 TD
+[(and authe)5 (n)3 (ti)6 (ca)5 (ti)6 (on)]TJ
+-0.848 -1.435 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (B)1 (u)-6 (t)4 (, if we receive )8 (a )8 (p)-6 (ublic key)-6 (,)5 ( how )8 (can )8 (we)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(be )8 (sure it is from who it claims to be )8 (from?)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 30 30
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (0)]TJ
+0 45.6 -45.6 0 131.76 247.4 Tm
+-0.001 Tc
+(Di)Tj
+ET
+q
+90.72 197.96 50.88 596.88 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 293.001 Tm
+(g)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 315.801 Tm
+0 Tc
+0.003 Tw
+(ital Certificates)Tj
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (P)-1 (ossession )-8 (of a p)-6 (ublic )-8 (key)-6 ( ensures only )-8 (that)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(the holder )8 (o)-7 (f)0 ( )8 (th)-7 (e corresponding private )8 (key)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(can decrypt )8 (the message)]TJ
+-0.848 -1.319 TD
+-0.001 Tc
+0.005 Tw
+[(\225)-499 (I)-1 (t doe)-6 (s )8 (no)-8 (t )8 (g)-8 (u)-1 (ara)-6 (n)-1 (te)-6 (e)-6 ( )8 (th)-8 (e ide)-6 (n)-1 (ti)-6 (ty of )8 (t)-6 (h)-1 (e)]TJ
+0.848 -1.08 TD
+0 Tc
+[(priv)-7 (a)2 (te key holder)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+-0.005 Tw
+[(\225)-497 (T)3 (rust is ach)-6 (i)4 (ev)-6 (ed )-8 (only after th)-6 (e )-8 (public )-8 (key is)]TJ
+0.848 -1.08 TD
+[(boun)-6 (d to a k)-6 (nown )-8 (identity)]TJ
+-0.848 -1.319 TD
+0.003 Tc
+0.001 Tw
+[(\225)-495 (A)0 ( di)6 (gi)6 (ta)5 (l )8 (cer)10 (ti)6 (fi)6 (cat)6 (e)5 ( binds )8 (the)5 ( i)6 (d)-4 (e)5 (n)3 (ti)6 (t)6 (y)3 ( of a)5 (n)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(entity )8 (\(p)-7 (erson or system\) to their public key)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 31 31
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (1)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.001 Tw
+[(\225)-495 (A)0 ( di)6 (gi)6 (ta)5 (l )8 (cer)10 (ti)6 (fi)6 (cat)6 (e)5 ( i)6 (s)1 (, e)5 (ssent)6 (ia)5 (ll)6 (y, )8 (the)]TJ
+0.848 -0.964 TD
+0.001 Tc
+-0.005 Tw
+[(entity\222s p)-6 (ublic )-8 (key)-6 ( \(plus, )-8 (possibly, other)]TJ
+T*
+0 Tc
+0.004 Tw
+[(info)-7 (r)7 (mation)-7 (\))7 ( sig)-7 (n)0 (ed with )8 (the priv)-7 (a)2 (te key of)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(the known authority )8 (\(called )8 (the )]TJ
+/N19 1 Tf
+12.775 0.009 TD
+0.005 Tc
+[(ce)7 (rti)8 (f)8 (i)0 (c)7 (a)5 (te)]TJ
+-12.775 -0.964 TD
+0.001 Tc
+(authority)Tj
+/N4 1 Tf
+3.674 -0.009 TD
+[( or )8 (C)-6 (A)-2 (\))]TJ
+-4.522 -1.196 TD
+-0.005 Tw
+[(\225)-497 (C)1 (o)-6 (mmo)-6 (n types of )-8 (certif)8 (icate:)]TJ
+0 29.04 -29.04 0 297.816 149.24 Tm
+-0.004 Tc
+0.01 Tw
+[(\226)-306 (p)0 (e)-6 (r)-2 (so)-8 (na)-6 (l ce)-6 (rt)-7 (if)-10 (ic)-6 (at)-7 (es)]TJ
+0 24.96 -24.96 0 325.104 186.44 Tm
+0 Tc
+0 Tw
+[(\225)-400 (i)-1 (d)10 (e)2 (ntif)6 (ies an i)9 (ndivi)9 (dual)9 ( for)6 ( autho)10 (r)-4 (isati)9 (on, signi)9 (ng, ...)]TJ
+0 29.04 -29.04 0 355.896 149.24 Tm
+-0.005 Tc
+0.011 Tw
+[(\226)-307 (s)-4 (it)-8 (e ce)-7 (rt)-8 (if)-11 (ic)-7 (at)-8 (e)]TJ
+0 24.96 -24.96 0 383.184 186.44 Tm
+0 Tc
+0 Tw
+[(\225)-400 (i)-1 (d)10 (e)2 (ntif)6 (ies a syst)9 (em f)6 (o)0 (r, e.)10 (g., sec)11 (u)0 (re co)10 (mm)9 (unicat)9 (ion)]TJ
+0 29.04 -29.04 0 414.216 149.24 Tm
+-0.004 Tc
+0.01 Tw
+[(\226)-306 (c)2 (o)-8 (d)0 (e)-6 (-)-2 (si)-7 (gn)-8 (in)-8 (g ce)-6 (rt)-7 (if)-10 (ic)-6 (at)-7 (e)]TJ
+0 24.96 -24.96 0 441.504 186.44 Tm
+0 Tc
+0 Tw
+[(\225)-400 (i)-1 (d)10 (e)2 (ntif)6 (ies the)11 ( develo)10 (per t)9 (o)0 ( guar)6 (a)2 (ntee )10 (authen)10 (tici)9 (t)-1 (y, ..)10 (.)]TJ
+0 29.04 -29.04 0 472.296 149.24 Tm
+0.004 Tc
+0.002 Tw
+[(\226)-298 (a)10 (ut)9 (ho)8 (ri)9 (ty)8 ( c)10 (e)2 (r)6 (t)1 (i)9 (f)-2 (i)9 (c)2 (a)10 (t)1 (e)]TJ
+0 24.96 -24.96 0 499.584 186.44 Tm
+0 Tc
+0 Tw
+[(\225)-400 (i)-1 (d)10 (e)2 (ntif)6 (ies the)11 ( C)-6 (A)1 (, )10 (used t)9 (o)0 ( sign ot)9 (her c)11 (e)2 (rti)9 (f)-4 (i)9 (cates)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 32 32
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (2)]TJ
+0 45.6 -45.6 0 131.76 256.28 Tm
+0 Tc
+0.003 Tw
+(Certificate Chains)Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.003 Tc
+-0.007 Tw
+[(\225)-495 (E)5 (ssent)6 (ia)5 (ll)6 (y, a cert)6 (i)6 (f)3 (i)6 (cat)6 (e cont)6 (ai)6 (ns )-8 (t)6 (h)-4 (e)]TJ
+0.848 -1.203 TD
+0 Tc
+-0.004 Tw
+[(subject\222s )-8 (and)-7 ( th)-7 (e )-8 (issuer\222s data \227)-7 ( the )-8 (subject)]TJ
+T*
+-0.001 Tc
+0.005 Tw
+[(is c)-6 (h)-1 (ai)-6 (ned to)-8 ( )8 (th)-8 (e issue)-6 (r)]TJ
+-0.848 -1.442 TD
+0 Tc
+[(\225)-498 (W)-5 (hy should)-7 ( )8 (one trust the CA )8 (who)-7 ( )8 (signs )8 (a)]TJ
+0.848 -1.203 TD
+0.003 Tc
+[(ce)5 (rt)6 (ifi)6 (c)-2 (a)5 (t)-2 (e)5 (?)]TJ
+-0.848 -1.435 TD
+0 Tc
+[(\225)-498 (If )8 (n)-7 (e)2 (cessary, )8 (th)-7 (e subject\226issu)-7 (er chain can be)]TJ
+0.848 -1.203 TD
+0.001 Tc
+(continued)Tj
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 33 33
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (3)]TJ
+0 33.12 -33.12 0 97.488 139.88 Tm
+0 Tc
+-0.004 Tw
+[(subject:)-541 (Fred)-7 ( Lo)-7 (ng)]TJ
+0 -0.964 TD
+0.001 Tc
+0.003 Tw
+[(issu)-6 (er:)-1047 (D)-2 (ept. Comp. Sci.)]TJ
+0 -1.203 TD
+0 Tc
+-0.004 Tw
+[(subject:)-541 (Dept. C)-7 (o)0 (mp)-7 (. )-8 (Sci.)]TJ
+0 -0.964 TD
+[(issu)-7 (er:)-1048 (U)-3 (WA)]TJ
+0 -1.196 TD
+0.003 Tc
+[(subj)6 (ec)5 (t:)-538 (UWA)]TJ
+0 -0.964 TD
+0 Tc
+[(issu)-7 (er:)-1048 (H)-3 (EFCW)]TJ
+0 -1.203 TD
+0.003 Tc
+[(subj)6 (ec)5 (t:)-538 (HE)5 (FCW)]TJ
+0 -0.964 TD
+0.002 Tw
+[(issuer:)-1046 (W)4 (elsh Assembly)]TJ
+0 -1.203 TD
+0.001 Tw
+[(subj)6 (ec)5 (t:)-538 (Wel)6 (sh Asse)5 (mbl)6 (y)]TJ
+0 -0.964 TD
+0 Tc
+0.004 Tw
+[(issu)-7 (er:)-1048 (U)-3 (K Government)]TJ
+0 -1.203 TD
+0.002 Tc
+0.002 Tw
+[(subject:)-539 (UK Gover)9 (n)-5 (ment)]TJ
+0 -0.957 TD
+0 Tc
+0.004 Tw
+[(issu)-7 (er:)-1048 (U)-3 (K Government)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 34 34
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (4)]TJ
+0 33.12 -33.12 0 97.488 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (here are internatio)-6 (nal )8 (standards for )8 (digital)]TJ
+0.848 -0.964 TD
+0.003 Tc
+-0.007 Tw
+[(ce)5 (rt)6 (ifi)6 (c)-2 (a)5 (t)-2 (e)5 (s)1 (, e.)7 (g.)7 (, X.509)]TJ
+-0.848 -1.203 TD
+-0.001 Tc
+-0.003 Tw
+[(\225)-499 (E)1 (xa)-6 (mp)-8 (le)-6 ( CA)-4 (s:)]TJ
+0 29.04 -29.04 0 204.696 149.24 Tm
+-0.004 Tc
+0.01 Tw
+[(\226)-306 (V)-9 (eri)-7 (S)-10 (ign)-8 (:)1 ( ht)-7 (tp)-8 (:/)-7 (/w)-9 (ww)-9 (.ve)-6 (r)-2 (i)-7 (s)-3 (ig)-8 (n.)-10 (co)-8 (m/)]TJ
+0 -1.207 TD
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (T)1 (ha)8 (w)5 (t)-1 (e)8 (:)-1 ( ht)7 (tp)6 (:/)7 (/w)5 (ww)5 (.th)6 (a)0 (w)5 (t)-1 (e)8 (.)-4 (c)8 (o)-2 (m/)]TJ
+0.802 -0.959 TD
+-0.004 Tc
+0.002 Tw
+[(\()-10 (a)2 (lt)-7 (ho)-8 (ug)-8 (h )-8 (Tha)-6 (w)-1 (t)-7 (e)2 ( h)-8 (a)2 (s )-8 (be)-6 (en)-8 ( ta)-6 (ke)-6 (n )-8 (ov)-8 (er)-10 ( by)]TJ
+T*
+0.006 Tc
+[(Ve)12 (r)8 (i)3 (Si)11 (g)10 (n)2 (\))]TJ
+0 33.12 -33.12 0 334.368 111.8 Tm
+0.001 Tc
+[(\225)-497 (C)1 (ertif)8 (i)-4 (cates f)8 (rom VeriSig)-6 (n)1 ( )8 (and Thawte )8 (are)]TJ
+0.848 -0.964 TD
+0 Tc
+0.004 Tw
+[(recognised)-7 ( )8 (by th)-7 (e main browser)7 (s)]TJ
+-0.848 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (O)-2 (ne )8 (can)-6 ( )8 (gener)8 (a)-4 (te one\222s own certificates)]TJ
+0.848 -0.964 TD
+-0.005 Tw
+[(using \(e.g)-6 (., Netscape\222s )-8 (signtool, MS\222s)]TJ
+T*
+0.003 Tw
+[(certificate server, Java\222s keytool\) )8 (but )8 (these)]TJ
+T*
+0 Tc
+0.004 Tw
+[(will not be recogn)-7 (ised )8 (by)-7 ( )8 (th)-7 (e browsers)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 35 35
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (5)]TJ
+0 45.6 -45.6 0 131.76 172.76 Tm
+0 Tc
+[(Secur)-4 (e)2 ( Socket L)-5 (a)]TJ
+ET
+q
+90.72 123.32 50.88 671.52 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 491.964 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 514.764 Tm
+0.003 Tw
+(er \(SSL\))Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+[(\225)-497 (S)-1 (SL )8 (was )8 (developed by Netscape in 1994)-6 (.)]TJ
+0.848 -1.203 TD
+-0.005 Tw
+[(The )-8 (latest v)-6 (e)3 (rsio)-6 (n is version )-8 (3.0.)]TJ
+-0.848 -1.442 TD
+0.004 Tc
+-0.008 Tw
+[(\225)-494 (S)2 (S)9 (L)-1 ( is a )]TJ
+/N19 1 Tf
+4.435 0.009 TD
+0.001 Tc
+[(pro)-6 (t)4 (ocol)]TJ
+/N4 1 Tf
+3.399 -0.009 TD
+0.004 Tc
+0 Tw
+[( t)7 (h)4 (at)7 ( e)6 (n)4 (able)6 (s t)7 (h)4 (e )8 (cl)7 (ie)6 (nt )8 (and)]TJ
+-6.986 -1.203 TD
+0.001 Tc
+0.003 Tw
+[(server to ag)-6 (r)8 (ee )8 (on the cryptographic)]TJ
+T*
+0.003 Tc
+0.001 Tw
+[(t)6 (echni)6 (ques t)6 (h)3 (ey )8 (wil)6 (l)6 ( use,)7 ( a)5 (u)-4 (t)6 (h)3 (ent)6 (i)6 (cat)6 (e )8 (ea)5 (ch)]TJ
+0 -1.196 TD
+0.001 Tc
+0.003 Tw
+[(oth)-6 (e)3 (r, )8 (and then )8 (exchange a )8 (master key for)]TJ
+0 -1.203 TD
+-0.005 Tw
+[(use in su)-6 (bsequ)-6 (e)3 (nt communicatio)-6 (ns)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 36 36
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (6)]TJ
+0 45.6 -45.6 0 131.76 130.76 Tm
+0.001 Tc
+-0.004 Tw
+(Transport La)Tj
+ET
+q
+90.72 81.32 50.88 713.52 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 367.643 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 390.443 Tm
+0 Tc
+0.003 Tw
+[(er Secur)-4 (i)-1 (t)]TJ
+ET
+q
+90.72 81.32 50.88 713.52 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 566.606 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 589.406 Tm
+-0.001 Tc
+-0.002 Tw
+[( \(TL)-6 (S)2 (\))]TJ
+0 33.12 -33.12 0 212.688 111.8 Tm
+0.001 Tc
+0.003 Tw
+[(\225)-497 (T)3 (he I)8 (n)-6 (ter)8 (n)-6 (et )8 (En)-6 (gineering )8 (Task Force )8 (\(IETF\))]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(is attempting to in)-7 (troduce an )8 (international)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(standard, based on SSL )8 (3.0, )8 (called)]TJ
+T*
+-0.005 Tw
+[(Transport )-8 (Layer Security \(TLS\))]TJ
+-0.848 -1.319 TD
+0.003 Tw
+[(\225)-497 (T)3 (LS is similar )8 (to )8 (SSL 3.0)-6 (,)5 ( but has )8 (a )8 (slightly)]TJ
+0.848 -1.08 TD
+[(differen)-6 (t)4 ( )8 (cip)-6 (h)1 (er suite and)-6 ( )8 (uses the )8 (HMAC)]TJ
+T*
+0.002 Tc
+-0.006 Tw
+[(secure message digest )-8 (instead of )-8 (MD5)]TJ
+-0.848 -1.319 TD
+0.001 Tc
+0.003 Tw
+[(\225)-497 (A)-2 ( Req)-6 (u)1 (est )8 (for Comments on the )8 (TLS)]TJ
+0.848 -1.08 TD
+0 Tc
+0.004 Tw
+[(Protocol v 1.0 was )8 (is)-10 (sued in January)-7 ( )8 (199)-7 (9)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 37 37
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (7)]TJ
+0 45.6 -45.6 0 131.76 172.52 Tm
+0 Tc
+(Prett)Tj
+ET
+q
+90.72 123.08 50.88 671.76 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 258.681 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 281.481 Tm
+0.003 Tw
+( Good Privac)Tj
+ET
+q
+90.72 123.08 50.88 671.76 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 522.204 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 545.005 Tm
+0.001 Tc
+( \(PGP\))Tj
+0 33.12 -33.12 0 215.808 111.8 Tm
+[(\225)-497 (P)-1 (GP was developed )8 (b)-6 (y)1 ( )8 (Philip Zimmermann)]TJ
+0.848 -1.203 TD
+0 Tc
+-0.004 Tw
+[(in )-8 (1991)-7 ( as an )-8 (electronic-mail s)-10 (e)2 (curity)]TJ
+T*
+0.001 Tc
+(program)Tj
+-0.848 -1.442 TD
+0.003 Tw
+[(\225)-497 (P)-1 (GP uses )8 (R)-6 (S)6 (A for )8 (key ex)-6 (change )8 (and digital)]TJ
+0.848 -1.203 TD
+0 Tc
+0.004 Tw
+[(sig)-7 (n)0 (atures; )8 (MD5 for integrity )8 (checking; ZIP)]TJ
+0 -1.196 TD
+0.001 Tc
+0.003 Tw
+[(for compression; and )8 (IDEA for data)]TJ
+0 -1.203 TD
+(encryption)Tj
+-0.848 -1.442 TD
+0 Tc
+0.004 Tw
+[(\225)-498 (P)-2 (GP uses )8 (\223rings of trust\224  )8 (in)-7 (stead of )8 (chains)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Page: 38 38
+%%BeginPageSetup
+userdict /pgsave save put
+PDFVars begin PDF begin PDFVars/InitAll get exec
+-90 rotate -792 0 translate
+90 rotate
+8 -842 translate
+%%EndPageSetup
+0 0 595 842 RC
+1 1 1 rg
+/N5 /ExtGState findRes gs
+18 23 594.96 841.92 re
+f 
+1 i
+18 794.84 559.92 -746.64 re
+f* 
+BT
+/N4 1 Tf
+0 14.4 -14.4 0 546 111.8 Tm
+0 0 0 rg
+0.002 Tc
+-0.002 Tw
+[(U)-9 (.)2 (W)-4 (.)2 ( A)-9 (b)2 (e)-4 (r)2 (y)-15 (s)8 (tw)-9 (yth)-9765 (C)-14 (S)8 (2)2 (5)-15 (610/C)-14 (S)8 (M)-9 (5)2 (6)-15 (1)2 (0)-16415 (3)2 (8)]TJ
+0 45.6 -45.6 0 131.76 139.64 Tm
+0 Tc
+(Privac)Tj
+ET
+q
+90.72 90.2 50.88 704.64 re
+W n 
+BT
+0 45.6 -45.6 0 131.76 256.281 Tm
+(y)Tj
+ET
+Q
+BT
+0 45.6 -45.6 0 131.76 279.082 Tm
+0.003 Tw
+[( )6 (Enhanced Mail \(PEM\))]TJ
+0 33.12 -33.12 0 215.808 111.8 Tm
+0.001 Tc
+[(\225)-497 (P)-1 (EM is ano)-6 (t)4 (her)8 ( IETF standard)]TJ
+0 -1.442 TD
+0.002 Tc
+[(\225)-496 (A)-1 (gain, )8 (it is r)9 (eally a )8 (protoco)-5 (l)]TJ
+T*
+0 Tc
+0.004 Tw
+[(\225)-498 (P)-2 (EM al)-5 (lows for)]TJ
+0 29.04 -29.04 0 354.216 149.24 Tm
+0.002 Tc
+-0.004 Tw
+[(\226)-300 (D)-3 (a)8 (t)7 (a en)6 (cryp)6 (ti)7 (on)6 (: DES)]TJ
+0 -1.438 TD
+[(\226)-300 (K)-3 (e)8 (y)6 ( )-8 (ma)8 (na)8 (ge)8 (men)6 (t)-1 (:)7 ( DES)4 ( )-8 (o)6 (r)-4 ( R)8 (S)-4 (A)]TJ
+0 -1.446 TD
+0.004 Tc
+0.002 Tw
+[(\226)-298 (I)-2 (n)8 (t)1 (e)10 (g)8 (ri)9 (ty)8 ( c)10 (h)0 (e)10 (c)2 (k)8 (i)1 (n)8 (g)0 (:)9 ( )8 (RS)6 (A/)9 (MD)7 (2 )8 (or)6 ( )8 (RS)6 (A/)9 (MD)7 (5)]TJ
+0 -1.438 TD
+0.003 Tc
+-0.005 Tw
+[(\226)-299 (D)-2 (i)8 (g)7 (it)8 (al)8 ( )-8 (si)8 (gn)7 (in)7 (g:)8 ( RS)5 (A/)8 (MD)6 (2 or)5 ( RS)5 (A/)8 (MD)6 (5)]TJ
+ET
+PDFVars/TermAll get exec end end
+userdict /pgsave get restore
+showpage
+%%PageTrailer
+%%EndPage
+%%Trailer
+%%EOF

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A Useful Simple Program</TITLE>
+<META NAME="description" CONTENT="A Useful Simple Program">
+<META NAME="keywords" CONTENT="worksheet_5">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="worksheet_5.css">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="worksheet_5.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html79"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html77"
+ HREF="worksheet_5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html71"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html80"
+ HREF="node8.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html78"
+ HREF="worksheet_5.html">CS23710 Worksheet Week Five</A>
+<B> Previous:</B> <A NAME="tex2html72"
+ HREF="node6.html">Submission Date (for CS23710</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00070000000000000000">
+A Useful Simple Program</A>
+</H1>
+<P><PRE>
+/* This is a first C Program */
+
+struct score { char name[80];
+               int racetime;
+             };
+
+makeoutput(struct score * scoreptr)
+{       printf(&quot;the value is %d\n&quot;, (* scoreptr).racetime);
+}
+
+main ()
+{
+
+struct score runners [2];
+
+strcpy(runners[0].name, &quot;fred&quot;);
+runners[0].racetime = 5;
+
+strcpy(runners[1].name, &quot;bert&quot;);
+runners[1].racetime = 9;
+
+makeoutput (&amp;runners[0]);
+makeoutput (&amp;runners[1]);
+
+}
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+<I>DAVID ERNEST PRICE</I>
+<BR><I>3/6/2001</I>
+</ADDRESS>
+</BODY>
+</HTML>

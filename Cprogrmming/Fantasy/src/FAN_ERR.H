@@ -1,0 +1,34 @@
+/* messages from the fantasy commands, start, quit, look etc. */
+
+#define FAN_ERR_DRAG_LOC	"Fantasy Error: dragon's location"
+#define FAN_ERR_PLAY_LOC	"Fantasy Error: player's location"
+#define FAN_ERR_ETC		"Fantasy Error: $fantasy/etc"
+#define FAN_ERR_PLAY_STUFF	"Fantasy Error: player's stuff"
+#define FAN_ERR_LAIR		"Fantasy Error: dragon's lair"
+#define FAN_ERR_WORLD		"Fantasy Error: fantasy world"
+#define FAN_ERR_START		"Fantasy Error: starting location"
+#define FAN_ERR_LIGHT		"Fantasy Error: light source"
+#define FAN_ERR_LOOK		"Fantasy Error: look"
+#define FAN_ERR_SHOWFILE	"Fantasy Error: showfile"
+
+#define FAN_WARN_SCORE		"Fantasy Warning: no score"
+#define FAN_WARN_DRAGON		"Fantasy Warning: no dragon"
+
+/* messages from location and movable object subsystems and from the dragon */
+
+#define FAN_SYS_LOC		    "Fantasy System Error: location"
+#define FAN_SYS_MALLOC		"Fantasy System Error: malloc"
+#define FAN_SYS_OPEN		"Fantasy System Error: open"
+#define FAN_SYS_READ		"Fantasy System Error: read"
+#define FAN_SYS_CLOSE		"Fantasy System Error: close"
+#define FAN_SYS_CREAT		"Fantasy System Error: creat"
+#define FAN_SYS_LOCKF		"Fantasy System Error: lockf"
+#define FAN_SYS_WRITE		"Fantasy System Error: write"
+#define FAN_SYS_CLOSE		"Fantasy System Error: close"
+#define FAN_SYS_CHDIR		"Fantasy System Error: chdir"
+#define FAN_SYS_OPENDIR		"Fantasy System Error: opendir"
+#define FAN_SYS_STAT		"Fantasy System Error: stat"
+#define FAN_SYS_CLOSEDIR	"Fantasy System Error: closedir"
+#define FAN_SYS_FORK		"Fantasy System Error: fork"
+#define FAN_SYS_UNLINK		"Fantasy System Error: unlink"
+

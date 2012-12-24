@@ -1,0 +1,478 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./CS22210_files/filelist.xml">
+<title>CS22210: Operating Systems and Concurrency</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Wallis</o:Author>
+  <o:LastAuthor>Ian Wallis</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2001-01-25T10:13:00Z</o:Created>
+  <o:LastSaved>2001-01-25T10:14:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>468</o:Words>
+  <o:Characters>2671</o:Characters>
+  <o:Company>U.W.Aberystwyth</o:Company>
+  <o:Lines>22</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3280</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:green;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=TITLE content="CS22210: Operating Systems and Concurrency">
+<meta name=CREATOR content="Computer Science">
+<meta name=SUBJECT content="2000, Degree, Examinations, Semester 1">
+<meta name=PUBLISHER content="DATAPREP - Information Services">
+<meta name=date VALUE="24-02-2000">
+</head>
+
+<body bgcolor=white lang=EN-GB link=green vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p>DEGREE EXAMINATIONS 1999-00 SEMESTER 1 </p>
+
+<p>FACULTY OF SCIENCE </p>
+
+<p><b>Computer Science CS22210: Operating Systems and Concurrency <o:p></o:p></b></p>
+
+<p><b>Time allowed: 2 hours</b> </p>
+
+<p><i>Answer</i> <b>THREE</b> <i>from</i> <b>FIVE</b> <i>questions</i> </p>
+
+<table border=0 cellpadding=0 width="90%" style='width:90.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1.</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Briefly describe the following components that are
+  typically found in an Operating System: </p>
+  <p>(i) Process management<br>
+  (ii) Memory management<br>
+  (iii) File management<br>
+  (iv) I/O system management<br>
+  (v) Secondary storage management<br>
+  (vi) Networking<br>
+  (vii) The protection system</p>
+  </td>
+  <td width="14%" valign=bottom style='width:14.7%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[16 marks]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the nature of the UNIX command interpreter.</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[7]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the mechanism by which the services of the
+  Operating System are requested by application and system programs.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='text-align:right'>[10]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 width="90%" style='width:90.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2.</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td colspan=2 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the concept of a process as used in the context
+  of operating systems. Your answer should include a description of the
+  different states that a process can assume during its lifetime and a
+  description of the data structures that are used to represent and organise
+  processes.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[12]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the following scheduling algorithms and suggest a
+  type of system to which each is suited:</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[6]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(i) Priority scheduling<br>
+  (ii) Round-robin scheduling</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td colspan=2 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Six processes are running on a machine. Processes A, B and
+  C are CPU bound whilst processes D, E and F are I/O bound. Discuss the effect
+  on CPU and I/O device utilisation of running these processes using a FIFO
+  (first-in-first-out) scheduling algorithm when the processes are submitted in
+  the order A,B,C,D,E,F.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[8]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Five processes V, W, X, Y and Z have process time limits
+  of 20, 18, 15, 3 and 2 minutes respectively.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(i) </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Calculate the mean turnaround time for these jobs if they
+  are submitted in the order V,W,X,Y,Z to a FIFO scheduling algorithm.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[2]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>(ii) </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe an approach to long term scheduling that can be
+  used to improve the mean turnaround time for these processes.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[5]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 width="90%" style='width:90.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>3.</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe the nature of semaphores as used for coordinating
+  cooperating processes.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[5]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Two robots are deployed to create plastic skipping rope
+  handles. There is a table containing a fixed number of moulds which open from
+  the top and the bottom. Robot A opens a mould from the top and pours in the
+  molten plastic. Robot B opens a mould from the bottom and extracts the
+  handle. Explain the need for mutual exclusion and synchronisation of the
+  robots and show how these can be achieved using semaphores.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[15]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>What is a monitor and how are they used to coordinate
+  cooperating processes?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[8]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Explain how a monitor could be used to achieve mutual
+  exclusion and synchronisation in the scenario described in part b) above.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[5]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 width="90%" style='width:90.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>4.</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>List the <i>resources</i> required by a process that must
+  be managed by the operating system.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[8]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>In operating system memory management, what is meant by <i>thrashing</i>?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[4]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>What causes thrashing? What is the result of thrashing?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[8]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe one method that attempts to prevent thrashing.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[13]</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 width="90%" style='width:90.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>5.</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>a)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>What is the role of the operating system in dealing with
+  input/output (I/O)?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[4]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>b)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>How is I/O treated in Unix operating systems?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[4]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>c)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Describe how files are represented in Unix operating
+  systems. In particular, outline the layout of an <i>inode</i>.</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[17]</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>d)</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>What are the advantages of the Unix inode method of file
+  organisation?</p>
+  </td>
+  <td valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>[8]</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CS23110 - Part 4.  Jem Rowland. Univ. Wales, Aberystwyth</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR><A HREF="set3.htm">Back to previous part.</A> 
+<HR></P>
+
+<P><B><FONT SIZE=+1>MASCOT 3<BR>
+<BR>
+Modular Approach to <BR>
+Software Construction Operation and Test.</FONT></B><FONT SIZE=+1> </FONT></P>
+
+<P>This is a design method for concurrent systems that also provides support
+for other stages of the software lifecycle. </P>
+
+<P>As a design method it explicitly: </P>
+
+<UL>
+<LI>defines and represents the concurrent tasks, </LI>
+
+<LI>defines and represents the data flow between those tasks, </LI>
+
+<LI>forces a design that provides safe IPC. </LI>
+</UL>
+
+<P>It is essentially a graphical method, but the diagrams can be converted
+into a semi-formal textual notation and this can form the input to a code
+generator. </P>
+
+<P>MASCOT 3 has been around since 1987. It is certainly not the only design
+method for real-time concurrent systems. It is, however, an excellent way
+of visualising and understanding the operation of such systems and the
+relevant design issues and constraints.</P>
+
+<P>It is specified in the 'Official Handbook of MASCOT'.
+</P>
+
+<P>
+<HR WIDTH="100%"><B>Modularity is central to MASCOT. </B></P>
+
+<P>The application is decomposed into modules that will become concurrent
+tasks. The general benefits of modularity are well known. </P>
+
+<P><B>MASCOT uses functional modularity:</B> </P>
+
+<P>This is a specific way of identifying modules - based on their function.
+Each module should have a `single identifiable purpose'. Benefits are:
+</P>
+
+<UL>
+<LI>modules can be developed independently, </LI>
+
+<LI>can be tested independently, </LI>
+
+<LI>documented independently, </LI>
+
+<LI>leads to a design that is easy to understand, </LI>
+
+<LI>should minimise IPC (a goal to aim at...). </LI>
+</UL>
+
+<P>MASCOT makes module interfaces explicit, so that modules should always
+fit together correctly. It forbids interaction between modules, except
+for the communication that is explicit in the design diagrams. </P>
+
+<P>There is no single, correct, functional decomposition for any application.
+A good decomposition should: </P>
+
+<UL>
+<LI>minimise IPC, </LI>
+
+<LI>minimise resource sharing. </LI>
+</UL>
+
+<P>MASCOT represents designs as data flow diagrams in which: </P>
+
+<UL>
+<LI>concurrent tasks that...</LI>
+
+<LI>communicate as necessary via shared data areas. </LI>
+
+<LI>The shared data areas are themselves (passive) modules that encapsulate
+the data areas within access procedures to provide mutual exclusion. </LI>
+</UL>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>The DESIGN Process</B> </P>
+
+<P>The starting point for the design is the functional specification. </P>
+
+<UL>
+<LI>This document defines as precisely as possible WHAT the system is to
+do, NOT how it is to do it. </LI>
+
+<LI>It may have been produced by the customer, by the designer working
+in consultation with the customer, or by an analyst. </LI>
+</UL>
+
+<P>The functional specification may be in natural language, with little
+or no formal representation used. Natural language is notoriously imprecise!
+</P>
+
+<P>The design process translates the functional specification into a form
+that can be implemented in software and hardware. The design process often
+reveals ambiguity or incompleteness in the functional spec - which must
+then be revised. </P>
+
+<P>The functional specification does not necessarily indicate an appropriate
+functional decomposition. (E.g. `When a lot of cars come from one direction
+the lights must change'). </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>MASCOT 3 Design Representation:</B> </P>
+
+<P>The main fundamental components: </P>
+
+<P><IMG SRC="sl81.gif" HEIGHT=258 WIDTH=700></P>
+
+<P>ACTIVITY An <B>activity</B> is `a schedulable process that runs conceptually
+or actually in parallel with all other activities'. </P>
+
+<P>An activity therefore contains `a concurrent thread of execution'. </P>
+
+<P>An activity obtains data from somewhere, processes it, and sends it
+somewhere. </P>
+
+<P>The input/output data requirements are explicitly defined (in the design).
+</P>
+
+<P>Activities can communicate with each other ONLY via IDAs (Intercommunication
+Data Areas)...</P>
+
+<P><B>Intercommunication Data Areas:</B> </P>
+
+<UL>
+<LI>These are MASCOT components that contain protected data areas. </LI>
+
+<LI>They are not independently schedulable. </LI>
+
+<LI>They contain access procedures that enforce mutual exclusion between
+readers and writers. </LI>
+
+<LI>This code only runs when it is called by an activity that wishes to
+read or write. </LI>
+
+<LI>IDA's do NOT contain a `concurrent thread of execution'. </LI>
+
+<LI>We will consider only two types of IDA: <B>channels</B> and <B>pools</B>.
+</LI>
+</UL>
+
+<P><IMG SRC="sl83a.gif" HEIGHT=258 WIDTH=700></P>
+
+<P>CHANNEL A channel is an IDA to which messages can be written and from
+which messages can be read. </P>
+
+<P><B>Reading from a channel consumes a message.</B> </P>
+
+<P><B>A channel may be thought of as a queue. </B></P>
+
+<P><IMG SRC="sl83b.gif" HEIGHT=202 WIDTH=700></P>
+
+<P>POOL A pool is an IDA which holds data for reference purposes. </P>
+
+<P>The data in a pool may be read many times. </P>
+
+<P><B>Writing to a pool overwrites the previous contents.</B> </P>
+
+<P>It is possible to have `read-only' pools, which are initialised when
+the system starts up. </P>
+
+<P>The various channels and pools in a design will be tailored to the type
+of data they are intended to handle. </P>
+
+<UL>
+<LI>characters </LI>
+
+<LI>integers </LI>
+
+<LI>reals </LI>
+
+<LI>arrays </LI>
+
+<LI>records </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<P>A pool could hold, for example, the entire contents of a telephone directory!
+</P>
+
+<P>Channels and pools can have more than one reader and more than one writer
+but care need in certain cases (e.g. two writers to a pool). </P>
+
+<P>Communication between components takes place along <B>paths</B>: </P>
+
+<P><IMG SRC="sl85.gif" HEIGHT=231 WIDTH=700></P>
+
+<P>Paths may be unidirectional or bidirectional. Directionality is shown
+with arrows. </P>
+
+<P>A path has a <B>port</B> at one end and a <B>window</B> at the other.
+Ports and windows do not indicate direction. </P>
+
+<UL>
+<LI>A port is the code within an activity that is concerned with data transfer.
+It is the code that calls the access procedure in an IDA. A port is `active'.
+</LI>
+
+<LI>A window is the code within an IDA that provides mutual exclusion.
+A window is an access procedure. A window is `passive'. </LI>
+</UL>
+
+<P><IMG SRC="sl86.gif" HEIGHT=228 WIDTH=700></P>
+
+<UL>
+<LI>Servers are a fundamental component - like activities, channels and
+pools. </LI>
+
+<LI>They are used to interface the system to external devices. </LI>
+
+<LI>The server is a hybrid component - part active, part passive. </LI>
+
+<LI>The active part may contain interrupt handlers, device drivers, device
+initialisation code. Some of this may constitute a `concurrent thread of
+execution'. </LI>
+
+<LI>The passive part behaves as an IDA - effectively a channel. </LI>
+
+<LI>To the device, the server appears active; to the rest of the system
+it appears passive (as an ida). </LI>
+</UL>
+
+<P>The representation as activities, channels, pools and servers is the
+final stage in the design decomposition. </P>
+
+<P>Initially the design is represented as a <B>system</B> that is then
+decomposed into <B>subsystems</B>. A subsystem is a collection of MASCOT
+elements (including other subsystems if appropriate) that contains a concurrent
+thread of execution. </P>
+
+<P>A SUBSYSTEM is represented as a <B><I>rectangle with rounded corners.</I></B></P>
+
+<P><B>Subsystems may communicate directly with one another provided that
+within the communicating subsystems there is an activity at one end of
+the path and an IDA at the other</B>. </P>
+
+<P><B>Subsystems may, alternatively, communicate via SIDAs (subsystem intercommunication
+data areas) but this is normally done only for data areas that are of major
+and central importance to the system.</B> </P>
+
+<P>A SIDA is represented as a <B><I>rectangle with sharp corners.</I></B></P>
+
+<P><B><I><FONT SIZE=+1>Roundness in MASCOT symbols indicates that they
+contain independently schedulable code. </FONT></I></B></P>
+
+<P><B><I><FONT SIZE=+1>Squareness indicates the absence of independently
+schedulable code. </FONT></I></B></P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P>The <A HREF="mascot.htm">'Informal Introduction' from the 'Official
+Handbook of MASCOT'</A> is available here (warning - big file).</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Creating a MASCOT&nbsp;Design from a Functional Specification:</B>
+</P>
+
+<UL>
+<LI>...`requires creativity, experience and knowledge of the application'.
+</LI>
+
+<LI>`Refinement in terms of component size and complexity is a matter for
+the designer's judgement.' </LI>
+
+<UL>
+<LI>So there is no single ``correct'' design. </LI>
+
+<LI>Different designers will arrive at different designs - some better
+than others! </LI>
+</UL>
+</UL>
+
+<P><B>Steps in Design:</B> </P>
+
+<UL>
+<LI>Draw the system and the devices. </LI>
+
+<LI>Consider the data flow from input devices to output devices. </LI>
+
+<LI>Identify the major functions at the top level - these become subsystems.
+</LI>
+
+<LI>Identify <I>prominent</I> data structures. These (may) become SIDAs.
+</LI>
+</UL>
+
+<P>Then use a similar approach to decompose each of these top level components,
+and continue until the whole system is represented as activities, channels,
+pools and servers. </P>
+
+<P>`At each stage in the design attempt to justify the existence of each
+component by positively establishing its purpose.' </P>
+
+<UL>
+<LI>This will lead to questions about the functional specification </LI>
+
+<LI>...questions about the customer's true requirement. </LI>
+
+<LI>Thus MASCOT helps, in a structured way, to improve the functional specification.
+</LI>
+</UL>
+
+<P>This is an example of the iteration that is characteristic of MASCOT.
+</P>
+
+<P>Iteration is encouraged throughout the MASCOT design process - so that
+the higher levels of the design may change as a result of designing the
+lower levels. </P>
+
+<P>In other words, you should always be prepared to go back to a higher
+level and rework the design, in order to improve the design as a whole.
+</P>
+
+<P><B>When is decomposition complete?</B> </P>
+
+<UL>
+<LI>`Decomposition should proceed until individual system elements are
+small enough to be easily controlled and managed.' </LI>
+
+<LI>`Understandability and testability must be considered when deciding
+whether decomposition is complete.' </LI>
+
+<LI>`The best way of achieveing this is to decompose until each component
+(A,C,P,S) serves only a single purpose.' </LI>
+</UL>
+
+<P>In doing this you should remember that each activity will be a concurrent
+element in the final system. Why <I>should</I> each system function be
+a concurrent task? </P>
+
+<P>MASCOT, used unimaginatively, can lead to excessive concurrency with
+large task management overheads. The `final' design should be analysed
+from this point of view and recomposition of some activities considered.
+</P>
+
+<P>A chain of activities often represents a sequence of `run to completion'
+tasks and can usually be recomposed into a single activity. </P>
+
+<P>Cases for recomposition... </P>
+
+<P><IMG SRC="sl92.gif" HEIGHT=616 WIDTH=700></P>
+
+<P><B>After recomposition:</B> </P>
+
+<P>Analyse the system to estimate response times. Either provide sufficient
+processing power or renegotiate the requirement! </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Applicability to system testing and acceptance testing:</B> </P>
+
+<P>During the design process the requirement has been clarified and refined
+- all information interfaces (with people, sensors, actuators, other systems
+etc.) will have been precisely defined. </P>
+
+<P>These definitions can be used directly in system testing and acceptance
+testing. </P>
+
+<P><B>When design is complete:</B> </P>
+
+<P>The system is represented as: </P>
+
+<UL>
+<LI>a collection of independently schedulable processes </LI>
+
+<LI>that communicate in an explicit and controlled way. </LI>
+</UL>
+
+<P><I>The processes can be scheduled in any required way because all inter-process
+communication is achieved by IDA's - which provide safe, asynchronous,
+IPC.</I> </P>
+
+<P>A correct design is implementation independent. </P>
+
+<P>
+<HR></P>
+
+<P><A HREF="lectures.htm">Back to index.</A></P>
+
+<P>
+<HR>
+<HR></P>
+
+</BODY>
+</HTML>

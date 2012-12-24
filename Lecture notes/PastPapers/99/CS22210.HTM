@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+<TITLE>CS22210: Operating Systems and Concurrency</TITLE>
+<META NAME="TITLE" CONTENT="CS22210: Operating Systems and Concurrency">
+<META NAME="CREATOR" CONTENT="Computer Science">
+<META NAME ="SUBJECT" CONTENT="1999, Degree, Examinations, Semester 1">
+<META NAME="PUBLISHER" CONTENT="DATAPREP - Information Services">
+<META NAME="date" VALUE="13-04-99">
+</HEAD>
+<BODY bgcolor="#ffffff" link="#008000">
+<b>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</b>
+<P>
+DEGREE EXAMINATIONS 1998-99 SEMESTER 1
+<P>
+<b>ABERYSTWYTH</b>
+<P>
+FACULTY OF SCIENCE
+<P>
+<B>Computer Science CS22210: Operating Systems and Concurrency
+<P>
+Time allowed: 2 hours</b>
+<P>
+<i>Answer</i> <b>THREE</b> <i>from</i> <b>FIVE</b> <i>questions</i>
+<P>
+All questions carry equal marks
+<P>
+<table>
+<tr>
+<td valign=top width=5%>1.</td>
+<td valign=top width=5%>a)</td>
+<td colspan=2>
+Explain  what  is  meant,  in the context of  operating  systems,  by  a process.</td>
+<td align=right valign=bottom width=15%>[5 marks]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>b)</td>
+<td colspan=3>CPU scheduling aims to achieve </td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=3>
+<ul>
+<li>good use of resources
+<li>completion of all processing in a reasonable time
+<li>good response to on-line users
+<li>immediate response to critical processes
+</ul>
+</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=3>
+Briefly  explain  each of the following CPU scheduling  strategies,  and 
+discuss the extent to which they meet these aims:</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=2>(i) Round Robin</td>
+<td align=right>[7]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=2>(ii) First come first served</td>
+<td align=right>[7]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td colspan=2>(iii) Priority scheduling</td>
+<td align=right>[7]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>c)</td>
+<td colspan=2>
+Outline  the  major data structures needed to implement  a  round  robin 
+scheduling strategy with priority being given to short jobs.</td>
+<td align=right valign=bottom>[7]</td>
+</tr>
+</table>
+<P>
+<table>
+<tr>
+<td valign=top width=5%>2.</td>
+<td valign=top width=5%>a)</td>
+<td>
+Describe  what  is  meant by paging and explain briefly  how  paging  is 
+implemented.</td>
+<td align=right valign=bottom>[15]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>b)</td>
+<td>
+What is meant by virtual memory and how does paging support it?</td>
+<td align=right valign=bottom>[8]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>c)</td>
+<td>
+Briefly  explain the LRU (least recently used) and FIFO (first in  first 
+out) page replacement strategies and discuss their relative merits.</td>
+<td valign=bottom align=right>[10]</td>
+</tr>
+</table>
+<P>
+<table>
+<tr>
+<td valign=top width=5%>3.</td>
+<td valign=top width=5%>a)</td>
+<td>
+Briefly explain the need for mutual exclusion and synchronisation  where 
+concurrent processes share resources or data.</td>
+<td align=right valign=bottom>[6]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>b)</td>
+<td>
+Explain what is meant, in the context of interprocess communication,  by 
+(i) deadlock, (ii) starvation and (iii) busy waiting.</td>
+<td valign=bottom align=right>[12]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>c)</td>
+<td>
+Five machines for mixing a popular soft drink are arranged in a  circle.  
+Between every pair of machines is an outlet that releases a  flavouring.  
+Each mixing machine connects itself to its two closest outlets, extracts 
+flavour from both outlets at the same time, and then disconnects  itself 
+and  allows  the mixture to settle before discharging  the  mixture  for 
+further processing.  It repeats this process indefinitely.
+<P>
+Outline   the  data  structures  and  algorithms  required  to   control 
+concurrent operation of the five machines, avoiding deadlock, starvation 
+and busy waiting.</td>
+<td align=right valign=bottom>[15]</td>
+</tr>
+</table>
+<P>
+<table>
+<tr>
+<td valign=top width=5%>4.</td>
+<td colspan=3>
+An  on-line  booking system allows multiple  simultaneous  enquires  and 
+updates on a bookings database.</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top width=5%>a)</td>
+<td>
+Briefly  explain the race conditions that might arise in this system  if 
+concurrency is not managed correctly, and indicate the problems that may 
+ensue.</td>
+<td align=right valign=bottom>[11]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>b)</td>
+<td>
+Outline  an  implementation of the bookings system using  semaphores  to 
+manage concurrency.</td>
+<td align=right valign=bottom>[11]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>c)</td>
+<td>
+Outline  an  alternative implementation, this time using  a  monitor  to 
+control concurrency.</td>
+<td align=right valign=bottom>[11]</td>
+</tr>
+</table>
+<P>
+<table>
+<tr>
+<td valign=top width=5%>5.</td>
+<td valign=top width=5%>a)</td>
+<td>
+Explain  what  is  meant  by a command  language,  and  a  command  line 
+interpreter.</td>
+<td align=right valign=bottom>[11]</td>
+</tr>
+<tr>
+<td> &nbsp; </td>
+<td valign=top>b)</td>
+<td>
+Compare  and  contrast  the  UNIX  shells  with  the  graphical  command 
+interpreter provided by Windows NT.  Your discussion should address, but 
+need not be limited to
+<ul>
+<li>	expressive power
+<li>	extensibility
+<li>	ease of learning
+<li>	ease of recall
+</ul></td>
+<td align=right valign=bottom>[22]</td>
+</tr>
+</table>
+<P>
+</BODY>
+</HTML>

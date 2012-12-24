@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Development Tools for Embedded Systems</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR>
+<HR></P>
+
+<P><B>Developing Embedded Real-Time Systems<BR>
+</B>Requires: </P>
+
+<UL>
+<LI>Support for design methods/tools. </LI>
+
+<LI>Facilities for code development: </LI>
+
+<UL>
+<LI>automatic code generation (where possible) </LI>
+
+<LI>editor </LI>
+
+<LI>compiler, assembler, linker. </LI>
+</UL>
+
+<LI>Test/debug of code, independently of the target hardware. </LI>
+
+<LI>Test/debug of the target hardware, independently of the application
+code. </LI>
+
+<LI>Test/debug of the target hardware with the application software. </LI>
+
+<LI>Monitor and measure the system performance. </LI>
+
+<LI>PROM programming. </LI>
+</UL>
+
+<P><B>Native/Cross Compilation</B> </P>
+
+<DL >
+<DT>Native Compiler: </DT>
+
+<DD>Produces code for execution on the machine that runs the compiler.
+</DD>
+
+<DT>Cross Compiler: </DT>
+
+<DD>Produces code for execution on a machine other that the one that runs
+the compiler. </DD>
+</DL>
+
+<P>(Also native/cross assemblers.) </P>
+
+<P>The target machine for an embedded real-time application does not normally
+provide an appropriate architecture for code development. </P>
+
+<P>Hence `host/target' working in which a host system (maybe a multi-user
+UNIX system, or a PC) is used to run the development tools. The developed
+code can be downloaded to the target for test, debug, performance assessment
+etc. </P>
+
+<P>As far as the target is concerned the host should not intrude! </P>
+
+<P><B>Design and Implementation.</B> </P>
+
+<P>The host would (ideally) provide all of: </P>
+
+<UL>
+<LI>CASE tools </LI>
+
+<LI>editors </LI>
+
+<LI>(cross) compilers and assemblers </LI>
+
+<LI>linker - links separately compiled modules such that they reside at
+the appropriate (RAM/ROM) addresses in the memory map of the target system.
+</LI>
+</UL>
+
+<P>As well as test/debug facilities...</P>
+
+<P><B>Test the code independently of the target.</B> </P>
+
+<P>Can do this by <I>simulation</I>: </P>
+
+<UL>
+<LI>A program on the host simulates the target processor and architecture.
+</LI>
+
+<UL>
+<LI>executes the target object code - but normally much slower because
+of simulation overheads, </LI>
+
+<LI>can make performance measurements by counting processor cycles, </LI>
+
+<LI>allows debug access to the registers and variables of the simulated
+target, </LI>
+
+<LI>allows control of execution. </LI>
+</UL>
+</UL>
+
+<P>Advantages: </P>
+
+<UL>
+<LI>cheap(ish) - doesn't require specialised equipment </LI>
+
+<LI>can give `access' to processor features that are otherwise inaccessible
+- e.g. cache. </LI>
+</UL>
+
+<P>Disadvantages: </P>
+
+<UL>
+<LI>not real-time, but can allow performance measurement, </LI>
+
+<LI>difficult to simulate real-world events (both input and output), </LI>
+
+<LI>difficult to simulate system functions that are (to be) implemented
+in hardware. </LI>
+</UL>
+
+<P>Can also do it be <I>emulation</I>. This uses real hardware that can
+be configured to emulate the target system...</P>
+
+<UL>
+<LI>has a real target processor of the appropriate type, </LI>
+
+<LI>has real RAM, that can be configured to emulate the memory map of the
+target system, </LI>
+
+<LI>the RAM can be selectively write-protected so as to emulate the target
+ROM, </LI>
+
+<LI>(but can also use the <I>target</I> RAM, ROM and I/O - progressively).
+</LI>
+</UL>
+
+<P>Advantages: </P>
+
+<UL>
+<LI>can run in real-time, </LI>
+
+<LI>can make accurate measurements of execution time, identify bottlenecks,
+etc., </LI>
+
+<LI>faithfully represents the target processor. </LI>
+
+<LI>can also be used for test and debug of the <I>actual</I> target hardware
+- can trace interrupts and task switches in real-time, non-intrusively.
+</LI>
+</UL>
+
+<P>Disadvantages: </P>
+
+<UL>
+<LI>cannot be multi-user, </LI>
+
+<LI>is specialised, and consequently expensive. </LI>
+</UL>
+
+<P><B>Testing the target hardware with test software.</B> </P>
+
+<P>Can do this by emulation - in this case `In Circuit Emulation' (ICE).
+This uses the equipment described on the previous slide. </P>
+
+<UL>
+<LI>the emulator has a probe that is connected to the target system in
+place of the target processor, </LI>
+
+<LI>the target system `thinks' it has an ordinary processor fitted, </LI>
+
+<LI>but the emulator can monitor the target non-intrusively </LI>
+
+<LI>and can control execution. </LI>
+
+<LI>The target memory map can now contain a mixture of emulation memory
+and actual target memory. In this way the target system hardware can be
+progressively tested, under the control of the emulator. </LI>
+</UL>
+
+<P>Can then use the same equipment to <B>test the target software running
+on the target hardware</B> </P>
+
+<UL>
+<LI>find bugs due to hardware/software interaction, </LI>
+
+<LI>run tests on the actual target application, using the emulator to monitor
+operation, non-intrusively. Can set up so as to identify bugs that occur
+only very infrequently etc. </LI>
+</UL>
+
+<P>We have ICE equipment in the DSL.</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P>There are other methods of testing target systems that involve controlling
+and monitoring the target operation via `monitor' software that is put
+into the target to communicate with a host. </P>
+
+<P>Such methods are intrusive and therefore highly suspect in real-time
+work. </P>
+
+<P>Trying to debug real-time embedded systems without in-circuit emulation
+is very difficult, for applications of even moderate complexity, because
+of the need to trace the execution of interrupts </P>
+
+<P>and to monitor the relationship between concurrent processes - such
+as in resolving deadlock. </P>
+
+<P>
+<HR></P>
+
+<ADDRESS><I>jjr@dcs.aber.ac.uk <BR>
+Tue Mar 11 12:52:21 GMT 1997</I> </ADDRESS>
+
+<ADDRESS>
+<HR WIDTH="100%"></ADDRESS>
+
+</BODY>
+</HTML>

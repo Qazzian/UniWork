@@ -1,0 +1,69 @@
+/*  
+    go.c
+	Moves the player to the given location (directory).
+
+    Author: Ian Wallis (ifw9)
+*/
+#include <stdio.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <dirent.h>
+#include <string.h>
+#include "location.h"
+#include "fan_err.h"
+
+/*
+	Prints out a message indicating that the given location 
+	is not valid and then exits the program.
+*/
+void no_go() {
+	printf("\tCan't get there from here!\n");
+	exit(-1);
+}
+
+
+
+int main(int argc, char **argv) {
+	DIR *dir_pointer;
+	struct dirent *dp;
+	char *current_location, *moving_to, *tmp_s;
+	
+	if (argc == 1) {
+		/* choose a random exit using any_exit() function in location.c */
+		argv[1] = any_exit(get_current_location(PLAYERS_LOCATION));
+	}
+	 
+	if (argc > 2) { 
+	   printf("\t\tGo Where?\n");
+		exit(-1);
+	}
+	
+	/* Get the current location adding a '/' ready to change the new directory*/
+	chdir(current_location =strcat (get_current_location(PLAYERS_LOCATION), "/"));
+	
+	/* need to test that the dir is valid */
+	if (chdir(tmp_s = strcat(current_location, argv[1])) == -1) {
+		no_go();
+	}else {
+		dir_pointer = opendir(".");
+      dp = readdir(dir_pointer);
+      moving_to = realpath(dp -> d_name, current_location);
+		if (strncmp(moving_to, STARTING_LOCATION, 31)) {
+			set_current_location(PLAYERS_LOCATION, moving_to);
+		} else {
+			no_go();
+		}
+	}
+	
+	/* Look at the new location */
+	if (system("look") == -1) {
+		perror(FAN_ERR_LOOK);
+		exit(-1);
+	}
+	exit(0);
+	/*}*/
+}

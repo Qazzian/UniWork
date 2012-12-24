@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 5: ANN Overview</TITLE>
+<META NAME="description" CONTENT="Lecture 5: ANN Overview">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html61"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html59"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html53"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html62"
+ HREF="node6.html">Lecture 6: Arbib</A>
+<B> Up:</B> <A NAME="tex2html60"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html54"
+ HREF="node4.html">Lecture 4: Hofstadter's FARG</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00050000000000000000">
+Lecture 5: ANN Overview</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 5:</BIG>
+<P><BIG>Artificial Neural Networks:</BIG>
+<P><BIG>Overview</BIG>
+<P>
+<P>
+<BIG>Symbolic Or Sub-Symbolic?</BIG>
+<UL>
+<LI> We can distinguish the <EM>Symbol Processing</EM> appproach (``Good
+Old-Fashioned AI'' or GOFAI) from the ``sub-symbolic'' approaches.
+<LI> The
+best known and most developed of these is the <EM>connectionist</EM> or
+<EM>artificial
+neural network</EM> approach.
+<LI> In the 1960s, Alan Newell and Herbert Simon put forward <EM>The
+Physical-Symbol System Hypothesis</EM>.
+<LI> Connectionists and other critics charge that symbolic AI ignores
+what we know about how the brain and human intelligence, and has
+turned out to have severe limitations.
+</UL>
+
+<P>
+<BIG>Roots of Connectionism: 1</BIG>
+<UL>
+<LI> First AI paper may be McCulloch and Pitts
+(1943): <EM>A Logical Calculus of the Ideas Immanent in Nervous
+Activity</EM>.
+<LI> Ancestral to both symbolic and
+connectionist AI.
+<LI> Networks of synchronized ``neurons'' with one-way connections
+(``synapses''), all-or-nothing output.
+</UL>
+
+<P>
+<BIG>Roots of Connectionism: 2</BIG>
+<UL>
+<LI> Initially, much symbolic/connectionist overlap. In 1951,
+Minsky and Edmonds built SNARC: first &quot;neural network&quot;
+computer.
+<LI> One way for McCulloch-Pitts-type neurons to learn: Hebb
+(1949) <EM>The Organization of Behavior</EM>: strengthen synapse if it
+helps cause a neuron to fire (good for <EM>unsupervised</EM>
+learning).
+<LI> Another: Rosenblatt (1962) <EM>Principles of Neurodynamics</EM>:
+strengthen or weaken synapses to alter output neuron's behaviour in
+desired direction (good for <EM>supervised</EM> learning).
+</UL>
+
+<P>
+<BIG>Hardware, Software, Wetware</BIG>
+<UL>
+<LI> Artificial neural nets (ANNs) are, mostly, not very
+brain-like.
+<LI> However, they do <EM>distribute</EM> both storage and
+processing of information across a network of richly-connected
+elements, as the brain appears to do.
+<LI> Most work on ANNs actually <EM>simulates</EM> networks on ordinary,
+``von Neumann'' computers, rather than building hardware networks.
+<LI> Show pattern of strengths and weaknesses <EM>closer</EM> to that of
+human (and even more, other animal) brains than GOFAI programs.
+</UL>
+
+<P>
+<BIG>Real/Artificial NN Contrasts</BIG>
+<UL>
+<LI> No ANN approaches the human brain's approximately
+10<SUP>10</SUP> neurons, and 10<SUP>15</SUP> connections.
+<LI> Real brains have multi-level
+organization.
+<LI> <EM>Rate</EM> of firing of neurons used for coding in at least some
+parts of brain. Some real neurons are ``pacemaker'' cells -- fire without any
+need for input.
+<LI> More generally, real neurons and their connections are complex
+and <EM>varied</EM>.
+<LI> Neuronal <EM>plasticity</EM>: new synapses develop.
+<LI> Oxygen levels, hormones, drugs, fatigue...
+</UL>
+
+<P>
+<BIG>Perceptrons</BIG>
+<P>
+Perceptrons are networks of ``neuron-like'' units. A unit
+forms a <EM>weighted sum</EM> of its inputs, and ``fires'' in an
+all-or-nothing fashion, if and only if this exceeds a threshold
+value.
+<DIV ALIGN="CENTER">
+<IMG WIDTH="636" HEIGHT="288" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="\epsfig {figure=perceptron1.eps}
+"></DIV>
+
+<P>
+<BIG>The Trouble with Perceptrons</BIG>
+<UL>
+<LI> Rosenblatt devised a learning algorithm for a one-layer perceptron,
+and showed that such a network could <EM>learn</EM> whatever
+classifications it could <EM>represent</EM> (see Russell and Norvig
+pp. 573-7).
+<LI> Unfortunately, Minsky and Papert (<EM>Perceptrons</EM>, 1969), showed
+that a one-layer perceptron could not represent much - and that the
+learning procedure would not work for multi-layer perceptrons!
+</UL>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="598" HEIGHT="323" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.gif"
+ ALT="\epsfig {figure=perceptron2.eps}
+"></DIV>
+
+<P>
+<BIG>The Neural Net Revival</BIG>
+<UL>
+<LI> Only in 1980s were new kinds of ANNs, and
+ANN learning developed - some based on <EM>physics</EM>
+rather than biology (Hopfield nets, Boltzmann machines).
+<LI> Learning problems in multi-layer perceptrons arose
+from all-or-none response: units in layer
+2 (or later) could not generally ``know'' anything about the initial
+inputs.
+<LI> Overcome by changing a unit's response so that near
+the threshold value, it gives some sort of ``maybe'' rather than a
+``yes'' or ``no''. Most often, it is made <EM>sigmoidal</EM>.
+<LI> A key event in reviving ANN approach:
+discovery of the <EM>backpropagation</EM> algorithm (three times between
+1974 and 1986!)
+</UL>
+
+<P>
+<BIG>Backpropagation</BIG>
+<P>
+Backpropagation can be described as follows (see Russell and Norvig
+pp.578-583 for details):
+<DL COMPACT>
+<DT>1.
+<DD>Set all weights and thresholds to small random values.
+<DT>2.
+<DD>Present input, allowing the network to calculate output.
+<DT>3.
+<DD>Compare this actual output with the output <EM>desired</EM> from that input.
+<DT>4.
+<DD>If the two are different, alter the weights, starting with those
+nearest the output layer and working backwards.
+</DL>
+
+<P>
+<BIG>Hopfield Networks: 1</BIG>
+<UL>
+<LI> Hopfield's  description of a different kind of network, in 1982,
+was another important contribution to the ANN revival.
+<LI> Hopfield network units are binary with ``active'' and
+``inactive'' states.
+<LI> No distinction between <EM>input</EM> and <EM>output</EM>
+units. Connections are <EM>symmetric</EM>, and may be
+positive (excitatory) or negative (inhibitory), and of different
+strengths.
+<LI> A unit is selected at random and <EM>updated</EM> (if weights on
+connections to its active neighbours have a positive sum, it becomes
+active).
+<LI> This process is repeated. It can be proved that a stable state
+will always be reached.
+</UL>
+
+<P>
+<BIG>Hopfield Networks: 2</BIG>
+<P>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="601" HEIGHT="165" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.gif"
+ ALT="\epsfig {figure=hopfield.eps}
+"></DIV>
+<UL>
+<LI> Hopfield proposed their use as <EM>content addressable
+memories</EM>. Given pattern close to
+a stable state, Hopfield network reliably reaches that
+state - so can be used to retrieve a complete pattern from a part
+of that pattern.
+<LI> Also proposed use to solve <EM>constraint satisfaction</EM>
+problems.
+</UL>
+
+<P>
+<BIG>Boltzmann Machines</BIG>
+<UL>
+<LI> A variation on Hopfield networks,
+designed to avoid a problem in
+constraint satisfaction problems: getting caught in <EM>local 
+minima</EM>.
+<LI> Sigmoid function used to determine probability of change of
+state for a unit. The random
+element is gradually reduced by making the function more step-like
+(``simulated annealing'').
+<LI> Degree of randomness referred to as ``temperature'' (different
+from Hofstadter's ``temperature''). Slower reduction of temperature
+makes network more likely to find global minimum.
+<LI> Best annealing schedule may be hard to find.
+</UL>
+
+<P>
+<BIG>Kohonen Maps</BIG>
+<UL>
+<LI> <EM>Kohonen self-organising maps</EM> are designed to do <EM>
+unsupervised learning</EM>.
+<LI> The classification of inputs is not
+defined in advance.
+<LI> The units are arranged in a two-dimensional grid,
+and local groupings learn to respond to different classes of
+inputs.
+</UL>
+
+<P>
+<BIG>Jordan Networks</BIG>
+<UL>
+<LI> <EM>Jordan networks</EM>, have asymmetric connections.
+<LI> These
+include <EM>loops</EM> from output units back to hidden units.
+<LI> They can
+be trained using backpropagation, and used to deal with certain tasks
+with <EM>sequential</EM> aspects.
+</UL>
+
+<P>
+<BIG>Example Domain:</BIG>
+<BIG>Speech Processing by ANNs</BIG>
+<UL>
+<LI> The most successful speech (recognition and production)
+systems are based on ANNs.
+<LI> Sejnowski and Rosenberg's 1987
+NETtalk system was the first useful neural net application program.
+<LI> Kohonen used his self-organising maps in a program to pronounce written
+Finnish.
+<LI> The future of natural language processing may lie with <EM>
+hybrid</EM> systems, incorporating both ANN and ``symbolic AI''
+techniques.
+</UL>
+
+<P>
+<BIG>Network For Distinguishing Vowels: 1</BIG>
+<DIV ALIGN="CENTER">
+<IMG WIDTH="703" HEIGHT="259" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.gif"
+ ALT="\epsfig {figure=vowels.eps}
+"></DIV>
+
+<P>
+<BIG>Network For Distinguishing Vowels 2:</BIG>
+<UL>
+<LI> Two <EM>input units</EM>, encoding
+the two strongest frequencies in a vowel sound.
+<LI> Ten <EM>output units</EM>, corresponding to different
+``phonemes''.
+<LI> Seven <EM>hidden units</EM>, giving enough
+flexibility to learn relatively complex classification tasks.
+<LI> ``Weights'' on the connections determine output of the hidden
+and output units for a given set of inputs.
+<LI> ``Trained'' by giving example inputs,
+comparing output produced with that desired, and
+backpropagating information about the differences (``error'') to
+alter weights.
+</UL>
+
+<P>
+<BIG>ANNs: Advantages</BIG>
+<P>
+ANNs strengths lie in <EM>some</EM> areas where symbolic AI techniques tend to
+be weak.
+<UL>
+<LI> Good at learning classification tasks, simple
+kinds of pattern transformation, retrieving patterns from
+fragments.
+<LI> Learning abilities fundamental, not an add-on.
+<LI> Highly resistant to damage (fault tolerance).
+<LI> Able to cope with ``noisy'' or ambiguous data.
+<LI> Able to support associative, content addressable forms of memory.
+</UL>
+
+<P> 
+<BIG>ANNs: Disadvantages</BIG>
+<P>
+ANNs also have apparent disadvantages.``Hybrid'' or <EM>layered</EM>
+approaches may be necessary for true AI.
+<UL>
+<LI> Difficulty in dealing with complex structures.
+<LI> Difficulty in coping with sequences of inputs or outputs
+(despite Jordan networks).
+<LI> ANN learning is generally slow, and <EM>what</EM> has been learned, obscure.
+<LI> Choosing type of ANN for a task, network topology, and initial
+weights, remains largely trial and error.
+</UL>
+
+<P>
+<BIG>The Genesis of AI: Ch.1</BIG>
+<UL>
+<LI> In the beginning were McCulloch and Pitts.
+<LI> And the work of McCulloch and Pitts begat that of both Minsky
+and Rosenblatt. Minsky was an symbol processor, while Rosenblatt
+builded artificial neural networks.
+<LI> And they quarreled, yeah, even over funding, and Minsky obtained
+the blessing of DARPA.
+</UL>
+
+<P>
+<BIG>The Genesis of AI: Ch.2</BIG>
+<UL>
+<LI> Yet the followers of Rosenblatt arose again, and strove mightily
+with the followers of Minsky.
+<LI> There arose disputes within each camp, peacemakers between the
+twain, and some that saw visions of Genetic Algorithms or
+Behaviour-Based Robotics and cried ``A plague on both your houses!''.
+<LI> And so it came to pass that after fifty years they were all far
+from the promised land, and none knew in what direction it lay.
+</UL>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html61"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html59"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html53"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html62"
+ HREF="node6.html">Lecture 6: Arbib</A>
+<B> Up:</B> <A NAME="tex2html60"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html54"
+ HREF="node4.html">Lecture 4: Hofstadter's FARG</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

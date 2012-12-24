@@ -1,0 +1,317 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>More on classes</TITLE>
+<META NAME="Microsoft Theme" CONTENT="blends 011">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080">
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<FONT FACE="Trebuchet MS,Arial"><P ALIGN="JUSTIFY">&#9;&#9;&#9;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</FONT><FONT SIZE=5 COLOR="#000080"><P>Queues as an Abstract Data Type</P>
+</FONT><B><FONT FACE="Trebuchet MS,Arial"><P ALIGN="CENTER"></P>
+</B><P>Queues are another of the most common structures used in computing. </P>
+
+<P>It is a FIFO (First In, First Out) structure. In general terminology we <I>add</I> to the <I>back</I> of the queue and <I>remove</I> from the <I>front.</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</I><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>In the example above, we have added the following names to the queue</P>
+<P>Assume that we have a definition:</P>
+<P>Queue myQueue;</P>
+<P>then</P>
+<P>myQueue.addItem(&quot;Mark&quot;);</P>
+<P>myQueue.addItem(&quot;Patrick&quot;);</P>
+<P>myQueue.addItem(&quot;Martin&quot;);</P>
+
+<P>will give the state shown above.</P>
+
+<P>&nbsp;</P>
+<P>What operations should we provide?</P>
+<P>&#9;</FONT>addItem(…) &#9;&#9;- to add an item onto the queue</P>
+<P>&#9;removeItem() &#9;- to remove an item from the queue (and pass it back to user)</P>
+<P>&#9;front()&#9;&#9;&#9;- to show the user what is at the front of the queue</P>
+<P>&#9;length()&#9;&#9;- pass back the length of the queue</P>
+<FONT FACE="Trebuchet MS,Arial">
+<P>And also</P>
+<P>&#9;</FONT>equals()</P>
+<FONT FACE="Trebuchet MS,Arial">
+<P>&nbsp;</P>
+<P>Let us look again at our diagram.</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Now let us remove an item, </P>
+
+<P>&#9;item = myQueue.removeItem();</P>
+
+<P>And, add another</P>
+
+<P>&#9;MyQueue.addItem(&quot;Graham&quot;)</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P></P>
+<P></P>
+
+<P>&nbsp;</P>
+<P></P>
+
+<P></P>
+
+<P><HR ALIGN="LEFT" WIDTH="6%" SIZE=1><HR WIDTH="21%" SIZE=1></P>
+
+<P>&nbsp;</P>
+<P>This shows that we are suffering from creep!</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>&nbsp;</P>
+<P>i<B>mport java.io.*;</P>
+
+<P>&nbsp;</P>
+<P>/**</P>
+<P> * Queue provides a full abstraction of the Queue data structure</P>
+<P> * @author Mark Ratcliffe</P>
+<P> * @date 5 February 1998</P>
+<P> *</P>
+<P> * @see QueueExceptionFull</P>
+<P> * @see QueueExceptionEmpty</P>
+<P> */</P>
+
+<P>public class Queue implements Serializable</P>
+<P>{</P>
+<P>    /*</P>
+<P>     * currentLength maintains current number of items in array</P>
+<P>     */</P>
+<P>    protected int currentLength = 0;</P>
+
+<P>    /**</P>
+<P>     *  defaultSize defines length of queue if default constructor is used</P>
+<P>     * - set to 10</P>
+<P>     */</P>
+<P>    public final int DEFAULT_SIZE = 10;</P>
+
+<P>    protected Object[] theItems;        // Declare but don't define</P>
+<P>    </P>
+<P>    /*</P>
+<P>     * front and back are used as pointers within the array</P>
+<P>     */</P>
+<P>    protected int front = 0;</P>
+<P>    protected int back = 0;</P>
+
+<P>    /**</P>
+<P>     * Default constructor - sets queue size to pre-specified value</P>
+<P>     */</P>
+<P>    public Queue ()</P>
+<P>    {</P>
+<P>        theItems = new Object[DEFAULT_SIZE];</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Queue constructor requires user to specify maximum size of queue</P>
+<P>     * @param numOfItems the number of items in the queue</P>
+<P>     */</P>
+<P>    public Queue (int numOfItems)</P>
+<P>    {</P>
+<P>        // Define size of array</P>
+<P>        theItems = new Object[numOfItems];</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Calculates length of queue</P>
+<P>     * @return int the length of the queue</P>
+<P>     */</P>
+<P>    public int length()</P>
+<P>    {</P>
+<P>        // currentLength always contains the correct number of items</P>
+<P>        // don't forget that the array starts at 0</P>
+<P>        return currentLength;</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     *  Adds a new item at the back of the queue</P>
+<P>     *  @exception QueueExceptionFullQueue thrown if the queue</P>
+<P>     *  is already full</P>
+<P>     */</P>
+<P>    public void addItem(Object newItem) throws QueueExceptionFull</P>
+<P>    {</P>
+<P>        // check that we have space in array</P>
+<P>        if (currentLength == theItems.length)</P>
+<P>        {</P>
+<P>            throw new QueueExceptionFull("Queue too full!");</P>
+<P>        }</P>
+
+<P>        // add reference to object in location at back of queue</P>
+<P>        theItems[back] = newItem;</P>
+
+<P>        // implement circular array using mod</P>
+<P>        back = (back + 1) % theItems.length;</P>
+
+<P>&nbsp;</P>
+<P>        // increment the index ready for next time</P>
+<P>        currentLength++;</P>
+<P>    }</P>
+<P>    </P>
+<P>    /**</P>
+<P>     * Passes back object that is at the front of the queue</P>
+<P>     * @return Object returned from front of queue</P>
+<P>     * @exception QueueExceptionEmpty thrown if queue is empty</P>
+<P>     */</P>
+<P>    public Object removeItem() throws QueueExceptionEmpty</P>
+<P>    {</P>
+<P>        Object tmp;</P>
+
+<P>        // first check that there is an Object in the queue</P>
+<P>        if (currentLength == 0)</P>
+<P>        {</P>
+<P>            throw new QueueExceptionEmpty("Tried to remove from empty queue");</P>
+<P>        }</P>
+
+<P>        // take a reference to the Object at the front</P>
+<P>        tmp = theItems[front];</P>
+<P>        </P>
+<P>        // remove Object from array</P>
+<P>        theItems[front] = null;</P>
+
+<P>        // implement circular array using mod</P>
+<P>        front = (front + 1) % theItems.length;</P>
+
+<P>        // decrement the counter </P>
+<P>        currentLength--;</P>
+
+<P>        // now pass the value back to the user</P>
+<P>        return tmp;</P>
+<P>    }</P>
+
+<P>    /** </P>
+<P>     * Passes back a reference to object at the front of queue</P>
+<P>     * - it does not remove the item from the queue.</P>
+<P>     * @return Object at the front of the queue</P>
+<P>     * @exception QueueExceptionEmpty thrown if queue is empty</P>
+<P>     */</P>
+<P>    public Object frontOf() throws QueueExceptionEmpty</P>
+<P>    {</P>
+<P>        if (currentLength == 0)</P>
+<P>        {</P>
+<P>            throw new QueueExceptionEmpty("accessed front of empty queue");</P>
+<P>        }</P>
+
+<P>        // now pass a reference to the object back to the user</P>
+<P>        return theItems[front];</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Simply calls toString on every object is the queue</P>
+<P>     * @return String formateed representation of queue</P>
+<P>     */</P>
+<P>    public String toString()</P>
+<P>    {</P>
+<P>        String tempString = "";</P>
+<P>        // we start at the front and work to the back of the queue</P>
+<P>        // but remember, it is a circular array</P>
+
+<P>        int location = front;</P>
+<P>        for (int count = 0; count&lt;currentLength ; count++)</P>
+<P>        {</P>
+<P>            // calls toString on current item</P>
+<P>            tempString += theItems[location] + "\n";</P>
+
+<P>            // now move to next location in circular fashion</P>
+<P>            location = (location + 1) % theItems.length;</P>
+<P>        }</P>
+
+<P>        return tempString;</P>
+<P>    }</P>
+
+<P>    /**</P>
+<P>     * Returns true if contents of queue (&amp; size) are equal</P>
+<P>     * - physical position in array is immaterial but order is important.</P>
+<P>     * @param other the queue to be compared with</P>
+<P>     * @return boolean indicates whether queues are equal</P>
+<P>     */</P>
+<P>    public boolean equals(Queue other)</P>
+<P>    {</P>
+<P>         if (this.currentLength != other.currentLength)</P>
+<P>         {</P>
+<P>             return false;</P>
+<P>         }</P>
+<P>         int locationInThis = this.front;</P>
+<P>         int locationInOther = other.front;</P>
+<P>         for (int i=0; i&lt;this.currentLength; i++)</P>
+<P>         {</P>
+<P>             if (this.theItems[locationInThis]</P>
+<P>                     != other.theItems[locationInOther])</P>
+<P>             {</P>
+<P>                 return false;</P>
+<P>             }</P>
+<P>             locationInThis =</P>
+<P>                 (locationInThis + 1) % this.currentLength;</P>
+<P>             locationInOther =</P>
+<P>                 (locationInOther + 1) % other.currentLength;</P>
+<P>         }</P>
+<P>         // got this far so queues are equal</P>
+<P>         return true;</P>
+<P>    }</P>
+
+<P>&nbsp;</P>
+<P> </P>
+</B></FONT><FONT FACE="Trebuchet MS,Arial">
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

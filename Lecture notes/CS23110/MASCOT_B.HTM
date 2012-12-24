@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   
+<META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+<TITLE>CS23110 - Part 4.  Jem Rowland. Univ. Wales, Aberystwyth</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR>
+<A HREF="mascot_a.htm">Back to previous part.</A> </P>
+
+<H3>
+<HR>
+A simple example of MASCOT design.</H3>
+
+
+<P>Consider a (hypothetical) drive-by-wire car which is powered by electricity
+from a rechargeable battery. It has a central computer system that implements
+ the following features: </P>
+
+<UL>
+<LI>There is a small joystick on the driver's armrest; moving the joystick
+to the left or the right steers the car. Moving the joystick forward controls
+the amount of power fed to the main electric motor, and consequently controls
+the speed of the car. Pulling the joystick back applies the brakes. </LI>
+
+<LI>An electric motor steers the front wheels according to the (steering)
+setting of the joystick. </LI>
+
+<LI>Forward/reverse is selected by a switch near the joystick. </LI>
+
+<LI>A driver information screen displays car speed, which is measured by
+means of a rotation sensor on the main motor, and remaining battery capacity,
+which is calculated by monitoring the car's power consumption and the amount
+of charge supplied to the battery during recharging. </LI>
+</UL>
+
+
+
+
+
+<P>Note that in a complete, syntactically correct, MASCOT design, all items (including ports, windows, paths, etc.) will be labelled with individual names. In the following example only sufficient labels have been included to make the design understandable.</P>
+<P>Example solution:</P>
+<UL>
+<LI><A HREF="carsoln1.gif">Page1</A></LI>
+<LI><A HREF="carsoln2.gif">Page2</A></LI>
+<LI><A HREF="carsoln3.gif">Page3</A> </LI>
+</UL>
+<P>
+<HR>
+<B>Implementing a MASCOT design.</B> </P>
+
+<UL>
+<LI>Design and write code for IDA data structures and their access procedures
+</LI>
+
+<LI>Design and write (sequential) code for activities </LI>
+
+<LI>Design and code the servers </LI>
+
+<LI>TEST each component </LI>
+
+<LI>Configure the Kernel to schedule the activities <I>as required</I>
+</LI>
+
+<LI>Assess system performance and adjust the scheduling etc. </LI>
+</UL>
+
+<P><B>MASCOT and Testing</B> </P>
+
+<UL>
+<LI>Test strategies determined from Functional Spec and from Design Spec
+(the diagrams). </LI>
+
+<LI>Test harnesses for system components are designed in MASCOT - concurrent
+harnesses for concurrent systems, to provide input data/command streams
+and capture/analyse output data. </LI>
+</UL>
+
+<P>More specifically...</P>
+
+<P>This applies to all system components, and combinations of system components:
+</P>
+
+<UL>
+<LI>Test IDAs so that they operate correctly irrespective of the timing
+relationships between reads and writes. </LI>
+
+<LI>Test the activity templates (`roots') independently of the application
+context - this also provides a double check of the interfaces with IDAs.
+</LI>
+
+<LI>Test activities along with the IDAs with which they are to work. This
+tests real-time aspects as well as logical aspects. </LI>
+
+<LI>Test complete subsystems - provided that it is feasible to simulate
+their eventual environment - otherwise have to be content with having tested
+all its components. </LI>
+
+<LI>If possible, test the system. May not be possible! A systematic approach
+to design and test, along with safe IPC (which MASCOT forces) makes it
+very likely that the complete system will work! </LI>
+</UL>
+
+<P>A similar approach can be applied to acceptance testing. </P>
+
+<P><B>MASCOT is for designing CONCURRENT systems.</B> </P>
+
+<P><B>It does NOT help (much) with:</B> </P>
+
+<UL>
+<LI>system initialisation - the code that is executed between power-up
+and normal operation: </LI>
+
+<UL>
+<LI>device initialisation, </LI>
+
+<LI>self-test, </LI>
+
+<LI>initialisation of task descriptors, </LI>
+
+<LI>initialisation of data structures (inc. channels and pools). </LI>
+</UL>
+
+<LI>systems analysis (though it does help refine the requirements spec),
+so need to use SSADM, CORE, etc. </LI>
+
+<LI>the design of the sequential code within the fundamental MASCOT elements
+- use `your favourite' sequential design method. </LI>
+</UL>
+
+<P>
+<HR>
+</P>
+
+<P><A HREF="lectures.htm">Back to index.</A></P>
+
+<P>
+<HR>
+<HR>
+</P>
+
+</BODY>
+</HTML>

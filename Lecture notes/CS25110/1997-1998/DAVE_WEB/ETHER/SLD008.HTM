@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+ <TITLE>Operation: Carrier Sense Multiple Access with Collision Detection.Distributed Control</TITLE> 
+</HEAD>
+<BODY>
+<CENTER>
+
+<P>
+ <TABLE BORDER=5> <TD><IMG SRC="sld008.jpg"></TD></TABLE>
+</P>
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld007.htm"><IMG SRC="p2hprev.gif" ALIGN=BOTTOM ALT="Previous slide" BORDER="0">
+</A>  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "sld009.htm"><IMG SRC="p2hnext.gif" ALIGN=BOTTOM ALT="Next slide" BORDER="0"></A>
+  </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "index.htm">
+<IMG SRC="p2hup.gif" ALIGN=BOTTOM ALT="Back to the first slide" BORDER="0"></A> 
+ </TD>
+<TD HEIGHT=100 WIDTH=60>
+
+<A HREF = "tsld008.htm">
+<IMG SRC="p2htext.gif" ALIGN=BOTTOM ALT="View text version" BORDER="0"></A>
+ </TD>
+</TABLE>
+</CENTER>
+<BR>
+</p>
+
+<Font size=4> <STRONG> Notes:</FONT></STRONG>
+<HR  SIZE=3>
+<P> </P>
+<P>Carrier sense- looks at state of cable</P>
+<P></P>
+<P>Multiple Access - ...</P>
+<P></P>
+<P>Collision Detection...</P>
+<P></P>
+<P>Distributed Control - nocontrol over next access - contend</P>
+<P></P>
+<P></P>
+<P></P>
+<P>why do we need to check for collisions ? not strictly necessary since errors will be detected anyway, but long corrupted packets may be sent.</P>
+<P></P>
+<P></P>
+<P></P>
+<P>How could a collision occur ? ...How  long is a bit ?</P>
+<P></P>
+<P>voltage pulse travels at 0.77 times light speed c=3.108m/s</P>
+<P></P>
+<P>1 bit time = 100ns (10Mbits) so size of a bit on the wire is 23m  (.77*c)/10Mbps</P>
+<P></P>
+<P>consider time taken for signal to propagate down the wires. 2.5Km/23m...</P>
+<P></P>
+<P>if a station start transmitting it takes a non zero time to reach other stations.</P>
+<P></P>
+<P></P>
+<P></P>
+<P>JAM is to enable the other transmitters to realise there has been a collision- and stop transmitting.</P>
+<P></P>
+<P>Stations only look for collisions when transmitting</P>
+<P></P>
+<P>fragments of packets are thrown away</P>
+<P></P>
+<P></P>
+<P></P>
+<P>There are lots of rules when building a network:</P>
+<P> </P> 
+ <!-- <H2>Operation: Carrier Sense Multiple Access with Collision Detection.Distributed Control</H2>
+</P>
+<P><UL><LI>Contend for use.<LI>Acquire access and send a data packet.<LI>No priority.</UL><H2></H2>
+<H2>Simple algorithm:</H2>
+<H2></H2>
+<H2>1. Check if active, if yes return to 1.</H2>
+<H2>2. Transmit and check for collisions.</H2>
+<H2>3. Collision ? if so transmit JAM and then delay and go back to 1.</H2>
+<H2>4. Transmission completed.</H2>
+</P>
+<P>  --> 
+</Body>
+</HTML>

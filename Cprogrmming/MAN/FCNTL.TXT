@@ -1,0 +1,330 @@
+
+
+
+FCNTL(2)            Linux Programmer's Manual            FCNTL(2)
+
+
+NAME
+       fcntl - manipulate file descriptor
+
+SYNOPSIS
+       #include <unistd.h>
+       #include <fcntl.h>
+
+       int fcntl(int fd, int cmd);
+       int fcntl(int fd, int cmd, long arg);
+       int fcntl(int fd, int cmd, struct flock * lock);
+
+DESCRIPTION
+       fcntl  performs one of various miscellaneous operations on
+       fd.  The operation in question is determined by cmd:
+
+       F_DUPFD  Find the lowest numbered availiable file descrip­
+                tor greater than or equal to arg and make it be a
+                copy of fd.  This is different form dup2(2) which
+                uses exactly the descriptor specified.
+
+                The  old  and  new descriptors may be used inter­
+                changeably.  They  share  locks,  file   position
+                pointers  and  flags;  for  example,  if the file
+                position is modified by using lseek on one of the
+                descriptors, the position is also changed for the
+                other.
+
+                The two descriptors do not  share  the  close-on-
+                exec  flag,  however.   The close-on-exec flag of
+                the copy is off, meaning  that  it  will  not  be
+                closed on exec.
+
+                On success, the new descriptor is returned.
+
+       F_GETFD  Read  the  close-on-exec flag.  If the FD_CLOEXEC
+                bit is 0, the file will remain open across  exec,
+                otherwise it will be closed.
+
+       F_SETFD  Set the close-on-exec flag to the value specified
+                by the FD_CLOEXEC bit of arg.
+
+       F_GETFL  Read the descriptor's flags (all flags (as set by
+                open(2)) are returned).
+
+       F_SETFL  Set the descriptor's flags to the value specified
+                by arg.  Only O_APPEND,  O_NONBLOCK  and  O_ASYNC
+                may be set; the other flags are unaffected.
+
+                The  flags  are  shared between copies (made with
+                dup(2), fork(2), etc.) of the same file  descrip­
+                tor.
+
+                The  flags  and  their semantics are described in
+                open(2).
+
+
+
+Linux                      12 July 1999                         1
+
+
+
+
+
+FCNTL(2)            Linux Programmer's Manual            FCNTL(2)
+
+
+       F_GETLK, F_SETLK and F_SETLKW are used to  manage  discre­
+       tionary  file locks.  The third argument lock is a pointer
+       to a struct flock (that may be overwritten by this  call).
+
+       F_GETLK
+              Return  the  flock  structure that prevents us from
+              obtaining the lock, or set the l_type field of  the
+              lock to F_UNLCK if there is no obstruction.
+
+       F_SETLK
+              The lock is set (when l_type is F_RDLCK or F_WRLCK)
+              or cleared (when it is F_UNLCK).  If  the  lock  is
+              held by someone else, this call returns -1 and sets
+              errno to EACCES or EAGAIN.
+
+       F_SETLKW
+              Like F_SETLK, but instead of returning an error  we
+              wait for the lock to be released.  If a signal that
+              is to be caught is received while fcntl is waiting,
+              it is interrupted and (after the signal handler has
+              returned) returns immediately (with return value -1
+              and errno set to EINTR).
+
+       F_GETOWN, F_SETOWN, F_GETSIG and F_SETSIG are used to man­
+       age I/O availability signals:
+
+       F_GETOWN
+              Get the  process  ID  or  process  group  currently
+              receiving  SIGIO  and  SIGURG signals for events on
+              file descriptor fd.  Process groups are returned as
+              negative values.
+
+       F_SETOWN
+              Set  the  process  ID  or  process  group that will
+              receive SIGIO and SIGURG signals for events on file
+              descriptor  fd.  Process groups are specified using
+              negative values.  (F_SETSIG can be used to  specify
+              a different signal instead of SIGIO).
+
+              If  you  set  the  O_ASYNC  status  flag  on a file
+              descriptor (either by providing this flag with  the
+              open(2)  call,  or  by using the F_SETFL command of
+              fcntl), a SIGIO signal is sent  whenever  input  or
+              output becomes possible on that file descriptor.
+
+              The  process or process group to receive the signal
+              can be selected by using the  F_SETOWN  command  to
+              the  fcntl  function.   If the file descriptor is a
+              socket, this also selects the recipient  of  SIGURG
+              signals  that  are  delivered when out-of-band data
+              arrives on that socket.  (SIGURG  is  sent  in  any
+              situation  where  select(2) would report the socket
+              as having an "exceptional condition".)  If the file
+              descriptor  corresponds  to a terminal device, then
+
+
+
+Linux                      12 July 1999                         2
+
+
+
+
+
+FCNTL(2)            Linux Programmer's Manual            FCNTL(2)
+
+
+              SIGIO signals are sent to  the  foreground  process
+              group of the terminal.
+
+       F_GETSIG
+              Get  the  signal  sent when input or output becomes
+              possible.  A value of zero  means  SIGIO  is  sent.
+              Any  other  value  (including  SIGIO) is the signal
+              sent instead, and in this case additional  info  is
+              available  to  the signal handler if installed with
+              SA_SIGINFO.
+
+       F_SETSIG
+              Sets the signal sent when input or  output  becomes
+              possible.   A  value  of  zero  means  to  send the
+              default SIGIO signal.  Any other  value  (including
+              SIGIO)  is  the signal to send instead, and in this
+              case additional info is  available  to  the  signal
+              handler if installed with SA_SIGINFO.
+
+              By  using  F_SETSIG with a non-zero value, and set­
+              ting SA_SIGINFO for the signal handler (see  sigac­
+              tion(2)),  extra  information  about  I/O events is
+              passed to the handler in a siginfo_t structure.  If
+              the si_code field indicates the source is SI_SIGIO,
+              the si_fd field gives the file  descriptor  associ­
+              ated  with the event.  Otherwise, there is no indi­
+              cation which file descriptors are pending, and  you
+              should   use   the   usual  mechanisms  (select(2),
+              poll(2),  read(2)  with  O_NONBLOCK  set  etc.)  to
+              determine  which file descriptors are available for
+              I/O.
+
+              By selecting a POSIX.1b real time signal (value  >=
+              SIGRTMIN),  multiple I/O events may be queued using
+              the same signal numbers.  (Queuing is dependent  on
+              available  memory).  Extra information is available
+              if SA_SIGINFO is set for  the  signal  handler,  as
+              above.
+
+       Using  these  mechanisms,  a  program  can implement fully
+       asynchronous I/O without using select(2) or  poll(2)  most
+       of the time.
+
+       The  use of O_ASYNC, F_GETOWN, F_SETOWN is specific to BSD
+       and Linux.   F_GETSIG  and  F_SETSIG  are  Linux-specific.
+       POSIX  has asynchronous I/O and the aio_sigevent structure
+       to achieve similar things; these  are  also  available  in
+       Linux as part of the GNU C Library (Glibc).
+
+RETURN VALUE
+       For  a  successful  call,  the return value depends on the
+       operation:
+
+       F_DUPFD  The new descriptor.
+
+
+
+Linux                      12 July 1999                         3
+
+
+
+
+
+FCNTL(2)            Linux Programmer's Manual            FCNTL(2)
+
+
+       F_GETFD  Value of flag.
+
+       F_GETFL  Value of flags.
+
+       F_GETOWN Value of descriptor owner.
+
+       F_GETSIG Value of signal sent when read or  write  becomes
+                possible,   or   zero   for   traditional   SIGIO
+                behaviour.
+
+       All other commands
+                Zero.
+
+       On error, -1 is returned, and errno is set  appropriately.
+
+ERRORS
+       EACCES   Operation  is  prohibited  by locks held by other
+                processes.
+
+       EAGAIN   Operation is prohibited because the file has been
+                memory-mapped by another process.
+
+       EBADF    fd is not an open file descriptor.
+
+       EDEADLK  It  was detected that the specified F_SETLKW com­
+                mand would cause a deadlock.
+
+       EFAULT   lock is outside your accessible address space.
+
+       EINTR    For F_SETLKW, the command was  interrupted  by  a
+                signal.  For F_GETLK and F_SETLK, the command was
+                interrupted by  a  signal  before  the  lock  was
+                checked  or acquired.  Most likely when locking a
+                remote file (e.g.  locking  over  NFS),  but  can
+                sometimes happen locally.
+
+       EINVAL   For  F_DUPFD,  arg is negative or is greater than
+                the maximum allowable value.  For  F_SETSIG,  arg
+                is not an allowable signal number.
+
+       EMFILE   For  F_DUPFD, the process already has the maximum
+                number of file descriptors open.
+
+       ENOLCK   Too many segment locks open, lock table is  full,
+                or a remote locking protocol failed (e.g. locking
+                over NFS).
+
+       EPERM    Attempted to clear the O_APPEND flag  on  a  file
+                that has the append-only attribute set.
+
+NOTES
+       The  errors  returned  by  dup2  are  different from those
+       returned by F_DUPFD.
+
+
+
+
+Linux                      12 July 1999                         4
+
+
+
+
+
+FCNTL(2)            Linux Programmer's Manual            FCNTL(2)
+
+
+CONFORMING TO
+       SVr4, SVID, POSIX, X/OPEN, BSD 4.3.  Only  the  operations
+       F_DUPFD,  F_GETFD,  F_SETFD,  F_GETFL,  F_SETFL,  F_GETLK,
+       F_SETLK and F_SETLKW are specified in  POSIX.1.   F_GETOWN
+       and  F_SETOWN  are BSDisms not supported in SVr4; F_GETSIG
+       and F_SETSIG are specific to Linux.  The flags  legal  for
+       F_GETFL/F_SETFL  are  those  supported by open(2) and vary
+       between these systems; O_APPEND, O_NONBLOCK, O_RDONLY, and
+       O_RDWR  are  specified  in POSIX.1.  SVr4 supports several
+       other options and flags not documented here.
+
+       SVr4 documents additional EIO, ENOLINK and EOVERFLOW error
+       conditions.
+
+SEE ALSO
+       dup2(2), open(2), socket(2), flock(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      12 July 1999                         5
+
+

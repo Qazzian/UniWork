@@ -1,0 +1,2 @@
+set path = ($save_path)
+echo $path

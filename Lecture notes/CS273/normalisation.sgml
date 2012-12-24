@@ -1,0 +1,38 @@
+<article>
+  <artheader><title>Normalisation and Bottom Up Analysis</title>
+    <releaseinfo>Version: $Revision: 1.1 $</releaseinfo>
+    <date>$Date: 2000/03/07 12:17:15 $</date>
+  </artheader>
+  <simpara>Lecture slides are available on:</simpara>
+  <itemizedlist>
+    <listitem>
+      <simpara><ulink
+  url="../Lectures/functionaldependencies.ppt">Functional Dependencies</ulink></simpara>
+    </listitem>
+    <listitem>
+      <simpara><ulink
+  url="../Lectures/normalisation.ppt">Normalisation</ulink></simpara>
+    </listitem>
+  </itemizedlist>
+  <simpara>The Llandwp College bottom up analysis is provided as
+  <ulink url="../Lectures/bottomup.ppt">slides</ulink> and the
+  accompanying notes which are available online as an <ulink
+  url="../Exercises/bottomup/WorkedExample.rtf">rtf</ulink> and <ulink
+  url="../Exercises/bottomup/WorkedExample.pdf">pdf</ulink>
+  document.</simpara>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:("course.sgml" "book" "article")
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

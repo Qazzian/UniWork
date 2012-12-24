@@ -1,0 +1,7 @@
+#!/bin/sh
+S=course
+jade -t tex -V tex-backend -d pdf.dsl ${S}.sgml
+pdftex "&pdfjadetex" ${S}
+pdftex "&pdfjadetex" ${S}
+pdftex "&pdfjadetex" ${S}
+rm ${S}.tex ${S}.aux ${S}.log

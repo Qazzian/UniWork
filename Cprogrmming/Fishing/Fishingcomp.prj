@@ -1,0 +1,109 @@
+[Project Header]
+Version = 501
+Platform Code = 4
+Pathname = "/c/My Documents/UniWork/Cprogrmming/Fishingcomp.prj"
+CVI Dir = "/c/applications/cvi"
+VXIplug&play Framework Dir = "/c/applications/VXIPNP/win95"
+Number of Files = 1
+Sort Type = "No Sort"
+Target Type = "Executable"
+Flags = 16
+Drag Bar Left = 136
+Window Top = 24
+Window Left = 7
+Window Bottom = 178
+Window Right = 397
+
+[File 0001]
+File Type = "CSource"
+Path = "/c/My Documents/UniWork/Cprogrmming/FishingComp.c"
+Res Id = 1
+Exclude = False
+Disk Date = 3101830848
+Project Flags = 0
+Window Top = 27
+Window Left = 409
+Window Height = 0
+Window Width = 0
+Source Window State = "1,118,118,118,44,45,46,0,0,83,0,8,0,167,22,55,91,0,127,12,"
+Header Dependencies = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,"
+
+[Compiler Options]
+Default Calling Convention = "cdecl"
+Max Number Of Errors = 10
+Require Prototypes = True
+Require Return Values = True
+Enable Pointer Mismatch Warning = True
+Enable Unreachable Code Warning = True
+Track Include File Dependencies = True
+Prompt For Missing Includes = True
+Stop On First Error File = False
+Bring Up Err Win For Warnings = True
+Show Build Dialog = False
+
+[Run Options]
+Stack Size = 250000
+Debugging Level = "Extended"
+Save Changes Before Running = "Ask"
+Break On Library Errors = True
+Hide Windows = False
+Unload DLLs After Each Run = True
+Check Disk Dates Before Each Run = True
+Break At First Statement = False
+
+[Build Options]
+DLL Debugging Level = "None"
+
+[Compiler Defines]
+Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
+
+[Command Line Args]
+Command Line Args = ""
+
+[Included Headers]
+Header 0001 = "/c/Applications/cvi/include/ansi_c.h"
+Header 0002 = "/c/Applications/cvi/include/ansi/assert.h"
+Header 0003 = "/c/Applications/cvi/include/cvidef.h"
+Header 0004 = "/c/Applications/cvi/include/cvirte.h"
+Header 0005 = "/c/Applications/cvi/include/ansi/ctype.h"
+Header 0006 = "/c/Applications/cvi/include/ansi/errno.h"
+Header 0007 = "/c/Applications/cvi/include/ansi/float.h"
+Header 0008 = "/c/Applications/cvi/include/ansi/limits.h"
+Header 0009 = "/c/Applications/cvi/include/ansi/locale.h"
+Header 0010 = "/c/Applications/cvi/include/ansi/math.h"
+Header 0011 = "/c/Applications/cvi/include/ansi/setjmp.h"
+Header 0012 = "/c/Applications/cvi/include/ansi/signal.h"
+Header 0013 = "/c/Applications/cvi/include/ansi/stdarg.h"
+Header 0014 = "/c/Applications/cvi/include/ansi/stddef.h"
+Header 0015 = "/c/Applications/cvi/include/ansi/stdio.h"
+Header 0016 = "/c/Applications/cvi/include/ansi/stdlib.h"
+Header 0017 = "/c/Applications/cvi/include/ansi/string.h"
+Header 0018 = "/c/Applications/cvi/include/ansi/time.h"
+Max Header Number = 18
+
+[Create Executable]
+Executable File = ""
+Icon File = ""
+Application Title = ""
+DLL Exports = "Include File Symbols"
+DLL Import Library Choice = "Gen Lib For Current Mode"
+Use VXIPNP Subdirectories for Import Libraries = False
+Use Dflt Import Lib Base Name = True
+Where to Copy DLL = "Do not copy"
+Add Type Lib To DLL = False
+Include Type Lib Help Links = False
+Type Lib FP File = ""
+Type Lib Guid = ""
+Instrument Driver Support Only = False
+
+[External Compiler Support]
+Create UIR Callbacks File = False
+Using LoadExternalModule = False
+Create Project Symbols File = True
+UIR Callbacks Obj File = ""
+Project Symbols H File = ""
+Project Symbols Obj File = ""
+
+[DLL Debugging Support]
+External Process Path = ""
+

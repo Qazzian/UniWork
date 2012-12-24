@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+ <TITLE>PP Presentation</TITLE> 
+</HEAD>
+<BODY>
+ <H1>PP Presentation</H1> 
+ <P><H2>/**</H2>
+<H2>     * Controller Listener.</H2>
+<H2>     * This is taken from Sun's examples.</H2>
+<H2>     */</H2>
+<H2>public void controllerUpdate(</H2>
+<H2>                      ControllerEvent evt) {</H2>
+<H2></H2>
+<H2> if (evt instanceof ConfigureCompleteEvent ||</H2>
+<H2>     evt instanceof RealizeCompleteEvent ||</H2>
+<H2>     evt instanceof PrefetchCompleteEvent) {</H2>
+<H2>            synchronized (waitSync) {</H2>
+<H2>                stateTransitionOK = true;</H2>
+<H2>                waitSync.notifyAll();</H2>
+<H2>            }</H2>
+<H2> } else if (evt instanceof</H2>
+<H2>               ResourceUnavailableEvent) {</H2>
+<H2>            </H2>
+</P>
+<P></P> 
+<P>
+<TABLE>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld037.htm">Previous slide </A> </TD>
+<TD HEIGHT=100 WIDTH=100>
+
+<A HREF = "tsld039.htm">Next slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "index.htm">Back to the first slide </A>  </TD>
+<TD HEIGHT=100 WIDTH=150>
+
+<A HREF = "sld038.htm">View Graphic Version </A>  </TD>
+</TABLE>
+<BR>
+</p>
+
+</Body>
+</HTML>

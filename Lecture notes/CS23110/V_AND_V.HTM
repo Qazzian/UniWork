@@ -1,0 +1,401 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; I) [Netscape]">
+   <title>V &amp; V and standards.</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<hr>
+<p><b>Reliability, Integrity, Safety, etc.</b>
+<br>Real time systems are (usually) complex:
+<ul>
+<li>
+specifications are complex</li>
+
+<li>
+lots of complex hardware</li>
+
+<li>
+lots of complex software</li>
+
+<li>
+interaction between system components</li>
+
+<li>
+interaction with the real world</li>
+
+<li>
+time critical.</li>
+</ul>
+Plenty of scope for failure! Failure can be disastrous e.g.:
+<ul>
+<li>
+medical equipment</li>
+
+<li>
+aerospace</li>
+
+<li>
+railway signalling</li>
+
+<li>
+cars</li>
+
+<li>
+process control</li>
+
+<li>
+nuclear power, etc.</li>
+</ul>
+Failure can be expensive:
+<p>e.g. robotics, banking &amp; trading systems.
+<p>
+<hr WIDTH="100%">
+<p><b>Some Reliability Metrics...</b>
+<p>Quantifying, directly, the reliability of an implementation is difficult
+or impossible!
+<p>`Probability of Failure' is a phrase often used to specify the degree
+of reliability required in a system. (Reliability costs money, so there
+is always some compromise.)
+<p>For aircraft fly-by-wire systems (for example) a figure of 10<sup>-9</sup>
+is demanded.
+<ul>
+<li>
+This a is VERY low failure rate!</li>
+
+<li>
+How to achieve it?</li>
+
+<li>
+How to PROVE that you've achieved it?? Can't!</li>
+</ul>
+We WANT to achieve `System Reliability', assessed in terms of:
+<ul>
+<li>
+How correct is the specification?</li>
+
+<li>
+How well does it meet its specification?</li>
+
+<li>
+For how long will it continue to meet its specification?</li>
+</ul>
+It is difficult or impossible to answer these questions directly. Instead,
+we use `System Integrity' as an indication of probable reliability. System
+Integrity is easier to assess: How well designed and constructed is it?
+<p>We CAN achieve a known level of System Integrity by applying good engineering
+practice.
+<p>We ASSUME that this results in a corresponding level of system reliability.
+(Remember that exhaustive testing is impossible.)
+<p>
+<hr WIDTH="100%">
+<p><b>Sources of System Failure</b>
+<ul>
+<li>
+Incorrect Specification.</li>
+
+<li>
+Hardware failure: components can fail at random.</li>
+
+<li>
+Software failure: software does not fail at random, does not `wear out'.</li>
+
+<ul>
+<li>
+software fails when circumstances change so as to trigger a previously
+undetected bug,</li>
+
+<li>
+...or so as to reveal a fault in the specification.</li>
+</ul>
+</ul>
+Hardware can of course also fail when an input signal goes outside the
+design range, but hardware failures are normally considered random and
+quantified in terms of:
+<p><b>MTBF:</b> mean time between failure.
+<p><b>MTTR:</b> mean time to repair.
+<p>Assumption of random failure may not be appropriate for modern, complex,
+chips...
+<p><b>Commercial Microprocessor Chips are:</b>
+<ul>
+<li>
+complex (some have many millions of transistors).</li>
+
+<li>
+susceptible to design errors,</li>
+
+<li>
+prone to errors in manufacturers' literature,</li>
+
+<li>
+likely to have slight changes in function from batch to batch,</li>
+
+<li>
+impossible to test exhaustively,</li>
+
+<li>
+designed using CAD software, which will itself contain bugs.</li>
+</ul>
+Similar things can be said about complex ASICs.
+<p>Work is progressing on the formal (mathematical) proof of correctness
+of such chips, but this work has some way to go.
+<p><b>Software Failure:</b>
+<p>`Tested' software will keep operating `correctly' provided that:
+<ul>
+<li>
+inputs do not move outside the range normally applicable,</li>
+
+<li>
+user requirements do not change.</li>
+</ul>
+...but these can and do change.
+<p>Input signals may go out of the specified range (in amplitude or in
+timing), or may behave differently in some other way - they may arrive
+in a different sequence.
+<p>They may go outside the normal range but remain within spec - this can
+reveal bugs after years of seemingly trouble-free operation.
+<p>User requirements change. Sometimes the user's expectation of a system
+will change without the user realising it. Failure to meet the new requirement
+is then considered a bug!
+<p><b>`Failure-free' operation in the past does not necessarily mean `failure-free'
+operation in the future.</b>
+<p>
+<hr WIDTH="100%">
+<p><b>Formal Verification Methods.</b>
+<p>These seek to prove mathematically that a program (or a chip design)
+meets its specification - in other words that it performs correctly under
+all permitted circumstances.
+<p>Use of formal methods requires that the functional specification is
+expressed mathematically.
+<p>Formal methods are in realtive infancy but are beginning to be used
+with some success.
+<p>Some potential drawbacks:
+<ul>
+<li>
+Is the functional specification correct, complete and unambiguous? Is its
+mathematical representation correct?</li>
+
+<li>
+There is a tendency to rely on a mathematically proven implementation as
+being correct and to forget that the specification may have been wrong.</li>
+
+<li>
+Use of formal methods is time consuming and consequently expensive.</li>
+
+<li>
+Relatively few engineers have the appropriate skills.</li>
+
+<li>
+Formal methods have considerable limitations as to their applicability.</li>
+
+<li>
+It is unrealistic to use formal methods for the whole of a large project.
+Their use for particularly critical sections may be justified.</li>
+</ul>
+<b>Other verification methods:</b> e.g. static code analysis.
+<p>Testing is vital but remember that testing can never prove that a system
+is error free - doing that would take an impossible length of time.
+<p>Testing is used to ensure that all required system functions are present
+and to test that operation is correct under certain, carefully chosen,
+conditions such as those where errors are perhaps most likely to exist
+- as judged by experience, and by studying the code, the specification,
+etc.
+<p>
+<hr WIDTH="100%">
+<p><b>SAFETY versus RELIABILITY/INTEGRITY</b>
+<p>An unreliable system can be safe provided that it enters a safe, stable,
+state when it fails. This implies that failure must be detected and the
+safe state entered.
+<ul>
+<li>
+Traffic lights can all go red.</li>
+
+<li>
+A Robot can stop.</li>
+</ul>
+Not all system systems can enter a safe, stable, state:
+<ul>
+<li>
+An aircraft in flight.</li>
+
+<li>
+The braking system of a moving car.</li>
+
+<li>
+etc.</li>
+</ul>
+Where systems cannot fail safe, reliability becomes paramount, and steps
+need to be taken to:
+<ul>
+<li>
+Detect and contain faults.</li>
+
+<li>
+Detect and replace faulty modules.</li>
+</ul>
+<b>Precautions against the effects of faults.</b>
+<p>Modules need to be <b>robust</b>.
+<p><b>Robustness</b> is `the extent to which software can continue to operate
+correctly despite the introduction of invalid inputs'.
+<p>Need to provide code to handle cases that should never occur.
+<p>(<b>=> when others</b>; ...<b>else</b>; check inputs for legal range,
+etc.).
+<p>What to do if an invalid input arrives? Where it is not appropriate
+to stop and issue and error message, the following are possibilities:
+<ul>
+<li>
+re-read (if time allows),</li>
+
+<li>
+use the previous value instead,</li>
+
+<li>
+ignore the input,</li>
+
+<li>
+assign a value that indicates `fault' to subsequent software.</li>
+</ul>
+In this way robustness is achieved by preventing illegal values from being
+processed. Can only do this when `illegal values' can be predefined!
+<p>Modules should also check the `reasonableness' of outputs that they
+pass to other modules and prevent illegal values from being passed on.
+This is <b>fault containment</b>. It does not necessarily allow the system
+to continue running but will prevent dangerous values from being output.
+<p><b>Fault tolerance.</b>
+<p>This involves:
+<ul>
+<li>
+detecting all occurrences of errors,</li>
+
+<li>
+providing backup implementations of individual modules that are substituted
+for those that produce erroneous output.</li>
+</ul>
+This is effectively fault containment followed by a rerun on a new component.
+<p>This implies the presence of multiple versions of modules whose function
+is intended to be identical. These are, typically,
+<ul>
+<li>
+written by different teams, independently,</li>
+
+<li>
+possibly run on different types of processor,</li>
+
+<li>
+possibly written in different languages,</li>
+
+<li>
+possibly using different algorithms.</li>
+</ul>
+Even so, bugs common to all versions have been found in some cases!
+<p>Clearly this approach is expensive and so is used only in highly critical
+situations.
+<p>An alternative to replacement of a faulty module is a voting system
+where the outputs of simultaneously running modules are compared. Minority,
+differing, outputs are ignored and the offending modules shut down.
+<p>Fault tolerant techniques can be applied to both hardware and software.
+<p>
+<hr WIDTH="100%">
+<p><b>Some Safety Issues</b>
+<p>More and more safety-related applications are being controlled by hardware/software
+systems.
+<p>Software can easily implement complexity, and this leads naturally to
+complex systems.
+<p>Such complex systems cannot be exhaustively tested.
+<p>This has led to widespread concern about `software safety', and is leading
+to:
+<ul>
+<li>
+Improved methods and tools for software specification, design, and implementation.</li>
+
+<li>
+Misunderstanding of the fundamental problem, which is complexity rather
+than software;</li>
+
+<ul>
+<li>
+modern hardware can be highly complex and this can exhibit similar problems
+to complex software.</li>
+
+<li>
+there is a misguided move in some quarters to ban software from highly
+critical applications in favour of hardware-only systems. This is ignoring
+the fact that the real problem is complexity!</li>
+</ul>
+
+<li>
+Standards activity. Fortunately, this is addressing both the software and
+systems aspects.</li>
+</ul>
+
+<hr WIDTH="100%">
+<p><b>The main areas of standards activity for software and systems safety:</b>
+<p>The main international standard for safety critical and safety related
+systems is IEC 61508, produced by the&nbsp; International Electrotechnical
+Commission:
+<ul>IEC 61508 Functional Safety of electrical/electronic/programmable electronic
+safety-related systems. International Electrotechnical Commission, Geneva.</ul>
+The standard is the result of around ten years of careful work during which
+time several drafts were issued for comment.
+<p>The intention of this standard is that it should be generic and form
+the basis of more specific standards in particular market sectors e.g.
+CENELEC SC9XA/WGA1 for Railways.
+<p>There is also:
+<ul>International Standard (IEC) 61131 Programmable Controllers. International
+Electrotechnical Commission, Geneva.</ul>
+The military community in the UK has its own standards, including:
+<ul>Defence Standard 00-55 The procurement of safety critical software
+in defence equipment.
+<p>Defence Standard 00-56 Safety management requirements for defence systems
+containing programmable electronics.</ul>
+An important standard in the aircraft industry is:
+<ul>RTCA/DO-178B; EUROCAE/ED-12B Software considerations in airborne systems
+and equipment certification.</ul>
+
+<hr WIDTH="100%">
+<p>In summary:
+<ul>
+<li>
+Complex Systems cannot be exhaustively tested.</li>
+
+<li>
+Software/Systems Reliability cannot be measured, other than by logging
+faults as they occur.</li>
+
+<li>
+Need to assume that integrity provides reliability.</li>
+
+<li>
+Achieving integrity relies on strict adherence to quality assurance procedures,
+aided by appropriate methods and tools for specification, design and implementation.</li>
+
+<li>
+The `incentive' to achieve the appropriate level of integrity comes from:</li>
+
+<ul>
+<li>
+the standards,</li>
+
+<li>
+safety legislation,</li>
+
+<li>
+product liability legislation,</li>
+
+<li>
+the threat of being sued!</li>
+
+<li>
+your conscience as a software engineer.</li>
+</ul>
+</ul>
+
+<hr>
+<address>
+<i>jjr@aber.ac.uk</i></address>
+
+<br><i>5/4/2000</i>
+</body>
+</html>

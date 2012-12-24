@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Server Program</TITLE>
+<META NAME="description" CONTENT="The Server Program">
+<META NAME="keywords" CONTENT="worksheet_2">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="worksheet_2.css">
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="worksheet_2.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html60"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html58"
+ HREF="worksheet_2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html52"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html61"
+ HREF="node6.html">Effort Allocated to the</A>
+<B> Up:</B> <A NAME="tex2html59"
+ HREF="worksheet_2.html">CS25610 / CSM5610 Worksheet</A>
+<B> Previous:</B> <A NAME="tex2html53"
+ HREF="node4.html">The Client Program</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00050000000000000000">
+The Server Program</A>
+</H1>
+<P>
+When you have completed your client program, you should
+then attempt to develop a server which also implements the PoemInterface
+interface and which can be called via RMI.
+<P>
+After compiling your server you will need to run the &quot;rmic&quot;
+program against your server class to produce the skeletons and stubs.
+Your client needs to be able to find the stubs and the interface
+files when manipulating remote object references from the server.
+You can either place all your server class files, including 
+your stubs in an area on the web, or perhaps more simply, make
+your stubs available on the CLASSPATH used by the client.
+If you place the files on the web you will need
+to specify the java.rmi.server.codebase parameter
+when starting the server.
+<P>
+To run your server you will need to start a copy of the RMI registry
+on your computer and then start your server. Make sure you ONLY start
+one registry and please make sure you kill it before logging
+off the workstation. You may need to experiment a couple of times
+to locate a &quot;port number&quot; not in use if the default port number
+is already in use by another application.
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html60"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html58"
+ HREF="worksheet_2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html52"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html61"
+ HREF="node6.html">Effort Allocated to the</A>
+<B> Up:</B> <A NAME="tex2html59"
+ HREF="worksheet_2.html">CS25610 / CSM5610 Worksheet</A>
+<B> Previous:</B> <A NAME="tex2html53"
+ HREF="node4.html">The Client Program</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>DAVID  PRICE</I>
+<BR><I>3/9/2000</I>
+</ADDRESS>
+</BODY>
+</HTML>

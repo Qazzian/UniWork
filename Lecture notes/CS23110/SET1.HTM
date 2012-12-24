@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CS23110 - Part 1.  Jem Rowland, Univ. Wales, Aberystwyth.</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win16; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<P>
+<HR></P>
+
+<P><FONT SIZE=+2><B>CS23110 Small Real-Time Systems<BR>
+</B>Jem Rowland 
+<HR WIDTH="100%"></FONT><B><BLINK><FONT COLOR="#FF0000"><FONT SIZE=+1>&quot;Real
+Time is Different: The Right Answer Late is Wrong.....&quot;</FONT></FONT></BLINK></B></P>
+
+<P><IMG SRC="lc7p.jpg" HEIGHT=375 WIDTH=500 ALIGN=CENTER></P>
+
+<P><FONT SIZE=-1>Acknowledgements to the (former) Ready Systems Company, of VRTX
+fame, for the above slogan.</FONT></P>
+
+<P><FONT SIZE=-1>Acknowledgements also to <A HREF="http://www.boeing.com/">the
+Boeing Company</A> for the 777 picture.</FONT></P>
+
+<P><I><FONT SIZE=-1>(This is not intended to indicate whether or not VRTX
+is used in the B777.)</FONT></I></P>
+
+<P><FONT SIZE=-1>You might also be interested in exploring the <A HREF="http://www.airbus.com/">Airbus
+Industrie </A>pages.</FONT></P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>A real-time system is:</B> </P>
+
+<UL>
+<LI>A (computer) system which must operate on a timescale determined by
+events external to that system. </LI>
+
+<LI>...must produce results on a timescale determined by the application.
+</LI>
+
+<LI>In other words its operation is governed by <I>real</I> time rather
+than some arbitrary <I>machine</I> time. </LI>
+</UL>
+
+<P>Some examples: </P>
+
+<UL>
+<LI>weather forecasting! </LI>
+
+<LI>traffic lights, railway signals </LI>
+
+<LI>communications equipment, mobile phones</LI>
+
+<LI>industrial process control </LI>
+
+<LI>robotics </LI>
+
+<LI>domestic goods - washing machines, CD DVD MP3 players, VCRs, Games Consoles etc. </LI>
+
+<LI>avionics - autopilot, ALS, fly-by-wire. </LI>
+</UL>
+
+<UL>
+<LI>The system must recognise and respond appropriately to all relevant
+events in the real world. </LI>
+
+<LI>Each of these provokes some action within the system - typically a
+`process' or `task'. </LI>
+
+<LI>A task takes a finite time to execute. </LI>
+
+<LI>Any output must be produced within an appropriate interval of time
+following the event that provoked it. </LI>
+
+<LI>Other (relevant) events may occur while a task is executing. The system
+must respond to these too - by running tasks. </LI>
+</UL>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Real-time systems usually involve CONCURRENCY</B> </P>
+
+<P>Many real-time systems only have one processor. </P>
+
+<UL>
+<LI>Only one task can be executing at any instant of time. </LI>
+
+<LI>How to deal with multiple events and their associated tasks <I>within
+the required timescales</I>? </LI>
+</UL>
+
+<P>The key is to realise that: </P>
+
+<UL>
+<LI>`real-time' does <B>not</B> mean `do it as fast as possible' and that
+...</LI>
+
+<LI>the time constraints can be treated as the `available time in which
+to carry out the processing and produce a response'. </LI>
+</UL>
+
+<P>When does a task have to run? </P>
+
+<UL>
+<LI>Sufficiently soon after the event to produce the result within the
+time allowed. </LI>
+</UL>
+
+<P>How much time is the task allowed for execution? </P>
+
+<UL>
+<LI>Depends on how soon the response is required and how many other tasks
+are trying to execute. </LI>
+</UL>
+
+<P>So, if the designer has got it right ...</P>
+
+<UL>
+<LI>Other tasks can be allowed to proceed, with events `queued', provided
+that in the worst case all responses can be produced on the appropriate
+timescale. </LI>
+</UL>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>A `simple' example: A Weather Forecasting System</B></P>
+
+<P>The events to which the system responds are requests for a forecast.
+</P>
+
+<P>When does the forecasting task have to run? When a forecast is requested.
+</P>
+
+<P>How much time is the system allowed in which to produce a forecast?
+</P>
+
+<UL>
+<LI>determined by the application...</LI>
+
+<UL>
+<LI>such that the forecast arrives sufficiently far in advance of the weather
+to be useful! </LI>
+
+<LI>and such that the forecast can be revised at sufficiently frequent
+intervals. </LI>
+</UL>
+</UL>
+
+<P>Assume that we require forecasts each day at 6 am, 12 noon, 6 pm, midnight.
+</P>
+
+<P>The system can be designed so that processing takes 6 hours. </P>
+
+<P><B>What governs the execution time?</B> </P>
+
+<P>Processing power! </P>
+
+<P>Need to select or design a computer system with sufficient power to
+complete the forecast in 6 hours. </P>
+
+<P>What if we provide less processing power? </P>
+
+<UL>
+<LI>The system fails. (`The right answer late is wrong'.) </LI>
+</UL>
+
+<P>What if we provide more processing power? </P>
+
+<UL>
+<LI>It costs more. </LI>
+
+<LI>It processes more quickly. </LI>
+
+<LI>Is it an improvement? NO! We require forecasts at 6 hour intervals.
+</LI>
+</UL>
+
+<P><B>Increasing the processing power of a correctly functioning real-time
+system does not improve its performance.</B> </P>
+
+<P>If, however, we want an extra forecast at 9 am we must <I>double</I>
+the power. The extra power will be wasted for the rest of the day. </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Other examples:</B> Traffic lights: modern system are computer controlled.
+</P>
+
+<UL>
+<LI>actions governed by traffic patterns </LI>
+
+<LI>and pedestrian requests. </LI>
+
+<LI>Lots of input events (complex set of coordinated junctions in the rush
+hour). Need to: </LI>
+
+<UL>
+<LI>respond to all events - don't leave a pedestrian standing forever!
+</LI>
+
+<LI>provide a good decision &amp;response time, so as not to add to traffic
+delays. </LI>
+</UL>
+</UL>
+
+<P>Processing a continuous data stream - e.g. a Compact Disc Player. </P>
+
+<UL>
+<LI>must respond to all input data </LI>
+
+<LI>process it at the rate at which it is arriving. </LI>
+</UL>
+
+<P>...otherwise data is lost. </P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Why `small' real-time systems?</B> </P>
+
+<P>Many (most?) real-time systems are implemented with small(ish) microprocessor-based
+systems e.g.: </P>
+
+<UL>
+<LI>avionic systems, </LI>
+
+<LI>automobile systems, </LI>
+
+<LI>consumer goods, </LI>
+
+<LI>communications equipment, </LI>
+
+<LI>measuring instruments, </LI>
+
+<LI>data acquisition systems. </LI>
+</UL>
+
+<P>As opposed to `large' real-time applications e.g.: </P>
+
+<UL>
+<LI>weather forecasting, </LI>
+
+<LI>early-warning systems, </LI>
+
+<LI>air traffic control. </LI>
+</UL>
+
+<P>The <I>principles</I> apply to both. Small systems are easier to study.
+</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Syllabus and Book List.</B> See the links at the <A HREF="http://www.aber.ac.uk/~dcswww/Dept/Teaching/Courses/CS23110/">top
+of these CS231 pages</A>.</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Embedded Systems</B> </P>
+
+<P>Most (all?) real-time systems are <I>embedded systems</I>. </P>
+
+<UL>
+<LI>Their function is embedded in the design. </LI>
+
+<LI>The software is often in non-volatile memory - hence `firmware'. </LI>
+
+<LI>The hardware is often specific to the application. </LI>
+</UL>
+
+<P>So they are <I>not</I> `general-purpose' computers. </P>
+
+<P>Embedded systems operate without human <I>intervention</I>. They may
+respond to events generated by a person, but that person is simply using
+a piece of equipment - the fact that it contains a computer is not necessarily
+obvious. Examples: </P>
+
+<UL>
+<LI>communictions equipment, </LI>
+
+<LI>fly-by-wire aircraft control system, </LI>
+
+<LI>ABS brakes in a car, </LI>
+
+<LI>hot drinks machine, </LI>
+
+<LI>washing machine, </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<P>In general, embedded systems do NOT have: </P>
+
+<UL>
+<LI>screens or keyboards that give <I>access</I> to the embedded computer (e.g. mobile phone),
+</LI>
+
+<LI>software tools (such as editors, compilers, debuggers, etc.) </LI>
+</UL>
+
+<P>ALL inputs and outputs are specific to the application for which the
+system was designed. </P>
+
+<P>There <I>may</I> be some diagnostic facilities to aid fault tracing,
+but these are normally intended for the service engineer rather than the
+user. Examples are status reports, loading indicators, self-test facilities.
+</P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>The Need for Quality and Reliability</B> </P>
+
+<P>...of both software and hardware. </P>
+
+<P>Real time systems are often <I>critical</I> systems whose failure can
+cause: </P>
+
+<UL>
+<LI>death or injury (e.g. avionics, railway systems, medical equipment),
+</LI>
+
+<LI>financial loss (e.g. banking and trading systems), </LI>
+
+<LI>damage to the environment (e.g. industrial control systems in the chemical
+and nuclear industries). </LI>
+</UL>
+
+<P>These are embedded systems. In the event of an error they must detect
+the error and: </P>
+
+<UL>
+<LI>shut down in a orderly manner (if there is a safe, stable, state that
+can be entered), </LI>
+
+<LI>or recover from the error and keep going. </LI>
+</UL>
+
+<P>There is no point in simply providing error messages </P>
+
+<UL>
+<LI>there may be no-one to read them </LI>
+
+<LI>the person reading them may not be capable of acting appropriately
+</LI>
+
+<LI>it may be too late anyway! </LI>
+</UL>
+
+<P>So there is often a need for fault tolerance, in addition to the need
+for quality and reliability. </P>
+
+<P><B>Safety Related and Safety Critical Computer Systems</B> </P>
+
+<P>These are causing considerable concern both inside and outside of the
+computer industry ...</P>
+
+<UL>
+<LI>Increasing numbers of safety-critical applications are being implemented.
+</LI>
+
+<LI>With computing techniques it is relatively easy to implement highly
+complex functionality. </LI>
+
+<LI>Exhaustive testing of highly complex systems is always impossible.
+</LI>
+
+<LI>Design and implementation errors (`bugs') can remain undetected for
+a long time but can be disastrous when they emerge. </LI>
+</UL>
+
+<P>There is a tendency to point at software as being the potentially dangerous
+element in such systems. The real danger is more fundamental and arises
+from the difficulty of correctly specifying and implementing highly complex
+functionality. </P>
+
+<P>Highly complex functionality is most easily achieved via software, but
+highly complex hardware systems can suffer from the same problems of complexity.
+</P>
+
+<P>The use of <I>concurrent</I> software (common in real-time systems)
+makes the difficulties far greater. (Sequential code that is correct can
+cause disastrous problems when run concurrently with other `correct' code).
+</P>
+
+<P>How to achieve correctness? With considerable difficulty! </P>
+
+<P>The use of formal methods is often quoted as a solution BUT: </P>
+
+<UL>
+<LI>the specification may be wrong, </LI>
+
+<LI>formal methods can be more costly to use (but may save time in debug
+and test), </LI>
+
+<LI>they are more difficult to apply to concurrent systems. </LI>
+</UL>
+
+<P><B>Some examples of Safety Critical Applications</B> </P>
+
+<P><B>Medical equipment,</B> such as: </P>
+
+<UL>
+<LI>radiotheraphy equipment (e.g. Therac). </LI>
+
+<LI>patient monitoring systems (measure pulse, ecg, respiration etc., and
+warn staff if problems arise) </LI>
+
+<LI>drug delivery systems (failure of an I/O device caused one death) </LI>
+
+<LI>automatic anaesthesia (linked with patient monitoring) </LI>
+
+<LI>`intelligent' defibrillators, </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<P><B>Industrial Process Control,</B> e.g. Chemical Industry: </P>
+
+<UL>
+<LI>continuous manufacturing processes </LI>
+
+<LI>computer-controlled </LI>
+
+<LI>lots of things to measure: temperatures, pressures, flow, liquid levels,
+product analysis etc. </LI>
+
+<LI>lots of things to control: valves, pumps, heaters etc. </LI>
+
+<LI>success of the control algorithms will depend critically on regular
+execution at sufficiently short intervals. </LI>
+
+<LI>the system will need to detect and act upon alarm conditions. </LI>
+</UL>
+
+<P><B>Avionics:</B> </P>
+
+<P>Automatic Landing System: </P>
+
+<UL>
+<LI>a (radar-based) sensor monitors the position of the aircraft relative
+to the end of the runway; this feeds control system that flies the aircraft
+so that it lands correctly. </LI>
+
+<LI>the position needs to be monitored frequently and regularly, </LI>
+
+<LI>the system must respond to the results within a critical time. </LI>
+</UL>
+
+<P>Autopilot: </P>
+
+<UL>
+<LI>inputs from navigation systems and course requirements, </LI>
+
+<LI>sensory inputs from airspeed sensors, altitude meter etc., </LI>
+
+<LI>outputs to control the surfaces and the engines, </LI>
+
+<LI>the system must be responsive to changes in attitude and to the effects
+of turbulence, etc. </LI>
+</UL>
+
+<P><B>Some modern aircraft are `fly-by-wire':</B> </P>
+
+<UL>
+<LI>the pilot's controls are merely inputs to a real-time computer system.
+</LI>
+
+<LI>the computer translates the pilot's intentions (?) into control signals
+that are fed to the surfaces, engines, etc. </LI>
+
+<LI>the system can override the pilot in certain circumstances, in the
+interests of `enhanced safety'. </LI>
+
+<LI>some aircraft use a local area network that links the distributed control
+computers, the sensing systems, and the actuators for the flight control
+surfaces, engines, etc. This needs to be a real-time LAN. </LI>
+</UL>
+
+<P><B>How to achieve quality and reliability?</B> </P>
+
+<UL>
+<LI>Make QUALITY central to the design and implementation process. </LI>
+
+<LI>Follow standards, where they exist. </LI>
+
+<LI>Use recognised design methods. </LI>
+
+<LI>Use formal methods when they can be justified. </LI>
+
+<LI>Design for correct operation even in circumstances that should never
+arise (`defensive programming'). E.g. Conditional statements should cater
+for ALL conditions (<B>else, when others</B> etc.). The system should act
+predictably in all circumstances. </LI>
+
+<LI>Test as thoroughly as is practicable. </LI>
+
+<LI>Design on a modular basis, so that modules are individually testable.
+</LI>
+
+<LI>Design for maintainability. </LI>
+
+<LI>Document it well. </LI>
+
+<LI>Incorporate fault tolerance where this is required. </LI>
+
+<LI>Incorporate self-test facilities. </LI>
+
+<LI>etc. </LI>
+</UL>
+
+<UL>
+<LI>Software engineering principles and methods are vitally important in
+real-time work. </LI>
+
+<LI>Even more important is the Functional Specification. This describes
+what the system should do in all possible circumstances. If it is wrong
+or incomplete then the system can never be correct. </LI>
+
+<LI>Production of the Functional Specification is a very demanding task
+and often requires specialised knowledge of the application. </LI>
+</UL>
+
+<P>
+<HR></P>
+
+<P><A HREF="set2.htm">Next.</A> 
+<HR WIDTH="100%"></P>
+
+</BODY>
+</HTML>

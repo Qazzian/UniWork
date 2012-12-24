@@ -1,0 +1,31 @@
+[Project]
+CompilerID=(none)
+Version=1
+
+[Options]
+Release=
+Debug=
+User=
+
+[Files]
+D1=€"Source Files" "*.cpp;*.c;*.cxx;*.cc;*.rc;*.def;*.java;*.pl;*.cgi;*.pas"
+D2=€"Include Files" "*.h;*.hpp;*.hxx;*.inc"
+
+[Files Source Files]
+F1=€".\Retail.c"
+FRO1=
+FDO1=
+FUO1=
+F2=€".\RetailP1.c"
+FRO2=
+FDO2=
+FUO2=
+F3=€".\RetailP2.c"
+FRO3=
+FDO3=
+FUO3=
+F4=€".\RetailP3.c"
+FRO4=
+FDO4=
+FUO4=
+

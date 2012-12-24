@@ -1,0 +1,201 @@
+\setcounter{slide}{86}
+
+%
+% slide 87
+%
+\begin{slide}{}
+{\bf Static Checking}\\
+(also known as ``context checking'' or ``semantic analysis'')
+
+\begin{itemize}
+\item type checking
+\item flow of control checks
+\item uniqueness checks
+\item name related checks
+\end{itemize}
+
+\end{slide}
+%
+% slide 88
+%
+\begin{slide}{}
+{\bf Static Checking by Attribute Evaluation}
+
+An attribute grammar describes static checks.
+
+Attributes used in static checking are called
+{\em semantic attributes}.  
+
+The abstract syntax tree (AST) is traversed
+and decorated with attributes until it
+contains enough information so that static
+checks can be made.
+
+\end{slide}
+%
+% slide 89
+%
+\begin{slide}{}
+{\bf Static Checking}
+
+Static checking can be performed after the AST
+has been constructed, or ``on-the-fly'', while
+it is being built.
+
+In the first case, the AST is traversed, usually
+more than once, and attributes are evaluated each
+time a node is visited.
+
+On-the-fly evaluation methods operate in conjunction
+with the parser (just like the tree building routines).
+They are used for single pass compilation.
+
+The parsing method used limits the kind of attribute
+flow that can be accommodated when on-the-fly
+evaluation is carried out.
+\end{slide}
+
+%
+% slide 90
+%
+\begin{slide}{}
+{\bf Intermediate Representations}
+
+The ``front end'' or analysis phases of a compiler
+produce intermediate code, which is processed
+by the code generator or ``back end'' of the compiler.
+
+Three kinds of intermediate representation are
+\begin{itemize}
+\item abstract syntax trees,
+\item postfix notation and
+\item 3-address code.
+\end{itemize}
+\end{slide}
+%
+% slide 91
+%
+\begin{slide}{}
+{\bf 3-Address Code}
+
+3-Address Code is like assembly language.  It consists of a
+sequence of statements like
+\begin{verbatim}
+
+    x := y op z
+
+\end{verbatim}
+where x, y and z are names, constants, or temporary names generated
+by the compiler and op is an operator.
+
+Statements can have labels, and there are statements that modify
+flow of control.  For example:  
+\begin{verbatim}
+    label: x := y op z
+    goto label  
+    if x relop y goto label
+\end{verbatim}
+\end{slide}
+%
+% slide 92
+%
+\begin{slide}{}
+{\bf 3-Address Code}
+
+Example: 3-address code corresponding to the syntax
+tree shown earlier.
+\begin{verbatim}
+
+    t1 := -c
+    t2 := b * t1
+    t3 := -c
+    t4 := b * t3
+    t5 := t2 + t4
+    a  := t5
+
+\end{verbatim}
+\end{slide}
+%
+% slide 93
+%
+\begin{slide}{}
+{\bf Translation into 3-Address Code}
+
+Syntax directed translation of the source program into
+3-address code can be defined using an attribute grammar.
+
+Example: An attributed grammar rule for translating a
+`while' loop to 3-address statements:               
+\begin{verbatim}
+  S ::= while E do S1
+    {S.begin := newlabel;
+     S.after := newlabel;
+     S.code  :=
+       S.begin <> `:' <> E.code <>
+       `if' <> E.place <> `= 0' <>
+       `goto' <> S.after <>
+       S.code <>
+       `goto' S.begin  <>
+       S.after `:'
+    }
+\end{verbatim}
+\end{slide}
+%
+% slide 94
+%
+\begin{slide}{}
+{\bf 3-Address Statements}
+{\small
+\begin{itemize}
+\item Basic Assignments\\
+    x := y op z\\
+    x := op y\\
+    x := y
+\item Transfer of Control\\
+    goto label\\
+    if x relop y goto label
+\item Procedure Call\\
+    param x1\\
+    param x2\\
+    ...\\
+    param xn\\
+    call p,n\\
+\item -- and Return\\
+    return y
+\item Indexing\\
+    x[i] := y\\
+    y := y[i]
+\item Operations involving pointers\\
+    x := \&y\\
+    x := *y\\
+    *x := y
+\end{itemize}
+}
+\end{slide}
+%
+% slide 95
+%
+\begin{slide}{}
+{\bf 3-address code for computing a scalar product -- an
+example from Aho, Sethi and Ullman}
+
+Assume a and b are two vectors of length 20. The
+following 3 address statements compute the scalar
+product of a and b. (It assumes that the target machine
+has four byte words).
+
+\begin{verbatim}
+
+ (1)  prod := 0
+ (2)  i := 0
+ (3)  t1 := 4 * i
+ (4)  t3 := a[t1]
+ (5)  t4 := b[t1]
+ (6)  t5 := t3 * t4
+ (7)  prod := prod + t5
+ (8)  i := i + 1
+ (9)  if i <= 20 goto (3)
+\end{verbatim}
+
+\end{slide}
+

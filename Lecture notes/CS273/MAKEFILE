@@ -1,0 +1,10 @@
+all: HTML/index.html course.pdf
+	cd Word; make
+	cd Exercises; make
+	cd JDBC; make
+
+HTML/index.html: course.sgml
+	./make-html course.sgml
+
+course.pdf: course.sgml
+	./make-pdf

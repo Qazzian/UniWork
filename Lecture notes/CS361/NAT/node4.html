@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lecture 4: Hofstadter's FARG</TITLE>
+<META NAME="description" CONTENT="Lecture 4: Hofstadter's FARG">
+<META NAME="keywords" CONTENT="NAT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="NAT.css">
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="NAT.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html51"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html49"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html52"
+ HREF="node5.html">Lecture 5: ANN Overview</A>
+<B> Up:</B> <A NAME="tex2html50"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html44"
+ HREF="node3.html">Lecture 3: BACON and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00040000000000000000">
+Lecture 4: Hofstadter's FARG</A>
+</H1>
+
+<BIG>CS36110, Part 1, Lecture 4:</BIG>
+<P><BIG>Doug Hofstadter's</BIG>
+<P><BIG>Fluid Analogies Research Group</BIG>
+<P>
+<P>
+<BIG>Simon and Hofstadter</BIG>
+<UL>
+<LI> Both interested in discovery of <EM>patterns</EM> (both have worked
+on extending number-sequences).
+<LI> Simon thinks we're ``nearly there'', Hofstadter thinks we've
+``hardly started'', in progress toward genuine AI.
+<LI> Simon thinks human cognition is rather simple, Hofstadter that
+it's incredibly complex.
+<LI> Simon thinks high-level problem-solving can be understood
+without understanding how the brain works; Hofstadter doesn't.
+<LI> Simon thinks human intelligence is largely serial; Hofstadter, that it
+<EM>emerges</EM> out of multitudes of ``inaccessible'' parallel
+processes.
+</UL>
+
+<P>
+<BIG>Hofstadter's Central Concerns</BIG>
+<UL>
+<LI> Overblown claims made for many AI programs.
+<LI> Drift of AI away from fundamental issues.
+<LI> Nature of creativity, insight, self-awareness.
+<LI> Relation between perception and ``high-level'' thought.
+<LI> Nature of <EM>concepts</EM>.
+<LI> Importance of <EM>analogies</EM> and <EM>counterfactuals</EM>.
+<LI> Usefulness of microworlds in AI research.
+</UL>
+
+<P>
+<BIG>My Summary of Hofstadter's Position</BIG>
+<UL>
+<LI> Q. Why, after 50 years of AI research, are computers still so
+<B>stupid</B>?
+<LI> A. Because we still have very little understanding of what makes
+people intelligent; and what we do have has largely been ignored by
+most AI researchers.
+</UL>
+
+<P>
+<BIG>The ``ELIZA effect''</BIG>
+<UL>
+<LI> ELIZA: program written by Joseph Weizenbaum in 1964-6.
+<LI> ``Conversed'' with users (via teletype), using sets of simple
+``scripts'', the most impressive imitaing a Rogerian therapist.
+<LI> Weizenbaum became alarmed at people's <EM>reaction</EM> to ELIZA
+(see <EM>Computer Power and Human Reason</EM>, 1976).
+<LI> Hofstadter claims that the ``ELIZA effect'' has systematically
+obstructed objective assessment of AI programs by AI researchers.
+</UL>
+
+<P>
+<BIG>Hofstadter's Own List of Themes</BIG>
+<UL>
+<LI> Inseparability of perception and high-level cognition.
+<LI> Easily reconfigurable, multi-level cognitive representations.
+<LI> ``Subcognitive pressures''.
+<LI> Commingling of many pressures.
+<LI> Simultaneous feeling-out of many potential pathways.
+<LI> Cognitive representations' <EM>deeper</EM> and <EM>shallower</EM> layers.
+<LI> Crucial role of inner structure of concepts and conceptual
+neighbourhoods.
+</UL>
+
+<P>
+<BIG>Example Programs</BIG>
+<UL>
+<LI> <B>Seek-Whence</B>: Extrapolating number sequences.
+<LI> <B>Jumbo</B>: modelling processes involved in finding anagrams.
+<LI> <B>Copycat</B>: constructing analogies
+(between transformations)
+in a microworld of letter-sequences.
+<LI> <B>Tabletop</B>: constructing analogies (between actions) in a
+microworld of ``coffeehouse tabletops''.
+<LI> <B>Letter Spirit</B>: designing typefaces. 
+</UL>
+
+<P><BIG>Copycat: Overview</BIG>
+<UL>
+<LI> Written by Hofstadter and Melanie Mitchell (H/M).
+<LI> ``Neither symbolic nor connectionist: ``subcognitive but superneural''.
+<LI> Top-level behaviour <B>emerges</B> from parallel, stochastic
+processing mechanism. <B>Concepts</B> implemented as distributed and
+probabilistic entities in a network. (Contrast with GOFAI's ``atomic''
+symbols.)
+<LI> Intended to simulate ``the very crux of human cognition: fluid
+concepts''.
+<LI> Three main components: the ``Slipnet'' (roughly, long-term
+memory), ``Workspace'' (roughly, short-term memory), and
+``Coderack'' (no close counterpart in other architectures). 
+</UL>
+
+<P>
+<BIG>Copycat: Example Problems</BIG>
+<UL>
+<LI> <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, ijk  <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$">?</B>
+<LI> <B>aabc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> aabd, ijkk <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+<LI> <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, kji <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+<LI> <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, mrrjjj <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+<LI> <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, rssttt <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+<LI> <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, xyz <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+</UL>
+
+<P><BIG>Copycat's Microdomain</BIG>
+<UL>
+<LI> Set of <EM>basic object types</EM> (the letters <B>a-z</B>).
+<LI> A basic relation between pairs of object types
+(successor-predecessor, e.g. <B>{a,b}, {f,g}, {y,z}</B> -- but
+not <B>{z,a}</B>).
+<LI> A one dimensional ``space'' where <EM>structures</EM> (strings of
+object <EM>tokens</EM> can exist, e.g. <B>abc, aabd, mrrjjj</B>. Copycat
+can take account of the length of (short) strings.
+<LI> The concepts of <EM>sameness</EM> and <EM>opposite</EM>
+(e.g. successor/predecessor,
+<BR>
+leftmost/rightmost).
+</UL>
+
+<P><BIG>The Slipnet: 1</BIG>
+<UL>
+<LI> Contains the permanent concepts (the 26 letters, also <EM>
+letter, predecessor, successor, left, right, direction, group, group
+length, 1, 2, 3, sameness, opposite</EM>...). Total of around 60.
+<LI> ``Core'' of each concept represented by a <EM>node</EM>, each
+conceptual relationship
+by a <EM>link</EM>, with a length representing ``conceptual distance''.
+<LI> Nodes acquire, spread and lose <EM>activation</EM> (relevance to
+the current situation); links adjust their lengths.
+<LI> Node and its ``halo'' of related nodes correspond to a concept.
+</UL>
+
+<P><BIG>The Slipnet: 2</BIG>
+<UL>
+<LI> Each node has a <EM>conceptual depth</EM> -- generality,
+abstractness, distance from direct perception. Once perceived,
+``deeper'' concepts have more influence; activation decays more
+slowly.
+<LI> Links have ``labels'' which are themselves nodes (e.g. <EM>
+opposite</EM>; activation of a label node shortens the links with that
+label.
+<LI> ``Slippability'' between concepts depends on existence of
+discrete ``cores''
+(which do not exist in distributed connectionist models).
+</UL>
+
+<P><BIG>The Workspace: 1</BIG>
+<UL>
+<LI> Initially, unconnected pieces of raw data representing the
+situation.
+<LI> Multiple independent <EM>perceptual structures</EM> built (and
+dismantled) in parallel by ``codelets'', until a coherent <EM>
+viewpoint</EM> emerges.
+<LI> Probability an object will receive attention depends on its <EM>
+salience</EM> -- a function of its <EM>importance</EM> and <EM>
+unhappiness</EM>.
+<LI> Pairs of <EM>neighboring objects</EM> in the same string
+scanned for relationships which can produce <EM>bonds</EM>. Sets of
+bonded objects can form ``groups'' (higher-level objects).
+</UL>
+
+<P><BIG>The Workspace: 2</BIG>
+<UL>
+<LI> Pairs of objects in <EM>different</EM> strings can be linked by
+<EM>bridges</EM> or <EM>correspondences</EM>, gradually building up a
+coherent mapping.
+<LI> <EM>Identity mappings</EM> always help formation of a bridge;
+<EM>conceptual slippages</EM> have to overcome resistance.
+<LI> As Workspace evolves, pressure for a <EM>consistent viewpoint</EM>
+increases.
+<LI> Events in Workspace alter activations in Slipnet, which react on
+Workspace...
+<LI> General biases towards <EM>deep concepts</EM> and <EM>consistency</EM>
+give Copycat a ``goal-oriented'' quality despite decentralization.
+</UL>
+
+<P><BIG>The Coderack</BIG>
+<UL>
+<LI> <EM>Codelets</EM> do all the scanning, bonding, bridging, grouping...
+<LI> <EM>Scout codelets</EM> estimate promise of
+actions: all they <EM>do</EM> is create further codelets. <EM>
+Effector codelets</EM> attach descriptions to objects, or create/destroy
+bonds/groups/bridges.
+<LI> Created codelets placed in <EM>Coderack</EM>, assigned an
+<EM>urgency</EM> determining <EM>probability</EM> of being selected to be
+run and removed.
+<LI> There are <EM>bottom-up</EM> codelets, continually being added; <EM>
+top-down</EM> ones, placed by highly activated <EM>Slipnet</EM> nodes; <EM>
+follow-up</EM> codelets placed by earlier codelets. 
+</UL>
+
+<P><BIG>Emergence of Fluidity</BIG>
+<UL>
+<LI> H/M compare Copycat's operations to what goes on inside
+a cell: no centre of control, but interlocking feedback loops.
+<LI> Copycat architecture allows many ``pressures'' to coexist, overlap,
+compete and cooperate.
+<LI> Use of <EM>scout codelets</EM> allows exploration of possibilities
+in a <EM>parallel terraced scan</EM>.
+<LI> Initial ``discoveries'' are local; scale of actions
+gradually increases.
+<LI> ``Temperature'' variable, reflecting how orderly
+<EM>Workspace</EM> is, controls degree of randomness
+used. Final temperature reflects solution quality.
+</UL>
+
+<P><BIG>Overall Trends During Run</BIG>
+<UL>
+<LI> <B>Slipnet:</B> Activation moves from ``shallower'' to
+``deeper'' concepts, and increasingly clusters into <EM>themes</EM> of
+closely-related, deep concepts.
+<LI> <B>Workspace:</B> Shift from many local, unrelated objects toward
+a few global, coherent structures.
+<LI> <B>Coderack:</B> Initially, only bottom-up codelets
+exist. Top-down codelets gradually come to dominate as a run proceeds.
+<LI> Processing: shifts from parallel towards serial, bottom-up
+towards top-down, nondeterministic towards deterministic.
+</UL>
+
+<P><BIG>Copycat's Answers to Problem 4</BIG>
+<P>
+1000 runs of <B>abc <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> abd, mrrjjj <IMG WIDTH="42" HEIGHT="50" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\rightarrow$"> ?</B>
+<UL>
+<LI> 705: <B>mrrkkk</B> Av. Temp: 43
+<LI> 203: <B>mrrjjk</B> Av. Temp: 50
+<LI> 45: <B>mrrjkk</B> Av. Temp: 46
+<LI> 39: <B>mrrjjjj</B> Av. Temp: 20
+<LI> 6: <B>mrrddd</B> Av. Temp: 46
+<LI> 2: <B>mrrjjd</B> Av. Temp: 61
+</UL>
+
+<P><BIG>Robustness and Elegance</BIG>
+<UL>
+<LI> Copycat has the potential to produce ``bad'' or ``weird''
+answers, but avoids them most of the time -- H/M regard this
+as a demonstration of its robustness.
+<LI> The potential to produce ``bad'' answers appears essential if it
+is to be able to produce impressive ``elegant'' ones (like <B>
+mrrjjjj</B> in problem 4).
+<LI> If temperature is ``clamped'' (forced to remain constant) it
+seldom finds what Hofstadter considers the most ``elegant'' answers.
+<LI> Testing on families of related problems can be seen as
+``miniature Turing tests''.
+</UL>
+
+<P><BIG>Can Copycat ``Scale Up''?</BIG>
+<P>
+Remains to be proved, but H/M claim that none of the key ideas depend
+on its small domain, and that the way in which concepts initially
+disregarded can move first to the 
+periphery, then to the centre of attention, allowing ``Dynamic
+emergence of unpredictable objects and pathways'' to
+occur, will permit domains of much greater size to be dealt with.
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html51"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/next_motif.gif"></A> 
+<A NAME="tex2html49"
+ HREF="NAT.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/up_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.aber.ac.uk/~dcswww/Images/buttons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html52"
+ HREF="node5.html">Lecture 5: ANN Overview</A>
+<B> Up:</B> <A NAME="tex2html50"
+ HREF="NAT.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html44"
+ HREF="node3.html">Lecture 3: BACON and</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>NICHOLAS MARK GOTTS</I>
+<BR><I>5/4/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

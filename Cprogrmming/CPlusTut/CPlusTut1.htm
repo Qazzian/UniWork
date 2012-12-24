@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.cprogramming.com/tutorial/lesson1.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - Tutorials</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ programming, programmers, C++ tutorial, C, source code, tutorials, C++ compiler, DJGPPorials " 
+name=keywords>
+<META 
+content="Cprogramming.com is a combination of C++ tutorials, compiler information, programming links, a VERY ACTIVE programming message board, and C and C++ source code ." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut1_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut1_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut1_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut1_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut1_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!_______KRONOS IMAGE___________><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut1_files/kronos.gif" width=92></A> <!_______KRONOS IMAGE___________></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut1_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut1_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut1_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut1_files/4508920.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 1: The basics of C++</H3>I am writing this for those 
+            people who want to learn how to program in<BR>C++, especially those 
+            who had trouble. It is for those of you who want a sense of 
+            accomplishment every time your program works perfectly. If you want 
+            the sense of accomplishment, read on.<BR><BR>C++ is a programming 
+            language. It is a programming language of many<BR>different 
+            dialects, just like each language that is spoken has many dialects. 
+            In C though, they are not because the "speakers" live in the North, 
+            South, or grew up in some other place, it is because there are so 
+            many compilers. There are about four major ones: Borland C++, 
+            Microsoft Visual C++, Watcom C/386, and DJGPP. You can download 
+            DJGPP http://www.delorie.com/djgpp/ or you may already have another 
+            compiler. <BR><BR>Each of these compilers is a little different. The 
+            library functions of one will have all of the standard C++ 
+            functions, but they will also have other functions or, continuing 
+            the analogy, words. At times, this can lead to confusion, as certain 
+            programs will only run under certain compilers, though I do not 
+            believe this to be the case with the programs in these 
+            tutorials.<BR><B><BR>If you don't have a compiler, I strongly 
+            suggest you get one. A simple one is good enough for my tutorials, 
+            but get one. </B><BR><BR>C++ is a different breed of programming 
+            language. It has only a few keywords for DOS, and it has no keywords 
+            to use for output. This means that almost everything is stored in a 
+            header file. This gives the use of many functions. But lets see a 
+            real program...<BR><BR><PRE>#include &lt;iostream.h&gt;
+int main()
+{
+  cout&lt;&lt;"HEY, you, I'm alive!  Oh, and Hello World!";
+  return 0;    
+}</PRE>That does not look too hard, right? Lets break down the 
+            program and then look at it. The #include is a preprocessor 
+            directive which tells the compiler to put code in the header file 
+            iostream.h into our program! By including header files, you an gain 
+            access to many different functions. For example, the cout function 
+            requires iostream.h.<BR><BR><BR>The next thing is int main() what 
+            this is saying is that there is a function called main, and that it 
+            returns an integer, hence int. Then those little braces ( { and } ) 
+            are used to signal the beginning and ending of functions, as well as 
+            other code blocks. If you have programmed in Pascal, you will know 
+            them as BEGIN and END. <BR><BR>The next line of the program may seem 
+            strange. If you have programmed in other languages you might think 
+            that print would be used to display text. However, in C++ the cout 
+            function is used to display text. It uses the &lt;;&lt;; symbols, 
+            known as insertion operators. The quotes tell the compiler that you 
+            want to output the literal string as-is. The ; is added to the end 
+            of all function calls in C++.<BR><BR>The penultimate line of code is 
+            ordering main to return 0. When one returns a value to main, it is 
+            passed on to the operating system. As a note, declaring int main() 
+            or void main() both will generally work. It is accepted practice to 
+            some to declare main as a void, but to others it is <BR>extremely 
+            upsetting. Previously, these tutorials had used void main, however, 
+            this is NO LONGER recommended, as it does not conform to the ANSI 
+            standard.<BR><BR>After, the brace closes off the function. You can 
+            try out this program if you want, just cut and paste it into the IDE 
+            of a compiler such as DJGPP, or save it to a file ending with a .cpp 
+            extension, and use a command-line compiler to compile and link 
+            it.<BR><BR>Comments are extremely important to understand. When you 
+            declare that an area is a comment, the compiler will IGNORE it. To 
+            comment it is possible to use either // , which declares that the 
+            entire line past that point is a comment, or it is possible to use 
+            /* and then */ to block off everything between the two as a comment. 
+            Certain compilers will change the color of a commented area, but 
+            some will not. Be certain not to accidentally declare part of your 
+            code a comment. Note that this is what is known as "commenting-out" 
+            a section of code, and it is useful when you are debugging. 
+            <BR><BR>So far you should be able to write a simple program to 
+            display information typed in by you, the programmer. However, it is 
+            also possible for your program to accept input. the function you use 
+            is known as cin&gt;&gt;. <BR><BR>Wait! Before you can receive input 
+            you must have a place to store input! In programming, these 
+            locations where input and other forms of data are stored, are called 
+            variables. There are a few different types of variables, which must 
+            be stated. The basic types are char, int, and float.<BR><BR>Char is 
+            used to create variables that store characters, int is used to 
+            create variables that store integers (numbers such as 1, 2, 0, -3, 
+            44, -44), and float is used to declare numbers with decimal places. 
+            In fact, they are all keywords that are used in front of variable 
+            names to tell the compiler that you have created a variable. That is 
+            known as "declaring a variable". When you declare a variable, or 
+            variables, you must end the line with a semi-colon, the same as if 
+            you were to call a function. If you do not declare the variable you 
+            are attempting to use, you will receive numerous error messages and 
+            the program will not run.<BR><BR>Here are some examples of declaring 
+            variables:<BR><BR>int x;<BR>int a, b, c, d;<BR>char letter;<BR>float 
+            the_float;<BR><BR>It is not possible, however, to declare two 
+            variables of different types with the same name.<BR><BR><PRE>#include &lt;iostream.h&gt;
+int main()
+{
+  int thisisanumber;
+  cout&lt;&lt;"Please enter a number:";
+  cin&gt;&gt;thisisanumber;
+  cout&lt;&lt;"You entered: "&lt;&lt;thisisanumber;
+  return 0;
+}</PRE>Let's break apart this program and examine it line by line. 
+            Int is the keyword that is used when declaring a variable which is 
+            an integer. The cin&gt;&gt; sets the value of thisisanumber to be 
+            whatever the user types into the program when prompted. Keep in mind 
+            that the variable was declared an integer, which means the output 
+            will be in the form of an integer. Try typing in a sequence of 
+            characters, or a decimal when you run the example program to see 
+            what you get as a response. Notice that when printing out a 
+            variable, there are not any quotation marks. If there were quotation 
+            marks, the output would be "You Entered: thisisanumber." Do not be 
+            confused by the inclusion of two separate insertion operators on a 
+            line. It is allowable, as long as you make certain to have each 
+            separate output of variable or string with its own insertion 
+            operator. Do not try to put two variables together with only one 
+            &lt;;&lt;; because it will give you an error message. Do not forget 
+            to end functions and declarations with the semi-colon(;). Otherwise 
+            you will get an error message when you try to compile the program. 
+            <BR><BR>Now that you know a little bit about variables, here are 
+            some ways to manipulate them. *, -, +, /, =, ==, &gt;, &lt;; are all 
+            operators used on numbers, these are the simple ones. The * 
+            multiplies, the - subtracts, and the + adds. Of course, the most 
+            important for changing variables<BR>is the equal sign. In some 
+            languages, = checks if one side is equal to the other side, but in 
+            C++ == is used for that task. However, the equal sign is still 
+            extremely useful. It sets the left side of the equal sign, which 
+            must be one AND ONLY one variable, equal to the right side. The 
+            right side of the equal sign is where the other operators can be 
+            used. <BR><BR>Here are a few examples:<BR><PRE>a=4*6;  //(Note use of comments and of semi-colon) a is 24
+a=a+5;  // a equals the original value of a with five additional units
+a==5    //Does NOT assign five to a.  Rather, it checks to see if a equals 5.
+</PRE>The other form of equal, ==, is not a way to assign a value to 
+            a variable. Rather, it checks to see if the variables are equal. It 
+            is useful in other areas of C++ such as if statements and loops. 
+            <BR><BR>You can probably guess what the &lt;; and &gt; are for. They 
+            are greater than and less than checks. <BR>For example: <PRE>a&lt;5       //Checks to see if a is less than five
+a&gt;5	  //Checks to see if a is greater than five
+a==5      //Checks to see if a equals five, for good measure
+</PRE></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut1_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

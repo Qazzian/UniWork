@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://www.cprogramming.com/tutorial/lesson16.html -->
+<HTML><HEAD><TITLE>Cprogramming.com - C++ Recursion</TITLE>
+<META content="C and C++ game programming" http-equiv=name>
+<META 
+content="C++ tutorial, C++, recursion, C++ recursion, recursive function, basic recursion tutorial, basic tutorial, programming tutorial, programming recursive functions" 
+name=keywords>
+<META 
+content="Cprogramming.com recursion tutorial.  Explains recursion and how to use it in programs." 
+name=description>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#ff0008 vLink=#ff0008>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=black vAlign=top width=1><IMG height=62 
+      src="CPlusTut16_files/line.gif" width=1> </TD>
+    <TD vAlign=top width=92><IMG height=63 src="CPlusTut16_files/one.gif" 
+      width=92><BR><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/index.html">Home</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut16_files/learn.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><!a href="tutorial.html">Tutorials</A> 
+            <LI><A href="http://www.cprogramming.com/source.html">Source</A> 
+            <LI><A href="http://www.cprogramming.com/books.html">Books</A> 
+            <LI><A href="http://www.cprogramming.com/links.html">Links</A> 
+            <LI><A href="http://www.cprogramming.com/cgi-bin/quiz.cgi">Quiz</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut16_files/comp.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/borland.html">Borland</A> 
+            <LI><A href="http://www.cprogramming.com/djgpp.html">DJGPP</A> 
+            <LI><A href="http://www.cprogramming.com/other.html">Other</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><IMG alt=Learn height=30 
+      src="CPlusTut16_files/q.gif" width=92><BR>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=3></TD>
+          <TD><FONT color=#b4b4b4 face=arial size=2>
+            <LI><A href="http://www.cprogramming.com/board.html">C board</A> 
+            <LI><A href="http://www.cprogramming.com/email.html">Email</A> 
+            </FONT></LI></TD></TR></TBODY></TABLE><!___KRONOS IMAGE_____><BR><BR><A 
+      href="http://www.kronosdesign.com/"><IMG alt="DESIGN by Kronos" border=0 
+      height=29 src="CPlusTut16_files/kronos.gif" width=92></A> <!___KRONOS IMAGE____></TD>
+    <TD bgColor=#dfdfdf vAlign=top width=1><IMG height=1 
+      src="CPlusTut16_files/dot.gif" width=1></TD>
+    <TD vAlign=top><A href="http://www.cprogramming.com/"><IMG 
+      alt="Cprogramming.com - your resource for C/C++" border=0 height=111 
+      src="CPlusTut16_files/cprog.gif" width=497>
+      <CENTER></A><!--Begin Flycast Ad Copyright 1999 Flycast Communications. 
+    All rights reserved. Patent Pending -->
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+    FlycastSite	= "CprogrammingcomProgramminginC";
+    FlycastPage	= "allofsite";
+    FlycastWidth	= 468;
+    FlycastHeight	= 60;
+    FlycastPrintTag	= true;
+    FlycastNewAd	= true;
+    FlycastLoaded	= false;
+    FlycastVersion	= 3.5;
+    //-->
+    </SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT 
+      src="CPlusTut16_files/FlycastUniversal"></SCRIPT>
+
+      <SCRIPT language=JAVASCRIPT>
+    <!--
+	if (FlycastLoaded) FlycastDeliverAd();
+    //-->
+    </SCRIPT>
+      <NOSCRIPT><IFRAME frameBorder=0 height=60 marginHeight=0 marginWidth=0 
+      scrolling=no src="CPlusTut16_files/6326416.htm" 
+      width=468>
+	<A target="_top" HREF="http://ad-adex3.flycast.com/server/click/CprogrammingcomProgramminginC/allofsite/123456"><IMG BORDER=0 WIDTH=468 HEIGHT=60 SRC="http://ad-adex3.flycast.com/server/img/CprogrammingcomProgramminginC/allofsite/123456"></A>
+	</IFRAME></IFRAME></NOSCRIPT><!--End Flycast Ad Copyright 1999 Flycast Communications. All rights reserved. Patent Pending --></CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD width=20></TD>
+          <TD><FONT face=arial size=3>
+            <H3>Lesson 16: Recursion</H3>Recursion is defined as a function 
+            calling itself. It is in some ways similar to a loop because it 
+            repeats the same code, but it requires passing in the looping 
+            variable and being more careful. Many programming languages allow it 
+            because it can simplify some tasks, an it is often more elegant than 
+            a loop. <BR><BR>A simple example of recursion would be: <PRE>void recurse()
+{
+  recurse(); //Function calls itself
+}
+int main()
+{
+  recurse(); //Sets off the recursion
+  return 0;  //Rather pitiful, it will never be reached
+}</PRE>This program will not continue forever, however. The computer 
+            keeps function calls on a stack and once too many are called without 
+            ending, the program will terminate. Why not write a program to see 
+            how many times the function is called before the program terminates? 
+            <BR><PRE>#include &lt;iostream.h&gt;
+void recurse(int count) //The count variable is initalized by each function call
+{
+  cout&lt;&lt;count;  
+  recurse(count+1); //It is not necessary to increment count
+//each function's variables
+}	//are separate (so each count will be initialized one greater)
+int main()
+{
+  recurse(1);        //First function call, so it starts at one
+  return 0;          
+}
+</PRE>This simple program will show the number of times the recurse 
+            function has been called by initializing each individual function 
+            call's count variable one greater than it was previous by passing in 
+            count+1. Keep in mind, it is not a function restarting itself, it is 
+            hundreds of functions that are each unfinished with the last one 
+            calling a new recurse function. <BR><BR>It can be thought of like 
+            those little chinese dolls that always have a smaller doll inside. 
+            Each doll calls another doll, and you can think of the size being a 
+            counter variable that is being decremented by one. <BR><BR>Think of 
+            a really tiny doll, the size of a few atoms. You can't get any 
+            smaller than that, so there are no more dolls. Normally, a recursive 
+            function will have a variable that performs a similar action; one 
+            that controls when the function will finally exit. The condition 
+            where the functin will not call itself is termed the base case of 
+            the function. Basically, it is an if-statement that checks some 
+            variable for a condition (such as a number being less than zero, or 
+            greater than some other number) and if that condition is true, it 
+            will not allow the function to call itself again. (Or, it could 
+            check if a certain condition is true and only then allow the 
+            function to call itself). <BR><BR>A quick example:<PRE>void doll(int size)
+{
+  if(size==0)//No doll can be smaller than 1 atom (10^0==1) so doesn't call itself
+    return;    //Return does not have to return something, it can be used 
+				//to exit a function
+  doll(size-1);  //Decrements the size variable so the next doll will be smaller.
+}
+int main()
+{
+  doll(10);   //Starts off with a large doll (its a logarithmic scale)
+  return 0;   //Finally, it will be used
+}
+</PRE>This program ends when size equals one. This is a good base 
+            case, but if it is not properly set up, it is possible to have an 
+            base case that is always true (or always false). <BR><BR>Once a 
+            function has called itself, it will be ready to go to the next line 
+            after the call. It can still perform operations. One function you 
+            could write could print out the numbers 123456789987654321. How can 
+            you use recursion to write a function to do this? Simply have it 
+            keep incrementing a variable passed in, and then output the 
+            variable...twice, once before the function recurses, and once 
+            after... <BR><PRE>void printnum(int begin)
+{
+  cout&lt;&lt;begin;
+  if(begin&lt;9)  //The base case is when begin is greater than 9
+    printnum(begin+1);    //for it will not recurse after the if-statement
+  cout&lt;&lt;begin;  //Outputs the second begin, after the program has 
+						//gone through and output
+}		//the numbers from begin to 9.
+</PRE>This function works because it will go through and print the 
+            numbers begin to 9, and then as each printnum function terminates it 
+            will continue printing the value of begin in each function from 9 to 
+            begin. <BR><BR>This is just the beginning of the usefulness of 
+            recursion. Heres a little challenge, use recursion to write a 
+            program that returns the factorial of any number greater than 0. 
+            (Factorial is number*number-1*number-2...*1). <BR><BR>Hint: 
+            Recursively find the factorial of the smaller numbers first, ie, it 
+            takes a number, finds the factorial of the previous number, and 
+            multiplies the number times that factorial...have fun, email me at 
+            webmaster@cprogramming.com if you get it. 
+    </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Start SuperStats code version 3.0a. -->
+<SCRIPT language=JavaScript>
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_hmv_1491052&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</SCRIPT>
+<NOSCRIPT><IMG border=0 height=1 src="CPlusTut16_files/ss_transparent_2x2.gif" 
+width=1> </NOSCRIPT><!-- End SuperStats tracking code. --></BODY></HTML>

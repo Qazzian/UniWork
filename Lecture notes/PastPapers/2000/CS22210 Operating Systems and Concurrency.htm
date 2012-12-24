@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://users.aber.ac.uk/infoman/compsci/exam2000/semester1/cs22210.html -->
+<HTML><HEAD><TITLE>CS22210: Operating Systems and Concurrency</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="CS22210: Operating Systems and Concurrency" name=TITLE>
+<META content="Computer Science" name=CREATOR>
+<META content="2000, Degree, Examinations, Semester 1" name=SUBJECT>
+<META content="DATAPREP - Information Services" name=PUBLISHER>
+<META name=date VALUE="24-02-2000">
+<META content="MSHTML 5.00.2920.0" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff link=#008000><B>PRIFYSGOL CYMRU - UNIVERSITY OF WALES</B> 
+<P>DEGREE EXAMINATIONS 1999-00 SEMESTER 1 
+<P><B>ABERYSTWYTH</B> 
+<P>FACULTY OF SCIENCE 
+<P><B>Computer Science CS22210: Operating Systems and Concurrency 
+<P>Time allowed: 2 hours</B> 
+<P><I>Answer</I> <B>THREE</B> <I>from</I> <B>FIVE</B> <I>questions</I> 
+<P><I>All questions carry equal marks</I> 
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>1.</TD>
+    <TD vAlign='top"'>a)</TD>
+    <TD>Briefly describe the following components that are typically found in 
+      an Operating System: 
+      <P>(i) Process management<BR>(ii) Memory management<BR>(iii) File 
+      management<BR>(iv) I/O system management<BR>(v) Secondary storage 
+      management<BR>(vi) Networking<BR>(vii) The protection system</P></TD>
+    <TD align=right vAlign=bottom width="15%">[16 marks]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Describe the nature of the UNIX command interpreter.</TD>
+    <TD align=right>[7]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>c)</TD>
+    <TD>Describe the mechanism by which the services of the Operating System 
+      are requested by application and system programs.</TD>
+    <TD align=right vAlign=bottom>[10]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>2.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD colSpan=2 vAlign=top>Describe the concept of a process as used in the 
+      context of operating systems. Your answer should include a description of 
+      the different states that a process can assume during its lifetime and a 
+      description of the data structures that are used to represent and organise 
+      processes.</TD>
+    <TD vAlign=bottom>[12]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD colSpan=2>Describe the following scheduling algorithms and suggest a 
+      type of system to which each is suited:</TD>
+    <TD vAlign=bottom>[6]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD>&nbsp;</TD>
+    <TD colSpan=2>(i) Priority scheduling<BR>(ii) Round-robin scheduling</TD>
+    <TD vAlign=bottom></TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>c)</TD>
+    <TD colSpan=2 vAlign=top>Six processes are running on a machine. Processes 
+      A, B and C are CPU bound whilst processes D, E and F are I/O bound. 
+      Discuss the effect on CPU and I/O device utilisation of running these 
+      processes using a FIFO (first-in-first-out) scheduling algorithm when the 
+      processes are submitted in the order A,B,C,D,E,F.</TD>
+    <TD vAlign=bottom>[8]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>d)</TD>
+    <TD colSpan=2>Five processes V, W, X, Y and Z have process time limits of 
+      20, 18, 15, 3 and 2 minutes respectively.</TD>
+    <TD vAlign=bottom></TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>(i) </TD>
+    <TD>Calculate the mean turnaround time for these jobs if they are 
+      submitted in the order V,W,X,Y,Z to a FIFO scheduling algorithm.</TD>
+    <TD vAlign=bottom>[2]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>(ii) </TD>
+    <TD>Describe an approach to long term scheduling that can be used to 
+      improve the mean turnaround time for these processes.</TD>
+    <TD vAlign=bottom>[5]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>3.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD>Describe the nature of semaphores as used for coordinating cooperating 
+      processes.</TD>
+    <TD vAlign=bottom>[5]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>Two robots are deployed to create plastic skipping rope handles. There 
+      is a table containing a fixed number of moulds which open from the top and 
+      the bottom. Robot A opens a mould from the top and pours in the molten 
+      plastic. Robot B opens a mould from the bottom and extracts the handle. 
+      Explain the need for mutual exclusion and synchronisation of the robots 
+      and show how these can be achieved using semaphores.</TD>
+    <TD vAlign=bottom>[15]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>c)</TD>
+    <TD>What is a monitor and how are they used to coordinate cooperating 
+      processes?</TD>
+    <TD vAlign=bottom>[8]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>d)</TD>
+    <TD>Explain how a monitor could be used to achieve mutual exclusion and 
+      synchronisation in the scenario described in part b) above.</TD>
+    <TD vAlign=bottom>[5]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>4.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD>List the <I>resources</I> required by a process that must be managed 
+      by the operating system.</TD>
+    <TD vAlign=bottom>[8]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>In operating system memory management, what is meant by 
+      <I>thrashing</I>?</TD>
+    <TD vAlign=bottom>[4]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>c)</TD>
+    <TD>What causes thrashing? What is the result of thrashing?</TD>
+    <TD vAlign=bottom>[8]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>d)</TD>
+    <TD>Describe one method that attempts to prevent thrashing.</TD>
+    <TD vAlign=bottom>[13]</TD></TR></TBODY></TABLE>
+<P>
+<TABLE width="90%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>5.</TD>
+    <TD vAlign=top>a)</TD>
+    <TD>What is the role of the operating system in dealing with input/output 
+      (I/O)?</TD>
+    <TD vAlign=bottom>[4]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>b)</TD>
+    <TD>How is I/O treated in Unix operating systems?</TD>
+    <TD vAlign=bottom>[4]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>c)</TD>
+    <TD>Describe how files are represented in Unix operating systems. In 
+      particular, outline the layout of an <I>inode</I>.</TD>
+    <TD vAlign=bottom>[17]</TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD vAlign=top>d)</TD>
+    <TD>What are the advantages of the Unix inode method of file 
+    organisation?</TD>
+    <TD vAlign=bottom>[8]</TD></TR></TBODY></TABLE>
+<P></P></BODY></HTML>

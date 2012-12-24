@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Player states</title>
+</head>
+<center>
+<h2>Player states</h2>
+</center>
+<IMG SRC="http://www.java.sun.com/products/java-media/jmf/2.0/jmf20-fcs-guide/images/JMFArchitecture17.gif">
+<hr>
+<H2>Player States</h2>
+<p>
+<ul>
+<li> Unrealized
+<li> Realizing
+<li> Realized
+<li> Prefetching
+<li> Prefetched
+<li> Started
+</ul>
+<p>
+Most methods available on a player are
+only available in certain states and
+cause exceptions to be raised in invoked
+while the player is in an inappropriate state.
+<p>
+Events are raised as players move between states.
+Most methods that request a player to move
+between states act asynchronously. That is, the method
+call will return <strong>before</strong> the player
+has changed state. One must wait for events to
+know that a state transition has occured.
+<p>
+<a href="slide_14.html">Next Slide</a>
+</html>
+

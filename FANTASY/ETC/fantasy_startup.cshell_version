@@ -1,0 +1,6 @@
+setenv FANTASY /Cprogs/fantasy
+
+set save_path = ($path)
+set path = ($FANTASY/bin $path)
+
+echo $path
